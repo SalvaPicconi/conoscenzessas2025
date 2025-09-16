@@ -1,0 +1,1214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="it"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Tabella Pivot Protetta - Competenze SSAS&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>* {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-sizing: border-box;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>min-height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 1400px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 20px 40px rgba(0,0,0,0.1);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.header {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 3px solid #667eea;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.header h1 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #2c3e50;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 2.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.header p {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #7f8c8d;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.1rem;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.mode-toggle {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>right: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.mode-btn {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 8px 16px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.3s ease;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.9rem;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.mode-btn.active {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #667eea;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.mode-btn:not(.active) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #f8f9fa;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #666;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.mode-btn:not(.active):hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #e9ecef;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.password-modal {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: fixed;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(0,0,0,0.7);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 1000;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.password-dialog {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 20px 40px rgba(0,0,0,0.3);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 400px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 90%;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.password-dialog h3 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #2c3e50;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.password-dialog input {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 2px solid #bdc3c7;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.password-dialog button {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 12px 25px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.3s ease;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-ok {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #27ae60;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-ok:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #229954;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-cancel {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #e74c3c;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-cancel:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #c0392b;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.edit-controls {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #e8f8f5;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 2px solid #27ae60;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.edit-controls.show {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.edit-controls h3 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #27ae60;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.edit-btn {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #27ae60;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 10px 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.3s ease;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.edit-btn:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #229954;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-2px);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.edit-btn.danger {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #e74c3c;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.edit-btn.danger:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #c0392b;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.controls {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #f8f9fa;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 25px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 2px solid #e9ecef;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.control-group {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: grid;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.control {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.control label {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #2c3e50;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.9rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 0.5px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.control select {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 2px solid #bdc3c7;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.3s ease;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.control select:focus {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>outline: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-color: #667eea;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.pivot-controls {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: grid;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #667eea;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.pivot-controls label {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white !important;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.8rem;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.pivot-controls select {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255,255,255,0.9);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.stats {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: grid;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.stat-card {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #667eea, #764ba2);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 5px 15px rgba(0,0,0,0.1);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.stat-number {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 2rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.stat-label {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.9rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.9;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.pivot-table {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 5px 15px rgba(0,0,0,0.1);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #e9ecef;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.pivot-table table {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-collapse: collapse;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.pivot-table th {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #2c3e50;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 15px 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: left;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.9rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: sticky;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 10;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.pivot-table td {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 12px 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 1px solid #ecf0f1;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: background-color 0.2s ease;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.pivot-table tr:hover td {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f8f9fa;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.pivot-table .number {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #667eea;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.pivot-table .editable {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: text;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 2px solid transparent;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.pivot-table .editable:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-color: #27ae60;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.pivot-table .editing {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-color: #27ae60 !important;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #f0fff4 !important;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.edit-input {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: transparent;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: inherit;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: inherit;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.reset-btn {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #e74c3c;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 12px 25px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.3s ease;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.reset-btn:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #c0392b;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-2px);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.detail-table {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-height: 400px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow-y: auto;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #e9ecef;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.detail-table table {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-collapse: collapse;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.detail-table th {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #34495e;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.8rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: sticky;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.detail-table td {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 8px 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 1px solid #ecf0f1;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.85rem;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.detail-table tr:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f8f9fa;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.add-row-form {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #f0fff4;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 20px 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 2px solid #27ae60;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.add-row-form.show {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.add-row-form input, .add-row-form select {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 5px 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 2px solid #bdc3c7;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.success-message, .error-message {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 10px 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.success-message {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #d4edda;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #155724;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #c3e6cb;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.error-message {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #f8d7da;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #721c24;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #f5c6cb;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>@media (max-width: 768px) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.control-group {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>grid-template-columns: 1fr;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>.pivot-controls {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>grid-template-columns: 1fr;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>.stats {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>grid-template-columns: repeat(2, 1fr);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>.header h1 {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 2rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>.mode-toggle {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>position: static;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>margin-top: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1&gt;🔒 Tabella Pivot Protetta - SSAS&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Competenze e Conoscenze dei Servizi Socio-Sanitari e Assistenziali&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mode-toggle"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="mode-btn active" onclick="setMode('view')"&gt;👁️ Visualizza&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="mode-btn" onclick="setMode('edit')"&gt;✏️ Modifica&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="edit-controls"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3&gt;🔧 Modalità Modifica Attiva&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="edit-btn" onclick="showAddForm()"&gt;➕ Aggiungi Conoscenza&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="edit-btn" onclick="saveData()"&gt;💾 Salva Modifiche&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="edit-btn" onclick="exportData()"&gt;📤 Esporta Dati&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="edit-btn danger" onclick="deleteSelectedRows()"&gt;🗑️ Elimina Selezionati&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="success-message" id="successMessage"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="error-message" id="errorMessage"&gt;&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="add-row-form" id="addRowForm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3&gt;➕ Aggiungi Nuova Conoscenza&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;select id="newCompetenza"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;option value=""&gt;Seleziona Competenza&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="text" id="newConoscenza" placeholder="Descrizione della conoscenza"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;select id="newPeriodo"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;option value=""&gt;Seleziona Periodo&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;option value="Biennio"&gt;Biennio&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;option value="Terzo Anno"&gt;Terzo Anno&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;option value="Quarto Anno"&gt;Quarto Anno&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;option value="Quinto Anno"&gt;Quinto Anno&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;select id="newInsegnamento"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;option value=""&gt;Seleziona Insegnamento&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;br&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="edit-btn" onclick="addNewRow()"&gt;✅ Aggiungi&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="edit-btn danger" onclick="hideAddForm()"&gt;❌ Annulla&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="controls"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="control-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="control"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;label&gt;🎯 Filtra per Competenza&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;select id="competenzaFilter"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;option value=""&gt;Tutte le Competenze&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="control"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;label&gt;📅 Filtra per Periodo&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;select id="periodoFilter"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;option value=""&gt;Tutti i Periodi&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="control"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;label&gt;📚 Filtra per Insegnamento&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;select id="insegnamentoFilter"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;option value=""&gt;Tutti gli Insegnamenti&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="pivot-controls"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="control"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;label&gt;Raggruppa per Righe&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;select id="rowGroup"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;option value="competenza"&gt;Competenza&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;option value="periodo"&gt;Periodo&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;option value="insegnamento"&gt;Insegnamento&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="control"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;label&gt;Raggruppa per Colonne&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;select id="colGroup"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;option value="periodo"&gt;Periodo&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;option value="competenza"&gt;Competenza&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;option value="insegnamento"&gt;Insegnamento&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="control"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;label&gt;Mostra Valori&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;select id="valueType"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;option value="count"&gt;Numero Conoscenze&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;option value="list"&gt;Lista Conoscenze&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="reset-btn" onclick="resetFilters()"&gt;🔄 Reset Filtri&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="stats" id="stats"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="pivot-table" id="pivotTable"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="detail-table" id="detailTable"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Password Modal --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="password-modal" id="passwordModal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="password-dialog"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3&gt;🔒 Inserisci Password&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Per accedere alla modalità modifica&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="password" id="passwordInput" placeholder="Password..."&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="btn-ok" onclick="checkPassword()"&gt;✅ Accedi&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="btn-cancel" onclick="cancelPassword()"&gt;❌ Annulla&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Configurazione</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const EDIT_PASSWORD = 'ssas2025';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let editMode = false;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let selectedRows = [];</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Dati originali dal file Excel</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let rawData = [</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 1", "competenza_completa": "Competenza 1: Collaborare nella gestione di progetti e attività dei servizi sociali", "conoscenza": "Il Welfare State in Italia", "periodo": "Biennio", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 1", "competenza_completa": "Competenza 1: Collaborare nella gestione di progetti e attività dei servizi sociali", "conoscenza": "Fonti e documenti per la rilevazione dei servizi territoriali", "periodo": "Biennio", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 1", "competenza_completa": "Competenza 1: Collaborare nella gestione di progetti e attività dei servizi sociali", "conoscenza": "Tipologia dei servizi sociali, socio-educativi, sociosanitari, sanitari", "periodo": "Biennio", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 1", "competenza_completa": "Competenza 1: Collaborare nella gestione di progetti e attività dei servizi sociali", "conoscenza": "Tipologia di utenza dei servizi sociali, socio-educativi, sociosanitari e sanitari", "periodo": "Biennio", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 1", "competenza_completa": "Competenza 1: Collaborare nella gestione di progetti e attività dei servizi sociali", "conoscenza": "Le agenzie di socializzazione nelle reti territoriali", "periodo": "Biennio", "insegnamento": "SCIENZE UMANE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 1", "competenza_completa": "Competenza 1: Collaborare nella gestione di progetti e attività dei servizi sociali", "conoscenza": "I principi di sussidiarietà nell'organizzazione dei servizi", "periodo": "Biennio", "insegnamento": "SCIENZE UMANE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 1", "competenza_completa": "Competenza 1: Collaborare nella gestione di progetti e attività dei servizi sociali", "conoscenza": "Linee guida, protocolli e procedure", "periodo": "Terzo Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 1", "competenza_completa": "Competenza 1: Collaborare nella gestione di progetti e attività dei servizi sociali", "conoscenza": "Metodologia del lavoro sociale, socio-sanitario e socio-educativo", "periodo": "Terzo Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 1", "competenza_completa": "Competenza 1: Collaborare nella gestione di progetti e attività dei servizi sociali", "conoscenza": "Modelli e tecniche di progettazione in ambito sociale, socio-sanitario e socio-educativo", "periodo": "Terzo Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 1", "competenza_completa": "Competenza 1: Collaborare nella gestione di progetti e attività dei servizi sociali", "conoscenza": "Modelli e tecniche di redazione di piani e progetti individuali", "periodo": "Terzo Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 1", "competenza_completa": "Competenza 1: Collaborare nella gestione di progetti e attività dei servizi sociali", "conoscenza": "I soggetti giuridici del settore profit, no profit e del settore pubblico", "periodo": "Terzo Anno", "insegnamento": "DIRITTO"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 1", "competenza_completa": "Competenza 1: Collaborare nella gestione di progetti e attività dei servizi sociali", "conoscenza": "I contratti e gli altri atti amministrativi aziendali", "periodo": "Quarto Anno", "insegnamento": "DIRITTO E TEC. AMM."},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 1", "competenza_completa": "Competenza 1: Collaborare nella gestione di progetti e attività dei servizi sociali", "conoscenza": "Gli atti della Pubblica Amministrazione", "periodo": "Quarto Anno", "insegnamento": "DIRITTO E TEC. AMM."},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 1", "competenza_completa": "Competenza 1: Collaborare nella gestione di progetti e attività dei servizi sociali", "conoscenza": "L'organizzazione delle imprese e delle aziende di erogazione e modalità di costituzione", "periodo": "Quarto Anno", "insegnamento": "DIRITTO E TEC. AMM."},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 1", "competenza_completa": "Competenza 1: Collaborare nella gestione di progetti e attività dei servizi sociali", "conoscenza": "Costi, ricavi e registrazioni contabili", "periodo": "Quarto Anno", "insegnamento": "DIRITTO E TEC. AMM."},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 1", "competenza_completa": "Competenza 1: Collaborare nella gestione di progetti e attività dei servizi sociali", "conoscenza": "Il sistema bancario e le aziende", "periodo": "Quarto Anno", "insegnamento": "DIRITTO E TEC. AMM."},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 1", "competenza_completa": "Competenza 1: Collaborare nella gestione di progetti e attività dei servizi sociali", "conoscenza": "Le fonti di finanziamento dei servizi e dei progetti", "periodo": "Quarto Anno", "insegnamento": "DIRITTO E TEC. AMM."},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 1", "competenza_completa": "Competenza 1: Collaborare nella gestione di progetti e attività dei servizi sociali", "conoscenza": "Forme e modalità di collaborazione nelle reti formali e informali", "periodo": "Quinto Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 1", "competenza_completa": "Competenza 1: Collaborare nella gestione di progetti e attività dei servizi sociali", "conoscenza": "La progettazione nei servizi", "periodo": "Quinto Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 1", "competenza_completa": "Competenza 1: Collaborare nella gestione di progetti e attività dei servizi sociali", "conoscenza": "La gestione amministrativa e contabile delle risorse umane", "periodo": "Quinto Anno", "insegnamento": "DIRITTO E TEC. AMM."},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 1", "competenza_completa": "Competenza 1: Collaborare nella gestione di progetti e attività dei servizi sociali", "conoscenza": "Responsabilità civile di enti pubblici e privati", "periodo": "Quinto Anno", "insegnamento": "DIRITTO "},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 1", "competenza_completa": "Competenza 1: Collaborare nella gestione di progetti e attività dei servizi sociali", "conoscenza": "Responsabilità civile e penale degli operatori dei servizi", "periodo": "Quinto Anno", "insegnamento": "DIRITTO "},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 2", "competenza_completa": "Competenza 2: Partecipare e cooperare nei gruppi di lavoro", "conoscenza": "Il gruppo e le sue dinamiche", "periodo": "Biennio", "insegnamento": "SCIENZE UMANE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 2", "competenza_completa": "Competenza 2: Partecipare e cooperare nei gruppi di lavoro", "conoscenza": "Il processo di socializzazione", "periodo": "Biennio", "insegnamento": "SCIENZE UMANE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 2", "competenza_completa": "Competenza 2: Partecipare e cooperare nei gruppi di lavoro", "conoscenza": "Gli aspetti emotivo - motivazionali dell'essere umano: le emozioni e le loro manifestazioni", "periodo": "Biennio", "insegnamento": "SCIENZE UMANE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 2", "competenza_completa": "Competenza 2: Partecipare e cooperare nei gruppi di lavoro", "conoscenza": "Modi, forme e funzioni della comunicazione", "periodo": "Biennio", "insegnamento": "SCIENZE UMANE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 2", "competenza_completa": "Competenza 2: Partecipare e cooperare nei gruppi di lavoro", "conoscenza": "Le figure professionali nei servizi: formazione, profilo, ruolo e funzioni", "periodo": "Terzo Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 2", "competenza_completa": "Competenza 2: Partecipare e cooperare nei gruppi di lavoro", "conoscenza": "Caratteristiche del lavoro d'equipe e tipologie dei gruppi di lavoro", "periodo": "Terzo Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 2", "competenza_completa": "Competenza 2: Partecipare e cooperare nei gruppi di lavoro", "conoscenza": "Codici, registri, stili linguistici e linguaggi settoriali nei diversi contesti professionali", "periodo": "Terzo Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 2", "competenza_completa": "Competenza 2: Partecipare e cooperare nei gruppi di lavoro", "conoscenza": "Tipologie di resoconti: report, verbali, relazioni", "periodo": "Terzo Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 2", "competenza_completa": "Competenza 2: Partecipare e cooperare nei gruppi di lavoro", "conoscenza": "Metodi e strumenti per l'approfondimento tematico e la ricerca", "periodo": "Quarto Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 2", "competenza_completa": "Competenza 2: Partecipare e cooperare nei gruppi di lavoro", "conoscenza": "Tecniche di raccolta e organizzazione delle informazioni", "periodo": "Quarto Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 2", "competenza_completa": "Competenza 2: Partecipare e cooperare nei gruppi di lavoro", "conoscenza": "Gli stili organizzativi", "periodo": "Quinto Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 2", "competenza_completa": "Competenza 2: Partecipare e cooperare nei gruppi di lavoro", "conoscenza": "Modalità di organizzazione e conduzione delle riunioni di lavoro", "periodo": "Quinto Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 2", "competenza_completa": "Competenza 2: Partecipare e cooperare nei gruppi di lavoro", "conoscenza": "Tecniche di mediazione comunicative e di negoziazione", "periodo": "Quinto Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 2", "competenza_completa": "Competenza 2: Partecipare e cooperare nei gruppi di lavoro", "conoscenza": "I contratti di lavoro: diritti e doveri degli operatori", "periodo": "Quinto Anno", "insegnamento": "DIRITTO "},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 3", "competenza_completa": "Competenza 3: Facilitare la comunicazione tra persone e gruppi", "conoscenza": "Culture, contesti, gruppi sociali, pregiudizi e stereotipi", "periodo": "Biennio", "insegnamento": "SCIENZE UMANE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 3", "competenza_completa": "Competenza 3: Facilitare la comunicazione tra persone e gruppi", "conoscenza": "Principali agenzie di educazione e socializzazione", "periodo": "Biennio", "insegnamento": "SCIENZE UMANE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 3", "competenza_completa": "Competenza 3: Facilitare la comunicazione tra persone e gruppi", "conoscenza": "Tecniche e strumenti per la comunicazione multimediale e nei social media", "periodo": "Biennio", "insegnamento": "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 3", "competenza_completa": "Competenza 3: Facilitare la comunicazione tra persone e gruppi", "conoscenza": "Dati sensibili e dati pubblici", "periodo": "Biennio", "insegnamento": "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 3", "competenza_completa": "Competenza 3: Facilitare la comunicazione tra persone e gruppi", "conoscenza": "La normativa sulla privacy", "periodo": "Biennio", "insegnamento": "DIRITTO"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 3", "competenza_completa": "Competenza 3: Facilitare la comunicazione tra persone e gruppi", "conoscenza": "Utenti e gruppi con specifici bisogni comunicativi", "periodo": "Terzo Anno", "insegnamento": "PSICOLOGIA GENENRALE ED APPLICATA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 3", "competenza_completa": "Competenza 3: Facilitare la comunicazione tra persone e gruppi", "conoscenza": "La pragmatica della comunicazione e della relazione e i suoi disturbi", "periodo": "Terzo Anno", "insegnamento": "PSICOLOGIA GENENRALE ED APPLICATA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 3", "competenza_completa": "Competenza 3: Facilitare la comunicazione tra persone e gruppi", "conoscenza": "Schede di osservazione e rilevazione dei fenomeni comunicativi", "periodo": "Quarto Anno", "insegnamento": "PSICOLOGIA GENENRALE ED APPLICATA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 3", "competenza_completa": "Competenza 3: Facilitare la comunicazione tra persone e gruppi", "conoscenza": "Tecniche per la comunicazione efficace", "periodo": "Quarto Anno", "insegnamento": "PSICOLOGIA GENENRALE ED APPLICATA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 3", "competenza_completa": "Competenza 3: Facilitare la comunicazione tra persone e gruppi", "conoscenza": "Caratteristiche e modelli della comunicazione educativa e terapeutica", "periodo": "Quarto Anno", "insegnamento": "PSICOLOGIA GENENRALE ED APPLICATA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 3", "competenza_completa": "Competenza 3: Facilitare la comunicazione tra persone e gruppi", "conoscenza": "Tecniche e approcci per la facilitazione della comunicazione tra persone e nei gruppi", "periodo": "Quinto Anno", "insegnamento": "PSICOLOGIA GENENRALE ED APPLICATA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 3", "competenza_completa": "Competenza 3: Facilitare la comunicazione tra persone e gruppi", "conoscenza": "Caratteristiche e funzioni della mediazione interculturale", "periodo": "Quinto Anno", "insegnamento": "PSICOLOGIA GENENRALE ED APPLICATA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 4", "competenza_completa": "Competenza 4: Prendersi cura e collaborare al soddisfacimento dei bisogni di base", "conoscenza": "Elementi di anatomia e fisiologia umana", "periodo": "Biennio", "insegnamento": "SCIENZE INTEGRATE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 4", "competenza_completa": "Competenza 4: Prendersi cura e collaborare al soddisfacimento dei bisogni di base", "conoscenza": "Funzioni e organizzazione del corpo umano", "periodo": "Biennio", "insegnamento": "SCIENZE INTEGRATE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 4", "competenza_completa": "Competenza 4: Prendersi cura e collaborare al soddisfacimento dei bisogni di base", "conoscenza": "Principi di una corretta alimentazione e di una regolare attività fisica", "periodo": "Biennio", "insegnamento": "SCIENZE INTEGRATE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 4", "competenza_completa": "Competenza 4: Prendersi cura e collaborare al soddisfacimento dei bisogni di base", "conoscenza": "I principali bisogni legati all'età e alle condizioni dell'individuo", "periodo": "Biennio", "insegnamento": "SCIENZE UMANE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 4", "competenza_completa": "Competenza 4: Prendersi cura e collaborare al soddisfacimento dei bisogni di base", "conoscenza": "Elementi di puericultura e igiene del bambino", "periodo": "Terzo Anno", "insegnamento": "IGIENE E CULTURA MEDICO SANITARIA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 4", "competenza_completa": "Competenza 4: Prendersi cura e collaborare al soddisfacimento dei bisogni di base", "conoscenza": "Tecniche di osservazione e accudimento in età evolutiva", "periodo": "Terzo Anno", "insegnamento": "IGIENE E CULTURA MEDICO SANITARIA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 4", "competenza_completa": "Competenza 4: Prendersi cura e collaborare al soddisfacimento dei bisogni di base", "conoscenza": "Norme igieniche e di sicurezza sul lavoro", "periodo": "Terzo Anno", "insegnamento": "IGIENE E CULTURA MEDICO SANITARIA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 4", "competenza_completa": "Competenza 4: Prendersi cura e collaborare al soddisfacimento dei bisogni di base", "conoscenza": "I diritti della personalità e gli istituti giuridici a tutela della persona fisica", "periodo": "Terzo Anno", "insegnamento": "DIRITTO"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 4", "competenza_completa": "Competenza 4: Prendersi cura e collaborare al soddisfacimento dei bisogni di base", "conoscenza": "I piani di lavoro", "periodo": "Terzo Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 4", "competenza_completa": "Competenza 4: Prendersi cura e collaborare al soddisfacimento dei bisogni di base", "conoscenza": "Evoluzione storica e sociale dei concetti di disabilità, handicap e deficit", "periodo": "Quarto Anno", "insegnamento": "PSICOLOGIA GENENRALE ED APPLICATA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 4", "competenza_completa": "Competenza 4: Prendersi cura e collaborare al soddisfacimento dei bisogni di base", "conoscenza": "Tipi e cause di disabilità, sue classificazioni e misurazioni", "periodo": "Quarto Anno", "insegnamento": "IGIENE E CULTURA MEDICO SANITARIA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 4", "competenza_completa": "Competenza 4: Prendersi cura e collaborare al soddisfacimento dei bisogni di base", "conoscenza": "Il processo di invecchiamento e le sue conseguenze sull'autonomia e il benessere psico-fisico dell'anziano", "periodo": "Quarto Anno", "insegnamento": "PSICOLOGIA GENENRALE ED APPLICATA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 4", "competenza_completa": "Competenza 4: Prendersi cura e collaborare al soddisfacimento dei bisogni di base", "conoscenza": "Bisogni specifici dell'anziano e della persona con disabilità", "periodo": "Quarto Anno", "insegnamento": "PSICOLOGIA GENENRALE ED APPLICATA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 4", "competenza_completa": "Competenza 4: Prendersi cura e collaborare al soddisfacimento dei bisogni di base", "conoscenza": "Il Piano Assistenziale Individualizzato e le Unità di Valutazione Multidimensionale", "periodo": "Quarto Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 4", "competenza_completa": "Competenza 4: Prendersi cura e collaborare al soddisfacimento dei bisogni di base", "conoscenza": "Principi di scienza dell'alimentazione e igiene alimentare", "periodo": "Quarto Anno", "insegnamento": "IGIENE E CULTURA MEDICO SANITARIA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 4", "competenza_completa": "Competenza 4: Prendersi cura e collaborare al soddisfacimento dei bisogni di base", "conoscenza": "Strumenti e tecniche per la rilevazione dello stato di salute e scale dei livelli di autonomia", "periodo": "Quinto Anno", "insegnamento": "IGIENE E CULTURA MEDICO SANITARIA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 4", "competenza_completa": "Competenza 4: Prendersi cura e collaborare al soddisfacimento dei bisogni di base", "conoscenza": "Elementi di etica e deontologia professionale nei servizi alla persona", "periodo": "Quinto Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 4", "competenza_completa": "Competenza 4: Prendersi cura e collaborare al soddisfacimento dei bisogni di base", "conoscenza": "Caratteristiche, fasi e tipologia delle relazioni di aiuto e di cura in rapporto ai bisogni della persona anziana, della persona con disabilità e della sua famiglia", "periodo": "Quinto Anno", "insegnamento": "PSICOLOGIA GENENRALE ED APPLICATA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 4", "competenza_completa": "Competenza 4: Prendersi cura e collaborare al soddisfacimento dei bisogni di base", "conoscenza": "Modalità di rilevazione e tipologia dei parametri vitali", "periodo": "Quinto Anno", "insegnamento": "IGIENE E CULTURA MEDICO SANITARIA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 5", "competenza_completa": "Competenza 5: Partecipare alla presa in carico socio-assistenziale", "conoscenza": "Le condizioni di salute bio-psico-sociale e le condizioni di malattia", "periodo": "Biennio", "insegnamento": "SCEINZE INTEGRATE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 5", "competenza_completa": "Competenza 5: Partecipare alla presa in carico socio-assistenziale", "conoscenza": "I soggetti che partecipano alla presa in carico della persona malata e i loro compiti", "periodo": "Biennio", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 5", "competenza_completa": "Competenza 5: Partecipare alla presa in carico socio-assistenziale", "conoscenza": "Fisiologia del sistema linfatico, immunitario ed endocrino", "periodo": "Terzo Anno", "insegnamento": "IGIENE E CULTURA MEDICO SANITARIA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 5", "competenza_completa": "Competenza 5: Partecipare alla presa in carico socio-assistenziale", "conoscenza": "Principali stati psico-patologici dell'età evolutiva", "periodo": "Terzo Anno", "insegnamento": "PSICOLOGIA GENENRALE ED APPLICATA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 5", "competenza_completa": "Competenza 5: Partecipare alla presa in carico socio-assistenziale", "conoscenza": "Principi di sanità pubblica e livelli di prevenzione", "periodo": "Terzo Anno", "insegnamento": "IGIENE E CULTURA MEDICO SANITARIA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 5", "competenza_completa": "Competenza 5: Partecipare alla presa in carico socio-assistenziale", "conoscenza": "I servizi di primo intervento e soccorso", "periodo": "Terzo Anno", "insegnamento": "IGIENE E CULTURA MEDICO SANITARIA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 5", "competenza_completa": "Competenza 5: Partecipare alla presa in carico socio-assistenziale", "conoscenza": "Elementi di farmacologia e farmacoterapia", "periodo": "Terzo Anno", "insegnamento": "IGIENE E CULTURA MEDICO SANITARIA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 5", "competenza_completa": "Competenza 5: Partecipare alla presa in carico socio-assistenziale", "conoscenza": "La legislazione nazionale e regionale socio assistenziale e sanitaria", "periodo": "Terzo Anno", "insegnamento": "DIRITTO"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 5", "competenza_completa": "Competenza 5: Partecipare alla presa in carico socio-assistenziale", "conoscenza": "Piani di lavoro, tecniche e strumenti per la rilevazione dei bisogni socio-assistenziali e sanitari", "periodo": "Terzo Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 5", "competenza_completa": "Competenza 5: Partecipare alla presa in carico socio-assistenziale", "conoscenza": "Approcci psico-pedagogici al bambino ammalato e alla sua famiglia", "periodo": "Terzo Anno", "insegnamento": "PSICOLOGIA GENENRALE ED APPLICATA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 5", "competenza_completa": "Competenza 5: Partecipare alla presa in carico socio-assistenziale", "conoscenza": "La fisiopatologia delle affezioni in età geriatrica", "periodo": "Quarto Anno", "insegnamento": "IGIENE E CULTURA MEDICO SANITARIA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 5", "competenza_completa": "Competenza 5: Partecipare alla presa in carico socio-assistenziale", "conoscenza": "Diagnosi funzionale, capacità residue, supporto all'autonomia", "periodo": "Quarto Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 5", "competenza_completa": "Competenza 5: Partecipare alla presa in carico socio-assistenziale", "conoscenza": "Rischi delle più comuni sindromi da prolungato allettamento e immobilizzazione", "periodo": "Quarto Anno", "insegnamento": "IGIENE E CULTURA MEDICO SANITARIA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 5", "competenza_completa": "Competenza 5: Partecipare alla presa in carico socio-assistenziale", "conoscenza": "Principali ausili per la deambulazione e il trasporto, e loro utilizzo", "periodo": "Quarto Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 5", "competenza_completa": "Competenza 5: Partecipare alla presa in carico socio-assistenziale", "conoscenza": "Misure personali per la sicurezza dell'utente", "periodo": "Quarto Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 5", "competenza_completa": "Competenza 5: Partecipare alla presa in carico socio-assistenziale", "conoscenza": "Piano terapeutico e alleanza terapeutica", "periodo": "Quarto Anno", "insegnamento": "PSICOLOGIA GENENRALE ED APPLICATA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 5", "competenza_completa": "Competenza 5: Partecipare alla presa in carico socio-assistenziale", "conoscenza": "Approcci psico-pedagogici al malato e alla sua famiglia", "periodo": "Quarto Anno", "insegnamento": "PSICOLOGIA GENENRALE ED APPLICATA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 5", "competenza_completa": "Competenza 5: Partecipare alla presa in carico socio-assistenziale", "conoscenza": "Primo soccorso: modalità e pratiche d'intervento", "periodo": "Quinto Anno", "insegnamento": "IGIENE E CULTURA MEDICO SANITARIA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 5", "competenza_completa": "Competenza 5: Partecipare alla presa in carico socio-assistenziale", "conoscenza": "Dispositivi a supporto delle funzioni vitali e della nutrizione artificiale", "periodo": "Quinto Anno", "insegnamento": "IGIENE E CULTURA MEDICO SANITARIA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 5", "competenza_completa": "Competenza 5: Partecipare alla presa in carico socio-assistenziale", "conoscenza": "Le cure palliative", "periodo": "Quinto Anno", "insegnamento": "IGIENE E CULTURA MEDICO SANITARIA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 5", "competenza_completa": "Competenza 5: Partecipare alla presa in carico socio-assistenziale", "conoscenza": "Modalità comunicative e relazionali di accompagnamento al fine vita", "periodo": "Quinto Anno", "insegnamento": "PSICOLOGIA GENENRALE ED APPLICATA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 5", "competenza_completa": "Competenza 5: Partecipare alla presa in carico socio-assistenziale", "conoscenza": "Terminalità e fine-vita: aspetti antropologici, culturali e psico-sociali", "periodo": "Quinto Anno", "insegnamento": "PSICOLOGIA GENENRALE ED APPLICATA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 6", "competenza_completa": "Competenza 6: Curare l'allestimento dell'ambiente di vita", "conoscenza": "Le norme sociali e norme giuridiche", "periodo": "Biennio", "insegnamento": "DIRITTO"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 6", "competenza_completa": "Competenza 6: Curare l'allestimento dell'ambiente di vita", "conoscenza": "Rischi, pericoli e sicurezza", "periodo": "Biennio", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 6", "competenza_completa": "Competenza 6: Curare l'allestimento dell'ambiente di vita", "conoscenza": "L'ambiente e l'eco-sistema", "periodo": "Biennio", "insegnamento": "SCIENZE INTEGRATE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 6", "competenza_completa": "Competenza 6: Curare l'allestimento dell'ambiente di vita", "conoscenza": "Norme di sicurezza negli ambienti di vita e di lavoro e la prevenzione dei rischi e degli incidenti", "periodo": "Terzo Anno", "insegnamento": "IGIENE E CULTURA MEDICO SANITARIA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 6", "competenza_completa": "Competenza 6: Curare l'allestimento dell'ambiente di vita", "conoscenza": "Le schede di rilevazione dei rischi e pericoli", "periodo": "Terzo Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 6", "competenza_completa": "Competenza 6: Curare l'allestimento dell'ambiente di vita", "conoscenza": "Norme di igiene e di sanità pubblica", "periodo": "Quarto Anno", "insegnamento": "IGIENE E CULTURA MEDICO SANITARIA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 6", "competenza_completa": "Competenza 6: Curare l'allestimento dell'ambiente di vita", "conoscenza": "Caratteristiche dei detergenti, dei disinfettanti e degli antisettici e modalità del loro utilizzo", "periodo": "Quarto Anno", "insegnamento": "IGIENE E CULTURA MEDICO SANITARIA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 6", "competenza_completa": "Competenza 6: Curare l'allestimento dell'ambiente di vita", "conoscenza": "Igiene e pulizia del vestiario, della biancheria, degli ambienti e della casa", "periodo": "Quarto Anno", "insegnamento": "IGIENE E CULTURA MEDICO SANITARIA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 6", "competenza_completa": "Competenza 6: Curare l'allestimento dell'ambiente di vita", "conoscenza": "Ausili e strumenti per il mantenimento delle capacità residue e l'autonomia delle persone negli ambienti di vita", "periodo": "Quinto Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 6", "competenza_completa": "Competenza 6: Curare l'allestimento dell'ambiente di vita", "conoscenza": "Il concetto di domotica", "periodo": "Quinto Anno", "insegnamento": "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 6", "competenza_completa": "Competenza 6: Curare l'allestimento dell'ambiente di vita", "conoscenza": "Criteri e uso degli spazi e degli arredi in condizioni di comfort e di sicurezza negli ambienti di vita", "periodo": "Quinto Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 7", "competenza_completa": "Competenza 7: Gestire azioni di informazione e di orientamento", "conoscenza": "Il segretariato sociale: compiti e funzioni", "periodo": "Biennio", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 7", "competenza_completa": "Competenza 7: Gestire azioni di informazione e di orientamento", "conoscenza": "Tipologie di testi e materiali divulgativi e informativi", "periodo": "Biennio", "insegnamento": "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 7", "competenza_completa": "Competenza 7: Gestire azioni di informazione e di orientamento", "conoscenza": "Modalità di presentazione e diffusione delle informazione", "periodo": "Biennio", "insegnamento": "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 7", "competenza_completa": "Competenza 7: Gestire azioni di informazione e di orientamento", "conoscenza": "Le reti formali ed informali per l'accesso ai servizi", "periodo": "Terzo Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 7", "competenza_completa": "Competenza 7: Gestire azioni di informazione e di orientamento", "conoscenza": "Enti e agenzie di fornitura di servizi sociali e/o sanitari", "periodo": "Terzo Anno", "insegnamento": "DIRITTO"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 7", "competenza_completa": "Competenza 7: Gestire azioni di informazione e di orientamento", "conoscenza": "L'organizzazione del Servizio Sanitario Nazionale e dei Servizi Sociali", "periodo": "Terzo Anno", "insegnamento": "DIRITTO"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 7", "competenza_completa": "Competenza 7: Gestire azioni di informazione e di orientamento", "conoscenza": "I livelli essenziali delle prestazioni", "periodo": "Terzo Anno", "insegnamento": "DIRITTO"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 7", "competenza_completa": "Competenza 7: Gestire azioni di informazione e di orientamento", "conoscenza": "Modalità di accesso ai servizi pubblici, privati e privati convenzionati e procedure per l'accesso", "periodo": "Terzo Anno", "insegnamento": "DIRITTO"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 7", "competenza_completa": "Competenza 7: Gestire azioni di informazione e di orientamento", "conoscenza": "Tecniche dell'intervista e del colloquio", "periodo": "Quarto Anno", "insegnamento": "PSICOLOGIA GENENRALE ED APPLICATA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 7", "competenza_completa": "Competenza 7: Gestire azioni di informazione e di orientamento", "conoscenza": "La gestione delle informazioni nella comunicazione esterna e interna ai servizi", "periodo": "Quarto Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 7", "competenza_completa": "Competenza 7: Gestire azioni di informazione e di orientamento", "conoscenza": "La distribuzione sul territorio della fruizione dei servizi: le rilevazioni statistiche", "periodo": "Quarto Anno", "insegnamento": "MATEMATICA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 7", "competenza_completa": "Competenza 7: Gestire azioni di informazione e di orientamento", "conoscenza": "Principi universalistici nell'erogazione dei servizi e principi di uguaglianza nell'accesso", "periodo": "Quinto Anno", "insegnamento": "DIRITTO "},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 7", "competenza_completa": "Competenza 7: Gestire azioni di informazione e di orientamento", "conoscenza": "I diritti e doveri delle persone nell'accesso ai servizi sociali e sanitari", "periodo": "Quinto Anno", "insegnamento": "DIRITTO "},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 7", "competenza_completa": "Competenza 7: Gestire azioni di informazione e di orientamento", "conoscenza": "Norme sulla privacy e sul trattamento dei dati", "periodo": "Quinto Anno", "insegnamento": "DIRITTO "},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 8", "competenza_completa": "Competenza 8: Realizzare attività educative, di animazione sociale, ludiche e culturali", "conoscenza": "Obiettivi e tecniche dell'animazione ludica e sociale anche con strumenti multimediali", "periodo": "Biennio", "insegnamento": "SCIENZE MOTORIE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 8", "competenza_completa": "Competenza 8: Realizzare attività educative, di animazione sociale, ludiche e culturali", "conoscenza": "Tecniche ludico-motorie: attività fisiche e sportive come strumento educativo, di animazione e di socializzazione", "periodo": "Biennio", "insegnamento": "SCIENZE MOTORIE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 8", "competenza_completa": "Competenza 8: Realizzare attività educative, di animazione sociale, ludiche e culturali", "conoscenza": "Strumenti per la progettazione delle attività di animazione socio-educativa", "periodo": "Terzo Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 8", "competenza_completa": "Competenza 8: Realizzare attività educative, di animazione sociale, ludiche e culturali", "conoscenza": "Caratteristiche e finalità psicopedagogiche delle attività di animazione", "periodo": "Terzo Anno", "insegnamento": "PSICOLOGIA GENENRALE ED APPLICATA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 8", "competenza_completa": "Competenza 8: Realizzare attività educative, di animazione sociale, ludiche e culturali", "conoscenza": "Multiculturalismo e approcci educativi", "periodo": "Terzo Anno", "insegnamento": "SCIENZE UMANE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 8", "competenza_completa": "Competenza 8: Realizzare attività educative, di animazione sociale, ludiche e culturali", "conoscenza": "La psicopedagogia nell'infanzia e nell'adolescenza", "periodo": "Terzo Anno", "insegnamento": "PSICOLOGIA GENENRALE ED APPLICATA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 8", "competenza_completa": "Competenza 8: Realizzare attività educative, di animazione sociale, ludiche e culturali", "conoscenza": "Strumenti di analisi dei bisogni educativi, sociali e culturali", "periodo": "Quarto Anno", "insegnamento": "PSICOLOGIA GENENRALE ED APPLICATA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 8", "competenza_completa": "Competenza 8: Realizzare attività educative, di animazione sociale, ludiche e culturali", "conoscenza": "Attività e tecniche di animazione sociale rivolte ad adulti, a persone con disabilità e agli anziani", "periodo": "Quarto Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 8", "competenza_completa": "Competenza 8: Realizzare attività educative, di animazione sociale, ludiche e culturali", "conoscenza": "La psicopedagogia dell'età adulta e degli anziani; la pedagogia speciale", "periodo": "Quarto Anno", "insegnamento": "PSICOLOGIA GENENRALE ED APPLICATA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 8", "competenza_completa": "Competenza 8: Realizzare attività educative, di animazione sociale, ludiche e culturali", "conoscenza": "La gestione delle risorse per la realizzazione dei progetti sociali di animazione", "periodo": "Quinto Anno", "insegnamento": "DIRITTO E TEC. AMM."},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 8", "competenza_completa": "Competenza 8: Realizzare attività educative, di animazione sociale, ludiche e culturali", "conoscenza": "Il fundraising e crownfinding: principi e tecniche", "periodo": "Quinto Anno", "insegnamento": "DIRITTO E TEC. AMM."},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 8", "competenza_completa": "Competenza 8: Realizzare attività educative, di animazione sociale, ludiche e culturali", "conoscenza": "Strumenti di valutazione in itinere e finale di un progetto", "periodo": "Quinto Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 9", "competenza_completa": "Competenza 9: Realizzare azioni a sostegno e tutela della persona con fragilità", "conoscenza": "La salute come benessere bio-psico-sociale e le sue caratteristiche multifattoriali e multidimensionali", "periodo": "Terzo Anno", "insegnamento": "PSICOLOGIA GENENRALE ED APPLICATA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 9", "competenza_completa": "Competenza 9: Realizzare azioni a sostegno e tutela della persona con fragilità", "conoscenza": "Problemi e interventi relativi all'integrazione sociale, scolastica e lavorativa, e normativa di riferimento", "periodo": "Terzo Anno", "insegnamento": "DIRITTO"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 9", "competenza_completa": "Competenza 9: Realizzare azioni a sostegno e tutela della persona con fragilità", "conoscenza": "Tipi, finalità e metodi della prevenzione sociale", "periodo": "Terzo Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 9", "competenza_completa": "Competenza 9: Realizzare azioni a sostegno e tutela della persona con fragilità", "conoscenza": "Le grandi malattie di risonanza sociale, epidemiologia e profilassi delle malattie infettive", "periodo": "Quarto Anno", "insegnamento": "IGIENE E CULTURA MEDICO SANITARIA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 9", "competenza_completa": "Competenza 9: Realizzare azioni a sostegno e tutela della persona con fragilità", "conoscenza": "Le problematiche psicosociali connesse alle diverse categorie di utenza dei servizi", "periodo": "Quarto Anno", "insegnamento": "PSICOLOGIA GENENRALE ED APPLICATA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 9", "competenza_completa": "Competenza 9: Realizzare azioni a sostegno e tutela della persona con fragilità", "conoscenza": "Tecniche d'intervento rivolte a soggetti multiproblematici e svantaggiati", "periodo": "Quarto Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 9", "competenza_completa": "Competenza 9: Realizzare azioni a sostegno e tutela della persona con fragilità", "conoscenza": "Metodologia per l'analisi dei casi", "periodo": "Quarto Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 9", "competenza_completa": "Competenza 9: Realizzare azioni a sostegno e tutela della persona con fragilità", "conoscenza": "Orientamenti psicologici e psicoterapeutici e modalità d'intervento socio-assistenziale nei confronti di nuclei familiari, minori, anziani, persone con disabilità, con disagio psichico, immigrati e particolari categorie svantaggiate", "periodo": "Quinto Anno", "insegnamento": "PSICOLOGIA GENENRALE ED APPLICATA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 10", "competenza_completa": "Competenza 10: Raccogliere, conservare, elaborare e trasmettere dati", "conoscenza": "Caratteristiche delle diverse tipologie di hardware", "periodo": "Biennio", "insegnamento": "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 10", "competenza_completa": "Competenza 10: Raccogliere, conservare, elaborare e trasmettere dati", "conoscenza": "Principali software per la gestione dei dati e dei flussi informativi", "periodo": "Biennio", "insegnamento": "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 10", "competenza_completa": "Competenza 10: Raccogliere, conservare, elaborare e trasmettere dati", "conoscenza": "Le reti di comunicazione e le condizioni di sicurezza nella trasmissione dei dati", "periodo": "Biennio", "insegnamento": "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 10", "competenza_completa": "Competenza 10: Raccogliere, conservare, elaborare e trasmettere dati", "conoscenza": "Tecniche di rilevazioni dati", "periodo": "Biennio", "insegnamento": "MATEMATICA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 10", "competenza_completa": "Competenza 10: Raccogliere, conservare, elaborare e trasmettere dati", "conoscenza": "Tecniche e modalità di raccolta e archiviazione dati", "periodo": "Biennio", "insegnamento": "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 10", "competenza_completa": "Competenza 10: Raccogliere, conservare, elaborare e trasmettere dati", "conoscenza": "Siti web e social network", "periodo": "Biennio", "insegnamento": "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 10", "competenza_completa": "Competenza 10: Raccogliere, conservare, elaborare e trasmettere dati", "conoscenza": "Servizi internet: navigazione, ricerca informazioni sui principali motori di ricerca, posta elettronica", "periodo": "Biennio", "insegnamento": "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 10", "competenza_completa": "Competenza 10: Raccogliere, conservare, elaborare e trasmettere dati", "conoscenza": "Strumenti di analisi delle caratteristiche e dei contenuti di siti web e dei social network", "periodo": "Biennio", "insegnamento": "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 10", "competenza_completa": "Competenza 10: Raccogliere, conservare, elaborare e trasmettere dati", "conoscenza": "Elementi di statistica descrittiva", "periodo": "Biennio", "insegnamento": "MATEMATICA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 10", "competenza_completa": "Competenza 10: Raccogliere, conservare, elaborare e trasmettere dati", "conoscenza": "Metodi e strumenti di osservazione e documentazione utilizzati nei servizi sociali", "periodo": "Terzo Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 10", "competenza_completa": "Competenza 10: Raccogliere, conservare, elaborare e trasmettere dati", "conoscenza": "Tecniche di base per la rielaborazione quantitativa e qualitativa dei dati", "periodo": "Terzo Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 10", "competenza_completa": "Competenza 10: Raccogliere, conservare, elaborare e trasmettere dati", "conoscenza": "Metodi e strumenti di osservazione e documentazione utilizzati nei servizi sanitari", "periodo": "Quarto Anno", "insegnamento": "IGIENE E CULTURA MEDICO SANITARIA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 10", "competenza_completa": "Competenza 10: Raccogliere, conservare, elaborare e trasmettere dati", "conoscenza": "Uso del web nei servizi, telemedicina, prospettive future e cambiamenti in atto nella relazione tra utente e web", "periodo": "Quarto Anno", "insegnamento": "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 10", "competenza_completa": "Competenza 10: Raccogliere, conservare, elaborare e trasmettere dati", "conoscenza": "Modalità di presentazione dei dati e tecniche di redazione di relazioni professionali in forma verbale, scritta e multimediale", "periodo": "Quarto Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 10", "competenza_completa": "Competenza 10: Raccogliere, conservare, elaborare e trasmettere dati", "conoscenza": "Tecniche di base per l'inferenza statistica previsionale", "periodo": "Quarto Anno", "insegnamento": "MATEMATICA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 10", "competenza_completa": "Competenza 10: Raccogliere, conservare, elaborare e trasmettere dati", "conoscenza": "Elementi di statistica in contesti operativi (analisi di correlazione e regressione dati)", "periodo": "Quinto Anno", "insegnamento": "MATEMATICA"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 10", "competenza_completa": "Competenza 10: Raccogliere, conservare, elaborare e trasmettere dati", "conoscenza": "Modalità, tecniche e strumenti di monitoraggio di progetti e interventi", "periodo": "Quinto Anno", "insegnamento": "METODOLOGIE OPERATIVE"},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 10", "competenza_completa": "Competenza 10: Raccogliere, conservare, elaborare e trasmettere dati", "conoscenza": "Normative regionali e accreditamento dei servizi e delle strutture", "periodo": "Quinto Anno", "insegnamento": "DIRITTO "},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{"competenza": "Competenza 10", "competenza_completa": "Competenza 10: Raccogliere, conservare, elaborare e trasmettere dati", "conoscenza": "I sistemi di qualità: regole di gestione e procedure", "periodo": "Quinto Anno", "insegnamento": "METODOLOGIE OPERATIVE"}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>let filteredData = rawData;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Gestione modalità</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function setMode(mode) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const viewBtn = document.querySelector('.mode-btn:nth-child(1)');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const editBtn = document.querySelector('.mode-btn:nth-child(2)');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const editControls = document.querySelector('.edit-controls');</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (mode === 'edit' &amp;&amp; !editMode) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>showPasswordModal();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (mode === 'view') {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>editMode = false;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>viewBtn.classList.add('active');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>editBtn.classList.remove('active');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>editControls.classList.remove('show');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>hideAddForm();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>updatePivotTable();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Gestione password</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function showPasswordModal() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('passwordModal').style.display = 'flex';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('passwordInput').focus();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function checkPassword() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const password = document.getElementById('passwordInput').value;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (password === EDIT_PASSWORD) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>editMode = true;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('passwordModal').style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('passwordInput').value = '';</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Aggiorna pulsanti</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const viewBtn = document.querySelector('.mode-btn:nth-child(1)');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const editBtn = document.querySelector('.mode-btn:nth-child(2)');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>viewBtn.classList.remove('active');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>editBtn.classList.add('active');</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Mostra controlli edit</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.querySelector('.edit-controls').classList.add('show');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>showMessage('✅ Modalità modifica attivata!', 'success');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>updatePivotTable();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>showMessage('❌ Password non corretta!', 'error');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('passwordInput').value = '';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('passwordInput').focus();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function cancelPassword() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('passwordModal').style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('passwordInput').value = '';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Enter per password</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('passwordInput').addEventListener('keypress', function(e) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (e.key === 'Enter') {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>checkPassword();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Funzioni editing</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function showAddForm() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('addRowForm').classList.add('show');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>populateAddFormSelects();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function hideAddForm() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('addRowForm').classList.remove('show');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function populateAddFormSelects() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const competenze = [...new Set(rawData.map(d =&gt; d.competenza))].sort();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const insegnamenti = [...new Set(rawData.map(d =&gt; d.insegnamento))].sort();</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const competenzaSelect = document.getElementById('newCompetenza');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const insegnamentoSelect = document.getElementById('newInsegnamento');</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>competenzaSelect.innerHTML = '&lt;option value=""&gt;Seleziona Competenza&lt;/option&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>insegnamentoSelect.innerHTML = '&lt;option value=""&gt;Seleziona Insegnamento&lt;/option&gt;';</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>competenze.forEach(c =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const option = document.createElement('option');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>option.value = c;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>option.textContent = c;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>competenzaSelect.appendChild(option);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>insegnamenti.forEach(i =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const option = document.createElement('option');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>option.value = i;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>option.textContent = i;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>insegnamentoSelect.appendChild(option);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function addNewRow() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const competenza = document.getElementById('newCompetenza').value;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const conoscenza = document.getElementById('newConoscenza').value;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const periodo = document.getElementById('newPeriodo').value;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const insegnamento = document.getElementById('newInsegnamento').value;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (!competenza || !conoscenza || !periodo || !insegnamento) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>showMessage('❌ Compila tutti i campi!', 'error');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const newRecord = {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>competenza: competenza,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>competenza_completa: competenza + ': ' + conoscenza,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>conoscenza: conoscenza,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>periodo: periodo,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>insegnamento: insegnamento</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>rawData.push(newRecord);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>filterData();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>hideAddForm();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>showMessage('✅ Conoscenza aggiunta con successo!', 'success');</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Reset form</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('newCompetenza').value = '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('newConoscenza').value = '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('newPeriodo').value = '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('newInsegnamento').value = '';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function saveData() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>localStorage.setItem('ssas_data_backup', JSON.stringify(rawData));</p>
+<p class="p1"><span class="Apple-converted-space">            </span>showMessage('💾 Dati salvati localmente!', 'success');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function exportData() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const csvContent = "Competenza,Conoscenza,Periodo,Insegnamento\n" +<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>rawData.map(row =&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>`"${row.competenza}","${row.conoscenza}","${row.periodo}","${row.insegnamento}"`</p>
+<p class="p1"><span class="Apple-converted-space">                </span>).join('\n');</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const link = document.createElement('a');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const url = URL.createObjectURL(blob);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>link.setAttribute('href', url);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>link.setAttribute('download', 'competenze_ssas_export.csv');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>link.style.visibility = 'hidden';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.body.appendChild(link);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>link.click();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.body.removeChild(link);</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>showMessage('📤 File CSV esportato!', 'success');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function showMessage(text, type) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const messageEl = document.getElementById(type === 'success' ? 'successMessage' : 'errorMessage');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>messageEl.textContent = text;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>messageEl.style.display = 'block';</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>setTimeout(() =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>messageEl.style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}, 3000);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Popola i filtri</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function populateFilters() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const competenze = [...new Set(rawData.map(d =&gt; d.competenza))].sort();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const periodi = [...new Set(rawData.map(d =&gt; d.periodo))].sort();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const insegnamenti = [...new Set(rawData.map(d =&gt; d.insegnamento))].sort();</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const competenzaSelect = document.getElementById('competenzaFilter');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const periodoSelect = document.getElementById('periodoFilter');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const insegnamentoSelect = document.getElementById('insegnamentoFilter');</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>competenze.forEach(c =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const option = document.createElement('option');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>option.value = c;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>option.textContent = c;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>competenzaSelect.appendChild(option);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>periodi.forEach(p =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const option = document.createElement('option');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>option.value = p;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>option.textContent = p;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>periodoSelect.appendChild(option);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>insegnamenti.forEach(i =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const option = document.createElement('option');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>option.value = i;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>option.textContent = i;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>insegnamentoSelect.appendChild(option);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Filtra i dati</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function filterData() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const competenzaFilter = document.getElementById('competenzaFilter').value;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const periodoFilter = document.getElementById('periodoFilter').value;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const insegnamentoFilter = document.getElementById('insegnamentoFilter').value;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>filteredData = rawData.filter(d =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return (!competenzaFilter || d.competenza === competenzaFilter) &amp;&amp;</p>
+<p class="p1"><span class="Apple-converted-space">                       </span>(!periodoFilter || d.periodo === periodoFilter) &amp;&amp;</p>
+<p class="p1"><span class="Apple-converted-space">                       </span>(!insegnamentoFilter || d.insegnamento === insegnamentoFilter);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>updateStats();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>updatePivotTable();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Aggiorna le statistiche</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function updateStats() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const totalRecords = filteredData.length;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const uniqueCompetenze = [...new Set(filteredData.map(d =&gt; d.competenza))].length;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const uniquePeriodi = [...new Set(filteredData.map(d =&gt; d.periodo))].length;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const uniqueInsegnamenti = [...new Set(filteredData.map(d =&gt; d.insegnamento))].length;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('stats').innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="stat-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="stat-number"&gt;${totalRecords}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="stat-label"&gt;Conoscenze Totali&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="stat-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="stat-number"&gt;${uniqueCompetenze}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="stat-label"&gt;Competenze&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="stat-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="stat-number"&gt;${uniquePeriodi}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="stat-label"&gt;Periodi&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="stat-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="stat-number"&gt;${uniqueInsegnamenti}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="stat-label"&gt;Insegnamenti&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Aggiorna la tabella pivot</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function updatePivotTable() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const rowGroup = document.getElementById('rowGroup').value;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const colGroup = document.getElementById('colGroup').value;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const valueType = document.getElementById('valueType').value;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Crea la matrice pivot</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const pivotData = {};</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const rowValues = [...new Set(filteredData.map(d =&gt; d[rowGroup]))].sort();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const colValues = [...new Set(filteredData.map(d =&gt; d[colGroup]))].sort();</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>filteredData.forEach(d =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const row = d[rowGroup];</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const col = d[colGroup];</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (!pivotData[row]) pivotData[row] = {};</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (!pivotData[row][col]) pivotData[row][col] = [];</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>pivotData[row][col].push(d);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Genera la tabella HTML</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let html = '&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;' + rowGroup.charAt(0).toUpperCase() + rowGroup.slice(1) + '&lt;/th&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>colValues.forEach(col =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>html += `&lt;th&gt;${col}&lt;/th&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>html += '&lt;th&gt;Totale&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;';</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>rowValues.forEach(row =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>html += `&lt;tr&gt;&lt;td style="font-weight:bold;background:#f8f9fa;"&gt;${row}&lt;/td&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>let rowTotal = 0;</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>colValues.forEach(col =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const cellData = pivotData[row] &amp;&amp; pivotData[row][col] ? pivotData[row][col] : [];</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const count = cellData.length;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>rowTotal += count;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (valueType === 'count') {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>const cellClass = count &gt; 0 ? 'number' : '';</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>const editableClass = editMode &amp;&amp; count &gt; 0 ? 'editable' : '';</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>html += `&lt;td class="${cellClass} ${editableClass}" style="cursor:pointer;" onclick="showDetail('${row}', '${col}')"&gt;${count || ''}&lt;/td&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>const truncatedList = cellData.slice(0, 3).map(d =&gt; d.conoscenza.substring(0, 40) + '...').join('&lt;br&gt;');</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>const moreText = cellData.length &gt; 3 ? `&lt;br&gt;&lt;i&gt;...e altri ${cellData.length - 3}&lt;/i&gt;` : '';</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>const editableClass = editMode &amp;&amp; cellData.length &gt; 0 ? 'editable' : '';</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>html += `&lt;td class="${editableClass}" style="font-size:0.8em;cursor:pointer;" onclick="showDetail('${row}', '${col}')"&gt;${truncatedList}${moreText}&lt;/td&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>html += `&lt;td class="number" style="font-weight:bold;background:#ecf0f1;"&gt;${rowTotal}&lt;/td&gt;&lt;/tr&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Riga totali</p>
+<p class="p1"><span class="Apple-converted-space">            </span>html += '&lt;tr style="font-weight:bold;background:#34495e;color:white;"&gt;&lt;td&gt;Totale&lt;/td&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let grandTotal = 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>colValues.forEach(col =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const colTotal = rowValues.reduce((sum, row) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const cellData = pivotData[row] &amp;&amp; pivotData[row][col] ? pivotData[row][col] : [];</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>return sum + cellData.length;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}, 0);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>grandTotal += colTotal;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>html += `&lt;td class="number"&gt;${colTotal}&lt;/td&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>html += `&lt;td class="number"&gt;${grandTotal}&lt;/td&gt;&lt;/tr&gt;`;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>html += '&lt;/tbody&gt;&lt;/table&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('pivotTable').innerHTML = html;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Mostra dettagli</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function showDetail(rowValue, colValue) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const rowGroup = document.getElementById('rowGroup').value;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const colGroup = document.getElementById('colGroup').value;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const details = filteredData.filter(d =&gt; d[rowGroup] === rowValue &amp;&amp; d[colGroup] === colValue);</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (details.length === 0) return;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>let html = `</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3&gt;Dettaglio: ${rowValue} × ${colValue} (${details.length} conoscenze)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;table&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>${editMode ? '&lt;th&gt;Sel&lt;/th&gt;' : ''}</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th&gt;Competenza&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th&gt;Conoscenza&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th&gt;Periodo&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th&gt;Insegnamento&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>`;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>details.forEach((d, index) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const dataIndex = rawData.findIndex(r =&gt; r === d);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>html += `</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>${editMode ? `&lt;td&gt;&lt;input type="checkbox" class="row-selector" data-index="${dataIndex}"&gt;&lt;/td&gt;` : ''}</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;${d.competenza}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td class="${editMode ? 'editable' : ''}" onclick="${editMode ? `editCell(this, ${dataIndex}, 'conoscenza')` : ''}"&gt;${d.conoscenza}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td class="${editMode ? 'editable' : ''}" onclick="${editMode ? `editCell(this, ${dataIndex}, 'periodo')` : ''}"&gt;${d.periodo}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td class="${editMode ? 'editable' : ''}" onclick="${editMode ? `editCell(this, ${dataIndex}, 'insegnamento')` : ''}"&gt;${d.insegnamento}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>html += '&lt;/tbody&gt;&lt;/table&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('detailTable').innerHTML = html;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Modifica cella</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function editCell(cell, dataIndex, field) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (!editMode) return;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const currentValue = cell.textContent;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const input = document.createElement('input');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>input.type = 'text';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>input.value = currentValue;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>input.className = 'edit-input';</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>input.onblur = function() {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const newValue = this.value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (newValue &amp;&amp; newValue !== currentValue) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>rawData[dataIndex][field] = newValue;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>cell.textContent = newValue;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>filterData();</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>showMessage('✅ Modifiche salvate!', 'success');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>cell.textContent = currentValue;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>input.onkeypress = function(e) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (e.key === 'Enter') {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>this.blur();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>cell.innerHTML = '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cell.appendChild(input);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>input.focus();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cell.classList.add('editing');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function deleteSelectedRows() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const checkboxes = document.querySelectorAll('.row-selector:checked');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (checkboxes.length === 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>showMessage('❌ Seleziona almeno una riga!', 'error');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (!confirm(`Eliminare ${checkboxes.length} conoscenze selezionate?`)) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const indices = Array.from(checkboxes).map(cb =&gt; parseInt(cb.dataset.index)).sort((a, b) =&gt; b - a);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>indices.forEach(index =&gt; rawData.splice(index, 1));</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>filterData();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('detailTable').innerHTML = '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>showMessage(`✅ ${indices.length} conoscenze eliminate!`, 'success');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Reset filtri</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function resetFilters() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('competenzaFilter').value = '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('periodoFilter').value = '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('insegnamentoFilter').value = '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>filterData();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Event listeners</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('competenzaFilter').addEventListener('change', filterData);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('periodoFilter').addEventListener('change', filterData);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('insegnamentoFilter').addEventListener('change', filterData);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('rowGroup').addEventListener('change', updatePivotTable);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('colGroup').addEventListener('change', updatePivotTable);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('valueType').addEventListener('change', updatePivotTable);</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Inizializza</p>
+<p class="p1"><span class="Apple-converted-space">        </span>populateFilters();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>updateStats();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>updatePivotTable();</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Carica dati salvati se esistono</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const savedData = localStorage.getItem('ssas_data_backup');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (savedData) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>rawData = JSON.parse(savedData);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>filterData();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>showMessage('📥 Dati precedenti ripristinati!', 'success');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} catch (error) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>console.error('Errore nel caricamento dati salvati:', error);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Rendi le funzioni globali</p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.showDetail = showDetail;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.resetFilters = resetFilters;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.setMode = setMode;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.checkPassword = checkPassword;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.cancelPassword = cancelPassword;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.showAddForm = showAddForm;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.hideAddForm = hideAddForm;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.addNewRow = addNewRow;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.saveData = saveData;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.exportData = exportData;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.deleteSelectedRows = deleteSelectedRows;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.editCell = editCell;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Gestione click fuori dal modal</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('passwordModal').addEventListener('click', function(e) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (e.target === this) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>cancelPassword();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
