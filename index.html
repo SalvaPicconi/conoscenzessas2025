@@ -35,16 +35,22 @@
             position: relative;
         }
         
-        .header h1 {
-            color: #2c3e50;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        
-        .header p {
-            color: #7f8c8d;
-            font-size: 1.1rem;
-        }
+       .header h1 {
+    color: #fff; /* bianco */
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.header p {
+    color: #f8f9fa; /* bianco molto chiaro */
+    font-size: 1.1rem;
+}
+
+.mode-btn.active {
+    background: #fff;
+    color: #667eea;
+    border: 2px solid #667eea;
+}
         
         .update-badge {
             background: linear-gradient(135deg, #27ae60, #2ecc71);
@@ -456,24 +462,36 @@
     </style>
 </head>
 <body>
-   <div class="header">
+<div class="header">
     <h1 style="font-size:2.5em;">Curricolo Verticale Servizi per la Sanità e l'Assistenza Sociale (SSAS)</h1>
     <div class="update-badge">🆕 VERSIONE AGGIORNATA</div>
     <p style="font-size:1.2em; margin-top:10px;">Allegato C del Regolamento del 24 maggio 2018, n. 92</p>
+    <p style="font-size:1.1em; color:#34495e; margin-top:5px; font-weight:500;">
+        ISTITUTO DI ISTRUZIONE SUPERIORE<br>
+        "A. Meucci - E. Mattei" Sede Decimomannu
+    </p>
     <div class="mode-toggle" style="position:static; margin-top:20px;">
         <button class="mode-btn active" onclick="setMode('view')">👁️ Visualizza</button>
         <button class="mode-btn" onclick="setMode('edit')">✏️ Modifica</button>
     </div>
-    <!-- Guida all'uso -->
-    <div style="background:#f8f9fa; border-radius:10px; padding:18px; margin:18px auto 0 auto; max-width:800px; box-shadow:0 2px 8px rgba(0,0,0,0.04); text-align:left;">
-        <h2 style="color:#667eea; font-size:1.3em; margin-bottom:10px;">Guida all’uso</h2>
-        <p>Di seguito sono disponibili tutte le conoscenze suddivise per Biennio e Triennio del curricolo SSAS. Cercalo!</p>
-        <p>Vedrai che, per ciascuna delle 10 competenze definite dalle Indicazioni Nazionali, sono riportate le conoscenze da sviluppare.</p>
-        <p>Alcuni insegnamenti contribuiscono contemporaneamente sia alle competenze sia alle conoscenze!</p>
-        <p>Non sono state inserite le abilità e le competenze intermedie per non rendere la lettura troppo pesante, ma potrai comunque consultare il documento completo per verificare tutto e progettare al meglio la tua didattica.</p>
-    </div>
-    <!-- Fine guida -->
-</div>        
+ <!-- Guida all'uso -->
+<div style="background:#f8f9fa; border-radius:10px; padding:18px; margin:18px auto 0 auto; max-width:800px; box-shadow:0 2px 8px rgba(0,0,0,0.04); text-align:left;">
+    <h2 style="color:#667eea; font-size:1.3em; margin-bottom:10px;">Guida all’uso</h2>
+    <p style="color:#222; font-size:1.1em;">
+        Di seguito sono disponibili tutte le conoscenze suddivise per Biennio e Triennio del curricolo SSAS. 
+    </p>
+    <p style="color:#222; font-size:1.1em;">
+        Vedrai che, per ciascuna delle 10 competenze definite dalle Indicazioni Nazionali, sono riportate le conoscenze da sviluppare.
+    </p>
+    <p style="color:#222; font-size:1.1em;">
+        Alcuni insegnamenti contribuiscono contemporaneamente sia alle competenze sia alle conoscenze!
+    </p>
+    <p style="color:#222; font-size:1.1em;">
+        Non sono state inserite le abilità e le competenze intermedie per non rendere la lettura troppo pesante, ma potrai comunque consultare il documento completo per verificare tutto e progettare al meglio la tua didattica.
+    </p>
+</div>
+<!-- Fine guida -->
+</div>
         <div class="edit-controls">
             <h3>🔧 Modalità Modifica Attiva</h3>
             <button class="edit-btn" onclick="showAddForm()">➕ Aggiungi Conoscenza</button>
