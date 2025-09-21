@@ -2,7 +2,10 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=3.0">
+    <meta name="theme-color" content="#667eea">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <title>Curricolo Verticale Servizi per la Sanità e l'Assistenza Sociale (SSAS)</title>
     <style>
         * {
@@ -11,11 +14,21 @@
             box-sizing: border-box;
         }
         
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --primary-color: #667eea;
+            --secondary-color: #27ae60;
+            --dark-color: #2c3e50;
+            --light-gray: #f8f9fa;
+            --border-color: #e9ecef;
+        }
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--primary-gradient);
             min-height: 100vh;
             padding: 20px;
+            line-height: 1.6;
         }
         
         .container {
@@ -31,19 +44,20 @@
             text-align: center;
             margin-bottom: 30px;
             padding-bottom: 20px;
-            border-bottom: 3px solid #667eea;
+            border-bottom: 3px solid var(--primary-color);
             position: relative;
         }
         
         .header h1 {
-            color: #2c3e50;
-            font-size: 2.5rem;
+            color: var(--dark-color);
+            font-size: clamp(1.4rem, 4vw, 2.5rem);
             margin-bottom: 10px;
+            font-weight: 700;
         }
         
         .header p {
             color: #7f8c8d;
-            font-size: 1.1rem;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
         }
         
         .update-badge {
@@ -411,27 +425,124 @@
             border: 1px solid #f5c6cb;
         }
         
+        /* Responsive design ottimizzato per mobile */
         @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                margin: 5px;
+            }
+            
             .control-group {
                 grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .control label {
+                font-size: 0.8rem !important;
+                margin-bottom: 5px;
+                font-weight: 600;
+            }
+            
+            .control select, .control input {
+                padding: 8px;
+                font-size: 13px;
             }
             
             .pivot-controls {
                 grid-template-columns: 1fr;
+                gap: 10px;
+                padding: 15px;
+            }
+            
+            .pivot-controls label {
+                font-size: 0.75rem !important;
+                margin-bottom: 4px;
+            }
+            
+            .pivot-controls select {
+                padding: 6px;
+                font-size: 12px;
             }
             
             .stats {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
             }
             
             .header h1 {
-                font-size: 2rem;
+                font-size: 1.6rem !important;
+                line-height: 1.3;
             }
             
             .mode-toggle {
                 position: static;
                 justify-content: center;
                 margin-top: 10px;
+                gap: 8px;
+            }
+            
+            .mode-btn {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+                margin: 2px;
+            }
+            
+            .header h1 {
+                font-size: 1.3rem !important;
+                line-height: 1.2;
+            }
+            
+            .full-title {
+                display: none;
+            }
+            
+            .mobile-title {
+                display: inline !important;
+            }
+            
+            .header p {
+                font-size: 0.85rem;
+            }
+            
+            .control label {
+                font-size: 0.75rem !important;
+                text-transform: none;
+                letter-spacing: 0;
+            }
+            
+            .control select, .control input {
+                padding: 6px;
+                font-size: 12px;
+            }
+            
+            .pivot-controls {
+                padding: 10px;
+                gap: 8px;
+            }
+            
+            .pivot-controls label {
+                font-size: 0.7rem !important;
+            }
+            
+            .pivot-controls select {
+                padding: 4px;
+                font-size: 11px;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+            
+            .mode-btn {
+                padding: 5px 10px;
+                font-size: 0.75rem;
             }
         }
     </style>
@@ -439,7 +550,10 @@
 <body>
     <div class="container">
         <div class="header">
-    <h1 style="font-size:2.5em;">Curricolo Verticale Servizi per la Sanità e l'Assistenza Sociale (SSAS)</h1>
+    <h1 style="font-size:2.5em;">
+        <span class="full-title">Curricolo Verticale Servizi per la Sanità e l'Assistenza Sociale (SSAS)</span>
+        <span class="mobile-title" style="display:none;">Curricolo SSAS</span>
+    </h1>
     <div class="update-badge">🆕 VERSIONE AGGIORNATA</div>
     <p style="font-size:1.2em; margin-top:10px;">Allegato C del Regolamento del 24 maggio 2018, n. 92</p>
     <div class="mode-toggle" style="position:static; margin-top:20px;">
@@ -462,28 +576,28 @@
         <div class="controls">
             <div class="control-group">
                 <div class="control">
-                    <label>🎯 Filtra per Competenza</label>
+                    <label>🎯 Competenza</label>
                     <select id="competenzaFilter">
-                        <option value="">Tutte le Competenze</option>
+                        <option value="">Tutte</option>
                     </select>
                 </div>
                 <div class="control">
-                    <label>📅 Filtra per Periodo</label>
+                    <label>📅 Periodo</label>
                     <select id="periodoFilter">
-                        <option value="">Tutti i Periodi</option>
+                        <option value="">Tutti</option>
                     </select>
                 </div>
                 <div class="control">
-                    <label>📚 Filtra per Insegnamento</label>
+                    <label>📚 Insegnamento</label>
                     <select id="insegnamentoFilter">
-                        <option value="">Tutti gli Insegnamenti</option>
+                        <option value="">Tutti</option>
                     </select>
                 </div>
             </div>
             
             <div class="pivot-controls">
                 <div class="control">
-                    <label>Raggruppa per Righe</label>
+                    <label>📋 Righe</label>
                     <select id="rowGroup">
                         <option value="competenza">Competenza</option>
                         <option value="periodo">Periodo</option>
@@ -491,7 +605,7 @@
                     </select>
                 </div>
                 <div class="control">
-                    <label>Raggruppa per Colonne</label>
+                    <label>📊 Colonne</label>
                     <select id="colGroup">
                         <option value="periodo">Periodo</option>
                         <option value="competenza">Competenza</option>
@@ -499,7 +613,7 @@
                     </select>
                 </div>
                 <div class="control">
-                    <label>Mostra Valori</label>
+                    <label>📈 Valori</label>
                     <select id="valueType">
                         <option value="count">Numero Conoscenze</option>
                         <option value="list">Lista Conoscenze</option>

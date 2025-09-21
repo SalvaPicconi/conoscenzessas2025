@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=3.0">
+    <meta name="description" content="Curricolo Verticale Servizi per la Sanità e l'Assistenza Sociale (SSAS) - Versione ottimizzata con funzionalità avanzate">
+    <meta name="keywords" content="SSAS, curricolo, competenze, sanità, assistenza sociale, tabella pivot">
+    <meta name="author" content="Ministero dell'Istruzione">
+    <meta name="theme-color" content="#667eea">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Curricolo SSAS">
+    <title>Curricolo Verticale SSAS - Versione Avanzata</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="integrated-app.js" as="script">
+    
+    <!-- Critical CSS inline for better performance -->
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .loading-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; z-index: 10000; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+        .loading-spinner { width: 50px; height: 50px; border: 4px solid #f3f3f3; border-top: 4px solid #667eea; border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .loading-text { margin-top: 20px; color: #666; font-size: 16px; }
+    </style>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏥</text></svg>">
+    
+    <!-- Open Graph meta tags for better sharing -->
+    <meta property="og:title" content="Curricolo Verticale SSAS">
+    <meta property="og:description" content="Sistema avanzato per la gestione del curricolo verticale dei servizi sanitari e sociali">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://salvapicconi.github.io/conoscenzessas2025/">
+</head>
+<body>
+    <!-- Loading screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Caricamento Curricolo SSAS...</div>
+    </div>
+
+    <div class="container">
+        <!-- Header ottimizzato con accessibilità -->
+        <header class="header" role="banner">
+            <h1 id="main-title">Curricolo Verticale Servizi per la Sanità e l'Assistenza Sociale (SSAS)</h1>
+            <div class="update-badge" role="status" aria-live="polite">
+                🆕 VERSIONE AVANZATA 2.0
+            </div>
+            <p class="subtitle">Allegato C del Regolamento del 24 maggio 2018, n. 92</p>
+            
+            <!-- Mode toggle with improved accessibility -->
+            <div class="mode-toggle" role="radiogroup" aria-labelledby="mode-group-label">
+                <span id="mode-group-label" class="sr-only">Modalità applicazione</span>
+                <button class="mode-btn active" 
+                        onclick="app.setMode('view')" 
+                        role="radio" 
+                        aria-checked="true"
+                        aria-label="Modalità visualizzazione"
+                        id="view-mode-btn">
+                    👁️ Visualizza
+                </button>
+                <button class="mode-btn" 
+                        onclick="app.setMode('edit')" 
+                        role="radio" 
+                        aria-checked="false"
+                        aria-label="Modalità modifica"
+                        id="edit-mode-btn">
+                    ✏️ Modifica
+                </button>
+            </div>
+        </header>
+        
+        <!-- Breadcrumb navigation -->
+        <nav aria-label="Breadcrumb" class="breadcrumb">
+            <ol>
+                <li><a href="#" onclick="app.resetView()">Home</a></li>
+                <li aria-current="page">Curricolo SSAS</li>
+            </ol>
+        </nav>
+        
+        <!-- Quick actions toolbar -->
+        <section class="quick-actions" aria-label="Azioni rapide">
+            <button class="quick-btn" onclick="app.resetFilters()" title="Reset tutti i filtri (Ctrl+R)">
+                🔄 Reset
+            </button>
+            <button class="quick-btn" onclick="app.exportModule.exportToCSV()" title="Esporta in CSV">
+                📊 CSV
+            </button>
+            <button class="quick-btn" onclick="app.exportModule.exportToExcel()" title="Esporta in Excel">
+                📈 Excel
+            </button>
+            <button class="quick-btn" onclick="app.exportModule.exportToPDF()" title="Esporta in PDF">
+                📄 PDF
+            </button>
+            <button class="quick-btn" onclick="window.print()" title="Stampa">
+                🖨️ Stampa
+            </button>
+        </section>
+        
+        <!-- Edit controls with enhanced UI -->
+        <section class="edit-controls" aria-labelledby="edit-controls-title">
+            <h3 id="edit-controls-title">🔧 Modalità Modifica Attiva</h3>
+            <div class="edit-actions-grid">
+                <button class="edit-btn primary" onclick="app.showAddForm()" aria-label="Aggiungi nuova conoscenza">
+                    ➕ Aggiungi Conoscenza
+                </button>
+                <button class="edit-btn success" onclick="app.saveData()" aria-label="Salva tutte le modifiche">
+                    💾 Salva Modifiche
+                </button>
+                <button class="edit-btn info" onclick="app.showImportDialog()" aria-label="Importa dati da file">
+                    📥 Importa Dati
+                </button>
+                <button class="edit-btn warning" onclick="app.showBulkEditDialog()" aria-label="Modifica multipla">
+                    📝 Modifica Multipla
+                </button>
+                <button class="edit-btn danger" onclick="app.deleteSelectedRows()" aria-label="Elimina righe selezionate">
+                    🗑️ Elimina Selezionati
+                </button>
+                <button class="edit-btn secondary" onclick="app.showVersionHistory()" aria-label="Cronologia versioni">
+                    📚 Cronologia
+                </button>
+            </div>
+        </section>
+        
+        <!-- Advanced search section -->
+        <section class="search-section" aria-labelledby="search-title">
+            <h2 id="search-title">🔍 Ricerca Avanzata</h2>
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" 
+                           id="searchInput" 
+                           class="search-input" 
+                           placeholder="Cerca competenze, conoscenze, insegnamenti..." 
+                           aria-label="Campo di ricerca globale"
+                           aria-describedby="search-help"
+                           autocomplete="off"
+                           spellcheck="false">
+                    <button class="search-clear" onclick="app.clearSearch()" title="Cancella ricerca" aria-label="Cancella testo di ricerca">
+                        ❌
+                    </button>
+                    <span class="search-icon" aria-hidden="true">🔍</span>
+                </div>
+                <div id="search-help" class="help-text">
+                    Digita per cercare in tempo reale. Usa virgole per termini multipli. Premi Ctrl+F per accesso rapido.
+                </div>
+            </div>
+        </section>
+        
+        <!-- Enhanced statistics with charts -->
+        <section class="stats-section" aria-labelledby="stats-title">
+            <h2 id="stats-title">📊 Statistiche del Curricolo</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card animated" role="img" aria-labelledby="stat-competenze-title">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-content">
+                        <div class="stat-number" id="stat-competenze" aria-live="polite">0</div>
+                        <div class="stat-label" id="stat-competenze-title">Competenze</div>
+                    </div>
+                    <div class="stat-trend positive">↗️ +5%</div>
+                </div>
+                
+                <div class="stat-card animated" role="img" aria-labelledby="stat-conoscenze-title">
+                    <div class="stat-icon">📚</div>
+                    <div class="stat-content">
+                        <div class="stat-number" id="stat-conoscenze" aria-live="polite">0</div>
+                        <div class="stat-label" id="stat-conoscenze-title">Conoscenze</div>
+                    </div>
+                    <div class="stat-trend positive">↗️ +12%</div>
+                </div>
+                
+                <div class="stat-card animated" role="img" aria-labelledby="stat-periodi-title">
+                    <div class="stat-icon">📅</div>
+                    <div class="stat-content">
+                        <div class="stat-number" id="stat-periodi" aria-live="polite">0</div>
+                        <div class="stat-label" id="stat-periodi-title">Periodi</div>
+                    </div>
+                    <div class="stat-trend stable">➡️ 0%</div>
+                </div>
+                
+                <div class="stat-card animated" role="img" aria-labelledby="stat-insegnamenti-title">
+                    <div class="stat-icon">🏫</div>
+                    <div class="stat-content">
+                        <div class="stat-number" id="stat-insegnamenti" aria-live="polite">0</div>
+                        <div class="stat-label" id="stat-insegnamenti-title">Insegnamenti</div>
+                    </div>
+                    <div class="stat-trend positive">↗️ +3%</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Enhanced filters with smart presets -->
+        <section class="controls-section" aria-labelledby="filters-title">
+            <div class="filters-header">
+                <h2 id="filters-title">🎛️ Filtri e Controlli</h2>
+                <button class="mobile-filter-toggle" onclick="toggleMobileFilters()" aria-label="Mostra/Nascondi filtri">
+                    📱 Filtri
+                </button>
+            </div>
+            
+            <div class="filters-content" id="filtersContent">
+                <!-- Filter presets -->
+                <div class="filter-presets">
+                    <h3>Filtri Rapidi</h3>
+                    <div class="preset-buttons">
+                        <button class="preset-btn" data-preset="primo-biennio" title="Mostra solo primo biennio">
+                            📖 1° Biennio
+                        </button>
+                        <button class="preset-btn" data-preset="secondo-biennio" title="Mostra solo secondo biennio">
+                            📗 2° Biennio
+                        </button>
+                        <button class="preset-btn" data-preset="quinto-anno" title="Mostra solo quinto anno">
+                            📘 5° Anno
+                        </button>
+                        <button class="preset-btn" data-preset="scienze" title="Filtra per materie scientifiche">
+                            🧪 Scienze
+                        </button>
+                        <button class="preset-btn" data-preset="psicologia" title="Filtra per psicologia">
+                            🧠 Psicologia
+                        </button>
+                    </div>
+                </div>
+            
+            <div class="controls">
+            <div class="control-group">
+                <div class="control">
+                    <label for="competenzaFilter">🎯 Competenza</label>
+                    <select id="competenzaFilter" aria-describedby="competenza-help">
+                        <option value="">Tutte</option>
+                    </select>
+                    <div id="competenza-help" class="help-text">Seleziona una competenza specifica</div>
+                </div>
+                
+                <div class="control">
+                    <label for="periodoFilter">📅 Periodo</label>
+                    <select id="periodoFilter" aria-describedby="periodo-help">
+                        <option value="">Tutti</option>
+                    </select>
+                    <div id="periodo-help" class="help-text">Seleziona un periodo del curricolo</div>
+                </div>
+                
+                <div class="control">
+                    <label for="insegnamentoFilter">📚 Insegnamento</label>
+                    <select id="insegnamentoFilter" aria-describedby="insegnamento-help">
+                        <option value="">Tutti</option>
+                    </select>
+                    <div id="insegnamento-help" class="help-text">Seleziona una materia di insegnamento</div>
+                </div>
+            </div>                <div class="filter-actions">
+                    <button class="btn btn-primary" onclick="app.applyFilters()" aria-label="Applica tutti i filtri selezionati">
+                        ✅ Applica Filtri
+                    </button>
+                    <button class="btn btn-secondary" onclick="app.resetFilters()" aria-label="Rimuovi tutti i filtri">
+                        🔄 Reset Filtri
+                    </button>
+                    <button class="btn btn-outline" onclick="app.saveFilterPreset()" aria-label="Salva configurazione filtri">
+                        💾 Salva Preset
+                    </button>
+                                        <button class="btn btn-outline" onclick="app.loadFilterPreset()" aria-label="Carica configurazione salvata">
+                        📂 Carica Preset
+                    </button>
+                </div>
+            </div>
+        </section>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Enhanced pivot table controls -->
+        <section class="pivot-section" aria-labelledby="pivot-title">
+            <h2 id="pivot-title">📊 Tabella Pivot Interattiva</h2>
+            
+            <div class="pivot-controls">
+                <div class="pivot-config">
+                    <div class="control">
+                        <label for="rowGroup">📋 Righe</label>
+                        <select id="rowGroup" aria-describedby="row-help">
+                            <option value="competenza">Competenza</option>
+                            <option value="periodo">Periodo</option>
+                            <option value="insegnamento">Insegnamento</option>
+                        </select>
+                        <div id="row-help" class="help-text">Criterio righe</div>
+                    </div>
+                    
+                    <div class="control">
+                        <label for="colGroup">📊 Colonne</label>
+                        <select id="colGroup" aria-describedby="col-help">
+                            <option value="periodo">Periodo</option>
+                            <option value="competenza">Competenza</option>
+                            <option value="insegnamento">Insegnamento</option>
+                        </select>
+                        <div id="col-help" class="help-text">Criterio colonne</div>
+                    </div>
+                    
+                    <div class="control">
+                        <label for="valueType">🔢 Valori</label>
+                        <select id="valueType" aria-describedby="value-help">
+                            <option value="count">Conteggio</option>
+                            <option value="percentage">Percentuale</option>
+                        </select>
+                        <div id="value-help" class="help-text">Formato valori</div>
+                    </div>
+                </div>
+                
+                <div class="pivot-actions">
+                    <button class="btn btn-primary" onclick="app.updatePivotTable()" aria-label="Aggiorna tabella pivot">
+                        🔄 Aggiorna Pivot
+                    </button>
+                    <button class="btn btn-secondary" onclick="app.exportPivot()" aria-label="Esporta tabella pivot">
+                        📤 Esporta Pivot
+                    </button>
+                    <button class="btn btn-outline" onclick="app.togglePivotView()" aria-label="Cambia visualizzazione">
+                        👁️ Cambia Vista
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Pivot table container -->
+            <div id="pivotTableContainer" class="pivot-table-container" role="region" aria-label="Tabella pivot delle competenze" tabindex="0">
+                <div id="pivotTable" class="pivot-table-wrapper">
+                    <!-- La tabella pivot verrà generata dinamicamente -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Detail view section -->
+        <section class="detail-section" aria-labelledby="detail-title">
+            <h2 id="detail-title">📋 Vista Dettagliata</h2>
+            <div id="detailTableContainer" class="detail-table-container" role="region" aria-label="Tabella dettagliata delle conoscenze">
+                <div id="detailTable" class="table-wrapper">
+                    <!-- La tabella dei dettagli verrà generata dinamicamente -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Data visualization section -->
+        <section class="charts-section" aria-labelledby="charts-title">
+            <h2 id="charts-title">📈 Visualizzazioni</h2>
+            <div class="charts-container">
+                <div class="chart-card">
+                    <h3>Distribuzione per Periodo</h3>
+                    <canvas id="periodChart" width="400" height="200" aria-label="Grafico distribuzione per periodo"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Competenze per Insegnamento</h3>
+                    <canvas id="subjectChart" width="400" height="200" aria-label="Grafico competenze per insegnamento"></canvas>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Accessibility shortcuts panel -->
+    <div id="accessibilityPanel" class="accessibility-panel" aria-labelledby="a11y-title">
+        <h3 id="a11y-title">♿ Accessibilità</h3>
+        <div class="a11y-controls">
+            <button class="a11y-btn" onclick="accessibilityUtils.toggleHighContrast()" title="Alto contrasto">
+                🎨 Contrasto
+            </button>
+            <button class="a11y-btn" onclick="accessibilityUtils.increaseFontSize()" title="Aumenta dimensione testo">
+                🔍+ Zoom+
+            </button>
+            <button class="a11y-btn" onclick="accessibilityUtils.decreaseFontSize()" title="Diminuisci dimensione testo">
+                🔍- Zoom-
+            </button>
+            <button class="a11y-btn" onclick="accessibilityUtils.toggleScreenReader()" title="Modalità screen reader">
+                🔊 Screen Reader
+            </button>
+        </div>
+    </div>
+    
+    <!-- Help panel -->
+    <div id="helpPanel" class="help-panel" aria-labelledby="help-title">
+        <h3 id="help-title">❓ Aiuto e Scorciatoie</h3>
+        <div class="help-content">
+            <h4>Scorciatoie da Tastiera</h4>
+            <ul>
+                <li><kbd>Ctrl</kbd> + <kbd>F</kbd> - Attiva ricerca rapida</li>
+                <li><kbd>Ctrl</kbd> + <kbd>R</kbd> - Reset tutti i filtri</li>
+                <li><kbd>Ctrl</kbd> + <kbd>S</kbd> - Salva modifiche (modalità edit)</li>
+                <li><kbd>Ctrl</kbd> + <kbd>E</kbd> - Esporta CSV</li>
+                <li><kbd>Esc</kbd> - Chiudi pannelli/modal</li>
+                <li><kbd>Tab</kbd> - Naviga tra gli elementi</li>
+                <li><kbd>Frecce</kbd> - Naviga nelle tabelle</li>
+            </ul>
+            
+            <h4>Come Usare l'Applicazione</h4>
+            <ol>
+                <li>Usa i <strong>filtri rapidi</strong> per visualizzazioni predefinite</li>
+                <li>La <strong>ricerca</strong> funziona in tempo reale su tutti i campi</li>
+                <li>Clicca sulle celle della <strong>tabella pivot</strong> per i dettagli</li>
+                <li>Usa la <strong>modalità modifica</strong> per aggiungere/modificare dati</li>
+                <li>Le <strong>esportazioni</strong> rispettano i filtri applicati</li>
+            </ol>
+        </div>
+    </div>
+    
+    <!-- Scripts in order of dependency -->
+    <script src="utils.js"></script>
+    <script src="app.js"></script>
+    <script src="advanced-search.js"></script>
+    <script src="export-module.js"></script>
+    <script src="integrated-app.js"></script>
+    
+    <!-- Service Worker registration -->
+    <script>
+        // Register service worker for offline functionality
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(registration => {
+                        console.log('SW registered: ', registration);
+                        notificationSystem?.info('App pronta per uso offline!');
+                    })
+                    .catch(registrationError => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+        
+        // Hide loading screen when app is ready
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loadingScreen = document.getElementById('loadingScreen');
+                if (loadingScreen) {
+                    loadingScreen.style.opacity = '0';
+                    setTimeout(() => {
+                        loadingScreen.style.display = 'none';
+                    }, 500);
+                }
+            }, 1000);
+        });
+        
+        // Handle keyboard shortcuts globally
+        function toggleMobileFilters() {
+            const filtersContent = document.getElementById('filtersContent');
+            const toggle = document.querySelector('.mobile-filter-toggle');
+            
+            if (filtersContent.classList.contains('show')) {
+                filtersContent.classList.remove('show');
+                toggle.textContent = '📱 Mostra Filtri';
+                toggle.setAttribute('aria-label', 'Mostra filtri');
+            } else {
+                filtersContent.classList.add('show');
+                toggle.textContent = '❌ Nascondi Filtri';
+                toggle.setAttribute('aria-label', 'Nascondi filtri');
+            }
+        }
+        
+        // Handle keyboard shortcuts globally
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey || e.metaKey) {
+                switch (e.key) {
+                    case 'f':
+                        e.preventDefault();
+                        document.getElementById('searchInput')?.focus();
+                        break;
+                    case 'r':
+                        e.preventDefault();
+                        app?.resetFilters();
+                        break;
+                    case 's':
+                        e.preventDefault();
+                        app?.saveData();
+                        break;
+                    case 'e':
+                        e.preventDefault();
+                        app?.exportModule?.exportToCSV();
+                        break;
+                }
+            }
+            
+            if (e.key === 'Escape') {
+                // Close any open panels or modals
+                document.querySelectorAll('.modal.show, .panel.open').forEach(el => {
+                    el.classList.remove('show', 'open');
+                });
+            }
+        });
+        
+        // PWA install prompt
+        let deferredPrompt;
+        
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            // Show install button
+            const installBtn = document.createElement('button');
+            installBtn.className = 'install-btn';
+            installBtn.innerHTML = '📱 Installa App';
+            installBtn.onclick = () => {
+                if (deferredPrompt) {
+                    deferredPrompt.prompt();
+                    deferredPrompt.userChoice.then((choiceResult) => {
+                        deferredPrompt = null;
+                        installBtn.remove();
+                    });
+                }
+            };
+            
+            document.querySelector('.quick-actions')?.appendChild(installBtn);
+        });
+    </script>
+    
+    <!-- Analytics (se necessario) -->
+    <script>
+        // Placeholder per analytics
+        if (typeof gtag !== 'undefined') {
+            gtag('config', 'GA_TRACKING_ID');
+        }
+    </script>
+</body>
+</html>
