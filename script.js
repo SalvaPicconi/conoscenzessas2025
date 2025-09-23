@@ -80,7 +80,13 @@ function populateFilters() {
   const uniq = (arr) => Array.from(new Set(arr)).sort();
 
   const competenze = uniq(rawData.map(d => d.competenza_completa));
-  const periodi = uniq(rawData.map(d => d.periodo));
+  const orderedPeriodi = ['Biennio', 'Terzo Anno', 'Quarto Anno', 'Quinto Anno'];
+  const periodiUnici = Array.from(new Set(rawData.map(d => d.periodo || 'N/D')));
+  let periodi = orderedPeriodi.filter(p => periodiUnici.includes(p));
+  const extraPeriodi = periodiUnici
+    .filter(p => p !== 'Secondo Biennio' && !orderedPeriodi.includes(p))
+    .sort((a, b) => a.localeCompare(b, 'it'));
+  periodi = [...periodi, ...extraPeriodi];
   const insegn = uniq(rawData.flatMap(d => d.insegnamenti));
 
   selComp.innerHTML = '<option value="">Tutte le Competenze</option>' +
