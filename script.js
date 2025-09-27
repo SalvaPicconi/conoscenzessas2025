@@ -56,27 +56,36 @@ function setupEventListeners() {
 
 // Setup filtri
 function setupFilters() {
+    // Estrai competenze uniche
     const competenze = [...new Set(allData.map(item => 
-        `${item.competenzaNum}. ${item.competenzaTitolo.substring(0, 50)}...`
-    ))];
+        `${item.competenzaNum}. ${item.competenzaTitolo.substring(0, 60)}${item.competenzaTitolo.length > 60 ? '...' : ''}`
+    ))].sort((a, b) => {
+        const numA = parseInt(a.split('.')[0]);
+        const numB = parseInt(b.split('.')[0]);
+        return numA - numB;
+    });
+    
+    // Estrai periodi unici
     const periodi = [...new Set(allData.map(item => item.periodo))];
-    const livelli = [...new Set(allData.map(item => String(item.livelloQNQ)))];
-    const insegnamenti = [
-        "DIRITTO",
-        "DIRITTO E TEC. AMM.",
-        "IGIENE E CULTURA MEDICO SANITARIA",
-        "INGLESE",
-        "ITALIANO",
-        "MATEMATICA",
-        "METODOLOGIE OPERATIVE",
-        "PSICOLOGIA GENERALE ED APPLICATA",
-        "SCIENZE INTEGRATE",
-        "SCIENZE MOTORIE",
-        "SCIENZE UMANE",
-        "SPAGNOLO",
-        "STORIA",
-        "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"
-    ];
+    
+    // Estrai livelli QNQ unici
+    const livelli = [...new Set(allData.map(item => String(item.livelloQNQ)))].sort();
+    
+    // Estrai tutti gli insegnamenti dai dati reali
+    const insegnamentiSet = new Set();
+    allData.forEach(item => {
+        if (item.insegnamentoCoinvolti) {
+            item.insegnamentoCoinvolti.forEach(ins => insegnamentiSet.add(ins));
+        }
+    });
+    const insegnamenti = [...insegnamentiSet].sort();
+
+    console.log('Setup filtri completato:', {
+        competenze: competenze.length,
+        periodi: periodi.length,
+        livelli: livelli.length,
+        insegnamenti: insegnamenti.length
+    });
 
     populateSelect('competenza-filter', competenze);
     populateSelect('periodo-filter', periodi);
@@ -160,8 +169,37 @@ function filterAndDisplay() {
         const matchesLivello = !filters.livelloQNQ || String(item.livelloQNQ) === filters.livelloQNQ;
         const matchesInsegnamento = !filters.insegnamento || 
             item.insegnamentoCoinvolti.includes(filters.insegnamento);
-        const matchesSearch = !filters.searchTerm || 
-            JSON.stringify(item).toLowerCase().includes(filters.searchTerm);
+        
+        // Ricerca avanzata in tutte le proprietà
+        const matchesSearch = !filters.searchTerm || (() => {
+            const searchLower = filters.searchTerm.toLowerCase();
+            
+            // Ricerca nel titolo e descrizione
+            if (item.competenzaTitolo.toLowerCase().includes(searchLower) ||
+                item.competenzaIntermedia.toLowerCase().includes(searchLower)) {
+                return true;
+            }
+            
+            // Ricerca nelle abilità
+            if (item.abilita.some(abilita => 
+                abilita.toLowerCase().includes(searchLower))) {
+                return true;
+            }
+            
+            // Ricerca nelle conoscenze
+            if (item.conoscenze.some(conoscenza => 
+                conoscenza.nome.toLowerCase().includes(searchLower))) {
+                return true;
+            }
+            
+            // Ricerca negli insegnamenti
+            if (item.insegnamentoCoinvolti.some(insegnamento => 
+                insegnamento.toLowerCase().includes(searchLower))) {
+                return true;
+            }
+            
+            return false;
+        })();
         
         return matchesCompetenza && matchesPeriodo && matchesLivello && 
                matchesInsegnamento && matchesSearch;
