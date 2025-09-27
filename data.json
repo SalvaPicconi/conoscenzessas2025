@@ -1,7 +1,7 @@
 [
   {
     "competenzaNum": 1,
-    "competenzaTitolo": "Collaborare nella gestione di progetti e attività dei servizi sociali",
+    "competenzaTitolo": "Competenza in uscita n° 1: Collaborare nella gestione di progetti e attività dei servizi sociali, socio-sanitari e socio-educativi, rivolti a bambini e adolescenti, persone con disabilità, anziani, minori a rischio, soggetti con disagio psico-sociale e altri soggetti in situazione di svantaggio, anche attraverso lo sviluppo di reti territoriali formali e informali.",
     "periodo": "Biennio",
     "livelloQNQ": 2,
     "competenzaIntermedia": "Costruire mappe dei servizi sociali, socio-sanitari e socio-educativi disponibili nel territorio e delle principali prestazioni erogate alle diverse tipologie di utenza",
@@ -13,34 +13,55 @@
     "conoscenze": [
       {
         "nome": "Il Welfare State in Italia",
-        "insegnamenti": ["METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "Fonti e documenti per rilevazione dei servizi territoriali",
-        "insegnamenti": ["METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "Tipologia dei servizi sociali, socio-educativi, sociosanitari, sanitari",
-        "insegnamenti": ["METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "Tipologia di utenza dei servizi sociali, socio-educativi, sociosanitari e sanitari",
-        "insegnamenti": ["METODOLOGIE OPERATIVE", "SCIENZE UMANE"]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE",
+          "SCIENZE UMANE"
+        ]
       },
       {
         "nome": "Le agenzie di socializzazione nelle reti territoriali",
-        "insegnamenti": ["SCIENZE UMANE", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "SCIENZE UMANE",
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "I principi di sussidiarietà nell'organizzazione dei servizi",
-        "insegnamenti": ["DIRITTO", "METODOLOGIE OPERATIVE", "STORIA"]
+        "insegnamenti": [
+          "DIRITTO",
+          "METODOLOGIE OPERATIVE",
+          "STORIA"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["METODOLOGIE OPERATIVE", "SCIENZE UMANE", "DIRITTO", "STORIA"]
+    "insegnamentoCoinvolti": [
+      "METODOLOGIE OPERATIVE",
+      "SCIENZE UMANE",
+      "DIRITTO",
+      "STORIA"
+    ]
   },
   {
     "competenzaNum": 1,
-    "competenzaTitolo": "Collaborare nella gestione di progetti e attività dei servizi sociali",
+    "competenzaTitolo": "Competenza in uscita n° 1: Collaborare nella gestione di progetti e attività dei servizi sociali, socio-sanitari e socio-educativi, rivolti a bambini e adolescenti, persone con disabilità, anziani, minori a rischio, soggetti con disagio psico-sociale e altri soggetti in situazione di svantaggio, anche attraverso lo sviluppo di reti territoriali formali e informali.",
     "periodo": "Terzo Anno",
     "livelloQNQ": 3,
     "competenzaIntermedia": "Compilare e ordinare la documentazione richiesta per l'esecuzione di protocolli e progetti e nella gestione dei servizi",
@@ -52,30 +73,49 @@
     "conoscenze": [
       {
         "nome": "Linee guida, protocolli e procedure",
-        "insegnamenti": ["METODOLOGIE OPERATIVE", "IGIENE E CULTURA MEDICO SANITARIA"]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE",
+          "IGIENE E CULTURA MEDICO SANITARIA"
+        ]
       },
       {
         "nome": "Metodologia del lavoro sociale, socio-sanitario socio-educativo",
-        "insegnamenti": ["METODOLOGIE OPERATIVE", "PSICOLOGIA GENERALE ED APPLICATA"]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE",
+          "PSICOLOGIA GENERALE ED APPLICATA"
+        ]
       },
       {
         "nome": "Modelli e tecniche di progettazione in ambito sociale",
-        "insegnamenti": ["METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "Modelli e tecniche di redazione di piani e progetti individuali",
-        "insegnamenti": ["METODOLOGIE OPERATIVE", "PSICOLOGIA GENERALE ED APPLICATA"]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE",
+          "PSICOLOGIA GENERALE ED APPLICATA"
+        ]
       },
       {
         "nome": "I soggetti giuridici del settore profit, no profit del settore pubblico",
-        "insegnamenti": ["DIRITTO E TEC. AMM.", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "DIRITTO E TEC. AMM.",
+          "METODOLOGIE OPERATIVE"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["METODOLOGIE OPERATIVE", "IGIENE E CULTURA MEDICO SANITARIA", "PSICOLOGIA GENERALE ED APPLICATA", "DIRITTO E TEC. AMM."]
+    "insegnamentoCoinvolti": [
+      "METODOLOGIE OPERATIVE",
+      "IGIENE E CULTURA MEDICO SANITARIA",
+      "PSICOLOGIA GENERALE ED APPLICATA",
+      "DIRITTO E TEC. AMM."
+    ]
   },
   {
     "competenzaNum": 1,
-    "competenzaTitolo": "Collaborare nella gestione di progetti e attività dei servizi sociali",
+    "competenzaTitolo": "Competenza in uscita n° 1: Collaborare nella gestione di progetti e attività dei servizi sociali, socio-sanitari e socio-educativi, rivolti a bambini e adolescenti, persone con disabilità, anziani, minori a rischio, soggetti con disagio psico-sociale e altri soggetti in situazione di svantaggio, anche attraverso lo sviluppo di reti territoriali formali e informali.",
     "periodo": "Quarto Anno",
     "livelloQNQ": "3/4",
     "competenzaIntermedia": "Organizzare tempi e modi di realizzazione delle attività assegnate, relative alla predisposizione di documentazione e registrazione di atti amministrativi e dati contabili",
@@ -88,34 +128,55 @@
     "conoscenze": [
       {
         "nome": "I contratti e gli altri atti amministrativi aziendali",
-        "insegnamenti": ["DIRITTO E TEC. AMM."]
+        "insegnamenti": [
+          "DIRITTO E TEC. AMM."
+        ]
       },
       {
         "nome": "Gli atti della Pubblica Amministrazione",
-        "insegnamenti": ["DIRITTO E TEC. AMM.", "STORIA"]
+        "insegnamenti": [
+          "DIRITTO E TEC. AMM.",
+          "STORIA"
+        ]
       },
       {
         "nome": "L'organizzazione delle imprese e delle aziende",
-        "insegnamenti": ["DIRITTO E TEC. AMM.", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "DIRITTO E TEC. AMM.",
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "Costi, ricavi e registrazioni contabili",
-        "insegnamenti": ["DIRITTO E TEC. AMM.", "MATEMATICA"]
+        "insegnamenti": [
+          "DIRITTO E TEC. AMM.",
+          "MATEMATICA"
+        ]
       },
       {
         "nome": "Il sistema bancario e le aziende",
-        "insegnamenti": ["DIRITTO E TEC. AMM."]
+        "insegnamenti": [
+          "DIRITTO E TEC. AMM."
+        ]
       },
       {
         "nome": "Le fonti di finanziamento dei servizi e dei progetti",
-        "insegnamenti": ["DIRITTO E TEC. AMM.", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "DIRITTO E TEC. AMM.",
+          "METODOLOGIE OPERATIVE"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["DIRITTO E TEC. AMM.", "METODOLOGIE OPERATIVE", "STORIA", "MATEMATICA"]
+    "insegnamentoCoinvolti": [
+      "DIRITTO E TEC. AMM.",
+      "METODOLOGIE OPERATIVE",
+      "STORIA",
+      "MATEMATICA"
+    ]
   },
   {
     "competenzaNum": 1,
-    "competenzaTitolo": "Collaborare nella gestione di progetti e attività dei servizi sociali",
+    "competenzaTitolo": "Competenza in uscita n° 1: Collaborare nella gestione di progetti e attività dei servizi sociali, socio-sanitari e socio-educativi, rivolti a bambini e adolescenti, persone con disabilità, anziani, minori a rischio, soggetti con disagio psico-sociale e altri soggetti in situazione di svantaggio, anche attraverso lo sviluppo di reti territoriali formali e informali.",
     "periodo": "Quinto Anno",
     "livelloQNQ": 4,
     "competenzaIntermedia": "Collaborare nella gestione di progetti e attività dei servizi sociali, socio-sanitari e socio-educativi, rivolti bambini e adolescenti, persone con disabilità, anziani, minori a rischio, soggetti con disagio psico-sociale e altri soggetti in situazione di svantaggio, anche attraverso lo sviluppo di reti territoriali formali e informali",
@@ -127,30 +188,46 @@
     "conoscenze": [
       {
         "nome": "Forme e modalità di collaborazione nelle reti formali e informali",
-        "insegnamenti": ["METODOLOGIE OPERATIVE", "PSICOLOGIA GENERALE ED APPLICATA"]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE",
+          "PSICOLOGIA GENERALE ED APPLICATA"
+        ]
       },
       {
         "nome": "La progettazione nei servizi",
-        "insegnamenti": ["METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "La gestione amministrativa e contabile delle risorse umane",
-        "insegnamenti": ["DIRITTO E TEC. AMM.", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "DIRITTO E TEC. AMM.",
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "Responsabilità civile di enti pubblici e privati",
-        "insegnamenti": ["DIRITTO E TEC. AMM."]
+        "insegnamenti": [
+          "DIRITTO E TEC. AMM."
+        ]
       },
       {
         "nome": "Responsabilità civile e penale degli operatori dei servizi",
-        "insegnamenti": ["DIRITTO E TEC. AMM."]
+        "insegnamenti": [
+          "DIRITTO E TEC. AMM."
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["METODOLOGIE OPERATIVE", "PSICOLOGIA GENERALE ED APPLICATA", "DIRITTO E TEC. AMM."]
+    "insegnamentoCoinvolti": [
+      "METODOLOGIE OPERATIVE",
+      "PSICOLOGIA GENERALE ED APPLICATA",
+      "DIRITTO E TEC. AMM."
+    ]
   },
   {
     "competenzaNum": 2,
-    "competenzaTitolo": "Partecipare e cooperare nei gruppi di lavoro e nelle équipe multi-professionali",
+    "competenzaTitolo": "Competenza in uscita n° 2: Partecipare e cooperare nei gruppi di lavoro e nelle équipe multi-professionali in diversi contesti organizzativi /lavorativi.",
     "periodo": "Biennio",
     "livelloQNQ": 2,
     "competenzaIntermedia": "Partecipare e cooperare nei gruppi di lavoro in ambito scolastico",
@@ -162,26 +239,44 @@
     "conoscenze": [
       {
         "nome": "Il gruppo e le sue dinamiche",
-        "insegnamenti": ["PSICOLOGIA GENERALE ED APPLICATA", "SCIENZE UMANE"]
+        "insegnamenti": [
+          "PSICOLOGIA GENERALE ED APPLICATA",
+          "SCIENZE UMANE"
+        ]
       },
       {
         "nome": "Il processo di socializzazione",
-        "insegnamenti": ["SCIENZE UMANE", "PSICOLOGIA GENERALE ED APPLICATA"]
+        "insegnamenti": [
+          "SCIENZE UMANE",
+          "PSICOLOGIA GENERALE ED APPLICATA"
+        ]
       },
       {
         "nome": "Gli aspetti emotivo - motivazionali dell'essere umano",
-        "insegnamenti": ["PSICOLOGIA GENERALE ED APPLICATA"]
+        "insegnamenti": [
+          "PSICOLOGIA GENERALE ED APPLICATA"
+        ]
       },
       {
         "nome": "Modi, forme e funzioni della comunicazione",
-        "insegnamenti": ["ITALIANO", "INGLESE", "SPAGNOLO"]
+        "insegnamenti": [
+          "ITALIANO",
+          "INGLESE",
+          "SPAGNOLO"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["PSICOLOGIA GENERALE ED APPLICATA", "SCIENZE UMANE", "ITALIANO", "INGLESE", "SPAGNOLO"]
+    "insegnamentoCoinvolti": [
+      "PSICOLOGIA GENERALE ED APPLICATA",
+      "SCIENZE UMANE",
+      "ITALIANO",
+      "INGLESE",
+      "SPAGNOLO"
+    ]
   },
   {
     "competenzaNum": 2,
-    "competenzaTitolo": "Partecipare e cooperare nei gruppi di lavoro e nelle équipe multi-professionali",
+    "competenzaTitolo": "Competenza in uscita n° 2: Partecipare e cooperare nei gruppi di lavoro e nelle équipe multi-professionali in diversi contesti organizzativi /lavorativi.",
     "periodo": "Terzo Anno",
     "livelloQNQ": 3,
     "competenzaIntermedia": "Collaborare alla realizzazione degli obiettivi di gruppi di lavoro e di équipe, in diversi contesti",
@@ -193,26 +288,44 @@
     "conoscenze": [
       {
         "nome": "Le figure professionali nei servizi: formazione, profilo, ruolo e funzioni",
-        "insegnamenti": ["METODOLOGIE OPERATIVE", "PSICOLOGIA GENERALE ED APPLICATA"]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE",
+          "PSICOLOGIA GENERALE ED APPLICATA"
+        ]
       },
       {
         "nome": "Caratteristiche del lavoro d'equipe e tipologie dei gruppi di lavoro",
-        "insegnamenti": ["PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "PSICOLOGIA GENERALE ED APPLICATA",
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "Codici, registri, stili linguistici e linguaggi settoriali",
-        "insegnamenti": ["ITALIANO", "INGLESE"]
+        "insegnamenti": [
+          "ITALIANO",
+          "INGLESE"
+        ]
       },
       {
         "nome": "Tipologie di resoconti: report, verbali, relazioni",
-        "insegnamenti": ["ITALIANO", "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"]
+        "insegnamenti": [
+          "ITALIANO",
+          "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["METODOLOGIE OPERATIVE", "PSICOLOGIA GENERALE ED APPLICATA", "ITALIANO", "INGLESE", "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"]
+    "insegnamentoCoinvolti": [
+      "METODOLOGIE OPERATIVE",
+      "PSICOLOGIA GENERALE ED APPLICATA",
+      "ITALIANO",
+      "INGLESE",
+      "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"
+    ]
   },
   {
     "competenzaNum": 2,
-    "competenzaTitolo": "Partecipare e cooperare nei gruppi di lavoro e nelle équipe multi-professionali",
+    "competenzaTitolo": "Competenza in uscita n° 2: Partecipare e cooperare nei gruppi di lavoro e nelle équipe multi-professionali in diversi contesti organizzativi /lavorativi.",
     "periodo": "Quarto Anno",
     "livelloQNQ": "3/4",
     "competenzaIntermedia": "Esporre all'interno di gruppi di lavoro e di équipe professionali informazioni e dati",
@@ -223,18 +336,28 @@
     "conoscenze": [
       {
         "nome": "Metodi e strumenti per l'approfondimento tematico e la ricerca",
-        "insegnamenti": ["TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE",
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "Tecniche di raccolta e organizzazione delle informazioni",
-        "insegnamenti": ["TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE", "MATEMATICA"]
+        "insegnamenti": [
+          "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE",
+          "MATEMATICA"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE", "METODOLOGIE OPERATIVE", "MATEMATICA"]
+    "insegnamentoCoinvolti": [
+      "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE",
+      "METODOLOGIE OPERATIVE",
+      "MATEMATICA"
+    ]
   },
   {
     "competenzaNum": 2,
-    "competenzaTitolo": "Partecipare e cooperare nei gruppi di lavoro e nelle équipe multi-professionali",
+    "competenzaTitolo": "Competenza in uscita n° 2: Partecipare e cooperare nei gruppi di lavoro e nelle équipe multi-professionali in diversi contesti organizzativi /lavorativi.",
     "periodo": "Quinto Anno",
     "livelloQNQ": 4,
     "competenzaIntermedia": "Partecipare e cooperare nei gruppi di lavoro e nelle équipe multi-professionali in diversi contesti organizzativi/lavorativi",
@@ -246,26 +369,41 @@
     "conoscenze": [
       {
         "nome": "Gli stili organizzativi",
-        "insegnamenti": ["PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "PSICOLOGIA GENERALE ED APPLICATA",
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "Modalità di organizzazione e conduzione delle riunioni di lavoro",
-        "insegnamenti": ["METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "Tecniche di mediazione comunicative e di negoziazione",
-        "insegnamenti": ["PSICOLOGIA GENERALE ED APPLICATA", "ITALIANO"]
+        "insegnamenti": [
+          "PSICOLOGIA GENERALE ED APPLICATA",
+          "ITALIANO"
+        ]
       },
       {
         "nome": "I contratti di lavoro: diritti e doveri degli operatori",
-        "insegnamenti": ["DIRITTO E TEC. AMM."]
+        "insegnamenti": [
+          "DIRITTO E TEC. AMM."
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE", "ITALIANO", "DIRITTO E TEC. AMM."]
+    "insegnamentoCoinvolti": [
+      "PSICOLOGIA GENERALE ED APPLICATA",
+      "METODOLOGIE OPERATIVE",
+      "ITALIANO",
+      "DIRITTO E TEC. AMM."
+    ]
   },
   {
     "competenzaNum": 3,
-    "competenzaTitolo": "Facilitare la comunicazione tra persone e gruppi, anche di culture diverse",
+    "competenzaTitolo": "Competenza in uscita n° 3: Facilitare la comunicazione tra persone e gruppi, anche di culture e contesti diversi, adottando modalità comunicative e relazionali adeguate ai diversi ambiti professionali e alle diverse tipologie di utenza.",
     "periodo": "Biennio",
     "livelloQNQ": 2,
     "competenzaIntermedia": "Agire per favorire il superamento di stereotipi e pregiudizi in ambito scolastico e nei contesti di vita quotidiana",
@@ -278,30 +416,48 @@
     "conoscenze": [
       {
         "nome": "Culture, contesti, gruppi sociali, pregiudizi e stereotipi",
-        "insegnamenti": ["SCIENZE UMANE", "STORIA"]
+        "insegnamenti": [
+          "SCIENZE UMANE",
+          "STORIA"
+        ]
       },
       {
         "nome": "Principali agenzie di educazione e socializzazione",
-        "insegnamenti": ["SCIENZE UMANE"]
+        "insegnamenti": [
+          "SCIENZE UMANE"
+        ]
       },
       {
         "nome": "Tecniche e strumenti per la comunicazione multimediale",
-        "insegnamenti": ["TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"]
+        "insegnamenti": [
+          "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"
+        ]
       },
       {
         "nome": "Dati sensibili e dati pubblici",
-        "insegnamenti": ["TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE", "DIRITTO"]
+        "insegnamenti": [
+          "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE",
+          "DIRITTO"
+        ]
       },
       {
         "nome": "La normativa sulla privacy",
-        "insegnamenti": ["DIRITTO", "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"]
+        "insegnamenti": [
+          "DIRITTO",
+          "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["SCIENZE UMANE", "STORIA", "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE", "DIRITTO"]
+    "insegnamentoCoinvolti": [
+      "SCIENZE UMANE",
+      "STORIA",
+      "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE",
+      "DIRITTO"
+    ]
   },
   {
     "competenzaNum": 3,
-    "competenzaTitolo": "Facilitare la comunicazione tra persone e gruppi, anche di culture diverse",
+    "competenzaTitolo": "Competenza in uscita n° 3: Facilitare la comunicazione tra persone e gruppi, anche di culture e contesti diversi, adottando modalità comunicative e relazionali adeguate ai diversi ambiti professionali e alle diverse tipologie di utenza.",
     "periodo": "Terzo Anno",
     "livelloQNQ": 3,
     "competenzaIntermedia": "Agire, anche in ambienti non noti, individuando modalità di comunicazione idonee a favorire la relazione",
@@ -312,18 +468,26 @@
     "conoscenze": [
       {
         "nome": "Utenti e gruppi con specifici bisogni comunicativi",
-        "insegnamenti": ["PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "PSICOLOGIA GENERALE ED APPLICATA",
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "La pragmatica della comunicazione e della relazione e i suoi disturbi",
-        "insegnamenti": ["PSICOLOGIA GENERALE ED APPLICATA"]
+        "insegnamenti": [
+          "PSICOLOGIA GENERALE ED APPLICATA"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE"]
+    "insegnamentoCoinvolti": [
+      "PSICOLOGIA GENERALE ED APPLICATA",
+      "METODOLOGIE OPERATIVE"
+    ]
   },
   {
     "competenzaNum": 3,
-    "competenzaTitolo": "Facilitare la comunicazione tra persone e gruppi, anche di culture diverse",
+    "competenzaTitolo": "Competenza in uscita n° 3: Facilitare la comunicazione tra persone e gruppi, anche di culture e contesti diversi, adottando modalità comunicative e relazionali adeguate ai diversi ambiti professionali e alle diverse tipologie di utenza.",
     "periodo": "Quarto Anno",
     "livelloQNQ": "3/4",
     "competenzaIntermedia": "Osservare le dinamiche comunicative nei gruppi e tra le persone al fine di adottare strumenti e forme di comunicazione funzionali a favorire la relazione d'aiuto",
@@ -334,22 +498,34 @@
     "conoscenze": [
       {
         "nome": "Schede di osservazione e rilevazione dei fenomeni comunicativi",
-        "insegnamenti": ["METODOLOGIE OPERATIVE", "PSICOLOGIA GENERALE ED APPLICATA"]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE",
+          "PSICOLOGIA GENERALE ED APPLICATA"
+        ]
       },
       {
         "nome": "Tecniche per la comunicazione efficace",
-        "insegnamenti": ["PSICOLOGIA GENERALE ED APPLICATA", "ITALIANO"]
+        "insegnamenti": [
+          "PSICOLOGIA GENERALE ED APPLICATA",
+          "ITALIANO"
+        ]
       },
       {
         "nome": "Caratteristiche e modelli della comunicazione educativa e terapeutica",
-        "insegnamenti": ["PSICOLOGIA GENERALE ED APPLICATA"]
+        "insegnamenti": [
+          "PSICOLOGIA GENERALE ED APPLICATA"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["METODOLOGIE OPERATIVE", "PSICOLOGIA GENERALE ED APPLICATA", "ITALIANO"]
+    "insegnamentoCoinvolti": [
+      "METODOLOGIE OPERATIVE",
+      "PSICOLOGIA GENERALE ED APPLICATA",
+      "ITALIANO"
+    ]
   },
   {
     "competenzaNum": 3,
-    "competenzaTitolo": "Facilitare la comunicazione tra persone e gruppi, anche di culture diverse",
+    "competenzaTitolo": "Competenza in uscita n° 3: Facilitare la comunicazione tra persone e gruppi, anche di culture e contesti diversi, adottando modalità comunicative e relazionali adeguate ai diversi ambiti professionali e alle diverse tipologie di utenza.",
     "periodo": "Quinto Anno",
     "livelloQNQ": 4,
     "competenzaIntermedia": "Facilitare la comunicazione tra persone e gruppi, anche di culture e contesti diversi, adottando modalità comunicative e relazionali adeguate ai diversi ambiti professionali e alle diverse tipologie di utenza",
@@ -360,18 +536,31 @@
     "conoscenze": [
       {
         "nome": "Tecniche e approcci per la facilitazione della comunicazione tra persone e nei gruppi",
-        "insegnamenti": ["PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "PSICOLOGIA GENERALE ED APPLICATA",
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "Caratteristiche e funzioni della mediazione interculturale",
-        "insegnamenti": ["SCIENZE UMANE", "INGLESE", "SPAGNOLO"]
+        "insegnamenti": [
+          "SCIENZE UMANE",
+          "INGLESE",
+          "SPAGNOLO"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE", "SCIENZE UMANE", "INGLESE", "SPAGNOLO"]
+    "insegnamentoCoinvolti": [
+      "PSICOLOGIA GENERALE ED APPLICATA",
+      "METODOLOGIE OPERATIVE",
+      "SCIENZE UMANE",
+      "INGLESE",
+      "SPAGNOLO"
+    ]
   },
   {
     "competenzaNum": 4,
-    "competenzaTitolo": "Prendersi cura e collaborare al soddisfacimento dei bisogni di base di bambini, persone con disabilità, anziani",
+    "competenzaTitolo": "Competenza in uscita n° 4: Prendersi cura e collaborare al soddisfacimento dei bisogni di base di bambini, persone con disabilità, anziani nell’espletamento delle più comuni attività quotidiane.",
     "periodo": "Biennio",
     "livelloQNQ": 2,
     "competenzaIntermedia": "Rilevare, in modo guidato, condizioni, stili di vita e bisogni legati all'età",
@@ -383,26 +572,45 @@
     "conoscenze": [
       {
         "nome": "Elementi di anatomia e fisiologia umana",
-        "insegnamenti": ["SCIENZE INTEGRATE", "IGIENE E CULTURA MEDICO SANITARIA"]
+        "insegnamenti": [
+          "SCIENZE INTEGRATE",
+          "IGIENE E CULTURA MEDICO SANITARIA"
+        ]
       },
       {
         "nome": "Funzioni e organizzazione del corpo umano",
-        "insegnamenti": ["SCIENZE INTEGRATE", "IGIENE E CULTURA MEDICO SANITARIA"]
+        "insegnamenti": [
+          "SCIENZE INTEGRATE",
+          "IGIENE E CULTURA MEDICO SANITARIA"
+        ]
       },
       {
         "nome": "Principi di una corretta alimentazione e di una regolare attività fisica",
-        "insegnamenti": ["SCIENZE INTEGRATE", "SCIENZE MOTORIE", "IGIENE E CULTURA MEDICO SANITARIA"]
+        "insegnamenti": [
+          "SCIENZE INTEGRATE",
+          "SCIENZE MOTORIE",
+          "IGIENE E CULTURA MEDICO SANITARIA"
+        ]
       },
       {
         "nome": "I principali bisogni legati all'età e alle condizioni dell'individuo",
-        "insegnamenti": ["PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "PSICOLOGIA GENERALE ED APPLICATA",
+          "METODOLOGIE OPERATIVE"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["SCIENZE INTEGRATE", "IGIENE E CULTURA MEDICO SANITARIA", "SCIENZE MOTORIE", "PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE"]
+    "insegnamentoCoinvolti": [
+      "SCIENZE INTEGRATE",
+      "IGIENE E CULTURA MEDICO SANITARIA",
+      "SCIENZE MOTORIE",
+      "PSICOLOGIA GENERALE ED APPLICATA",
+      "METODOLOGIE OPERATIVE"
+    ]
   },
   {
     "competenzaNum": 4,
-    "competenzaTitolo": "Prendersi cura e collaborare al soddisfacimento dei bisogni di base di bambini, persone con disabilità, anziani",
+    "competenzaTitolo": "Competenza in uscita n° 4: Prendersi cura e collaborare al soddisfacimento dei bisogni di base di bambini, persone con disabilità, anziani nell’espletamento delle più comuni attività quotidiane.",
     "periodo": "Terzo Anno",
     "livelloQNQ": 3,
     "competenzaIntermedia": "Programmare azioni per soddisfare bisogni e favorire condizioni di benessere del bambino",
@@ -415,30 +623,46 @@
     "conoscenze": [
       {
         "nome": "Elementi di puericultura e igiene del bambino",
-        "insegnamenti": ["IGIENE E CULTURA MEDICO SANITARIA"]
+        "insegnamenti": [
+          "IGIENE E CULTURA MEDICO SANITARIA"
+        ]
       },
       {
         "nome": "Tecniche di osservazione e accudimento in età evolutiva",
-        "insegnamenti": ["PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "PSICOLOGIA GENERALE ED APPLICATA",
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "Norme igieniche e di sicurezza sul lavoro",
-        "insegnamenti": ["IGIENE E CULTURA MEDICO SANITARIA"]
+        "insegnamenti": [
+          "IGIENE E CULTURA MEDICO SANITARIA"
+        ]
       },
       {
         "nome": "I diritti della personalità e gli istituti giuridici a tutela della persona fisica",
-        "insegnamenti": ["DIRITTO E TEC. AMM."]
+        "insegnamenti": [
+          "DIRITTO E TEC. AMM."
+        ]
       },
       {
         "nome": "I piani di lavoro",
-        "insegnamenti": ["METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["IGIENE E CULTURA MEDICO SANITARIA", "PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE", "DIRITTO E TEC. AMM."]
+    "insegnamentoCoinvolti": [
+      "IGIENE E CULTURA MEDICO SANITARIA",
+      "PSICOLOGIA GENERALE ED APPLICATA",
+      "METODOLOGIE OPERATIVE",
+      "DIRITTO E TEC. AMM."
+    ]
   },
   {
     "competenzaNum": 4,
-    "competenzaTitolo": "Prendersi cura e collaborare al soddisfacimento dei bisogni di base di bambini, persone con disabilità, anziani",
+    "competenzaTitolo": "Competenza in uscita n° 4: Prendersi cura e collaborare al soddisfacimento dei bisogni di base di bambini, persone con disabilità, anziani nell’espletamento delle più comuni attività quotidiane.",
     "periodo": "Quarto Anno",
     "livelloQNQ": "3/4",
     "competenzaIntermedia": "Partecipare al soddisfacimento dei bisogni di base di persone anziane e persone in condizioni di disabilità",
@@ -452,34 +676,56 @@
     "conoscenze": [
       {
         "nome": "Evoluzione storica e sociale dei concetti di disabilità, handicap e deficit",
-        "insegnamenti": ["STORIA", "PSICOLOGIA GENERALE ED APPLICATA"]
+        "insegnamenti": [
+          "STORIA",
+          "PSICOLOGIA GENERALE ED APPLICATA"
+        ]
       },
       {
         "nome": "Tipi e cause di disabilità, sue classificazioni e misurazioni",
-        "insegnamenti": ["IGIENE E CULTURA MEDICO SANITARIA", "PSICOLOGIA GENERALE ED APPLICATA"]
+        "insegnamenti": [
+          "IGIENE E CULTURA MEDICO SANITARIA",
+          "PSICOLOGIA GENERALE ED APPLICATA"
+        ]
       },
       {
         "nome": "Il processo di invecchiamento e le sue conseguenze sull'autonomia e il benessere psico-fisico dell'anziano",
-        "insegnamenti": ["IGIENE E CULTURA MEDICO SANITARIA", "PSICOLOGIA GENERALE ED APPLICATA"]
+        "insegnamenti": [
+          "IGIENE E CULTURA MEDICO SANITARIA",
+          "PSICOLOGIA GENERALE ED APPLICATA"
+        ]
       },
       {
         "nome": "Bisogni specifici dell'anziano e della persona con disabilità",
-        "insegnamenti": ["PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "PSICOLOGIA GENERALE ED APPLICATA",
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "Il Piano Assistenziale Individualizzato e le Unità di Valutazione Multidimensionale",
-        "insegnamenti": ["METODOLOGIE OPERATIVE", "IGIENE E CULTURA MEDICO SANITARIA"]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE",
+          "IGIENE E CULTURA MEDICO SANITARIA"
+        ]
       },
       {
         "nome": "Principi di scienza dell'alimentazione e igiene alimentare",
-        "insegnamenti": ["IGIENE E CULTURA MEDICO SANITARIA"]
+        "insegnamenti": [
+          "IGIENE E CULTURA MEDICO SANITARIA"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["IGIENE E CULTURA MEDICO SANITARIA", "PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE", "STORIA"]
+    "insegnamentoCoinvolti": [
+      "IGIENE E CULTURA MEDICO SANITARIA",
+      "PSICOLOGIA GENERALE ED APPLICATA",
+      "METODOLOGIE OPERATIVE",
+      "STORIA"
+    ]
   },
   {
     "competenzaNum": 4,
-    "competenzaTitolo": "Prendersi cura e collaborare al soddisfacimento dei bisogni di base di bambini, persone con disabilità, anziani",
+    "competenzaTitolo": "Competenza in uscita n° 4: Prendersi cura e collaborare al soddisfacimento dei bisogni di base di bambini, persone con disabilità, anziani nell’espletamento delle più comuni attività quotidiane.",
     "periodo": "Quinto Anno",
     "livelloQNQ": 4,
     "competenzaIntermedia": "Prendersi cura e collaborare al soddisfacimento dei bisogni di base di bambini, persone con disabilità, anziani nell'espletamento delle più comuni attività quotidiane",
@@ -491,26 +737,42 @@
     "conoscenze": [
       {
         "nome": "Strumenti e tecniche per la rilevazione dello stato di salute e scale dei livelli di autonomia",
-        "insegnamenti": ["IGIENE E CULTURA MEDICO SANITARIA", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "IGIENE E CULTURA MEDICO SANITARIA",
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "Elementi di etica e deontologia professionale nei servizi alla persona",
-        "insegnamenti": ["PSICOLOGIA GENERALE ED APPLICATA", "DIRITTO E TEC. AMM."]
+        "insegnamenti": [
+          "PSICOLOGIA GENERALE ED APPLICATA",
+          "DIRITTO E TEC. AMM."
+        ]
       },
       {
         "nome": "Caratteristiche, fasi e tipologia delle relazioni di aiuto e di cura in rapporto ai bisogni della persona anziana, della persona con disabilità e della sua famiglia",
-        "insegnamenti": ["PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "PSICOLOGIA GENERALE ED APPLICATA",
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "Modalità di rilevazione e tipologia dei parametri vitali",
-        "insegnamenti": ["IGIENE E CULTURA MEDICO SANITARIA"]
+        "insegnamenti": [
+          "IGIENE E CULTURA MEDICO SANITARIA"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["IGIENE E CULTURA MEDICO SANITARIA", "PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE", "DIRITTO E TEC. AMM."]
+    "insegnamentoCoinvolti": [
+      "IGIENE E CULTURA MEDICO SANITARIA",
+      "PSICOLOGIA GENERALE ED APPLICATA",
+      "METODOLOGIE OPERATIVE",
+      "DIRITTO E TEC. AMM."
+    ]
   },
   {
     "competenzaNum": 5,
-    "competenzaTitolo": "Partecipare alla presa in carico socio-assistenziale di soggetti le cui condizioni determinino uno stato di non autosufficienza",
+    "competenzaTitolo": "Competenza in uscita n° 5: Partecipare alla presa in carico socio-assistenziale di soggetti le cui condizioni determinino uno stato di non autosufficienza parziale o totale, di terminalità, di compromissione delle capacità cognitive e motorie, applicando procedure e tecniche stabilite e facendo uso dei principali ausili e presidi.",
     "periodo": "Biennio",
     "livelloQNQ": 2,
     "competenzaIntermedia": "Adottare atteggiamenti coerenti al concetto di salute e cura come risultante di un approccio multidimensionale che contempli i livelli biologico, psicologico e sociale",
@@ -521,18 +783,28 @@
     "conoscenze": [
       {
         "nome": "Le condizioni di salute bio-psico-sociale e le condizioni di malattia",
-        "insegnamenti": ["IGIENE E CULTURA MEDICO SANITARIA", "PSICOLOGIA GENERALE ED APPLICATA"]
+        "insegnamenti": [
+          "IGIENE E CULTURA MEDICO SANITARIA",
+          "PSICOLOGIA GENERALE ED APPLICATA"
+        ]
       },
       {
         "nome": "I soggetti che partecipano alla presa in carico della persona malata e i loro compiti",
-        "insegnamenti": ["METODOLOGIE OPERATIVE", "IGIENE E CULTURA MEDICO SANITARIA"]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE",
+          "IGIENE E CULTURA MEDICO SANITARIA"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["IGIENE E CULTURA MEDICO SANITARIA", "PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE"]
+    "insegnamentoCoinvolti": [
+      "IGIENE E CULTURA MEDICO SANITARIA",
+      "PSICOLOGIA GENERALE ED APPLICATA",
+      "METODOLOGIE OPERATIVE"
+    ]
   },
   {
     "competenzaNum": 5,
-    "competenzaTitolo": "Partecipare alla presa in carico socio-assistenziale di soggetti le cui condizioni determinino uno stato di non autosufficienza",
+    "competenzaTitolo": "Competenza in uscita n° 5: Partecipare alla presa in carico socio-assistenziale di soggetti le cui condizioni determinino uno stato di non autosufficienza parziale o totale, di terminalità, di compromissione delle capacità cognitive e motorie, applicando procedure e tecniche stabilite e facendo uso dei principali ausili e presidi.",
     "periodo": "Terzo Anno",
     "livelloQNQ": 3,
     "competenzaIntermedia": "Programmare semplici azioni per soddisfare i bisogni socio-assistenziali e sanitari in ottica di prevenzione e promozione della salute",
@@ -547,42 +819,66 @@
     "conoscenze": [
       {
         "nome": "Fisiologia del sistema linfatico, immunitario ed endocrino",
-        "insegnamenti": ["IGIENE E CULTURA MEDICO SANITARIA"]
+        "insegnamenti": [
+          "IGIENE E CULTURA MEDICO SANITARIA"
+        ]
       },
       {
         "nome": "Principali stati psicopatologici dell'età evolutiva",
-        "insegnamenti": ["PSICOLOGIA GENERALE ED APPLICATA"]
+        "insegnamenti": [
+          "PSICOLOGIA GENERALE ED APPLICATA"
+        ]
       },
       {
         "nome": "Principi di sanità pubblica e livelli di prevenzione",
-        "insegnamenti": ["IGIENE E CULTURA MEDICO SANITARIA"]
+        "insegnamenti": [
+          "IGIENE E CULTURA MEDICO SANITARIA"
+        ]
       },
       {
         "nome": "I servizi di primo intervento e soccorso",
-        "insegnamenti": ["IGIENE E CULTURA MEDICO SANITARIA", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "IGIENE E CULTURA MEDICO SANITARIA",
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "Elementi di farmacologia e farmacoterapia",
-        "insegnamenti": ["IGIENE E CULTURA MEDICO SANITARIA"]
+        "insegnamenti": [
+          "IGIENE E CULTURA MEDICO SANITARIA"
+        ]
       },
       {
         "nome": "La legislazione nazionale e regionale socio assistenziale e sanitaria",
-        "insegnamenti": ["DIRITTO E TEC. AMM.", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "DIRITTO E TEC. AMM.",
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "Piani di lavoro, tecniche e strumenti per la rilevazione dei bisogni socio-assistenziali e sanitari",
-        "insegnamenti": ["METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "Approcci psicopedagogici al bambino malato e alla sua famiglia",
-        "insegnamenti": ["PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "PSICOLOGIA GENERALE ED APPLICATA",
+          "METODOLOGIE OPERATIVE"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["IGIENE E CULTURA MEDICO SANITARIA", "PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE", "DIRITTO E TEC. AMM."]
+    "insegnamentoCoinvolti": [
+      "IGIENE E CULTURA MEDICO SANITARIA",
+      "PSICOLOGIA GENERALE ED APPLICATA",
+      "METODOLOGIE OPERATIVE",
+      "DIRITTO E TEC. AMM."
+    ]
   },
   {
     "competenzaNum": 5,
-    "competenzaTitolo": "Partecipare alla presa in carico socio-assistenziale di soggetti le cui condizioni determinino uno stato di non autosufficienza",
+    "competenzaTitolo": "Competenza in uscita n° 5: Partecipare alla presa in carico socio-assistenziale di soggetti le cui condizioni determinino uno stato di non autosufficienza parziale o totale, di terminalità, di compromissione delle capacità cognitive e motorie, applicando procedure e tecniche stabilite e facendo uso dei principali ausili e presidi.",
     "periodo": "Quarto Anno",
     "livelloQNQ": "3/4",
     "competenzaIntermedia": "Predisporre interventi per il soddisfacimento dei bisogni di base socio-assistenziale e sanitari",
@@ -596,38 +892,61 @@
     "conoscenze": [
       {
         "nome": "La fisiopatologia delle affezioni in età geriatrica",
-        "insegnamenti": ["IGIENE E CULTURA MEDICO SANITARIA"]
+        "insegnamenti": [
+          "IGIENE E CULTURA MEDICO SANITARIA"
+        ]
       },
       {
         "nome": "Diagnosi funzionale, capacità residue, supporto all'autonomia",
-        "insegnamenti": ["IGIENE E CULTURA MEDICO SANITARIA", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "IGIENE E CULTURA MEDICO SANITARIA",
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "Rischi delle più comuni sindromi da prolungato allettamento e immobilizzazione",
-        "insegnamenti": ["IGIENE E CULTURA MEDICO SANITARIA"]
+        "insegnamenti": [
+          "IGIENE E CULTURA MEDICO SANITARIA"
+        ]
       },
       {
         "nome": "Principali ausili per la deambulazione e il trasporto, e loro utilizzo",
-        "insegnamenti": ["IGIENE E CULTURA MEDICO SANITARIA", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "IGIENE E CULTURA MEDICO SANITARIA",
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "Misure personali per la sicurezza dell'utente",
-        "insegnamenti": ["IGIENE E CULTURA MEDICO SANITARIA", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "IGIENE E CULTURA MEDICO SANITARIA",
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "Piano terapeutico e alleanza terapeutica",
-        "insegnamenti": ["IGIENE E CULTURA MEDICO SANITARIA", "PSICOLOGIA GENERALE ED APPLICATA"]
+        "insegnamenti": [
+          "IGIENE E CULTURA MEDICO SANITARIA",
+          "PSICOLOGIA GENERALE ED APPLICATA"
+        ]
       },
       {
         "nome": "Approcci psicopedagogici al malato e alla sua famiglia",
-        "insegnamenti": ["PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "PSICOLOGIA GENERALE ED APPLICATA",
+          "METODOLOGIE OPERATIVE"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["IGIENE E CULTURA MEDICO SANITARIA", "METODOLOGIE OPERATIVE", "PSICOLOGIA GENERALE ED APPLICATA"]
+    "insegnamentoCoinvolti": [
+      "IGIENE E CULTURA MEDICO SANITARIA",
+      "METODOLOGIE OPERATIVE",
+      "PSICOLOGIA GENERALE ED APPLICATA"
+    ]
   },
   {
     "competenzaNum": 5,
-    "competenzaTitolo": "Partecipare alla presa in carico socio-assistenziale di soggetti le cui condizioni determinino uno stato di non autosufficienza",
+    "competenzaTitolo": "Competenza in uscita n° 5: Partecipare alla presa in carico socio-assistenziale di soggetti le cui condizioni determinino uno stato di non autosufficienza parziale o totale, di terminalità, di compromissione delle capacità cognitive e motorie, applicando procedure e tecniche stabilite e facendo uso dei principali ausili e presidi.",
     "periodo": "Quinto Anno",
     "livelloQNQ": 4,
     "competenzaIntermedia": "Partecipare alla presa in carico socio-assistenziale di soggetti le cui condizioni determinino uno stato di non autosufficienza parziale o totale, di terminalità, di compromissione delle capacità cognitive e motorie, applicando procedure e tecniche stabilite e facendo uso dei principali ausili e presidi",
@@ -640,30 +959,46 @@
     "conoscenze": [
       {
         "nome": "Primo soccorso: modalità e pratiche d'intervento",
-        "insegnamenti": ["IGIENE E CULTURA MEDICO SANITARIA"]
+        "insegnamenti": [
+          "IGIENE E CULTURA MEDICO SANITARIA"
+        ]
       },
       {
         "nome": "Dispositivi a supporto delle funzioni vitali e della nutrizione artificiale",
-        "insegnamenti": ["IGIENE E CULTURA MEDICO SANITARIA"]
+        "insegnamenti": [
+          "IGIENE E CULTURA MEDICO SANITARIA"
+        ]
       },
       {
         "nome": "Le cure palliative",
-        "insegnamenti": ["IGIENE E CULTURA MEDICO SANITARIA", "PSICOLOGIA GENERALE ED APPLICATA"]
+        "insegnamenti": [
+          "IGIENE E CULTURA MEDICO SANITARIA",
+          "PSICOLOGIA GENERALE ED APPLICATA"
+        ]
       },
       {
         "nome": "Modalità comunicative e relazionali di accompagnamento al fine vita",
-        "insegnamenti": ["PSICOLOGIA GENERALE ED APPLICATA"]
+        "insegnamenti": [
+          "PSICOLOGIA GENERALE ED APPLICATA"
+        ]
       },
       {
         "nome": "Terminalità e fine-vita: aspetti antropologici, culturali e psico-sociali",
-        "insegnamenti": ["PSICOLOGIA GENERALE ED APPLICATA", "SCIENZE UMANE"]
+        "insegnamenti": [
+          "PSICOLOGIA GENERALE ED APPLICATA",
+          "SCIENZE UMANE"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["IGIENE E CULTURA MEDICO SANITARIA", "PSICOLOGIA GENERALE ED APPLICATA", "SCIENZE UMANE"]
+    "insegnamentoCoinvolti": [
+      "IGIENE E CULTURA MEDICO SANITARIA",
+      "PSICOLOGIA GENERALE ED APPLICATA",
+      "SCIENZE UMANE"
+    ]
   },
   {
     "competenzaNum": 6,
-    "competenzaTitolo": "Curare l'allestimento dell'ambiente di vita della persona in difficoltà con riferimento alle misure per la salvaguardia della sua sicurezza e incolumità",
+    "competenzaTitolo": "Competenza in uscita n° 6: Curare l’allestimento dell’ambiente di vita della persona in difficoltà con riferimento alle misure per la salvaguardia della sua sicurezza e incolumità, anche provvedendo alla promozione e al mantenimento delle capacità residue e della autonomia nel proprio ambiente di vita.",
     "periodo": "Biennio",
     "livelloQNQ": 2,
     "competenzaIntermedia": "Assumere condotte nel rispetto delle norme di sicurezza limitando i comportamenti a rischio",
@@ -674,22 +1009,35 @@
     "conoscenze": [
       {
         "nome": "Le norme sociali e norme giuridiche",
-        "insegnamenti": ["DIRITTO", "STORIA"]
+        "insegnamenti": [
+          "DIRITTO",
+          "STORIA"
+        ]
       },
       {
         "nome": "Rischi, pericoli e sicurezza",
-        "insegnamenti": ["SCIENZE INTEGRATE", "IGIENE E CULTURA MEDICO SANITARIA"]
+        "insegnamenti": [
+          "SCIENZE INTEGRATE",
+          "IGIENE E CULTURA MEDICO SANITARIA"
+        ]
       },
       {
         "nome": "L'ambiente e l'ecosistema",
-        "insegnamenti": ["SCIENZE INTEGRATE"]
+        "insegnamenti": [
+          "SCIENZE INTEGRATE"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["DIRITTO", "STORIA", "SCIENZE INTEGRATE", "IGIENE E CULTURA MEDICO SANITARIA"]
+    "insegnamentoCoinvolti": [
+      "DIRITTO",
+      "STORIA",
+      "SCIENZE INTEGRATE",
+      "IGIENE E CULTURA MEDICO SANITARIA"
+    ]
   },
   {
     "competenzaNum": 6,
-    "competenzaTitolo": "Curare l'allestimento dell'ambiente di vita della persona in difficoltà con riferimento alle misure per la salvaguardia della sua sicurezza e incolumità",
+    "competenzaTitolo": "Competenza in uscita n° 6: Curare l’allestimento dell’ambiente di vita della persona in difficoltà con riferimento alle misure per la salvaguardia della sua sicurezza e incolumità, anche provvedendo alla promozione e al mantenimento delle capacità residue e della autonomia nel proprio ambiente di vita.",
     "periodo": "Terzo Anno",
     "livelloQNQ": 3,
     "competenzaIntermedia": "Rilevare e segnalare situazioni di rischio e pericolo presenti nei diversi ambienti di vita e di lavoro",
@@ -699,18 +1047,28 @@
     "conoscenze": [
       {
         "nome": "Norme di sicurezza negli ambienti di vita e di lavoro e la prevenzione dei rischi e degli incidenti",
-        "insegnamenti": ["IGIENE E CULTURA MEDICO SANITARIA", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "IGIENE E CULTURA MEDICO SANITARIA",
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "Le schede di rilevazione dei rischi e pericoli",
-        "insegnamenti": ["METODOLOGIE OPERATIVE", "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE",
+          "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["IGIENE E CULTURA MEDICO SANITARIA", "METODOLOGIE OPERATIVE", "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"]
+    "insegnamentoCoinvolti": [
+      "IGIENE E CULTURA MEDICO SANITARIA",
+      "METODOLOGIE OPERATIVE",
+      "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"
+    ]
   },
   {
     "competenzaNum": 6,
-    "competenzaTitolo": "Curare l'allestimento dell'ambiente di vita della persona in difficoltà con riferimento alle misure per la salvaguardia della sua sicurezza e incolumità",
+    "competenzaTitolo": "Competenza in uscita n° 6: Curare l’allestimento dell’ambiente di vita della persona in difficoltà con riferimento alle misure per la salvaguardia della sua sicurezza e incolumità, anche provvedendo alla promozione e al mantenimento delle capacità residue e della autonomia nel proprio ambiente di vita.",
     "periodo": "Quarto Anno",
     "livelloQNQ": "3/4",
     "competenzaIntermedia": "Nell'allestimento dell'ambiente di vita assicurare condizioni di igiene e sicurezza",
@@ -723,22 +1081,34 @@
     "conoscenze": [
       {
         "nome": "Norme di igiene e di sanità pubblica",
-        "insegnamenti": ["IGIENE E CULTURA MEDICO SANITARIA"]
+        "insegnamenti": [
+          "IGIENE E CULTURA MEDICO SANITARIA"
+        ]
       },
       {
         "nome": "Caratteristiche dei detergenti, dei disinfettanti e degli antisettici e modalità del loro utilizzo",
-        "insegnamenti": ["IGIENE E CULTURA MEDICO SANITARIA", "SCIENZE INTEGRATE"]
+        "insegnamenti": [
+          "IGIENE E CULTURA MEDICO SANITARIA",
+          "SCIENZE INTEGRATE"
+        ]
       },
       {
         "nome": "Igiene e pulizia del vestiario, della biancheria, degli ambienti e della casa",
-        "insegnamenti": ["IGIENE E CULTURA MEDICO SANITARIA", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "IGIENE E CULTURA MEDICO SANITARIA",
+          "METODOLOGIE OPERATIVE"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["IGIENE E CULTURA MEDICO SANITARIA", "SCIENZE INTEGRATE", "METODOLOGIE OPERATIVE"]
+    "insegnamentoCoinvolti": [
+      "IGIENE E CULTURA MEDICO SANITARIA",
+      "SCIENZE INTEGRATE",
+      "METODOLOGIE OPERATIVE"
+    ]
   },
   {
     "competenzaNum": 6,
-    "competenzaTitolo": "Curare l'allestimento dell'ambiente di vita della persona in difficoltà con riferimento alle misure per la salvaguardia della sua sicurezza e incolumità",
+    "competenzaTitolo": "Competenza in uscita n° 6: Curare l’allestimento dell’ambiente di vita della persona in difficoltà con riferimento alle misure per la salvaguardia della sua sicurezza e incolumità, anche provvedendo alla promozione e al mantenimento delle capacità residue e della autonomia nel proprio ambiente di vita.",
     "periodo": "Quinto Anno",
     "livelloQNQ": 4,
     "competenzaIntermedia": "Curare l'allestimento dell'ambiente di vita della persona in difficoltà con riferimento alle misure per la salvaguardia della sua sicurezza e incolumità, anche provvedendo alla promozione e al mantenimento delle capacità residue e della autonomia nel proprio ambiente di vita",
@@ -749,22 +1119,33 @@
     "conoscenze": [
       {
         "nome": "Ausili e strumenti per il mantenimento delle capacità residue e l'autonomia delle persone negli ambienti di vita",
-        "insegnamenti": ["METODOLOGIE OPERATIVE", "IGIENE E CULTURA MEDICO SANITARIA"]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE",
+          "IGIENE E CULTURA MEDICO SANITARIA"
+        ]
       },
       {
         "nome": "Il concetto di domotica",
-        "insegnamenti": ["TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"]
+        "insegnamenti": [
+          "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"
+        ]
       },
       {
         "nome": "Criteri e uso degli spazi e degli arredi in condizioni di comfort e di sicurezza negli ambienti di vita",
-        "insegnamenti": ["METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["METODOLOGIE OPERATIVE", "IGIENE E CULTURA MEDICO SANITARIA", "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"]
+    "insegnamentoCoinvolti": [
+      "METODOLOGIE OPERATIVE",
+      "IGIENE E CULTURA MEDICO SANITARIA",
+      "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"
+    ]
   },
   {
     "competenzaNum": 7,
-    "competenzaTitolo": "Gestire azioni di informazione e di orientamento dell'utente per facilitare l'accessibilità e la fruizione autonoma dei servizi pubblici e privati presenti sul territorio",
+    "competenzaTitolo": "Competenza in uscita n°7: Gestire azioni di informazione e di orientamento dell’utente per facilitare l’accessibilità e la fruizione autonoma dei servizi pubblici e privati presenti sul territorio.",
     "periodo": "Biennio",
     "livelloQNQ": 2,
     "competenzaIntermedia": "Predisporre e presentare semplici testi e materiali divulgativi inerenti i servizi presenti sul territorio",
@@ -775,22 +1156,34 @@
     "conoscenze": [
       {
         "nome": "Il segretariato sociale: compiti e funzioni",
-        "insegnamenti": ["METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "Tipologie di testi e materiali divulgativi e informativi",
-        "insegnamenti": ["ITALIANO", "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"]
+        "insegnamenti": [
+          "ITALIANO",
+          "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"
+        ]
       },
       {
         "nome": "Modalità di presentazione e diffusione delle informazioni",
-        "insegnamenti": ["ITALIANO", "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"]
+        "insegnamenti": [
+          "ITALIANO",
+          "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["METODOLOGIE OPERATIVE", "ITALIANO", "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"]
+    "insegnamentoCoinvolti": [
+      "METODOLOGIE OPERATIVE",
+      "ITALIANO",
+      "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"
+    ]
   },
   {
     "competenzaNum": 7,
-    "competenzaTitolo": "Gestire azioni di informazione e di orientamento dell'utente per facilitare l'accessibilità e la fruizione autonoma dei servizi pubblici e privati presenti sul territorio",
+    "competenzaTitolo": "Competenza in uscita n°7: Gestire azioni di informazione e di orientamento dell’utente per facilitare l’accessibilità e la fruizione autonoma dei servizi pubblici e privati presenti sul territorio.",
     "periodo": "Terzo Anno",
     "livelloQNQ": 3,
     "competenzaIntermedia": "Rilevare i servizi sul territorio, distinguendo le diverse modalità di accesso e di erogazione delle prestazioni",
@@ -801,30 +1194,49 @@
     "conoscenze": [
       {
         "nome": "Le reti formali ed informali per l'accesso ai servizi",
-        "insegnamenti": ["METODOLOGIE OPERATIVE", "SCIENZE UMANE"]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE",
+          "SCIENZE UMANE"
+        ]
       },
       {
         "nome": "Enti e agenzie di fornitura di servizi sociali e/o sanitari",
-        "insegnamenti": ["METODOLOGIE OPERATIVE", "DIRITTO E TEC. AMM."]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE",
+          "DIRITTO E TEC. AMM."
+        ]
       },
       {
         "nome": "L'organizzazione del Servizio Sanitario Nazionale e dei Servizi Sociali",
-        "insegnamenti": ["DIRITTO E TEC. AMM.", "IGIENE E CULTURA MEDICO SANITARIA"]
+        "insegnamenti": [
+          "DIRITTO E TEC. AMM.",
+          "IGIENE E CULTURA MEDICO SANITARIA"
+        ]
       },
       {
         "nome": "I livelli essenziali delle prestazioni",
-        "insegnamenti": ["DIRITTO E TEC. AMM."]
+        "insegnamenti": [
+          "DIRITTO E TEC. AMM."
+        ]
       },
       {
         "nome": "Modalità di accesso ai servizi pubblici, privati e privati convenzionati e procedure per l'accesso",
-        "insegnamenti": ["DIRITTO E TEC. AMM.", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "DIRITTO E TEC. AMM.",
+          "METODOLOGIE OPERATIVE"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["METODOLOGIE OPERATIVE", "SCIENZE UMANE", "DIRITTO E TEC. AMM.", "IGIENE E CULTURA MEDICO SANITARIA"]
+    "insegnamentoCoinvolti": [
+      "METODOLOGIE OPERATIVE",
+      "SCIENZE UMANE",
+      "DIRITTO E TEC. AMM.",
+      "IGIENE E CULTURA MEDICO SANITARIA"
+    ]
   },
   {
     "competenzaNum": 7,
-    "competenzaTitolo": "Gestire azioni di informazione e di orientamento dell'utente per facilitare l'accessibilità e la fruizione autonoma dei servizi pubblici e privati presenti sul territorio",
+    "competenzaTitolo": "Competenza in uscita n°7: Gestire azioni di informazione e di orientamento dell’utente per facilitare l’accessibilità e la fruizione autonoma dei servizi pubblici e privati presenti sul territorio.",
     "periodo": "Quarto Anno",
     "livelloQNQ": "3/4",
     "competenzaIntermedia": "Orientare l'utenza alla fruizione dei servizi in relazione ai bisogni e alle prestazioni",
@@ -836,22 +1248,36 @@
     "conoscenze": [
       {
         "nome": "Tecniche dell'intervista e del colloquio",
-        "insegnamenti": ["PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "PSICOLOGIA GENERALE ED APPLICATA",
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "La gestione delle informazioni nella comunicazione esterna e interna ai servizi",
-        "insegnamenti": ["TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE",
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "La distribuzione sul territorio e della fruizione dei servizi: rilevazioni statistiche",
-        "insegnamenti": ["MATEMATICA", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "MATEMATICA",
+          "METODOLOGIE OPERATIVE"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE", "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE", "MATEMATICA"]
+    "insegnamentoCoinvolti": [
+      "PSICOLOGIA GENERALE ED APPLICATA",
+      "METODOLOGIE OPERATIVE",
+      "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE",
+      "MATEMATICA"
+    ]
   },
   {
     "competenzaNum": 7,
-    "competenzaTitolo": "Gestire azioni di informazione e di orientamento dell'utente per facilitare l'accessibilità e la fruizione autonoma dei servizi pubblici e privati presenti sul territorio",
+    "competenzaTitolo": "Competenza in uscita n°7: Gestire azioni di informazione e di orientamento dell’utente per facilitare l’accessibilità e la fruizione autonoma dei servizi pubblici e privati presenti sul territorio.",
     "periodo": "Quinto Anno",
     "livelloQNQ": 4,
     "competenzaIntermedia": "Gestire azioni di informazione e di orientamento dell'utente per facilitare l'accessibilità e la fruizione autonoma dei servizi pubblici e privati presenti sul territorio",
@@ -864,22 +1290,34 @@
     "conoscenze": [
       {
         "nome": "Principi universalistici nella erogazione dei servizi e principi di uguaglianza nell'accesso",
-        "insegnamenti": ["DIRITTO E TEC. AMM.", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "DIRITTO E TEC. AMM.",
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "I diritti e doveri delle persone nell'accesso ai servizi sociali e sanitari",
-        "insegnamenti": ["DIRITTO E TEC. AMM."]
+        "insegnamenti": [
+          "DIRITTO E TEC. AMM."
+        ]
       },
       {
         "nome": "Norme sulla privacy e sul trattamento dei dati",
-        "insegnamenti": ["DIRITTO E TEC. AMM.", "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"]
+        "insegnamenti": [
+          "DIRITTO E TEC. AMM.",
+          "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["DIRITTO E TEC. AMM.", "METODOLOGIE OPERATIVE", "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"]
+    "insegnamentoCoinvolti": [
+      "DIRITTO E TEC. AMM.",
+      "METODOLOGIE OPERATIVE",
+      "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"
+    ]
   },
   {
     "competenzaNum": 8,
-    "competenzaTitolo": "Realizzare in autonomia o in collaborazione con altre figure professionali attività educative, di animazione sociale, ludiche e culturali adeguate ai diversi contesti e ai diversi bisogni",
+    "competenzaTitolo": "Competenza in uscita n° 8: Realizzare in autonomia o in collaborazione con altre figure professionali, attività educative, di animazione sociale, ludiche e culturali adeguate ai diversi contesti e ai diversi bisogni.",
     "periodo": "Biennio",
     "livelloQNQ": 2,
     "competenzaIntermedia": "Realizzare semplici attività di animazione ludica e sociale in contesti noti",
@@ -891,18 +1329,27 @@
     "conoscenze": [
       {
         "nome": "Obiettivi e tecniche dell'animazione ludica e sociale anche con strumenti multimediali",
-        "insegnamenti": ["METODOLOGIE OPERATIVE", "SCIENZE MOTORIE"]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE",
+          "SCIENZE MOTORIE"
+        ]
       },
       {
         "nome": "Tecniche ludico-motorie: attività fisiche e sportive come strumento educativo, di animazione e di socializzazione",
-        "insegnamenti": ["SCIENZE MOTORIE", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "SCIENZE MOTORIE",
+          "METODOLOGIE OPERATIVE"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["METODOLOGIE OPERATIVE", "SCIENZE MOTORIE"]
+    "insegnamentoCoinvolti": [
+      "METODOLOGIE OPERATIVE",
+      "SCIENZE MOTORIE"
+    ]
   },
   {
     "competenzaNum": 8,
-    "competenzaTitolo": "Realizzare in autonomia o in collaborazione con altre figure professionali attività educative, di animazione sociale, ludiche e culturali adeguate ai diversi contesti e ai diversi bisogni",
+    "competenzaTitolo": "Competenza in uscita n° 8: Realizzare in autonomia o in collaborazione con altre figure professionali, attività educative, di animazione sociale, ludiche e culturali adeguate ai diversi contesti e ai diversi bisogni.",
     "periodo": "Terzo Anno",
     "livelloQNQ": 3,
     "competenzaIntermedia": "Programmare e realizzare semplici attività di animazione socio-educative rivolte a minori",
@@ -913,26 +1360,43 @@
     "conoscenze": [
       {
         "nome": "Strumenti per la progettazione delle attività di animazione socio-educativa",
-        "insegnamenti": ["METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "Caratteristiche e finalità psicopedagogiche delle attività di animazione",
-        "insegnamenti": ["PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "PSICOLOGIA GENERALE ED APPLICATA",
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "Multiculturalismo e approcci educativi",
-        "insegnamenti": ["SCIENZE UMANE", "INGLESE", "SPAGNOLO"]
+        "insegnamenti": [
+          "SCIENZE UMANE",
+          "INGLESE",
+          "SPAGNOLO"
+        ]
       },
       {
         "nome": "La psicopedagogia nell'infanzia e nell'adolescenza",
-        "insegnamenti": ["PSICOLOGIA GENERALE ED APPLICATA"]
+        "insegnamenti": [
+          "PSICOLOGIA GENERALE ED APPLICATA"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["METODOLOGIE OPERATIVE", "PSICOLOGIA GENERALE ED APPLICATA", "SCIENZE UMANE", "INGLESE", "SPAGNOLO"]
+    "insegnamentoCoinvolti": [
+      "METODOLOGIE OPERATIVE",
+      "PSICOLOGIA GENERALE ED APPLICATA",
+      "SCIENZE UMANE",
+      "INGLESE",
+      "SPAGNOLO"
+    ]
   },
   {
     "competenzaNum": 8,
-    "competenzaTitolo": "Realizzare in autonomia o in collaborazione con altre figure professionali attività educative, di animazione sociale, ludiche e culturali adeguate ai diversi contesti e ai diversi bisogni",
+    "competenzaTitolo": "Competenza in uscita n° 8: Realizzare in autonomia o in collaborazione con altre figure professionali, attività educative, di animazione sociale, ludiche e culturali adeguate ai diversi contesti e ai diversi bisogni.",
     "periodo": "Quarto Anno",
     "livelloQNQ": "3/4",
     "competenzaIntermedia": "Programmare e realizzare attività per l'animazione di adulti, anziani o persone con disabilità aventi carattere formativo o di animazione sociale in contesti reali di servizi",
@@ -943,22 +1407,33 @@
     "conoscenze": [
       {
         "nome": "Strumenti di analisi dei bisogni educativi, sociali e culturali",
-        "insegnamenti": ["PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "PSICOLOGIA GENERALE ED APPLICATA",
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "Attività e tecniche di animazione sociale rivolte ad adulti, a persone con disabilità e agli anziani",
-        "insegnamenti": ["METODOLOGIE OPERATIVE", "PSICOLOGIA GENERALE ED APPLICATA"]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE",
+          "PSICOLOGIA GENERALE ED APPLICATA"
+        ]
       },
       {
         "nome": "La psicopedagogia dell'età adulta e degli anziani; la pedagogia speciale",
-        "insegnamenti": ["PSICOLOGIA GENERALE ED APPLICATA"]
+        "insegnamenti": [
+          "PSICOLOGIA GENERALE ED APPLICATA"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE"]
+    "insegnamentoCoinvolti": [
+      "PSICOLOGIA GENERALE ED APPLICATA",
+      "METODOLOGIE OPERATIVE"
+    ]
   },
   {
     "competenzaNum": 8,
-    "competenzaTitolo": "Realizzare in autonomia o in collaborazione con altre figure professionali attività educative, di animazione sociale, ludiche e culturali adeguate ai diversi contesti e ai diversi bisogni",
+    "competenzaTitolo": "Competenza in uscita n° 8: Realizzare in autonomia o in collaborazione con altre figure professionali, attività educative, di animazione sociale, ludiche e culturali adeguate ai diversi contesti e ai diversi bisogni.",
     "periodo": "Quinto Anno",
     "livelloQNQ": 4,
     "competenzaIntermedia": "Realizzare in autonomia o in collaborazione con altre figure professionali, attività educative, di animazione sociale, ludiche e culturali adeguate ai diversi contesti e ai diversi bisogni",
@@ -970,22 +1445,36 @@
     "conoscenze": [
       {
         "nome": "La gestione delle risorse per la realizzazione dei progetti sociali di animazione",
-        "insegnamenti": ["METODOLOGIE OPERATIVE", "DIRITTO E TEC. AMM."]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE",
+          "DIRITTO E TEC. AMM."
+        ]
       },
       {
         "nome": "Il fundraising e crowdfunding: principi e tecniche",
-        "insegnamenti": ["DIRITTO E TEC. AMM.", "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"]
+        "insegnamenti": [
+          "DIRITTO E TEC. AMM.",
+          "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"
+        ]
       },
       {
         "nome": "Strumenti di valutazione in itinere e finale di un progetto",
-        "insegnamenti": ["METODOLOGIE OPERATIVE", "MATEMATICA"]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE",
+          "MATEMATICA"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["METODOLOGIE OPERATIVE", "DIRITTO E TEC. AMM.", "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE", "MATEMATICA"]
+    "insegnamentoCoinvolti": [
+      "METODOLOGIE OPERATIVE",
+      "DIRITTO E TEC. AMM.",
+      "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE",
+      "MATEMATICA"
+    ]
   },
   {
     "competenzaNum": 9,
-    "competenzaTitolo": "Realizzare, in collaborazione con altre figure professionali, azioni a sostegno e a tutela della persona con fragilità e/o disabilità e della sua famiglia, per favorire l'integrazione e migliorare o salvaguardare la qualità della vita",
+    "competenzaTitolo": "Competenza in uscita n° 9: Realizzare, in collaborazione con altre figure professionali, azioni a sostegno e a tutela della persona con fragilità e/o disabilità e della sua famiglia, per favorire l’integrazione e migliorare o salvaguardare la qualità della vita.",
     "periodo": "Terzo Anno",
     "livelloQNQ": 3,
     "competenzaIntermedia": "Collaborare all'attuazione di programmi di prevenzione primaria nei propri ambiti di vita",
@@ -997,22 +1486,36 @@
     "conoscenze": [
       {
         "nome": "La salute come benessere bio-psico-sociale e le sue caratteristiche multifattoriali e multidimensionali",
-        "insegnamenti": ["IGIENE E CULTURA MEDICO SANITARIA", "PSICOLOGIA GENERALE ED APPLICATA"]
+        "insegnamenti": [
+          "IGIENE E CULTURA MEDICO SANITARIA",
+          "PSICOLOGIA GENERALE ED APPLICATA"
+        ]
       },
       {
         "nome": "Problemi e interventi relativi all'integrazione sociale, scolastica e lavorativa, e normativa di riferimento",
-        "insegnamenti": ["METODOLOGIE OPERATIVE", "SCIENZE UMANE"]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE",
+          "SCIENZE UMANE"
+        ]
       },
       {
         "nome": "Tipi, finalità e metodi della prevenzione sociale",
-        "insegnamenti": ["IGIENE E CULTURA MEDICO SANITARIA", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "IGIENE E CULTURA MEDICO SANITARIA",
+          "METODOLOGIE OPERATIVE"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["IGIENE E CULTURA MEDICO SANITARIA", "PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE", "SCIENZE UMANE"]
+    "insegnamentoCoinvolti": [
+      "IGIENE E CULTURA MEDICO SANITARIA",
+      "PSICOLOGIA GENERALE ED APPLICATA",
+      "METODOLOGIE OPERATIVE",
+      "SCIENZE UMANE"
+    ]
   },
   {
     "competenzaNum": 9,
-    "competenzaTitolo": "Realizzare, in collaborazione con altre figure professionali, azioni a sostegno e a tutela della persona con fragilità e/o disabilità e della sua famiglia, per favorire l'integrazione e migliorare o salvaguardare la qualità della vita",
+    "competenzaTitolo": "Competenza in uscita n° 9: Realizzare, in collaborazione con altre figure professionali, azioni a sostegno e a tutela della persona con fragilità e/o disabilità e della sua famiglia, per favorire l’integrazione e migliorare o salvaguardare la qualità della vita.",
     "periodo": "Quarto Anno",
     "livelloQNQ": "3/4",
     "competenzaIntermedia": "Collaborare nella elaborazione e attuazione di progetti di integrazione sociale e di prevenzione primaria, secondaria e terziaria rivolti a singoli o a gruppi",
@@ -1025,26 +1528,40 @@
     "conoscenze": [
       {
         "nome": "Le grandi malattie di risonanza sociale, epidemiologia e profilassi delle malattie infettive",
-        "insegnamenti": ["IGIENE E CULTURA MEDICO SANITARIA"]
+        "insegnamenti": [
+          "IGIENE E CULTURA MEDICO SANITARIA"
+        ]
       },
       {
         "nome": "Le problematiche psico-sociali connesse alle diverse categorie di utenza dei servizi",
-        "insegnamenti": ["PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "PSICOLOGIA GENERALE ED APPLICATA",
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "Tecniche d'intervento rivolte a soggetti multiproblematici e svantaggiati",
-        "insegnamenti": ["METODOLOGIE OPERATIVE", "PSICOLOGIA GENERALE ED APPLICATA"]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE",
+          "PSICOLOGIA GENERALE ED APPLICATA"
+        ]
       },
       {
         "nome": "Metodologia per l'analisi dei casi",
-        "insegnamenti": ["METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["IGIENE E CULTURA MEDICO SANITARIA", "PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE"]
+    "insegnamentoCoinvolti": [
+      "IGIENE E CULTURA MEDICO SANITARIA",
+      "PSICOLOGIA GENERALE ED APPLICATA",
+      "METODOLOGIE OPERATIVE"
+    ]
   },
   {
     "competenzaNum": 9,
-    "competenzaTitolo": "Realizzare, in collaborazione con altre figure professionali, azioni a sostegno e a tutela della persona con fragilità e/o disabilità e della sua famiglia, per favorire l'integrazione e migliorare o salvaguardare la qualità della vita",
+    "competenzaTitolo": "Competenza in uscita n° 9: Realizzare, in collaborazione con altre figure professionali, azioni a sostegno e a tutela della persona con fragilità e/o disabilità e della sua famiglia, per favorire l’integrazione e migliorare o salvaguardare la qualità della vita.",
     "periodo": "Quinto Anno",
     "livelloQNQ": 4,
     "competenzaIntermedia": "Realizzare, in collaborazione con altre figure professionali, azioni a sostegno e a tutela della persona con fragilità e/o disabilità e della sua famiglia, per favorire l'integrazione e migliorare o salvaguardare la qualità della vita",
@@ -1055,14 +1572,20 @@
     "conoscenze": [
       {
         "nome": "Orientamenti psicologici e psicoterapeutici e modalità d'intervento socio-assistenziale nei confronti di nuclei familiari, minori, anziani, persone con disabilità, con disagio psichico, immigrati e particolari categorie svantaggiate",
-        "insegnamenti": ["PSICOLOGIA GENERALE ED APPLICATA"]
+        "insegnamenti": [
+          "PSICOLOGIA GENERALE ED APPLICATA"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE", "SCIENZE UMANE"]
+    "insegnamentoCoinvolti": [
+      "PSICOLOGIA GENERALE ED APPLICATA",
+      "METODOLOGIE OPERATIVE",
+      "SCIENZE UMANE"
+    ]
   },
   {
     "competenzaNum": 10,
-    "competenzaTitolo": "Raccogliere, conservare, elaborare e trasmettere dati relativi alle attività professionali svolte ai fini del monitoraggio e della valutazione degli interventi e dei servizi utilizzando adeguati strumenti informativi in condizioni di sicurezza e affidabilità delle fonti utilizzate",
+    "competenzaTitolo": "Competenza in uscita n° 10: Raccogliere, conservare, elaborare e trasmettere dati relativi alle attività professionali svolte ai fini del monitoraggio e della valutazione degli interventi e dei servizi utilizzando adeguati strumenti informativi in condizioni di sicurezza e affidabilità delle fonti utilizzate.",
     "periodo": "Biennio",
     "livelloQNQ": 2,
     "competenzaIntermedia": "Utilizzare i più diffusi applicativi web based e offline per raccogliere, e organizzare dati qualitativi e quantitativi di una realtà sociale o relativi ad un servizio",
@@ -1076,46 +1599,71 @@
     "conoscenze": [
       {
         "nome": "Caratteristiche delle diverse tipologie di hardware",
-        "insegnamenti": ["TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"]
+        "insegnamenti": [
+          "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"
+        ]
       },
       {
         "nome": "Principali software per gestione dei dati e dei flussi informativi",
-        "insegnamenti": ["TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE", "MATEMATICA"]
+        "insegnamenti": [
+          "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE",
+          "MATEMATICA"
+        ]
       },
       {
         "nome": "Le reti di comunicazione e le condizioni di sicurezza nella trasmissione dei dati",
-        "insegnamenti": ["TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"]
+        "insegnamenti": [
+          "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"
+        ]
       },
       {
         "nome": "Tecniche di rilevazioni dati",
-        "insegnamenti": ["MATEMATICA", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "MATEMATICA",
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "Tecniche e modalità di raccolta e archiviazione dati",
-        "insegnamenti": ["TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE",
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "Siti web e social network",
-        "insegnamenti": ["TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"]
+        "insegnamenti": [
+          "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"
+        ]
       },
       {
         "nome": "Servizi internet: navigazione, ricerca informazioni sui principali motori di ricerca, posta elettronica",
-        "insegnamenti": ["TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"]
+        "insegnamenti": [
+          "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"
+        ]
       },
       {
         "nome": "Strumenti di analisi delle caratteristiche e dei contenuti di siti web e dei social network",
-        "insegnamenti": ["TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"]
+        "insegnamenti": [
+          "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"
+        ]
       },
       {
         "nome": "Elementi di statistica descrittiva",
-        "insegnamenti": ["MATEMATICA"]
+        "insegnamenti": [
+          "MATEMATICA"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE", "MATEMATICA", "METODOLOGIE OPERATIVE"]
+    "insegnamentoCoinvolti": [
+      "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE",
+      "MATEMATICA",
+      "METODOLOGIE OPERATIVE"
+    ]
   },
   {
     "competenzaNum": 10,
-    "competenzaTitolo": "Raccogliere, conservare, elaborare e trasmettere dati relativi alle attività professionali svolte ai fini del monitoraggio e della valutazione degli interventi e dei servizi utilizzando adeguati strumenti informativi in condizioni di sicurezza e affidabilità delle fonti utilizzate",
+    "competenzaTitolo": "Competenza in uscita n° 10: Raccogliere, conservare, elaborare e trasmettere dati relativi alle attività professionali svolte ai fini del monitoraggio e della valutazione degli interventi e dei servizi utilizzando adeguati strumenti informativi in condizioni di sicurezza e affidabilità delle fonti utilizzate.",
     "periodo": "Terzo Anno",
     "livelloQNQ": 3,
     "competenzaIntermedia": "Attuare tecniche di raccolta ed elaborazione di dati relativi a realtà sociali, socio-sanitarie e attinenti la gestione dei servizi, utilizzando sistemi di protezione e trasmissione dati",
@@ -1126,18 +1674,28 @@
     "conoscenze": [
       {
         "nome": "Metodi e strumenti di osservazione e documentazione utilizzati nei servizi sociali",
-        "insegnamenti": ["METODOLOGIE OPERATIVE", "MATEMATICA"]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE",
+          "MATEMATICA"
+        ]
       },
       {
         "nome": "Tecniche di base per la rielaborazione quantitativa e qualitativa dei dati",
-        "insegnamenti": ["MATEMATICA", "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"]
+        "insegnamenti": [
+          "MATEMATICA",
+          "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["METODOLOGIE OPERATIVE", "MATEMATICA", "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"]
+    "insegnamentoCoinvolti": [
+      "METODOLOGIE OPERATIVE",
+      "MATEMATICA",
+      "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE"
+    ]
   },
   {
     "competenzaNum": 10,
-    "competenzaTitolo": "Raccogliere, conservare, elaborare e trasmettere dati relativi alle attività professionali svolte ai fini del monitoraggio e della valutazione degli interventi e dei servizi utilizzando adeguati strumenti informativi in condizioni di sicurezza e affidabilità delle fonti utilizzate",
+    "competenzaTitolo": "Competenza in uscita n° 10: Raccogliere, conservare, elaborare e trasmettere dati relativi alle attività professionali svolte ai fini del monitoraggio e della valutazione degli interventi e dei servizi utilizzando adeguati strumenti informativi in condizioni di sicurezza e affidabilità delle fonti utilizzate.",
     "periodo": "Quarto Anno",
     "livelloQNQ": "3/4",
     "competenzaIntermedia": "Partecipare al processo di ricerca ed elaborazione dei dati individuando quelli significativi per la realizzazione dei lavori assegnati riguardanti l'ambito sociale, socio-sanitario, sanitario e amministrativo, effettuando inferenze previsionali a partire dai dati raccolti",
@@ -1149,26 +1707,43 @@
     "conoscenze": [
       {
         "nome": "Metodi e strumenti di osservazione e documentazione utilizzati nei servizi sanitari",
-        "insegnamenti": ["IGIENE E CULTURA MEDICO SANITARIA", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "IGIENE E CULTURA MEDICO SANITARIA",
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "Uso del web nei servizi, telemedicina, prospettive future e cambiamenti in atto nella relazione tra utente e web",
-        "insegnamenti": ["TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE", "IGIENE E CULTURA MEDICO SANITARIA"]
+        "insegnamenti": [
+          "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE",
+          "IGIENE E CULTURA MEDICO SANITARIA"
+        ]
       },
       {
         "nome": "Modalità di presentazione dei dati e tecniche di redazione di relazioni professionali in forma verbale, scritta e multimediale",
-        "insegnamenti": ["TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE", "ITALIANO"]
+        "insegnamenti": [
+          "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE",
+          "ITALIANO"
+        ]
       },
       {
         "nome": "Tecniche di base per l'inferenza statistica previsionale",
-        "insegnamenti": ["MATEMATICA"]
+        "insegnamenti": [
+          "MATEMATICA"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["IGIENE E CULTURA MEDICO SANITARIA", "METODOLOGIE OPERATIVE", "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE", "ITALIANO", "MATEMATICA"]
+    "insegnamentoCoinvolti": [
+      "IGIENE E CULTURA MEDICO SANITARIA",
+      "METODOLOGIE OPERATIVE",
+      "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE",
+      "ITALIANO",
+      "MATEMATICA"
+    ]
   },
   {
     "competenzaNum": 10,
-    "competenzaTitolo": "Raccogliere, conservare, elaborare e trasmettere dati relativi alle attività professionali svolte ai fini del monitoraggio e della valutazione degli interventi e dei servizi utilizzando adeguati strumenti informativi in condizioni di sicurezza e affidabilità delle fonti utilizzate",
+    "competenzaTitolo": "Competenza in uscita n° 10: Raccogliere, conservare, elaborare e trasmettere dati relativi alle attività professionali svolte ai fini del monitoraggio e della valutazione degli interventi e dei servizi utilizzando adeguati strumenti informativi in condizioni di sicurezza e affidabilità delle fonti utilizzate.",
     "periodo": "Quinto Anno",
     "livelloQNQ": 4,
     "competenzaIntermedia": "Raccogliere, conservare, elaborare e trasmettere dati relativi alle attività professionali svolte ai fini del monitoraggio e della valutazione degli interventi e dei servizi utilizzando adeguati strumenti informativi in condizioni di sicurezza e affidabilità delle fonti utilizzate",
@@ -1179,21 +1754,36 @@
     "conoscenze": [
       {
         "nome": "Elementi di statistica in contesti operativi (analisi di correlazione e regressione dati)",
-        "insegnamenti": ["MATEMATICA"]
+        "insegnamenti": [
+          "MATEMATICA"
+        ]
       },
       {
         "nome": "Modalità, tecniche e strumenti di monitoraggio di progetti e interventi",
-        "insegnamenti": ["METODOLOGIE OPERATIVE", "MATEMATICA"]
+        "insegnamenti": [
+          "METODOLOGIE OPERATIVE",
+          "MATEMATICA"
+        ]
       },
       {
         "nome": "Normative regionali e accreditamento dei servizi e delle strutture",
-        "insegnamenti": ["DIRITTO E TEC. AMM.", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "DIRITTO E TEC. AMM.",
+          "METODOLOGIE OPERATIVE"
+        ]
       },
       {
         "nome": "I sistemi di qualità: regole di gestione e procedure",
-        "insegnamenti": ["DIRITTO E TEC. AMM.", "METODOLOGIE OPERATIVE"]
+        "insegnamenti": [
+          "DIRITTO E TEC. AMM.",
+          "METODOLOGIE OPERATIVE"
+        ]
       }
     ],
-    "insegnamentoCoinvolti": ["MATEMATICA", "METODOLOGIE OPERATIVE", "DIRITTO E TEC. AMM."]
+    "insegnamentoCoinvolti": [
+      "MATEMATICA",
+      "METODOLOGIE OPERATIVE",
+      "DIRITTO E TEC. AMM."
+    ]
   }
 ]
