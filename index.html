@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabella Pivot - Servizi per la Sanità e l'Assistenza Sociale</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Tabella Pivot - Servizi per la Sanità e l'Assistenza Sociale</h1>
+            <p class="subtitle">Analisi completa con mapping degli insegnamenti: 10 competenze, 14 materie, 37 traguardi</p>
+        </header>
+
+        <!-- Statistiche generali -->
+        <div class="stats-grid">
+            <div class="stat-card blue">
+                <div class="stat-header">
+                    <span class="stat-icon">📚</span>
+                    <span class="stat-label">Competenze</span>
+                </div>
+                <div class="stat-value">10</div>
+                <div class="stat-subtitle">37 traguardi totali</div>
+            </div>
+            
+            <div class="stat-card green">
+                <div class="stat-header">
+                    <span class="stat-icon">👥</span>
+                    <span class="stat-label">Insegnamenti</span>
+                </div>
+                <div class="stat-value">14</div>
+                <div class="stat-subtitle">Materie curricolari</div>
+            </div>
+
+            <div class="stat-card purple">
+                <div class="stat-header">
+                    <span class="stat-icon">📊</span>
+                    <span class="stat-label">Correlazioni</span>
+                </div>
+                <div class="stat-value">153+</div>
+                <div class="stat-subtitle">Mapping didattici</div>
+            </div>
+
+            <div class="stat-card orange">
+                <div class="stat-header">
+                    <span class="stat-icon">📅</span>
+                    <span class="stat-label">Visualizzati</span>
+                </div>
+                <div class="stat-value" id="filtered-count">37</div>
+                <div class="stat-subtitle">Elementi filtrati</div>
+            </div>
+        </div>
+
+        <!-- Controlli filtro -->
+        <div class="filter-panel">
+            <div class="filter-header">
+                <span class="filter-icon">🔍</span>
+                <h2>Filtri e Raggruppamento</h2>
+            </div>
+            
+            <div class="filter-grid">
+                <div class="filter-item">
+                    <label for="competenza-filter">Competenza</label>
+                    <select id="competenza-filter">
+                        <option value="">Tutte le competenze</option>
+                    </select>
+                </div>
+
+                <div class="filter-item">
+                    <label for="periodo-filter">Periodo</label>
+                    <select id="periodo-filter">
+                        <option value="">Tutti i periodi</option>
+                    </select>
+                </div>
+
+                <div class="filter-item">
+                    <label for="livello-filter">Livello QNQ</label>
+                    <select id="livello-filter">
+                        <option value="">Tutti i livelli</option>
+                    </select>
+                </div>
+
+                <div class="filter-item">
+                    <label for="insegnamento-filter">Insegnamento</label>
+                    <select id="insegnamento-filter">
+                        <option value="">Tutti gli insegnamenti</option>
+                    </select>
+                </div>
+
+                <div class="filter-item">
+                    <label for="group-by">Raggruppa per</label>
+                    <select id="group-by">
+                        <option value="competenzaNum">Competenza</option>
+                        <option value="periodo">Periodo</option>
+                        <option value="livelloQNQ">Livello QNQ</option>
+                        <option value="insegnamento">Insegnamento</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="search-row">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Cerca nei contenuti...">
+                    <span class="search-icon">🔍</span>
+                </div>
+                <button id="reset-filters" class="reset-btn">Reset Filtri</button>
+            </div>
+        </div>
+
+        <!-- Statistiche insegnamenti -->
+        <div class="stats-table-container">
+            <div class="stats-table-header">
+                <h3>Statistiche Complete per Insegnamento</h3>
+            </div>
+            <div class="stats-table-wrapper">
+                <table id="stats-table" class="stats-table">
+                    <thead>
+                        <tr>
+                            <th>Insegnamento</th>
+                            <th>Competenze</th>
+                            <th>Conoscenze</th>
+                            <th>Periodi</th>
+                            <th>Correlazioni</th>
+                            <th>Carico Didattico</th>
+                        </tr>
+                    </thead>
+                    <tbody id="stats-tbody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tabella principale -->
+        <div id="main-table-container" class="main-table-container">
+        </div>
+
+        <!-- Loading e empty state -->
+        <div id="loading" class="loading hidden">Caricamento dati...</div>
+        <div id="empty-state" class="empty-state hidden">
+            <p>Nessun elemento corrisponde ai filtri selezionati.</p>
+            <p>Prova a modificare i filtri o utilizzare il pulsante Reset.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

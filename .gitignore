@@ -1,0 +1,17 @@
+# File temporanei macOS
+.DS_Store
+
+# File di log
+*.log
+
+# File di backup
+*~
+*.swp
+*.swo
+
+# Directory node_modules (se mai servisse)
+node_modules/
+
+# File di sviluppo locale
+.vscode/
+.idea/
