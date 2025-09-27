@@ -330,10 +330,11 @@ function buildHtmlTable(data, rich = false) {
         ];
     });
 
-    const thead = `<thead><tr>${header.map(h => `<th style="text-align:left;border:1px solid #ddd;padding:6px;background:#f3f4f6">${h}</th>`).join('')}</tr></thead>`;
-    const tbody = `<tbody>${rows.map(r => `<tr>${r.map(c => `<td style="border:1px solid #ddd;padding:6px;vertical-align:top">${c}</td>`).join('')}</tr>`).join('')}</tbody>`;
-    const styles = rich ? '<style>table{border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;font-size:12px} th,td{border:1px solid #ddd;padding:6px}</style>' : '';
-    return `${styles}<table>${thead}${tbody}</table>`;
+    const thead = `<thead><tr>${header.map(h => `<th style=\"text-align:left;border:1px solid #ddd;padding:6px;background:#f3f4f6\">${h}</th>`).join('')}</tr></thead>`;
+    const tdStyle = 'border:1px solid #ddd;padding:6px;vertical-align:top;word-wrap:break-word;overflow-wrap:anywhere;white-space:normal';
+    const tbody = `<tbody>${rows.map(r => `<tr>${r.map(c => `<td style=\"${tdStyle}\">${c}</td>`).join('')}</tr>`).join('')}</tbody>`;
+    const tableAttrs = rich ? ' style=\"width:95%;margin:0 auto;table-layout:fixed;border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;font-size:12px\"' : '';
+    return `<table${tableAttrs}>${thead}${tbody}</table>`;
 }
 
 function escapeHtml(value) {
