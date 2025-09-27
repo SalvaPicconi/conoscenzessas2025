@@ -30,6 +30,9 @@ async function loadData() {
         console.log('Dati caricati:', allData.length, 'elementi');
         console.log('Primo elemento:', allData[0]);
         
+        // Prova a caricare correzioni dei titoli (opzionale)
+        await applyTitleCorrections();
+        
         setupFilters();
         filterAndDisplay();
         renderStatsTable();
@@ -40,6 +43,49 @@ async function loadData() {
         console.error('Errore nel caricamento dei dati:', error);
         alert('Errore nel caricamento dei dati: ' + error.message);
         showLoading(false);
+    }
+}
+
+// Carica ed applica correzioni titoli, se presente un file correzioni_competenze.json
+async function applyTitleCorrections() {
+    try {
+        const res = await fetch('correzioni_competenze.json', { cache: 'no-store' });
+        if (!res.ok) {
+            console.log('Nessun file correzioni_competenze.json trovato (status', res.status, ')');
+            return;
+        }
+        const corrections = await res.json();
+        console.log('Correzioni titoli trovate:', corrections);
+
+        // Supporta sia array di oggetti {competenzaNum, titoloCorretto} sia mappa { "1": "..." }
+        let map = {};
+        if (Array.isArray(corrections)) {
+            corrections.forEach(entry => {
+                if (entry && (entry.competenzaNum !== undefined) && entry.titoloCorretto) {
+                    map[String(entry.competenzaNum)] = entry.titoloCorretto;
+                }
+            });
+        } else if (typeof corrections === 'object' && corrections !== null) {
+            map = corrections;
+        }
+
+        if (Object.keys(map).length === 0) {
+            console.warn('Il file correzioni_competenze.json non contiene dati validi.');
+            return;
+        }
+
+        // Applica le correzioni su allData
+        allData = allData.map(item => {
+            const key = String(item.competenzaNum);
+            if (map[key]) {
+                return { ...item, competenzaTitolo: map[key] };
+            }
+            return item;
+        });
+
+        console.log('Correzioni titoli applicate.');
+    } catch (e) {
+        console.log('Nessuna correzione applicata (file assente o non valido):', e.message);
     }
 }
 
