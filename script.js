@@ -21,15 +21,24 @@ document.addEventListener('DOMContentLoaded', () => {
 async function loadData() {
     try {
         showLoading(true);
+        console.log('Inizio caricamento dati...');
+        
         const response = await fetch('data.json');
+        console.log('Response status:', response.status);
+        
         allData = await response.json();
+        console.log('Dati caricati:', allData.length, 'elementi');
+        console.log('Primo elemento:', allData[0]);
         
         setupFilters();
         filterAndDisplay();
         renderStatsTable();
         showLoading(false);
+        
+        console.log('Caricamento completato con successo');
     } catch (error) {
         console.error('Errore nel caricamento dei dati:', error);
+        alert('Errore nel caricamento dei dati: ' + error.message);
         showLoading(false);
     }
 }
@@ -140,6 +149,9 @@ function resetFilters() {
 
 // Filtra e visualizza dati
 function filterAndDisplay() {
+    console.log('Filtri applicati:', filters);
+    console.log('Dati totali disponibili:', allData.length);
+    
     // Applica filtri
     filteredData = allData.filter(item => {
         const matchesCompetenza = !filters.competenza || 
@@ -155,11 +167,14 @@ function filterAndDisplay() {
                matchesInsegnamento && matchesSearch;
     });
 
+    console.log('Dati filtrati:', filteredData.length);
+
     // Aggiorna contatore
     document.getElementById('filtered-count').textContent = filteredData.length;
 
     // Raggruppa dati
     const groupedData = groupData(filteredData);
+    console.log('Dati raggruppati:', Object.keys(groupedData).length, 'gruppi');
     
     // Renderizza tabella principale
     renderMainTable(groupedData);
