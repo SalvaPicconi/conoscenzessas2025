@@ -314,7 +314,9 @@ function exportJSON() {
 // Costruisce una tabella HTML per l'esportazione (Excel/Word)
 function buildHtmlTable(data, rich = false) {
     const header = ['Competenza', 'Titolo', 'Periodo', 'Livello QNQ', 'Comp. Intermedia', 'Abilità', 'Conoscenze', 'Insegnamenti'];
-    const rows = data.map(item => {
+    // Filtra eventuali elementi non validi per evitare righe vuote
+    const safeData = (data || []).filter(item => item && item.competenzaNum !== undefined && item.competenzaTitolo !== undefined);
+    const rows = safeData.map(item => {
         const abilita = (item.abilita || []).join(' \u2022 ');
         const conoscenze = (item.conoscenze || []).map(c => c.nome).join(' \u2022 ');
         const insegnamenti = (item.insegnamentoCoinvolti || []).join(' \u2022 ');
@@ -330,10 +332,14 @@ function buildHtmlTable(data, rich = false) {
         ];
     });
 
-    const thead = `<thead><tr>${header.map(h => `<th style=\"text-align:left;border:1px solid #ddd;padding:6px;background:#f3f4f6\">${h}</th>`).join('')}</tr></thead>`;
-    const tdStyle = 'border:1px solid #ddd;padding:6px;vertical-align:top;word-wrap:break-word;overflow-wrap:anywhere;white-space:normal';
-    const tbody = `<tbody>${rows.map(r => `<tr>${r.map(c => `<td style=\"${tdStyle}\">${c}</td>`).join('')}</tr>`).join('')}</tbody>`;
-    const tableAttrs = rich ? ' style=\"width:95%;margin:0 auto;table-layout:fixed;border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;font-size:12px\"' : '';
+    // Larghezze colonne pensate per Word con table-layout:fixed
+    const colPerc = ['8%','22%','9%','7%','20%','12%','12%','10%'];
+    const thBase = 'text-align:left;border:1px solid #ddd;padding:6px;background:#f3f4f6';
+    const thead = `<thead><tr>${header.map((h,i) => `<th style=\"${thBase};width:${colPerc[i]}\">${h}</th>`).join('')}</tr></thead>`;
+    const tdBase = 'border:1px solid #ddd;padding:6px;vertical-align:top;word-wrap:break-word;overflow-wrap:anywhere;white-space:normal;page-break-inside:avoid';
+    const tbody = `<tbody>${rows.map(r => `<tr style=\"page-break-inside:avoid\">${r.map((c,i) => `<td style=\"${tdBase};width:${colPerc[i]}\">${c}</td>`).join('')}</tr>`).join('')}</tbody>`;
+    const fontSize = rich ? '11px' : '12px';
+    const tableAttrs = rich ? ` style=\"width:95%;margin:0 auto;table-layout:fixed;border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;font-size:${fontSize}\"` : '';
     return `<table${tableAttrs}>${thead}${tbody}</table>`;
 }
 
