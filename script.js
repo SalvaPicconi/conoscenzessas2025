@@ -281,8 +281,9 @@ function exportExcel() {
         alert('Non ci sono dati da esportare.');
         return;
     }
+    const headerHtml = buildExportHeader();
     const htmlTable = buildHtmlTable(data);
-    const content = `\uFEFF<html><head><meta charset="UTF-8"></head><body>${htmlTable}</body></html>`;
+    const content = `\uFEFF<html><head><meta charset="UTF-8"></head><body>${headerHtml}${htmlTable}</body></html>`;
     // Usa MIME legacy per compatibilità Excel
     downloadFile(content, 'application/vnd.ms-excel', 'curricolo_ssas.xls');
 }
@@ -293,8 +294,9 @@ function exportWord() {
         alert('Non ci sono dati da esportare.');
         return;
     }
+    const headerHtml = buildExportHeader(true);
     const htmlTable = buildHtmlTable(data, true);
-    const content = `\uFEFF<html><head><meta charset="UTF-8"></head><body>${htmlTable}</body></html>`;
+    const content = `\uFEFF<html><head><meta charset=\"UTF-8\"></head><body>${headerHtml}${htmlTable}</body></html>`;
     // MIME per Word
     downloadFile(content, 'application/msword', 'curricolo_ssas.doc');
 }
@@ -342,6 +344,20 @@ function escapeHtml(value) {
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#039;');
+}
+
+// Costruisce l'header per i documenti esportati
+function buildExportHeader(rich = false) {
+    const title = document.querySelector('.header h1')?.textContent?.trim() || '';
+    const subline = document.querySelector('.header .subline')?.textContent?.trim() || '';
+    const subtitle = document.querySelector('.header .subtitle')?.textContent?.trim() || '';
+    const style = rich
+        ? '<style>h1{margin:0 0 4px 0;font-size:18px} .exp-subline{margin:0 0 2px 0;font-size:12px;color:#374151;font-weight:600} .exp-subtitle{margin:0 0 12px 0;font-size:11px;color:#6b7280;font-style:italic}</style>'
+        : '';
+    const titleHtml = title ? `<h1>${escapeHtml(title)}</h1>` : '';
+    const sublineHtml = subline ? `<div class="exp-subline">${escapeHtml(subline)}</div>` : '';
+    const subtitleHtml = subtitle ? `<div class="exp-subtitle">${escapeHtml(subtitle)}</div>` : '';
+    return `${style}${titleHtml}${sublineHtml}${subtitleHtml}`;
 }
 
 function downloadFile(content, mimeType, filename) {
