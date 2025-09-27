@@ -99,9 +99,11 @@ function setupEventListeners() {
     document.getElementById('group-by').addEventListener('change', handleGroupByChange);
     document.getElementById('reset-filters').addEventListener('click', resetFilters);
     // Export buttons
-    const exportCsvBtn = document.getElementById('export-csv');
+    const exportExcelBtn = document.getElementById('export-excel');
+    const exportWordBtn = document.getElementById('export-word');
     const exportJsonBtn = document.getElementById('export-json');
-    if (exportCsvBtn) exportCsvBtn.addEventListener('click', exportCSV);
+    if (exportExcelBtn) exportExcelBtn.addEventListener('click', exportExcel);
+    if (exportWordBtn) exportWordBtn.addEventListener('click', exportWord);
     if (exportJsonBtn) exportJsonBtn.addEventListener('click', exportJSON);
 }
 
@@ -273,44 +275,28 @@ function filterAndDisplay() {
 }
 
 // Export helpers
-function exportCSV() {
+function exportExcel() {
     const data = (filteredData && filteredData.length ? filteredData : allData);
     if (!data || !data.length) {
         alert('Non ci sono dati da esportare.');
         return;
     }
+    const htmlTable = buildHtmlTable(data);
+    const content = `\uFEFF<html><head><meta charset="UTF-8"></head><body>${htmlTable}</body></html>`;
+    // Usa MIME legacy per compatibilità Excel
+    downloadFile(content, 'application/vnd.ms-excel', 'curricolo_ssas.xls');
+}
 
-    // Costruisci CSV con colonne chiave
-    const header = [
-        'CompetenzaNum',
-        'CompetenzaTitolo',
-        'Periodo',
-        'LivelloQNQ',
-        'CompetenzaIntermedia',
-        'Abilita',
-        'Conoscenze',
-        'InsegnamentiCoinvolti'
-    ];
-
-    const rows = data.map(item => {
-        const abilita = (item.abilita || []).join(' | ');
-        const conoscenze = (item.conoscenze || []).map(c => c.nome).join(' | ');
-        const insegnamenti = (item.insegnamentoCoinvolti || []).join(' | ');
-
-        return [
-            item.competenzaNum,
-            sanitizeCSV(item.competenzaTitolo),
-            sanitizeCSV(item.periodo),
-            sanitizeCSV(String(item.livelloQNQ)),
-            sanitizeCSV(item.competenzaIntermedia),
-            sanitizeCSV(abilita),
-            sanitizeCSV(conoscenze),
-            sanitizeCSV(insegnamenti)
-        ];
-    });
-
-    const csvContent = [header.join(','), ...rows.map(r => r.map(csvWrap).join(','))].join('\n');
-    downloadFile(csvContent, 'text/csv;charset=utf-8;', 'curricolo_ssas.csv');
+function exportWord() {
+    const data = (filteredData && filteredData.length ? filteredData : allData);
+    if (!data || !data.length) {
+        alert('Non ci sono dati da esportare.');
+        return;
+    }
+    const htmlTable = buildHtmlTable(data, true);
+    const content = `\uFEFF<html><head><meta charset="UTF-8"></head><body>${htmlTable}</body></html>`;
+    // MIME per Word
+    downloadFile(content, 'application/msword', 'curricolo_ssas.doc');
 }
 
 function exportJSON() {
@@ -323,18 +309,39 @@ function exportJSON() {
     downloadFile(jsonStr, 'application/json;charset=utf-8;', 'curricolo_ssas.json');
 }
 
-function sanitizeCSV(value) {
-    if (value === null || value === undefined) return '';
-    return String(value).replace(/\r?\n|\r/g, ' ').trim();
+// Costruisce una tabella HTML per l'esportazione (Excel/Word)
+function buildHtmlTable(data, rich = false) {
+    const header = ['Competenza', 'Titolo', 'Periodo', 'Livello QNQ', 'Comp. Intermedia', 'Abilità', 'Conoscenze', 'Insegnamenti'];
+    const rows = data.map(item => {
+        const abilita = (item.abilita || []).join(' \u2022 ');
+        const conoscenze = (item.conoscenze || []).map(c => c.nome).join(' \u2022 ');
+        const insegnamenti = (item.insegnamentoCoinvolti || []).join(' \u2022 ');
+        return [
+            `Competenza ${item.competenzaNum}`,
+            escapeHtml(item.competenzaTitolo),
+            escapeHtml(item.periodo),
+            escapeHtml(String(item.livelloQNQ)),
+            escapeHtml(item.competenzaIntermedia),
+            escapeHtml(abilita),
+            escapeHtml(conoscenze),
+            escapeHtml(insegnamenti)
+        ];
+    });
+
+    const thead = `<thead><tr>${header.map(h => `<th style="text-align:left;border:1px solid #ddd;padding:6px;background:#f3f4f6">${h}</th>`).join('')}</tr></thead>`;
+    const tbody = `<tbody>${rows.map(r => `<tr>${r.map(c => `<td style="border:1px solid #ddd;padding:6px;vertical-align:top">${c}</td>`).join('')}</tr>`).join('')}</tbody>`;
+    const styles = rich ? '<style>table{border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;font-size:12px} th,td{border:1px solid #ddd;padding:6px}</style>' : '';
+    return `${styles}<table>${thead}${tbody}</table>`;
 }
 
-function csvWrap(value) {
-    const v = value === undefined || value === null ? '' : String(value);
-    // Se contiene virgole, doppi apici o newline, avvolgi tra doppi apici e raddoppia gli apici interni
-    if (/[",\n\r]/.test(v)) {
-        return '"' + v.replace(/"/g, '""') + '"';
-    }
-    return v;
+function escapeHtml(value) {
+    if (value === null || value === undefined) return '';
+    return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
 }
 
 function downloadFile(content, mimeType, filename) {
