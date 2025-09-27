@@ -52,6 +52,11 @@ function setupEventListeners() {
     document.getElementById('search-input').addEventListener('input', handleSearchChange);
     document.getElementById('group-by').addEventListener('change', handleGroupByChange);
     document.getElementById('reset-filters').addEventListener('click', resetFilters);
+    // Export buttons
+    const exportCsvBtn = document.getElementById('export-csv');
+    const exportJsonBtn = document.getElementById('export-json');
+    if (exportCsvBtn) exportCsvBtn.addEventListener('click', exportCSV);
+    if (exportJsonBtn) exportJsonBtn.addEventListener('click', exportJSON);
 }
 
 // Setup filtri
@@ -219,6 +224,83 @@ function filterAndDisplay() {
     
     // Mostra/nascondi empty state
     showEmptyState(filteredData.length === 0);
+}
+
+// Export helpers
+function exportCSV() {
+    const data = (filteredData && filteredData.length ? filteredData : allData);
+    if (!data || !data.length) {
+        alert('Non ci sono dati da esportare.');
+        return;
+    }
+
+    // Costruisci CSV con colonne chiave
+    const header = [
+        'CompetenzaNum',
+        'CompetenzaTitolo',
+        'Periodo',
+        'LivelloQNQ',
+        'CompetenzaIntermedia',
+        'Abilita',
+        'Conoscenze',
+        'InsegnamentiCoinvolti'
+    ];
+
+    const rows = data.map(item => {
+        const abilita = (item.abilita || []).join(' | ');
+        const conoscenze = (item.conoscenze || []).map(c => c.nome).join(' | ');
+        const insegnamenti = (item.insegnamentoCoinvolti || []).join(' | ');
+
+        return [
+            item.competenzaNum,
+            sanitizeCSV(item.competenzaTitolo),
+            sanitizeCSV(item.periodo),
+            sanitizeCSV(String(item.livelloQNQ)),
+            sanitizeCSV(item.competenzaIntermedia),
+            sanitizeCSV(abilita),
+            sanitizeCSV(conoscenze),
+            sanitizeCSV(insegnamenti)
+        ];
+    });
+
+    const csvContent = [header.join(','), ...rows.map(r => r.map(csvWrap).join(','))].join('\n');
+    downloadFile(csvContent, 'text/csv;charset=utf-8;', 'curricolo_ssas.csv');
+}
+
+function exportJSON() {
+    const data = (filteredData && filteredData.length ? filteredData : allData);
+    if (!data || !data.length) {
+        alert('Non ci sono dati da esportare.');
+        return;
+    }
+    const jsonStr = JSON.stringify(data, null, 2);
+    downloadFile(jsonStr, 'application/json;charset=utf-8;', 'curricolo_ssas.json');
+}
+
+function sanitizeCSV(value) {
+    if (value === null || value === undefined) return '';
+    return String(value).replace(/\r?\n|\r/g, ' ').trim();
+}
+
+function csvWrap(value) {
+    const v = value === undefined || value === null ? '' : String(value);
+    // Se contiene virgole, doppi apici o newline, avvolgi tra doppi apici e raddoppia gli apici interni
+    if (/[",\n\r]/.test(v)) {
+        return '"' + v.replace(/"/g, '""') + '"';
+    }
+    return v;
+}
+
+function downloadFile(content, mimeType, filename) {
+    const blob = new Blob([content], { type: mimeType });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
 }
 
 // Raggruppa dati

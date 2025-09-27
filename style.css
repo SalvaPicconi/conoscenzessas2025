@@ -141,6 +141,40 @@ body {
     align-items: center;
 }
 
+.actions-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.primary-btn {
+    padding: 8px 14px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.02s;
+}
+
+.primary-btn:hover { background: #1d4ed8; }
+.primary-btn:active { transform: translateY(1px); }
+
+.secondary-btn {
+    padding: 8px 14px;
+    background: white;
+    color: #374151;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.02s;
+}
+
+.secondary-btn:hover { background: #f3f4f6; }
+.secondary-btn:active { transform: translateY(1px); }
+
 .search-container {
     flex: 1;
     position: relative;
