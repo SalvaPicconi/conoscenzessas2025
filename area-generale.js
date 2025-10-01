@@ -570,9 +570,9 @@ function buildHtmlTable(data, rich = false) {
     const header = ['Competenza', 'Titolo', 'Asse culturale', 'Abilità', 'Conoscenze', 'Insegnamenti'];
     const safeData = (data || []).filter(item => item && item.competenzaNumero !== undefined);
     const rows = safeData.map(item => {
-        const abilita = (item.abilita || []).join(' \u2022 ');
-        const conoscenze = (item.conoscenze || []).join(' \u2022 ');
-        const insegnamenti = getSubjectsForAxis(item.asse).join(' \u2022 ');
+        const abilita = (item.abilita || []).join(' • ');
+        const conoscenze = (item.conoscenze || []).join(' • ');
+        const insegnamenti = getSubjectsForAxis(item.asse).join(' • ');
         return [
             `Competenza ${item.competenzaNumero}`,
             escapeHTML(item.competenzaTitolo),
