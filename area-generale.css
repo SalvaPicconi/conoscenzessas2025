@@ -1,0 +1,302 @@
+.generale-container {
+    padding-bottom: 48px;
+}
+
+.intro-panel {
+    margin-bottom: 28px;
+    background: rgba(37, 99, 235, 0.08);
+    border: 1px solid rgba(37, 99, 235, 0.15);
+    border-radius: 18px;
+    padding: 18px 22px;
+    color: #1e3a8a;
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+
+.general-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.general-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 20px 22px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 8px 24px -18px rgba(15, 23, 42, 0.6);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.card-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #3b82f6;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.card-value {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.card-hint {
+    font-size: 0.75rem;
+    color: #475569;
+}
+
+.generale-filters {
+    margin-bottom: 32px;
+}
+
+.generale-search-row {
+    flex-wrap: wrap;
+}
+
+.period-overview,
+.teaching-overview,
+.competence-overview {
+    margin-bottom: 40px;
+    background: #ffffff;
+    border-radius: 22px;
+    border: 1px solid #e2e8f0;
+    padding: 24px 24px 32px;
+    box-shadow: 0 20px 60px -42px rgba(15, 23, 42, 0.85);
+}
+
+.section-header {
+    margin-bottom: 20px;
+}
+
+.section-header h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 4px;
+}
+
+.section-hint {
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.period-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.period-card {
+    border-radius: 16px;
+    border: 1px solid #dbeafe;
+    padding: 18px;
+    background: linear-gradient(160deg, rgba(37, 99, 235, 0.1) 0%, rgba(37, 99, 235, 0.03) 100%);
+}
+
+.period-card h3 {
+    margin: 0 0 8px;
+    font-size: 1rem;
+    color: #1d4ed8;
+}
+
+.period-metric {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+    color: #1f2937;
+}
+
+.period-progress {
+    height: 8px;
+    background: rgba(191, 219, 254, 0.8);
+    border-radius: 999px;
+    overflow: hidden;
+    margin-top: 12px;
+}
+
+.period-progress span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, #2563eb 0%, #22d3ee 100%);
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.generale-table th,
+.generale-table td {
+    font-size: 0.85rem;
+}
+
+.generale-table tbody tr:hover {
+    background: rgba(219, 234, 254, 0.4);
+}
+
+.competence-list {
+    display: grid;
+    gap: 18px;
+}
+
+.empty-placeholder {
+    padding: 12px 4px;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.competence-card {
+    border: 1px solid #cbd5f5;
+    border-radius: 18px;
+    padding: 18px 20px;
+    background: rgba(248, 250, 252, 0.75);
+    box-shadow: 0 10px 40px -40px rgba(15, 23, 42, 0.7);
+}
+
+.competence-card header {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.competence-card h3 {
+    font-size: 1rem;
+    color: #0f172a;
+    margin: 0;
+}
+
+.competence-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 0.78rem;
+    color: #475569;
+}
+
+.meta-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #e0f2fe;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-weight: 600;
+    color: #0c4a6e;
+}
+
+.meta-pill svg {
+    width: 14px;
+    height: 14px;
+}
+
+.competence-card p {
+    font-size: 0.85rem;
+    color: #334155;
+    margin: 0 0 12px;
+    line-height: 1.5;
+}
+
+.competence-metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.metric-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: rgba(37, 99, 235, 0.1);
+    color: #1d4ed8;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.competence-axes {
+    display: grid;
+    gap: 16px;
+}
+
+.competence-axis {
+    border: 1px solid rgba(191, 219, 254, 0.8);
+    border-radius: 14px;
+    padding: 14px 16px;
+    background: rgba(219, 234, 254, 0.4);
+}
+
+.competence-axis h4 {
+    margin: 0 0 10px;
+    font-size: 0.9rem;
+    color: #1d4ed8;
+}
+
+.axis-subjects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 8px 0 12px;
+}
+
+.axis-subjects span {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: rgba(96, 165, 250, 0.2);
+    color: #1d4ed8;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.axis-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 14px;
+}
+
+.axis-block h5 {
+    margin: 0 0 6px;
+    font-size: 0.82rem;
+    color: #1f2937;
+    font-weight: 600;
+}
+
+.axis-block ul {
+    list-style: disc;
+    padding-left: 18px;
+    margin: 0;
+    display: grid;
+    gap: 4px;
+    font-size: 0.78rem;
+    color: #334155;
+}
+
+.axis-block ul li {
+    line-height: 1.45;
+}
+
+.axis-block .empty-placeholder {
+    font-size: 0.78rem;
+    color: #94a3b8;
+}
+
+@media (max-width: 768px) {
+    .period-overview,
+    .teaching-overview,
+    .competence-overview {
+        padding: 18px 16px 24px;
+    }
+
+    .competence-card {
+        padding: 16px;
+    }
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curricolo Verticale - Area Generale</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="area-generale.css">
+</head>
+<body>
+    <div class="container generale-container">
+        <header class="header page-hero generale-header">
+            <div class="hero-card">
+                <h1>Curricolo Verticale - Area Generale</h1>
+                <div class="subline">IIS Meucci - Mattei Cagliari, Sede Decimomannu</div>
+                <p class="subtitle">Competenze di Area Generale, ai sensi del Decreto del Ministro dell’istruzione, dell’università e della ricerca 24 maggio 2018, n. 92, Allegato C</p>
+            </div>
+        </header>
+
+        <section class="intro-panel">
+            <p id="intro-description">
+                Panoramica interattiva dell'area generale. I filtri permettono di analizzare competenze, assi culturali,
+                abilità e conoscenze presenti nei percorsi comuni.
+            </p>
+        </section>
+
+        <section class="general-stats" aria-live="polite">
+            <div class="general-card">
+                <span class="card-label">Sezioni attive</span>
+                <span id="total-records" class="card-value">0</span>
+                <span class="card-hint">Voci complessive filtrate</span>
+            </div>
+            <div class="general-card">
+                <span class="card-label">Competenze</span>
+                <span id="total-competencies" class="card-value">0</span>
+                <span class="card-hint">Univoche sull'insieme filtrato</span>
+            </div>
+            <div class="general-card">
+                <span class="card-label">Abilità</span>
+                <span id="total-abilities" class="card-value">0</span>
+                <span class="card-hint">Totale elementi descrittivi</span>
+            </div>
+            <div class="general-card">
+                <span class="card-label">Conoscenze</span>
+                <span id="total-knowledge" class="card-value">0</span>
+                <span class="card-hint">Incluse correlazioni disciplinari</span>
+            </div>
+            <div class="general-card">
+                <span class="card-label">Assi culturali</span>
+                <span id="total-axes" class="card-value">0</span>
+                <span class="card-hint">Univoci sul perimetro selezionato</span>
+            </div>
+        </section>
+
+        <section class="filter-panel generale-filters" aria-label="Filtri area generale">
+            <div class="filter-header">
+                <span class="filter-icon">🔎</span>
+                <h2>Filtra e analizza i dati</h2>
+            </div>
+
+            <div class="filter-grid">
+                <div class="filter-item">
+                    <label for="generale-competenza">Competenza</label>
+                    <select id="generale-competenza">
+                        <option value="">Tutte le competenze</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <label for="generale-asse">Asse culturale</label>
+                    <select id="generale-asse">
+                        <option value="">Tutti gli assi</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <label for="generale-insegnamento">Insegnamento</label>
+                    <select id="generale-insegnamento">
+                        <option value="">Tutti gli insegnamenti</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <label for="generale-sort">Ordina per</label>
+                    <select id="generale-sort">
+                        <option value="numero">Numero competenza</option>
+                        <option value="assi">Numero assi</option>
+                        <option value="ricchezza">Abilità e conoscenze</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="search-row generale-search-row">
+                <div class="search-container">
+                    <input id="generale-search" type="text" placeholder="Cerca in titoli, abilità, conoscenze o assi" autocomplete="off">
+                    <span class="search-icon">🔍</span>
+                </div>
+                <div class="actions-row">
+                    <button id="generale-export-excel" class="primary-btn">Esporta Excel</button>
+                    <button id="generale-export-word" class="secondary-btn">Esporta Word</button>
+                    <button id="generale-export-json" class="secondary-btn">Esporta JSON</button>
+                    <button id="generale-reset" class="reset-btn">Reset filtri</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="period-overview">
+            <div class="section-header">
+                <h2>Distribuzione per asse culturale</h2>
+                <p class="section-hint">Confronta la presenza di abilità e conoscenze tra i diversi assi</p>
+            </div>
+            <div id="axis-summary" class="period-grid">
+            </div>
+        </section>
+
+        <section class="teaching-overview">
+            <div class="section-header">
+                <h2>Sintesi per competenza</h2>
+                <p class="section-hint">Indicatori su assi, abilità e conoscenze collegati a ciascuna competenza</p>
+            </div>
+            <div class="table-wrapper">
+                <table class="stats-table generale-table">
+                    <thead>
+                        <tr>
+                            <th>Competenza</th>
+                            <th>Assi</th>
+                            <th>Abilità</th>
+                            <th>Conoscenze</th>
+                            <th>Sezioni</th>
+                        </tr>
+                    </thead>
+                    <tbody id="competence-summary-body">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="competence-overview">
+            <div class="section-header">
+                <h2>Dettaglio competenze e assi culturali</h2>
+                <p class="section-hint">Approfondisci abilità e conoscenze specifiche associate a ciascun asse</p>
+            </div>
+            <div id="competence-list" class="competence-list">
+            </div>
+        </section>
+
+        <div id="generale-loading" class="loading">Caricamento dati...</div>
+        <div id="generale-empty" class="empty-state hidden">
+            <p>Nessun elemento corrisponde ai filtri selezionati.</p>
+            <p>Modifica i filtri o reimposta la ricerca per proseguire.</p>
+        </div>
+    </div>
+
+    <script src="area-generale.js"></script>
+</body>
+</html>

@@ -23,7 +23,7 @@ async function loadData() {
         showLoading(true);
         console.log('Inizio caricamento dati...');
         
-        const response = await fetch('data.json');
+        const response = await fetch('data-area-indirizzo.json');
         console.log('Response status:', response.status);
         
         allData = await response.json();
@@ -36,6 +36,7 @@ async function loadData() {
         setupFilters();
         filterAndDisplay();
         renderStatsTable();
+        notifyParentHeight();
         showLoading(false);
         
         console.log('Caricamento completato con successo');
@@ -272,6 +273,7 @@ function filterAndDisplay() {
     
     // Mostra/nascondi empty state
     showEmptyState(filteredData.length === 0);
+    notifyParentHeight();
 }
 
 // Export helpers
@@ -285,7 +287,7 @@ function exportExcel() {
     const htmlTable = buildHtmlTable(data);
     const content = `\uFEFF<html><head><meta charset="UTF-8"></head><body>${headerHtml}${htmlTable}</body></html>`;
     // Usa MIME legacy per compatibilità Excel
-    downloadFile(content, 'application/vnd.ms-excel', 'curricolo_ssas.xls');
+    downloadFile(content, 'application/vnd.ms-excel', 'curricolo_ssas_area_indirizzo.xls');
 }
 
 function exportWord() {
@@ -298,7 +300,7 @@ function exportWord() {
     const htmlTable = buildHtmlTable(data, true);
     const content = `\uFEFF<html><head><meta charset=\"UTF-8\"></head><body>${headerHtml}${htmlTable}</body></html>`;
     // MIME per Word
-    downloadFile(content, 'application/msword', 'curricolo_ssas.doc');
+    downloadFile(content, 'application/msword', 'curricolo_ssas_area_indirizzo.doc');
 }
 
 function exportJSON() {
@@ -308,7 +310,7 @@ function exportJSON() {
         return;
     }
     const jsonStr = JSON.stringify(data, null, 2);
-    downloadFile(jsonStr, 'application/json;charset=utf-8;', 'curricolo_ssas.json');
+    downloadFile(jsonStr, 'application/json;charset=utf-8;', 'curricolo_ssas_area_indirizzo.json');
 }
 
 // Costruisce una tabella HTML per l'esportazione (Excel/Word)
@@ -452,52 +454,57 @@ function createGroupElement(groupKey, items) {
 
 // Crea elemento item
 function createItemElement(item) {
-    return `
-        <div class="item-card">
-            <div class="item-meta">
-                <div class="item-badges">
-                    <span class="stat-badge badge-blue">${item.periodo} - Livello ${item.livelloQNQ}</span>
-                    <span class="stat-badge badge-purple">Competenza ${item.competenzaNum}</span>
-                </div>
-                <h3 class="item-title">${item.competenzaTitolo}</h3>
-                <p class="item-description">
-                    <strong>Competenza Intermedia:</strong> ${item.competenzaIntermedia}
-                </p>
-                <div style="margin-bottom: 12px;">
-                    <h4 style="font-size: 0.75rem; margin-bottom: 4px;">Insegnamenti Coinvolti (${item.insegnamentoCoinvolti.length})</h4>
-                    <div style="display: flex; flex-wrap: wrap; gap: 4px;">
-                        ${item.insegnamentoCoinvolti.map(ins => 
-                            `<span class="stat-badge badge-orange">${ins}</span>`
-                        ).join('')}
-                    </div>
-                </div>
-            </div>
-            
-            <div class="item-content">
-                <div class="item-section">
-                    <h4>Abilità (${item.abilita.length})</h4>
-                    <ul class="item-list">
-                        ${item.abilita.map(abilita => `<li>${abilita}</li>`).join('')}
-                    </ul>
-                </div>
+    const insegnamentiChips = item.insegnamentoCoinvolti.map(ins => `<span>${escapeHtml(ins)}</span>`).join('');
+    const insegnamentiSection = item.insegnamentoCoinvolti.length
+        ? `<div class="insegnamenti-chips">${insegnamentiChips}</div>`
+        : '<p class="empty-placeholder">Nessun insegnamento associato.</p>';
 
-                <div class="item-section">
-                    <h4>Conoscenze e Insegnamenti (${item.conoscenze.length})</h4>
-                    <div style="max-height: 128px; overflow-y: auto;">
-                        ${item.conoscenze.map(conoscenza => `
-                            <div class="knowledge-item">
-                                <div class="knowledge-name">${conoscenza.nome}</div>
-                                <div class="knowledge-subjects">
-                                    ${conoscenza.insegnamenti.map(ins => 
-                                        `<span class="subject-tag">${ins}</span>`
-                                    ).join('')}
-                                </div>
-                            </div>
-                        `).join('')}
-                    </div>
+    const abilitaHtml = item.abilita.length
+        ? `<ul>${item.abilita.map(abilita => `<li>${escapeHtml(abilita)}</li>`).join('')}</ul>`
+        : '<p class="empty-placeholder">Nessuna abilità indicata.</p>';
+
+    const conoscenzeHtml = item.conoscenze.length
+        ? item.conoscenze.map(conoscenza => `
+            <div class="knowledge-chip">
+                <div class="knowledge-title">${escapeHtml(conoscenza.nome)}</div>
+                <div class="knowledge-subjects">
+                    ${conoscenza.insegnamenti.map(ins => `<span>${escapeHtml(ins)}</span>`).join('')}
                 </div>
             </div>
-        </div>
+        `).join('')
+        : '<p class="empty-placeholder">Nessuna conoscenza indicata.</p>';
+
+    return `
+        <article class="competence-card">
+            <header>
+                <h3>Competenza ${item.competenzaNum}</h3>
+                <div class="competence-meta">
+                    <span class="meta-pill">${escapeHtml(item.periodo)}</span>
+                    <span class="meta-pill">Livello ${escapeHtml(String(item.livelloQNQ))}</span>
+                </div>
+                <p>${escapeHtml(item.competenzaTitolo)}</p>
+            </header>
+            <div class="competence-metrics">
+                <span class="metric-pill">${item.abilita.length} abilità</span>
+                <span class="metric-pill">${item.conoscenze.length} conoscenze</span>
+                <span class="metric-pill">${item.insegnamentoCoinvolti.length} insegnamenti</span>
+            </div>
+            ${insegnamentiSection}
+            <div class="competence-layout">
+                <div class="info-block">
+                    <h4>Competenza intermedia</h4>
+                    <p style="font-size:0.82rem;color:#374151;line-height:1.5;">${escapeHtml(item.competenzaIntermedia)}</p>
+                </div>
+                <div class="info-block">
+                    <h4>Abilità (${item.abilita.length})</h4>
+                    ${abilitaHtml}
+                </div>
+                <div class="info-block">
+                    <h4>Conoscenze (${item.conoscenze.length})</h4>
+                    ${conoscenzeHtml}
+                </div>
+            </div>
+        </article>
     `;
 }
 
@@ -551,6 +558,16 @@ function showLoading(show) {
 
 function showEmptyState(show) {
     document.getElementById('empty-state').classList.toggle('hidden', !show);
+}
+
+function notifyParentHeight() {
+    if (window.parent === window) {
+        return;
+    }
+    requestAnimationFrame(() => {
+        const height = document.body.scrollHeight;
+        window.parent.postMessage({ type: 'iframeContentHeight', height }, '*');
+    });
 }
 
 // Rendi disponibile globalmente per onclick
