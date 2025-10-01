@@ -319,9 +319,9 @@ function buildHtmlTable(data, rich = false) {
     // Filtra eventuali elementi non validi per evitare righe vuote
     const safeData = (data || []).filter(item => item && item.competenzaNum !== undefined && item.competenzaTitolo !== undefined);
     const rows = safeData.map(item => {
-        const abilita = (item.abilita || []).join(' \u2022 ');
-        const conoscenze = (item.conoscenze || []).map(c => c.nome).join(' \u2022 ');
-        const insegnamenti = (item.insegnamentoCoinvolti || []).join(' \u2022 ');
+        const abilita = (item.abilita || []).join(' • ');
+        const conoscenze = (item.conoscenze || []).map(c => c.nome).join(' • ');
+        const insegnamenti = (item.insegnamentoCoinvolti || []).join(' • ');
         return [
             `Competenza ${item.competenzaNum}`,
             escapeHtml(item.competenzaTitolo),

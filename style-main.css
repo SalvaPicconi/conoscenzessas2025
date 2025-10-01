@@ -155,7 +155,9 @@ body {
     }
 
     .tab-navigation {
-        position: static;
+        position: sticky;
+        top: 12px;
+        margin-inline: 8px;
     }
 
     .tab-buttons-wrapper {
@@ -163,6 +165,7 @@ body {
         flex-direction: column;
         width: 100%;
         padding: 12px;
+        border-radius: 20px;
     }
 
     .tab-button {
