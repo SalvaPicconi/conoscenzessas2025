@@ -451,8 +451,7 @@ function buildWordDocument(data) {
 	sections.push(style);
 	sections.push(`<p class="word-title">PIANO DI LAVORO DI ${discipline}</p>`);
 	sections.push(renderGeneralInfoTable());
-	const periodList = extractUniquePeriods(data);
-	sections.push(renderMethodologySection(periodList));
+	sections.push(renderMethodologySection());
 
 	const grouped = groupForWordDocument(data);
 	grouped.forEach(group => {
@@ -489,20 +488,7 @@ function renderGeneralInfoTable() {
 	return `<table class="word-table">${header}${body}</table>`;
 }
 
-function extractUniquePeriods(data) {
-	const seen = new Set();
-	const ordered = [];
-	(data || []).forEach(item => {
-		const period = item?.periodo;
-		if (period && !seen.has(period)) {
-			seen.add(period);
-			ordered.push(period);
-		}
-	});
-	return ordered;
-}
-
-function renderMethodologySection(periods = []) {
+function renderMethodologySection() {
 	const rows = [
 		{ title: 'METODOLOGIA', content: [], placeholders: 0 },
 		{ title: 'Attività', content: [], placeholders: 4 },
@@ -514,8 +500,7 @@ function renderMethodologySection(periods = []) {
 			content: [
 				'Ogni qualvolta si rendesse necessario, si provvederà al recupero delle conoscenze pregresse (es. morfologia, sintassi, ecc.)'
 			],
-			placeholders: 0,
-			includePeriods: true
+			placeholders: 0
 		}
 	];
 
@@ -538,13 +523,11 @@ function renderMethodologySection(periods = []) {
 			`;
 		}
 		const list = `<ul class="word-list">${row.content.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`;
-		const periodSummary = row.includePeriods ? renderPeriodSummary(periods) : '';
 		return `
 			<tr>
 				<td>
 					<p class="word-section-title">${row.title}</p>
 					${list}
-					${periodSummary}
 				</td>
 			</tr>
 		`;
@@ -622,6 +605,8 @@ function renderCompetenceBlock(group) {
 		sections.push(renderSimpleTable('Abilità', abilita.map(escapeHtml)));
 	}
 
+	sections.push(renderPeriodTables(group.periods));
+
 	return sections.join('');
 }
 
@@ -634,10 +619,13 @@ function renderSimpleTable(title, lines) {
 	return `<table class="word-table">${header}${body}</table>`;
 }
 
-function renderPeriodSummary(periods) {
+function renderPeriodTables(periodsMap) {
+	if (!periodsMap || !periodsMap.size) {
+		return '';
+	}
+	const periods = Array.from(periodsMap.keys());
 	const blankContent = '<p class="word-blank">_____________</p><p class="word-blank">_____________</p><p class="word-blank">_____________</p>';
-	const values = (periods && periods.length) ? periods : ['_____________'];
-	const rows = values.map(periodo => `
+	const rows = (periods.length ? periods : ['_____________']).map(periodo => `
 		<tr>
 			<td>${escapeHtml(periodo)}</td>
 			<td>${blankContent}</td>
