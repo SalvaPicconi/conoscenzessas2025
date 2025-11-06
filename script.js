@@ -355,9 +355,8 @@ function exportWord() {
         alert('Non ci sono dati da esportare.');
         return;
     }
-    const headerHtml = buildExportHeader(true);
-    const htmlTable = buildHtmlTable(data, true);
-    const content = `\uFEFF<html><head><meta charset=\"UTF-8\"></head><body>${headerHtml}${htmlTable}</body></html>`;
+    const documentHtml = buildWordDocument(data);
+    const content = `\uFEFF<html><head><meta charset=\"UTF-8\"></head><body>${documentHtml}</body></html>`;
     // MIME per Word
     downloadFile(content, 'application/msword', 'curricolo_ssas_area_indirizzo.doc');
 }
@@ -426,7 +425,223 @@ function buildExportHeader(rich = false) {
     const titleHtml = title ? `<h1>${escapeHtml(title)}</h1>` : '';
     const sublineHtml = subline ? `<div class="exp-subline">${escapeHtml(subline)}</div>` : '';
     const subtitleHtml = subtitle ? `<div class="exp-subtitle">${escapeHtml(subtitle)}</div>` : '';
-    return `${style}${titleHtml}${sublineHtml}${subtitleHtml}`;
+	return `${style}${titleHtml}${sublineHtml}${subtitleHtml}`;
+}
+
+function buildWordDocument(data) {
+	const style = `
+		<style>
+			body { font-family: "Times New Roman", serif; font-size: 12pt; color: #000; }
+			.word-title { text-align: center; font-size: 14pt; font-weight: 600; margin: 0 0 12pt 0; }
+			.word-table { width: 100%; border-collapse: collapse; margin-bottom: 12pt; }
+			.word-table td { border: 1px solid #bfbfbf; padding: 6pt; vertical-align: top; }
+			.word-table .header-cell { text-align: center; font-weight: 700; background: #f2f2f2; }
+			.word-table .label-cell { width: 32%; font-weight: 600; }
+			.word-section-title { text-align: center; font-weight: 700; margin: 0; }
+			.word-list { margin: 0; padding-left: 16pt; }
+			.word-list li { margin-bottom: 3pt; }
+			.word-spacer { height: 12pt; }
+			.word-blank { margin: 4pt 0; }
+			.word-footer { margin-top: 32pt; font-size: 12pt; }
+		</style>
+	`;
+	const discipline = filters.insegnamento ? escapeHtml(filters.insegnamento) : '_____________';
+	const sections = [];
+	sections.push(style);
+	sections.push(`<p class="word-title">PIANO DI LAVORO DI ${discipline}</p>`);
+	sections.push(renderGeneralInfoTable());
+	sections.push(renderMethodologySection());
+
+	const grouped = groupForWordDocument(data);
+	grouped.forEach(group => {
+		sections.push(renderCompetenceBlock(group));
+	});
+
+	sections.push(renderWordFooter());
+	return sections.join('');
+}
+
+function renderGeneralInfoTable() {
+	const placeholder = '_____________';
+	const discipline = filters.insegnamento ? escapeHtml(filters.insegnamento) : placeholder;
+	const rows = [
+		{ label: 'DOCENTE', value: placeholder },
+		{ label: 'DISCIPLINA', value: discipline },
+		{ label: 'CLASSE/SEZIONE', value: placeholder },
+		{ label: 'ANNO SCOLASTICO', value: placeholder },
+		{ label: 'ORE SETTIMANALI ITALIANO', value: placeholder },
+		{ label: 'ORE SETTIMANALI STORIA', value: placeholder }
+	];
+
+	const header = `
+		<tr>
+			<td class="header-cell" colspan="2">INFORMAZIONI GENERALI</td>
+		</tr>
+	`;
+	const body = rows.map(row => `
+		<tr>
+			<td class="label-cell">${row.label}</td>
+			<td>${row.value || placeholder}</td>
+		</tr>
+	`).join('');
+	return `<table class="word-table">${header}${body}</table>`;
+}
+
+function renderMethodologySection() {
+	const rows = [
+		{ title: 'METODOLOGIA', content: [], placeholders: 0 },
+		{ title: 'Attività', content: [], placeholders: 4 },
+		{ title: 'Strumenti', content: [], placeholders: 6 },
+		{ title: 'Verifiche', content: [], placeholders: 3 },
+		{ title: 'Criteri e modalità di valutazione', content: [], placeholders: 6 },
+		{
+			title: 'Attività di recupero in itinere',
+			content: [
+				'Ogni qualvolta si rendesse necessario, si provvederà al recupero delle conoscenze pregresse (es. morfologia, sintassi, ecc.)'
+			],
+			placeholders: 0
+		}
+	];
+
+	const htmlRows = rows.map((row, index) => {
+		const isHeader = index === 0;
+		if (isHeader) {
+			return `<tr><td class="header-cell">${row.title}</td></tr>`;
+		}
+		if (!row.content.length) {
+			const placeholders = row.placeholders
+				? Array.from({ length: row.placeholders }, () => '<p class="word-blank">_____________</p>').join('')
+				: '<div class="word-spacer"></div>';
+			return `
+				<tr>
+					<td>
+						<p class="word-section-title">${row.title}</p>
+						${placeholders}
+					</td>
+				</tr>
+			`;
+		}
+		const list = `<ul class="word-list">${row.content.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`;
+		return `
+			<tr>
+				<td>
+					<p class="word-section-title">${row.title}</p>
+					${list}
+				</td>
+			</tr>
+		`;
+	}).join('');
+
+	return `<table class="word-table">${htmlRows}</table>`;
+}
+
+function groupForWordDocument(data) {
+	const map = new Map();
+	data.forEach(item => {
+		if (!item || item.competenzaNum === undefined) {
+			return;
+		}
+		const key = item.competenzaNum;
+		const entry = map.get(key) || {
+			numero: item.competenzaNum,
+			titolo: item.competenzaTitolo || '',
+			periods: new Map(),
+			competenzeIntermedie: new Map(),
+			abilita: new Set(),
+			conoscenze: new Set()
+		};
+
+		const periodKey = item.periodo || 'Periodo non specificato';
+		const knowledgeByPeriod = entry.periods.get(periodKey) || {
+			conoscenze: new Set(),
+			abilita: new Set()
+		};
+
+		(item.abilita || []).forEach(abilita => {
+			entry.abilita.add(abilita);
+			knowledgeByPeriod.abilita.add(abilita);
+		});
+		(item.conoscenze || []).forEach(conoscenza => {
+			if (conoscenza?.nome) {
+				entry.conoscenze.add(conoscenza.nome);
+				knowledgeByPeriod.conoscenze.add(conoscenza.nome);
+			}
+		});
+
+		if (item.competenzaIntermedia) {
+			const perPeriod = entry.competenzeIntermedie.get(periodKey) || new Set();
+			perPeriod.add(item.competenzaIntermedia);
+			entry.competenzeIntermedie.set(periodKey, perPeriod);
+		}
+		entry.periods.set(periodKey, knowledgeByPeriod);
+		map.set(key, entry);
+	});
+
+	return Array.from(map.values()).sort((a, b) => a.numero - b.numero);
+}
+
+function renderCompetenceBlock(group) {
+	const sections = [];
+	sections.push(renderSimpleTable('COMPETENZE', [
+		`Competenza ${group.numero}: ${escapeHtml(group.titolo)}`
+	]));
+
+	const intermedie = Array.from(group.competenzeIntermedie.entries()).flatMap(([periodo, descrizioni]) =>
+		Array.from(descrizioni).map(descrizione => `${escapeHtml(periodo)}: ${escapeHtml(descrizione)}`)
+	);
+
+	if (intermedie.length) {
+		sections.push(renderSimpleTable('COMPETENZE INTERMEDIE', intermedie));
+	}
+
+	const conoscenze = Array.from(group.conoscenze);
+	if (conoscenze.length) {
+		sections.push(renderSimpleTable('Conoscenze', conoscenze.map(escapeHtml)));
+	}
+
+	const abilita = Array.from(group.abilita);
+	if (abilita.length) {
+		sections.push(renderSimpleTable('Abilità', abilita.map(escapeHtml)));
+	}
+
+	sections.push(renderPeriodTables(group.periods));
+
+	return sections.join('');
+}
+
+function renderSimpleTable(title, lines) {
+	const header = `<tr><td class="header-cell">${title}</td></tr>`;
+	const bodyContent = (lines && lines.length)
+		? `<ul class="word-list">${lines.map(line => `<li>${line}</li>`).join('')}</ul>`
+		: '<p class="word-blank">_____________</p><p class="word-blank">_____________</p><p class="word-blank">_____________</p>';
+	const body = `<tr><td>${bodyContent}</td></tr>`;
+	return `<table class="word-table">${header}${body}</table>`;
+}
+
+function renderPeriodTables(periodsMap) {
+	if (!periodsMap || !periodsMap.size) {
+		return '';
+	}
+	const tables = Array.from(periodsMap.entries()).map(([periodo, value]) => {
+		const conoscenze = Array.from(value.conoscenze || []);
+		const abilita = Array.from(value.abilita || []);
+		const contenuti = conoscenze.concat(abilita).map(escapeHtml);
+		const header = `<tr><td class="header-cell">Periodo</td></tr><tr><td>${escapeHtml(periodo)}</td></tr>`;
+		const contentHeader = `<tr><td class="header-cell">Contenuti</td></tr>`;
+		const contentBody = contenuti.length
+			? `<tr><td><ul class="word-list">${contenuti.map(item => `<li>${item}</li>`).join('')}</ul></td></tr>`
+			: `<tr><td><p class="word-blank">_____________</p><p class="word-blank">_____________</p></td></tr>`;
+		return `<table class="word-table">${header}${contentHeader}${contentBody}</table>`;
+	});
+	return tables.join('');
+}
+
+function renderWordFooter() {
+	return `
+		<p class="word-footer">
+			Cagliari, __/__/____&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Il/La docente
+		</p>
+	`;
 }
 
 function downloadFile(content, mimeType, filename) {
