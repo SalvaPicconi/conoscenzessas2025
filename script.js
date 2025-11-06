@@ -262,23 +262,81 @@ function filterAndDisplay() {
     console.log('Dati filtrati:', filteredData.length);
 
     // Aggiorna contatore
-    document.getElementById('filtered-count').textContent = filteredData.length;
+    const visibleData = getVisibleData();
+    document.getElementById('filtered-count').textContent = visibleData.length;
 
     // Raggruppa dati
-    const groupedData = groupData(filteredData);
+    const groupedData = groupData(visibleData);
     console.log('Dati raggruppati:', Object.keys(groupedData).length, 'gruppi');
     
     // Renderizza tabella principale
     renderMainTable(groupedData);
     
     // Mostra/nascondi empty state
-    showEmptyState(filteredData.length === 0);
+    showEmptyState(visibleData.length === 0);
     notifyParentHeight();
+}
+
+function getVisibleData() {
+    if (!filters.insegnamento) {
+        return [...filteredData];
+    }
+    return applyInsegnamentoFocus(filteredData, filters.insegnamento);
+}
+
+function applyInsegnamentoFocus(items, selectedSubject) {
+    if (!selectedSubject) {
+        return [...items];
+    }
+
+    return items.map(item => {
+        const relevantKnowledge = (item.conoscenze || []).filter(conoscenza =>
+            Array.isArray(conoscenza.insegnamenti) && conoscenza.insegnamenti.includes(selectedSubject)
+        );
+
+        if (!relevantKnowledge.length) {
+            return {
+                ...item,
+                conoscenze: [],
+                insegnamentoCoinvolti: [selectedSubject]
+            };
+        }
+
+        const relatedSubjects = new Set();
+        relevantKnowledge.forEach(conoscenza => {
+            conoscenza.insegnamenti.forEach(ins => relatedSubjects.add(ins));
+        });
+
+        return {
+            ...item,
+            conoscenze: relevantKnowledge,
+            insegnamentoCoinvolti: orderSubjectsByPriority(Array.from(relatedSubjects), selectedSubject)
+        };
+    });
+}
+
+function orderSubjectsByPriority(subjects, primary) {
+    if (!subjects || !subjects.length) {
+        return primary ? [primary] : [];
+    }
+    const sorted = [...subjects].sort((a, b) => a.localeCompare(b));
+    if (!primary) {
+        return sorted;
+    }
+    const index = sorted.indexOf(primary);
+    if (index === -1) {
+        sorted.unshift(primary);
+    } else if (index > 0) {
+        sorted.splice(index, 1);
+        sorted.unshift(primary);
+    }
+    return sorted;
 }
 
 // Export helpers
 function exportExcel() {
-    const data = (filteredData && filteredData.length ? filteredData : allData);
+    const baseData = (filteredData && filteredData.length) ? getVisibleData() : allData;
+    const data = (baseData && baseData.length) ? baseData : allData;
     if (!data || !data.length) {
         alert('Non ci sono dati da esportare.');
         return;
@@ -291,7 +349,8 @@ function exportExcel() {
 }
 
 function exportWord() {
-    const data = (filteredData && filteredData.length ? filteredData : allData);
+    const baseData = (filteredData && filteredData.length) ? getVisibleData() : allData;
+    const data = (baseData && baseData.length) ? baseData : allData;
     if (!data || !data.length) {
         alert('Non ci sono dati da esportare.');
         return;
@@ -304,7 +363,8 @@ function exportWord() {
 }
 
 function exportJSON() {
-    const data = (filteredData && filteredData.length ? filteredData : allData);
+    const baseData = (filteredData && filteredData.length) ? getVisibleData() : allData;
+    const data = (baseData && baseData.length) ? baseData : allData;
     if (!data || !data.length) {
         alert('Non ci sono dati da esportare.');
         return;
