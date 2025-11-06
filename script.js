@@ -432,6 +432,7 @@ function buildWordDocument(data) {
 	const style = `
 		<style>
 			body { font-family: "Times New Roman", serif; font-size: 12pt; color: #000; }
+			.word-heading { text-align: center; font-size: 11pt; margin: 0 0 4pt 0; }
 			.word-title { text-align: center; font-size: 14pt; font-weight: 600; margin: 0 0 12pt 0; }
 			.word-table { width: 100%; border-collapse: collapse; margin-bottom: 12pt; }
 			.word-table td { border: 1px solid #bfbfbf; padding: 6pt; vertical-align: top; }
@@ -449,6 +450,7 @@ function buildWordDocument(data) {
 	const discipline = filters.insegnamento ? escapeHtml(filters.insegnamento) : '_____________';
 	const sections = [];
 	sections.push(style);
+	sections.push(buildWordHeading());
 	sections.push(`<p class="word-title">PIANO DI LAVORO DI ${discipline}</p>`);
 	sections.push(renderGeneralInfoTable());
 	sections.push(renderMethodologySection());
@@ -460,6 +462,14 @@ function buildWordDocument(data) {
 
 	sections.push(renderWordFooter());
 	return sections.join('');
+}
+
+function buildWordHeading() {
+	const lines = [
+		'IIS Meucci - Mattei Cagliari, Sede Decimomannu',
+		'Competenze di indirizzo, ai sensi del Decreto del Ministro dell’istruzione, dell’università e della ricerca 24 maggio 2018, n. 92, Allegato C'
+	];
+	return lines.map(line => `<p class="word-heading">${line}</p>`).join('');
 }
 
 function renderGeneralInfoTable() {
