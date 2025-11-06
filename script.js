@@ -469,8 +469,8 @@ function renderGeneralInfoTable() {
 		{ label: 'DISCIPLINA', value: discipline },
 		{ label: 'CLASSE/SEZIONE', value: placeholder },
 		{ label: 'ANNO SCOLASTICO', value: placeholder },
-		{ label: 'ORE SETTIMANALI ITALIANO', value: placeholder },
-		{ label: 'ORE SETTIMANALI STORIA', value: placeholder }
+		{ label: 'ORE SETTIMANALI _____________', value: placeholder },
+		{ label: 'ORE SETTIMANALI _____________', value: placeholder }
 	];
 
 	const header = `
