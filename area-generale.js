@@ -261,7 +261,7 @@ function applyFilters() {
         return matchCompetenza && matchAsse && matchSubject && matchSearch;
     });
 
-    const dataForDisplay = filteredData.length ? filteredData : normalizedData;
+    const dataForDisplay = getCurrentDataset();
     const groupedCompetences = buildCompetenceGroups(dataForDisplay);
 
     updateStatsCards(dataForDisplay);
@@ -270,6 +270,10 @@ function applyFilters() {
     renderCompetenceCards(groupedCompetences);
     toggleEmptyState(dataForDisplay.length === 0);
     notifyParentHeight();
+}
+
+function getCurrentDataset() {
+    return filteredData.length ? filteredData : normalizedData;
 }
 
 function matchesSearch(entry, term) {
@@ -529,7 +533,7 @@ function renderCompetenceCards(groups) {
 }
 
 function exportJSON() {
-    const data = filteredData.length ? filteredData : normalizedData;
+    const data = getCurrentDataset();
     if (!data.length) {
         alert('Non ci sono dati da esportare.');
         return;
@@ -547,23 +551,26 @@ function exportJSON() {
 }
 
 function exportExcel() {
-    exportStructuredData('application/vnd.ms-excel', 'curricolo_area_generale.xls', false);
-}
-
-function exportWord() {
-    exportStructuredData('application/msword', 'curricolo_area_generale.doc', true);
-}
-
-function exportStructuredData(mimeType, filename, rich) {
-    const data = filteredData.length ? filteredData : normalizedData;
+    const data = getCurrentDataset();
     if (!data.length) {
         alert('Non ci sono dati da esportare.');
         return;
     }
-    const headerHtml = buildExportHeader(rich);
-    const tableHtml = buildHtmlTable(data, rich);
+    const headerHtml = buildExportHeader(false);
+    const tableHtml = buildHtmlTable(data, false);
     const content = `\uFEFF<html><head><meta charset="UTF-8"></head><body>${headerHtml}${tableHtml}</body></html>`;
-    downloadFile(content, mimeType, filename);
+    downloadFile(content, 'application/vnd.ms-excel', 'curricolo_area_generale.xls');
+}
+
+function exportWord() {
+    const data = getCurrentDataset();
+    if (!data.length) {
+        alert('Non ci sono dati da esportare.');
+        return;
+    }
+    const documentHtml = buildWordDocument(data);
+    const content = `\uFEFF<html><head><meta charset="UTF-8"></head><body>${documentHtml}</body></html>`;
+    downloadFile(content, 'application/msword', 'curricolo_area_generale.doc');
 }
 
 function buildHtmlTable(data, rich = false) {
@@ -591,6 +598,211 @@ function buildHtmlTable(data, rich = false) {
     const fontSize = rich ? '11px' : '12px';
     const tableAttrs = rich ? ` style=\"width:95%;margin:0 auto;table-layout:fixed;border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;font-size:${fontSize}\"` : '';
     return `<table${tableAttrs}>${thead}${tbody}</table>`;
+}
+
+function buildWordDocument(data) {
+    const style = `
+        <style>
+            body { font-family: "Times New Roman", serif; font-size: 12pt; color: #000; }
+            .word-heading { text-align: center; font-size: 11pt; margin: 0 0 4pt 0; }
+            .word-title { text-align: center; font-size: 14pt; font-weight: 600; margin: 0 0 12pt 0; }
+            .word-table { width: 100%; border-collapse: collapse; margin-bottom: 12pt; }
+            .word-table td { border: 1px solid #bfbfbf; padding: 6pt; vertical-align: top; }
+            .word-table .header-cell { text-align: center; font-weight: 700; background: #f2f2f2; }
+            .word-table .label-cell { width: 32%; font-weight: 600; }
+            .word-section-title { text-align: center; font-weight: 700; margin: 0; }
+            .word-list { margin: 0; padding-left: 16pt; }
+            .word-list li { margin-bottom: 3pt; }
+            .word-blank { margin: 4pt 0; }
+            .word-footer { margin-top: 32pt; font-size: 12pt; }
+        </style>
+    `;
+    const discipline = filters.insegnamento ? escapeHTML(filters.insegnamento) : '_____________';
+    const sections = [];
+    sections.push(style);
+    sections.push(buildWordHeading());
+    sections.push(`<p class="word-title">PIANO DI LAVORO DI ${discipline}</p>`);
+    sections.push(renderGeneralInfoTable());
+    sections.push(renderMethodologySection());
+
+    const grouped = groupCompetencesForWord(data);
+    grouped.forEach(group => sections.push(renderCompetenceBlock(group)));
+
+    sections.push(renderWordFooter());
+    return sections.join('');
+}
+
+function buildWordHeading() {
+    const lines = [
+        'IIS Meucci - Mattei Cagliari, Sede Decimomannu',
+        'Competenze di indirizzo, ai sensi del Decreto del Ministro dell’istruzione, dell’università e della ricerca 24 maggio 2018, n. 92, Allegato C'
+    ];
+    return lines.map(line => `<p class="word-heading">${line}</p>`).join('');
+}
+
+function renderGeneralInfoTable() {
+    const placeholder = '_____________';
+    const discipline = filters.insegnamento ? escapeHTML(filters.insegnamento) : placeholder;
+    const rows = [
+        { label: 'DOCENTE', value: placeholder },
+        { label: 'DISCIPLINA', value: discipline },
+        { label: 'CLASSE/SEZIONE', value: placeholder },
+        { label: 'ANNO SCOLASTICO', value: placeholder },
+        { label: 'ORE SETTIMANALI _____________', value: placeholder },
+        { label: 'ORE SETTIMANALI _____________', value: placeholder }
+    ];
+
+    const header = `
+        <tr>
+            <td class="header-cell" colspan="2">INFORMAZIONI GENERALI</td>
+        </tr>
+    `;
+    const body = rows.map(row => `
+        <tr>
+            <td class="label-cell">${row.label}</td>
+            <td>${row.value || placeholder}</td>
+        </tr>
+    `).join('');
+    return `<table class="word-table">${header}${body}</table>`;
+}
+
+function renderMethodologySection() {
+    const rows = [
+        { title: 'METODOLOGIA', content: [], placeholders: 0 },
+        { title: 'Attività', content: [], placeholders: 4 },
+        { title: 'Strumenti', content: [], placeholders: 6 },
+        { title: 'Verifiche', content: [], placeholders: 3 },
+        { title: 'Criteri e modalità di valutazione', content: [], placeholders: 6 },
+        {
+            title: 'Attività di recupero in itinere',
+            content: [
+                'Ogni qualvolta si rendesse necessario, si provvederà al recupero delle conoscenze pregresse (es. morfologia, sintassi, ecc.)'
+            ],
+            placeholders: 0
+        }
+    ];
+
+    const htmlRows = rows.map((row, index) => {
+        const isHeader = index === 0;
+        if (isHeader) {
+            return `<tr><td class="header-cell">${row.title}</td></tr>`;
+        }
+        if (!row.content.length) {
+            const placeholders = renderListOrPlaceholder([], row.placeholders || 1);
+            return `
+                <tr>
+                    <td>
+                        <p class="word-section-title">${row.title}</p>
+                        ${placeholders}
+                    </td>
+                </tr>
+            `;
+        }
+        const list = `<ul class="word-list">${row.content.map(item => `<li>${escapeHTML(item)}</li>`).join('')}</ul>`;
+        return `
+            <tr>
+                <td>
+                    <p class="word-section-title">${row.title}</p>
+                    ${list}
+                </td>
+            </tr>
+        `;
+    }).join('');
+
+    return `<table class="word-table">${htmlRows}</table>`;
+}
+
+function groupCompetencesForWord(data) {
+    const map = new Map();
+    data.forEach(entry => {
+        if (!entry || entry.competenzaNumero === undefined) {
+            return;
+        }
+        const key = entry.competenzaNumero;
+        const record = map.get(key) || {
+            numero: entry.competenzaNumero,
+            titolo: entry.competenzaTitolo || '',
+            axes: new Map()
+        };
+
+        const axisKey = entry.asse || 'Asse non specificato';
+        const axis = record.axes.get(axisKey) || {
+            asse: axisKey,
+            abilita: new Set(),
+            conoscenze: new Set(),
+            insegnamenti: new Set(getSubjectsForAxis(axisKey))
+        };
+
+        (entry.abilita || []).forEach(abilita => axis.abilita.add(abilita));
+        (entry.conoscenze || []).forEach(conoscenza => axis.conoscenze.add(conoscenza));
+        record.axes.set(axisKey, axis);
+        map.set(key, record);
+    });
+
+    return Array.from(map.values())
+        .sort((a, b) => a.numero - b.numero)
+        .map(record => ({
+            numero: record.numero,
+            titolo: record.titolo,
+            axes: Array.from(record.axes.values()).map(axis => ({
+                asse: axis.asse,
+                abilita: Array.from(axis.abilita),
+                conoscenze: Array.from(axis.conoscenze),
+                insegnamenti: Array.from(axis.insegnamenti)
+            }))
+        }));
+}
+
+function renderCompetenceBlock(group) {
+    const competenceTable = renderSimpleTable('COMPETENZE', [
+        `Competenza ${group.numero}: ${escapeHTML(group.titolo)}`
+    ]);
+    const axesHtml = group.axes.length
+        ? group.axes.map(renderAxisTable).join('')
+        : renderSimpleTable('Assi culturali', []);
+    return `${competenceTable}${axesHtml}`;
+}
+
+function renderAxisTable(axis) {
+    const subjectsBlock = axis.insegnamenti.length
+        ? `<p class="word-section-title">Insegnamenti</p>${renderListOrPlaceholder(axis.insegnamenti, 2)}`
+        : '';
+    return `
+        <table class="word-table">
+            <tr><td class="header-cell">${escapeHTML(axis.asse)}</td></tr>
+            <tr>
+                <td>
+                    ${subjectsBlock}
+                    <p class="word-section-title">Abilità</p>
+                    ${renderListOrPlaceholder(axis.abilita)}
+                    <p class="word-section-title">Conoscenze</p>
+                    ${renderListOrPlaceholder(axis.conoscenze)}
+                </td>
+            </tr>
+        </table>
+    `;
+}
+
+function renderSimpleTable(title, lines) {
+    const header = `<tr><td class="header-cell">${title}</td></tr>`;
+    const bodyContent = renderListOrPlaceholder(lines);
+    const body = `<tr><td>${bodyContent}</td></tr>`;
+    return `<table class="word-table">${header}${body}</table>`;
+}
+
+function renderListOrPlaceholder(items, minLines = 3) {
+    if (items && items.length) {
+        return `<ul class="word-list">${items.map(item => `<li>${escapeHTML(item)}</li>`).join('')}</ul>`;
+    }
+    return Array.from({ length: minLines }, () => '<p class="word-blank">_____________</p>').join('');
+}
+
+function renderWordFooter() {
+    return `
+        <p class="word-footer">
+            Cagliari, __/__/____&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Il/La docente
+        </p>
+    `;
 }
 
 function buildExportHeader(rich = false) {
