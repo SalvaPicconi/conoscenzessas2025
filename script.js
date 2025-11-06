@@ -437,6 +437,7 @@ function buildWordDocument(data) {
 			.word-table td { border: 1px solid #bfbfbf; padding: 6pt; vertical-align: top; }
 			.word-table .header-cell { text-align: center; font-weight: 700; background: #f2f2f2; }
 			.word-table .label-cell { width: 32%; font-weight: 600; }
+			.word-period-table td:first-child { width: 35%; font-weight: 600; }
 			.word-section-title { text-align: center; font-weight: 700; margin: 0; }
 			.word-list { margin: 0; padding-left: 16pt; }
 			.word-list li { margin-bottom: 3pt; }
@@ -623,16 +624,20 @@ function renderPeriodTables(periodsMap) {
 		return '';
 	}
 	const periods = Array.from(periodsMap.keys());
-	const periodBody = periods.length
-		? periods.map(periodo => `<p>${escapeHtml(periodo)}</p>`).join('')
-		: '<p class="word-blank">_____________</p>';
-	const contenutiPlaceholder = '<p class="word-blank">_____________</p><p class="word-blank">_____________</p><p class="word-blank">_____________</p>';
+	const blankContent = '<p class="word-blank">_____________</p><p class="word-blank">_____________</p><p class="word-blank">_____________</p>';
+	const rows = (periods.length ? periods : ['_____________']).map(periodo => `
+		<tr>
+			<td>${escapeHtml(periodo)}</td>
+			<td>${blankContent}</td>
+		</tr>
+	`).join('');
 	return `
-		<table class="word-table">
-			<tr><td class="header-cell">Periodo</td></tr>
-			<tr><td>${periodBody}</td></tr>
-			<tr><td class="header-cell">Contenuti</td></tr>
-			<tr><td>${contenutiPlaceholder}</td></tr>
+		<table class="word-table word-period-table">
+			<tr>
+				<td class="header-cell">Periodo</td>
+				<td class="header-cell">Contenuti</td>
+			</tr>
+			${rows}
 		</table>
 	`;
 }
