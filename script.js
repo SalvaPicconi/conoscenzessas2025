@@ -622,18 +622,19 @@ function renderPeriodTables(periodsMap) {
 	if (!periodsMap || !periodsMap.size) {
 		return '';
 	}
-	const tables = Array.from(periodsMap.entries()).map(([periodo, value]) => {
-		const conoscenze = Array.from(value.conoscenze || []);
-		const abilita = Array.from(value.abilita || []);
-		const contenuti = conoscenze.concat(abilita).map(escapeHtml);
-		const header = `<tr><td class="header-cell">Periodo</td></tr><tr><td>${escapeHtml(periodo)}</td></tr>`;
-		const contentHeader = `<tr><td class="header-cell">Contenuti</td></tr>`;
-		const contentBody = contenuti.length
-			? `<tr><td><ul class="word-list">${contenuti.map(item => `<li>${item}</li>`).join('')}</ul></td></tr>`
-			: `<tr><td><p class="word-blank">_____________</p><p class="word-blank">_____________</p></td></tr>`;
-		return `<table class="word-table">${header}${contentHeader}${contentBody}</table>`;
-	});
-	return tables.join('');
+	const periods = Array.from(periodsMap.keys());
+	const periodBody = periods.length
+		? periods.map(periodo => `<p>${escapeHtml(periodo)}</p>`).join('')
+		: '<p class="word-blank">_____________</p>';
+	const contenutiPlaceholder = '<p class="word-blank">_____________</p><p class="word-blank">_____________</p><p class="word-blank">_____________</p>';
+	return `
+		<table class="word-table">
+			<tr><td class="header-cell">Periodo</td></tr>
+			<tr><td>${periodBody}</td></tr>
+			<tr><td class="header-cell">Contenuti</td></tr>
+			<tr><td>${contenutiPlaceholder}</td></tr>
+		</table>
+	`;
 }
 
 function renderWordFooter() {
