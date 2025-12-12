@@ -240,21 +240,19 @@
       {
         "nome": "Il gruppo e le sue dinamiche",
         "insegnamenti": [
-          "PSICOLOGIA GENERALE ED APPLICATA",
           "SCIENZE UMANE"
         ]
       },
       {
         "nome": "Il processo di socializzazione",
         "insegnamenti": [
-          "SCIENZE UMANE",
-          "PSICOLOGIA GENERALE ED APPLICATA"
+          "SCIENZE UMANE"
         ]
       },
       {
         "nome": "Gli aspetti emotivo - motivazionali dell'essere umano",
         "insegnamenti": [
-          "PSICOLOGIA GENERALE ED APPLICATA"
+          "SCIENZE UMANE"
         ]
       },
       {
@@ -267,7 +265,6 @@
       }
     ],
     "insegnamentoCoinvolti": [
-      "PSICOLOGIA GENERALE ED APPLICATA",
       "SCIENZE UMANE",
       "ITALIANO",
       "INGLESE",
@@ -573,38 +570,32 @@
       {
         "nome": "Elementi di anatomia e fisiologia umana",
         "insegnamenti": [
-          "SCIENZE INTEGRATE",
-          "IGIENE E CULTURA MEDICO SANITARIA"
+          "SCIENZE INTEGRATE"
         ]
       },
       {
         "nome": "Funzioni e organizzazione del corpo umano",
         "insegnamenti": [
-          "SCIENZE INTEGRATE",
-          "IGIENE E CULTURA MEDICO SANITARIA"
+          "SCIENZE INTEGRATE"
         ]
       },
       {
         "nome": "Principi di una corretta alimentazione e di una regolare attività fisica",
         "insegnamenti": [
           "SCIENZE INTEGRATE",
-          "SCIENZE MOTORIE",
-          "IGIENE E CULTURA MEDICO SANITARIA"
+          "SCIENZE MOTORIE"
         ]
       },
       {
         "nome": "I principali bisogni legati all'età e alle condizioni dell'individuo",
         "insegnamenti": [
-          "PSICOLOGIA GENERALE ED APPLICATA",
           "METODOLOGIE OPERATIVE"
         ]
       }
     ],
     "insegnamentoCoinvolti": [
       "SCIENZE INTEGRATE",
-      "IGIENE E CULTURA MEDICO SANITARIA",
       "SCIENZE MOTORIE",
-      "PSICOLOGIA GENERALE ED APPLICATA",
       "METODOLOGIE OPERATIVE"
     ]
   },
@@ -784,21 +775,18 @@
       {
         "nome": "Le condizioni di salute bio-psico-sociale e le condizioni di malattia",
         "insegnamenti": [
-          "IGIENE E CULTURA MEDICO SANITARIA",
-          "PSICOLOGIA GENERALE ED APPLICATA"
+          "SCIENZE UMANE"
         ]
       },
       {
         "nome": "I soggetti che partecipano alla presa in carico della persona malata e i loro compiti",
         "insegnamenti": [
-          "METODOLOGIE OPERATIVE",
-          "IGIENE E CULTURA MEDICO SANITARIA"
+          "METODOLOGIE OPERATIVE"
         ]
       }
     ],
     "insegnamentoCoinvolti": [
-      "IGIENE E CULTURA MEDICO SANITARIA",
-      "PSICOLOGIA GENERALE ED APPLICATA",
+      "SCIENZE UMANE",
       "METODOLOGIE OPERATIVE"
     ]
   },
@@ -1017,8 +1005,7 @@
       {
         "nome": "Rischi, pericoli e sicurezza",
         "insegnamenti": [
-          "SCIENZE INTEGRATE",
-          "IGIENE E CULTURA MEDICO SANITARIA"
+          "SCIENZE INTEGRATE"
         ]
       },
       {
@@ -1031,13 +1018,12 @@
     "insegnamentoCoinvolti": [
       "DIRITTO",
       "STORIA",
-      "SCIENZE INTEGRATE",
-      "IGIENE E CULTURA MEDICO SANITARIA"
+      "SCIENZE INTEGRATE"
     ]
   },
   {
     "competenzaNum": 6,
-    "competenzaTitolo": "Competenza in uscita n° 6: Curare l’allestimento dell’ambiente di vita della persona in difficoltà con riferimento alle misure per la salvaguardia della sua sicurezza e incolumità, anche provvedendo alla promozione e al mantenimento delle capacità residue e della autonomia nel proprio ambiente di vita.",
+    "competenzaTitolo": "Competenza in uscita n° 6: Curare l'allestimento dell'ambiente di vita della persona in difficoltà con riferimento alle misure per la salvaguardia della sua sicurezza e incolumità, anche provvedendo alla promozione e al mantenimento delle capacità residue e della autonomia nel proprio ambiente di vita.",
     "periodo": "Terzo Anno",
     "livelloQNQ": 3,
     "competenzaIntermedia": "Rilevare e segnalare situazioni di rischio e pericolo presenti nei diversi ambienti di vita e di lavoro",
