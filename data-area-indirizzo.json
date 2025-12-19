@@ -541,7 +541,6 @@
       {
         "nome": "Caratteristiche e funzioni della mediazione interculturale",
         "insegnamenti": [
-          "SCIENZE UMANE",
           "INGLESE",
           "SPAGNOLO"
         ]
@@ -550,7 +549,6 @@
     "insegnamentoCoinvolti": [
       "PSICOLOGIA GENERALE ED APPLICATA",
       "METODOLOGIE OPERATIVE",
-      "SCIENZE UMANE",
       "INGLESE",
       "SPAGNOLO"
     ]
@@ -973,15 +971,13 @@
       {
         "nome": "Terminalità e fine-vita: aspetti antropologici, culturali e psico-sociali",
         "insegnamenti": [
-          "PSICOLOGIA GENERALE ED APPLICATA",
-          "SCIENZE UMANE"
+          "PSICOLOGIA GENERALE ED APPLICATA"
         ]
       }
     ],
     "insegnamentoCoinvolti": [
       "IGIENE E CULTURA MEDICO SANITARIA",
-      "PSICOLOGIA GENERALE ED APPLICATA",
-      "SCIENZE UMANE"
+      "PSICOLOGIA GENERALE ED APPLICATA"
     ]
   },
   {
@@ -1181,8 +1177,7 @@
       {
         "nome": "Le reti formali ed informali per l'accesso ai servizi",
         "insegnamenti": [
-          "METODOLOGIE OPERATIVE",
-          "SCIENZE UMANE"
+          "METODOLOGIE OPERATIVE"
         ]
       },
       {
@@ -1215,7 +1210,6 @@
     ],
     "insegnamentoCoinvolti": [
       "METODOLOGIE OPERATIVE",
-      "SCIENZE UMANE",
       "DIRITTO E TEC. AMM.",
       "IGIENE E CULTURA MEDICO SANITARIA"
     ]
@@ -1360,7 +1354,6 @@
       {
         "nome": "Multiculturalismo e approcci educativi",
         "insegnamenti": [
-          "SCIENZE UMANE",
           "INGLESE",
           "SPAGNOLO"
         ]
@@ -1375,7 +1368,6 @@
     "insegnamentoCoinvolti": [
       "METODOLOGIE OPERATIVE",
       "PSICOLOGIA GENERALE ED APPLICATA",
-      "SCIENZE UMANE",
       "INGLESE",
       "SPAGNOLO"
     ]
@@ -1480,8 +1472,7 @@
       {
         "nome": "Problemi e interventi relativi all'integrazione sociale, scolastica e lavorativa, e normativa di riferimento",
         "insegnamenti": [
-          "METODOLOGIE OPERATIVE",
-          "SCIENZE UMANE"
+          "METODOLOGIE OPERATIVE"
         ]
       },
       {
@@ -1495,8 +1486,7 @@
     "insegnamentoCoinvolti": [
       "IGIENE E CULTURA MEDICO SANITARIA",
       "PSICOLOGIA GENERALE ED APPLICATA",
-      "METODOLOGIE OPERATIVE",
-      "SCIENZE UMANE"
+      "METODOLOGIE OPERATIVE"
     ]
   },
   {
@@ -1565,8 +1555,7 @@
     ],
     "insegnamentoCoinvolti": [
       "PSICOLOGIA GENERALE ED APPLICATA",
-      "METODOLOGIE OPERATIVE",
-      "SCIENZE UMANE"
+      "METODOLOGIE OPERATIVE"
     ]
   },
   {
