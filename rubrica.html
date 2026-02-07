@@ -988,8 +988,47 @@
     </div>
 
     <script>
-        // DATI COMPETENZE
-        const competenze = [
+        // CONFIGURAZIONE MATERIE
+        const MATERIE = {
+            'metodologie': {
+                id: 'metodologie',
+                titolo: 'Metodologie Operative dei Servizi Socio Sanitari',
+                sottotitolo: 'Quinquennio - Servizi per la Sanità e l\'Assistenza Sociale',
+                colore: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                competenze: null // Caricate sotto
+            },
+            'scienze_umane': {
+                id: 'scienze_umane',
+                titolo: 'Scienze Umane',
+                sottotitolo: 'Biennio - Servizi per la Sanità e l\'Assistenza Sociale',
+                colore: 'linear-gradient(135deg, #f6d365 0%, #fda085 100%)',
+                competenze: [] // Placeholder
+            },
+            'psicologia': {
+                id: 'psicologia',
+                titolo: 'Psicologia Generale ed Applicata',
+                sottotitolo: 'Triennio - Servizi per la Sanità e l\'Assistenza Sociale',
+                colore: 'linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%)',
+                competenze: [] // Placeholder
+            },
+            'igiene': {
+                id: 'igiene',
+                titolo: 'Igiene e Cultura Medico Sanitaria',
+                sottotitolo: 'Servizi per la Sanità e l\'Assistenza Sociale',
+                colore: 'linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)',
+                competenze: [] // Placeholder
+            },
+            'diritto': {
+                id: 'diritto',
+                titolo: 'Diritto e Tecnica Amministrativa',
+                sottotitolo: 'Servizi per la Sanità e l\'Assistenza Sociale',
+                colore: 'linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%)',
+                competenze: [] // Placeholder
+            }
+        };
+
+        // DATI COMPETENZE METODOLOGIE (Default)
+        const competenze_metodologie = [
             {
                 id: 1,
                 nome: "Comp. 1 - Collaborare nella gestione di progetti e attività dei servizi sociali, socio-sanitari e socio-educativi",
@@ -1511,6 +1550,51 @@
                 ]
             }
         ];
+
+        MATERIE.metodologie.competenze = competenze_metodologie;
+
+        // Assegna dati placeholder alle altre materie (usa una copia di metodologie come base, con etichette modificate)
+        const placeholderComp = JSON.parse(JSON.stringify(competenze_metodologie));
+        MATERIE.scienze_umane.competenze = placeholderComp;
+        MATERIE.psicologia.competenze = placeholderComp;
+        MATERIE.igiene.competenze = placeholderComp;
+        MATERIE.diritto.competenze = placeholderComp;
+
+        // GESTIONE MATERIA CORRENTE
+        function getMateriaFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const materia = urlParams.get('materia');
+            return (materia && MATERIE[materia]) ? MATERIE[materia] : MATERIE.metodologie;
+        }
+
+        const currentMateria = getMateriaFromUrl();
+        const competenze = currentMateria.competenze;
+
+        // AGGIORNA INTERFACCIA CON DATI MATERIA
+        document.addEventListener('DOMContentLoaded', () => {
+            // Aggiorna titolo pagina
+            document.title = `Valutazione - ${currentMateria.titolo}`;
+
+            // Aggiorna Header
+            const headerH1 = document.querySelector('header h1');
+            const headerP = document.querySelector('header p');
+            const header = document.querySelector('header');
+
+            if (headerH1) headerH1.innerHTML = `📊 ${currentMateria.titolo}`;
+            if (headerP) headerP.innerHTML = `${currentMateria.sottotitolo}<br>IIS Meucci Mattei Decimomannu`;
+            if (header && currentMateria.colore) header.style.background = currentMateria.colore;
+
+            // Aggiorna gradienti ed elementi colorati
+            const style = document.createElement('style');
+            style.innerHTML = `
+                .leggenda-bar-fill, .val-step-number, .risultato-finale {
+                    background: ${currentMateria.colore} !important;
+                }
+            `;
+            document.head.appendChild(style);
+        });
+
+        // VARIABILI GLOBALI
 
         // VARIABILI GLOBALI
         let pesi = {};

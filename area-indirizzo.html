@@ -112,9 +112,31 @@
                     <span class="search-icon">🔍</span>
                 </div>
                 <div class="actions-row">
-                    <button onclick="window.open('rubrica.html', '_blank')" class="primary-btn"
-                        style="background-color: #667eea; border-color: #667eea; margin-right: 10px;">📊 Apri Rubrica
-                        Valutazione</button>
+                    <div style="display: flex; align-items: center; gap: 5px; margin-right: 10px;">
+                        <select id="rubrica-select"
+                            style="padding: 8px; border-radius: 4px; border: 1px solid #ddd; font-size: 14px;">
+                            <option value="">📊 Seleziona Rubrica...</option>
+                            <option value="metodologie">1. Metodologie Operative</option>
+                            <option value="scienze_umane">2. Scienze Umane</option>
+                            <option value="psicologia">3. Psicologia Gen. e Appl.</option>
+                            <option value="igiene">4. Igiene e Cultura M.S.</option>
+                            <option value="diritto">5. Diritto e T.A.</option>
+                        </select>
+                        <button onclick="apriRubricaSelezionata()" class="primary-btn"
+                            style="background-color: #667eea; border-color: #667eea; padding: 8px 12px;">Vai</button>
+                    </div>
+                    <!-- Script per gestire apertura rubrica -->
+                    <script>
+                        function apriRubricaSelezionata() {
+                            const select = document.getElementById('rubrica-select');
+                            const val = select.value;
+                            if (val) {
+                                window.open(`rubrica.html?materia=${val}`, '_blank');
+                            } else {
+                                alert('Per favore, seleziona una materia dal menu a tendina.');
+                            }
+                        }
+                    </script>
                     <button id="export-excel" class="primary-btn">Esporta Excel</button>
                     <button id="export-word" class="secondary-btn">Esporta Word</button>
                     <button id="export-json" class="secondary-btn">Esporta JSON</button>
