@@ -1,0 +1,1938 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valutazione Metodologie Operative - Classe Terza</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            opacity: 0.9;
+            font-size: 14px;
+        }
+
+        .qnq-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin-top: 10px;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .section {
+            padding: 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 20px;
+            color: #667eea;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        /* PRESET E BUTTONS */
+        .preset-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .preset-btn {
+            padding: 10px 20px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .preset-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .preset-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        /* LEGGENDA ORGANIZZAZIONE */
+        .leggenda-organizzazione {
+            background: #f0f4ff;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .leggenda-org-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .leggenda-org-body {
+            background: white;
+            border-radius: 6px;
+            padding: 20px;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .leggenda-org-body p {
+            margin-bottom: 12px;
+        }
+
+        .leggenda-org-body ul {
+            margin: 10px 0 15px 20px;
+            list-style-type: disc;
+        }
+
+        .leggenda-org-body li {
+            margin-bottom: 8px;
+        }
+
+        .livelli-sintesi {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .livello-item {
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 4px solid;
+            font-size: 13px;
+        }
+
+        .livello-item.livello-4-5 {
+            background: #ffe5e5;
+            border-color: #dc3545;
+        }
+
+        .livello-item.livello-6 {
+            background: #fff9e5;
+            border-color: #ffc107;
+        }
+
+        .livello-item.livello-7-8 {
+            background: #e5f9e5;
+            border-color: #28a745;
+        }
+
+        .livello-item.livello-9-10 {
+            background: #e5f0ff;
+            border-color: #007bff;
+        }
+
+        /* LEGGENDA PESI */
+        .leggenda-pesi {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .leggenda-header {
+            font-size: 16px;
+            color: #667eea;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .leggenda-body {
+            background: white;
+            border-radius: 6px;
+            padding: 15px;
+        }
+
+        .leggenda-info {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e9ecef;
+            font-size: 14px;
+        }
+
+        .leggenda-info strong {
+            color: #667eea;
+            font-size: 16px;
+        }
+
+        .leggenda-bars {
+            margin-bottom: 15px;
+        }
+
+        .leggenda-bar-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+
+        .leggenda-bar-label {
+            min-width: 180px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .leggenda-bar-value {
+            min-width: 60px;
+            text-align: right;
+            font-weight: 600;
+            color: #667eea;
+            margin-right: 10px;
+        }
+
+        .leggenda-bar-visual {
+            flex: 1;
+            height: 20px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .leggenda-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 8px;
+            color: white;
+            font-weight: 600;
+            font-size: 11px;
+        }
+
+        .leggenda-bar-item.excluded {
+            opacity: 0.4;
+        }
+
+        .leggenda-bar-item.excluded .leggenda-bar-label {
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        .leggenda-note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px;
+            font-size: 12px;
+            color: #856404;
+            border-radius: 4px;
+        }
+
+        /* COMPETENZE PESO */
+        .competenza-peso {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .competenza-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .competenza-nome {
+            font-weight: 600;
+            color: #333;
+            flex: 1;
+            cursor: help;
+        }
+
+        .competenza-nome:hover::after {
+            content: attr(title);
+            position: absolute;
+            background: #333;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 400;
+            max-width: 400px;
+            z-index: 1000;
+            margin-top: 5px;
+            line-height: 1.4;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .peso-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: #667eea;
+            min-width: 60px;
+            text-align: right;
+        }
+
+        .slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: #ddd;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+            border: none;
+        }
+
+        .totale-pesi {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+
+        /* LEGGENDA VALUTAZIONE */
+        .leggenda-valutazione {
+            background: #fff8e5;
+            border: 2px solid #ff9800;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .leggenda-val-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            color: #ff9800;
+            margin-bottom: 15px;
+        }
+
+        .leggenda-val-body {
+            background: white;
+            border-radius: 6px;
+            padding: 20px;
+        }
+
+        .val-step {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+
+        .val-step-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .val-step-content {
+            flex: 1;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .val-step-content strong {
+            display: block;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+
+        .val-tips {
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+
+        .val-tips strong {
+            display: block;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .val-tips ul {
+            margin: 10px 0 0 20px;
+            list-style-type: disc;
+        }
+
+        .val-tips li {
+            margin-bottom: 8px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .val-tips li strong {
+            display: inline;
+            color: #333;
+            font-weight: 600;
+        }
+
+        /* VALUTAZIONE STUDENTE */
+        .student-input {
+            margin-bottom: 25px;
+        }
+
+        .student-input label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .student-input input,
+        .student-input select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .student-input input:focus,
+        .student-input select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .competenza-valutazione {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .comp-header {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .comp-title {
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 1.4;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .comp-peso-badge {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .indicatore {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .indicatore-nome {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: flex-start;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .radio-option:hover {
+            border-color: #667eea;
+            background: #f8f9ff;
+        }
+
+        .radio-option input[type="radio"] {
+            margin-right: 10px;
+            margin-top: 3px;
+            cursor: pointer;
+        }
+
+        .radio-option.selected {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+
+        .radio-label {
+            flex: 1;
+        }
+
+        .livello-badge {
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+        .livello-4-5 {
+            color: #dc3545;
+        }
+
+        .livello-6 {
+            color: #ffc107;
+        }
+
+        .livello-7-8 {
+            color: #28a745;
+        }
+
+        .livello-9-10 {
+            color: #007bff;
+        }
+
+        .comp-voto {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            margin-top: 15px;
+            border: 2px solid #667eea;
+        }
+
+        .comp-voto-label {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .comp-voto-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        /* RISULTATO FINALE */
+        .risultato-finale {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .voto-finale {
+            font-size: 48px;
+            font-weight: 700;
+            margin: 20px 0;
+        }
+
+        .giudizio-finale {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .dettaglio-calcolo {
+            background: white;
+            color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .dettaglio-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .dettaglio-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .dettaglio-row:last-child {
+            border-bottom: none;
+            font-weight: 700;
+            padding-top: 15px;
+            margin-top: 10px;
+            border-top: 2px solid #667eea;
+        }
+
+        /* BUTTONS */
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-right: 10px;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #218838;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* PROGRESS BAR */
+        .progress-bar {
+            background: #e0e0e0;
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+                border-radius: 0;
+            }
+
+            header h1 {
+                font-size: 22px;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .preset-buttons {
+                flex-direction: column;
+            }
+
+            .competenza-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .comp-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .comp-title {
+                font-size: 14px;
+                min-width: 100%;
+            }
+
+            .leggenda-bar-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+                margin-bottom: 12px;
+            }
+
+            .leggenda-bar-label {
+                min-width: 100%;
+            }
+
+            .leggenda-bar-value {
+                min-width: 100%;
+                text-align: left;
+            }
+
+            .leggenda-bar-visual {
+                width: 100%;
+            }
+
+            .leggenda-info {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .livelli-sintesi {
+                grid-template-columns: 1fr;
+            }
+
+            .val-step {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .val-step-number {
+                align-self: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Valutazione Metodologie Operative - CLASSE TERZA</h1>
+            <p>Servizi per la Sanità e l'Assistenza Sociale</p>
+            <p>IIS Meucci Mattei Decimomannu</p>
+            <div class="qnq-badge">Livello 3 QNQ - COGNIZIONE, COLLABORAZIONE, ORIENTAMENTO AL RISULTATO</div>
+        </header>
+
+        <!-- STEP 1: CONFIGURAZIONE PESI -->
+        <div id="step1" class="section">
+            <h2 class="section-title">⚖️ Step 1: Configura Pesi delle Competenze</h2>
+
+            <!-- LEGGENDA ORGANIZZAZIONE RUBRICA -->
+            <div class="leggenda-organizzazione">
+                <div class="leggenda-org-header">
+                    <span style="font-size: 20px;">📖</span>
+                    <strong>Come è organizzata questa rubrica di valutazione - TERZO ANNO (Livello 3 QNQ)</strong>
+                </div>
+                <div class="leggenda-org-body">
+                    <p><strong>La rubrica valuta 10 competenze di indirizzo</strong>, ciascuna articolata in <strong>5
+                            indicatori specifici</strong> che coprono diverse dimensioni professionali:</p>
+                    <ul>
+                        <li><strong>Dimensione conoscitiva</strong> - gamma di conoscenze con elementi concettuali per
+                            collegamenti logici</li>
+                        <li><strong>Dimensione operativa</strong> - adattamenti, riformulazioni, rielaborazioni</li>
+                        <li><strong>Dimensione relazionale</strong> - collaborazione in contesti mutevoli</li>
+                        <li><strong>Dimensione metodologica</strong> - individuazione modalità più adeguate</li>
+                        <li><strong>Dimensione riflessiva</strong> - capacità interpretativa e orientamento al risultato
+                        </li>
+                    </ul>
+                    <p><strong>Ogni indicatore prevede 4 livelli di padronanza allineati al Livello 3 QNQ:</strong></p>
+                    <div class="livelli-sintesi">
+                        <div class="livello-item livello-4-5">
+                            <strong>4-5 (Sotto Livello 3)</strong>: Resta al Livello 2, necessita guida costante
+                        </div>
+                        <div class="livello-item livello-6">
+                            <strong>6 (Livello 3 Base)</strong>: Adattamenti in situazioni mutevoli, contesto
+                            strutturato
+                        </div>
+                        <div class="livello-item livello-7-8">
+                            <strong>7-8 (Livello 3 Consolidato)</strong>: Autonomia, problem solving emergente
+                        </div>
+                        <div class="livello-item livello-9-10">
+                            <strong>9-10 (Verso Livello 4)</strong>: Eccellenza, coordinamento, innovazione
+                        </div>
+                    </div>
+                    <p style="margin-top: 15px;"><strong>Il voto finale</strong> è calcolato come media ponderata delle
+                        10 competenze, dove i pesi riflettono l'importanza relativa di ciascuna competenza nel
+                        quadrimestre.</p>
+                </div>
+            </div>
+
+            <div class="preset-buttons">
+                <button class="preset-btn active" onclick="applicaPreset('equilibrato')">Equilibrato (10%
+                    ciascuna)</button>
+                <button class="preset-btn" onclick="resetPesi()">Reset Pesi</button>
+            </div>
+
+            <!-- LEGGENDA DINAMICA -->
+            <div id="leggenda-pesi" class="leggenda-pesi">
+                <div class="leggenda-header">
+                    <strong>📊 Distribuzione Pesi (Normalizzata automaticamente)</strong>
+                </div>
+                <div class="leggenda-body">
+                    <div class="leggenda-info">
+                        <span>Competenze attive: <strong id="comp-attive">10/10</strong></span>
+                        <span>Peso totale assegnato: <strong id="peso-totale-assegnato">100%</strong></span>
+                    </div>
+                    <div id="leggenda-bars" class="leggenda-bars">
+                        <!-- Barre generate dinamicamente -->
+                    </div>
+                    <div class="leggenda-note">
+                        ℹ️ Le percentuali finali sono calcolate automaticamente in proporzione ai valori assegnati
+                    </div>
+                </div>
+            </div>
+
+            <div id="pesi-container">
+                <!-- I pesi verranno generati dinamicamente -->
+            </div>
+
+            <div class="totale-pesi" id="totale-pesi">
+                Totale: 0%
+            </div>
+
+            <div id="alert-pesi"></div>
+
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="salvaPesi()">Salva Configurazione e Procedi</button>
+                <button class="btn btn-secondary" onclick="esportaConfigurazione()">Esporta Configurazione</button>
+            </div>
+        </div>
+
+        <!-- STEP 2: VALUTAZIONE STUDENTE -->
+        <div id="step2" class="section hidden">
+            <h2 class="section-title">👨🎓 Step 2: Valuta Studente</h2>
+
+            <!-- LEGGENDA COME VALUTARE -->
+            <div class="leggenda-valutazione">
+                <div class="leggenda-val-header">
+                    <span style="font-size: 18px;">✍️</span>
+                    <strong>Come valutare con questa rubrica - Livello 3 QNQ</strong>
+                </div>
+                <div class="leggenda-val-body">
+                    <div class="val-step">
+                        <div class="val-step-number">1</div>
+                        <div class="val-step-content">
+                            <strong>Per ogni competenza, valuta i 5 indicatori</strong><br>
+                            Leggi attentamente le descrizioni dei 4 livelli (4-5, 6, 7-8, 9-10) allineate al Livello 3
+                            QNQ e seleziona quello che meglio descrive la prestazione dello studente in situazioni
+                            mutevoli.
+                        </div>
+                    </div>
+                    <div class="val-step">
+                        <div class="val-step-number">2</div>
+                        <div class="val-step-content">
+                            <strong>Il sistema calcola automaticamente</strong><br>
+                            Per ogni competenza viene calcolata la media dei 5 indicatori. Il voto finale è la media
+                            ponderata delle competenze valutate, secondo i pesi configurati.
+                        </div>
+                    </div>
+                    <div class="val-step">
+                        <div class="val-step-number">3</div>
+                        <div class="val-step-content">
+                            <strong>Puoi lasciare competenze non valutate</strong><br>
+                            Se una competenza non è stata sviluppata, lascia i suoi indicatori vuoti: sarà esclusa dal
+                            calcolo e i pesi ricalcolati proporzionalmente.
+                        </div>
+                    </div>
+                    <div class="val-tips">
+                        <strong>💡 Suggerimenti per valutare al Livello 3 QNQ:</strong>
+                        <ul>
+                            <li><strong>Valuta l'adattamento</strong> - capacità di adattare metodi e strategie a
+                                situazioni mutevoli</li>
+                            <li><strong>Osserva l'autonomia operativa</strong> - individualizza modalità adeguate senza
+                                supervisione costante</li>
+                            <li><strong>Verifica la collaborazione</strong> - lavoro efficace in team multiprofessionali
+                            </li>
+                            <li><strong>Controlla l'orientamento al risultato</strong> - raggiunge obiettivi in contesti
+                                strutturati ma variabili</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="student-input">
+                <label for="nomeStudente">Nome e Cognome Studente</label>
+                <input type="text" id="nomeStudente" placeholder="Inserisci nome e cognome">
+            </div>
+
+            <div class="student-input">
+                <label for="quadrimestre">Quadrimestre</label>
+                <select id="quadrimestre">
+                    <option value="primo">Primo Quadrimestre</option>
+                    <option value="secondo">Secondo Quadrimestre</option>
+                </select>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill" style="width: 0%">0%</div>
+            </div>
+
+            <div id="valutazione-container">
+                <!-- Le competenze verranno generate dinamicamente -->
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-success" onclick="calcolaVotoFinale()">Calcola Voto Finale</button>
+                <button class="btn btn-secondary" onclick="tornaAPesi()">Torna a Configurazione Pesi</button>
+            </div>
+        </div>
+
+        <!-- STEP 3: RISULTATO FINALE -->
+        <div id="step3" class="section hidden">
+            <h2 class="section-title">🎯 Risultato Finale</h2>
+
+            <div class="risultato-finale">
+                <div style="font-size: 18px;">Studente: <span id="risultato-studente"></span></div>
+                <div style="font-size: 16px; opacity: 0.9; margin-top: 5px;">
+                    <span id="risultato-quadrimestre"></span>
+                </div>
+
+                <div class="voto-finale" id="voto-finale-display">-</div>
+                <div class="giudizio-finale" id="giudizio-finale-display">-</div>
+
+                <div class="dettaglio-calcolo">
+                    <div class="dettaglio-title">Dettaglio Calcolo</div>
+                    <div id="dettaglio-competenze"></div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-success" onclick="stampaScheda()">Stampa Scheda</button>
+                <button class="btn btn-primary" onclick="esportaDati()">Esporta Dati JSON</button>
+                <button class="btn btn-secondary" onclick="nuovaValutazione()">Nuova Valutazione</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // DATI COMPETENZE - TERZO ANNO (Livello 3 QNQ)
+        const competenze = [
+            {
+                id: 1,
+                nome: "Comp. 1 - Collaborare nella gestione di progetti e attività dei servizi sociali, socio-sanitari e socio-educativi",
+                nomeBreve: "Gestione progetti e servizi",
+                indicatori: [
+                    {
+                        nome: "Conoscenza rete servizi territoriali",
+                        livelli: [
+                            { voto: "4-5", desc: "Conosce solo servizi principali, non distingue tipologie" },
+                            { voto: "6", desc: "Collega diverse tipologie di servizi e ne comprende le funzioni essenziali" },
+                            { voto: "7-8", desc: "Analizza reti formali e informali, comprende interconnessioni tra servizi" },
+                            { voto: "9-10", desc: "Valuta criticamente la rete territoriale, propone collegamenti innovativi" }
+                        ]
+                    },
+                    {
+                        nome: "Utilizzo strumenti informatici",
+                        livelli: [
+                            { voto: "4-5", desc: "Utilizza solo applicativi base con supervisione" },
+                            { voto: "6", desc: "Utilizza strumenti digitali per documentare e ricercare adattandoli al contesto" },
+                            { voto: "7-8", desc: "Seleziona e applica strumenti digitali appropriati in autonomia" },
+                            { voto: "9-10", desc: "Integra creativamente strumenti digitali (mappe interattive, database, AI)" }
+                        ]
+                    },
+                    {
+                        nome: "Collaborazione di gruppo",
+                        livelli: [
+                            { voto: "4-5", desc: "Collabora passivamente, ruolo marginale" },
+                            { voto: "6", desc: "Collabora attivamente adattandosi alle dinamiche del gruppo" },
+                            { voto: "7-8", desc: "Facilita la collaborazione, assume ruoli di coordinamento quando necessario" },
+                            { voto: "9-10", desc: "Coordina gruppi multiprofessionali, promuove sinergie" }
+                        ]
+                    },
+                    {
+                        nome: "Metodo di lavoro",
+                        livelli: [
+                            { voto: "4-5", desc: "Metodo disorganizzato, non gestisce imprevisti" },
+                            { voto: "6", desc: "Organizza il lavoro individuando modalità adeguate in contesti strutturati" },
+                            { voto: "7-8", desc: "Adatta metodo e strategie a situazioni mutevoli in autonomia" },
+                            { voto: "9-10", desc: "Ottimizza processi, anticipa criticità, innova procedure" }
+                        ]
+                    },
+                    {
+                        nome: "Riflessione critica",
+                        livelli: [
+                            { voto: "4-5", desc: "Riflessione superficiale o assente" },
+                            { voto: "6", desc: "Riflette sull'esperienza identificando punti di forza e criticità" },
+                            { voto: "7-8", desc: "Analizza criticamente processi e risultati, propone miglioramenti" },
+                            { voto: "9-10", desc: "Sviluppa capacità interpretativa avanzata, collega teoria-prassi-contesto" }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: 2,
+                nome: "Comp. 2 - Partecipare e cooperare nei gruppi di lavoro e nelle équipe multi-professionali",
+                nomeBreve: "Équipe multiprofessionali",
+                indicatori: [
+                    {
+                        nome: "Comprensione linee guida e procedure",
+                        livelli: [
+                            { voto: "4-5", desc: "Comprende solo protocolli molto semplici" },
+                            { voto: "6", desc: "Comprende e applica procedure standard adattandole al contesto" },
+                            { voto: "7-8", desc: "Interpreta protocolli complessi, individua nessi tra diverse procedure" },
+                            { voto: "9-10", desc: "Adatta procedure a situazioni non previste, propone integrazioni" }
+                        ]
+                    },
+                    {
+                        nome: "Produzione documentazione",
+                        livelli: [
+                            { voto: "4-5", desc: "Documentazione incompleta o non conforme" },
+                            { voto: "6", desc: "Produce documentazione completa secondo standard professionali" },
+                            { voto: "7-8", desc: "Documenta in modo accurato e funzionale alle diverse situazioni" },
+                            { voto: "9-10", desc: "Produce documentazione professionale con apporti critici e analitici" }
+                        ]
+                    },
+                    {
+                        nome: "Comunicazione nell'équipe",
+                        livelli: [
+                            { voto: "4-5", desc: "Comunicazione poco chiara o inadeguata al contesto" },
+                            { voto: "6", desc: "Comunica efficacemente adattando linguaggio e registro" },
+                            { voto: "7-8", desc: "Facilita lo scambio informativo, utilizza lessico tecnico appropriato" },
+                            { voto: "9-10", desc: "Promuove comunicazione multiprofessionale, media linguaggi diversi" }
+                        ]
+                    },
+                    {
+                        nome: "Rispetto ruoli e competenze",
+                        livelli: [
+                            { voto: "4-5", desc: "Confonde ruoli e competenze professionali" },
+                            { voto: "6", desc: "Riconosce e rispetta ruoli nell'équipe multiprofessionale" },
+                            { voto: "7-8", desc: "Valorizza competenze specifiche, promuove integrazione" },
+                            { voto: "9-10", desc: "Facilita sinergie multiprofessionali, ottimizza risorse del team" }
+                        ]
+                    },
+                    {
+                        nome: "Gestione del conflitto",
+                        livelli: [
+                            { voto: "4-5", desc: "Evita il conflitto o reagisce in modo disfunzionale" },
+                            { voto: "6", desc: "Gestisce divergenze in modo costruttivo individuando soluzioni" },
+                            { voto: "7-8", desc: "Media conflitti, mantiene clima collaborativo in situazioni critiche" },
+                            { voto: "9-10", desc: "Trasforma conflitti in opportunità di crescita per il team" }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: 3,
+                nome: "Comp. 3 - Facilitare la comunicazione tra persone e gruppi attraverso linguaggi e sistemi di relazione adeguati",
+                nomeBreve: "Facilitazione comunicazione",
+                indicatori: [
+                    {
+                        nome: "Riconoscimento bisogni comunicativi",
+                        livelli: [
+                            { voto: "4-5", desc: "Non identifica bisogni comunicativi specifici" },
+                            { voto: "6", desc: "Identifica bisogni comunicativi in relazione a tipologie di utenti" },
+                            { voto: "7-8", desc: "Analizza bisogni comunicativi complessi, anche non espliciti" },
+                            { voto: "9-10", desc: "Anticipa e intercetta bisogni comunicativi emergenti in contesti mutevoli" }
+                        ]
+                    },
+                    {
+                        nome: "Strategie comunicative",
+                        livelli: [
+                            { voto: "4-5", desc: "Strategie comunicative rigide o inappropriate" },
+                            { voto: "6", desc: "Adatta modalità comunicative individuando strategie idonee" },
+                            { voto: "7-8", desc: "Seleziona e applica strategie comunicative differenziate efficacemente" },
+                            { voto: "9-10", desc: "Progetta strategie comunicative innovative anche in situazioni complesse" }
+                        ]
+                    },
+                    {
+                        nome: "Superamento stereotipi e pregiudizi",
+                        livelli: [
+                            { voto: "4-5", desc: "Mantiene stereotipi, non riconosce pregiudizi" },
+                            { voto: "6", desc: "Riconosce e agisce per superare stereotipi e pregiudizi" },
+                            { voto: "7-8", desc: "Promuove attivamente cultura inclusiva e rispetto differenze" },
+                            { voto: "9-10", desc: "Decostruisce criticamente stereotipi, educa altri all'inclusione" }
+                        ]
+                    },
+                    {
+                        nome: "Promozione autonomia comunicativa",
+                        livelli: [
+                            { voto: "4-5", desc: "Non promuove autonomia, atteggiamento sostitutivo" },
+                            { voto: "6", desc: "Supporta sviluppo autonomia comunicativa rispettando capacità" },
+                            { voto: "7-8", desc: "Valorizza risorse comunicative, stimola autodeterminazione" },
+                            { voto: "9-10", desc: "Potenzia competenze comunicative, favorisce empowerment" }
+                        ]
+                    },
+                    {
+                        nome: "Gestione relazione d'aiuto",
+                        livelli: [
+                            { voto: "4-5", desc: "Relazione confusa tra vicinanza e distanza professionale" },
+                            { voto: "6", desc: "Gestisce relazione con professionalità mantenendo confini chiari" },
+                            { voto: "7-8", desc: "Bilancia vicinanza/distanza adattandosi a situazioni mutevoli" },
+                            { voto: "9-10", desc: "Gestisce relazioni complesse, mantiene setting professionale anche in crisi" }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: 4,
+                nome: "Comp. 4 - Prendersi cura e collaborare ai processi di aiuto con particolare riguardo alle situazioni di non autosufficienza",
+                nomeBreve: "Cura e processi di aiuto",
+                indicatori: [
+                    {
+                        nome: "Programmazione azioni di cura",
+                        livelli: [
+                            { voto: "4-5", desc: "Non pianifica azioni di cura, interventi estemporanei" },
+                            { voto: "6", desc: "Programma azioni per soddisfare bisogni e favorire benessere" },
+                            { voto: "7-8", desc: "Progetta interventi articolati adattandoli a situazioni specifiche" },
+                            { voto: "9-10", desc: "Elabora piani di cura complessi integrati con équipe multiprofessionale" }
+                        ]
+                    },
+                    {
+                        nome: "Tecniche di osservazione e accudimento",
+                        livelli: [
+                            { voto: "4-5", desc: "Tecniche di osservazione limitate, accudimento generico" },
+                            { voto: "6", desc: "Adotta tecniche di osservazione e accudimento appropriate" },
+                            { voto: "7-8", desc: "Applica tecniche differenziate in autonomia secondo bisogni" },
+                            { voto: "9-10", desc: "Integra tecniche avanzate, innova approcci di cura personalizzati" }
+                        ]
+                    },
+                    {
+                        nome: "Igiene e sicurezza",
+                        livelli: [
+                            { voto: "4-5", desc: "Applica norme igieniche in modo meccanico, non prevede rischi" },
+                            { voto: "6", desc: "Applica norme igieniche e di sicurezza adattandole al contesto" },
+                            { voto: "7-8", desc: "Applica rigorosamente protocolli, previene rischi proattivamente" },
+                            { voto: "9-10", desc: "Interiorizza cultura sicurezza, educa utenti e colleghi" }
+                        ]
+                    },
+                    {
+                        nome: "Sensibilità etica",
+                        livelli: [
+                            { voto: "4-5", desc: "Scarsa attenzione a dignità e privacy" },
+                            { voto: "6", desc: "Agisce con rispetto per dignità e riservatezza in ogni situazione" },
+                            { voto: "7-8", desc: "Integra principi etici nelle scelte operative, tutela vulnerabilità" },
+                            { voto: "9-10", desc: "Promuove cultura etica, riconosce dilemmi e cerca soluzioni condivise" }
+                        ]
+                    },
+                    {
+                        nome: "Partecipazione al piano di cura",
+                        livelli: [
+                            { voto: "4-5", desc: "Partecipazione passiva o marginale" },
+                            { voto: "6", desc: "Collabora attivamente predisponendo semplici piani di lavoro" },
+                            { voto: "7-8", desc: "Contribuisce con osservazioni pertinenti e proposte mirate" },
+                            { voto: "9-10", desc: "Co-progetta piani di cura, assume responsabilità operative" }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: 5,
+                nome: "Comp. 5 - Partecipare alla presa in carico socio-assistenziale di soggetti le cui condizioni determinino uno stato di fragilità",
+                nomeBreve: "Presa in carico fragilità",
+                indicatori: [
+                    {
+                        nome: "Riconoscimento condizioni di fragilità",
+                        livelli: [
+                            { voto: "4-5", desc: "Riconosce solo fragilità evidenti e dichiarate" },
+                            { voto: "6", desc: "Identifica diverse forme di fragilità (fisica, psichica, sociale)" },
+                            { voto: "7-8", desc: "Analizza fragilità con approccio multidimensionale" },
+                            { voto: "9-10", desc: "Valuta fragilità in prospettiva evolutiva, prevede esiti" }
+                        ]
+                    },
+                    {
+                        nome: "Programmazione interventi di prevenzione",
+                        livelli: [
+                            { voto: "4-5", desc: "Non distingue livelli di prevenzione" },
+                            { voto: "6", desc: "Programma semplici azioni di prevenzione primaria" },
+                            { voto: "7-8", desc: "Progetta interventi di prevenzione differenziati per livelli" },
+                            { voto: "9-10", desc: "Elabora strategie preventive integrate con territorio e équipe" }
+                        ]
+                    },
+                    {
+                        nome: "Uso ausili e tecnologie assistive",
+                        livelli: [
+                            { voto: "4-5", desc: "Utilizza ausili solo se guidato" },
+                            { voto: "6", desc: "Utilizza ausili e tecnologie assistive in modo appropriato" },
+                            { voto: "7-8", desc: "Seleziona ausili ottimali, propone adattamenti personalizzati" },
+                            { voto: "9-10", desc: "Integra tecnologie innovative (domotica, AI), forma utenti e familiari" }
+                        ]
+                    },
+                    {
+                        nome: "Promozione inclusione",
+                        livelli: [
+                            { voto: "4-5", desc: "Progetti che isolano o ghettizzano" },
+                            { voto: "6", desc: "Progetta attività inclusive considerando diversità" },
+                            { voto: "7-8", desc: "Applica approccio universale, valorizza unicità come risorsa" },
+                            { voto: "9-10", desc: "Promuove cultura inclusiva nel territorio, media tra sistemi" }
+                        ]
+                    },
+                    {
+                        nome: "Individuazione istituti giuridici di tutela",
+                        livelli: [
+                            { voto: "4-5", desc: "Non conosce strumenti giuridici di tutela" },
+                            { voto: "6", desc: "Individua istituti giuridici di tutela della persona" },
+                            { voto: "7-8", desc: "Applica conoscenze giuridiche orientando utenti e famiglie" },
+                            { voto: "9-10", desc: "Integra dimensione giuridica in progettazioni, collabora con enti" }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: 6,
+                nome: "Comp. 6 - Curare l'allestimento dell'ambiente di vita della persona in difficoltà con riferimento alle misure per la salvaguardia della sicurezza",
+                nomeBreve: "Allestimento ambiente",
+                indicatori: [
+                    {
+                        nome: "Rilevazione situazioni di rischio",
+                        livelli: [
+                            { voto: "4-5", desc: "Non rileva rischi o li rileva solo se evidenti" },
+                            { voto: "6", desc: "Rileva e segnala situazioni di rischio utilizzando schede" },
+                            { voto: "7-8", desc: "Analizza rischi in modo sistematico, propone misure preventive" },
+                            { voto: "9-10", desc: "Valuta rischi in prospettiva evolutiva, progetta sicurezza proattiva" }
+                        ]
+                    },
+                    {
+                        nome: "Applicazione norme sicurezza",
+                        livelli: [
+                            { voto: "4-5", desc: "Applica norme in modo meccanico senza comprenderne il senso" },
+                            { voto: "6", desc: "Applica norme di sicurezza adattandole agli ambienti specifici" },
+                            { voto: "7-8", desc: "Interiorizza cultura della sicurezza, previene situazioni critiche" },
+                            { voto: "9-10", desc: "Promuove sicurezza come valore, forma altri, innova procedure" }
+                        ]
+                    },
+                    {
+                        nome: "Personalizzazione spazi",
+                        livelli: [
+                            { voto: "4-5", desc: "Ambienti standardizzati, non personalizzati" },
+                            { voto: "6", desc: "Allestisce ambienti considerando bisogni individuali" },
+                            { voto: "7-8", desc: "Crea ambienti terapeutici che promuovono benessere e identità" },
+                            { voto: "9-10", desc: "Progetta ambienti innovativi integrando tecnologie (domotica, sensoristica)" }
+                        ]
+                    },
+                    {
+                        nome: "Creatività nell'allestimento",
+                        livelli: [
+                            { voto: "4-5", desc: "Replica soluzioni standard senza adattamenti" },
+                            { voto: "6", desc: "Propone soluzioni creative pertinenti al contesto" },
+                            { voto: "7-8", desc: "Innova con originalità, ottimizza risorse disponibili" },
+                            { voto: "9-10", desc: "Progetta soluzioni innovative integrate con nuove tecnologie" }
+                        ]
+                    },
+                    {
+                        nome: "Collaborazione nell'allestimento",
+                        livelli: [
+                            { voto: "4-5", desc: "Collaborazione passiva o ostacolante" },
+                            { voto: "6", desc: "Collabora attivamente con ruolo propositivo" },
+                            { voto: "7-8", desc: "Coordina allestimenti, valorizza contributi diversi" },
+                            { voto: "9-10", desc: "Facilita co-progettazione partecipata con utenti e famiglie" }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: 7,
+                nome: "Comp. 7 - Gestire azioni di informazione e di orientamento dell'utente per facilitare l'accessibilità e la fruizione autonoma dei servizi",
+                nomeBreve: "Informazione e orientamento",
+                indicatori: [
+                    {
+                        nome: "Rilevazione servizi sul territorio",
+                        livelli: [
+                            { voto: "4-5", desc: "Conosce solo servizi principali senza distinguere modalità di accesso" },
+                            { voto: "6", desc: "Rileva servizi distinguendo modalità di accesso e prestazioni" },
+                            { voto: "7-8", desc: "Mappa servizi collegandoli a bisogni, distingue reti formali/informali" },
+                            { voto: "9-10", desc: "Analizza offerta territoriale criticamente, individua gap e opportunità" }
+                        ]
+                    },
+                    {
+                        nome: "Produzione materiali divulgativi",
+                        livelli: [
+                            { voto: "4-5", desc: "Materiali poco comprensibili o generici" },
+                            { voto: "6", desc: "Produce materiali chiari, accessibili e ben strutturati" },
+                            { voto: "7-8", desc: "Produce materiali professionali differenziati per target" },
+                            { voto: "9-10", desc: "Crea materiali multimediali innovativi (video, infografiche, chatbot)" }
+                        ]
+                    },
+                    {
+                        nome: "Chiarezza comunicativa",
+                        livelli: [
+                            { voto: "4-5", desc: "Comunicazione confusa o con errori significativi" },
+                            { voto: "6", desc: "Comunica con chiarezza adattando linguaggio al target" },
+                            { voto: "7-8", desc: "Comunica efficacemente, verifica comprensione, riformula se necessario" },
+                            { voto: "9-10", desc: "Eccellenza comunicativa, media linguaggi tecnici per diversi interlocutori" }
+                        ]
+                    },
+                    {
+                        nome: "Utilizzo tecnologie digitali",
+                        livelli: [
+                            { voto: "4-5", desc: "Utilizza solo strumenti base (Word, PowerPoint)" },
+                            { voto: "6", desc: "Utilizza piattaforme e strumenti multimediali in autonomia" },
+                            { voto: "7-8", desc: "Padroneggia strumenti avanzati, crea contenuti digitali interattivi" },
+                            { voto: "9-10", desc: "Integra AI e tecnologie innovative per informazione accessibile" }
+                        ]
+                    },
+                    {
+                        nome: "Orientamento alla fruizione autonoma",
+                        livelli: [
+                            { voto: "4-5", desc: "Fornisce informazioni senza verificare comprensione" },
+                            { voto: "6", desc: "Orienta efficacemente verso servizi appropriati" },
+                            { voto: "7-8", desc: "Accompagna percorsi di accesso, facilita autonomia" },
+                            { voto: "9-10", desc: "Promuove empowerment, crea reti di supporto peer-to-peer" }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: 8,
+                nome: "Comp. 8 - Realizzare in autonomia o in collaborazione con altre figure professionali attività di animazione sociale, ludiche e culturali adeguate ai diversi contesti e ai diversi bisogni",
+                nomeBreve: "Animazione sociale",
+                indicatori: [
+                    {
+                        nome: "Progettazione attività",
+                        livelli: [
+                            { voto: "4-5", desc: "Attività non progettate o inappropriate al contesto" },
+                            { voto: "6", desc: "Progetta attività adeguate al target con obiettivi chiari" },
+                            { voto: "7-8", desc: "Progetta con metodo, valuta impatto, adatta in itinere" },
+                            { voto: "9-10", desc: "Progetta attività innovative integrate con territorio e reti" }
+                        ]
+                    },
+                    {
+                        nome: "Repertorio tecniche di animazione",
+                        livelli: [
+                            { voto: "4-5", desc: "Conosce solo tecniche base" },
+                            { voto: "6", desc: "Utilizza diverse tecniche (ludiche, espressive, motorie)" },
+                            { voto: "7-8", desc: "Padroneggia repertorio ampio, integra tecniche innovative" },
+                            { voto: "9-10", desc: "Crea tecniche originali, integra robotica educativa e tecnologie creative" }
+                        ]
+                    },
+                    {
+                        nome: "Adattamento al gruppo",
+                        livelli: [
+                            { voto: "4-5", desc: "Attività standardizzate senza personalizzazione" },
+                            { voto: "6", desc: "Personalizza attività considerando età, abilità, interessi" },
+                            { voto: "7-8", desc: "Applica approccio partecipativo, co-progetta con utenti" },
+                            { voto: "9-10", desc: "Facilita empowerment di gruppo, trasforma utenti in protagonisti" }
+                        ]
+                    },
+                    {
+                        nome: "Conduzione di gruppo",
+                        livelli: [
+                            { voto: "4-5", desc: "Gestione fragile, perde controllo in situazioni critiche" },
+                            { voto: "6", desc: "Conduce con sicurezza, mantiene attenzione e partecipazione" },
+                            { voto: "7-8", desc: "Facilita dinamiche positive, gestisce conflitti costruttivamente" },
+                            { voto: "9-10", desc: "Leadership educativa, promuove autonomia e responsabilità del gruppo" }
+                        ]
+                    },
+                    {
+                        nome: "Uso materiali e strumenti",
+                        livelli: [
+                            { voto: "4-5", desc: "Utilizza solo materiali standard in modo limitato" },
+                            { voto: "6", desc: "Seleziona e utilizza materiali creativi e funzionali" },
+                            { voto: "7-8", desc: "Crea strumenti originali ottimizzando risorse disponibili" },
+                            { voto: "9-10", desc: "Integra making e tecnologie creative (robot, stampa 3D, app)" }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: 9,
+                nome: "Comp. 9 - Realizzare in équipe e con il concorso di altre figure professionali azioni a sostegno e a tutela della persona con fragilità e/o disabilità e della sua famiglia",
+                nomeBreve: "Sostegno persona e famiglia",
+                indicatori: [
+                    {
+                        nome: "Collaborazione attuazione programmi prevenzione",
+                        livelli: [
+                            { voto: "4-5", desc: "Non comprende finalità della prevenzione" },
+                            { voto: "6", desc: "Collabora all'attuazione di programmi di prevenzione primaria" },
+                            { voto: "7-8", desc: "Contribuisce attivamente a programmi preventivi integrati" },
+                            { voto: "9-10", desc: "Co-progetta interventi preventivi innovativi con équipe" }
+                        ]
+                    },
+                    {
+                        nome: "Individuazione bisogni, risorse, vincoli",
+                        livelli: [
+                            { voto: "4-5", desc: "Individua solo bisogni evidenti" },
+                            { voto: "6", desc: "Identifica bisogni, risorse, vincoli e limiti in modo sistematico" },
+                            { voto: "7-8", desc: "Analizza situazioni complesse con approccio multidimensionale" },
+                            { voto: "9-10", desc: "Valuta in prospettiva evolutiva, prevede sviluppi, anticipa bisogni" }
+                        ]
+                    },
+                    {
+                        nome: "Riconoscimento caratteristiche prevenzione sociale",
+                        livelli: [
+                            { voto: "4-5", desc: "Confonde prevenzione sanitaria e sociale" },
+                            { voto: "6", desc: "Riconosce caratteristiche e finalità della prevenzione sociale" },
+                            { voto: "7-8", desc: "Distingue livelli di prevenzione, applica metodi appropriati" },
+                            { voto: "9-10", desc: "Progetta prevenzione sociale integrata con reti territoriali" }
+                        ]
+                    },
+                    {
+                        nome: "Collaborazione multiprofessionale",
+                        livelli: [
+                            { voto: "4-5", desc: "Collaborazione limitata o conflittuale" },
+                            { voto: "6", desc: "Collabora rispettando ruoli e competenze specifiche" },
+                            { voto: "7-8", desc: "Facilita integrazione multiprofessionale, crea sinergie" },
+                            { voto: "9-10", desc: "Promuove cultura interdisciplinare, coordina interventi complessi" }
+                        ]
+                    },
+                    {
+                        nome: "Supporto alla famiglia",
+                        livelli: [
+                            { voto: "4-5", desc: "Non considera la famiglia come risorsa" },
+                            { voto: "6", desc: "Coinvolge famiglia in azioni di sostegno" },
+                            { voto: "7-8", desc: "Supporta empowerment familiare, valorizza competenze genitoriali" },
+                            { voto: "9-10", desc: "Facilita reti di mutuo aiuto tra famiglie, promuove auto-organizzazione" }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: 10,
+                nome: "Comp. 10 - Raccogliere, conservare, elaborare e trasmettere dati relativi alle attività professionali svolte ai fini del monitoraggio e della valutazione degli interventi e dei servizi",
+                nomeBreve: "Gestione dati",
+                indicatori: [
+                    {
+                        nome: "Raccolta dati",
+                        livelli: [
+                            { voto: "4-5", desc: "Raccoglie dati in modo disorganizzato o incompleto" },
+                            { voto: "6", desc: "Raccoglie dati sistematicamente valutando pertinenza" },
+                            { voto: "7-8", desc: "Progetta strategie di raccolta, garantisce affidabilità" },
+                            { voto: "9-10", desc: "Implementa sistemi di raccolta integrati, valida strumenti" }
+                        ]
+                    },
+                    {
+                        nome: "Elaborazione con strumenti digitali",
+                        livelli: [
+                            { voto: "4-5", desc: "Utilizza solo Excel in modo elementare" },
+                            { voto: "6", desc: "Utilizza software per organizzare e rappresentare dati" },
+                            { voto: "7-8", desc: "Padroneggia strumenti di analisi, crea visualizzazioni efficaci" },
+                            { voto: "9-10", desc: "Utilizza database, AI per analisi predittive, statistica inferenziale" }
+                        ]
+                    },
+                    {
+                        nome: "Sicurezza e privacy",
+                        livelli: [
+                            { voto: "4-5", desc: "Scarsa consapevolezza norme GDPR" },
+                            { voto: "6", desc: "Applica protocolli privacy e sicurezza in ogni situazione" },
+                            { voto: "7-8", desc: "Integra principi etici, tutela dati sensibili proattivamente" },
+                            { voto: "9-10", desc: "Promuove cultura protezione dati, forma altri, verifica conformità" }
+                        ]
+                    },
+                    {
+                        nome: "Comunicazione digitale dati",
+                        livelli: [
+                            { voto: "4-5", desc: "Comunica dati in modo confuso o inappropriato" },
+                            { voto: "6", desc: "Trasmette dati utilizzando strumenti collaborativi online" },
+                            { voto: "7-8", desc: "Comunica dati efficacemente adattando format a destinatari" },
+                            { voto: "9-10", desc: "Crea dashboard interattivi, visualizzazioni per decision making" }
+                        ]
+                    },
+                    {
+                        nome: "Spirito critico nell'uso dati",
+                        livelli: [
+                            { voto: "4-5", desc: "Accetta dati acriticamente senza verificarne validità" },
+                            { voto: "6", desc: "Valuta criticamente fonti e affidabilità dati" },
+                            { voto: "7-8", desc: "Analizza criticamente informazioni, riconosce bias e limiti" },
+                            { voto: "9-10", desc: "Applica metodo scientifico, valida ipotesi, utilizza AI consapevolmente" }
+                        ]
+                    }
+                ]
+            }
+        ];
+
+        // VARIABILI GLOBALI
+        let pesi = {};
+        let valutazioni = {};
+
+        // FUNZIONI CONFIGURAZIONE PESI
+        function inizializzaPesi() {
+            const container = document.getElementById('pesi-container');
+            container.innerHTML = '';
+
+            competenze.forEach(comp => {
+                const div = document.createElement('div');
+                div.className = 'competenza-peso';
+                div.innerHTML = `
+                    <div class="competenza-header">
+                        <div class="competenza-nome" title="${comp.nome}">${comp.nomeBreve}</div>
+                        <div class="peso-value" id="peso-${comp.id}">10%</div>
+                    </div>
+                    <input type="range" class="slider" id="slider-${comp.id}" 
+                           min="0" max="30" value="10" step="1"
+                           oninput="aggiornarePeso(${comp.id}, this.value)"
+                           title="Assegna peso in percentuale (0-30%). Sarà normalizzato automaticamente.">
+                `;
+                container.appendChild(div);
+                pesi[comp.id] = 10;
+            });
+
+            aggiornaTotalePesi();
+        }
+
+        function aggiornarePeso(compId, valore) {
+            pesi[compId] = parseInt(valore);
+            document.getElementById(`peso-${compId}`).textContent = `${valore}%`;
+            aggiornaTotalePesi();
+        }
+
+        function aggiornaTotalePesi() {
+            const totale = Object.values(pesi).reduce((a, b) => a + b, 0);
+            const totaleEl = document.getElementById('totale-pesi');
+            totaleEl.textContent = `Totale assegnato: ${totale}%`;
+
+            const competenzeAttive = Object.values(pesi).filter(p => p > 0).length;
+            document.getElementById('comp-attive').textContent = `${competenzeAttive}/10`;
+            document.getElementById('peso-totale-assegnato').textContent = `${totale}%`;
+
+            const leggendaBars = document.getElementById('leggenda-bars');
+            leggendaBars.innerHTML = '';
+
+            const competenzeOrdinate = [...competenze].sort((a, b) => pesi[b.id] - pesi[a.id]);
+
+            competenzeOrdinate.forEach(comp => {
+                const pesoAssegnato = pesi[comp.id];
+                const pesoNormalizzato = totale > 0 ? (pesoAssegnato / totale) * 100 : 0;
+                const isExcluded = pesoAssegnato === 0;
+
+                const barItem = document.createElement('div');
+                barItem.className = `leggenda-bar-item ${isExcluded ? 'excluded' : ''}`;
+
+                barItem.innerHTML = `
+                    <div class="leggenda-bar-label" title="${comp.nome}">${comp.nomeBreve}</div>
+                    <div class="leggenda-bar-value">${pesoAssegnato}% ${isExcluded ? '' : '→ ' + pesoNormalizzato.toFixed(1) + '%'}</div>
+                    <div class="leggenda-bar-visual">
+                        <div class="leggenda-bar-fill" style="width: ${pesoNormalizzato}%">
+                            ${pesoNormalizzato >= 10 ? pesoNormalizzato.toFixed(1) + '%' : ''}
+                        </div>
+                    </div>
+                `;
+
+                leggendaBars.appendChild(barItem);
+            });
+
+            const alertEl = document.getElementById('alert-pesi');
+            if (totale === 0) {
+                alertEl.innerHTML = '<div class="alert alert-warning">⚠ Nessuna competenza selezionata. Assegna almeno un peso > 0</div>';
+            } else if (competenzeAttive < 3) {
+                alertEl.innerHTML = '<div class="alert alert-warning">⚠ Attenzione: stai valutando solo ' + competenzeAttive + ' competenze. Il profilo potrebbe risultare incompleto.</div>';
+            } else {
+                alertEl.innerHTML = '<div class="alert alert-success">✓ Configurazione valida! ' + competenzeAttive + ' competenze attive, pesi normalizzati automaticamente a 100%</div>';
+            }
+        }
+
+        function applicaPreset(tipo) {
+            document.querySelectorAll('.preset-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            if (tipo === 'equilibrato') {
+                competenze.forEach(comp => {
+                    pesi[comp.id] = 10;
+                    document.getElementById(`slider-${comp.id}`).value = 10;
+                    document.getElementById(`peso-${comp.id}`).textContent = '10%';
+                });
+            }
+
+            aggiornaTotalePesi();
+        }
+
+        function resetPesi() {
+            document.querySelectorAll('.preset-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            competenze.forEach(comp => {
+                pesi[comp.id] = 10;
+                document.getElementById(`slider-${comp.id}`).value = 10;
+                document.getElementById(`peso-${comp.id}`).textContent = '10%';
+            });
+
+            aggiornaTotalePesi();
+        }
+
+        function salvaPesi() {
+            const totale = Object.values(pesi).reduce((a, b) => a + b, 0);
+            if (totale === 0) {
+                alert('⚠️ Devi assegnare almeno un peso > 0 ad una competenza!');
+                return;
+            }
+
+            const competenzeAttive = Object.values(pesi).filter(p => p > 0).length;
+            if (competenzeAttive < 3) {
+                if (!confirm(`⚠️ Stai valutando solo ${competenzeAttive} competenze su 10.\n\nIl profilo dello studente potrebbe risultare incompleto.\n\nVuoi procedere comunque?`)) {
+                    return;
+                }
+            }
+
+            document.getElementById('step1').classList.add('hidden');
+            document.getElementById('step2').classList.remove('hidden');
+
+            inizializzaValutazione();
+        }
+
+        // FUNZIONI VALUTAZIONE
+        function inizializzaValutazione() {
+            const container = document.getElementById('valutazione-container');
+            container.innerHTML = '';
+
+            competenze.forEach(comp => {
+                const div = document.createElement('div');
+                div.className = 'competenza-valutazione';
+
+                let indicatoriHTML = '';
+                comp.indicatori.forEach((ind, indIdx) => {
+                    let livelliHTML = '';
+                    ind.livelli.forEach((liv, livIdx) => {
+                        const livelloClass = liv.voto.replace('-', '-');
+                        livelliHTML += `
+                            <label class="radio-option" data-comp="${comp.id}" data-ind="${indIdx}" data-liv="${livIdx}">
+                                <input type="radio" name="comp-${comp.id}-ind-${indIdx}" 
+                                       value="${liv.voto}" 
+                                       onchange="selezionaLivello(${comp.id}, ${indIdx}, '${liv.voto}', this)">
+                                <div class="radio-label">
+                                    <span class="livello-badge livello-${livelloClass}">${liv.voto}</span>
+                                    ${liv.desc}
+                                </div>
+                            </label>
+                        `;
+                    });
+
+                    indicatoriHTML += `
+                        <div class="indicatore">
+                            <div class="indicatore-nome">${ind.nome}</div>
+                            <div class="radio-group">
+                                ${livelliHTML}
+                            </div>
+                        </div>
+                    `;
+                });
+
+                div.innerHTML = `
+                    <div class="comp-header">
+                        <div class="comp-title">${comp.nome}</div>
+                        <div class="comp-peso-badge">Peso: ${pesi[comp.id]}%</div>
+                    </div>
+                    ${indicatoriHTML}
+                    <div class="comp-voto">
+                        <div class="comp-voto-label">Voto Competenza</div>
+                        <div class="comp-voto-value" id="voto-comp-${comp.id}">-</div>
+                    </div>
+                `;
+
+                container.appendChild(div);
+
+                valutazioni[comp.id] = {
+                    indicatori: Array(comp.indicatori.length).fill(null),
+                    media: null
+                };
+            });
+        }
+
+        function selezionaLivello(compId, indIdx, voto, radioEl) {
+            const parent = radioEl.closest('.radio-option');
+            parent.closest('.radio-group').querySelectorAll('.radio-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            parent.classList.add('selected');
+
+            let votoNum;
+            if (voto === '4-5') votoNum = 4.5;
+            else if (voto === '6') votoNum = 6;
+            else if (voto === '7-8') votoNum = 7.5;
+            else if (voto === '9-10') votoNum = 9.5;
+
+            valutazioni[compId].indicatori[indIdx] = votoNum;
+
+            const indicatori = valutazioni[compId].indicatori;
+            if (indicatori.every(v => v !== null)) {
+                const media = indicatori.reduce((a, b) => a + b, 0) / indicatori.length;
+                valutazioni[compId].media = Math.round(media * 10) / 10;
+                document.getElementById(`voto-comp-${compId}`).textContent = valutazioni[compId].media.toFixed(1);
+            }
+
+            aggiornaProgress();
+        }
+
+        function aggiornaProgress() {
+            let totalIndicatori = 0;
+            let indicatoriValutati = 0;
+
+            competenze.forEach(comp => {
+                totalIndicatori += comp.indicatori.length;
+                indicatoriValutati += valutazioni[comp.id].indicatori.filter(v => v !== null).length;
+            });
+
+            const percentuale = Math.round((indicatoriValutati / totalIndicatori) * 100);
+            document.getElementById('progress-fill').style.width = percentuale + '%';
+            document.getElementById('progress-fill').textContent = percentuale + '%';
+        }
+
+        function calcolaVotoFinale() {
+            const nomeStudente = document.getElementById('nomeStudente').value.trim();
+            if (!nomeStudente) {
+                alert('⚠️ Inserisci il nome dello studente!');
+                return;
+            }
+
+            const competenzeValutate = [];
+            const competenzeNonValutate = [];
+
+            competenze.forEach(comp => {
+                const hasValutazioni = valutazioni[comp.id].indicatori.some(v => v !== null);
+                if (hasValutazioni && valutazioni[comp.id].media !== null) {
+                    competenzeValutate.push(comp);
+                } else {
+                    competenzeNonValutate.push(comp);
+                }
+            });
+
+            if (competenzeValutate.length === 0) {
+                alert('⚠️ Devi valutare almeno una competenza!');
+                return;
+            }
+
+            let totPesiValutati = 0;
+            competenzeValutate.forEach(comp => {
+                totPesiValutati += pesi[comp.id];
+            });
+
+            let votoFinale = 0;
+            let dettaglioHTML = '';
+
+            competenzeValutate.forEach(comp => {
+                const votoComp = valutazioni[comp.id].media;
+                const pesoOriginale = pesi[comp.id];
+                const pesoRiequilibrato = (pesoOriginale / totPesiValutati) * 100;
+                const contributo = (votoComp * pesoRiequilibrato) / 100;
+                votoFinale += contributo;
+
+                dettaglioHTML += `
+                    <div class="dettaglio-row">
+                        <span>${comp.nomeBreve}</span>
+                        <span>
+                            ${votoComp.toFixed(1)} × ${pesoRiequilibrato.toFixed(1)}% = ${contributo.toFixed(2)}
+                        </span>
+                    </div>
+                `;
+            });
+
+            if (competenzeNonValutate.length > 0) {
+                dettaglioHTML += `
+                    <div class="dettaglio-row" style="color: #999; font-style: italic; border-top: 1px dashed #ddd; margin-top: 10px; padding-top: 10px;">
+                        <span>Competenze non valutate (escluse dal calcolo):</span>
+                        <span>${competenzeNonValutate.length}</span>
+                    </div>
+                `;
+                competenzeNonValutate.forEach(comp => {
+                    dettaglioHTML += `
+                        <div class="dettaglio-row" style="color: #999; font-style: italic; font-size: 13px;">
+                            <span>${comp.nomeBreve}</span>
+                            <span>-</span>
+                        </div>
+                    `;
+                });
+            }
+
+            votoFinale = Math.round(votoFinale * 10) / 10;
+
+            let giudizio = '';
+            if (votoFinale >= 9) {
+                giudizio = 'AVANZATO (Verso Livello 4 QNQ)';
+            } else if (votoFinale >= 7) {
+                giudizio = 'INTERMEDIO (Livello 3 QNQ Consolidato)';
+            } else if (votoFinale >= 6) {
+                giudizio = 'BASE (Livello 3 QNQ)';
+            } else if (votoFinale >= 5) {
+                giudizio = 'INSUFFICIENTE (Sotto Livello 3)';
+            } else {
+                giudizio = 'GRAVEMENTE INSUFFICIENTE (Livello 2 QNQ)';
+            }
+
+            document.getElementById('risultato-studente').textContent = nomeStudente;
+            document.getElementById('risultato-quadrimestre').textContent =
+                document.getElementById('quadrimestre').options[document.getElementById('quadrimestre').selectedIndex].text +
+                ` (${competenzeValutate.length}/10 competenze valutate)`;
+            document.getElementById('voto-finale-display').textContent = votoFinale.toFixed(1);
+            document.getElementById('giudizio-finale-display').textContent = giudizio;
+
+            dettaglioHTML += `
+                <div class="dettaglio-row">
+                    <strong>VOTO FINALE</strong>
+                    <strong>${votoFinale.toFixed(1)}</strong>
+                </div>
+            `;
+
+            document.getElementById('dettaglio-competenze').innerHTML = dettaglioHTML;
+
+            document.getElementById('step2').classList.add('hidden');
+            document.getElementById('step3').classList.remove('hidden');
+        }
+
+        // FUNZIONI EXPORT
+        function esportaConfigurazione() {
+            const config = {
+                classe: 'terza',
+                livelloQNQ: 3,
+                data: new Date().toISOString(),
+                pesi: pesi,
+                tipo: 'configurazione_pesi'
+            };
+
+            const blob = new Blob([JSON.stringify(config, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'configurazione_pesi_terzo_anno.json';
+            a.click();
+        }
+
+        function esportaDati() {
+            const dati = {
+                classe: 'terza',
+                livelloQNQ: 3,
+                studente: document.getElementById('nomeStudente').value,
+                quadrimestre: document.getElementById('quadrimestre').value,
+                data: new Date().toISOString(),
+                pesi: pesi,
+                valutazioni: valutazioni,
+                votoFinale: parseFloat(document.getElementById('voto-finale-display').textContent),
+                giudizio: document.getElementById('giudizio-finale-display').textContent
+            };
+
+            const blob = new Blob([JSON.stringify(dati, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `valutazione_terza_${dati.studente.replace(/\s+/g, '_')}_${dati.quadrimestre}.json`;
+            a.click();
+        }
+
+        function stampaScheda() {
+            window.print();
+        }
+
+        function nuovaValutazione() {
+            if (confirm('Vuoi valutare un altro studente con la stessa configurazione di pesi?')) {
+                document.getElementById('nomeStudente').value = '';
+                document.getElementById('step3').classList.add('hidden');
+                document.getElementById('step2').classList.remove('hidden');
+                inizializzaValutazione();
+                window.scrollTo(0, 0);
+            }
+        }
+
+        function tornaAPesi() {
+            if (confirm('Vuoi tornare alla configurazione dei pesi? Le valutazioni correnti andranno perse.')) {
+                document.getElementById('step2').classList.add('hidden');
+                document.getElementById('step1').classList.remove('hidden');
+                window.scrollTo(0, 0);
+            }
+        }
+
+        // INIZIALIZZAZIONE
+        window.onload = function () {
+            inizializzaPesi();
+        };
+    </script>
+</body>
+
+</html>
