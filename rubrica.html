@@ -1838,51 +1838,52 @@
         }
 
         function calcolaVotoFinale() {
-            // Verifica nome studente
-            const nomeStudente = document.getElementById('nomeStudente').value.trim();
-            if (!nomeStudente) {
-                alert('⚠️ Inserisci il nome dello studente!');
-                return;
-            }
-
-            // Identifica competenze valutate (con almeno un indicatore compilato)
-            const competenzeValutate = [];
-            const competenzeNonValutate = [];
-
-            competenze.forEach(comp => {
-                const hasValutazioni = valutazioni[comp.id].indicatori.some(v => v !== null);
-                if (hasValutazioni && valutazioni[comp.id].media !== null) {
-                    competenzeValutate.push(comp);
-                } else {
-                    competenzeNonValutate.push(comp);
+            try {
+                // Verifica nome studente
+                const nomeStudente = document.getElementById('nomeStudente').value.trim();
+                if (!nomeStudente) {
+                    alert('⚠️ Inserisci il nome dello studente!');
+                    return;
                 }
-            });
 
-            // Verifica che almeno 1 competenza sia valutata
-            if (competenzeValutate.length === 0) {
-                alert('⚠️ Devi valutare almeno una competenza!');
-                return;
-            }
+                // Identifica competenze valutate (con almeno un indicatore compilato)
+                const competenzeValutate = [];
+                const competenzeNonValutate = [];
 
-            // Calcola totale pesi delle competenze valutate
-            let totPesiValutati = 0;
-            competenzeValutate.forEach(comp => {
-                totPesiValutati += pesi[comp.id];
-            });
+                competenze.forEach(comp => {
+                    const hasValutazioni = valutazioni[comp.id].indicatori.some(v => v !== null);
+                    if (hasValutazioni && valutazioni[comp.id].media !== null) {
+                        competenzeValutate.push(comp);
+                    } else {
+                        competenzeNonValutate.push(comp);
+                    }
+                });
 
-            // Calcola voto finale ponderato RIEQUILIBRATO
-            let votoFinale = 0;
-            let dettaglioHTML = '';
+                // Verifica che almeno 1 competenza sia valutata
+                if (competenzeValutate.length === 0) {
+                    alert('⚠️ Devi valutare almeno una competenza!');
+                    return;
+                }
 
-            // Mostra competenze valutate
-            competenzeValutate.forEach(comp => {
-                const votoComp = valutazioni[comp.id].media;
-                const pesoOriginale = pesi[comp.id];
-                const pesoRiequilibrato = (pesoOriginale / totPesiValutati) * 100;
-                const contributo = (votoComp * pesoRiequilibrato) / 100;
-                votoFinale += contributo;
+                // Calcola totale pesi delle competenze valutate
+                let totPesiValutati = 0;
+                competenzeValutate.forEach(comp => {
+                    totPesiValutati += pesi[comp.id];
+                });
 
-                dettaglioHTML += `
+                // Calcola voto finale ponderato RIEQUILIBRATO
+                let votoFinale = 0;
+                let dettaglioHTML = '';
+
+                // Mostra competenze valutate
+                competenzeValutate.forEach(comp => {
+                    const votoComp = valutazioni[comp.id].media;
+                    const pesoOriginale = pesi[comp.id];
+                    const pesoRiequilibrato = (pesoOriginale / totPesiValutati) * 100;
+                    const contributo = (votoComp * pesoRiequilibrato) / 100;
+                    votoFinale += contributo;
+
+                    dettaglioHTML += `
                     <div class="dettaglio-row">
                         <span>${comp.nomeBreve}</span>
                         <span>
@@ -1890,68 +1891,72 @@
                         </span>
                     </div>
                 `;
-            });
+                });
 
-            // Mostra competenze NON valutate (se presenti)
-            if (competenzeNonValutate.length > 0) {
-                dettaglioHTML += `
+                // Mostra competenze NON valutate (se presenti)
+                if (competenzeNonValutate.length > 0) {
+                    dettaglioHTML += `
                     <div class="dettaglio-row" style="color: #999; font-style: italic; border-top: 1px dashed #ddd; margin-top: 10px; padding-top: 10px;">
                         <span>Competenze non valutate (escluse dal calcolo):</span>
                         <span>${competenzeNonValutate.length}</span>
                     </div>
                 `;
-                competenzeNonValutate.forEach(comp => {
-                    dettaglioHTML += `
+                    competenzeNonValutate.forEach(comp => {
+                        dettaglioHTML += `
                         <div class="dettaglio-row" style="color: #999; font-style: italic; font-size: 13px;">
                             <span>${comp.nomeBreve}</span>
                             <span>-</span>
                         </div>
                     `;
-                });
-            }
+                    });
+                }
 
-            votoFinale = Math.round(votoFinale * 10) / 10;
+                votoFinale = Math.round(votoFinale * 10) / 10;
 
-            // Determina giudizio
-            let giudizio = '';
-            let giudizioDesc = '';
-            if (votoFinale >= 9) {
-                giudizio = 'AVANZATO';
-                giudizioDesc = "L'alunno/a padroneggia con eccellente autonomia tutte le competenze del profilo";
-            } else if (votoFinale >= 7) {
-                giudizio = 'INTERMEDIO';
-                giudizioDesc = "L'alunno/a possiede una sicura padronanza delle competenze d'indirizzo";
-            } else if (votoFinale >= 6) {
-                giudizio = 'BASE';
-                giudizioDesc = "L'alunno/a raggiunge i traguardi essenziali in tutte le competenze";
-            } else if (votoFinale >= 5) {
-                giudizio = 'INSUFFICIENTE';
-                giudizioDesc = "L'alunno/a manifesta una preparazione parziale e incerta";
-            } else {
-                giudizio = 'GRAVEMENTE INSUFFICIENTE';
-                giudizioDesc = "L'alunno/a presenta gravi e diffuse carenze";
-            }
+                // Determina giudizio
+                let giudizio = '';
+                let giudizioDesc = '';
+                if (votoFinale >= 9) {
+                    giudizio = 'AVANZATO';
+                    giudizioDesc = "L'alunno/a padroneggia con eccellente autonomia tutte le competenze del profilo";
+                } else if (votoFinale >= 7) {
+                    giudizio = 'INTERMEDIO';
+                    giudizioDesc = "L'alunno/a possiede una sicura padronanza delle competenze d'indirizzo";
+                } else if (votoFinale >= 6) {
+                    giudizio = 'BASE';
+                    giudizioDesc = "L'alunno/a raggiunge i traguardi essenziali in tutte le competenze";
+                } else if (votoFinale >= 5) {
+                    giudizio = 'INSUFFICIENTE';
+                    giudizioDesc = "L'alunno/a manifesta una preparazione parziale e incerta";
+                } else {
+                    giudizio = 'GRAVEMENTE INSUFFICIENTE';
+                    giudizioDesc = "L'alunno/a presenta gravi e diffuse carenze";
+                }
 
-            // Mostra risultati
-            document.getElementById('risultato-studente').textContent = nomeStudente;
-            document.getElementById('risultato-quadrimestre').textContent =
-                document.getElementById('quadrimestre').options[document.getElementById('quadrimestre').selectedIndex].text +
-                ` (${competenzeValutate.length}/10 competenze valutate)`;
-            document.getElementById('voto-finale-display').textContent = votoFinale.toFixed(1);
-            document.getElementById('giudizio-finale-display').textContent = giudizio;
+                // Mostra risultati
+                document.getElementById('risultato-studente').textContent = nomeStudente;
+                document.getElementById('risultato-quadrimestre').textContent =
+                    document.getElementById('quadrimestre').options[document.getElementById('quadrimestre').selectedIndex].text +
+                    ` (${competenzeValutate.length}/10 competenze valutate)`;
+                document.getElementById('voto-finale-display').textContent = votoFinale.toFixed(1);
+                document.getElementById('giudizio-finale-display').textContent = giudizio;
 
-            dettaglioHTML += `
+                dettaglioHTML += `
                 <div class="dettaglio-row">
                     <strong>VOTO FINALE</strong>
                     <strong>${votoFinale.toFixed(1)}</strong>
                 </div>
             `;
 
-            document.getElementById('dettaglio-competenze').innerHTML = dettaglioHTML;
+                document.getElementById('dettaglio-competenze').innerHTML = dettaglioHTML;
 
-            // Passa allo step 3
-            document.getElementById('step2').classList.add('hidden');
-            document.getElementById('step3').classList.remove('hidden');
+                // Passa allo step 3
+                document.getElementById('step2').classList.add('hidden');
+                document.getElementById('step3').classList.remove('hidden');
+            } catch (error) {
+                console.error('Errore in calcolaVotoFinale:', error);
+                alert('Errore imprevisto durante il calcolo: ' + error.message);
+            }
         }
 
         // FUNZIONI EXPORT
