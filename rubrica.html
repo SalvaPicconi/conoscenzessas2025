@@ -1553,12 +1553,11 @@
 
         MATERIE.metodologie.competenze = competenze_metodologie;
 
-        // Assegna dati placeholder alle altre materie (usa una copia di metodologie come base, con etichette modificate)
-        const placeholderComp = JSON.parse(JSON.stringify(competenze_metodologie));
-        MATERIE.scienze_umane.competenze = placeholderComp;
-        MATERIE.psicologia.competenze = placeholderComp;
-        MATERIE.igiene.competenze = placeholderComp;
-        MATERIE.diritto.competenze = placeholderComp;
+        // Mantiene le altre materie vuote per ora
+        MATERIE.scienze_umane.competenze = [];
+        MATERIE.psicologia.competenze = [];
+        MATERIE.igiene.competenze = [];
+        MATERIE.diritto.competenze = [];
 
         // GESTIONE MATERIA CORRENTE
         function getMateriaFromUrl() {
@@ -1568,7 +1567,7 @@
         }
 
         const currentMateria = getMateriaFromUrl();
-        const competenze = currentMateria.competenze;
+        const competenze = currentMateria.competenze || [];
 
         // AGGIORNA INTERFACCIA CON DATI MATERIA
         document.addEventListener('DOMContentLoaded', () => {
@@ -1584,6 +1583,23 @@
             if (headerP) headerP.innerHTML = `${currentMateria.sottotitolo}<br>IIS Meucci Mattei Decimomannu`;
             if (header && currentMateria.colore) header.style.background = currentMateria.colore;
 
+            // Gestione rubrica vuota/in allestimento
+            if (!competenze || competenze.length === 0) {
+                document.getElementById('step1').innerHTML = `
+                    <div style="text-align: center; padding: 50px 20px;">
+                        <div style="font-size: 50px; margin-bottom: 20px;">🚧</div>
+                        <h2 style="color: #666; margin-bottom: 15px;">Rubrica in allestimento</h2>
+                        <p style="font-size: 18px; color: #888;">
+                            I contenuti per <strong>${currentMateria.titolo}</strong> saranno disponibili a breve.
+                        </p>
+                        <button onclick="window.close()" class="preset-btn" style="margin-top: 30px; background: #667eea; color: white;">Chiudi pagina</button>
+                    </div>
+                `;
+                document.getElementById('step1').classList.remove('hidden'); // Assicura che sia visibile
+                // Nascondi eventuali altri elementi se necessario o ferma l'inizializzazione
+                return;
+            }
+
             // Aggiorna gradienti ed elementi colorati
             const style = document.createElement('style');
             style.innerHTML = `
@@ -1592,6 +1608,9 @@
                 }
             `;
             document.head.appendChild(style);
+
+            // Inizializza solo se ci sono competenze
+            inizializzaPesi();
         });
 
         // VARIABILI GLOBALI
