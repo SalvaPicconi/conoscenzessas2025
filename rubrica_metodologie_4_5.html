@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valutazione Metodologie Operative - Classe Quarta-Quinta</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            opacity: 0.9;
+            font-size: 14px;
+        }
+
+        .qnq-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin-top: 10px;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .section {
+            padding: 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 20px;
+            color: #667eea;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        /* PRESET E BUTTONS */
+        .preset-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .preset-btn {
+            padding: 10px 20px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .preset-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .preset-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        /* LEGGENDA ORGANIZZAZIONE */
+        .leggenda-organizzazione {
+            background: #f0f4ff;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .leggenda-org-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .leggenda-org-body {
+            background: white;
+            border-radius: 6px;
+            padding: 20px;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .leggenda-org-body p {
+            margin-bottom: 12px;
+        }
+
+        .leggenda-org-body ul {
+            margin: 10px 0 15px 20px;
+            list-style-type: disc;
+        }
+
+        .leggenda-org-body li {
+            margin-bottom: 8px;
+        }
+
+        .livelli-sintesi {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .livello-item {
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 4px solid;
+            font-size: 13px;
+        }
+
+        .livello-item.livello-4-5 {
+            background: #ffe5e5;
+            border-color: #dc3545;
+        }
+
+        .livello-item.livello-6 {
+            background: #fff9e5;
+            border-color: #ffc107;
+        }
+
+        .livello-item.livello-7-8 {
+            background: #e5f9e5;
+            border-color: #28a745;
+        }
+
+        .livello-item.livello-9-10 {
+            background: #e5f0ff;
+            border-color: #007bff;
+        }
+
+        /* LEGGENDA PESI */
+        .leggenda-pesi {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .leggenda-header {
+            font-size: 16px;
+            color: #667eea;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .leggenda-body {
+            background: white;
+            border-radius: 6px;
+            padding: 15px;
+        }
+
+        .leggenda-info {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e9ecef;
+            font-size: 14px;
+        }
+
+        .leggenda-info strong {
+            color: #667eea;
+            font-size: 16px;
+        }
+
+        .leggenda-bars {
+            margin-bottom: 15px;
+        }
+
+        .leggenda-bar-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+
+        .leggenda-bar-label {
+            min-width: 180px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .leggenda-bar-value {
+            min-width: 60px;
+            text-align: right;
+            font-weight: 600;
+            color: #667eea;
+            margin-right: 10px;
+        }
+
+        .leggenda-bar-visual {
+            flex: 1;
+            height: 20px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .leggenda-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 8px;
+            color: white;
+            font-weight: 600;
+            font-size: 11px;
+        }
+
+        .leggenda-bar-item.excluded {
+            opacity: 0.4;
+        }
+
+        .leggenda-bar-item.excluded .leggenda-bar-label {
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        .leggenda-note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px;
+            font-size: 12px;
+            color: #856404;
+            border-radius: 4px;
+        }
+
+        /* COMPETENZE PESO */
+        .competenza-peso {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .competenza-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .competenza-nome {
+            font-weight: 600;
+            color: #333;
+            flex: 1;
+            cursor: help;
+        }
+
+        .competenza-nome:hover::after {
+            content: attr(title);
+            position: absolute;
+            background: #333;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 400;
+            max-width: 400px;
+            z-index: 1000;
+            margin-top: 5px;
+            line-height: 1.4;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .peso-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: #667eea;
+            min-width: 60px;
+            text-align: right;
+        }
+
+        .slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: #ddd;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+            border: none;
+        }
+
+        .totale-pesi {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+
+        /* LEGGENDA VALUTAZIONE */
+        .leggenda-valutazione {
+            background: #fff8e5;
+            border: 2px solid #ff9800;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .leggenda-val-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            color: #ff9800;
+            margin-bottom: 15px;
+        }
+
+        .leggenda-val-body {
+            background: white;
+            border-radius: 6px;
+            padding: 20px;
+        }
+
+        .val-step {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+
+        .val-step-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .val-step-content {
+            flex: 1;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .val-step-content strong {
+            display: block;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+
+        .val-tips {
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+
+        .val-tips strong {
+            display: block;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .val-tips ul {
+            margin: 10px 0 0 20px;
+            list-style-type: disc;
+        }
+
+        .val-tips li {
+            margin-bottom: 8px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .val-tips li strong {
+            display: inline;
+            color: #333;
+            font-weight: 600;
+        }
+
+        /* VALUTAZIONE STUDENTE */
+        .student-input {
+            margin-bottom: 25px;
+        }
+
+        .student-input label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .student-input input,
+        .student-input select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .student-input input:focus,
+        .student-input select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .competenza-valutazione {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .comp-header {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .comp-title {
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 1.4;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .comp-peso-badge {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .indicatore {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .indicatore-nome {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: flex-start;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .radio-option:hover {
+            border-color: #667eea;
+            background: #f8f9ff;
+        }
+
+        .radio-option input[type="radio"] {
+            margin-right: 10px;
+            margin-top: 3px;
+            cursor: pointer;
+        }
+
+        .radio-option.selected {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+
+        .radio-label {
+            flex: 1;
+        }
+
+        .livello-badge {
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+        .livello-4-5 {
+            color: #dc3545;
+        }
+
+        .livello-6 {
+            color: #ffc107;
+        }
+
+        .livello-7-8 {
+            color: #28a745;
+        }
+
+        .livello-9-10 {
+            color: #007bff;
+        }
+
+        .comp-voto {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            margin-top: 15px;
+            border: 2px solid #667eea;
+        }
+
+        .comp-voto-label {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .comp-voto-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        /* RISULTATO FINALE */
+        .risultato-finale {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .voto-finale {
+            font-size: 48px;
+            font-weight: 700;
+            margin: 20px 0;
+        }
+
+        .giudizio-finale {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .dettaglio-calcolo {
+            background: white;
+            color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .dettaglio-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .dettaglio-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .dettaglio-row:last-child {
+            border-bottom: none;
+            font-weight: 700;
+            padding-top: 15px;
+            margin-top: 10px;
+            border-top: 2px solid #667eea;
+        }
+
+        /* BUTTONS */
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-right: 10px;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #218838;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* PROGRESS BAR */
+        .progress-bar {
+            background: #e0e0e0;
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+                border-radius: 0;
+            }
+
+            header h1 {
+                font-size: 22px;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .preset-buttons {
+                flex-direction: column;
+            }
+
+            .competenza-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .comp-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .comp-title {
+                font-size: 14px;
+                min-width: 100%;
+            }
+
+            .leggenda-bar-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+                margin-bottom: 12px;
+            }
+
+            .leggenda-bar-label {
+                min-width: 100%;
+            }
+
+            .leggenda-bar-value {
+                min-width: 100%;
+                text-align: left;
+            }
+
+            .leggenda-bar-visual {
+                width: 100%;
+            }
+
+            .leggenda-info {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .livelli-sintesi {
+                grid-template-columns: 1fr;
+            }
+
+            .val-step {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .val-step-number {
+                align-self: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Valutazione Metodologie Operative - CLASSE QUARTA-QUINTA</h1>
+            <p>Servizi per la Sanità e l'Assistenza Sociale</p>
+            <p>IIS Meucci Mattei Decimomannu</p>
+            <div class="qnq-badge">Livello 4 QNQ - PROBLEM SOLVING, COOPERAZIONE, MULTITASKING</div>
+        </header>
+
+        <!-- STEP 1: CONFIGURAZIONE PESI -->
+        <div id="step1" class="section">
+            <h2 class="section-title">⚖️ Step 1: Configura Pesi delle Competenze</h2>
+
+            <!-- LEGGENDA ORGANIZZAZIONE RUBRICA -->
+            <div class="leggenda-organizzazione">
+                <div class="leggenda-org-header">
+                    <span style="font-size: 20px;">📖</span>
+                    <strong>Come è organizzata questa rubrica di valutazione - QUARTO-QUINTO ANNO (Livello 4
+                        QNQ)</strong>
+                </div>
+                <div class="leggenda-org-body">
+                    <p><strong>La rubrica valuta 10 competenze di indirizzo</strong>, ciascuna articolata in <strong>5
+                            indicatori specifici</strong> che coprono diverse dimensioni professionali:</p>
+                    <ul>
+                        <li><strong>Dimensione conoscitiva</strong> - ampia gamma integrata, approfondite in alcune aree
+                        </li>
+                        <li><strong>Dimensione operativa</strong> - risolvere problemi, attivare abilità complesse</li>
+                        <li><strong>Dimensione relazionale</strong> - cooperazione multiprofessionale efficace</li>
+                        <li><strong>Dimensione metodologica</strong> - coordinare e integrare attività anche di altri
+                        </li>
+                        <li><strong>Dimensione riflessiva</strong> - partecipare a processi decisionali e attuativi</li>
+                    </ul>
+                    <p><strong>Ogni indicatore prevede 4 livelli di padronanza allineati al Livello 4 QNQ:</strong></p>
+                    <div class="livelli-sintesi">
+                        <div class="livello-item livello-4-5">
+                            <strong>4-5 (Sotto Livello 4)</strong>: Resta al Livello 3, problem solving limitato
+                        </div>
+                        <div class="livello-item livello-6">
+                            <strong>6 (Livello 4 Base)</strong>: Risolve problemi, coordina attività base, contesto
+                            prevedibile
+                        </div>
+                        <div class="livello-item livello-7-8">
+                            <strong>7-8 (Livello 4 Consolidato)</strong>: Problem solving avanzato, cooperazione
+                            efficace, multitasking
+                        </div>
+                        <div class="livello-item livello-9-10">
+                            <strong>9-10 (Verso Livello 5)</strong>: Innovazione, leadership, visione sistemica
+                        </div>
+                    </div>
+                    <p style="margin-top: 15px;"><strong>Il voto finale</strong> è calcolato come media ponderata delle
+                        10 competenze, dove i pesi riflettono l'importanza relativa di ciascuna competenza nel
+                        quadrimestre.</p>
+                </div>
+            </div>
+
+            <div class="preset-buttons">
+                <button class="preset-btn active" onclick="applicaPreset('equilibrato')">Equilibrato (10%
+                    ciascuna)</button>
+                <button class="preset-btn" onclick="resetPesi()">Reset Pesi</button>
+            </div>
+
+            <!-- LEGGENDA DINAMICA -->
+            <div id="leggenda-pesi" class="leggenda-pesi">
+                <div class="leggenda-header">
+                    <strong>📊 Distribuzione Pesi (Normalizzata automaticamente)</strong>
+                </div>
+                <div class="leggenda-body">
+                    <div class="leggenda-info">
+                        <span>Competenze attive: <strong id="comp-attive">10/10</strong></span>
+                        <span>Peso totale assegnato: <strong id="peso-totale-assegnato">100%</strong></span>
+                    </div>
+                    <div id="leggenda-bars" class="leggenda-bars">
+                        <!-- Barre generate dinamicamente -->
+                    </div>
+                    <div class="leggenda-note">
+                        ℹ️ Le percentuali finali sono calcolate automaticamente in proporzione ai valori assegnati
+                    </div>
+                </div>
+            </div>
+
+            <div id="pesi-container">
+                <!-- I pesi verranno generati dinamicamente -->
+            </div>
+
+            <div class="totale-pesi" id="totale-pesi">
+                Totale: 0%
+            </div>
+
+            <div id="alert-pesi"></div>
+
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="salvaPesi()">Salva Configurazione e Procedi</button>
+                <button class="btn btn-secondary" onclick="esportaConfigurazione()">Esporta Configurazione</button>
+            </div>
+        </div>
+
+        <!-- STEP 2: VALUTAZIONE STUDENTE -->
+        <div id="step2" class="section hidden">
+            <h2 class="section-title">👨🎓 Step 2: Valuta Studente</h2>
+
+            <!-- LEGGENDA COME VALUTARE -->
+            <div class="leggenda-valutazione">
+                <div class="leggenda-val-header">
+                    <span style="font-size: 18px;">✍️</span>
+                    <strong>Come valutare con questa rubrica - Livello 4 QNQ</strong>
+                </div>
+                <div class="leggenda-val-body">
+                    <div class="val-step">
+                        <div class="val-step-number">1</div>
+                        <div class="val-step-content">
+                            <strong>Per ogni competenza, valuta i 5 indicatori</strong><br>
+                            Leggi attentamente le descrizioni dei 4 livelli (4-5, 6, 7-8, 9-10) allineate al Livello 4
+                            QNQ e seleziona quello che meglio descrive la capacità dello studente di risolvere problemi
+                            e coordinare attività.
+                        </div>
+                    </div>
+                    <div class="val-step">
+                        <div class="val-step-number">2</div>
+                        <div class="val-step-content">
+                            <strong>Il sistema calcola automaticamente</strong><br>
+                            Per ogni competenza viene calcolata la media dei 5 indicatori. Il voto finale è la media
+                            ponderata delle competenze valutate, secondo i pesi configurati.
+                        </div>
+                    </div>
+                    <div class="val-step">
+                        <div class="val-step-number">3</div>
+                        <div class="val-step-content">
+                            <strong>Puoi lasciare competenze non valutate</strong><br>
+                            Se una competenza non è stata sviluppata, lascia i suoi indicatori vuoti: sarà esclusa dal
+                            calcolo e i pesi ricalcolati proporzionalmente.
+                        </div>
+                    </div>
+                    <div class="val-tips">
+                        <strong>💡 Suggerimenti per valutare al Livello 4 QNQ:</strong>
+                        <ul>
+                            <li><strong>Valuta il problem solving</strong> - capacità di risolvere problemi attivando
+                                abilità cognitive complesse</li>
+                            <li><strong>Osserva il coordinamento</strong> - integra attività proprie e di altri,
+                                partecipa a decisioni</li>
+                            <li><strong>Verifica la cooperazione</strong> - collaborazione efficace in équipe
+                                multiprofessionali</li>
+                            <li><strong>Controlla il multitasking</strong> - gestisce compiti multipli in contesti
+                                soggetti a cambiamenti imprevisti</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="student-input">
+                <label for="nomeStudente">Nome e Cognome Studente</label>
+                <input type="text" id="nomeStudente" placeholder="Inserisci nome e cognome">
+            </div>
+
+            <div class="student-input">
+                <label for="quadrimestre">Quadrimestre</label>
+                <select id="quadrimestre">
+                    <option value="primo">Primo Quadrimestre</option>
+                    <option value="secondo">Secondo Quadrimestre</option>
+                </select>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill" style="width: 0%">0%</div>
+            </div>
+
+            <div id="valutazione-container">
+                <!-- Le competenze verranno generate dinamicamente -->
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-success" onclick="calcolaVotoFinale()">Calcola Voto Finale</button>
+                <button class="btn btn-secondary" onclick="tornaAPesi()">Torna a Configurazione Pesi</button>
+            </div>
+        </div>
+
+        <!-- STEP 3: RISULTATO FINALE -->
+        <div id="step3" class="section hidden">
+            <h2 class="section-title">🎯 Risultato Finale</h2>
+
+            <div class="risultato-finale">
+                <div style="font-size: 18px;">Studente: <span id="risultato-studente"></span></div>
+                <div style="font-size: 16px; opacity: 0.9; margin-top: 5px;">
+                    <span id="risultato-quadrimestre"></span>
+                </div>
+
+                <div class="voto-finale" id="voto-finale-display">-</div>
+                <div class="giudizio-finale" id="giudizio-finale-display">-</div>
+
+                <div class="dettaglio-calcolo">
+                    <div class="dettaglio-title">Dettaglio Calcolo</div>
+                    <div id="dettaglio-competenze"></div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-success" onclick="stampaScheda()">Stampa Scheda</button>
+                <button class="btn btn-primary" onclick="esportaDati()">Esporta Dati JSON</button>
+                <button class="btn btn-secondary" onclick="nuovaValutazione()">Nuova Valutazione</button>
+            </div>
+        </div>
+    </div>
