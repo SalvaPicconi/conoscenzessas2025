@@ -1562,8 +1562,30 @@
         // GESTIONE MATERIA CORRENTE
         function getMateriaFromUrl() {
             const urlParams = new URLSearchParams(window.location.search);
-            const materia = urlParams.get('materia');
-            return (materia && MATERIE[materia]) ? MATERIE[materia] : MATERIE.metodologie;
+            let materia = urlParams.get('materia');
+
+            // Pulisce eventuali spazi
+            if (materia) materia = materia.trim();
+
+            // Verifica se la materia esiste
+            if (materia && MATERIE[materia]) {
+                return MATERIE[materia];
+            }
+
+            if (materia) {
+                console.error('Materia non trovata:', materia);
+                // Se c'è un parametro ma non corrisponde, NON tornare a metodologie, ma mostra errore/vuoto
+                return {
+                    id: 'error',
+                    titolo: 'Materia Non Trovata',
+                    sottotitolo: '',
+                    colore: '#ccc',
+                    competenze: []
+                };
+            }
+
+            // Default a metodologie solo se il parametro è completamente assente
+            return MATERIE.metodologie;
         }
 
         const currentMateria = getMateriaFromUrl();
