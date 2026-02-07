@@ -116,7 +116,8 @@
                         <select id="rubrica-select"
                             style="padding: 8px; border-radius: 4px; border: 1px solid #ddd; font-size: 14px;">
                             <option value="">📊 Seleziona Rubrica...</option>
-                            <option value="metodologie">1. Metodologie Operative (Classe 2°)</option>
+                            <option value="metodologie">1. Metodologie Operative (Biennio)</option>
+                            <option value="metodologie_3">1a. Metodologie Operative (Classe 3°)</option>
                             <option value="metodologie_4_5">1b. Metodologie Operative (Classe 4°-5°)</option>
                             <option value="scienze_umane">2. Scienze Umane</option>
                             <option value="psicologia">3. Psicologia Gen. e Appl.</option>
@@ -131,8 +132,12 @@
                         function apriRubricaSelezionata() {
                             const select = document.getElementById('rubrica-select');
                             const val = select.value;
+
                             if (val === 'metodologie_4_5') {
                                 window.open('rubrica_metodologie_4_5.html', '_blank');
+                            } else if (val === 'metodologie_3') {
+                                // Placeholder o file specifico per la terza
+                                window.open('rubrica.html?materia=metodologie_3', '_blank');
                             } else if (val) {
                                 window.open(`rubrica.html?materia=${val}`, '_blank');
                             } else {
