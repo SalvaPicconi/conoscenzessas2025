@@ -676,7 +676,7 @@ function renderMethodologySection() {
         {
             title: 'Attività di recupero in itinere',
             content: [
-                'Ogni qualvolta si rendesse necessario, si provvederà al recupero delle conoscenze pregresse (es. morfologia, sintassi, ecc.)'
+                'Ogni qualvolta si rendesse necessario, si provvederà al recupero delle conoscenze e abilità pregresse'
             ],
             placeholders: 0
         }

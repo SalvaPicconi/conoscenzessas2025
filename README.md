@@ -1,59 +1,39 @@
-# Curriculum Pivot SSAS
+# Curricolo Verticale SSAS
 
-## Tabella Pivot - Servizi per la Sanità e l'Assistenza Sociale
+Sito interattivo per la consultazione del curricolo verticale dell'indirizzo **Servizi per la Sanità e l'Assistenza Sociale** — IIS Meucci-Mattei Cagliari, sede di Decimomannu.
 
-Questo progetto presenta un'analisi interattiva completa del curriculum per i Servizi per la Sanità e l'Assistenza Sociale, con mapping degli insegnamenti che copre 10 competenze, 14 materie e 37 traguardi.
+Contenuti conformi al D.M. 24 maggio 2018, n. 92, Allegato C. I dati dell'area di indirizzo sono allineati al file ufficiale `definitivo_curricolo_ssas_area_indirizzo.xlsx`.
 
-## Funzionalità
+Sito pubblicato: https://salvapicconi.github.io/conoscenzessas2025/
 
-- **Tabella Pivot Interattiva**: Visualizza le correlazioni tra competenze, materie e traguardi formativi
-- **Filtri Avanzati**: Filtra per competenza, periodo, livello QNQ, insegnamento
-- **Ricerca Testuale**: Cerca all'interno dei contenuti
-- **Raggruppamento Dinamico**: Raggruppa i dati per diverse dimensioni
-- **Statistiche**: Visualizzazione di statistiche aggregate
-- **Design Responsivo**: Ottimizzato per desktop e mobile
+## Sezioni
 
-## Struttura del Progetto
+- **Area di Indirizzo** — le 10 competenze in uscita declinate su Biennio, Terzo, Quarto e Quinto anno (39 schede: competenza intermedia, abilità, conoscenze, insegnamenti coinvolti), con filtri, ricerca, raggruppamento e statistiche per insegnamento calcolate dai dati.
+- **Area Generale** — le 12 competenze dell'area generale con assi culturali, abilità e conoscenze.
+- **Rubriche di Valutazione** — rubriche per competenze con pesi configurabili e calcolo del voto ponderato (disponibili: Metodologie Operative biennio, classe 3ª e classi 4ª-5ª; le altre discipline sono in preparazione).
 
-- `index.html` - Pagina principale dell'applicazione
-- `style.css` - Fogli di stile CSS
-- `script.js` - Logica JavaScript per l'interattività
-- `data.json` - Dati del curriculum in formato JSON
+## Esportazioni
 
-## Come Usare
+- **Excel** — tabella del curricolo (rispetta i filtri attivi)
+- **Word** — modello di Piano di Lavoro individuale precompilato con competenze, abilità e conoscenze
+- **JSON** — dati grezzi
 
-1. Apri il sito web
-2. Utilizza i filtri nella barra laterale per navigare tra i dati
-3. Usa la casella di ricerca per trovare contenuti specifici
-4. Cambia il raggruppamento per diverse visualizzazioni dei dati
-5. Clicca su "Reset Filtri" per tornare alla vista completa
+## Struttura del progetto
 
-## GitHub Pages
+- `index.html` + `script-main.js` + `style-main.css` — pagina principale con le tab
+- `area-indirizzo.html` + `script.js` + `style.css` — curricolo area di indirizzo
+- `area-generale.html` + `area-generale.js` + `area-generale.css` — curricolo area generale
+- `data-area-indirizzo.json` — dati area di indirizzo (fonte: Excel definitivo)
+- `data-area-generale.json` — dati area generale
+- `correzioni_competenze.json` — correzioni opzionali ai titoli delle competenze
+- `rubrica.html` — rubrica di valutazione multi-materia (parametro `?materia=`)
+- `rubrica_metodologie_3.html`, `rubrica_metodologie_4_5.html` — rubriche Metodologie Operative triennio
+- `tools/` — script di supporto e modello di programmazione
 
-Questo sito è compatibile con GitHub Pages. Per pubblicarlo:
+## Aggiornamento dei dati
 
-1. Fai push del codice su GitHub
-2. Vai nelle impostazioni del repository
-3. Scorri fino alla sezione "Pages"
-4. Seleziona "Deploy from a branch"
-5. Scegli il branch "main" (o "master") e cartella "/ (root)"
-6. Il sito sarà disponibile su `https://[username].github.io/[repository-name]`
+I contenuti del curricolo vivono nei due file JSON: modificando quelli, statistiche e contatori del sito si aggiornano automaticamente. Per l'area di indirizzo la fonte di riferimento è il file Excel definitivo.
 
-## Tecnologie Utilizzate
+## Pubblicazione
 
-- HTML5
-- CSS3 (con Flexbox e Grid)
-- JavaScript ES6+
-- Design responsivo
-- Font Awesome per le icone
-
-## Compatibilità
-
-- Chrome/Edge (versioni recenti)
-- Firefox (versioni recenti)  
-- Safari (versioni recenti)
-- Mobile responsive
-
----
-
-Sviluppato per l'analisi del curriculum dei Servizi per la Sanità e l'Assistenza Sociale.
+Il sito è statico (HTML/CSS/JS, nessuna dipendenza esterna) ed è pubblicato con GitHub Pages dal branch `main`, cartella root. Ogni push su `main` aggiorna il sito.

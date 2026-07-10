@@ -36,6 +36,7 @@ async function loadData() {
         setupFilters();
         filterAndDisplay();
         renderStatsTable();
+        updateHeaderCards();
         notifyParentHeight();
         showLoading(false);
         
@@ -508,7 +509,7 @@ function renderMethodologySection() {
 		{
 			title: 'Attività di recupero in itinere',
 			content: [
-				'Ogni qualvolta si rendesse necessario, si provvederà al recupero delle conoscenze pregresse (es. morfologia, sintassi, ecc.)'
+				'Ogni qualvolta si rendesse necessario, si provvederà al recupero delle conoscenze e abilità pregresse'
 			],
 			placeholders: 0
 		}
@@ -675,32 +676,40 @@ function downloadFile(content, mimeType, filename) {
 // Raggruppa dati
 function groupData(data) {
     const groups = {};
-    
-    data.forEach(item => {
-        let key;
-        switch (groupBy) {
-            case 'competenzaNum':
-                key = `Competenza ${item.competenzaNum}`;
-                break;
-            case 'periodo':
-                key = item.periodo;
-                break;
-            case 'livelloQNQ':
-                key = `Livello ${item.livelloQNQ}`;
-                break;
-            case 'insegnamento':
-                key = 'Per Insegnamento';
-                break;
-            default:
-                key = 'Tutti';
-        }
-        
+    const addToGroup = (key, item) => {
         if (!groups[key]) {
             groups[key] = [];
         }
         groups[key].push(item);
+    };
+
+    data.forEach(item => {
+        switch (groupBy) {
+            case 'competenzaNum':
+                addToGroup(`Competenza ${item.competenzaNum}`, item);
+                break;
+            case 'periodo':
+                addToGroup(item.periodo, item);
+                break;
+            case 'livelloQNQ':
+                addToGroup(`Livello ${item.livelloQNQ}`, item);
+                break;
+            case 'insegnamento':
+                // Una scheda compare in ogni insegnamento coinvolto
+                (item.insegnamentoCoinvolti && item.insegnamentoCoinvolti.length
+                    ? item.insegnamentoCoinvolti
+                    : ['Senza insegnamento']).forEach(ins => addToGroup(ins, item));
+                break;
+            default:
+                addToGroup('Tutti', item);
+        }
     });
-    
+
+    if (groupBy === 'insegnamento') {
+        return Object.fromEntries(
+            Object.entries(groups).sort(([a], [b]) => a.localeCompare(b))
+        );
+    }
     return groups;
 }
 
@@ -715,12 +724,18 @@ function renderMainTable(groupedData) {
     });
 }
 
+// Con filtri o ricerca attivi i gruppi si aprono da soli
+function hasActiveFilters() {
+    return Boolean(filters.searchTerm || filters.competenza ||
+        filters.periodo || filters.livelloQNQ || filters.insegnamento);
+}
+
 // Crea elemento gruppo
 function createGroupElement(groupKey, items) {
     const groupDiv = document.createElement('div');
     groupDiv.className = 'group-container';
-    
-    const isExpanded = expandedGroups.has(groupKey);
+
+    const isExpanded = expandedGroups.has(groupKey) || hasActiveFilters();
     if (isExpanded) {
         groupDiv.classList.add('group-expanded');
     }
@@ -730,7 +745,7 @@ function createGroupElement(groupKey, items) {
             <div class="group-title">
                 <span class="group-chevron">${isExpanded ? '▼' : '▶'}</span>
                 <span class="group-name">${groupKey}</span>
-                <span class="group-count">(${items.length} elementi)</span>
+                <span class="group-count">(${items.length} ${items.length === 1 ? 'scheda' : 'schede'})</span>
             </div>
         </div>
         <div class="group-content">
@@ -811,35 +826,86 @@ function toggleGroup(groupKey) {
     filterAndDisplay();
 }
 
-// Renderizza tabella statistiche
+// Renderizza tabella statistiche (calcolata dai dati reali)
 function renderStatsTable() {
-    const statsData = [
-        { nome: "METODOLOGIE OPERATIVE", competenze: 10, conoscenze: 84, periodi: 4, correlazioni: 89 },
-        { nome: "PSICOLOGIA GENERALE ED APPLICATA", competenze: 9, conoscenze: 54, periodi: 4, correlazioni: 67 },
-        { nome: "IGIENE E CULTURA MEDICO SANITARIA", competenze: 5, conoscenze: 33, periodi: 4, correlazioni: 41 },
-        { nome: "DIRITTO E TEC. AMM.", competenze: 8, conoscenze: 25, periodi: 4, correlazioni: 28 },
-        { nome: "SCIENZE UMANE", competenze: 7, conoscenze: 19, periodi: 4, correlazioni: 24 },
-        { nome: "TIC - TECNOLOGIE INFORMAZIONE E COMUNICAZIONE", competenze: 6, conoscenze: 18, periodi: 4, correlazioni: 21 },
-        { nome: "MATEMATICA", competenze: 4, conoscenze: 15, periodi: 4, correlazioni: 18 }
-    ];
+    const totCompetenze = new Set(allData.map(item => item.competenzaNum)).size;
+    const totPeriodi = new Set(allData.map(item => item.periodo)).size;
+
+    const perInsegnamento = new Map();
+    const getStat = ins => {
+        if (!perInsegnamento.has(ins)) {
+            perInsegnamento.set(ins, {
+                nome: ins,
+                competenze: new Set(),
+                periodi: new Set(),
+                conoscenze: 0,
+                schede: 0
+            });
+        }
+        return perInsegnamento.get(ins);
+    };
+
+    allData.forEach(item => {
+        (item.insegnamentoCoinvolti || []).forEach(ins => {
+            const stat = getStat(ins);
+            stat.competenze.add(item.competenzaNum);
+            stat.periodi.add(item.periodo);
+            stat.schede += 1;
+        });
+        (item.conoscenze || []).forEach(conoscenza => {
+            (conoscenza.insegnamenti || []).forEach(ins => {
+                getStat(ins).conoscenze += 1;
+            });
+        });
+    });
+
+    const statsData = [...perInsegnamento.values()]
+        .map(stat => ({
+            nome: stat.nome,
+            competenze: stat.competenze.size,
+            conoscenze: stat.conoscenze,
+            periodi: stat.periodi.size,
+            schede: stat.schede
+        }))
+        .sort((a, b) => b.conoscenze - a.conoscenze);
 
     const tbody = document.getElementById('stats-tbody');
-    const maxCorrelazioni = Math.max(...statsData.map(s => s.correlazioni));
+    const maxConoscenze = Math.max(...statsData.map(s => s.conoscenze), 1);
 
     tbody.innerHTML = statsData.map(stat => `
         <tr>
-            <td style="font-weight: 500; font-size: 0.75rem;">${stat.nome}</td>
-            <td><span class="stat-badge badge-blue">${stat.competenze}/10</span></td>
+            <td style="font-weight: 500; font-size: 0.75rem;">${escapeHtml(stat.nome)}</td>
+            <td><span class="stat-badge badge-blue">${stat.competenze}/${totCompetenze}</span></td>
             <td><span class="stat-badge badge-green">${stat.conoscenze}</span></td>
-            <td><span class="stat-badge badge-purple">${stat.periodi}/4</span></td>
-            <td><span class="stat-badge badge-orange">${stat.correlazioni}</span></td>
+            <td><span class="stat-badge badge-purple">${stat.periodi}/${totPeriodi}</span></td>
+            <td><span class="stat-badge badge-orange">${stat.schede}</span></td>
             <td>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: ${(stat.correlazioni / maxCorrelazioni) * 100}%"></div>
+                    <div class="progress-fill" style="width: ${(stat.conoscenze / maxConoscenze) * 100}%"></div>
                 </div>
             </td>
         </tr>
     `).join('');
+}
+
+// Aggiorna le card statistiche in testa alla pagina con i valori reali
+function updateHeaderCards() {
+    const competenze = new Set(allData.map(item => item.competenzaNum)).size;
+    const insegnamenti = new Set();
+    let correlazioni = 0;
+    allData.forEach(item => {
+        (item.insegnamentoCoinvolti || []).forEach(ins => insegnamenti.add(ins));
+        correlazioni += (item.conoscenze || []).length;
+    });
+
+    const setText = (id, value) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = value;
+    };
+    setText('stat-competenze', competenze);
+    setText('stat-traguardi', allData.length);
+    setText('stat-insegnamenti', insegnamenti.size);
+    setText('stat-correlazioni', correlazioni);
 }
 
 // Utility functions

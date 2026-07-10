@@ -161,7 +161,7 @@
         "titolo": "Utilizzare i linguaggi settoriali delle lingue straniere previste dai percorsi di studio per interagire in diversi ambiti e contesti di studio e di lavoro",
         "assi_culturali": [
           {
-            "asse": "Linguistico-letterario",
+            "asse": "Asse dei linguaggi",
             "abilita": [
               "Comprendere i punti principali di testi orali in lingua standard",
               "Comprendere in maniera globale e analitica testi scritti relativamente complessi",
@@ -473,7 +473,7 @@
             ]
           },
           {
-            "asse": "Storico sociale",
+            "asse": "Storico-sociale",
             "abilita": [
               "Discutere e confrontare diverse interpretazioni di fatti o fenomeni storici, sociali ed economici",
               "Collocare gli eventi storici nella giusta successione cronologica e nelle aree geografiche di riferimento"

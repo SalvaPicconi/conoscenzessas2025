@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curricolo Verticale - Servizi per la Sanità e l'Assistenza Sociale</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=20260710">
 </head>
 
 <body>
@@ -27,8 +27,8 @@
                     <span class="stat-icon">📚</span>
                     <span class="stat-label">Competenze</span>
                 </div>
-                <div class="stat-value">10</div>
-                <div class="stat-subtitle">37 traguardi totali</div>
+                <div class="stat-value" id="stat-competenze">10</div>
+                <div class="stat-subtitle"><span id="stat-traguardi">39</span> traguardi totali</div>
             </div>
 
             <div class="stat-card green">
@@ -36,7 +36,7 @@
                     <span class="stat-icon">👥</span>
                     <span class="stat-label">Insegnamenti</span>
                 </div>
-                <div class="stat-value">14</div>
+                <div class="stat-value" id="stat-insegnamenti">14</div>
                 <div class="stat-subtitle">Materie curricolari</div>
             </div>
 
@@ -45,7 +45,7 @@
                     <span class="stat-icon">📊</span>
                     <span class="stat-label">Correlazioni</span>
                 </div>
-                <div class="stat-value">153+</div>
+                <div class="stat-value" id="stat-correlazioni">153</div>
                 <div class="stat-subtitle">Mapping didattici</div>
             </div>
 
@@ -119,10 +119,10 @@
                             <option value="metodologie">1. Metodologie Operative (Biennio)</option>
                             <option value="metodologie_3">1a. Metodologie Operative (Classe 3°)</option>
                             <option value="metodologie_4_5">1b. Metodologie Operative (Classe 4°-5°)</option>
-                            <option value="scienze_umane">2. Scienze Umane</option>
-                            <option value="psicologia">3. Psicologia Gen. e Appl.</option>
-                            <option value="igiene">4. Igiene e Cultura M.S.</option>
-                            <option value="diritto">5. Diritto e T.A.</option>
+                            <option value="scienze_umane" disabled>2. Scienze Umane (in preparazione)</option>
+                            <option value="psicologia" disabled>3. Psicologia Gen. e Appl. (in preparazione)</option>
+                            <option value="igiene" disabled>4. Igiene e Cultura M.S. (in preparazione)</option>
+                            <option value="diritto" disabled>5. Diritto e T.A. (in preparazione)</option>
                         </select>
                         <button onclick="apriRubricaSelezionata()" class="primary-btn"
                             style="background-color: #667eea; border-color: #667eea; padding: 8px 12px;">Vai</button>
@@ -166,7 +166,7 @@
                             <th>Competenze</th>
                             <th>Conoscenze</th>
                             <th>Periodi</th>
-                            <th>Correlazioni</th>
+                            <th>Schede coinvolte</th>
                             <th>Carico Didattico</th>
                         </tr>
                     </thead>
@@ -188,7 +188,7 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20260710"></script>
 </body>
 
 </html>

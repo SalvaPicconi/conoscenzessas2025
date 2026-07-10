@@ -1609,7 +1609,7 @@
             const header = document.querySelector('header');
 
             if (headerH1) headerH1.innerHTML = `📊 ${currentMateria.titolo}`;
-            if (headerP) headerP.innerHTML = `${currentMateria.sottotitolo}<br>IIS Meucci Mattei Decimomannu`;
+            if (headerP) headerP.innerHTML = currentMateria.sottotitolo;
             if (header && currentMateria.colore) header.style.background = currentMateria.colore;
 
             // Gestione rubrica vuota/in allestimento
