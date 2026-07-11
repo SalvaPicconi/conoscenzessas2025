@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curricolo Verticale - Servizi per la Sanità e l'Assistenza Sociale</title>
-    <link rel="stylesheet" href="style.css?v=20260710">
+    <link rel="stylesheet" href="style.css?v=20260711">
 </head>
 
 <body>
@@ -112,9 +112,8 @@
                     <span class="search-icon">🔍</span>
                 </div>
                 <div class="actions-row">
-                    <div style="display: flex; align-items: center; gap: 5px; margin-right: 10px;">
-                        <select id="rubrica-select"
-                            style="padding: 8px; border-radius: 4px; border: 1px solid #ddd; font-size: 14px;">
+                    <div class="rubrica-picker">
+                        <select id="rubrica-select">
                             <option value="">📊 Seleziona Rubrica...</option>
                             <option value="metodologie">1. Metodologie Operative (Biennio)</option>
                             <option value="metodologie_3">1a. Metodologie Operative (Classe 3°)</option>
@@ -124,8 +123,7 @@
                             <option value="igiene" disabled>4. Igiene e Cultura M.S. (in preparazione)</option>
                             <option value="diritto" disabled>5. Diritto e T.A. (in preparazione)</option>
                         </select>
-                        <button onclick="apriRubricaSelezionata()" class="primary-btn"
-                            style="background-color: #667eea; border-color: #667eea; padding: 8px 12px;">Vai</button>
+                        <button onclick="apriRubricaSelezionata()" class="primary-btn">Vai</button>
                     </div>
                     <!-- Script per gestire apertura rubrica -->
                     <script>
@@ -188,7 +186,7 @@
         </div>
     </div>
 
-    <script src="script.js?v=20260710"></script>
+    <script src="script.js?v=20260711"></script>
 </body>
 
 </html>

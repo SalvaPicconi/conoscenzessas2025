@@ -15,3 +15,5 @@ node_modules/
 # File di sviluppo locale
 .vscode/
 .idea/
+# Config locale Claude Code
+.claude/

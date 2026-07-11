@@ -1,3 +1,9 @@
+// Se la pagina vive in un iframe, disattiva lo scroll interno:
+// l'altezza è gestita dalla pagina madre (niente doppia scrollbar)
+if (window.parent !== window) {
+    document.documentElement.classList.add('embedded');
+}
+
 // Variabili globali
 let allData = [];
 let filteredData = [];
@@ -922,7 +928,10 @@ function notifyParentHeight() {
         return;
     }
     requestAnimationFrame(() => {
-        const height = document.body.scrollHeight;
+        const height = Math.max(
+            document.documentElement.scrollHeight,
+            document.body.scrollHeight
+        );
         window.parent.postMessage({ type: 'iframeContentHeight', height }, '*');
     });
 }

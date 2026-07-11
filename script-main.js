@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (targetIframe) {
             const nextHeight = Number(event.data.height);
             if (!Number.isNaN(nextHeight)) {
-                targetIframe.style.height = `${Math.max(nextHeight, 720)}px`;
+                setIframeHeight(targetIframe, nextHeight);
             }
         }
     });
@@ -126,14 +126,27 @@ function setActiveTab(targetId, { tabButtons, tabPanels, persist = true, focusBu
     }
 }
 
+function setIframeHeight(iframe, contentHeight) {
+    // Aggiorna solo su variazioni reali: evita micro-reflow e scatti durante lo scroll
+    const nextHeight = Math.max(Math.ceil(contentHeight), 480);
+    const currentHeight = parseInt(iframe.style.height, 10) || 0;
+    if (Math.abs(nextHeight - currentHeight) > 2) {
+        iframe.style.height = `${nextHeight}px`;
+    }
+}
+
 function adjustIframeHeight(iframe) {
     try {
-        const documentBody = iframe?.contentDocument?.body;
-        if (!documentBody) {
+        const doc = iframe?.contentDocument;
+        if (!doc || !doc.body) {
             return;
         }
-        const scrollHeight = Math.max(documentBody.scrollHeight, documentBody.offsetHeight);
-        iframe.style.height = `${Math.max(scrollHeight + 48, 720)}px`;
+        const contentHeight = Math.max(
+            doc.documentElement.scrollHeight,
+            doc.body.scrollHeight,
+            doc.body.offsetHeight
+        );
+        setIframeHeight(iframe, contentHeight);
     } catch (error) {
         console.warn('Impossibile calcolare altezza iframe:', error);
     }

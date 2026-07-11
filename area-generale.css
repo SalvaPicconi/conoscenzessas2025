@@ -1,17 +1,26 @@
+/* ============================================================
+   Curricolo Verticale SSAS — Area Generale
+   Estende style.css con lo stesso design "Aurora"
+   ============================================================ */
+
 .generale-container {
     padding-bottom: 48px;
 }
 
 .intro-panel {
     margin-bottom: 28px;
-    background: rgba(37, 99, 235, 0.08);
-    border: 1px solid rgba(37, 99, 235, 0.15);
+    background: linear-gradient(120deg, rgba(79, 70, 229, 0.09), rgba(14, 165, 233, 0.09));
+    border: 1px solid var(--stroke);
     border-radius: 18px;
     padding: 18px 22px;
-    color: #1e3a8a;
+    color: #312e81;
     font-size: 0.95rem;
     line-height: 1.55;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
+
+/* ---------- Card statistiche ---------- */
 
 .general-stats {
     display: grid;
@@ -21,68 +30,95 @@
 }
 
 .general-card {
-    background: #ffffff;
-    border-radius: 16px;
+    position: relative;
+    background: var(--card);
+    border-radius: var(--radius-lg);
     padding: 20px 22px;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 8px 24px -18px rgba(15, 23, 42, 0.6);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     display: flex;
     flex-direction: column;
     gap: 6px;
+    overflow: hidden;
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease;
+}
+
+.general-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+.general-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 4px;
+    background: var(--grad-accent);
 }
 
 .card-label {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #3b82f6;
-    letter-spacing: 0.02em;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent-a);
+    letter-spacing: 0.06em;
     text-transform: uppercase;
 }
 
 .card-value {
-    font-size: 2.1rem;
-    font-weight: 700;
-    color: #0f172a;
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
 }
 
 .card-hint {
     font-size: 0.75rem;
-    color: #475569;
+    color: var(--ink-faint);
 }
 
 .generale-filters {
-    margin-bottom: 32px;
+    margin-bottom: 30px;
 }
 
 .generale-search-row {
     flex-wrap: wrap;
 }
 
+/* ---------- Sezioni panoramica ---------- */
+
 .period-overview,
 .teaching-overview,
 .competence-overview {
-    margin-bottom: 40px;
-    background: #ffffff;
-    border-radius: 22px;
-    border: 1px solid #e2e8f0;
-    padding: 24px 24px 32px;
-    box-shadow: 0 20px 60px -42px rgba(15, 23, 42, 0.85);
+    margin-bottom: 36px;
+    background: var(--card);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--glass-border);
+    padding: 26px 26px 32px;
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .section-header {
     margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--stroke);
 }
 
 .section-header h2 {
     font-size: 1.25rem;
-    font-weight: 700;
-    color: #1f2937;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--ink);
     margin-bottom: 4px;
 }
 
 .section-hint {
     font-size: 0.85rem;
-    color: #64748b;
+    color: var(--ink-faint);
 }
 
 .period-grid {
@@ -93,15 +129,22 @@
 
 .period-card {
     border-radius: 16px;
-    border: 1px solid #dbeafe;
+    border: 1px solid var(--stroke);
     padding: 18px;
-    background: linear-gradient(160deg, rgba(37, 99, 235, 0.1) 0%, rgba(37, 99, 235, 0.03) 100%);
+    background: linear-gradient(160deg, rgba(79, 70, 229, 0.08) 0%, rgba(14, 165, 233, 0.04) 100%);
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease;
+}
+
+.period-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 36px -26px rgba(30, 41, 99, 0.55);
 }
 
 .period-card h3 {
-    margin: 0 0 8px;
+    margin: 0 0 10px;
     font-size: 1rem;
-    color: #1d4ed8;
+    font-weight: 700;
+    color: var(--accent-a);
 }
 
 .period-metric {
@@ -109,12 +152,13 @@
     justify-content: space-between;
     font-size: 0.85rem;
     margin-bottom: 6px;
-    color: #1f2937;
+    color: var(--ink-soft);
+    font-variant-numeric: tabular-nums;
 }
 
 .period-progress {
     height: 8px;
-    background: rgba(191, 219, 254, 0.8);
+    background: rgba(148, 163, 184, 0.25);
     border-radius: 999px;
     overflow: hidden;
     margin-top: 12px;
@@ -123,11 +167,14 @@
 .period-progress span {
     display: block;
     height: 100%;
-    background: linear-gradient(90deg, #2563eb 0%, #22d3ee 100%);
+    border-radius: 999px;
+    background: var(--grad-accent);
+    transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .table-wrapper {
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .generale-table th,
@@ -136,8 +183,10 @@
 }
 
 .generale-table tbody tr:hover {
-    background: rgba(219, 234, 254, 0.4);
+    background: rgba(99, 102, 241, 0.06);
 }
+
+/* ---------- Schede competenza ---------- */
 
 .competence-list {
     display: grid;
@@ -147,15 +196,23 @@
 .empty-placeholder {
     padding: 12px 4px;
     font-size: 0.85rem;
-    color: #64748b;
+    color: var(--ink-faint);
 }
 
 .competence-card {
-    border: 1px solid #cbd5f5;
+    border: 1px solid var(--stroke-soft);
     border-radius: 18px;
-    padding: 18px 20px;
-    background: rgba(248, 250, 252, 0.75);
-    box-shadow: 0 10px 40px -40px rgba(15, 23, 42, 0.7);
+    padding: 20px 22px;
+    background: var(--card-solid);
+    box-shadow: 0 8px 26px -22px rgba(30, 41, 99, 0.5);
+    transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    animation: rise 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.competence-card:hover {
+    border-color: rgba(99, 102, 241, 0.35);
+    box-shadow: 0 22px 50px -28px rgba(30, 41, 99, 0.55);
+    transform: translateY(-2px);
 }
 
 .competence-card header {
@@ -167,7 +224,9 @@
 
 .competence-card h3 {
     font-size: 1rem;
-    color: #0f172a;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: var(--ink);
     margin: 0;
 }
 
@@ -176,18 +235,18 @@
     flex-wrap: wrap;
     gap: 6px;
     font-size: 0.78rem;
-    color: #475569;
+    color: var(--ink-soft);
 }
 
 .meta-pill {
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    background: #e0f2fe;
-    padding: 4px 10px;
+    background: rgba(14, 165, 233, 0.12);
+    padding: 4px 11px;
     border-radius: 999px;
     font-weight: 600;
-    color: #0c4a6e;
+    color: #0369a1;
 }
 
 .meta-pill svg {
@@ -197,9 +256,9 @@
 
 .competence-card p {
     font-size: 0.85rem;
-    color: #334155;
+    color: var(--ink-soft);
     margin: 0 0 12px;
-    line-height: 1.5;
+    line-height: 1.55;
 }
 
 .competence-metrics {
@@ -215,11 +274,13 @@
     gap: 6px;
     padding: 4px 12px;
     border-radius: 999px;
-    background: rgba(37, 99, 235, 0.1);
-    color: #1d4ed8;
+    background: rgba(79, 70, 229, 0.1);
+    color: var(--accent-a);
     font-size: 0.78rem;
     font-weight: 600;
 }
+
+/* ---------- Assi culturali ---------- */
 
 .competence-axes {
     display: grid;
@@ -227,16 +288,22 @@
 }
 
 .competence-axis {
-    border: 1px solid rgba(191, 219, 254, 0.8);
+    border: 1px solid var(--stroke);
     border-radius: 14px;
-    padding: 14px 16px;
-    background: rgba(219, 234, 254, 0.4);
+    padding: 15px 17px;
+    background: linear-gradient(160deg, rgba(79, 70, 229, 0.05), rgba(14, 165, 233, 0.05));
+    transition: border-color 0.2s ease;
+}
+
+.competence-axis:hover {
+    border-color: rgba(99, 102, 241, 0.4);
 }
 
 .competence-axis h4 {
     margin: 0 0 10px;
     font-size: 0.9rem;
-    color: #1d4ed8;
+    font-weight: 700;
+    color: var(--accent-a);
 }
 
 .axis-subjects {
@@ -251,10 +318,10 @@
     align-items: center;
     padding: 3px 10px;
     border-radius: 999px;
-    background: rgba(96, 165, 250, 0.2);
-    color: #1d4ed8;
+    background: rgba(79, 70, 229, 0.12);
+    color: var(--accent-a);
     font-size: 0.75rem;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .axis-columns {
@@ -264,29 +331,46 @@
 }
 
 .axis-block h5 {
-    margin: 0 0 6px;
-    font-size: 0.82rem;
-    color: #1f2937;
-    font-weight: 600;
+    margin: 0 0 8px;
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    padding-bottom: 4px;
+    border-bottom: 2px solid rgba(99, 102, 241, 0.15);
 }
 
 .axis-block ul {
-    list-style: disc;
-    padding-left: 18px;
+    list-style: none;
+    padding-left: 0;
     margin: 0;
     display: grid;
-    gap: 4px;
+    gap: 5px;
     font-size: 0.78rem;
-    color: #334155;
+    color: var(--ink-soft);
 }
 
 .axis-block ul li {
-    line-height: 1.45;
+    position: relative;
+    padding-left: 14px;
+    line-height: 1.5;
+}
+
+.axis-block ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 5px;
+    height: 5px;
+    border-radius: 999px;
+    background: var(--grad-accent);
 }
 
 .axis-block .empty-placeholder {
     font-size: 0.78rem;
-    color: #94a3b8;
+    color: var(--ink-faint);
 }
 
 @media (max-width: 768px) {

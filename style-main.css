@@ -1,175 +1,261 @@
+/* ============================================================
+   Curricolo Verticale SSAS — shell principale
+   Design "Aurora": sfondo luminoso, vetro, gradienti indaco/ciano
+   ============================================================ */
+
 :root {
     color-scheme: light;
-    --bg-body: #f4f6fb;
-    --bg-card: #ffffff;
-    --bg-tab-active: #1d4ed8;
-    --bg-tab-hover: #e0e7ff;
-    --border-card: #e2e8f0;
-    --text-primary: #0f172a;
-    --text-secondary: #475569;
-    --shadow-soft: 0 12px 32px -18px rgba(15, 23, 42, 0.35);
+    --bg-body: #eef1fa;
+    --ink: #0b1220;
+    --ink-soft: #4b5872;
+    --accent-a: #4f46e5;
+    --accent-b: #0ea5e9;
+    --accent-c: #8b5cf6;
+    --grad-accent: linear-gradient(120deg, var(--accent-a) 0%, var(--accent-c) 50%, var(--accent-b) 100%);
+    --glass: rgba(255, 255, 255, 0.72);
+    --glass-border: rgba(255, 255, 255, 0.85);
+    --stroke: rgba(99, 102, 241, 0.16);
+    --shadow-float: 0 24px 60px -28px rgba(30, 41, 99, 0.35);
 }
 
 * {
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+}
+
 html, body {
     margin: 0;
     padding: 0;
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     background: var(--bg-body);
-    color: var(--text-primary);
+    color: var(--ink);
     min-height: 100%;
+}
+
+/* Sfondo aurora fisso: non scrolla, zero jank */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        radial-gradient(900px 520px at 12% -6%, rgba(99, 102, 241, 0.22), transparent 62%),
+        radial-gradient(820px 480px at 88% 4%, rgba(14, 165, 233, 0.20), transparent 60%),
+        radial-gradient(760px 560px at 50% 108%, rgba(139, 92, 246, 0.16), transparent 62%),
+        var(--bg-body);
 }
 
 body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    padding-top: 24px;
+    padding-top: 20px;
+}
+
+/* Scrollbar raffinata (WebKit) */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgba(79, 70, 229, 0.45), rgba(14, 165, 233, 0.45));
+    border-radius: 999px;
+    border: 3px solid var(--bg-body);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, rgba(79, 70, 229, 0.7), rgba(14, 165, 233, 0.7));
 }
 
 .container {
-    width: min(1180px, 100%);
-    padding: clamp(16px, 4vw, 40px);
+    width: min(1220px, 100%);
+    padding: clamp(14px, 3.5vw, 36px);
 }
+
+/* ---------- Header ---------- */
 
 .main-header {
     text-align: center;
-    margin-bottom: 32px;
+    margin-bottom: 30px;
+    animation: heroIn 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .main-header h1 {
     margin: 0;
-    font-size: clamp(2rem, 4vw, 2.75rem);
-    font-weight: 700;
-    letter-spacing: -0.02em;
+    font-size: clamp(2.1rem, 4.6vw, 3.1rem);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.08;
+    background: linear-gradient(115deg, #1e1b4b 0%, var(--accent-a) 38%, var(--accent-b) 72%, var(--accent-c) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
 .header-subtitle {
-    margin-top: 8px;
-    font-size: clamp(0.95rem, 2.2vw, 1.1rem);
-    color: var(--text-secondary);
-    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    padding: 8px 18px;
+    font-size: clamp(0.85rem, 2vw, 0.98rem);
+    color: var(--ink-soft);
+    font-weight: 600;
+    background: var(--glass);
+    border: 1px solid var(--stroke);
+    border-radius: 999px;
+    box-shadow: 0 10px 30px -22px rgba(30, 41, 99, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
+
+/* ---------- Navigazione a tab ---------- */
 
 .tab-navigation {
     display: flex;
     justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
-    margin-bottom: 24px;
-}
-
-
-.tab-navigation {
     position: sticky;
-    top: 16px;
+    top: 14px;
     z-index: 100;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
 }
 
 .tab-buttons-wrapper {
     display: inline-flex;
-    gap: 16px;
-    background: rgba(255, 255, 255, 0.88);
-    padding: 14px 22px;
-    border-radius: 24px;
-    box-shadow: 0 24px 60px -32px rgba(15, 23, 42, 0.25);
-    backdrop-filter: blur(16px);
-    border: 1px solid rgba(226, 232, 240, 0.7);
+    gap: 8px;
+    background: var(--glass);
+    padding: 8px;
+    border-radius: 999px;
+    box-shadow: var(--shadow-float);
+    backdrop-filter: blur(18px) saturate(1.4);
+    -webkit-backdrop-filter: blur(18px) saturate(1.4);
+    border: 1px solid var(--glass-border);
 }
 
 .tab-button {
+    position: relative;
     display: inline-flex;
     align-items: center;
-    gap: 12px;
-    padding: 14px 24px;
-    border-radius: 18px;
-    border: 1px solid rgba(148, 163, 184, 0.35);
-    background: var(--bg-card);
-    color: var(--text-primary);
+    justify-content: center;
+    gap: 10px;
+    padding: 13px 26px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--ink-soft);
+    font-family: inherit;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
+    letter-spacing: -0.01em;
     cursor: pointer;
-    transition: transform 0.15s ease, background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.15s ease, box-shadow 0.25s ease;
     min-width: 220px;
 }
 
 .tab-button:hover {
-    background: var(--bg-tab-hover);
+    color: var(--accent-a);
+    background: rgba(99, 102, 241, 0.08);
     transform: translateY(-1px);
 }
 
 .tab-button:focus-visible {
-    outline: 3px solid rgba(59, 130, 246, 0.4);
+    outline: 3px solid rgba(14, 165, 233, 0.45);
     outline-offset: 2px;
 }
 
 .tab-button.active {
-    background: var(--bg-tab-active);
+    background: var(--grad-accent);
     color: #ffffff;
-    border-color: rgba(255, 255, 255, 0.32);
-    box-shadow: var(--shadow-soft);
+    box-shadow:
+        0 14px 34px -12px rgba(79, 70, 229, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.tab-button.active:hover {
+    color: #ffffff;
+    transform: translateY(-1px);
 }
 
 .tab-button .tab-icon {
-    font-size: 1.35rem;
+    font-size: 1.3rem;
+    filter: drop-shadow(0 2px 4px rgba(15, 23, 42, 0.15));
 }
 
 .tab-label {
     white-space: nowrap;
 }
 
+/* ---------- Contenuto (iframe seamless) ---------- */
+
 .tab-content {
     display: none;
-    border-radius: 24px;
-    overflow: hidden;
-    background: transparent;
 }
 
 .tab-content.active {
     display: block;
-    animation: fadeIn 220ms ease;
+    animation: fadeIn 260ms ease;
 }
 
 .content-iframe {
+    display: block;
     width: 100%;
     border: none;
-    min-height: 720px;
-    background: var(--bg-card);
-    border-radius: 24px;
-    box-shadow: 0 24px 60px -30px rgba(15, 23, 42, 0.45);
-    transition: height 0.2s ease;
+    min-height: 70vh;
+    background: transparent;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
+    from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heroIn {
+    from { opacity: 0; transform: translateY(-14px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
 }
 
 @media (max-width: 720px) {
     body {
-        padding-top: 12px;
+        padding-top: 10px;
     }
 
     .tab-navigation {
-        position: sticky;
-        top: 12px;
-        margin-inline: 8px;
+        top: 10px;
+        margin-inline: 4px;
     }
 
     .tab-buttons-wrapper {
         display: flex;
-        flex-direction: column;
         width: 100%;
-        padding: 12px;
-        border-radius: 20px;
+        padding: 6px;
     }
 
     .tab-button {
-        width: 100%;
-        justify-content: center;
+        flex: 1;
+        min-width: 0;
+        padding: 12px 10px;
+        font-size: 0.92rem;
     }
 }
