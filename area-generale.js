@@ -470,6 +470,26 @@ function renderCompetenceSummary(groups) {
     tbody.innerHTML = rows.join('');
 }
 
+// Competenze aperte nell'accordion (persistono tra i re-render)
+const expandedCompetenze = new Set();
+
+function hasActiveGeneralFilters() {
+    return Boolean(filters.competenza || filters.asse || filters.insegnamento || filters.search);
+}
+
+function toggleCompetenza(numero) {
+    if (expandedCompetenze.has(numero)) {
+        expandedCompetenze.delete(numero);
+    } else {
+        expandedCompetenze.add(numero);
+    }
+    const element = document.querySelector(`.gen-acc[data-numero="${numero}"]`);
+    if (element) {
+        element.classList.toggle('group-expanded', expandedCompetenze.has(numero));
+    }
+    notifyParentHeight();
+}
+
 function renderCompetenceCards(groups) {
     const container = document.getElementById('competence-list');
     if (!container) {
@@ -482,15 +502,9 @@ function renderCompetenceCards(groups) {
         return;
     }
 
-    const cards = groups.map(group => {
-        const metricsHtml = `
-            <div class="competence-metrics">
-                <span class="metric-pill">${group.axisCount} assi</span>
-                <span class="metric-pill">${group.abilityCount} abilità</span>
-                <span class="metric-pill">${group.knowledgeCount} conoscenze</span>
-            </div>
-        `;
+    const autoExpand = hasActiveGeneralFilters();
 
+    const cards = groups.map(group => {
         const axesHtml = group.axes.map(axis => {
             const subjects = getSubjectsForAxis(axis.asse);
             const subjectsHtml = subjects.length
@@ -505,15 +519,15 @@ function renderCompetenceCards(groups) {
 
             return `
                 <div class="competence-axis">
-                    <h4>${escapeHTML(axis.asse)}</h4>
+                    <div class="axis-pill">Asse ${escapeHTML(axis.asse)}</div>
                     ${subjectsHtml}
                     <div class="axis-columns">
                         <div class="axis-block">
-                            <h5>Abilità (${axis.abilita.length})</h5>
+                            <h5>⚙️ Abilità (${axis.abilita.length})</h5>
                             ${abilitaList}
                         </div>
                         <div class="axis-block">
-                            <h5>Conoscenze (${axis.conoscenze.length})</h5>
+                            <h5>💡 Conoscenze (${axis.conoscenze.length})</h5>
                             ${conoscenzeList}
                         </div>
                     </div>
@@ -521,17 +535,22 @@ function renderCompetenceCards(groups) {
             `;
         }).join('');
 
+        const expanded = autoExpand || expandedCompetenze.has(group.numero);
+
         return `
-            <article class="competence-card">
-                <header>
-                    <h3>Competenza ${group.numero}</h3>
-                    <p>${escapeHTML(group.titolo)}</p>
-                </header>
-                ${metricsHtml}
-                <div class="competence-axes">
-                    ${axesHtml}
+            <div class="gen-acc ${expanded ? 'group-expanded' : ''}" data-numero="${group.numero}">
+                <div class="gen-acc-header" onclick="toggleCompetenza(${Number(group.numero)})">
+                    <span class="gen-num">${group.numero}</span>
+                    <span class="gen-acc-title">${escapeHTML(group.titolo)}</span>
+                    <span class="gen-acc-meta">${group.axisCount} assi · ${group.abilityCount} abilità · ${group.knowledgeCount} conoscenze</span>
+                    <span class="group-chevron">▸</span>
                 </div>
-            </article>
+                <div class="gen-acc-body">
+                    <div class="competence-axes">
+                        ${axesHtml}
+                    </div>
+                </div>
+            </div>
         `;
     });
 
@@ -896,3 +915,6 @@ function escapeHTML(value) {
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#039;');
 }
+
+// Rendi disponibile globalmente per onclick
+window.toggleCompetenza = toggleCompetenza;

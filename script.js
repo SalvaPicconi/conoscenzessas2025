@@ -749,7 +749,7 @@ function createGroupElement(groupKey, items) {
     groupDiv.innerHTML = `
         <div class="group-header" onclick="toggleGroup('${groupKey}')">
             <div class="group-title">
-                <span class="group-chevron">${isExpanded ? '▼' : '▶'}</span>
+                <span class="group-chevron">▸</span>
                 <span class="group-name">${groupKey}</span>
                 <span class="group-count">(${items.length} ${items.length === 1 ? 'scheda' : 'schede'})</span>
             </div>
@@ -764,13 +764,23 @@ function createGroupElement(groupKey, items) {
     return groupDiv;
 }
 
+// Classe CSS della pill in base al periodo
+function periodClass(periodo) {
+    const p = String(periodo || '');
+    if (p.startsWith('Biennio')) return 'per-biennio';
+    if (p.startsWith('Terzo')) return 'per-terzo';
+    if (p.startsWith('Quarto')) return 'per-quarto';
+    if (p.startsWith('Quinto')) return 'per-quinto';
+    return 'per-default';
+}
+
+// Titolo senza il prefisso "Competenza in uscita n° X:"
+function shortCompetenceTitle(titolo) {
+    return String(titolo || '').replace(/^Competenza in uscita n°\s*\d+:\s*/i, '');
+}
+
 // Crea elemento item
 function createItemElement(item) {
-    const insegnamentiChips = item.insegnamentoCoinvolti.map(ins => `<span>${escapeHtml(ins)}</span>`).join('');
-    const insegnamentiSection = item.insegnamentoCoinvolti.length
-        ? `<div class="insegnamenti-chips">${insegnamentiChips}</div>`
-        : '<p class="empty-placeholder">Nessun insegnamento associato.</p>';
-
     const abilitaHtml = item.abilita.length
         ? `<ul>${item.abilita.map(abilita => `<li>${escapeHtml(abilita)}</li>`).join('')}</ul>`
         : '<p class="empty-placeholder">Nessuna abilità indicata.</p>';
@@ -788,31 +798,20 @@ function createItemElement(item) {
 
     return `
         <article class="competence-card">
-            <header>
-                <h3>Competenza ${item.competenzaNum}</h3>
-                <div class="competence-meta">
-                    <span class="meta-pill">${escapeHtml(item.periodo)}</span>
-                    <span class="meta-pill">Livello ${escapeHtml(String(item.livelloQNQ))}</span>
-                </div>
-                <p>${escapeHtml(item.competenzaTitolo)}</p>
-            </header>
-            <div class="competence-metrics">
-                <span class="metric-pill">${item.abilita.length} abilità</span>
-                <span class="metric-pill">${item.conoscenze.length} conoscenze</span>
-                <span class="metric-pill">${item.insegnamentoCoinvolti.length} insegnamenti</span>
+            <div class="card-pills">
+                <span class="pill ${periodClass(item.periodo)}">${escapeHtml(item.periodo)}</span>
+                <span class="pill pill-qnq">QNQ ${escapeHtml(String(item.livelloQNQ))}</span>
+                <span class="pill pill-comp">Competenza ${item.competenzaNum}</span>
             </div>
-            ${insegnamentiSection}
+            <h3 class="card-title">${escapeHtml(item.competenzaIntermedia)}</h3>
+            <p class="card-subtitle">${escapeHtml(shortCompetenceTitle(item.competenzaTitolo))}</p>
             <div class="competence-layout">
                 <div class="info-block">
-                    <h4>Competenza intermedia</h4>
-                    <p style="font-size:0.82rem;color:#374151;line-height:1.5;">${escapeHtml(item.competenzaIntermedia)}</p>
-                </div>
-                <div class="info-block">
-                    <h4>Abilità (${item.abilita.length})</h4>
+                    <h4>⚙️ Abilità (${item.abilita.length})</h4>
                     ${abilitaHtml}
                 </div>
                 <div class="info-block">
-                    <h4>Conoscenze (${item.conoscenze.length})</h4>
+                    <h4>💡 Conoscenze (${item.conoscenze.length})</h4>
                     ${conoscenzeHtml}
                 </div>
             </div>

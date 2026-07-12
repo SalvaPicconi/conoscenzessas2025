@@ -186,11 +186,106 @@
     background: rgba(99, 102, 241, 0.06);
 }
 
-/* ---------- Schede competenza ---------- */
+/* ---------- Accordion competenze ---------- */
 
 .competence-list {
     display: grid;
-    gap: 18px;
+    gap: 14px;
+}
+
+.gen-acc {
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--card);
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    animation: rise 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.gen-acc-header {
+    padding: 16px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    user-select: none;
+    background: linear-gradient(120deg, rgba(79, 70, 229, 0.07), rgba(14, 165, 233, 0.07));
+    transition: background-color 0.2s ease;
+}
+
+.gen-acc-header:hover {
+    background: linear-gradient(120deg, rgba(79, 70, 229, 0.13), rgba(14, 165, 233, 0.13));
+}
+
+.gen-num {
+    display: inline-grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 15px;
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--accent-a), var(--accent-b));
+    border-radius: 12px;
+}
+
+.gen-acc-title {
+    flex: 1;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    font-size: 14.5px;
+    line-height: 1.45;
+    min-width: 0;
+}
+
+.gen-acc-meta {
+    flex-shrink: 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink-faint);
+    white-space: nowrap;
+}
+
+.gen-acc .group-chevron {
+    display: inline-grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+    font-size: 13px;
+    color: var(--accent-a);
+    background: rgba(99, 102, 241, 0.12);
+    border-radius: 8px;
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gen-acc.group-expanded .group-chevron {
+    transform: rotate(90deg);
+}
+
+.gen-acc-body {
+    display: none;
+    padding: 18px;
+}
+
+.gen-acc.group-expanded .gen-acc-body {
+    display: block;
+}
+
+.axis-pill {
+    display: inline-flex;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: rgba(14, 165, 233, 0.12);
+    color: #0369a1;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 12px;
 }
 
 .empty-placeholder {
@@ -288,10 +383,10 @@
 }
 
 .competence-axis {
-    border: 1px solid var(--stroke);
-    border-radius: 14px;
-    padding: 15px 17px;
-    background: linear-gradient(160deg, rgba(79, 70, 229, 0.05), rgba(14, 165, 233, 0.05));
+    border: 1px solid var(--stroke-soft);
+    border-radius: 16px;
+    padding: 18px 20px;
+    background: var(--card-solid);
     transition: border-color 0.2s ease;
 }
 

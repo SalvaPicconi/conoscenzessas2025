@@ -1,6 +1,7 @@
 /* ============================================================
    Curricolo Verticale SSAS — shell principale
    Design "Aurora": sfondo luminoso, vetro, gradienti indaco/ciano
+   Font: Sora (titoli) + Instrument Sans (testo)
    ============================================================ */
 
 :root {
@@ -8,14 +9,17 @@
     --bg-body: #eef1fa;
     --ink: #0b1220;
     --ink-soft: #4b5872;
+    --ink-faint: #8a94ab;
     --accent-a: #4f46e5;
     --accent-b: #0ea5e9;
     --accent-c: #8b5cf6;
     --grad-accent: linear-gradient(120deg, var(--accent-a) 0%, var(--accent-c) 50%, var(--accent-b) 100%);
-    --glass: rgba(255, 255, 255, 0.72);
+    --glass: rgba(255, 255, 255, 0.82);
     --glass-border: rgba(255, 255, 255, 0.85);
     --stroke: rgba(99, 102, 241, 0.16);
-    --shadow-float: 0 24px 60px -28px rgba(30, 41, 99, 0.35);
+    --shadow-card: 0 18px 44px -30px rgba(30, 41, 99, 0.45);
+    --font-body: "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-display: "Sora", var(--font-body);
 }
 
 * {
@@ -30,7 +34,7 @@ html {
 html, body {
     margin: 0;
     padding: 0;
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: var(--font-body);
     background: var(--bg-body);
     color: var(--ink);
     min-height: 100%;
@@ -44,9 +48,9 @@ body::before {
     z-index: -1;
     pointer-events: none;
     background:
-        radial-gradient(900px 520px at 12% -6%, rgba(99, 102, 241, 0.22), transparent 62%),
-        radial-gradient(820px 480px at 88% 4%, rgba(14, 165, 233, 0.20), transparent 60%),
-        radial-gradient(760px 560px at 50% 108%, rgba(139, 92, 246, 0.16), transparent 62%),
+        radial-gradient(900px 520px at 12% -6%, rgba(99, 102, 241, 0.20), transparent 62%),
+        radial-gradient(820px 480px at 88% 4%, rgba(14, 165, 233, 0.18), transparent 60%),
+        radial-gradient(760px 560px at 50% 108%, rgba(139, 92, 246, 0.14), transparent 62%),
         var(--bg-body);
 }
 
@@ -78,46 +82,76 @@ body {
 }
 
 .container {
-    width: min(1220px, 100%);
-    padding: clamp(14px, 3.5vw, 36px);
+    width: min(1280px, 100%);
+    padding: clamp(14px, 3.5vw, 32px);
+    padding-bottom: 64px;
 }
 
-/* ---------- Header ---------- */
+/* ---------- Hero ---------- */
 
 .main-header {
-    text-align: center;
-    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 26px;
     animation: heroIn 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+.hero-card {
+    position: relative;
+    width: min(980px, 100%);
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 26px;
+    padding: clamp(26px, 4vw, 40px);
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    overflow: hidden;
+    text-align: center;
+}
+
+.hero-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 5px;
+    background: var(--grad-accent);
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 14px;
+    border-radius: 999px;
+    background: rgba(99, 102, 241, 0.10);
+    color: var(--accent-a);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
 .main-header h1 {
-    margin: 0;
-    font-size: clamp(2.1rem, 4.6vw, 3.1rem);
+    font-family: var(--font-display);
+    font-size: clamp(26px, 3.4vw, 38px);
     font-weight: 800;
-    letter-spacing: -0.035em;
-    line-height: 1.08;
-    background: linear-gradient(115deg, #1e1b4b 0%, var(--accent-a) 38%, var(--accent-b) 72%, var(--accent-c) 100%);
+    letter-spacing: -0.03em;
+    line-height: 1.12;
+    margin: 0 0 10px;
+    background: linear-gradient(115deg, #1e1b4b 0%, var(--accent-a) 45%, var(--accent-b) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
 }
 
-.header-subtitle {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 14px;
-    padding: 8px 18px;
-    font-size: clamp(0.85rem, 2vw, 0.98rem);
-    color: var(--ink-soft);
-    font-weight: 600;
-    background: var(--glass);
-    border: 1px solid var(--stroke);
-    border-radius: 999px;
-    box-shadow: 0 10px 30px -22px rgba(30, 41, 99, 0.5);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+.hero-subtitle {
+    margin: 0;
+    color: var(--ink-faint);
+    font-size: 14.5px;
+    font-style: italic;
 }
 
 /* ---------- Navigazione a tab ---------- */
@@ -128,45 +162,39 @@ body {
     position: sticky;
     top: 14px;
     z-index: 100;
-    margin-bottom: 28px;
+    margin-bottom: 30px;
 }
 
 .tab-buttons-wrapper {
     display: inline-flex;
-    gap: 8px;
-    background: var(--glass);
-    padding: 8px;
-    border-radius: 999px;
-    box-shadow: var(--shadow-float);
-    backdrop-filter: blur(18px) saturate(1.4);
-    -webkit-backdrop-filter: blur(18px) saturate(1.4);
-    border: 1px solid var(--glass-border);
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .tab-button {
-    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    padding: 13px 26px;
+    gap: 8px;
+    padding: 12px 22px;
+    min-height: 44px;
     border-radius: 999px;
-    border: 1px solid transparent;
-    background: transparent;
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    background: var(--glass);
     color: var(--ink-soft);
-    font-family: inherit;
-    font-size: 1rem;
+    font-family: var(--font-body);
+    font-size: 14.5px;
     font-weight: 700;
-    letter-spacing: -0.01em;
     cursor: pointer;
-    transition: color 0.2s ease, background-color 0.2s ease, transform 0.15s ease, box-shadow 0.25s ease;
-    min-width: 220px;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
 }
 
 .tab-button:hover {
-    color: var(--accent-a);
-    background: rgba(99, 102, 241, 0.08);
     transform: translateY(-1px);
+    color: var(--accent-a);
 }
 
 .tab-button:focus-visible {
@@ -177,19 +205,16 @@ body {
 .tab-button.active {
     background: var(--grad-accent);
     color: #ffffff;
-    box-shadow:
-        0 14px 34px -12px rgba(79, 70, 229, 0.55),
-        inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    border: none;
+    box-shadow: 0 10px 24px -10px rgba(79, 70, 229, 0.55);
 }
 
 .tab-button.active:hover {
     color: #ffffff;
-    transform: translateY(-1px);
 }
 
 .tab-button .tab-icon {
-    font-size: 1.3rem;
-    filter: drop-shadow(0 2px 4px rgba(15, 23, 42, 0.15));
+    font-size: 17px;
 }
 
 .tab-label {
@@ -247,15 +272,13 @@ body {
     }
 
     .tab-buttons-wrapper {
-        display: flex;
         width: 100%;
-        padding: 6px;
     }
 
     .tab-button {
         flex: 1;
         min-width: 0;
         padding: 12px 10px;
-        font-size: 0.92rem;
+        font-size: 13px;
     }
 }
