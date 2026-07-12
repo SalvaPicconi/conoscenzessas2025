@@ -131,59 +131,36 @@ function toggleUda(id) {
 }
 window.toggleUda = toggleUda;
 
-// Raggruppa abilità e saperi per insegnamento: ogni docente vede tutto ciò
-// che il suo insegnamento deve sviluppare nella UDA
-function groupByInsegnamento(u) {
-    const map = new Map();
-    const add = (ins, tipo, item) => {
-        if (!map.has(ins)) map.set(ins, { abilita: [], saperi: [] });
-        const others = item.ins.filter(x => x !== ins);
-        map.get(ins)[tipo].push({ testo: item.t, referente: item.ins[0] === ins, con: others });
-    };
-    u.abilita.forEach(item => item.ins.forEach(ins => add(ins, 'abilita', item)));
-    u.saperi.forEach(item => item.ins.forEach(ins => add(ins, 'saperi', item)));
-    // Ordina: prima chi è referente di più voci, poi chi è più coinvolto
-    return [...map.entries()].sort((a, b) => {
-        const refScore = entry => entry[1].abilita.filter(x => x.referente).length +
-            entry[1].saperi.filter(x => x.referente).length;
-        const totScore = entry => entry[1].abilita.length + entry[1].saperi.length;
-        return refScore(b) - refScore(a) || totScore(b) - totScore(a) || a[0].localeCompare(b[0]);
+// Insegnamenti coinvolti nella UDA, ordinati per numero di voci di cui sono referenti
+function insegnamentiOrdinati(u) {
+    const score = new Map();
+    [...u.abilita, ...u.saperi].forEach(item => {
+        item.ins.forEach((ins, idx) => {
+            score.set(ins, (score.get(ins) || 0) + (idx === 0 ? 10 : 1));
+        });
     });
+    return [...score.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(e => e[0]);
 }
 
-function renderItem(item) {
-    const conHtml = item.con.length
-        ? ` <span class="ins-con">con ${item.con.map(escapeHTML).join(', ')}</span>`
-        : '';
-    const refClass = item.referente ? '' : ' class="ins-co-item"';
-    return `<li${refClass}>${escapeHTML(item.testo)}${conHtml}</li>`;
+function renderInsChips(insList) {
+    return insList.map(ins => {
+        const hl = udaFilters.insegnamento === ins ? ' ins-chip-highlight' : '';
+        return `<span class="ins-chip ${INS_CLASS[ins] || ''}${hl}">${escapeHTML(ins)}</span>`;
+    }).join('');
 }
 
-function renderInsCard(ins, blocks, highlight) {
-    const abilitaHtml = blocks.abilita.length
-        ? `<div class="ins-block"><h6>⚙️ Abilità essenziali</h6><ul>${blocks.abilita.map(renderItem).join('')}</ul></div>`
-        : '';
-    const saperiHtml = blocks.saperi.length
-        ? `<div class="ins-block"><h6>💡 Saperi essenziali</h6><ul>${blocks.saperi.map(renderItem).join('')}</ul></div>`
-        : '';
-    return `
-        <div class="ins-card ${INS_CLASS[ins] || ''} ${highlight ? 'ins-highlight' : ''}">
-            <div class="ins-name">${escapeHTML(ins)}</div>
-            ${abilitaHtml}
-            ${saperiHtml}
-        </div>
-    `;
+// Voce sintetica: testo + chip degli insegnamenti che la sviluppano (referente per primo)
+function renderVoce(item) {
+    return `<li>${escapeHTML(item.t)} ${renderInsChips(item.ins)}</li>`;
 }
 
 function renderUdaCard(u, autoExpand) {
     const expanded = autoExpand || expandedUda.has(u.id);
     const compTitolo = udaData.meta.competenze[String(u.competenza)] || '';
-    const insGroups = groupByInsegnamento(u);
-    const insCards = insGroups
-        .map(([ins, blocks]) => renderInsCard(ins, blocks, udaFilters.insegnamento === ins))
-        .join('');
+    const insTotali = insegnamentiOrdinati(u);
     const svilHtml = u.sviluppata
-        ? `<span class="pill pill-stato">📂 ${escapeHTML(u.sviluppata)}</span>`
+        ? `<div class="sin-row"><div class="sin-label">Materiali</div>
+               <div class="sin-value"><span class="pill pill-stato">📂 ${escapeHTML(u.sviluppata)}</span></div></div>`
         : '';
 
     return `
@@ -202,20 +179,33 @@ function renderUdaCard(u, autoExpand) {
                 <span class="group-chevron">▸</span>
             </div>
             <div class="uda-acc-body">
-                <div class="uda-boxes">
-                    <div class="uda-box uda-box-traguardo">
-                        <div class="uda-label">🎯 Traguardo intermedio</div>
-                        <div>${escapeHTML(u.traguardo)}</div>
+                <div class="uda-sintetica">
+                    <div class="sin-row">
+                        <div class="sin-label">Competenza in uscita</div>
+                        <div class="sin-value">C${u.competenza} — ${escapeHTML(compTitolo)} (Allegato 2-i, D.I. 92/2018)</div>
                     </div>
-                    <div class="uda-box uda-box-compito">
-                        <div class="uda-label">🛠 Compito di realtà</div>
-                        <div>${escapeHTML(u.compito)}</div>
+                    <div class="sin-row">
+                        <div class="sin-label">Traguardo intermedio</div>
+                        <div class="sin-value">${escapeHTML(u.traguardo)}</div>
                     </div>
-                </div>
-                ${svilHtml ? `<div class="uda-svil">${svilHtml}</div>` : ''}
-                <div class="uda-ripartizione">
-                    <h5>Chi sviluppa che cosa — ripartizione per insegnamento</h5>
-                    <div class="ins-grid">${insCards}</div>
+                    <div class="sin-row">
+                        <div class="sin-label">Compito di realtà</div>
+                        <div class="sin-value">${escapeHTML(u.compito)}</div>
+                    </div>
+                    <div class="sin-row">
+                        <div class="sin-label">Abilità essenziali</div>
+                        <div class="sin-value"><ul class="sin-list">${u.abilita.map(renderVoce).join('')}</ul></div>
+                    </div>
+                    <div class="sin-row">
+                        <div class="sin-label">Saperi essenziali</div>
+                        <div class="sin-value"><ul class="sin-list">${u.saperi.map(renderVoce).join('')}</ul></div>
+                    </div>
+                    ${svilHtml}
+                    <div class="sin-row">
+                        <div class="sin-label">Insegnamenti · Ore</div>
+                        <div class="sin-value">${renderInsChips(insTotali)}
+                            <span class="sin-ore">· Monte ore indicativo: ${escapeHTML(u.ore)}</span></div>
+                    </div>
                 </div>
             </div>
         </div>
