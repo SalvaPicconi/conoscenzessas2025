@@ -1,0 +1,2588 @@
+{
+  "meta": {
+    "titolo": "Fascicolo delle UDA — Quinquennio SSAS",
+    "sottotitolo": "Schede sintetiche in formato D.I. 92/2018 · base per il Piano delle UDA di inizio anno",
+    "fonte": "Fascicolo UDA quinquennio - schede sintetiche D.I. 92/2018; attribuzione dei saperi e delle abilità agli insegnamenti derivata dalle griglie del curricolo di indirizzo (Allegato C, D.M. 92/2018)",
+    "fasiStandard": [
+      "Attivazione e consegna del compito",
+      "Sviluppo dei saperi essenziali nelle discipline",
+      "Realizzazione del compito di realtà",
+      "Presentazione, valutazione con rubrica e autovalutazione"
+    ],
+    "valutazioneStandard": "Rubrica del compito di realtà a 4 livelli + osservazione di processo + autovalutazione, in coerenza con la certificazione delle competenze e i livelli QNQ.",
+    "notaPiano": "In sede di piano delle UDA di inizio anno il consiglio di classe può selezionare le schede da attivare, accorparle (2 per UDA), fissare il quadrimestre e ripartire il monte ore tra le discipline.",
+    "competenze": {
+      "1": "Collaborare nella gestione di progetti e attività dei servizi",
+      "2": "Partecipare e cooperare nei gruppi di lavoro e nelle équipe",
+      "3": "Facilitare la comunicazione tra persone e gruppi",
+      "4": "Prendersi cura dei bisogni di base di bambini, persone con disabilità, anziani",
+      "5": "Presa in carico di soggetti non autosufficienti o in stato di terminalità",
+      "6": "Allestimento dell'ambiente di vita: sicurezza, capacità residue, autonomia",
+      "7": "Informazione e orientamento dell'utente per l'accesso ai servizi",
+      "8": "Attività educative, di animazione sociale, ludiche e culturali",
+      "9": "Sostegno e tutela della persona con fragilità/disabilità e della famiglia",
+      "10": "Raccolta ed elaborazione di dati per il monitoraggio e la valutazione"
+    }
+  },
+  "uda": [
+    {
+      "id": "1.1",
+      "anno": 1,
+      "titolo": "Il mio paese che aiuta",
+      "competenza": 1,
+      "qnq": "2",
+      "traguardo": "Costruire mappe dei servizi del territorio e delle principali prestazioni erogate (avvio guidato)",
+      "compito": "Prima mappa (cartacea o digitale) dei servizi del proprio comune: almeno 3 servizi con ente erogatore, utenza e prestazioni.",
+      "ore": "12–15",
+      "abilita": [
+        {
+          "t": "Identificare le tipologie di servizi del territorio",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Individuare le opportunità offerte per rispondere ai bisogni",
+          "ins": [
+            "Metodologie Operative",
+            "Scienze Umane"
+          ]
+        },
+        {
+          "t": "Utilizzare supporti informatici",
+          "ins": [
+            "TIC"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Modelli di Welfare State in Italia",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Tipologie di servizi e di utenza",
+          "ins": [
+            "Metodologie Operative",
+            "Scienze Umane"
+          ]
+        },
+        {
+          "t": "Principi di sussidiarietà",
+          "ins": [
+            "Diritto",
+            "Metodologie Operative",
+            "Storia"
+          ]
+        },
+        {
+          "t": "Fonti per la rilevazione dei servizi",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "1.2",
+      "anno": 1,
+      "titolo": "La classe come squadra",
+      "competenza": 2,
+      "qnq": "2",
+      "traguardo": "Partecipare e cooperare nei gruppi di lavoro in ambito scolastico",
+      "compito": "Patto/regolamento di classe elaborato in gruppi con ruoli assegnati, presentato all'assemblea, con diario di gruppo.",
+      "ore": "10–12",
+      "abilita": [
+        {
+          "t": "Individuare le dinamiche dei gruppi",
+          "ins": [
+            "Scienze Umane"
+          ]
+        },
+        {
+          "t": "Ascoltare attivamente e comunicare in modo non conflittuale",
+          "ins": [
+            "Scienze Umane",
+            "Italiano"
+          ]
+        },
+        {
+          "t": "Esporre idee rispettando le regole dello scambio",
+          "ins": [
+            "Italiano"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Il gruppo e le sue dinamiche",
+          "ins": [
+            "Scienze Umane"
+          ]
+        },
+        {
+          "t": "Il processo di socializzazione",
+          "ins": [
+            "Scienze Umane"
+          ]
+        },
+        {
+          "t": "Emozioni e loro manifestazioni",
+          "ins": [
+            "Scienze Umane"
+          ]
+        },
+        {
+          "t": "Forme e funzioni della comunicazione",
+          "ins": [
+            "Italiano",
+            "Inglese",
+            "Spagnolo"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "1.3",
+      "anno": 1,
+      "titolo": "Oltre i pregiudizi",
+      "competenza": 3,
+      "qnq": "2",
+      "traguardo": "Agire per favorire il superamento di stereotipi e pregiudizi in ambito scolastico e nei contesti di vita",
+      "compito": "Mini-campagna di sensibilizzazione (poster, reel o podcast) contro uno stereotipo, nel rispetto di privacy e sicurezza dei dati.",
+      "ore": "12–15",
+      "abilita": [
+        {
+          "t": "Individuare stereotipi e pregiudizi e comportamenti per superarli",
+          "ins": [
+            "Scienze Umane"
+          ]
+        },
+        {
+          "t": "Usare comunicazione multimediale e social",
+          "ins": [
+            "TIC"
+          ]
+        },
+        {
+          "t": "Rispettare le normative privacy",
+          "ins": [
+            "Diritto",
+            "TIC"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Culture, gruppi sociali, pregiudizi e stereotipi",
+          "ins": [
+            "Scienze Umane",
+            "Storia"
+          ]
+        },
+        {
+          "t": "Agenzie di socializzazione",
+          "ins": [
+            "Scienze Umane"
+          ]
+        },
+        {
+          "t": "Strumenti della comunicazione multimediale",
+          "ins": [
+            "TIC"
+          ]
+        },
+        {
+          "t": "Normativa privacy",
+          "ins": [
+            "Diritto",
+            "TIC"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "1.4",
+      "anno": 1,
+      "titolo": "Bisogni ad ogni età",
+      "competenza": 4,
+      "qnq": "2",
+      "traguardo": "Rilevare, in modo guidato, condizioni, stili di vita e bisogni legati all'età",
+      "compito": "Interviste guidate a persone di età diverse con scheda di rilevazione di condizioni, stili di vita e bisogni; confronto in classe.",
+      "ore": "12–15",
+      "abilita": [
+        {
+          "t": "Individuare le funzioni principali del corpo umano",
+          "ins": [
+            "Scienze Integrate"
+          ]
+        },
+        {
+          "t": "Riconoscere i bisogni legati all'età",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Descrivere stili di vita sani",
+          "ins": [
+            "Scienze Integrate",
+            "Scienze Motorie"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Elementi di anatomia e fisiologia",
+          "ins": [
+            "Scienze Integrate"
+          ]
+        },
+        {
+          "t": "Corretta alimentazione e attività fisica",
+          "ins": [
+            "Scienze Integrate",
+            "Scienze Motorie"
+          ]
+        },
+        {
+          "t": "I principali bisogni legati all'età",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "1.5",
+      "anno": 1,
+      "titolo": "Che cos'è la salute?",
+      "competenza": 5,
+      "qnq": "2",
+      "traguardo": "Adottare atteggiamenti coerenti al concetto di salute bio-psico-sociale",
+      "compito": "Mappa multidimensionale salute/malattia (biologico, psicologico, sociale) applicata a un caso semplice, con i soggetti della cura.",
+      "ore": "8–10",
+      "abilita": [
+        {
+          "t": "Distinguere stato di salute e di malattia",
+          "ins": [
+            "Scienze Umane"
+          ]
+        },
+        {
+          "t": "Descrivere i compiti dei soggetti della presa in carico",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Le condizioni di salute bio-psico-sociale e di malattia",
+          "ins": [
+            "Scienze Umane"
+          ]
+        },
+        {
+          "t": "I soggetti della presa in carico e i loro compiti",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "1.6",
+      "anno": 1,
+      "titolo": "Sicuri a scuola",
+      "competenza": 6,
+      "qnq": "2",
+      "traguardo": "Assumere condotte nel rispetto delle norme di sicurezza limitando i comportamenti a rischio",
+      "compito": "Decalogo della sicurezza della classe con documentazione fotografica dei rischi rilevati nell'edificio scolastico.",
+      "ore": "8–10",
+      "abilita": [
+        {
+          "t": "Distinguere tipologie di rischi e pericoli",
+          "ins": [
+            "Scienze Integrate"
+          ]
+        },
+        {
+          "t": "Riconoscere le norme di sicurezza come condizione del vivere civile",
+          "ins": [
+            "Diritto"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Norme sociali e giuridiche",
+          "ins": [
+            "Diritto",
+            "Storia"
+          ]
+        },
+        {
+          "t": "Rischi, pericoli e sicurezza",
+          "ins": [
+            "Scienze Integrate"
+          ]
+        },
+        {
+          "t": "Ambiente ed eco-sistema",
+          "ins": [
+            "Scienze Integrate"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "1.7",
+      "anno": 1,
+      "titolo": "Il volantino dei servizi",
+      "competenza": 7,
+      "qnq": "2",
+      "traguardo": "Predisporre e presentare semplici testi e materiali divulgativi sui servizi del territorio",
+      "compito": "Volantino informativo su un servizio del territorio (destinatari, prestazioni, contatti) presentato alla classe.",
+      "ore": "10–12",
+      "abilita": [
+        {
+          "t": "Reperire informazioni sui servizi",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Individuare modalità di presentazione informativa e divulgativa",
+          "ins": [
+            "Italiano",
+            "TIC"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Il segretariato sociale: compiti e funzioni",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Tipologie di testi e materiali divulgativi",
+          "ins": [
+            "Italiano",
+            "TIC"
+          ]
+        },
+        {
+          "t": "Modalità di diffusione delle informazioni",
+          "ins": [
+            "Italiano",
+            "TIC"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "1.8",
+      "anno": 1,
+      "titolo": "Giochiamo insieme",
+      "competenza": 8,
+      "qnq": "2",
+      "traguardo": "Realizzare semplici attività di animazione ludica e sociale in contesti noti",
+      "compito": "Gioco di animazione progettato e condotto per il gruppo classe, con scheda attività (obiettivo, materiali, regole, tempi) e autovalutazione.",
+      "ore": "10–12",
+      "abilita": [
+        {
+          "t": "Identificare le tecniche di animazione ludica e sociale",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Individuare le attività fisico-sportive come mezzi educativi",
+          "ins": [
+            "Scienze Motorie"
+          ]
+        },
+        {
+          "t": "Riconoscere materiali e strumenti",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Obiettivi e tecniche dell'animazione ludica e sociale",
+          "ins": [
+            "Metodologie Operative",
+            "Scienze Motorie"
+          ]
+        },
+        {
+          "t": "Tecniche ludico-motorie come strumento educativo e di socializzazione",
+          "ins": [
+            "Scienze Motorie",
+            "Metodologie Operative"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "1.9",
+      "anno": 1,
+      "titolo": "I dati della mia classe",
+      "competenza": 10,
+      "qnq": "2",
+      "traguardo": "Utilizzare applicativi per raccogliere e organizzare dati qualitativi e quantitativi (avvio)",
+      "compito": "Mini-indagine sulla classe con questionario digitale, grafici e verifica di pertinenza e attendibilità dei dati.",
+      "ore": "10–12",
+      "abilita": [
+        {
+          "t": "Individuare modalità appropriate di raccolta dati",
+          "ins": [
+            "Matematica",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Applicare tecniche statistiche di rappresentazione grafica",
+          "ins": [
+            "Matematica"
+          ]
+        },
+        {
+          "t": "Accertare l'attendibilità delle fonti web",
+          "ins": [
+            "TIC"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Software per la gestione dei dati",
+          "ins": [
+            "TIC",
+            "Matematica"
+          ]
+        },
+        {
+          "t": "Tecniche di rilevazione e archiviazione",
+          "ins": [
+            "Matematica",
+            "TIC",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Reti e sicurezza nella trasmissione dei dati",
+          "ins": [
+            "TIC"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "2.1",
+      "anno": 2,
+      "titolo": "Conosci il tuo territorio",
+      "competenza": 1,
+      "qnq": "2",
+      "traguardo": "Costruire mappe dei servizi del territorio e delle principali prestazioni erogate (padronanza)",
+      "compito": "Mappa digitale interattiva con almeno 5 servizi (descrizione, target, prestazioni, ente erogatore) presentata pubblicamente.",
+      "ore": "15–18",
+      "abilita": [
+        {
+          "t": "Identificare le tipologie di servizi",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Individuare le opportunità del territorio",
+          "ins": [
+            "Metodologie Operative",
+            "Scienze Umane"
+          ]
+        },
+        {
+          "t": "Utilizzare supporti informatici applicati al lavoro sociale",
+          "ins": [
+            "TIC"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Welfare State e sussidiarietà",
+          "ins": [
+            "Metodologie Operative",
+            "Diritto",
+            "Storia"
+          ]
+        },
+        {
+          "t": "Tipologie di servizi e utenza",
+          "ins": [
+            "Metodologie Operative",
+            "Scienze Umane"
+          ]
+        },
+        {
+          "t": "Reti territoriali formali e informali",
+          "ins": [
+            "Scienze Umane",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Strumenti digitali di mappatura",
+          "ins": [
+            "TIC"
+          ]
+        }
+      ],
+      "sviluppata": "UDA completa già sviluppata: Biennio C1"
+    },
+    {
+      "id": "2.2",
+      "anno": 2,
+      "titolo": "Un'iniziativa per la scuola",
+      "competenza": 2,
+      "qnq": "2",
+      "traguardo": "Partecipare e cooperare nei gruppi di lavoro in ambito scolastico",
+      "compito": "Iniziativa scolastica reale (giornata a tema, accoglienza classi prime) organizzata in gruppo con ruoli, riunioni verbalizzate e valutazione finale.",
+      "ore": "12–15",
+      "abilita": [
+        {
+          "t": "Individuare le dinamiche dei gruppi",
+          "ins": [
+            "Scienze Umane"
+          ]
+        },
+        {
+          "t": "Comunicare in modo non conflittuale",
+          "ins": [
+            "Scienze Umane",
+            "Italiano"
+          ]
+        },
+        {
+          "t": "Esporre le proprie idee nel gruppo di lavoro",
+          "ins": [
+            "Italiano"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Il gruppo e le sue dinamiche",
+          "ins": [
+            "Scienze Umane"
+          ]
+        },
+        {
+          "t": "Socializzazione",
+          "ins": [
+            "Scienze Umane"
+          ]
+        },
+        {
+          "t": "Comunicazione e gestione delle riunioni",
+          "ins": [
+            "Italiano",
+            "Scienze Umane"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "2.3",
+      "anno": 2,
+      "titolo": "Comunicare senza barriere",
+      "competenza": 3,
+      "qnq": "2",
+      "traguardo": "Superare stereotipi e pregiudizi; usare la comunicazione multimediale nel rispetto della privacy",
+      "compito": "Contenuto multimediale (video/podcast) su culture e diversità pubblicato sul canale della scuola, con liberatorie e regole privacy applicate.",
+      "ore": "12–15",
+      "abilita": [
+        {
+          "t": "Usare strumenti della comunicazione multimediale e social per la divulgazione",
+          "ins": [
+            "TIC"
+          ]
+        },
+        {
+          "t": "Trattare i dati nel rispetto di sicurezza e privacy",
+          "ins": [
+            "Diritto",
+            "TIC"
+          ]
+        },
+        {
+          "t": "Riconoscere la dimensione socio-culturale",
+          "ins": [
+            "Scienze Umane"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Tecniche di comunicazione multimediale e social",
+          "ins": [
+            "TIC"
+          ]
+        },
+        {
+          "t": "Dati sensibili e dati pubblici",
+          "ins": [
+            "TIC",
+            "Diritto"
+          ]
+        },
+        {
+          "t": "Normativa sulla privacy",
+          "ins": [
+            "Diritto",
+            "TIC"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "2.4",
+      "anno": 2,
+      "titolo": "Stili di vita sotto la lente",
+      "competenza": 4,
+      "qnq": "2",
+      "traguardo": "Rilevare, in modo guidato, condizioni, stili di vita e bisogni legati all'età",
+      "compito": "Indagine sugli stili di vita per fasce d'età e guida illustrata ai sani stili di vita per età.",
+      "ore": "12–15",
+      "abilita": [
+        {
+          "t": "Riconoscere i bisogni legati all'età e alle condizioni dell'individuo",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Descrivere stili di vita sani in rapporto all'età",
+          "ins": [
+            "Scienze Integrate",
+            "Scienze Motorie"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Funzioni e organizzazione del corpo umano",
+          "ins": [
+            "Scienze Integrate"
+          ]
+        },
+        {
+          "t": "Principi di corretta alimentazione e attività fisica",
+          "ins": [
+            "Scienze Integrate",
+            "Scienze Motorie"
+          ]
+        },
+        {
+          "t": "Bisogni per età",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "2.5",
+      "anno": 2,
+      "titolo": "Chi si prende cura?",
+      "competenza": 5,
+      "qnq": "2",
+      "traguardo": "Adottare atteggiamenti coerenti al concetto di salute bio-psico-sociale; descrivere i soggetti della presa in carico",
+      "compito": "Su un caso simulato di malattia, elaborato grafico commentato della rete della presa in carico (famiglia, medico, servizi).",
+      "ore": "10–12",
+      "abilita": [
+        {
+          "t": "Distinguere salute e malattia",
+          "ins": [
+            "Scienze Umane"
+          ]
+        },
+        {
+          "t": "Descrivere i compiti dei soggetti che partecipano alla presa in carico della persona ammalata",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Salute bio-psico-sociale e condizioni di malattia",
+          "ins": [
+            "Scienze Umane"
+          ]
+        },
+        {
+          "t": "I soggetti della presa in carico e i loro compiti",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "2.6",
+      "anno": 2,
+      "titolo": "Rischi in casa",
+      "competenza": 6,
+      "qnq": "2",
+      "traguardo": "Assumere condotte nel rispetto delle norme di sicurezza limitando i comportamenti a rischio",
+      "compito": "Checklist dei rischi domestici e opuscolo di prevenzione degli incidenti destinato alle famiglie.",
+      "ore": "10–12",
+      "abilita": [
+        {
+          "t": "Distinguere le tipologie di rischi e pericoli negli ambienti domestici",
+          "ins": [
+            "Scienze Integrate"
+          ]
+        },
+        {
+          "t": "Riconoscere le norme di sicurezza",
+          "ins": [
+            "Diritto"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Rischi, pericoli e sicurezza",
+          "ins": [
+            "Scienze Integrate"
+          ]
+        },
+        {
+          "t": "Norme sociali e giuridiche",
+          "ins": [
+            "Diritto",
+            "Storia"
+          ]
+        },
+        {
+          "t": "Prevenzione degli incidenti domestici",
+          "ins": [
+            "Scienze Integrate",
+            "Metodologie Operative"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "2.7",
+      "anno": 2,
+      "titolo": "Guida ai servizi per i coetanei",
+      "competenza": 7,
+      "qnq": "2",
+      "traguardo": "Predisporre e presentare testi e materiali divulgativi sui servizi del territorio",
+      "compito": "Mini-guida divulgativa ai servizi per adolescenti (consultorio, sportelli, spazi giovani) diffusa a scuola.",
+      "ore": "12–15",
+      "abilita": [
+        {
+          "t": "Reperire informazioni sui servizi del territorio",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Individuare modalità di presentazione informativa efficace per il target",
+          "ins": [
+            "Italiano",
+            "TIC"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Segretariato sociale",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Tipologie di testi divulgativi",
+          "ins": [
+            "Italiano",
+            "TIC"
+          ]
+        },
+        {
+          "t": "Modalità di rappresentazione e diffusione delle informazioni",
+          "ins": [
+            "Italiano",
+            "TIC"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "2.8",
+      "anno": 2,
+      "titolo": "Animazione all'open day",
+      "competenza": 8,
+      "qnq": "2",
+      "traguardo": "Realizzare semplici attività di animazione ludica e sociale in contesti noti",
+      "compito": "Attività di animazione ludica per l'open day o la festa d'istituto, con scheda di progettazione e report fotografico.",
+      "ore": "12–15",
+      "abilita": [
+        {
+          "t": "Identificare le tecniche di animazione",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Riconoscere materiali e strumenti",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Usare le attività ludico-motorie come mezzi educativi",
+          "ins": [
+            "Scienze Motorie"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Obiettivi e tecniche dell'animazione anche con strumenti multimediali",
+          "ins": [
+            "Metodologie Operative",
+            "Scienze Motorie",
+            "TIC"
+          ]
+        },
+        {
+          "t": "Tecniche ludico-motorie",
+          "ins": [
+            "Scienze Motorie",
+            "Metodologie Operative"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "2.9",
+      "anno": 2,
+      "titolo": "Fotografia di una realtà sociale",
+      "competenza": 10,
+      "qnq": "2",
+      "traguardo": "Raccogliere e organizzare dati qualitativi e quantitativi di una realtà sociale o di un servizio",
+      "compito": "Report con dati raccolti su una realtà sociale del territorio, elaborati con foglio di calcolo e presentati con grafici.",
+      "ore": "12–15",
+      "abilita": [
+        {
+          "t": "Raccogliere dati con modalità appropriate",
+          "ins": [
+            "Matematica",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Rappresentare graficamente con tecniche statistiche",
+          "ins": [
+            "Matematica"
+          ]
+        },
+        {
+          "t": "Verificare pertinenza e attendibilità",
+          "ins": [
+            "TIC"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Software per gestione dati e flussi informativi",
+          "ins": [
+            "TIC",
+            "Matematica"
+          ]
+        },
+        {
+          "t": "Tecniche di rilevazione",
+          "ins": [
+            "Matematica",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Siti web e social",
+          "ins": [
+            "TIC"
+          ]
+        },
+        {
+          "t": "Sicurezza nella trasmissione",
+          "ins": [
+            "TIC"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "3.1",
+      "anno": 3,
+      "titolo": "Dal bisogno al progetto",
+      "competenza": 1,
+      "qnq": "3",
+      "traguardo": "Compilare e ordinare la documentazione richiesta per protocolli, progetti e gestione dei servizi",
+      "compito": "Progetto individualizzato (scheda tecnica) elaborato in gruppo con documentazione allegata: PAI simulato, modulistica di accesso, diario.",
+      "ore": "20–25",
+      "abilita": [
+        {
+          "t": "Decodificare i compiti dei soggetti di una procedura",
+          "ins": [
+            "Metodologie Operative",
+            "Igiene e Cultura M.S."
+          ]
+        },
+        {
+          "t": "Riconoscere le relazioni obiettivi-attività di un progetto",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Compilare format di piani individualizzati",
+          "ins": [
+            "Metodologie Operative",
+            "Psicologia"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Linee guida, protocolli e procedure",
+          "ins": [
+            "Metodologie Operative",
+            "Igiene e Cultura M.S."
+          ]
+        },
+        {
+          "t": "Metodologia del lavoro sociale",
+          "ins": [
+            "Metodologie Operative",
+            "Psicologia"
+          ]
+        },
+        {
+          "t": "Tecniche di progettazione",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Il PAI",
+          "ins": [
+            "Metodologie Operative",
+            "Psicologia"
+          ]
+        },
+        {
+          "t": "Soggetti profit, no profit e pubblici",
+          "ins": [
+            "Diritto e T.A.",
+            "Metodologie Operative"
+          ]
+        }
+      ],
+      "sviluppata": "UDA completa già sviluppata: terzo anno C1"
+    },
+    {
+      "id": "3.2",
+      "anno": 3,
+      "titolo": "In équipe",
+      "competenza": 2,
+      "qnq": "3",
+      "traguardo": "Collaborare alla realizzazione degli obiettivi di gruppi di lavoro e di équipe; produrre resoconti",
+      "compito": "Riunione di équipe simulata su un caso, con ruoli professionali assegnati; verbale e resoconto professionale prodotti.",
+      "ore": "12–15",
+      "abilita": [
+        {
+          "t": "Individuare il proprio ruolo e quello delle altre figure",
+          "ins": [
+            "Metodologie Operative",
+            "Psicologia"
+          ]
+        },
+        {
+          "t": "Adottare modalità comunicativo-relazionali idonee",
+          "ins": [
+            "Psicologia"
+          ]
+        },
+        {
+          "t": "Produrre diverse tipologie di resoconto",
+          "ins": [
+            "Italiano",
+            "TIC"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Le figure professionali nei servizi",
+          "ins": [
+            "Metodologie Operative",
+            "Psicologia"
+          ]
+        },
+        {
+          "t": "Il lavoro d'équipe",
+          "ins": [
+            "Psicologia",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Tipologie di resoconti (report, verbali, relazioni)",
+          "ins": [
+            "Italiano",
+            "TIC"
+          ]
+        },
+        {
+          "t": "Linguaggi settoriali",
+          "ins": [
+            "Italiano",
+            "Inglese"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "3.3",
+      "anno": 3,
+      "titolo": "Accogliere e capire",
+      "competenza": 3,
+      "qnq": "3",
+      "traguardo": "Individuare, anche in ambienti non noti, modalità di comunicazione idonee a favorire la relazione",
+      "compito": "Role-play di colloqui di accoglienza con tipologie diverse di utenti; scheda dei bisogni comunicativi e delle distorsioni osservate.",
+      "ore": "12–15",
+      "abilita": [
+        {
+          "t": "Identificare i bisogni comunicativi delle diverse tipologie di utenti e gruppi",
+          "ins": [
+            "Psicologia",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Riconoscere le distorsioni comunicative e i disturbi della relazione",
+          "ins": [
+            "Psicologia"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Utenti e gruppi con specifici bisogni comunicativi",
+          "ins": [
+            "Psicologia",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Pragmatica della comunicazione e suoi disturbi",
+          "ins": [
+            "Psicologia"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "3.4",
+      "anno": 3,
+      "titolo": "Crescere insieme",
+      "competenza": 4,
+      "qnq": "3",
+      "traguardo": "Programmare azioni per soddisfare bisogni e favorire il benessere del bambino",
+      "compito": "Piano di attività di osservazione e accudimento per la prima infanzia con schede operative e norme igieniche applicate.",
+      "ore": "48",
+      "abilita": [
+        {
+          "t": "Adottare tecniche di osservazione e accudimento del bambino",
+          "ins": [
+            "Psicologia",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Applicare norme igieniche e di sicurezza",
+          "ins": [
+            "Igiene e Cultura M.S."
+          ]
+        },
+        {
+          "t": "Individuare gli istituti di tutela",
+          "ins": [
+            "Diritto e T.A."
+          ]
+        },
+        {
+          "t": "Predisporre semplici piani di lavoro",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Elementi di puericultura e igiene del bambino",
+          "ins": [
+            "Igiene e Cultura M.S."
+          ]
+        },
+        {
+          "t": "Tecniche di osservazione in età evolutiva",
+          "ins": [
+            "Psicologia",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Diritti della personalità",
+          "ins": [
+            "Diritto e T.A."
+          ]
+        },
+        {
+          "t": "I piani di lavoro",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        }
+      ],
+      "sviluppata": "UDA formale già sviluppata: UDA_III_Anno_SSAS"
+    },
+    {
+      "id": "3.5",
+      "anno": 3,
+      "titolo": "Prevenire è curare",
+      "competenza": 5,
+      "qnq": "3",
+      "traguardo": "Programmare semplici azioni per bisogni socio-assistenziali e sanitari in ottica di prevenzione",
+      "compito": "Mini-campagna di prevenzione (igiene, vaccinazioni, corretto uso dei farmaci) con materiali informativi e semplice protocollo d'intervento.",
+      "ore": "18–20",
+      "abilita": [
+        {
+          "t": "Distinguere i principali stati patologici",
+          "ins": [
+            "Igiene e Cultura M.S.",
+            "Psicologia"
+          ]
+        },
+        {
+          "t": "Individuare interventi di prevenzione e sanità pubblica",
+          "ins": [
+            "Igiene e Cultura M.S."
+          ]
+        },
+        {
+          "t": "Riconoscere i meccanismi d'azione dei farmaci",
+          "ins": [
+            "Igiene e Cultura M.S."
+          ]
+        },
+        {
+          "t": "Riconoscere i servizi di primo intervento",
+          "ins": [
+            "Igiene e Cultura M.S.",
+            "Metodologie Operative"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Principi di sanità pubblica e livelli di prevenzione",
+          "ins": [
+            "Igiene e Cultura M.S."
+          ]
+        },
+        {
+          "t": "Elementi di farmacologia",
+          "ins": [
+            "Igiene e Cultura M.S."
+          ]
+        },
+        {
+          "t": "Legislazione socio-assistenziale e sanitaria",
+          "ins": [
+            "Diritto e T.A.",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Strumenti di rilevazione dei bisogni",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "3.6",
+      "anno": 3,
+      "titolo": "Caccia al rischio",
+      "competenza": 6,
+      "qnq": "3",
+      "traguardo": "Rilevare e segnalare situazioni di rischio e pericolo negli ambienti di vita e di lavoro",
+      "compito": "Sopralluogo in ambiente scolastico o laboratoriale con schede di rilevazione dei rischi e report di segnalazione formale.",
+      "ore": "10–12",
+      "abilita": [
+        {
+          "t": "Utilizzare schede di rilevazione dei rischi e pericoli negli ambienti di vita e di lavoro",
+          "ins": [
+            "Metodologie Operative",
+            "TIC"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Norme di sicurezza negli ambienti di vita e di lavoro",
+          "ins": [
+            "Igiene e Cultura M.S.",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Prevenzione dei rischi e degli incidenti",
+          "ins": [
+            "Igiene e Cultura M.S.",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Le schede di rilevazione",
+          "ins": [
+            "Metodologie Operative",
+            "TIC"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "3.7",
+      "anno": 3,
+      "titolo": "La mappa degli accessi",
+      "competenza": 7,
+      "qnq": "3",
+      "traguardo": "Rilevare i servizi sul territorio distinguendo modalità di accesso e di erogazione delle prestazioni",
+      "compito": "Repertorio dei servizi territoriali che collega ogni prestazione al servizio e alle modalità di accesso (requisiti, documenti, tempi).",
+      "ore": "12–15",
+      "abilita": [
+        {
+          "t": "Collegare le tipologie di prestazioni ai servizi",
+          "ins": [
+            "Metodologie Operative",
+            "Diritto e T.A."
+          ]
+        },
+        {
+          "t": "Individuare le modalità di accesso alle prestazioni",
+          "ins": [
+            "Diritto e T.A.",
+            "Metodologie Operative"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Reti formali e informali per l'accesso",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Organizzazione del SSN e dei servizi sociali",
+          "ins": [
+            "Diritto e T.A.",
+            "Igiene e Cultura M.S."
+          ]
+        },
+        {
+          "t": "Livelli essenziali delle prestazioni",
+          "ins": [
+            "Diritto e T.A."
+          ]
+        },
+        {
+          "t": "Procedure di accesso",
+          "ins": [
+            "Diritto e T.A.",
+            "Metodologie Operative"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "3.8",
+      "anno": 3,
+      "titolo": "Laboratorio di animazione per i minori",
+      "competenza": 8,
+      "qnq": "3",
+      "traguardo": "Programmare e realizzare semplici attività di animazione socio-educative rivolte a minori",
+      "compito": "Attività di animazione per bambini (scuola infanzia/primaria partner o simulata) progettata, realizzata e valutata con scheda esiti.",
+      "ore": "18–20",
+      "abilita": [
+        {
+          "t": "Individuare tecniche e strumenti per la programmazione di attività di animazione per minori",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Riconoscere le tecniche in relazione a età e bisogni",
+          "ins": [
+            "Psicologia"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Strumenti per la progettazione dell'animazione socio-educativa",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Finalità psicopedagogiche delle attività di animazione",
+          "ins": [
+            "Psicologia",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Psicopedagogia dell'infanzia e adolescenza",
+          "ins": [
+            "Psicologia"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "3.9",
+      "anno": 3,
+      "titolo": "Progetto benessere a scuola",
+      "competenza": 9,
+      "qnq": "3",
+      "traguardo": "Collaborare all'attuazione di programmi di prevenzione primaria nei propri ambiti di vita",
+      "compito": "Azione di prevenzione primaria realizzata a scuola (dipendenze, benessere digitale, affettività) con scheda bisogni-risorse-vincoli.",
+      "ore": "12–15",
+      "abilita": [
+        {
+          "t": "Identificare le caratteristiche multifattoriali del benessere psico-fisico-sociale",
+          "ins": [
+            "Igiene e Cultura M.S.",
+            "Psicologia"
+          ]
+        },
+        {
+          "t": "Individuare bisogni, risorse, vincoli e limiti",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Riconoscere la prevenzione sociale",
+          "ins": [
+            "Igiene e Cultura M.S.",
+            "Metodologie Operative"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "La salute come benessere bio-psico-sociale",
+          "ins": [
+            "Igiene e Cultura M.S.",
+            "Psicologia"
+          ]
+        },
+        {
+          "t": "Tipi, finalità e metodi della prevenzione sociale",
+          "ins": [
+            "Igiene e Cultura M.S.",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Integrazione sociale, scolastica e lavorativa",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "3.10",
+      "anno": 3,
+      "titolo": "Osservare e documentare",
+      "competenza": 10,
+      "qnq": "3",
+      "traguardo": "Attuare tecniche di raccolta ed elaborazione di dati su realtà sociali e socio-sanitarie, con protezione dati",
+      "compito": "Dossier dati su una realtà sociale: raccolta, elaborazione, rappresentazione con strumenti di osservazione dei servizi e regole GDPR.",
+      "ore": "12–15",
+      "abilita": [
+        {
+          "t": "Identificare nei fenomeni sociali i comportamenti prevalenti",
+          "ins": [
+            "Metodologie Operative",
+            "Matematica"
+          ]
+        },
+        {
+          "t": "Utilizzare forme di comunicazione coerenti all'ambito professionale",
+          "ins": [
+            "Metodologie Operative",
+            "TIC"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Metodi e strumenti di osservazione e documentazione nei servizi sociali",
+          "ins": [
+            "Metodologie Operative",
+            "Matematica"
+          ]
+        },
+        {
+          "t": "Tecniche di rielaborazione quantitativa e qualitativa dei dati",
+          "ins": [
+            "Matematica",
+            "TIC"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "4.1",
+      "anno": 4,
+      "titolo": "Gestire per aiutare",
+      "competenza": 1,
+      "qnq": "3/4",
+      "traguardo": "Organizzare tempi e modi delle attività assegnate: documentazione, atti amministrativi e dati contabili",
+      "compito": "Gestione amministrativa simulata di un progetto: atti e documenti contabili su modelli, cassa simulata, report finale.",
+      "ore": "20–25",
+      "abilita": [
+        {
+          "t": "Predisporre documenti amministrativi e contabili su modelli",
+          "ins": [
+            "Diritto e T.A.",
+            "Matematica"
+          ]
+        },
+        {
+          "t": "Riconoscere la struttura organizzativa di servizi ed enti",
+          "ins": [
+            "Diritto e T.A.",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Usare sistemi informatici gestionali",
+          "ins": [
+            "TIC"
+          ]
+        },
+        {
+          "t": "Proporre soluzioni di gestione",
+          "ins": [
+            "Metodologie Operative",
+            "Diritto e T.A."
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Contratti e atti amministrativi",
+          "ins": [
+            "Diritto e T.A."
+          ]
+        },
+        {
+          "t": "Atti della PA",
+          "ins": [
+            "Diritto e T.A.",
+            "Storia"
+          ]
+        },
+        {
+          "t": "Organizzazione delle imprese",
+          "ins": [
+            "Diritto e T.A.",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Costi, ricavi e registrazioni contabili",
+          "ins": [
+            "Diritto e T.A.",
+            "Matematica"
+          ]
+        },
+        {
+          "t": "Fonti di finanziamento",
+          "ins": [
+            "Diritto e T.A.",
+            "Metodologie Operative"
+          ]
+        }
+      ],
+      "sviluppata": "UDA completa già sviluppata: quarto anno C1"
+    },
+    {
+      "id": "4.2",
+      "anno": 4,
+      "titolo": "Presentare all'équipe",
+      "competenza": 2,
+      "qnq": "3/4",
+      "traguardo": "Esporre all'interno di gruppi di lavoro e di équipe professionali informazioni e dati",
+      "compito": "Presentazione professionale di dati e approfondimenti su un caso, esposta in équipe simulata con supporti documentali e multimediali.",
+      "ore": "10–12",
+      "abilita": [
+        {
+          "t": "Selezionare informazioni utili all'approfondimento e alla ricerca",
+          "ins": [
+            "TIC",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Riconoscere i contenuti dei diversi tipi di testi e resoconti",
+          "ins": [
+            "Italiano",
+            "Inglese",
+            "Spagnolo"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Metodi e strumenti per l'approfondimento tematico",
+          "ins": [
+            "TIC",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Tecniche di raccolta e organizzazione delle informazioni",
+          "ins": [
+            "TIC",
+            "Matematica"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "4.3",
+      "anno": 4,
+      "titolo": "Osservare la relazione",
+      "competenza": 3,
+      "qnq": "3/4",
+      "traguardo": "Osservare le dinamiche comunicative per adottare comunicazioni funzionali alla relazione d'aiuto",
+      "compito": "Osservazione di colloqui simulati con griglie di rilevazione delle dinamiche comunicative e proposta comunicativa personalizzata per la presa in carico.",
+      "ore": "12–15",
+      "abilita": [
+        {
+          "t": "Utilizzare schede di osservazione delle dinamiche comunicative",
+          "ins": [
+            "Metodologie Operative",
+            "Psicologia"
+          ]
+        },
+        {
+          "t": "Utilizzare tecniche comunicativo-relazionali per la personalizzazione della cura",
+          "ins": [
+            "Psicologia"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Schede di osservazione dei fenomeni comunicativi",
+          "ins": [
+            "Metodologie Operative",
+            "Psicologia"
+          ]
+        },
+        {
+          "t": "Tecniche per la comunicazione efficace",
+          "ins": [
+            "Psicologia",
+            "Italiano"
+          ]
+        },
+        {
+          "t": "Comunicazione educativa e terapeutica",
+          "ins": [
+            "Psicologia"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "4.4",
+      "anno": 4,
+      "titolo": "Vivere con la disabilità",
+      "competenza": 4,
+      "qnq": "3/4",
+      "traguardo": "Partecipare al soddisfacimento dei bisogni di base di persone anziane e con disabilità",
+      "compito": "PAI per una persona con disabilità elaborato a partire dalla valutazione multidimensionale, con interventi sui bisogni di base.",
+      "ore": "51",
+      "abilita": [
+        {
+          "t": "Riconoscere i concetti di disabilità, deficit e handicap",
+          "ins": [
+            "Psicologia",
+            "Igiene e Cultura M.S."
+          ]
+        },
+        {
+          "t": "Rilevare lo stato di salute e il grado di autonomia",
+          "ins": [
+            "Igiene e Cultura M.S."
+          ]
+        },
+        {
+          "t": "Partecipare al soddisfacimento dei bisogni di base",
+          "ins": [
+            "Metodologie Operative",
+            "Igiene e Cultura M.S."
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Evoluzione dei concetti di disabilità",
+          "ins": [
+            "Storia",
+            "Psicologia"
+          ]
+        },
+        {
+          "t": "Strumenti di valutazione multidimensionale",
+          "ins": [
+            "Metodologie Operative",
+            "Igiene e Cultura M.S."
+          ]
+        },
+        {
+          "t": "Il PAI",
+          "ins": [
+            "Metodologie Operative",
+            "Igiene e Cultura M.S."
+          ]
+        },
+        {
+          "t": "Pedagogia speciale",
+          "ins": [
+            "Psicologia"
+          ]
+        }
+      ],
+      "sviluppata": "UDA formale già sviluppata: UDA_Disabilita"
+    },
+    {
+      "id": "4.5",
+      "anno": 4,
+      "titolo": "Il piano di assistenza",
+      "competenza": 5,
+      "qnq": "3/4",
+      "traguardo": "Predisporre interventi per i bisogni di base socio-assistenziali e sanitari",
+      "compito": "Piano operativo di assistenza per un caso di parziale non autosufficienza: bisogni di base, capacità residue, profilassi delle lesioni da decubito (raccordo Lab OSS).",
+      "ore": "18–20",
+      "abilita": [
+        {
+          "t": "Individuare interventi per il mantenimento delle capacità residue",
+          "ins": [
+            "Igiene e Cultura M.S.",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Favorire l'aderenza al piano terapeutico",
+          "ins": [
+            "Igiene e Cultura M.S.",
+            "Psicologia"
+          ]
+        },
+        {
+          "t": "Identificare i segni prodromici di LDD e le misure di profilassi",
+          "ins": [
+            "Igiene e Cultura M.S."
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Piani di lavoro",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Strumenti di rilevazione dei bisogni socio-assistenziali e sanitari",
+          "ins": [
+            "Igiene e Cultura M.S.",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Profilassi delle lesioni da decubito",
+          "ins": [
+            "Igiene e Cultura M.S."
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "4.6",
+      "anno": 4,
+      "titolo": "Abitare sicuro",
+      "competenza": 6,
+      "qnq": "3/4",
+      "traguardo": "Nell'allestimento dell'ambiente di vita assicurare condizioni di igiene e sicurezza",
+      "compito": "Riprogettazione di un ambiente domestico per una persona fragile: checklist igiene/sicurezza, piano di sanificazione, layout adattato motivato.",
+      "ore": "12–15",
+      "abilita": [
+        {
+          "t": "Adottare procedure di sicurezza e prevenzione negli ambienti domestici",
+          "ins": [
+            "Igiene e Cultura M.S."
+          ]
+        },
+        {
+          "t": "Individuare procedure di sanificazione",
+          "ins": [
+            "Igiene e Cultura M.S."
+          ]
+        },
+        {
+          "t": "Applicare i protocolli di raccolta e smaltimento rifiuti",
+          "ins": [
+            "Igiene e Cultura M.S.",
+            "Metodologie Operative"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Norme di igiene e sanità pubblica",
+          "ins": [
+            "Igiene e Cultura M.S."
+          ]
+        },
+        {
+          "t": "Detergenti, disinfettanti e antisettici",
+          "ins": [
+            "Igiene e Cultura M.S.",
+            "Scienze Integrate"
+          ]
+        },
+        {
+          "t": "Igiene di vestiario, biancheria e ambienti",
+          "ins": [
+            "Igiene e Cultura M.S.",
+            "Metodologie Operative"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "4.7",
+      "anno": 4,
+      "titolo": "Sportello orienta-servizi",
+      "competenza": 7,
+      "qnq": "3/4",
+      "traguardo": "Orientare l'utenza alla fruizione dei servizi in relazione ai bisogni e alle prestazioni",
+      "compito": "Simulazione di sportello informativo: colloqui di orientamento con tecnica dell'intervista e instradamento corretto di casi-tipo verso i servizi.",
+      "ore": "12–15",
+      "abilita": [
+        {
+          "t": "Utilizzare tecniche dell'intervista e del colloquio",
+          "ins": [
+            "Psicologia",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Veicolare informazioni per una proficua relazione d'aiuto",
+          "ins": [
+            "Psicologia",
+            "TIC"
+          ]
+        },
+        {
+          "t": "Individuare servizi e prestazioni per i diversi bisogni",
+          "ins": [
+            "Metodologie Operative",
+            "Matematica"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Tecniche dell'intervista e del colloquio",
+          "ins": [
+            "Psicologia",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Servizi e prestazioni in relazione ai bisogni",
+          "ins": [
+            "Matematica",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Relazione d'aiuto",
+          "ins": [
+            "Psicologia"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "4.8",
+      "anno": 4,
+      "titolo": "Animare nei servizi",
+      "competenza": 8,
+      "qnq": "3/4",
+      "traguardo": "Programmare e realizzare attività di animazione per adulti, anziani o persone con disabilità in contesti reali",
+      "compito": "Attività di animazione per adulti/anziani/persone con disabilità progettata e realizzata in PCTO o contesto simulato, con analisi bisogni e report esiti.",
+      "ore": "18–20 (+PCTO)",
+      "abilita": [
+        {
+          "t": "Individuare tecniche e strumenti per l'animazione rivolta ad adulti, anziani e persone con disabilità",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Riconoscere le tecniche in relazione ai bisogni",
+          "ins": [
+            "Psicologia"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Strumenti di analisi dei bisogni educativi, sociali e culturali",
+          "ins": [
+            "Psicologia",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Tecniche di animazione per le diverse utenze",
+          "ins": [
+            "Metodologie Operative",
+            "Psicologia"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "4.9",
+      "anno": 4,
+      "titolo": "Un progetto per includere",
+      "competenza": 9,
+      "qnq": "3/4",
+      "traguardo": "Collaborare nell'elaborazione e attuazione di progetti di integrazione sociale e di prevenzione (I, II, III livello)",
+      "compito": "Analisi di un caso e ipotesi di progetto di integrazione sociale con azioni di prevenzione ai tre livelli e misure di profilassi pertinenti.",
+      "ore": "18–20",
+      "abilita": [
+        {
+          "t": "Riconoscere i quadri clinici delle malattie cronico-degenerative e infettive",
+          "ins": [
+            "Igiene e Cultura M.S."
+          ]
+        },
+        {
+          "t": "Analizzare casi e formulare ipotesi d'intervento",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Individuare misure di profilassi",
+          "ins": [
+            "Igiene e Cultura M.S."
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Le grandi malattie di risonanza sociale",
+          "ins": [
+            "Igiene e Cultura M.S."
+          ]
+        },
+        {
+          "t": "Problematiche psicosociali delle utenze",
+          "ins": [
+            "Psicologia",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Tecniche d'intervento per soggetti multiproblematici",
+          "ins": [
+            "Metodologie Operative",
+            "Psicologia"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "4.10",
+      "anno": 4,
+      "titolo": "Il report professionale",
+      "competenza": 10,
+      "qnq": "3/4",
+      "traguardo": "Partecipare alla ricerca ed elaborazione dei dati per lavori in ambito sociale, socio-sanitario e amministrativo",
+      "compito": "Report tecnico-professionale con dati raccolti ed elaborati sulle condizioni sociali/di salute di un gruppo, con linguaggio tecnico e statistica di base.",
+      "ore": "12–15",
+      "abilita": [
+        {
+          "t": "Attuare procedure di registrazione e gestione dei dati",
+          "ins": [
+            "Metodologie Operative",
+            "Igiene e Cultura M.S."
+          ]
+        },
+        {
+          "t": "Utilizzare linguaggi tecnici per testi professionali",
+          "ins": [
+            "Italiano"
+          ]
+        },
+        {
+          "t": "Applicare tecniche inferenziali di base",
+          "ins": [
+            "Matematica"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Osservazione e documentazione nei servizi sanitari",
+          "ins": [
+            "Igiene e Cultura M.S.",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Telemedicina e web nei servizi",
+          "ins": [
+            "TIC",
+            "Igiene e Cultura M.S."
+          ]
+        },
+        {
+          "t": "Tecniche di redazione di relazioni professionali",
+          "ins": [
+            "TIC",
+            "Italiano"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "5.1",
+      "anno": 5,
+      "titolo": "Il progetto completo",
+      "competenza": 1,
+      "qnq": "4",
+      "traguardo": "Collaborare nella gestione di progetti e attività dei servizi anche attraverso reti territoriali (uscita piena)",
+      "compito": "Progetto di servizio gestito in simulazione (es. per anziani): analisi bisogni, piano, budget, partenariato di rete, rendicontazione, valutazione.",
+      "ore": "25–30",
+      "abilita": [
+        {
+          "t": "Individuare l'apporto da fornire a progetti e piani individualizzati",
+          "ins": [
+            "Metodologie Operative",
+            "Psicologia"
+          ]
+        },
+        {
+          "t": "Proporre azioni per le pari opportunità",
+          "ins": [
+            "Metodologie Operative",
+            "Diritto e T.A."
+          ]
+        },
+        {
+          "t": "Simulare la gestione di un'azienda di servizi",
+          "ins": [
+            "Diritto e T.A.",
+            "Metodologie Operative"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Reti formali e informali",
+          "ins": [
+            "Metodologie Operative",
+            "Psicologia"
+          ]
+        },
+        {
+          "t": "La progettazione nei servizi",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Gestione amministrativa e contabile delle risorse umane",
+          "ins": [
+            "Diritto e T.A.",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Responsabilità civile e penale degli operatori",
+          "ins": [
+            "Diritto e T.A."
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "5.2",
+      "anno": 5,
+      "titolo": "Professionisti in rete",
+      "competenza": 2,
+      "qnq": "4",
+      "traguardo": "Partecipare e cooperare nelle équipe multi-professionali (uscita piena)",
+      "compito": "Case management simulato in équipe multi-professionale con tecniche di mediazione comunicativa e analisi di ruoli e stili di leadership.",
+      "ore": "12–15",
+      "abilita": [
+        {
+          "t": "Applicare tecniche di mediazione comunicativa",
+          "ins": [
+            "Psicologia",
+            "Italiano"
+          ]
+        },
+        {
+          "t": "Individuare stili organizzativi e di leadership",
+          "ins": [
+            "Psicologia",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Individuare doveri e diritti nei contesti di lavoro",
+          "ins": [
+            "Diritto e T.A."
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Stili organizzativi",
+          "ins": [
+            "Psicologia",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Conduzione delle riunioni di lavoro",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Tecniche di mediazione e negoziazione",
+          "ins": [
+            "Psicologia",
+            "Italiano"
+          ]
+        },
+        {
+          "t": "Contratti di lavoro",
+          "ins": [
+            "Diritto e T.A."
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "5.3",
+      "anno": 5,
+      "titolo": "Mediatori di comunicazione",
+      "competenza": 3,
+      "qnq": "4",
+      "traguardo": "Facilitare la comunicazione tra persone e gruppi anche di culture diverse (uscita piena)",
+      "compito": "Piano di facilitazione comunicativa per un servizio multiculturale: materiali easy-to-read/L2 e azioni di mediazione interculturale.",
+      "ore": "12–15",
+      "abilita": [
+        {
+          "t": "Individuare comportamenti per superare gli ostacoli comunicativi",
+          "ins": [
+            "Psicologia",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Attivare azioni di promozione della mediazione interculturale",
+          "ins": [
+            "Inglese",
+            "Spagnolo"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Tecniche per la facilitazione della comunicazione",
+          "ins": [
+            "Psicologia",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Caratteristiche e funzioni della mediazione interculturale",
+          "ins": [
+            "Inglese",
+            "Spagnolo"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "5.4",
+      "anno": 5,
+      "titolo": "Il PAI in azione",
+      "competenza": 4,
+      "qnq": "4",
+      "traguardo": "Prendersi cura dei bisogni di base; proposte per predisposizione e attuazione del PAI (uscita piena)",
+      "compito": "Proposte operative complete per l'attuazione di un PAI (bambino, persona con disabilità o anziano), dal bisogno all'organizzazione delle attività quotidiane.",
+      "ore": "18–20",
+      "abilita": [
+        {
+          "t": "Indicare proposte per la predisposizione e attuazione del PAI",
+          "ins": [
+            "Metodologie Operative",
+            "Igiene e Cultura M.S."
+          ]
+        },
+        {
+          "t": "Individuare attività di promozione e mantenimento delle capacità e sostegno alla famiglia",
+          "ins": [
+            "Psicologia",
+            "Metodologie Operative"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Strumenti di rilevazione dello stato di salute e scale di autonomia",
+          "ins": [
+            "Igiene e Cultura M.S.",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Etica e deontologia professionale",
+          "ins": [
+            "Psicologia",
+            "Diritto e T.A."
+          ]
+        },
+        {
+          "t": "Relazioni di aiuto e di cura",
+          "ins": [
+            "Psicologia",
+            "Metodologie Operative"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "5.5",
+      "anno": 5,
+      "titolo": "Emergenza e cura",
+      "competenza": 5,
+      "qnq": "4",
+      "traguardo": "Presa in carico di non autosufficienza e terminalità; primo soccorso, supporto vitale, cure palliative",
+      "compito": "Prove pratiche di primo soccorso in ambiente simulato e scheda tecnica su dispositivi di supporto vitale, nutrizione artificiale e cure palliative per un caso.",
+      "ore": "18–20",
+      "abilita": [
+        {
+          "t": "Praticare manovre di primo soccorso simulate",
+          "ins": [
+            "Igiene e Cultura M.S."
+          ]
+        },
+        {
+          "t": "Identificare i dispositivi di supporto vitale e nutrizione artificiale",
+          "ins": [
+            "Igiene e Cultura M.S."
+          ]
+        },
+        {
+          "t": "Individuare interventi di cure palliative",
+          "ins": [
+            "Igiene e Cultura M.S.",
+            "Psicologia"
+          ]
+        },
+        {
+          "t": "Comunicare nel fine vita",
+          "ins": [
+            "Psicologia"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Primo soccorso",
+          "ins": [
+            "Igiene e Cultura M.S."
+          ]
+        },
+        {
+          "t": "Dispositivi a supporto delle funzioni vitali",
+          "ins": [
+            "Igiene e Cultura M.S."
+          ]
+        },
+        {
+          "t": "Le cure palliative",
+          "ins": [
+            "Igiene e Cultura M.S.",
+            "Psicologia"
+          ]
+        },
+        {
+          "t": "Terminalità e fine vita (aspetti psico-sociali e comunicativi)",
+          "ins": [
+            "Psicologia"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "5.6",
+      "anno": 5,
+      "titolo": "L'ambiente su misura",
+      "competenza": 6,
+      "qnq": "4",
+      "traguardo": "Curare l'allestimento dell'ambiente di vita: ausili, spazi, capacità residue e autonomia (uscita piena)",
+      "compito": "Progetto di adattamento completo di un'abitazione per una persona con difficoltà motorie: ausili, layout spazi/arredi, valutazione delle difficoltà d'uso.",
+      "ore": "12–15",
+      "abilita": [
+        {
+          "t": "Individuare le difficoltà di utilizzo di ausili e strumenti",
+          "ins": [
+            "Metodologie Operative",
+            "Igiene e Cultura M.S."
+          ]
+        },
+        {
+          "t": "Individuare un'adeguata distribuzione di spazi e arredi",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Ausili e strumenti per capacità residue e autonomia",
+          "ins": [
+            "Metodologie Operative",
+            "Igiene e Cultura M.S."
+          ]
+        },
+        {
+          "t": "Il concetto di domotica",
+          "ins": [
+            "TIC"
+          ]
+        },
+        {
+          "t": "Criteri d'uso di spazi e arredi in comfort e sicurezza",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "5.7",
+      "anno": 5,
+      "titolo": "La carta dei servizi",
+      "competenza": 7,
+      "qnq": "4",
+      "traguardo": "Gestire azioni di informazione e orientamento; diritti, doveri e qualità dei servizi (uscita piena)",
+      "compito": "Guida/carta dei servizi orientata all'utente con diritti e doveri, opportunità di fruizione e criteri di qualità per la scelta dei servizi.",
+      "ore": "12–15",
+      "abilita": [
+        {
+          "t": "Individuare azioni a tutela di diritti e doveri",
+          "ins": [
+            "Diritto e T.A."
+          ]
+        },
+        {
+          "t": "Indicare le opportunità di fruizione dei servizi",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Riconoscere gli elementi di qualità",
+          "ins": [
+            "Metodologie Operative",
+            "Diritto e T.A."
+          ]
+        },
+        {
+          "t": "Applicare le norme privacy",
+          "ins": [
+            "Diritto e T.A.",
+            "TIC"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Principi universalistici e uguaglianza nell'accesso",
+          "ins": [
+            "Diritto e T.A.",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Diritti e doveri nell'accesso ai servizi",
+          "ins": [
+            "Diritto e T.A."
+          ]
+        },
+        {
+          "t": "Norme su privacy e trattamento dati",
+          "ins": [
+            "Diritto e T.A.",
+            "TIC"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "5.8",
+      "anno": 5,
+      "titolo": "Un evento per il territorio",
+      "competenza": 8,
+      "qnq": "4",
+      "traguardo": "Realizzare in autonomia attività educative e di animazione; fundraising e valutazione (uscita piena)",
+      "compito": "Evento di animazione sociale progettato e realizzato con mini-piano di fundraising/crowdfunding e valutazione strutturata delle attività.",
+      "ore": "18–20",
+      "abilita": [
+        {
+          "t": "Riconoscere le modalità di gestione dei progetti sociali",
+          "ins": [
+            "Metodologie Operative",
+            "Diritto e T.A."
+          ]
+        },
+        {
+          "t": "Predisporre semplici progetti di fundraising e crowdfunding",
+          "ins": [
+            "Diritto e T.A.",
+            "TIC"
+          ]
+        },
+        {
+          "t": "Valutare attività di animazione",
+          "ins": [
+            "Metodologie Operative",
+            "Matematica"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Gestione delle risorse nei progetti sociali",
+          "ins": [
+            "Metodologie Operative",
+            "Diritto e T.A."
+          ]
+        },
+        {
+          "t": "Fundraising e crowdfunding",
+          "ins": [
+            "Diritto e T.A.",
+            "TIC"
+          ]
+        },
+        {
+          "t": "Strumenti di valutazione in itinere e finale",
+          "ins": [
+            "Metodologie Operative",
+            "Matematica"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "5.9",
+      "anno": 5,
+      "titolo": "La presa in carico integrata",
+      "competenza": 9,
+      "qnq": "4",
+      "traguardo": "Realizzare azioni a sostegno e tutela della persona fragile/disabile e della famiglia (uscita piena)",
+      "compito": "Progetto integrato completo su un caso complesso (minore, anziano, disagio psichico, migrante): bisogni, rete, interventi, sostegno alla famiglia. Orientato all'Esame di Stato.",
+      "ore": "22–25",
+      "abilita": [
+        {
+          "t": "Individuare bisogni e problematiche delle diverse categorie di utenza",
+          "ins": [
+            "Psicologia"
+          ]
+        },
+        {
+          "t": "Identificare gli elementi dei progetti d'integrazione sociale",
+          "ins": [
+            "Metodologie Operative",
+            "Psicologia"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Orientamenti psicologici e psicoterapeutici",
+          "ins": [
+            "Psicologia"
+          ]
+        },
+        {
+          "t": "Modalità d'intervento socio-assistenziale per le diverse utenze e i nuclei familiari",
+          "ins": [
+            "Psicologia",
+            "Metodologie Operative"
+          ]
+        }
+      ],
+      "sviluppata": null
+    },
+    {
+      "id": "5.10",
+      "anno": 5,
+      "titolo": "Monitorare e valutare",
+      "competenza": 10,
+      "qnq": "4",
+      "traguardo": "Raccogliere, elaborare e trasmettere dati per monitoraggio e valutazione; qualità e accreditamento (uscita piena)",
+      "compito": "Dashboard di monitoraggio di un progetto/servizio con indicatori, analisi statistica di base (correlazione) e relazione valutativa con riferimenti all'accreditamento regionale.",
+      "ore": "12–15",
+      "abilita": [
+        {
+          "t": "Reperire le norme su qualità e accreditamento regionale",
+          "ins": [
+            "Diritto e T.A.",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Utilizzare tecniche di monitoraggio di progetti e servizi",
+          "ins": [
+            "Metodologie Operative",
+            "Matematica"
+          ]
+        },
+        {
+          "t": "Applicare elementi di statistica operativa",
+          "ins": [
+            "Matematica"
+          ]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Tecniche e strumenti di monitoraggio",
+          "ins": [
+            "Metodologie Operative",
+            "Matematica"
+          ]
+        },
+        {
+          "t": "Normative regionali e accreditamento",
+          "ins": [
+            "Diritto e T.A.",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "I sistemi di qualità",
+          "ins": [
+            "Diritto e T.A.",
+            "Metodologie Operative"
+          ]
+        }
+      ],
+      "sviluppata": null
+    }
+  ]
+}

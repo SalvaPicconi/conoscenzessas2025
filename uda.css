@@ -1,0 +1,385 @@
+/* ============================================================
+   Fascicolo UDA — stili dedicati (estende style.css)
+   ============================================================ */
+
+/* ---------- Impianto comune ---------- */
+
+.uda-common {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    gap: 14px;
+    margin-bottom: 26px;
+}
+
+.uda-common-card {
+    background: var(--card);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 16px 18px;
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+}
+
+.uda-common-card .uda-label {
+    margin-bottom: 8px;
+}
+
+.uda-common-card ol {
+    margin: 0;
+    padding-left: 18px;
+    display: grid;
+    gap: 4px;
+}
+
+.uda-common-card p {
+    margin: 0;
+}
+
+/* ---------- Toolbar ---------- */
+
+.uda-toolbar {
+    margin-bottom: 14px;
+}
+
+.uda-anni {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+}
+
+.uda-anni-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-soft);
+}
+
+.anno-pill {
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--stroke-soft);
+    background: var(--card-solid);
+    color: var(--ink-soft);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.anno-pill:hover {
+    border-color: rgba(99, 102, 241, 0.45);
+    color: var(--accent-a);
+    transform: translateY(-1px);
+}
+
+.anno-pill.active {
+    background: var(--grad-accent);
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 8px 20px -8px rgba(79, 70, 229, 0.55);
+}
+
+.uda-filter-grid {
+    margin-bottom: 14px;
+}
+
+.uda-count {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-faint);
+    margin: 0 4px 14px;
+}
+
+/* ---------- Accordion UDA ---------- */
+
+.uda-acc {
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--card);
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    margin-bottom: 14px;
+    animation: rise 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.uda-acc-header {
+    padding: 14px 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    user-select: none;
+    background: linear-gradient(120deg, rgba(79, 70, 229, 0.07), rgba(14, 165, 233, 0.07));
+    transition: background-color 0.2s ease;
+}
+
+.uda-acc-header:hover {
+    background: linear-gradient(120deg, rgba(79, 70, 229, 0.13), rgba(14, 165, 233, 0.13));
+}
+
+.uda-num {
+    display: inline-grid;
+    place-items: center;
+    min-width: 46px;
+    height: 38px;
+    flex-shrink: 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 14px;
+    border-radius: 12px;
+    padding: 0 6px;
+}
+
+.uda-acc-main {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.uda-acc-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    font-size: 15.5px;
+    line-height: 1.35;
+}
+
+.uda-acc-sub {
+    font-size: 12px;
+    color: var(--ink-faint);
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.uda-acc-pills {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    flex-shrink: 0;
+}
+
+.uda-acc .group-chevron {
+    display: inline-grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+    font-size: 13px;
+    color: var(--accent-a);
+    background: rgba(99, 102, 241, 0.12);
+    border-radius: 8px;
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.uda-acc.group-expanded .group-chevron {
+    transform: rotate(90deg);
+}
+
+.uda-acc-body {
+    display: none;
+    padding: 18px;
+}
+
+.uda-acc.group-expanded .uda-acc-body {
+    display: block;
+}
+
+/* ---------- Corpo scheda ---------- */
+
+.uda-boxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.uda-box {
+    border-radius: 13px;
+    padding: 12px 14px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--ink);
+}
+
+.uda-box .uda-label {
+    margin-bottom: 4px;
+}
+
+.uda-box-traguardo {
+    border: 1px solid rgba(99, 102, 241, 0.25);
+    background: rgba(99, 102, 241, 0.06);
+}
+
+.uda-box-traguardo .uda-label {
+    color: var(--accent-a);
+}
+
+.uda-box-compito {
+    border: 1px solid rgba(14, 165, 233, 0.25);
+    background: rgba(14, 165, 233, 0.06);
+}
+
+.uda-box-compito .uda-label {
+    color: #0369a1;
+}
+
+.uda-svil {
+    margin-bottom: 14px;
+}
+
+.uda-ripartizione h5 {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-soft);
+    margin: 0 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(99, 102, 241, 0.15);
+}
+
+.ins-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    gap: 12px;
+}
+
+/* ---------- Card insegnamento ---------- */
+
+.ins-card {
+    background: var(--card-solid);
+    border: 1px solid var(--stroke-soft);
+    border-left: 4px solid var(--ins-color, var(--accent-a));
+    border-radius: 14px;
+    padding: 14px 16px;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.ins-card:hover {
+    box-shadow: 0 14px 34px -26px rgba(30, 41, 99, 0.6);
+}
+
+.ins-card.ins-highlight {
+    border-color: var(--ins-color, var(--accent-a));
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--ins-color, var(--accent-a)) 18%, transparent);
+}
+
+.ins-name {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 12.5px;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    margin-bottom: 12px;
+    background: color-mix(in srgb, var(--ins-color, var(--accent-a)) 12%, transparent);
+    color: var(--ins-color, var(--accent-a));
+}
+
+.ins-block {
+    margin-bottom: 10px;
+}
+
+.ins-block:last-child {
+    margin-bottom: 0;
+}
+
+.ins-block h6 {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+    margin: 0 0 6px;
+}
+
+.ins-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 5px;
+    font-size: 13px;
+    color: var(--ink-soft);
+}
+
+.ins-block ul li {
+    position: relative;
+    padding-left: 14px;
+    line-height: 1.5;
+}
+
+.ins-block ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 5px;
+    height: 5px;
+    border-radius: 999px;
+    background: var(--ins-color, var(--accent-a));
+}
+
+.ins-block ul li.ins-co-item {
+    color: var(--ink-faint);
+}
+
+.ins-block ul li.ins-co-item::before {
+    background: var(--stroke-soft);
+}
+
+.ins-con {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ink-faint);
+    font-style: italic;
+}
+
+/* Colori per insegnamento */
+.ins-met { --ins-color: #4f46e5; }
+.ins-psi { --ins-color: #7c3aed; }
+.ins-igi { --ins-color: #e11d48; }
+.ins-dir { --ins-color: #d97706; }
+.ins-su  { --ins-color: #0d9488; }
+.ins-si  { --ins-color: #16a34a; }
+.ins-sm  { --ins-color: #65a30d; }
+.ins-ita { --ins-color: #0284c7; }
+.ins-lin { --ins-color: #0891b2; }
+.ins-sto { --ins-color: #926a3e; }
+.ins-mat { --ins-color: #c026d3; }
+.ins-tic { --ins-color: #475569; }
+
+/* Badge anno nelle sezioni */
+.anno-badge {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 15px;
+}
+
+@media (max-width: 720px) {
+    .uda-acc-header {
+        flex-wrap: wrap;
+    }
+
+    .uda-acc-pills {
+        justify-content: flex-start;
+        width: 100%;
+        order: 4;
+    }
+}
