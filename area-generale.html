@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Competenze, assi culturali, abilità e conoscenze dell'area generale del curricolo verticale SSAS.">
+    <meta name="theme-color" content="#4f46e5">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <title>Curricolo Verticale - Area Generale</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260712">
-    <link rel="stylesheet" href="area-generale.css?v=20260712">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;family=Sora:wght@600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20260721">
+    <link rel="stylesheet" href="area-generale.css?v=20260721">
 </head>
 <body>
-    <div class="container generale-container">
+    <main class="container generale-container">
         <header class="header page-hero generale-header">
             <div class="hero-card">
                 <h1>Curricolo Verticale - Area Generale</h1>
@@ -57,7 +60,7 @@
 
         <section class="filter-panel generale-filters" aria-label="Filtri area generale">
             <div class="filter-header">
-                <span class="filter-icon">🔎</span>
+                <span class="filter-icon" aria-hidden="true">🔎</span>
                 <h2>Filtra e analizza i dati</h2>
             </div>
 
@@ -92,14 +95,18 @@
 
             <div class="search-row generale-search-row">
                 <div class="search-container">
+                    <label class="sr-only" for="generale-search">Cerca nei contenuti dell'area generale</label>
                     <input id="generale-search" type="text" placeholder="Cerca in titoli, abilità, conoscenze o assi" autocomplete="off">
-                    <span class="search-icon">🔍</span>
+                    <span class="search-icon" aria-hidden="true">🔍</span>
                 </div>
                 <div class="actions-row">
-                    <button id="generale-export-excel" class="primary-btn">Esporta Excel</button>
-                    <button id="generale-export-word" class="secondary-btn">Esporta Word</button>
-                    <button id="generale-export-json" class="secondary-btn">Esporta JSON</button>
-                    <button id="generale-reset" class="reset-btn">Reset filtri</button>
+                    <div class="export-actions" role="group" aria-label="Esporta i dati filtrati">
+                        <span class="action-label" aria-hidden="true">Esporta</span>
+                        <button type="button" id="generale-export-excel" class="primary-btn">Excel</button>
+                        <button type="button" id="generale-export-word" class="secondary-btn">Word</button>
+                        <button type="button" id="generale-export-json" class="secondary-btn">JSON</button>
+                    </div>
+                    <button type="button" id="generale-reset" class="reset-btn">Azzera filtri</button>
                 </div>
             </div>
         </section>
@@ -118,7 +125,8 @@
                 <h2>Sintesi per competenza</h2>
                 <p class="section-hint">Indicatori su assi, abilità e conoscenze collegati a ciascuna competenza</p>
             </div>
-            <div class="table-wrapper">
+            <p class="scroll-hint" id="general-table-scroll-hint">Scorri orizzontalmente per vedere tutte le colonne →</p>
+            <div class="table-wrapper" tabindex="0" role="region" aria-label="Sintesi per competenza" aria-describedby="general-table-scroll-hint">
                 <table class="stats-table generale-table">
                     <thead>
                         <tr>
@@ -149,8 +157,8 @@
             <p>Nessun elemento corrisponde ai filtri selezionati.</p>
             <p>Modifica i filtri o reimposta la ricerca per proseguire.</p>
         </div>
-    </div>
+    </main>
 
-    <script src="area-generale.js?v=20260712"></script>
+    <script src="area-generale.js?v=20260721"></script>
 </body>
 </html>

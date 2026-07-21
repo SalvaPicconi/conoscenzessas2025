@@ -724,8 +724,8 @@ function renderMainTable(groupedData) {
     const container = document.getElementById('main-table-container');
     container.innerHTML = '';
 
-    Object.entries(groupedData).forEach(([groupKey, items]) => {
-        const groupElement = createGroupElement(groupKey, items);
+    Object.entries(groupedData).forEach(([groupKey, items], index) => {
+        const groupElement = createGroupElement(groupKey, items, index);
         container.appendChild(groupElement);
     });
 }
@@ -737,9 +737,10 @@ function hasActiveFilters() {
 }
 
 // Crea elemento gruppo
-function createGroupElement(groupKey, items) {
+function createGroupElement(groupKey, items, index) {
     const groupDiv = document.createElement('div');
     groupDiv.className = 'group-container';
+    const contentId = `group-content-${index}`;
 
     const isExpanded = expandedGroups.has(groupKey) || hasActiveFilters();
     if (isExpanded) {
@@ -747,19 +748,23 @@ function createGroupElement(groupKey, items) {
     }
 
     groupDiv.innerHTML = `
-        <div class="group-header" onclick="toggleGroup('${groupKey}')">
-            <div class="group-title">
-                <span class="group-chevron">▸</span>
-                <span class="group-name">${groupKey}</span>
+        <button type="button" class="group-header" aria-expanded="${isExpanded}" aria-controls="${contentId}">
+            <span class="group-title">
+                <span class="group-chevron" aria-hidden="true">▸</span>
+                <span class="group-name">${escapeHtml(groupKey)}</span>
                 <span class="group-count">(${items.length} ${items.length === 1 ? 'scheda' : 'schede'})</span>
-            </div>
-        </div>
-        <div class="group-content">
+            </span>
+        </button>
+        <div class="group-content" id="${contentId}" ${isExpanded ? '' : 'hidden'}>
             <div class="item-grid">
                 ${items.map(item => createItemElement(item)).join('')}
             </div>
         </div>
     `;
+
+    groupDiv.querySelector('.group-header').addEventListener('click', () => {
+        toggleGroup(groupKey, groupDiv);
+    });
 
     return groupDiv;
 }
@@ -820,15 +825,20 @@ function createItemElement(item) {
 }
 
 // Toggle gruppo
-function toggleGroup(groupKey) {
-    if (expandedGroups.has(groupKey)) {
-        expandedGroups.delete(groupKey);
-    } else {
+function toggleGroup(groupKey, groupElement) {
+    const shouldExpand = !groupElement.classList.contains('group-expanded');
+    if (shouldExpand) {
         expandedGroups.add(groupKey);
+    } else {
+        expandedGroups.delete(groupKey);
     }
-    
-    // Re-renderizza solo per aggiornare lo stato del gruppo
-    filterAndDisplay();
+
+    groupElement.classList.toggle('group-expanded', shouldExpand);
+    const button = groupElement.querySelector('.group-header');
+    const content = groupElement.querySelector('.group-content');
+    button?.setAttribute('aria-expanded', shouldExpand ? 'true' : 'false');
+    if (content) content.hidden = !shouldExpand;
+    notifyParentHeight();
 }
 
 // Renderizza tabella statistiche (calcolata dai dati reali)
@@ -885,7 +895,7 @@ function renderStatsTable() {
             <td><span class="stat-badge badge-purple">${stat.periodi}/${totPeriodi}</span></td>
             <td><span class="stat-badge badge-orange">${stat.schede}</span></td>
             <td>
-                <div class="progress-bar">
+                <div class="progress-bar" role="progressbar" aria-label="Carico didattico di ${escapeHtml(stat.nome)}" aria-valuemin="0" aria-valuemax="${maxConoscenze}" aria-valuenow="${stat.conoscenze}">
                     <div class="progress-fill" style="width: ${(stat.conoscenze / maxConoscenze) * 100}%"></div>
                 </div>
             </td>
@@ -934,6 +944,3 @@ function notifyParentHeight() {
         window.parent.postMessage({ type: 'iframeContentHeight', height }, '*');
     });
 }
-
-// Rendi disponibile globalmente per onclick
-window.toggleGroup = toggleGroup;

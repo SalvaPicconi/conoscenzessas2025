@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    tabNavigation.setAttribute('role', 'tablist');
     tabButtons.forEach(button => {
         const tabId = button.dataset.tab;
         button.setAttribute('role', 'tab');
@@ -34,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     tabButtons.forEach(button => {
         button.addEventListener('click', () => {
             setActiveTab(button.dataset.tab, { tabButtons, tabPanels, focusButton: false });
+            scrollToTabs(tabNavigation);
         });
     });
 
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', debouncedResize);
 
     window.addEventListener('message', event => {
-        if (!event?.data || event.data.type !== 'iframeContentHeight') {
+        if (event.origin !== window.location.origin || !event?.data || event.data.type !== 'iframeContentHeight') {
             return;
         }
         const targetIframe = iframes.find(frame => frame.contentWindow === event.source);
@@ -113,6 +113,7 @@ function setActiveTab(targetId, { tabButtons, tabPanels, persist = true, focusBu
         const isActive = panel.id === `content-${targetId}`;
         panel.classList.toggle('active', isActive);
         panel.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+        panel.hidden = !isActive;
     });
 
     if (persist) {
@@ -155,18 +156,28 @@ function adjustIframeHeight(iframe) {
 function observeIframeContent(iframe) {
     try {
         const doc = iframe?.contentDocument;
-        if (!doc) {
+        const observedBody = doc?.body;
+        if (!observedBody || observedBody.nodeType !== 1) {
             return;
         }
         if (resizeObservers.has(iframe)) {
             resizeObservers.get(iframe).disconnect();
         }
-        const observer = new ResizeObserver(() => adjustIframeHeight(iframe));
-        observer.observe(doc.body);
+        const FrameResizeObserver = doc.defaultView?.ResizeObserver || ResizeObserver;
+        const observer = new FrameResizeObserver(() => adjustIframeHeight(iframe));
+        observer.observe(observedBody);
         resizeObservers.set(iframe, observer);
     } catch (error) {
         console.warn('Impossibile avviare ResizeObserver per iframe:', error);
     }
+}
+
+function scrollToTabs(tabNavigation) {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    tabNavigation.scrollIntoView({
+        behavior: reduceMotion ? 'auto' : 'smooth',
+        block: 'start'
+    });
 }
 
 function debounce(fn, wait) {

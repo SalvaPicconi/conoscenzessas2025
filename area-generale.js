@@ -174,6 +174,7 @@ function bindEvents() {
     const exportButton = document.getElementById('generale-export-json');
     const exportExcelButton = document.getElementById('generale-export-excel');
     const exportWordButton = document.getElementById('generale-export-word');
+    const competenceList = document.getElementById('competence-list');
 
     if (competenceSelect) {
         competenceSelect.addEventListener('change', event => {
@@ -231,6 +232,15 @@ function bindEvents() {
     if (exportWordButton) {
         exportWordButton.addEventListener('click', () => {
             exportWord();
+        });
+    }
+
+    if (competenceList) {
+        competenceList.addEventListener('click', event => {
+            const button = event.target.closest('.gen-acc-header');
+            if (button) {
+                toggleCompetenza(Number(button.dataset.numero));
+            }
         });
     }
 }
@@ -485,7 +495,11 @@ function toggleCompetenza(numero) {
     }
     const element = document.querySelector(`.gen-acc[data-numero="${numero}"]`);
     if (element) {
-        element.classList.toggle('group-expanded', expandedCompetenze.has(numero));
+        const isExpanded = expandedCompetenze.has(numero);
+        element.classList.toggle('group-expanded', isExpanded);
+        element.querySelector('.gen-acc-header')?.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+        const body = element.querySelector('.gen-acc-body');
+        if (body) body.hidden = !isExpanded;
     }
     notifyParentHeight();
 }
@@ -536,16 +550,17 @@ function renderCompetenceCards(groups) {
         }).join('');
 
         const expanded = autoExpand || expandedCompetenze.has(group.numero);
+        const panelId = `general-competence-${group.numero}`;
 
         return `
             <div class="gen-acc ${expanded ? 'group-expanded' : ''}" data-numero="${group.numero}">
-                <div class="gen-acc-header" onclick="toggleCompetenza(${Number(group.numero)})">
+                <button type="button" class="gen-acc-header" data-numero="${group.numero}" aria-expanded="${expanded}" aria-controls="${panelId}">
                     <span class="gen-num">${group.numero}</span>
                     <span class="gen-acc-title">${escapeHTML(group.titolo)}</span>
                     <span class="gen-acc-meta">${group.axisCount} assi · ${group.abilityCount} abilità · ${group.knowledgeCount} conoscenze</span>
-                    <span class="group-chevron">▸</span>
-                </div>
-                <div class="gen-acc-body">
+                    <span class="group-chevron" aria-hidden="true">▸</span>
+                </button>
+                <div class="gen-acc-body" id="${panelId}" ${expanded ? '' : 'hidden'}>
                     <div class="competence-axes">
                         ${axesHtml}
                     </div>
@@ -915,6 +930,3 @@ function escapeHTML(value) {
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#039;');
 }
-
-// Rendi disponibile globalmente per onclick
-window.toggleCompetenza = toggleCompetenza;

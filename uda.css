@@ -72,6 +72,8 @@
     font-weight: 700;
     cursor: pointer;
     transition: all 0.2s ease;
+    min-width: 44px;
+    min-height: 44px;
 }
 
 .anno-pill:hover {
@@ -121,6 +123,11 @@
     user-select: none;
     background: linear-gradient(120deg, rgba(79, 70, 229, 0.07), rgba(14, 165, 233, 0.07));
     transition: background-color 0.2s ease;
+    width: 100%;
+    border: 0;
+    color: inherit;
+    font: inherit;
+    text-align: left;
 }
 
 .uda-acc-header:hover {
@@ -322,6 +329,23 @@
         justify-content: flex-start;
         width: 100%;
         order: 4;
+    }
+
+    .uda-acc-header {
+        padding: 13px;
+    }
+
+    .uda-acc-body {
+        padding: 12px;
+    }
+
+    .uda-section-header {
+        align-items: flex-start;
+    }
+
+    .uda-section-header h2 {
+        font-size: 16px;
+        line-height: 1.4;
     }
 
     .sin-row {

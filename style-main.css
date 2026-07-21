@@ -9,7 +9,7 @@
     --bg-body: #eef1fa;
     --ink: #0b1220;
     --ink-soft: #4b5872;
-    --ink-faint: #8a94ab;
+    --ink-faint: #626d82;
     --accent-a: #4f46e5;
     --accent-b: #0ea5e9;
     --accent-c: #8b5cf6;
@@ -24,6 +24,26 @@
 
 * {
     box-sizing: border-box;
+}
+
+.skip-link {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: #ffffff;
+    color: var(--accent-a);
+    font-weight: 700;
+    transform: translateY(-160%);
+    transition: transform 0.18s ease;
+    box-shadow: var(--shadow-card);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+    outline: 3px solid rgba(14, 165, 233, 0.55);
 }
 
 html {
@@ -267,18 +287,55 @@ body {
     }
 
     .tab-navigation {
-        top: 10px;
+        position: static;
         margin-inline: 4px;
+        margin-bottom: 18px;
     }
 
     .tab-buttons-wrapper {
         width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 6px;
     }
 
     .tab-button {
-        flex: 1;
         min-width: 0;
-        padding: 12px 10px;
+        min-height: 48px;
+        padding: 9px 6px;
+        font-size: 12.5px;
+        line-height: 1.15;
+        border-radius: 16px;
+    }
+
+    .tab-button .tab-icon {
+        display: none;
+    }
+
+    .tab-label {
+        white-space: normal;
+    }
+
+    .main-header {
+        margin-bottom: 16px;
+    }
+
+    .hero-card {
+        padding: 22px 16px 20px;
+        border-radius: 20px;
+    }
+
+    .hero-badge {
+        margin-bottom: 10px;
+        font-size: 10px;
+        line-height: 1.35;
+    }
+
+    .main-header h1 {
+        font-size: 27px;
+    }
+
+    .hero-subtitle {
         font-size: 13px;
     }
 }
