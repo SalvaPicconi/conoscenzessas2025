@@ -3,14 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curricolo Verticale SSAS - Completo</title>
+    <meta name="description" content="Curricolo verticale interattivo dell'indirizzo Servizi per la Sanità e l'Assistenza Sociale dell'IIS Meucci-Mattei di Cagliari, sede di Decimomannu.">
+    <meta name="theme-color" content="#4f46e5">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="it_IT">
+    <meta property="og:title" content="Curricolo Verticale SSAS | IIS Meucci-Mattei">
+    <meta property="og:description" content="Competenze, abilità, conoscenze, rubriche e UDA del curricolo verticale SSAS.">
+    <meta property="og:url" content="https://salvapicconi.github.io/conoscenzessas2025/">
+    <link rel="canonical" href="https://salvapicconi.github.io/conoscenzessas2025/">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <title>Curricolo Verticale SSAS | IIS Meucci-Mattei</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style-main.css?v=20260712">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;family=Sora:wght@600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style-main.css?v=20260721">
 </head>
 <body>
-    <div class="container">
+    <a class="skip-link" href="#main-content">Vai al contenuto principale</a>
+    <main class="container" id="main-content">
         <header class="main-header">
             <div class="hero-card">
                 <div class="hero-badge">IIS Meucci · Mattei Cagliari — Sede Decimomannu</div>
@@ -20,37 +30,37 @@
         </header>
 
         <!-- Navigation Tabs -->
-        <div class="tab-navigation">
-            <div class="tab-buttons-wrapper">
-                <button class="tab-button active" data-tab="indirizzo" id="tab-indirizzo">
-                    <span class="tab-icon">📊</span>
+        <div class="tab-navigation" aria-label="Sezioni del curricolo">
+            <div class="tab-buttons-wrapper" role="tablist" aria-label="Aree del curricolo">
+                <button type="button" class="tab-button active" data-tab="indirizzo" id="tab-indirizzo" role="tab" aria-selected="true" aria-controls="content-indirizzo">
+                    <span class="tab-icon" aria-hidden="true">📊</span>
                     <span class="tab-label">Area di Indirizzo</span>
                 </button>
-                <button class="tab-button" data-tab="generale" id="tab-generale">
-                    <span class="tab-icon">📚</span>
+                <button type="button" class="tab-button" data-tab="generale" id="tab-generale" role="tab" aria-selected="false" aria-controls="content-generale" tabindex="-1">
+                    <span class="tab-icon" aria-hidden="true">📚</span>
                     <span class="tab-label">Area Generale</span>
                 </button>
-                <button class="tab-button" data-tab="uda" id="tab-uda">
-                    <span class="tab-icon">🧩</span>
+                <button type="button" class="tab-button" data-tab="uda" id="tab-uda" role="tab" aria-selected="false" aria-controls="content-uda" tabindex="-1">
+                    <span class="tab-icon" aria-hidden="true">🧩</span>
                     <span class="tab-label">UDA</span>
                 </button>
             </div>
         </div>
 
         <!-- Tab Content -->
-        <div class="tab-content active" id="content-indirizzo">
-            <iframe src="area-indirizzo.html" frameborder="0" class="content-iframe"></iframe>
+        <div class="tab-content active" id="content-indirizzo" role="tabpanel" aria-labelledby="tab-indirizzo" aria-hidden="false">
+            <iframe src="area-indirizzo.html" title="Curricolo dell'area di indirizzo SSAS" class="content-iframe"></iframe>
         </div>
 
-        <div class="tab-content" id="content-generale">
-            <iframe src="area-generale.html" frameborder="0" class="content-iframe"></iframe>
+        <div class="tab-content" id="content-generale" role="tabpanel" aria-labelledby="tab-generale" aria-hidden="true" hidden>
+            <iframe src="area-generale.html" title="Curricolo dell'area generale" class="content-iframe" loading="lazy"></iframe>
         </div>
 
-        <div class="tab-content" id="content-uda">
-            <iframe src="uda.html" frameborder="0" class="content-iframe"></iframe>
+        <div class="tab-content" id="content-uda" role="tabpanel" aria-labelledby="tab-uda" aria-hidden="true" hidden>
+            <iframe src="uda.html" title="Fascicolo delle unità di apprendimento SSAS" class="content-iframe" loading="lazy"></iframe>
         </div>
-    </div>
+    </main>
 
-    <script src="script-main.js?v=20260712"></script>
+    <script src="script-main.js?v=20260721"></script>
 </body>
 </html>

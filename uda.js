@@ -77,8 +77,11 @@ function setupToolbar() {
     document.querySelectorAll('.anno-pill').forEach(btn => {
         btn.addEventListener('click', () => {
             udaFilters.anno = btn.dataset.anno === udaFilters.anno ? '' : btn.dataset.anno;
-            document.querySelectorAll('.anno-pill').forEach(b =>
-                b.classList.toggle('active', b.dataset.anno === udaFilters.anno));
+            document.querySelectorAll('.anno-pill').forEach(b => {
+                const isActive = b.dataset.anno === udaFilters.anno;
+                b.classList.toggle('active', isActive);
+                b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+            });
             render();
         });
     });
@@ -93,9 +96,17 @@ function setupToolbar() {
         document.getElementById('uda-competenza').value = '';
         document.getElementById('uda-insegnamento').value = '';
         document.getElementById('uda-search').value = '';
-        document.querySelectorAll('.anno-pill').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.anno-pill').forEach(b => {
+            b.classList.remove('active');
+            b.setAttribute('aria-pressed', 'false');
+        });
         expandedUda.clear();
         render();
+    });
+
+    document.getElementById('uda-list').addEventListener('click', event => {
+        const button = event.target.closest('.uda-acc-header');
+        if (button) toggleUda(button.dataset.udaId);
     });
 }
 
@@ -125,12 +136,14 @@ function toggleUda(id) {
     }
     const element = document.querySelector(`.uda-acc[data-id="${id}"]`);
     if (element) {
-        element.classList.toggle('group-expanded', expandedUda.has(id));
+        const isExpanded = expandedUda.has(id);
+        element.classList.toggle('group-expanded', isExpanded);
+        element.querySelector('.uda-acc-header')?.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+        const body = element.querySelector('.uda-acc-body');
+        if (body) body.hidden = !isExpanded;
     }
     notifyParentHeight();
 }
-window.toggleUda = toggleUda;
-
 // Insegnamenti coinvolti nella UDA, ordinati per numero di voci di cui sono referenti
 function insegnamentiOrdinati(u) {
     const score = new Map();
@@ -158,27 +171,28 @@ function renderUdaCard(u, autoExpand) {
     const expanded = autoExpand || expandedUda.has(u.id);
     const compTitolo = udaData.meta.competenze[String(u.competenza)] || '';
     const insTotali = insegnamentiOrdinati(u);
+    const panelId = `uda-panel-${String(u.id).replace(/[^a-zA-Z0-9_-]/g, '-')}`;
     const svilHtml = u.sviluppata
         ? `<div class="sin-row"><div class="sin-label">Materiali</div>
                <div class="sin-value"><span class="pill pill-stato">📂 ${escapeHTML(u.sviluppata)}</span></div></div>`
         : '';
 
     return `
-        <div class="uda-acc ${expanded ? 'group-expanded' : ''}" data-id="${u.id}">
-            <div class="uda-acc-header" onclick="toggleUda('${u.id}')">
+        <div class="uda-acc ${expanded ? 'group-expanded' : ''}" data-id="${escapeHTML(u.id)}">
+            <button type="button" class="uda-acc-header" data-uda-id="${escapeHTML(u.id)}" aria-expanded="${expanded}" aria-controls="${panelId}">
                 <span class="uda-num ${ANNO_CLASS[u.anno]}">${u.id}</span>
-                <div class="uda-acc-main">
+                <span class="uda-acc-main">
                     <span class="uda-acc-title">${escapeHTML(u.titolo)}</span>
                     <span class="uda-acc-sub">C${u.competenza} · ${escapeHTML(compTitolo)}</span>
-                </div>
-                <div class="uda-acc-pills">
+                </span>
+                <span class="uda-acc-pills">
                     <span class="pill ${ANNO_CLASS[u.anno]}">${ANNO_LABEL[u.anno]}</span>
                     <span class="pill pill-qnq">QNQ ${escapeHTML(u.qnq)}</span>
                     <span class="pill pill-comp">⏱ ${escapeHTML(u.ore)} ore</span>
-                </div>
-                <span class="group-chevron">▸</span>
-            </div>
-            <div class="uda-acc-body">
+                </span>
+                <span class="group-chevron" aria-hidden="true">▸</span>
+            </button>
+            <div class="uda-acc-body" id="${panelId}" ${expanded ? '' : 'hidden'}>
                 <div class="uda-sintetica">
                     <div class="sin-row">
                         <div class="sin-label">Competenza in uscita</div>

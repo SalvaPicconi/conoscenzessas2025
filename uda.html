@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fascicolo delle 48 unità di apprendimento del quinquennio SSAS.">
+    <meta name="theme-color" content="#4f46e5">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <title>Fascicolo UDA - Quinquennio SSAS</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260712">
-    <link rel="stylesheet" href="uda.css?v=20260712">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;family=Sora:wght@600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20260721">
+    <link rel="stylesheet" href="uda.css?v=20260721">
 </head>
 <body>
-    <div class="container">
+    <main class="container">
         <header class="header page-hero">
             <div class="hero-card">
                 <h1>Fascicolo delle UDA — Quinquennio</h1>
@@ -45,11 +48,11 @@
         <section class="filter-panel uda-toolbar" aria-label="Filtri UDA">
             <div class="uda-anni">
                 <span class="uda-anni-label">Anno:</span>
-                <button class="anno-pill" data-anno="1">1°</button>
-                <button class="anno-pill" data-anno="2">2°</button>
-                <button class="anno-pill" data-anno="3">3°</button>
-                <button class="anno-pill" data-anno="4">4°</button>
-                <button class="anno-pill" data-anno="5">5°</button>
+                <button type="button" class="anno-pill" data-anno="1" aria-pressed="false">1°</button>
+                <button type="button" class="anno-pill" data-anno="2" aria-pressed="false">2°</button>
+                <button type="button" class="anno-pill" data-anno="3" aria-pressed="false">3°</button>
+                <button type="button" class="anno-pill" data-anno="4" aria-pressed="false">4°</button>
+                <button type="button" class="anno-pill" data-anno="5" aria-pressed="false">5°</button>
             </div>
             <div class="filter-grid uda-filter-grid">
                 <div class="filter-item">
@@ -67,11 +70,12 @@
             </div>
             <div class="search-row">
                 <div class="search-container">
+                    <label class="sr-only" for="uda-search">Cerca nelle unità di apprendimento</label>
                     <input id="uda-search" type="text" placeholder="Cerca in titoli, compiti, saperi e abilità…" autocomplete="off">
-                    <span class="search-icon">🔍</span>
+                    <span class="search-icon" aria-hidden="true">🔍</span>
                 </div>
                 <div class="actions-row">
-                    <button id="uda-reset" class="reset-btn">Reset filtri</button>
+                    <button type="button" id="uda-reset" class="reset-btn">Azzera filtri</button>
                 </div>
             </div>
         </section>
@@ -80,10 +84,10 @@
 
         <div id="uda-list"></div>
 
-        <div id="uda-loading" class="loading">Caricamento UDA...</div>
-    </div>
+        <div id="uda-loading" class="loading" role="status">Caricamento UDA...</div>
+    </main>
 
-    <script src="uda.js?v=20260712"></script>
+    <script src="uda.js?v=20260721"></script>
     <script>
         // Testi comuni dal JSON (meta)
         fetch('data-uda.json', { cache: 'no-store' }).then(r => r.json()).then(d => {
