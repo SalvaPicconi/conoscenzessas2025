@@ -4,45 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Curricolo verticale interattivo dell'indirizzo Servizi per la Sanità e l'Assistenza Sociale dell'IIS Meucci-Mattei di Cagliari, sede di Decimomannu.">
-    <meta name="theme-color" content="#4f46e5">
+    <meta name="theme-color" content="#0b5f5a">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="it_IT">
     <meta property="og:title" content="Curricolo Verticale SSAS | IIS Meucci-Mattei">
     <meta property="og:description" content="Competenze, abilità, conoscenze, rubriche e UDA del curricolo verticale SSAS.">
     <meta property="og:url" content="https://salvapicconi.github.io/conoscenzessas2025/">
+    <meta property="og:image" content="https://salvapicconi.github.io/conoscenzessas2025/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Curricolo Verticale SSAS — IIS Meucci-Mattei, sede Decimomannu">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Curricolo Verticale SSAS | IIS Meucci-Mattei">
+    <meta name="twitter:description" content="Competenze, abilità, conoscenze, rubriche e UDA del curricolo verticale SSAS.">
+    <meta name="twitter:image" content="https://salvapicconi.github.io/conoscenzessas2025/og.png">
+    <meta name="twitter:image:alt" content="Curricolo Verticale SSAS — IIS Meucci-Mattei, sede Decimomannu">
     <link rel="canonical" href="https://salvapicconi.github.io/conoscenzessas2025/">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <title>Curricolo Verticale SSAS | IIS Meucci-Mattei</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;family=Sora:wght@600;700;800&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style-main.css?v=20260721">
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style-main.css?v=20260901">
 </head>
 <body>
     <a class="skip-link" href="#main-content">Vai al contenuto principale</a>
     <main class="container" id="main-content">
         <header class="main-header">
             <div class="hero-card">
-                <div class="hero-badge">IIS Meucci · Mattei Cagliari — Sede Decimomannu</div>
-                <h1>Curricolo Verticale SSAS</h1>
-                <p class="hero-subtitle">Servizi per la Sanità e l'Assistenza Sociale — D.M. 24 maggio 2018, n. 92, Allegato C</p>
+                <div class="hero-copy">
+                    <div class="hero-badge">IIS Meucci · Mattei Cagliari — Sede Decimomannu</div>
+                    <p class="hero-kicker">Mappa interattiva del curricolo</p>
+                    <h1>Curricolo Verticale <span>SSAS</span></h1>
+                    <p class="hero-subtitle">Servizi per la Sanità e l'Assistenza Sociale — D.M. 24 maggio 2018, n. 92, Allegato C</p>
+                    <p class="hero-guide"><strong>Esplora, collega, progetta.</strong> Tutti i contenuti del curricolo restano consultabili e filtrabili.</p>
+                </div>
+                <aside class="hero-route" aria-label="Percorso formativo quinquennale">
+                    <div class="route-heading">
+                        <span class="route-label">Percorso formativo</span>
+                        <strong>Cinque anni, una visione comune</strong>
+                    </div>
+                    <ol class="route-steps">
+                        <li><span>1°</span></li>
+                        <li><span>2°</span></li>
+                        <li><span>3°</span></li>
+                        <li><span>4°</span></li>
+                        <li><span>5°</span></li>
+                    </ol>
+                    <p>Dalle competenze di base alla progettazione professionale e interdisciplinare.</p>
+                </aside>
             </div>
         </header>
 
         <!-- Navigation Tabs -->
         <div class="tab-navigation" aria-label="Sezioni del curricolo">
+            <div class="tab-intro">
+                <span class="section-kicker">Scegli il tuo punto di partenza</span>
+                <h2>Da dove vuoi iniziare?</h2>
+                <p>Tre prospettive complementari per leggere lo stesso percorso.</p>
+            </div>
             <div class="tab-buttons-wrapper" role="tablist" aria-label="Aree del curricolo">
                 <button type="button" class="tab-button active" data-tab="indirizzo" id="tab-indirizzo" role="tab" aria-selected="true" aria-controls="content-indirizzo">
-                    <span class="tab-icon" aria-hidden="true">📊</span>
-                    <span class="tab-label">Area di Indirizzo</span>
+                    <span class="tab-icon" aria-hidden="true">01</span>
+                    <span class="tab-copy"><span class="tab-label">Area di Indirizzo</span><span class="tab-description">Competenze professionali</span></span>
                 </button>
                 <button type="button" class="tab-button" data-tab="generale" id="tab-generale" role="tab" aria-selected="false" aria-controls="content-generale" tabindex="-1">
-                    <span class="tab-icon" aria-hidden="true">📚</span>
-                    <span class="tab-label">Area Generale</span>
+                    <span class="tab-icon" aria-hidden="true">02</span>
+                    <span class="tab-copy"><span class="tab-label">Area Generale</span><span class="tab-description">Competenze comuni</span></span>
                 </button>
                 <button type="button" class="tab-button" data-tab="uda" id="tab-uda" role="tab" aria-selected="false" aria-controls="content-uda" tabindex="-1">
-                    <span class="tab-icon" aria-hidden="true">🧩</span>
-                    <span class="tab-label">UDA</span>
+                    <span class="tab-icon" aria-hidden="true">03</span>
+                    <span class="tab-copy"><span class="tab-label">UDA</span><span class="tab-description">Unità di apprendimento</span></span>
                 </button>
             </div>
         </div>
