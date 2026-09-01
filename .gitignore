@@ -17,3 +17,9 @@ node_modules/
 .idea/
 # Config locale Claude Code
 .claude/
+
+# Materiali di lavoro interni — NON pubblicare sul sito.
+# Il sito è pubblico: qui dentro ci sono il dossier normativo con l'analisi dei
+# PFI d'istituto e il testo dell'intervento in collegio.
+normativa/
+interventi/

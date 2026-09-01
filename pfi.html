@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Progetto Formativo Individuale compilabile — indirizzo SSAS, conforme al D.Lgs. 61/2017 e al D.M. 92/2018.">
+    <meta name="theme-color" content="#0b5f5a">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <title>PFI compilabile — Progetto Formativo Individuale</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20260721">
+    <link rel="stylesheet" href="pfi.css?v=20260901">
+    <link rel="stylesheet" href="didattica.css?v=20260901">
+</head>
+<body>
+<main class="container">
+
+    <header class="header page-hero no-print">
+        <div class="hero-card">
+            <h1>Progetto Formativo Individuale</h1>
+            <div class="subline">IIS Meucci - Mattei Cagliari, Sede Decimomannu — Servizi per la sanità e l'assistenza sociale</div>
+            <p class="subtitle">Modulo compilabile conforme al D.Lgs. 61/2017 art. 5 c. 1 lett. a), al D.M. 92/2018 artt. 4 e 6 e al modello di riferimento delle Linee guida (Box n. 10)</p>
+        </div>
+    </header>
+
+    <div class="pfi-avviso no-print" role="note">
+        <strong>Ambiente dimostrativo.</strong> Non inserire dati di studenti reali. I dati digitati
+        restano nel browser finché non li salvi; il salvataggio in cloud è un prototipo con anagrafiche
+        di esempio.
+    </div>
+
+    <!-- ============ TOOLBAR ============ -->
+    <section class="pfi-toolbar no-print" aria-label="Azioni sul documento">
+        <div class="pfi-toolbar-group">
+            <button type="button" id="pfi-word" class="pfi-btn pfi-btn-primary">Scarica Word</button>
+            <button type="button" id="pfi-print" class="pfi-btn">Stampa / PDF</button>
+        </div>
+        <div class="pfi-toolbar-group">
+            <button type="button" id="pfi-save-json" class="pfi-btn">Salva bozza</button>
+            <button type="button" id="pfi-load-json" class="pfi-btn">Apri bozza</button>
+            <input type="file" id="pfi-file" accept="application/json,.json" hidden>
+        </div>
+        <div class="pfi-toolbar-group pfi-cloud">
+            <span id="pfi-cloud-stato" class="pfi-cloud-stato" aria-live="polite">Cloud non collegato</span>
+            <button type="button" id="pfi-accedi" class="pfi-btn">Accedi</button>
+            <button type="button" id="pfi-cloud-salva" class="pfi-btn" hidden>Salva in cloud</button>
+            <button type="button" id="pfi-cloud-apri" class="pfi-btn" hidden>Le mie bozze</button>
+            <button type="button" id="pfi-esci" class="pfi-btn pfi-btn-ghost" hidden>Esci</button>
+        </div>
+        <div class="pfi-toolbar-group pfi-toolbar-right">
+            <button type="button" id="pfi-reset" class="pfi-btn pfi-btn-ghost">Svuota modulo</button>
+        </div>
+    </section>
+
+    <nav class="pfi-indice no-print" aria-label="Quadri del PFI">
+        <ol>
+            <li><a href="#q1">1 · Dati anagrafici</a></li>
+            <li><a href="#q2">2 · Bilancio iniziale</a></li>
+            <li><a href="#q3">3 · Obiettivi</a></li>
+            <li><a href="#q4">4 · Strumenti didattici</a></li>
+            <li><a href="#q5">5 · Personalizzazione</a></li>
+            <li><a href="#q6">6 · Verifiche e revisioni</a></li>
+            <li><a href="#q7">7 · Piano delle UDA</a></li>
+            <li><a href="#q8">8 · Competenze</a></li>
+        </ol>
+    </nav>
+
+    <form id="pfi-form" autocomplete="off">
+
+    <!-- ============ INTESTAZIONE ============ -->
+    <section class="pfi-quadro" id="q0">
+        <div class="pfi-griglia pfi-griglia-3">
+            <label>Istituzione scolastica
+                <input type="text" name="istituto" value="IIS «A. Meucci - E. Mattei» — Cagliari, sede di Decimomannu">
+            </label>
+            <label>Indirizzo di studio
+                <input type="text" name="indirizzo" value="Servizi per la sanità e l'assistenza sociale">
+            </label>
+            <label>Anno scolastico
+                <input type="text" name="annoScolastico" placeholder="2026/2027">
+            </label>
+        </div>
+    </section>
+
+    <!-- ============ QUADRO 1 ============ -->
+    <section class="pfi-quadro" id="q1">
+        <h2><span class="pfi-num">Quadro 1</span> Dati generali e anagrafici</h2>
+        <p class="pfi-fonte">Linee guida, Box n. 10 · Modello PFI INDIRE, Quadro 1</p>
+
+        <div class="pfi-griglia pfi-griglia-3">
+            <label>Cognome <input type="text" name="cognome"></label>
+            <label>Nome <input type="text" name="nome"></label>
+            <label>Data di nascita <input type="date" name="dataNascita"></label>
+            <label>Luogo di nascita <input type="text" name="luogoNascita"></label>
+            <label class="pfi-col-2">Indirizzo e comune di residenza <input type="text" name="residenza"></label>
+            <label>Codice ATECO <input type="text" name="ateco" value="85.32.09"></label>
+            <label>Classificazione NUP <input type="text" name="nup" value="5.3.1.1"></label>
+            <label>Classe e sezione <input type="text" name="classe" placeholder="3ª A"></label>
+        </div>
+
+        <fieldset class="pfi-fieldset">
+            <legend>Eventuali bisogni educativi speciali</legend>
+            <div class="pfi-checks">
+                <label><input type="checkbox" name="bes_dsa" value="si"> Disturbo specifico dell'apprendimento</label>
+                <label><input type="checkbox" name="bes_cdc" value="si"> Bisogno educativo speciale rilevato dal consiglio di classe</label>
+                <label><input type="checkbox" name="bes_doc" value="si"> Con documentazione</label>
+                <label><input type="checkbox" name="bes_104" value="si"> Certificazione L. 104/1992</label>
+            </div>
+            <p class="pfi-nota">Il PFI sostituisce il documento di personalizzazione per gli alunni con BES;
+                restano ferme le disposizioni per gli alunni con disabilità (Linee guida § 3.2.3 a).</p>
+        </fieldset>
+
+        <fieldset class="pfi-fieldset">
+            <legend>Livello di conoscenza della lingua italiana <span class="pfi-cond">(se di madrelingua non italiana)</span></legend>
+            <div class="pfi-griglia pfi-griglia-2">
+                <label>Lettura e scrittura
+                    <select name="italianoScritto">
+                        <option value="">—</option>
+                        <option>A1</option><option>A2</option><option>B1</option><option>B2</option><option>C1</option>
+                    </select>
+                </label>
+                <label>Comprensione ed esposizione orale
+                    <select name="italianoOrale">
+                        <option value="">—</option>
+                        <option>A1</option><option>A2</option><option>B1</option><option>B2</option><option>C1</option>
+                    </select>
+                </label>
+            </div>
+        </fieldset>
+
+        <fieldset class="pfi-fieldset">
+            <legend>Docente tutor per annualità</legend>
+            <div class="pfi-griglia pfi-griglia-5" id="pfi-tutor-anni"></div>
+            <p class="pfi-nota">Individuato dal dirigente scolastico, sentito il consiglio di classe — D.M. 92/2018 art. 6 c. 3.</p>
+        </fieldset>
+    </section>
+
+    <!-- ============ QUADRO 2 ============ -->
+    <section class="pfi-quadro" id="q2">
+        <h2><span class="pfi-num">Quadro 2</span> Sintesi del bilancio personale iniziale</h2>
+        <p class="pfi-fonte">D.M. 92/2018 art. 2 e art. 6 c. 2 · Linee guida, Box n. 10 e nota 37</p>
+        <p class="pfi-nota pfi-nota-top">
+            Data di rilevazione: <input type="date" name="bilancioData" class="pfi-inline-date">
+            — da compilarsi con la partecipazione dello studente e della famiglia (Linee guida § 3.2.3 b).
+        </p>
+
+        <h3>Profilo dell'allievo</h3>
+        <label class="pfi-full">Attitudine e predisposizione verso il percorso scelto, motivazione, metodo di studio, relazione con i pari e con gli adulti
+            <textarea name="profilo" rows="4"></textarea>
+        </label>
+
+        <h3>Competenze acquisite in contesti formali</h3>
+        <div class="pfi-griglia pfi-griglia-2">
+            <label class="pfi-col-2">Precedenti esperienze di istruzione e formazione <input type="text" name="precedentiEsperienze"></label>
+            <label>Eventuali ripetenze <input type="text" name="ripetenze"></label>
+            <label>Titolo di studio conseguito e votazione <input type="text" name="titoloStudio" placeholder="Diploma di scuola sec. I grado — __/10"></label>
+            <label class="pfi-col-2">Certificazione delle competenze del primo ciclo e risultati INVALSI <textarea name="certificazionePrimoCiclo" rows="2"></textarea></label>
+            <label class="pfi-col-2">Esiti delle prove di ingresso <textarea name="proveIngresso" rows="2"></textarea></label>
+            <label>Debiti in ingresso <input type="text" name="debitiIngresso"></label>
+            <label>Crediti dimostrabili acquisiti <input type="text" name="creditiIngresso"></label>
+            <label class="pfi-col-2">Precedenti esperienze di PCTO o apprendistato <textarea name="esperienzePcto" rows="2"></textarea></label>
+        </div>
+
+        <h3>Competenze acquisite in contesti non formali e informali</h3>
+        <p class="pfi-nota pfi-nota-top">Rilevate nel colloquio condotto dal docente tutor.</p>
+        <div class="pfi-griglia pfi-griglia-2">
+            <label>Attitudini <textarea name="attitudini" rows="2"></textarea></label>
+            <label>Risorse e motivazione <textarea name="motivazione" rows="2"></textarea></label>
+            <label>Aspettative per il futuro <textarea name="aspettative" rows="2"></textarea></label>
+            <label>Capacità di studiare, vivere e lavorare con altri <textarea name="capacitaSociali" rows="2"></textarea></label>
+            <label class="pfi-col-2">Problematiche sociali o personali emerse <textarea name="problematiche" rows="2"></textarea></label>
+            <label class="pfi-col-2">Altre attività particolarmente significative (volontariato, sport, associazionismo, competenze digitali o linguistiche) <textarea name="altreAttivita" rows="2"></textarea></label>
+        </div>
+    </section>
+
+    <!-- ============ QUADRO 3 ============ -->
+    <section class="pfi-quadro" id="q3">
+        <h2><span class="pfi-num">Quadro 3</span> Obiettivi previsti in termini di personalizzazione</h2>
+        <p class="pfi-fonte">Modello PFI INDIRE, Quadro 3 — «attraverso gli interventi di personalizzazione o attraverso particolari UdA»</p>
+        <label class="pfi-full">A partire dai bisogni formativi emersi dal bilancio iniziale, il consiglio di classe individua i seguenti obiettivi
+            <textarea name="obiettivi" rows="5"></textarea>
+        </label>
+        <div class="pfi-griglia pfi-griglia-2">
+            <label>Obiettivi di apprendimento della lingua italiana <input type="text" name="obiettivoItaliano"></label>
+            <label>Partecipazione alla vita scolastica <input type="text" name="obiettivoPartecipazione"></label>
+            <label>Conseguimento di qualifiche o certificazioni <input type="text" name="obiettivoCertificazioni" placeholder="ECDL, PET, DELF…"></label>
+            <label>Crediti per passaggio ad altri indirizzi o sistemi <input type="text" name="obiettivoCrediti"></label>
+        </div>
+    </section>
+
+    <!-- ============ QUADRO 4 ============ -->
+    <section class="pfi-quadro" id="q4">
+        <h2><span class="pfi-num">Quadro 4</span> Strumenti didattici particolari previsti</h2>
+        <p class="pfi-fonte">Modello PFI INDIRE, Quadro 4 — in caso di alunno privo di altre tutele quali PDP e PEI</p>
+        <div class="pfi-checks pfi-checks-col">
+            <label><input type="checkbox" name="str_formulari" value="si"> Formulari, schemi e mappe concettuali</label>
+            <label><input type="checkbox" name="str_tempi" value="si"> Tempi aggiuntivi nelle verifiche</label>
+            <label><input type="checkbox" name="str_digitali" value="si"> Strumenti compensativi digitali</label>
+            <label><input type="checkbox" name="str_orale" value="si"> Prevalenza della verifica orale</label>
+        </div>
+        <label class="pfi-full">Altro
+            <textarea name="strumentiAltro" rows="2"></textarea>
+        </label>
+    </section>
+
+    <!-- ============ QUADRO 5 ============ -->
+    <section class="pfi-quadro" id="q5">
+        <h2><span class="pfi-num">Quadro 5</span> Interventi di personalizzazione del percorso</h2>
+        <p class="pfi-fonte">Modello PFI INDIRE, Quadro 5 · quota di personalizzazione fino a 264 ore nel biennio — D.Lgs. 61/2017 art. 4 c. 2</p>
+        <div class="pfi-tabella-wrap">
+            <table class="pfi-tabella" id="pfi-personalizzazione">
+                <caption class="sr-only">Interventi di personalizzazione per annualità, con monte ore</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Tipo di intervento</th>
+                        <th scope="col">Attività previste</th>
+                        <th scope="col" class="pfi-col-ore">Ore 1ª</th>
+                        <th scope="col" class="pfi-col-ore">Ore 2ª</th>
+                        <th scope="col" class="pfi-col-ore">Ore 3ª</th>
+                        <th scope="col" class="pfi-col-ore">Ore 4ª</th>
+                        <th scope="col" class="pfi-col-ore">Ore 5ª</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr>
+                        <th scope="row" colspan="2">Totale ore</th>
+                        <td class="pfi-tot" data-anno="1">0</td>
+                        <td class="pfi-tot" data-anno="2">0</td>
+                        <td class="pfi-tot" data-anno="3">0</td>
+                        <td class="pfi-tot" data-anno="4">0</td>
+                        <td class="pfi-tot" data-anno="5">0</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <p class="pfi-nota" id="pfi-264" aria-live="polite">Totale biennio: <strong>0</strong> ore su un massimo di 264.</p>
+    </section>
+
+    <!-- ============ QUADRO 6 ============ -->
+    <section class="pfi-quadro" id="q6">
+        <h2><span class="pfi-num">Quadro 6</span> Verifica periodica e revisione</h2>
+        <p class="pfi-fonte">D.M. 92/2018 art. 4 c. 7 e art. 6 c. 2 · Linee guida, Box n. 9</p>
+        <p class="pfi-nota pfi-nota-top">
+            La valutazione ha per oggetto «i risultati delle unità di apprendimento inserite nel P.F.I.»
+            (art. 4 c. 7). Il PFI è verificato almeno al termine di ciascun anno scolastico e aggiornato
+            per l'intero percorso.
+        </p>
+        <div id="pfi-annualita"></div>
+    </section>
+
+    <!-- ============ QUADRO 7 — L'ALLEGATO ============ -->
+    <section class="pfi-quadro pfi-quadro-uda" id="q7">
+        <h2><span class="pfi-num">Quadro 7</span> Piano didattico delle unità di apprendimento</h2>
+        <p class="pfi-fonte">
+            D.M. 92/2018 art. 4 c. 6 — le UDA «nelle quali è strutturato» il PFI · art. 6 c. 4 — per tutta
+            la durata del quinquennio, con progettazione interdisciplinare · Linee guida, Box n. 8
+        </p>
+        <p class="pfi-nota pfi-nota-top">
+            È la parte che il modello dichiara «parte integrante del presente documento». Scegli le UDA
+            dalla rosa deliberata dal collegio, oppure aggiungine una a mano.
+        </p>
+
+        <div class="pfi-uda-picker no-print">
+            <p class="pfi-nota pfi-nota-top">
+                Cataloghi pubblicati in questo sito: <strong>48 UDA d'asse</strong> (una per ogni
+                competenza intermedia del curricolo) e <strong>10 UDA trasversali</strong>
+                (interdisciplinari fra i quattro assi culturali).
+            </p>
+            <div class="pfi-griglia pfi-griglia-3">
+                <label>Tipo di UDA
+                    <select id="pfi-uda-tipo">
+                        <option value="">Tutte</option>
+                        <option value="asse">D'asse</option>
+                        <option value="trasversale">Trasversali</option>
+                    </select>
+                </label>
+                <label>Anno di corso
+                    <select id="pfi-uda-anno">
+                        <option value="">Tutti gli anni</option>
+                        <option value="1">1° anno</option><option value="2">2° anno</option>
+                        <option value="3">3° anno</option><option value="4">4° anno</option>
+                        <option value="5">5° anno</option>
+                    </select>
+                </label>
+                <label>Competenza in uscita
+                    <select id="pfi-uda-competenza">
+                        <option value="">Tutte le competenze</option>
+                    </select>
+                </label>
+            </div>
+            <label class="pfi-full">Unità di apprendimento
+                <select id="pfi-uda-scelta"><option value="">Caricamento…</option></select>
+            </label>
+            <div class="pfi-uda-azioni">
+                <button type="button" id="pfi-uda-aggiungi" class="pfi-btn pfi-btn-primary">Aggiungi al piano</button>
+                <button type="button" id="pfi-uda-vuota" class="pfi-btn">Aggiungi UDA vuota</button>
+            </div>
+        </div>
+
+        <div id="pfi-uda-lista" class="pfi-uda-lista"></div>
+        <p id="pfi-uda-vuoto" class="pfi-uda-vuoto">Nessuna UDA inserita. Finché questa sezione resta vuota,
+            il PFI è privo della struttura che l'art. 4 c. 6 del Regolamento gli assegna.</p>
+    </section>
+
+    <!-- ============ QUADRO 8 ============ -->
+    <section class="pfi-quadro" id="q8">
+        <h2><span class="pfi-num">Quadro 8</span> Livelli di padronanza delle competenze</h2>
+        <p class="pfi-fonte">Linee guida, Box n. 8 voce 8 — rubrica ad almeno 4 livelli · livelli QNQ (Tabella A)</p>
+        <p class="pfi-nota pfi-nota-top">
+            Valutazione collegiale del consiglio di classe, riferita alle UDA inserite nel Quadro 7 e non
+            alla media delle discipline (Linee guida § 3.2.2).
+        </p>
+        <div class="pfi-tabella-wrap">
+            <table class="pfi-tabella" id="pfi-competenze">
+                <caption class="sr-only">Livello di padronanza raggiunto per competenza in uscita</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Competenza in uscita</th>
+                        <th scope="col">UDA di riferimento</th>
+                        <th scope="col">Livello raggiunto</th>
+                        <th scope="col">QNQ</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <details class="pfi-legenda no-print">
+            <summary>Legenda dei quattro livelli</summary>
+            <dl>
+                <dt>Iniziale</dt><dd>Porta a termine il compito solo se guidato, in situazioni note e con risorse fornite.</dd>
+                <dt>Base</dt><dd>Porta a termine il compito in autonomia in situazioni note, secondo procedure date.</dd>
+                <dt>Intermedio</dt><dd>Porta a termine il compito in autonomia anche in situazioni parzialmente nuove, scegliendo fra procedure note.</dd>
+                <dt>Avanzato</dt><dd>Affronta situazioni nuove assumendo responsabilità, integra risorse diverse, giustifica le scelte.</dd>
+            </dl>
+        </details>
+    </section>
+
+    <!-- ============ SOTTOSCRIZIONE ============ -->
+    <section class="pfi-quadro" id="q9">
+        <h2><span class="pfi-num">Sottoscrizione</span></h2>
+        <p class="pfi-fonte">Modello PFI INDIRE — firma dell'alunno e di un genitore · Linee guida § 3.2.3 b) sulla fase istruttoria</p>
+        <div class="pfi-griglia pfi-griglia-2">
+            <label>Data di prima stesura <input type="date" name="dataStesura"></label>
+            <label>Data di approvazione del consiglio di classe <input type="date" name="dataApprovazione"></label>
+            <label>Coordinatore del consiglio di classe <input type="text" name="coordinatore"></label>
+            <label>Dirigente scolastico <input type="text" name="dirigente"></label>
+        </div>
+        <div class="pfi-firme">
+            <div class="pfi-firma"><span>Firma dello studente</span></div>
+            <div class="pfi-firma"><span>Firma del genitore o di chi esercita la responsabilità genitoriale</span></div>
+            <div class="pfi-firma"><span>Firma del docente tutor</span></div>
+        </div>
+    </section>
+
+    </form>
+
+    <p class="pfi-piede no-print">
+        Modulo costruito sul modello ufficiale INDIRE e sul Box n. 10 delle Linee guida (D.M. 766/2018),
+        integrato con le prescrizioni del D.M. 92/2018. Riferimenti completi nel
+        <a href="normativa/DOSSIER-UDA-PFI.md">dossier normativo</a>.
+    </p>
+
+</main>
+
+<script src="pfi.js?v=20260901"></script>
+</body>
+</html>
