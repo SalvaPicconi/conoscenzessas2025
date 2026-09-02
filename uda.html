@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="style.css?v=20260721">
     <link rel="stylesheet" href="uda.css?v=20260721">
     <link rel="stylesheet" href="didattica.css?v=20260901">
+    <link rel="stylesheet" href="assets/uda-revisione.css?v=20260902a">
 </head>
 <body>
     <main class="container">
@@ -23,6 +24,77 @@
                 <p class="subtitle">Schede sintetiche in formato D.I. 92/2018 · base per il Piano delle UDA di inizio anno</p>
             </div>
         </header>
+
+        <section class="uda-revisione-accesso" aria-label="Revisione collegiale delle UDA">
+            <div>
+                <p class="uda-revisione-eyebrow">Lavoro collegiale</p>
+                <h2>Revisione delle UDA</h2>
+                <p>Il fascicolo resta consultabile da tutti. I docenti autorizzati possono salvare annotazioni e proposte senza modificare subito il testo pubblico.</p>
+            </div>
+            <button type="button" id="uda-revisione-apri-accesso" class="uda-revisione-primary">Accedi per modificare</button>
+        </section>
+
+        <form id="uda-revisione-auth" class="uda-revisione-auth" hidden>
+            <div class="uda-revisione-auth-grid">
+                <label for="uda-revisione-docente">Docente
+                    <select id="uda-revisione-docente" required>
+                        <option value="">Scegli il tuo nome</option>
+                        <option>Prof. Picconi</option>
+                        <option>Prof. Pinna</option>
+                        <option>Prof.ssa Manca</option>
+                        <option>Prof.ssa Cossu</option>
+                        <option>Prof.ssa Preite</option>
+                        <option>Prof.ssa Sanna</option>
+                    </select>
+                </label>
+                <label for="uda-revisione-password">Password
+                    <input type="password" id="uda-revisione-password" autocomplete="current-password" required>
+                </label>
+            </div>
+            <div class="uda-revisione-auth-actions">
+                <p id="uda-revisione-auth-messaggio" class="uda-revisione-messaggio" role="status" aria-live="polite"></p>
+                <button type="button" id="uda-revisione-annulla" class="uda-revisione-secondary">Annulla</button>
+                <button type="submit" class="uda-revisione-primary">Accedi</button>
+            </div>
+        </form>
+
+        <section id="uda-revisione-toolbar" class="uda-revisione-toolbar" hidden aria-label="Strumenti di revisione">
+            <div>
+                <p class="uda-revisione-eyebrow">Modalità revisione attiva</p>
+                <p id="uda-revisione-identita"></p>
+            </div>
+            <div class="uda-revisione-toolbar-actions">
+                <button type="button" id="uda-revisione-elenco" class="uda-revisione-secondary">Revisioni <span id="uda-revisione-contatore">0</span></button>
+                <button type="button" id="uda-revisione-esci" class="uda-revisione-ghost">Esci</button>
+            </div>
+        </section>
+
+        <section id="uda-revisione-pannello" class="uda-revisione-pannello" hidden aria-labelledby="uda-revisione-pannello-titolo">
+            <div class="uda-revisione-pannello-head">
+                <div>
+                    <p class="uda-revisione-eyebrow">Area condivisa</p>
+                    <h2 id="uda-revisione-pannello-titolo">Annotazioni e proposte</h2>
+                </div>
+                <button type="button" id="uda-revisione-pannello-chiudi" class="uda-revisione-secondary">Chiudi</button>
+            </div>
+            <div class="uda-revisione-filters">
+                <label>Anno
+                    <select id="uda-revisione-filtro-anno">
+                        <option value="">Tutti</option>
+                        <option value="1">1° anno</option>
+                        <option value="2">2° anno</option>
+                        <option value="3">3° anno</option>
+                        <option value="4">4° anno</option>
+                        <option value="5">5° anno</option>
+                    </select>
+                </label>
+                <label>Docente
+                    <select id="uda-revisione-filtro-docente"><option value="">Tutti</option></select>
+                </label>
+            </div>
+            <p id="uda-revisione-elenco-messaggio" class="uda-revisione-messaggio" role="status" aria-live="polite"></p>
+            <div id="uda-revisione-elenco-contenuto"></div>
+        </section>
 
         <p class="uda-intro">48 schede sintetiche — una per ogni competenza intermedia del curricolo
             (9 per il 1° e 2° anno, 10 per 3ª, 4ª e 5ª; la C9 non prevede traguardi nel biennio).
@@ -88,7 +160,8 @@
         <div id="uda-loading" class="loading" role="status">Caricamento UDA...</div>
     </main>
 
-    <script src="uda.js?v=20260721"></script>
+    <script src="uda.js?v=20260902a"></script>
+    <script type="module" src="assets/uda-revisione.js?v=20260902a"></script>
     <script>
         // Testi comuni dal JSON (meta)
         fetch('data-uda.json', { cache: 'no-store' }).then(r => r.json()).then(d => {
