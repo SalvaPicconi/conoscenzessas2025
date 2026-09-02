@@ -171,6 +171,10 @@
           ]
         }
       ],
+      "situazione": "In una classe appena formata i conflitti nascono ogni giorno e vengono affrontati d'istinto: alzando la voce, escludendo, lasciando perdere. Nessuno ha mai messo per iscritto quali regole ci si dà e perché.",
+      "prodotto": "Regolamento di convivenza della classe elaborato dagli studenti: analisi di casi di conflitto realmente accaduti, individuazione delle regole necessarie, stesura del testo normativo e discussione in assemblea con votazione finale.",
+      "beneficiari": "Il gruppo classe, che adotta il regolamento e lo applica per tutto l'anno.",
+      "ambito": "interna",
       "tipo": "Trasversale",
       "qnq": "2",
       "competenza": 4,
@@ -281,6 +285,10 @@
           ]
         }
       ],
+      "situazione": "Gli studenti usano lo smartphone molte ore al giorno senza sapere quali dati cedono, e chiedono a un'intelligenza artificiale risposte che non sanno verificare.",
+      "prodotto": "Guida all'uso consapevole dello smartphone per gli studenti delle terze medie in visita di orientamento: dieci schede su privacy, impronta digitale, riconoscimento delle fonti e uso degli assistenti basati su intelligenza artificiale.",
+      "beneficiari": "Gli studenti delle terze medie in visita di orientamento, destinatari della guida.",
+      "ambito": "esterna",
       "tipo": "Trasversale",
       "qnq": "2",
       "competenza": 10,
@@ -387,6 +395,10 @@
           ]
         }
       ],
+      "situazione": "Nei servizi per l'infanzia si legge ai bambini, ma spesso senza sapere perché quel testo e non un altro, e senza osservare che effetto produce.",
+      "prodotto": "Laboratorio di lettura animata per una sezione della scuola dell'infanzia: scelta motivata di tre testi, adattamento per la lettura ad alta voce, realizzazione dell'attività e osservazione documentata delle reazioni dei bambini.",
+      "beneficiari": "I bambini della sezione della scuola dell'infanzia e le loro insegnanti.",
+      "ambito": "esterna",
       "tipo": "Trasversale",
       "qnq": "2",
       "competenza": 6,
@@ -504,6 +516,10 @@
           ]
         }
       ],
+      "situazione": "Del proprio comune si parla per impressioni: quanti anziani vivano soli, quali servizi manchino, dove ci siano barriere, nessuno lo sa con precisione.",
+      "prodotto": "Dossier statistico-cartografico del proprio comune: popolazione per fasce d'età, servizi presenti, barriere architettoniche rilevate sul campo, restituiti in grafici e in una mappa digitale commentata, consegnata all'ufficio servizi sociali.",
+      "beneficiari": "L'ufficio servizi sociali del comune, cui il dossier viene consegnato.",
+      "ambito": "esterna",
       "tipo": "Trasversale",
       "qnq": "2",
       "competenza": 1,
@@ -619,6 +635,10 @@
           ]
         }
       ],
+      "situazione": "La stessa informazione su un utente va detta in due modi diversi all'équipe e alla famiglia: usare il lessico tecnico con chi non lo possiede equivale a non comunicare.",
+      "prodotto": "Relazione professionale su un caso di servizio, redatta in due versioni: una per gli operatori, con lessico tecnico, e una per la famiglia dell'utente, in linguaggio piano; entrambe corredate dai dati essenziali del caso e da una scheda di sintesi.",
+      "beneficiari": "Caso simulato; le due versioni sono valutate da un operatore dei servizi.",
+      "ambito": "mista",
       "tipo": "Trasversale",
       "qnq": "3",
       "competenza": 7,
@@ -735,6 +755,10 @@
           ]
         }
       ],
+      "situazione": "In rete circolano informazioni sanitarie contraddittorie, e i comportamenti a rischio in adolescenza si consolidano proprio mentre le fonti attendibili restano inascoltate.",
+      "prodotto": "Campagna di prevenzione rivolta ai coetanei su un tema scelto fra alimentazione, movimento e dipendenze: analisi di contenuti sanitari trovati in rete, individuazione di quelli non attendibili e produzione di materiale corretto in formato digitale, diffuso nella scuola.",
+      "beneficiari": "Gli studenti dell'istituto, destinatari della campagna.",
+      "ambito": "interna",
       "tipo": "Trasversale",
       "qnq": "3",
       "competenza": 6,
@@ -850,6 +874,10 @@
           ]
         }
       ],
+      "situazione": "Migranti, anziani e persone con disabilità compaiono nei media dentro cornici ricorrenti che i dati reali spesso smentiscono, e che pesano su chi lavora nei servizi.",
+      "prodotto": "Dossier di analisi su come i media rappresentano una categoria fragile — migranti, anziani, persone con disabilità: raccolta di un corpus di articoli, analisi del lessico, confronto con i dati reali e proposta di una contro-narrazione pubblicabile sul sito della scuola.",
+      "beneficiari": "La comunità scolastica, tramite la pubblicazione della contro-narrazione sul sito dell'istituto.",
+      "ambito": "interna",
       "tipo": "Trasversale",
       "qnq": "3/4",
       "competenza": 9,
@@ -977,6 +1005,10 @@
           ]
         }
       ],
+      "situazione": "I servizi alla persona chiudono o riducono le prestazioni per ragioni economiche che gli operatori conoscono poco e non sanno leggere in un bilancio.",
+      "prodotto": "Piano economico essenziale di un servizio realmente esistente sul territorio — centro diurno, ludoteca, servizio domiciliare: voci di costo, fonti di finanziamento, costo per utente e proposta motivata di una misura di sostenibilità, presentata al responsabile del servizio.",
+      "beneficiari": "Il responsabile del servizio analizzato, cui si presenta il piano economico.",
+      "ambito": "esterna",
       "tipo": "Trasversale",
       "qnq": "3/4",
       "competenza": 1,
@@ -1094,6 +1126,10 @@
           ]
         }
       ],
+      "situazione": "I principi costituzionali e gli obiettivi dell'Agenda 2030 restano dichiarazioni astratte finché non si mostra che cosa cambiano nel lavoro quotidiano di cura.",
+      "prodotto": "Evento pubblico d'istituto su un obiettivo dell'Agenda 2030 attinente ai servizi alla persona: ricerca documentale, individuazione dei riferimenti costituzionali e internazionali, produzione dei materiali e conduzione dell'incontro con un ospite esterno.",
+      "beneficiari": "La comunità scolastica e il territorio, con un ospite esterno all'evento pubblico.",
+      "ambito": "esterna",
       "tipo": "Trasversale",
       "qnq": "4",
       "competenza": 3,
@@ -1225,6 +1261,10 @@
           ]
         }
       ],
+      "situazione": "A pochi mesi dal diploma molti studenti non conoscono i percorsi che si aprono né come si presenta ciò che hanno imparato in cinque anni.",
+      "prodotto": "Portfolio personale di orientamento: bilancio delle competenze maturate nel quinquennio e nei PCTO, analisi di due sbocchi concreti — uno formativo e uno lavorativo — con dati sul settore, curriculum in italiano e in inglese, e presentazione orale del proprio progetto davanti alla commissione.",
+      "beneficiari": "Lo studente stesso, che porta il portfolio al colloquio d'esame e alle selezioni.",
+      "ambito": "mista",
       "tipo": "Trasversale",
       "qnq": "4",
       "competenza": 9,

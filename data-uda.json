@@ -22,7 +22,8 @@
       "8": "Attività educative, di animazione sociale, ludiche e culturali",
       "9": "Sostegno e tutela della persona con fragilità/disabilità e della famiglia",
       "10": "Raccolta ed elaborazione di dati per il monitoraggio e la valutazione"
-    }
+    },
+    "sezioniFormat": "Le schede seguono il Format UDA IPSECOM per le sezioni 1, 3, 4, 5, 6, 7, 8, 9. Restano da completare: 2 contestualizzazione, 10 attività degli studenti con fasi e ore, 11 attività di accompagnamento dei docenti, 12 prodotti in esito e documentazione, 13 criteri per la valutazione e la certificazione, oltre a rubrica e scheda-consegne."
   },
   "uda": [
     {
@@ -84,7 +85,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Molti studenti non sanno quali servizi sociali e sanitari esistano nel comune in cui vivono, né a chi ci si rivolge quando una famiglia ha bisogno di aiuto.",
+      "prodotto": "Prima mappa (cartacea o digitale) dei servizi del proprio comune: almeno 3 servizi con ente erogatore, utenza e prestazioni.",
+      "beneficiari": "La classe e le famiglie degli studenti, cui la mappa viene consegnata.",
+      "ambito": "interna"
     },
     {
       "id": "1.2",
@@ -144,7 +149,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Una classe prima appena formata deve darsi regole di convivenza e imparare a lavorare in gruppo: nessuno conosce ancora gli altri e i conflitti nascono per malintesi.",
+      "prodotto": "Patto/regolamento di classe elaborato in gruppi con ruoli assegnati, presentato all'assemblea, con diario di gruppo.",
+      "beneficiari": "Il gruppo classe, che adotta il patto e lo applica per tutto l'anno.",
+      "ambito": "interna"
     },
     {
       "id": "1.3",
@@ -204,7 +213,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Fra i ragazzi circolano stereotipi su nazionalità, genere, disabilità e aspetto fisico che condizionano le relazioni senza essere mai messi in discussione.",
+      "prodotto": "Mini-campagna di sensibilizzazione (poster, reel o podcast) contro uno stereotipo, nel rispetto di privacy e sicurezza dei dati.",
+      "beneficiari": "Gli studenti dell'istituto, destinatari della campagna.",
+      "ambito": "interna"
     },
     {
       "id": "1.4",
@@ -257,7 +270,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Gli studenti conoscono i bisogni della propria età e danno per scontato che siano gli stessi per tutti: bambini e anziani restano un territorio inesplorato.",
+      "prodotto": "Interviste guidate a persone di età diverse con scheda di rilevazione di condizioni, stili di vita e bisogni; confronto in classe.",
+      "beneficiari": "Il gruppo classe e le persone intervistate, cui si restituisce l'esito.",
+      "ambito": "mista"
     },
     {
       "id": "1.5",
@@ -296,7 +313,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "La salute viene comunemente intesa come semplice assenza di malattia, mentre nei servizi socio-sanitari si lavora su una definizione ben più ampia.",
+      "prodotto": "Mappa multidimensionale salute/malattia (biologico, psicologico, sociale) applicata a un caso semplice, con i soggetti della cura.",
+      "beneficiari": "Il gruppo classe, che costruisce il lessico di base dell'indirizzo.",
+      "ambito": "interna"
     },
     {
       "id": "1.6",
@@ -342,7 +363,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "L'edificio scolastico presenta rischi concreti che gli studenti attraversano ogni giorno senza riconoscerli.",
+      "prodotto": "Decalogo della sicurezza della classe con documentazione fotografica dei rischi rilevati nell'edificio scolastico.",
+      "beneficiari": "La classe e il servizio di prevenzione e protezione dell'istituto, cui il decalogo viene consegnato.",
+      "ambito": "interna"
     },
     {
       "id": "1.7",
@@ -390,7 +415,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Chi avrebbe bisogno di un servizio spesso non sa che esiste, o non ne conosce destinatari e modalità di accesso.",
+      "prodotto": "Volantino informativo su un servizio del territorio (destinatari, prestazioni, contatti) presentato alla classe.",
+      "beneficiari": "Le persone che potrebbero rivolgersi a quel servizio, tramite la diffusione del volantino a scuola e nel quartiere.",
+      "ambito": "mista"
     },
     {
       "id": "1.8",
@@ -437,7 +466,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Far giocare un gruppo sembra facile finché non lo si prova: senza obiettivo, regole e tempi definiti l'attività si disperde.",
+      "prodotto": "Gioco di animazione progettato e condotto per il gruppo classe, con scheda attività (obiettivo, materiali, regole, tempi) e autovalutazione.",
+      "beneficiari": "Il gruppo classe, che partecipa al gioco condotto dai compagni.",
+      "ambito": "interna"
     },
     {
       "id": "1.9",
@@ -492,7 +525,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Sulla classe circolano opinioni — su abitudini, tempo libero, uso del telefono — che nessuno ha mai verificato con dati.",
+      "prodotto": "Mini-indagine sulla classe con questionario digitale, grafici e verifica di pertinenza e attendibilità dei dati.",
+      "beneficiari": "Il gruppo classe e il consiglio di classe, cui si presentano i risultati.",
+      "ambito": "interna"
     },
     {
       "id": "2.1",
@@ -554,7 +591,11 @@
           ]
         }
       ],
-      "sviluppata": "UDA completa già sviluppata: Biennio C1"
+      "sviluppata": "UDA completa già sviluppata: Biennio C1",
+      "situazione": "La mappa costruita al primo anno è parziale e su carta: alle famiglie del territorio manca uno strumento aggiornato e consultabile per orientarsi fra i servizi.",
+      "prodotto": "Mappa digitale interattiva con almeno 5 servizi (descrizione, target, prestazioni, ente erogatore) presentata pubblicamente.",
+      "beneficiari": "Le famiglie e i cittadini del comune, tramite la pubblicazione della mappa.",
+      "ambito": "esterna"
     },
     {
       "id": "2.2",
@@ -607,7 +648,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Ogni settembre le classi prime arrivano senza conoscere nessuno e l'istituto non ha un'accoglienza organizzata dagli studenti.",
+      "prodotto": "Iniziativa scolastica reale (giornata a tema, accoglienza classi prime) organizzata in gruppo con ruoli, riunioni verbalizzate e valutazione finale.",
+      "beneficiari": "Gli studenti delle classi prime e le loro famiglie.",
+      "ambito": "interna"
     },
     {
       "id": "2.3",
@@ -661,7 +706,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Nell'istituto convivono ragazzi di provenienze diverse, ma le occasioni per raccontare quelle differenze sono rare e la comunicazione resta fra gruppi separati.",
+      "prodotto": "Contenuto multimediale (video/podcast) su culture e diversità pubblicato sul canale della scuola, con liberatorie e regole privacy applicate.",
+      "beneficiari": "La comunità scolastica, tramite il canale ufficiale dell'istituto.",
+      "ambito": "interna"
     },
     {
       "id": "2.4",
@@ -708,7 +757,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Alimentazione, sonno e movimento cambiano molto con l'età, e le abitudini scorrette si consolidano proprio quando nessuno le mette in discussione.",
+      "prodotto": "Indagine sugli stili di vita per fasce d'età e guida illustrata ai sani stili di vita per età.",
+      "beneficiari": "Le famiglie degli studenti, destinatarie della guida.",
+      "ambito": "mista"
     },
     {
       "id": "2.5",
@@ -747,7 +800,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Quando in famiglia si presenta una malattia, spesso non si sa chi fa che cosa fra medico di base, servizi sociali, ospedale e assistenza domiciliare.",
+      "prodotto": "Su un caso simulato di malattia, elaborato grafico commentato della rete della presa in carico (famiglia, medico, servizi).",
+      "beneficiari": "Il gruppo classe; l'elaborato resta come materiale di studio per le classi successive.",
+      "ambito": "interna"
     },
     {
       "id": "2.6",
@@ -794,7 +851,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Gli incidenti domestici sono la prima causa di infortunio per bambini e anziani, e avvengono quasi sempre per rischi che si potevano rimuovere.",
+      "prodotto": "Checklist dei rischi domestici e opuscolo di prevenzione degli incidenti destinato alle famiglie.",
+      "beneficiari": "Le famiglie del territorio, cui l'opuscolo viene distribuito.",
+      "ambito": "esterna"
     },
     {
       "id": "2.7",
@@ -842,7 +903,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Consultori, sportelli d'ascolto e spazi giovani esistono, ma gli adolescenti che ne avrebbero bisogno non sanno dove siano né che cosa offrano.",
+      "prodotto": "Mini-guida divulgativa ai servizi per adolescenti (consultorio, sportelli, spazi giovani) diffusa a scuola.",
+      "beneficiari": "Gli studenti dell'istituto, tramite la diffusione della guida.",
+      "ambito": "interna"
     },
     {
       "id": "2.8",
@@ -890,7 +955,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "All'open day l'istituto accoglie famiglie con bambini piccoli che restano ad aspettare senza nulla da fare mentre i genitori visitano la scuola.",
+      "prodotto": "Attività di animazione ludica per l'open day o la festa d'istituto, con scheda di progettazione e report fotografico.",
+      "beneficiari": "I bambini e le famiglie in visita all'istituto.",
+      "ambito": "esterna"
     },
     {
       "id": "2.9",
@@ -950,7 +1019,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Di una realtà sociale del territorio si parla per impressioni: mancano i numeri per capire quante persone riguarda e con quali caratteristiche.",
+      "prodotto": "Report con dati raccolti su una realtà sociale del territorio, elaborati con foglio di calcolo e presentati con grafici.",
+      "beneficiari": "Il gruppo classe e il servizio o l'associazione che ha fornito i dati.",
+      "ambito": "mista"
     },
     {
       "id": "3.1",
@@ -1019,7 +1092,11 @@
           ]
         }
       ],
-      "sviluppata": "UDA completa già sviluppata: terzo anno C1"
+      "sviluppata": "UDA completa già sviluppata: terzo anno C1",
+      "situazione": "Rilevare un bisogno non basta: nei servizi il bisogno va tradotto in un progetto scritto, con obiettivi, azioni, responsabili e tempi.",
+      "prodotto": "Progetto individualizzato (scheda tecnica) elaborato in gruppo con documentazione allegata: PAI simulato, modulistica di accesso, diario.",
+      "beneficiari": "Caso simulato; il progetto è valutato da un operatore dei servizi invitato in classe.",
+      "ambito": "mista"
     },
     {
       "id": "3.2",
@@ -1082,7 +1159,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Nei servizi le decisioni non si prendono da soli: figure professionali diverse devono confrontarsi su uno stesso caso e arrivare a una scelta comune.",
+      "prodotto": "Riunione di équipe simulata su un caso, con ruoli professionali assegnati; verbale e resoconto professionale prodotti.",
+      "beneficiari": "Caso simulato; il verbale prodotto è il documento su cui si valuta il lavoro.",
+      "ambito": "interna"
     },
     {
       "id": "3.3",
@@ -1123,7 +1204,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Il primo colloquio decide se una persona tornerà: un errore di accoglienza allontana chi aveva già faticato a chiedere aiuto.",
+      "prodotto": "Role-play di colloqui di accoglienza con tipologie diverse di utenti; scheda dei bisogni comunicativi e delle distorsioni osservate.",
+      "beneficiari": "Caso simulato con utenti-tipo diversi per età, cultura e condizione.",
+      "ambito": "interna"
     },
     {
       "id": "3.4",
@@ -1188,7 +1273,11 @@
           ]
         }
       ],
-      "sviluppata": "UDA formale già sviluppata: UDA_III_Anno_SSAS"
+      "sviluppata": "UDA formale già sviluppata: UDA_III_Anno_SSAS",
+      "situazione": "Nella prima infanzia osservazione e accudimento richiedono strumenti precisi e il rispetto rigoroso di norme igieniche.",
+      "prodotto": "Piano di attività di osservazione e accudimento per la prima infanzia con schede operative e norme igieniche applicate.",
+      "beneficiari": "I bambini e le educatrici del nido o della scuola dell'infanzia partner.",
+      "ambito": "esterna"
     },
     {
       "id": "3.5",
@@ -1254,7 +1343,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Sui temi della prevenzione circolano in rete informazioni contraddittorie, e i comportamenti a rischio si formano proprio in questa età.",
+      "prodotto": "Mini-campagna di prevenzione (igiene, vaccinazioni, corretto uso dei farmaci) con materiali informativi e semplice protocollo d'intervento.",
+      "beneficiari": "Gli studenti dell'istituto, destinatari della campagna.",
+      "ambito": "interna"
     },
     {
       "id": "3.6",
@@ -1297,7 +1390,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "I laboratori dell'indirizzo espongono a rischi specifici che vanno rilevati e segnalati con le procedure previste, non a voce.",
+      "prodotto": "Sopralluogo in ambiente scolastico o laboratoriale con schede di rilevazione dei rischi e report di segnalazione formale.",
+      "beneficiari": "L'istituto e il responsabile del servizio di prevenzione, cui va il report formale.",
+      "ambito": "interna"
     },
     {
       "id": "3.7",
@@ -1352,7 +1449,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Sapere che un servizio esiste non serve se non si sa come accedervi: requisiti, documenti e tempi di attesa sono il vero ostacolo per l'utente.",
+      "prodotto": "Repertorio dei servizi territoriali che collega ogni prestazione al servizio e alle modalità di accesso (requisiti, documenti, tempi).",
+      "beneficiari": "Gli utenti dei servizi e gli operatori che li orientano.",
+      "ambito": "esterna"
     },
     {
       "id": "3.8",
@@ -1398,7 +1499,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "I bambini della scuola dell'infanzia e primaria hanno bisogno di attività pensate per la loro età, non di intrattenimento improvvisato.",
+      "prodotto": "Attività di animazione per bambini (scuola infanzia/primaria partner o simulata) progettata, realizzata e valutata con scheda esiti.",
+      "beneficiari": "I bambini della scuola partner e le loro insegnanti.",
+      "ambito": "esterna"
     },
     {
       "id": "3.9",
@@ -1453,7 +1558,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Dipendenze, uso problematico del digitale e affettività riguardano da vicino gli studenti dell'istituto, ma se ne parla solo quando è già successo qualcosa.",
+      "prodotto": "Azione di prevenzione primaria realizzata a scuola (dipendenze, benessere digitale, affettività) con scheda bisogni-risorse-vincoli.",
+      "beneficiari": "Gli studenti dell'istituto e il referente per la salute.",
+      "ambito": "interna"
     },
     {
       "id": "3.10",
@@ -1496,7 +1605,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "I dati su una realtà sociale vanno raccolti e trattati rispettando regole precise: un'osservazione fatta male produce informazioni inutili o illecite.",
+      "prodotto": "Dossier dati su una realtà sociale: raccolta, elaborazione, rappresentazione con strumenti di osservazione dei servizi e regole GDPR.",
+      "beneficiari": "Il servizio o l'associazione osservata, cui si restituisce il dossier.",
+      "ambito": "mista"
     },
     {
       "id": "4.1",
@@ -1572,7 +1685,11 @@
           ]
         }
       ],
-      "sviluppata": "UDA completa già sviluppata: quarto anno C1"
+      "sviluppata": "UDA completa già sviluppata: quarto anno C1",
+      "situazione": "Un progetto sociale non si regge sulle buone intenzioni: senza gestione amministrativa corretta i finanziamenti non arrivano o vanno restituiti.",
+      "prodotto": "Gestione amministrativa simulata di un progetto: atti e documenti contabili su modelli, cassa simulata, report finale.",
+      "beneficiari": "Progetto simulato; la documentazione è verificata secondo la modulistica reale.",
+      "ambito": "interna"
     },
     {
       "id": "4.2",
@@ -1616,7 +1733,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Portare un caso in équipe richiede di selezionare le informazioni rilevanti e di esporle in modo che gli altri professionisti possano decidere.",
+      "prodotto": "Presentazione professionale di dati e approfondimenti su un caso, esposta in équipe simulata con supporti documentali e multimediali.",
+      "beneficiari": "Équipe simulata composta dai compagni nei diversi ruoli professionali.",
+      "ambito": "interna"
     },
     {
       "id": "4.3",
@@ -1664,7 +1785,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Nella relazione d'aiuto ciò che si dice conta meno di come lo si dice: le distorsioni comunicative passano inosservate a chi non ha strumenti per rilevarle.",
+      "prodotto": "Osservazione di colloqui simulati con griglie di rilevazione delle dinamiche comunicative e proposta comunicativa personalizzata per la presa in carico.",
+      "beneficiari": "Caso simulato; le griglie prodotte restano come strumento di lavoro per il PCTO.",
+      "ambito": "interna"
     },
     {
       "id": "4.4",
@@ -1726,7 +1851,11 @@
           ]
         }
       ],
-      "sviluppata": "UDA formale già sviluppata: UDA_Disabilita"
+      "sviluppata": "UDA formale già sviluppata: UDA_Disabilita",
+      "situazione": "La disabilità non si affronta con un intervento uguale per tutti: serve una valutazione multidimensionale che parta dalla persona e non dalla diagnosi.",
+      "prodotto": "PAI per una persona con disabilità elaborato a partire dalla valutazione multidimensionale, con interventi sui bisogni di base.",
+      "beneficiari": "Caso reale anonimizzato fornito da un servizio del territorio, o simulato.",
+      "ambito": "mista"
     },
     {
       "id": "4.5",
@@ -1780,7 +1909,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Una persona parzialmente non autosufficiente conserva capacità che un'assistenza mal impostata annulla, accelerando la perdita di autonomia.",
+      "prodotto": "Piano operativo di assistenza per un caso di parziale non autosufficienza: bisogni di base, capacità residue, profilassi delle lesioni da decubito (raccordo Lab OSS).",
+      "beneficiari": "Caso simulato, in raccordo con il laboratorio OSS.",
+      "ambito": "interna"
     },
     {
       "id": "4.6",
@@ -1834,7 +1967,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "La casa in cui una persona fragile ha sempre vissuto diventa, con il tempo, il luogo più pericoloso per lei.",
+      "prodotto": "Riprogettazione di un ambiente domestico per una persona fragile: checklist igiene/sicurezza, piano di sanificazione, layout adattato motivato.",
+      "beneficiari": "Caso simulato; il progetto è presentato a un operatore dell'assistenza domiciliare.",
+      "ambito": "mista"
     },
     {
       "id": "4.7",
@@ -1890,7 +2027,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Chi si presenta a uno sportello non sa quasi mai di quale servizio ha bisogno: sa solo raccontare un problema, e va instradato correttamente.",
+      "prodotto": "Simulazione di sportello informativo: colloqui di orientamento con tecnica dell'intervista e instradamento corretto di casi-tipo verso i servizi.",
+      "beneficiari": "Casi-tipo simulati; lo sportello è aperto ai compagni delle altre classi.",
+      "ambito": "interna"
     },
     {
       "id": "4.8",
@@ -1931,7 +2072,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Adulti, anziani e persone con disabilità nei servizi hanno bisogni di animazione diversi fra loro, che vanno rilevati prima di progettare.",
+      "prodotto": "Attività di animazione per adulti/anziani/persone con disabilità progettata e realizzata in PCTO o contesto simulato, con analisi bisogni e report esiti.",
+      "beneficiari": "Gli utenti della struttura ospitante il PCTO.",
+      "ambito": "esterna"
     },
     {
       "id": "4.9",
@@ -1984,7 +2129,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "L'inclusione sociale si dichiara facilmente e si progetta con difficoltà: servono azioni concrete sui tre livelli di prevenzione.",
+      "prodotto": "Analisi di un caso e ipotesi di progetto di integrazione sociale con azioni di prevenzione ai tre livelli e misure di profilassi pertinenti.",
+      "beneficiari": "Caso reale anonimizzato o simulato; il progetto è discusso con un operatore.",
+      "ambito": "mista"
     },
     {
       "id": "4.10",
@@ -2039,7 +2188,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Chi decide come impiegare le risorse di un servizio ha bisogno di dati elaborati e presentati in linguaggio tecnico, non di impressioni.",
+      "prodotto": "Report tecnico-professionale con dati raccolti ed elaborati sulle condizioni sociali/di salute di un gruppo, con linguaggio tecnico e statistica di base.",
+      "beneficiari": "Il servizio o l'ente cui il report è indirizzato.",
+      "ambito": "mista"
     },
     {
       "id": "5.1",
@@ -2101,7 +2254,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Un servizio alla persona sta in piedi solo se bisogni, risorse, rete e rendicontazione reggono insieme: basta che manchi un pezzo perché il progetto non parta.",
+      "prodotto": "Progetto di servizio gestito in simulazione (es. per anziani): analisi bisogni, piano, budget, partenariato di rete, rendicontazione, valutazione.",
+      "beneficiari": "Servizio simulato; il progetto è presentato a un responsabile del settore.",
+      "ambito": "mista"
     },
     {
       "id": "5.2",
@@ -2162,7 +2319,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Nel case management il coordinamento fra professionisti diversi è la parte più difficile: ruoli poco chiari e leadership mal esercitata bloccano la presa in carico.",
+      "prodotto": "Case management simulato in équipe multi-professionale con tecniche di mediazione comunicativa e analisi di ruoli e stili di leadership.",
+      "beneficiari": "Caso simulato in équipe multi-professionale.",
+      "ambito": "interna"
     },
     {
       "id": "5.3",
@@ -2205,7 +2366,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "In un servizio frequentato da utenti stranieri o con difficoltà cognitive la comunicazione ordinaria esclude proprio chi avrebbe più bisogno di capire.",
+      "prodotto": "Piano di facilitazione comunicativa per un servizio multiculturale: materiali easy-to-read/L2 e azioni di mediazione interculturale.",
+      "beneficiari": "Gli utenti del servizio, tramite i materiali in linguaggio accessibile.",
+      "ambito": "esterna"
     },
     {
       "id": "5.4",
@@ -2255,7 +2420,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Un piano assistenziale scritto bene resta inutile finché non si traduce nelle attività concrete di ogni giornata.",
+      "prodotto": "Proposte operative complete per l'attuazione di un PAI (bambino, persona con disabilità o anziano), dal bisogno all'organizzazione delle attività quotidiane.",
+      "beneficiari": "Caso simulato, riferito a un servizio realmente esistente sul territorio.",
+      "ambito": "mista"
     },
     {
       "id": "5.5",
@@ -2320,7 +2489,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Nelle situazioni di emergenza e nelle fasi terminali l'operatore deve saper agire subito e conoscere i dispositivi che accompagnano la persona.",
+      "prodotto": "Prove pratiche di primo soccorso in ambiente simulato e scheda tecnica su dispositivi di supporto vitale, nutrizione artificiale e cure palliative per un caso.",
+      "beneficiari": "Ambiente simulato; le prove pratiche sono valutate da personale sanitario.",
+      "ambito": "mista"
     },
     {
       "id": "5.6",
@@ -2367,7 +2540,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Restare nella propria casa è ciò che quasi tutti desiderano, ma senza adattamenti e ausili adeguati l'abitazione costringe all'istituzionalizzazione.",
+      "prodotto": "Progetto di adattamento completo di un'abitazione per una persona con difficoltà motorie: ausili, layout spazi/arredi, valutazione delle difficoltà d'uso.",
+      "beneficiari": "Caso simulato; il progetto di adattamento è valutato da un tecnico o terapista.",
+      "ambito": "mista"
     },
     {
       "id": "5.7",
@@ -2428,7 +2605,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Le carte dei servizi esistenti sono scritte per l'amministrazione, non per chi deve scegliere: diritti e criteri di qualità restano illeggibili.",
+      "prodotto": "Guida/carta dei servizi orientata all'utente con diritti e doveri, opportunità di fruizione e criteri di qualità per la scelta dei servizi.",
+      "beneficiari": "Gli utenti del servizio e le loro famiglie.",
+      "ambito": "esterna"
     },
     {
       "id": "5.8",
@@ -2485,7 +2666,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Le associazioni del territorio hanno idee e non risorse: un evento di animazione sociale richiede progettazione, fondi e valutazione degli esiti.",
+      "prodotto": "Evento di animazione sociale progettato e realizzato con mini-piano di fundraising/crowdfunding e valutazione strutturata delle attività.",
+      "beneficiari": "La comunità locale e l'associazione o l'ente partner dell'evento.",
+      "ambito": "esterna"
     },
     {
       "id": "5.9",
@@ -2526,7 +2711,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Un caso complesso mette insieme bisogni sanitari, sociali, educativi e familiari che nessun singolo servizio può affrontare da solo.",
+      "prodotto": "Progetto integrato completo su un caso complesso (minore, anziano, disagio psichico, migrante): bisogni, rete, interventi, sostegno alla famiglia. Orientato all'Esame di Stato.",
+      "beneficiari": "Caso simulato di livello esame di Stato; il progetto è valutato dal consiglio di classe.",
+      "ambito": "interna"
     },
     {
       "id": "5.10",
@@ -2582,7 +2771,11 @@
           ]
         }
       ],
-      "sviluppata": null
+      "sviluppata": null,
+      "situazione": "Un servizio che non misura i propri risultati non può migliorarli, né dimostrare di possedere i requisiti per l'accreditamento regionale.",
+      "prodotto": "Dashboard di monitoraggio di un progetto/servizio con indicatori, analisi statistica di base (correlazione) e relazione valutativa con riferimenti all'accreditamento regionale.",
+      "beneficiari": "Il servizio o l'ente osservato, cui si consegna la relazione valutativa.",
+      "ambito": "mista"
     }
   ]
 }

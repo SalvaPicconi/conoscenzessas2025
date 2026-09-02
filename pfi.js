@@ -242,6 +242,10 @@ function daCatalogo(key) {
             europee: (u.competenzeEuropee || []).join('\n'),
             insegnamenti: ins.join(', '),
             saperi: (u.saperi || []).map(s => `${s.t} (${(s.ins || []).join(', ')})`).join('\n'),
+            situazione: u.situazione || '',
+            prodotto: u.prodotto || u.compito || '',
+            beneficiari: u.beneficiari || '',
+            ambito: u.ambito || '',
             compito: u.compito || '',
             ore: u.ore || '',
             attivita: (u.abilita || []).map(a => `${a.t} (${(a.ins || []).join(', ')})`).join('\n'),
@@ -266,6 +270,10 @@ function daCatalogo(key) {
         europee: '',
         insegnamenti: ins.join(', '),
         saperi: (u.saperi || []).map(s => `${s.t} (${(s.ins || []).join(', ')})`).join('\n'),
+        situazione: u.situazione || '',
+        prodotto: u.prodotto || u.compito || '',
+        beneficiari: u.beneficiari || '',
+        ambito: u.ambito || '',
         compito: u.compito || '',
         ore: u.ore || '',
         attivita: (u.abilita || []).map(a => `${a.t} (${(a.ins || []).join(', ')})`).join('\n'),
@@ -285,6 +293,7 @@ function aggiungiUda(dati) {
         _id: `u${++stato.seq}`,
         titolo: '', tipo: 'Indirizzo', anno: '', periodo: '',
         competenze: '', europee: '', insegnamenti: '', saperi: '',
+        situazione: '', prodotto: '', beneficiari: '', ambito: '',
         compito: '', ore: '', attivita: '', valutazione: '',
         livello: '', qnq: '', origine: 'Inserita a mano'
     }, dati || {}));
@@ -325,7 +334,15 @@ function aggiornaUda() {
                 <label>Competenze chiave europee 2018 <textarea data-campo="europee" rows="3">${escapeHtml(u.europee)}</textarea></label>
                 <label class="pfi-col-2">Insegnamenti coinvolti <input type="text" data-campo="insegnamenti" value="${escapeAttr(u.insegnamenti)}"></label>
                 <label class="pfi-col-2">Saperi essenziali mobilitati <textarea data-campo="saperi" rows="3">${escapeHtml(u.saperi)}</textarea></label>
-                <label class="pfi-col-2">Compito di realtà e prodotto atteso <textarea data-campo="compito" rows="2">${escapeHtml(u.compito)}</textarea></label>
+                <label class="pfi-col-2">Situazione, problema o tema di riferimento <textarea data-campo="situazione" rows="2">${escapeHtml(u.situazione)}</textarea></label>
+                <label class="pfi-col-2">Prodotto da realizzare <textarea data-campo="prodotto" rows="2">${escapeHtml(u.prodotto)}</textarea></label>
+                <label>Beneficiari <input type="text" data-campo="beneficiari" value="${escapeAttr(u.beneficiari)}"></label>
+                <label>Ambito
+                    <select data-campo="ambito">
+                        <option value=""${!u.ambito ? ' selected' : ''}>—</option>
+                        ${['interna', 'esterna', 'mista'].map(a => `<option${a === u.ambito ? ' selected' : ''}>${a}</option>`).join('')}
+                    </select>
+                </label>
                 <label class="pfi-col-2">Attività degli studenti <textarea data-campo="attivita" rows="3">${escapeHtml(u.attivita)}</textarea></label>
                 <label class="pfi-col-2">Criteri ed evidenze per la valutazione <textarea data-campo="valutazione" rows="2">${escapeHtml(u.valutazione)}</textarea></label>
                 <label>Livello di padronanza raggiunto
@@ -634,7 +651,10 @@ function esportaWord() {
                     ['Competenze chiave europee', esc(u.europee)],
                     ['Insegnamenti coinvolti', esc(u.insegnamenti)],
                     ['Saperi essenziali mobilitati', esc(u.saperi)],
-                    ['Compito di realtà e prodotto', esc(u.compito)],
+                    ['Situazione, problema o tema', esc(u.situazione || u.compito)],
+                    ['Prodotto da realizzare', esc(u.prodotto || u.compito)],
+                    ['Beneficiari', esc(u.beneficiari)],
+                    ['Ambito', esc(u.ambito)],
                     ['Attività degli studenti', esc(u.attivita)],
                     ['Monte ore', esc(u.ore)],
                     ['Criteri ed evidenze di valutazione', esc(u.valutazione)],

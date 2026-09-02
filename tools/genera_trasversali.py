@@ -48,6 +48,49 @@ MATERIE_FUORI_ASSE = ['Scienze Motorie']
 
 QNQ = {1: '2', 2: '2', 3: '3', 4: '3/4', 5: '4'}
 
+# ---- Sezioni 5 e 6 del Format UDA IPSECOM: situazione, prodotto, beneficiari ----
+# id -> (situazione/problema, beneficiari, ambito)
+SEZIONI = {
+    'T1.1': ("In una classe appena formata i conflitti nascono ogni giorno e vengono affrontati "
+             "d'istinto: alzando la voce, escludendo, lasciando perdere. Nessuno ha mai messo per "
+             "iscritto quali regole ci si dà e perché.",
+             "Il gruppo classe, che adotta il regolamento e lo applica per tutto l'anno.", 'interna'),
+    'T1.2': ("Gli studenti usano lo smartphone molte ore al giorno senza sapere quali dati "
+             "cedono, e chiedono a un'intelligenza artificiale risposte che non sanno verificare.",
+             "Gli studenti delle terze medie in visita di orientamento, destinatari della guida.",
+             'esterna'),
+    'T2.1': ("Nei servizi per l'infanzia si legge ai bambini, ma spesso senza sapere perché quel "
+             "testo e non un altro, e senza osservare che effetto produce.",
+             "I bambini della sezione della scuola dell'infanzia e le loro insegnanti.", 'esterna'),
+    'T2.2': ("Del proprio comune si parla per impressioni: quanti anziani vivano soli, quali "
+             "servizi manchino, dove ci siano barriere, nessuno lo sa con precisione.",
+             "L'ufficio servizi sociali del comune, cui il dossier viene consegnato.", 'esterna'),
+    'T3.1': ("La stessa informazione su un utente va detta in due modi diversi all'équipe e alla "
+             "famiglia: usare il lessico tecnico con chi non lo possiede equivale a non comunicare.",
+             "Caso simulato; le due versioni sono valutate da un operatore dei servizi.", 'mista'),
+    'T3.2': ("In rete circolano informazioni sanitarie contraddittorie, e i comportamenti a "
+             "rischio in adolescenza si consolidano proprio mentre le fonti attendibili restano "
+             "inascoltate.",
+             "Gli studenti dell'istituto, destinatari della campagna.", 'interna'),
+    'T4.1': ("Migranti, anziani e persone con disabilità compaiono nei media dentro cornici "
+             "ricorrenti che i dati reali spesso smentiscono, e che pesano su chi lavora nei servizi.",
+             "La comunità scolastica, tramite la pubblicazione della contro-narrazione sul sito "
+             "dell'istituto.", 'interna'),
+    'T4.2': ("I servizi alla persona chiudono o riducono le prestazioni per ragioni economiche che "
+             "gli operatori conoscono poco e non sanno leggere in un bilancio.",
+             "Il responsabile del servizio analizzato, cui si presenta il piano economico.", 'esterna'),
+    'T5.1': ("I principi costituzionali e gli obiettivi dell'Agenda 2030 restano dichiarazioni "
+             "astratte finché non si mostra che cosa cambiano nel lavoro quotidiano di cura.",
+             "La comunità scolastica e il territorio, con un ospite esterno all'evento pubblico.",
+             'esterna'),
+    'T5.2': ("A pochi mesi dal diploma molti studenti non conoscono i percorsi che si aprono né "
+             "come si presenta ciò che hanno imparato in cinque anni.",
+             "Lo studente stesso, che porta il portfolio al colloquio d'esame e alle selezioni.",
+             'mista'),
+}
+
+
+
 UDA = [
     # ==================== PRIMO ANNO ====================
     {
@@ -400,6 +443,11 @@ def main():
                 for c in generale['area_generale_istruzione_professionale']['competenze']}
 
     for u in UDA:
+        situazione, beneficiari, ambito = SEZIONI[u['id']]
+        u['situazione'] = situazione        # sezione 5 del format IPSECOM
+        u['prodotto'] = u['compito']        # sezione 6: il compito descriveva già il prodotto
+        u['beneficiari'] = beneficiari
+        u['ambito'] = ambito
         u['tipo'] = 'Trasversale'
         u['qnq'] = QNQ[u['anno']]
         u['competenza'] = u['competenzeSSAS'][0]   # compatibilità col selettore del PFI
@@ -456,6 +504,12 @@ def main():
 
     ssas = sorted({c for u in UDA for c in u['competenzeSSAS']})
     print(f"competenze d'indirizzo richiamate: C{ssas}")
+
+    from collections import Counter as _C
+    amb = _C(u['ambito'] for u in UDA)
+    print('\nambito:', dict(amb))
+    print('con beneficiari esterni:',
+          sum(1 for u in UDA if u['ambito'] in ('esterna', 'mista')), '/', len(UDA))
 
     print('\ninsegnamenti coinvolti:')
     ins = Counter(i for u in UDA for x in u['abilita'] + u['saperi'] for i in x['ins'])
