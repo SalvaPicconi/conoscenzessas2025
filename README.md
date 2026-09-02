@@ -8,7 +8,7 @@ Sito pubblicato: https://salvapicconi.github.io/conoscenzessas2025/
 
 ## Sezioni
 
-- **Area di Indirizzo** — le 10 competenze in uscita declinate su Biennio, Terzo, Quarto e Quinto anno (39 schede: competenza intermedia, abilità, conoscenze, insegnamenti coinvolti), con filtri, ricerca, raggruppamento e statistiche per insegnamento calcolate dai dati.
+- **Area di Indirizzo** — apre con il **Curricolo illustrato per immagini**, un percorso narrativo dal biennio al profilo in uscita; seguono le 10 competenze declinate su Biennio, Terzo, Quarto e Quinto anno (39 schede: competenza intermedia, abilità, conoscenze, insegnamenti coinvolti), con filtri, ricerca, raggruppamento e statistiche per insegnamento calcolate dai dati.
 - **Area Generale** — le 12 competenze dell'area generale con assi culturali, abilità e conoscenze.
 - **Rubriche di Valutazione** — rubriche per competenze con pesi configurabili e calcolo del voto ponderato (disponibili: Metodologie Operative biennio, classe 3ª e classi 4ª-5ª; le altre discipline sono in preparazione).
 
@@ -21,7 +21,8 @@ Sito pubblicato: https://salvapicconi.github.io/conoscenzessas2025/
 ## Struttura del progetto
 
 - `index.html` + `script-main.js` + `style-main.css` — pagina principale con le tab
-- `area-indirizzo.html` + `script.js` + `style.css` — curricolo area di indirizzo
+- `area-indirizzo.html` + `script.js` + `style.css` + `curricolo-illustrato.css` — curricolo area di indirizzo e racconto visuale
+- `assets/curricolo-illustrato/` — quattro illustrazioni WebP ottimizzate e prompt di produzione
 - `area-generale.html` + `area-generale.js` + `area-generale.css` — curricolo area generale
 - `data-area-indirizzo.json` — dati area di indirizzo (fonte: Excel definitivo)
 - `data-area-generale.json` — dati area generale
