@@ -583,3 +583,120 @@
     .pfi-firme { margin-top: 22pt; }
     .pfi-firma { border-top: 0.6pt solid #000; min-height: 40pt; }
 }
+
+/* ---------- accesso docente e elenco classe ---------- */
+
+.pfi-classe-box {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.76rem !important;
+    font-weight: 600;
+    color: var(--ink-soft);
+    white-space: nowrap;
+}
+
+.pfi-classe-box select {
+    width: auto !important;
+    padding: 6px 9px !important;
+    font-size: 0.84rem !important;
+    font-weight: 600;
+}
+
+.pfi-dialog {
+    border: 1px solid var(--stroke);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 30px 70px -30px rgba(23, 49, 58, 0.55);
+    padding: 24px 26px 22px;
+    max-width: 27rem;
+    width: calc(100% - 2rem);
+    background: var(--card-solid);
+    color: var(--ink);
+}
+
+.pfi-dialog::backdrop {
+    background: rgba(23, 49, 58, 0.42);
+    backdrop-filter: blur(2px);
+}
+
+.pfi-dialog h2 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    margin: 0 0 6px;
+}
+
+.pfi-dialog label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 0.79rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    margin-bottom: 13px;
+}
+
+.pfi-dialog input {
+    font: inherit;
+    font-size: 0.92rem;
+    font-weight: 400;
+    color: var(--ink);
+    background: #fff;
+    border: 1px solid var(--stroke);
+    border-radius: 9px;
+    padding: 9px 11px;
+    width: 100%;
+}
+
+.pfi-dialog input:focus {
+    outline: none;
+    border-color: var(--accent-a);
+    box-shadow: 0 0 0 3px rgba(11, 95, 90, 0.16);
+}
+
+.pfi-acc-errore {
+    font-size: 0.8rem;
+    color: #a44432;
+    background: #f8dfd7;
+    border-radius: 8px;
+    padding: 8px 11px;
+    margin: 0 0 12px;
+}
+
+.pfi-dialog-azioni {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.pfi-elenco-lista {
+    list-style: none;
+    margin: 0 0 14px;
+    padding: 0;
+    max-height: 52vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.pfi-elenco-voce {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    width: 100%;
+    text-align: left;
+    font: inherit;
+    background: var(--surface-muted, #f1eee6);
+    border: 1px solid var(--stroke-soft);
+    border-radius: 10px;
+    padding: 10px 13px;
+    cursor: pointer;
+    transition: border-color .15s;
+}
+
+.pfi-elenco-voce:hover { border-color: var(--accent-a); }
+
+.pfi-elenco-nome { font-weight: 700; font-size: 0.92rem; color: var(--ink); }
+.pfi-elenco-meta { font-size: 0.74rem; color: var(--ink-faint); }

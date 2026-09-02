@@ -43,10 +43,13 @@
             <input type="file" id="pfi-file" accept="application/json,.json" hidden>
         </div>
         <div class="pfi-toolbar-group pfi-cloud">
-            <span id="pfi-cloud-stato" class="pfi-cloud-stato" aria-live="polite">Cloud non collegato</span>
-            <button type="button" id="pfi-accedi" class="pfi-btn">Accedi</button>
+            <span id="pfi-cloud-stato" class="pfi-cloud-stato" aria-live="polite">Non hai effettuato l'accesso</span>
+            <button type="button" id="pfi-accedi" class="pfi-btn pfi-btn-primary">Accedi</button>
+            <label id="pfi-classe-box" class="pfi-classe-box" hidden>Classe
+                <select id="pfi-classe-attiva"></select>
+            </label>
             <button type="button" id="pfi-cloud-salva" class="pfi-btn" hidden>Salva in cloud</button>
-            <button type="button" id="pfi-cloud-apri" class="pfi-btn" hidden>Le mie bozze</button>
+            <button type="button" id="pfi-cloud-apri" class="pfi-btn" hidden>Studenti della classe</button>
             <button type="button" id="pfi-esci" class="pfi-btn pfi-btn-ghost" hidden>Esci</button>
         </div>
         <div class="pfi-toolbar-group pfi-toolbar-right">
@@ -66,6 +69,38 @@
             <li><a href="#q8">8 · Competenze</a></li>
         </ol>
     </nav>
+
+    <!-- ============ ACCESSO DOCENTE ============ -->
+    <dialog id="pfi-accesso" class="pfi-dialog no-print" aria-labelledby="pfi-accesso-titolo">
+        <form method="dialog" id="pfi-accesso-form">
+            <h2 id="pfi-accesso-titolo">Accesso docente tutor</h2>
+            <p class="pfi-nota pfi-nota-top">
+                Il codice identifica il tutor e le classi che segue. Nome e classe vengono riportati
+                nel PFI senza doverli riscrivere per ogni studente.
+            </p>
+            <label>Nome docente
+                <input type="text" id="pfi-acc-nome" autocomplete="username" required>
+            </label>
+            <label>Codice di accesso
+                <input type="password" id="pfi-acc-codice" autocomplete="current-password" required>
+            </label>
+            <p id="pfi-acc-errore" class="pfi-acc-errore" role="alert" hidden></p>
+            <div class="pfi-dialog-azioni">
+                <button type="button" id="pfi-acc-annulla" class="pfi-btn pfi-btn-ghost">Annulla</button>
+                <button type="submit" id="pfi-acc-conferma" class="pfi-btn pfi-btn-primary">Entra</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- ============ ELENCO STUDENTI DELLA CLASSE ============ -->
+    <dialog id="pfi-elenco" class="pfi-dialog no-print" aria-labelledby="pfi-elenco-titolo">
+        <h2 id="pfi-elenco-titolo">Studenti della classe</h2>
+        <p class="pfi-nota pfi-nota-top" id="pfi-elenco-sottotitolo"></p>
+        <ul id="pfi-elenco-lista" class="pfi-elenco-lista"></ul>
+        <div class="pfi-dialog-azioni">
+            <button type="button" id="pfi-elenco-chiudi" class="pfi-btn">Chiudi</button>
+        </div>
+    </dialog>
 
     <form id="pfi-form" autocomplete="off">
 
@@ -259,8 +294,7 @@
             la durata del quinquennio, con progettazione interdisciplinare · Linee guida, Box n. 8
         </p>
         <p class="pfi-nota pfi-nota-top">
-            È la parte che il modello dichiara «parte integrante del presente documento». Scegli le UDA
-            dalla rosa deliberata dal collegio, oppure aggiungine una a mano.
+            Scegli le UDA dalla rosa deliberata dal collegio, oppure aggiungine una a mano.
         </p>
 
         <div class="pfi-uda-picker no-print">
@@ -301,8 +335,8 @@
         </div>
 
         <div id="pfi-uda-lista" class="pfi-uda-lista"></div>
-        <p id="pfi-uda-vuoto" class="pfi-uda-vuoto">Nessuna UDA inserita. Finché questa sezione resta vuota,
-            il PFI è privo della struttura che l'art. 4 c. 6 del Regolamento gli assegna.</p>
+        <p id="pfi-uda-vuoto" class="pfi-uda-vuoto">Nessuna UDA inserita. Usa il selettore qui sopra
+            per aggiungere le unità di apprendimento previste per la classe.</p>
     </section>
 
     <!-- ============ QUADRO 8 ============ -->
@@ -310,8 +344,8 @@
         <h2><span class="pfi-num">Quadro 8</span> Livelli di padronanza delle competenze</h2>
         <p class="pfi-fonte">Linee guida, Box n. 8 voce 8 — rubrica ad almeno 4 livelli · livelli QNQ (Tabella A)</p>
         <p class="pfi-nota pfi-nota-top">
-            Valutazione collegiale del consiglio di classe, riferita alle UDA inserite nel Quadro 7 e non
-            alla media delle discipline (Linee guida § 3.2.2).
+            Valutazione collegiale del consiglio di classe, riferita alle UDA inserite nel Quadro 7
+            (Linee guida § 3.2.2).
         </p>
         <div class="pfi-tabella-wrap">
             <table class="pfi-tabella" id="pfi-competenze">
