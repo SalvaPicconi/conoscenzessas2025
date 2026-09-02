@@ -700,3 +700,170 @@
 
 .pfi-elenco-nome { font-weight: 700; font-size: 0.92rem; color: var(--ink); }
 .pfi-elenco-meta { font-size: 0.74rem; color: var(--ink-faint); }
+
+/* ---------- gestione: nuovo PFI e PFI esistenti ---------- */
+
+.pfi-gestione { margin-bottom: 22px; }
+
+.pfi-gestione-griglia {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 18px;
+    align-items: start;
+}
+
+.pfi-gestione-card {
+    background: var(--card-solid);
+    border: 1px solid var(--stroke);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    padding: 20px 22px 22px;
+}
+
+.pfi-gestione-card h2 {
+    font-family: var(--font-display);
+    font-size: 1.02rem;
+    margin: 0 0 4px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.pfi-gestione-card label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+}
+
+.pfi-gestione-card input,
+.pfi-gestione-card select {
+    font: inherit;
+    font-size: 0.88rem;
+    font-weight: 400;
+    color: var(--ink);
+    background: #fff;
+    border: 1px solid var(--stroke);
+    border-radius: 9px;
+    padding: 8px 10px;
+    width: 100%;
+}
+
+.pfi-gestione-card input:focus,
+.pfi-gestione-card select:focus {
+    outline: none;
+    border-color: var(--accent-a);
+    box-shadow: 0 0 0 3px rgba(11, 95, 90, 0.14);
+}
+
+.pfi-gestione-card .pfi-uda-azioni { margin-top: 14px; }
+
+.pfi-gestione-testa {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.pfi-archiviati-box {
+    flex-direction: row !important;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.74rem !important;
+    white-space: nowrap;
+}
+
+.pfi-archiviati-box input {
+    width: 15px !important;
+    height: 15px;
+    accent-color: var(--accent-a);
+}
+
+.pfi-lista-classi {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-height: 30rem;
+    overflow-y: auto;
+    margin-top: 12px;
+}
+
+.pfi-gruppo h3 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--accent-a);
+    margin: 0 0 8px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--stroke-soft);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.pfi-gruppo h3 span {
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--ink-faint);
+    font-size: 0.74rem;
+}
+
+.pfi-gruppo ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.pfi-gruppo li {
+    display: flex;
+    align-items: stretch;
+    gap: 6px;
+}
+
+.pfi-gruppo li .pfi-elenco-voce { flex: 1; }
+
+.pfi-voce-azioni {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    justify-content: center;
+}
+
+.pfi-mini {
+    font: inherit;
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    background: transparent;
+    border: 1px solid var(--stroke-soft);
+    border-radius: 7px;
+    padding: 4px 8px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.pfi-mini:hover { border-color: var(--accent-a); color: var(--accent-a); }
+
+.pfi-mini-pericolo { color: #a44432; border-color: rgba(164, 68, 50, 0.32); }
+.pfi-mini-pericolo:hover { border-color: #a44432; color: #a44432; background: #f8dfd7; }
+
+.pfi-btn-pericolo {
+    background: #a44432;
+    color: #fff;
+    border-color: transparent;
+}
+
+.pfi-btn-pericolo:hover { background: #8c3928; border-color: transparent; }
+
+/* `hidden` deve vincere sui display espliciti delle etichette */
+.pfi-gestione-card label[hidden],
+.pfi-quadro label[hidden],
+[hidden] { display: none !important; }

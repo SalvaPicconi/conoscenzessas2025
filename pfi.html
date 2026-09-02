@@ -45,11 +45,8 @@
         <div class="pfi-toolbar-group pfi-cloud">
             <span id="pfi-cloud-stato" class="pfi-cloud-stato" aria-live="polite">Non hai effettuato l'accesso</span>
             <button type="button" id="pfi-accedi" class="pfi-btn pfi-btn-primary">Accedi</button>
-            <label id="pfi-classe-box" class="pfi-classe-box" hidden>Classe
-                <select id="pfi-classe-attiva"></select>
-            </label>
-            <button type="button" id="pfi-cloud-salva" class="pfi-btn" hidden>Salva in cloud</button>
-            <button type="button" id="pfi-cloud-apri" class="pfi-btn" hidden>Studenti della classe</button>
+            <button type="button" id="pfi-cloud-salva" class="pfi-btn" hidden>Salva</button>
+            <button type="button" id="pfi-cloud-apri" class="pfi-btn" hidden>Gestione PFI</button>
             <button type="button" id="pfi-esci" class="pfi-btn pfi-btn-ghost" hidden>Esci</button>
         </div>
         <div class="pfi-toolbar-group pfi-toolbar-right">
@@ -92,15 +89,78 @@
         </form>
     </dialog>
 
-    <!-- ============ ELENCO STUDENTI DELLA CLASSE ============ -->
-    <dialog id="pfi-elenco" class="pfi-dialog no-print" aria-labelledby="pfi-elenco-titolo">
-        <h2 id="pfi-elenco-titolo">Studenti della classe</h2>
-        <p class="pfi-nota pfi-nota-top" id="pfi-elenco-sottotitolo"></p>
-        <ul id="pfi-elenco-lista" class="pfi-elenco-lista"></ul>
-        <div class="pfi-dialog-azioni">
-            <button type="button" id="pfi-elenco-chiudi" class="pfi-btn">Chiudi</button>
-        </div>
+    <!-- ============ CANCELLAZIONE PROTETTA ============ -->
+    <dialog id="pfi-elimina" class="pfi-dialog no-print" aria-labelledby="pfi-elimina-titolo">
+        <form method="dialog" id="pfi-elimina-form">
+            <h2 id="pfi-elimina-titolo">Cancellazione definitiva</h2>
+            <p class="pfi-nota pfi-nota-top">
+                Il PFI verrà rimosso dal database e non sarà più recuperabile.
+                Per procedere servono il tuo codice e il nome dello studente.
+            </p>
+            <label>Riscrivi il nome dello studente
+                <input type="text" id="pfi-el-conferma" autocomplete="off" required>
+            </label>
+            <label>Il tuo codice di accesso
+                <input type="password" id="pfi-el-codice" autocomplete="current-password" required>
+            </label>
+            <p id="pfi-el-errore" class="pfi-acc-errore" role="alert" hidden></p>
+            <div class="pfi-dialog-azioni">
+                <button type="button" id="pfi-el-annulla" class="pfi-btn pfi-btn-ghost">Annulla</button>
+                <button type="submit" class="pfi-btn pfi-btn-pericolo">Cancella definitivamente</button>
+            </div>
+        </form>
     </dialog>
+
+    <!-- ============ GESTIONE: NUOVO PFI E PFI ESISTENTI ============ -->
+    <section id="pfi-gestione" class="pfi-gestione no-print" hidden aria-label="Gestione dei PFI">
+        <div class="pfi-gestione-griglia">
+
+            <article class="pfi-gestione-card">
+                <h2><span class="pfi-num">1</span> Crea un nuovo PFI</h2>
+                <p class="pfi-nota pfi-nota-top">
+                    Assegna la classe: tutti gli studenti che le attribuisci confluiranno nello stesso gruppo.
+                </p>
+                <form id="pfi-nuovo-form">
+                    <div class="pfi-griglia pfi-griglia-2">
+                        <label>Classe
+                            <select id="pfi-nuovo-classe"></select>
+                        </label>
+                        <label id="pfi-nuovo-classe-box" hidden>Nome della nuova classe
+                            <input type="text" id="pfi-nuovo-classe-nome" placeholder="3ª A">
+                        </label>
+                        <label>Anno scolastico
+                            <input type="text" id="pfi-nuovo-as" placeholder="2026/2027">
+                        </label>
+                        <label>Docente tutor della classe
+                            <input type="text" id="pfi-nuovo-tutor">
+                        </label>
+                        <label>Cognome dello studente
+                            <input type="text" id="pfi-nuovo-cognome" required>
+                        </label>
+                        <label>Nome dello studente
+                            <input type="text" id="pfi-nuovo-nome" required>
+                        </label>
+                    </div>
+                    <p id="pfi-nuovo-errore" class="pfi-acc-errore" role="alert" hidden></p>
+                    <div class="pfi-uda-azioni">
+                        <button type="submit" class="pfi-btn pfi-btn-primary">Crea e apri il PFI</button>
+                    </div>
+                </form>
+            </article>
+
+            <article class="pfi-gestione-card">
+                <h2><span class="pfi-num">2</span> PFI già creati</h2>
+                <div class="pfi-gestione-testa">
+                    <p class="pfi-nota pfi-nota-top" id="pfi-lista-sottotitolo">Raggruppati per classe.</p>
+                    <label class="pfi-archiviati-box">
+                        <input type="checkbox" id="pfi-mostra-archiviati"> Mostra gli archiviati
+                    </label>
+                </div>
+                <div id="pfi-lista-classi" class="pfi-lista-classi"></div>
+            </article>
+
+        </div>
+    </section>
 
     <form id="pfi-form" autocomplete="off">
 

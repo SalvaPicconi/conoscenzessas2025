@@ -45,8 +45,10 @@ const stato = {
     token: '',
     docente: '',
     nomeCompleto: '',
-    classi: [],
-    classeAttiva: ''
+    classi: [],          // gruppi classe esistenti sul server
+    classeAttiva: '',
+    documentoId: '',     // PFI attualmente aperto
+    eliminandoId: ''
 };
 
 document.addEventListener('DOMContentLoaded', avvia);
@@ -360,18 +362,26 @@ function aggiornaCompetenze() {
 // 4. Eventi
 // ============================================================
 
+/** Registra un listener solo se l'elemento esiste: un id rimosso dall'HTML
+ *  non deve impedire la registrazione di tutti i listener successivi. */
+function su(id, evento, gestore) {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener(evento, gestore);
+    else console.warn(`[pfi] elemento "${id}" assente: listener "${evento}" non registrato.`);
+}
+
 function collegaEventi() {
     ['pfi-uda-tipo', 'pfi-uda-anno', 'pfi-uda-competenza'].forEach(id =>
         document.getElementById(id).addEventListener('change', popolaScelta));
 
-    document.getElementById('pfi-uda-aggiungi').addEventListener('click', () => {
+    su('pfi-uda-aggiungi', 'click', () => {
         const key = document.getElementById('pfi-uda-scelta').value;
         if (!key) return;
         const dati = daCatalogo(key);
         if (dati) aggiungiUda(dati);
     });
 
-    document.getElementById('pfi-uda-vuota').addEventListener('click', () => aggiungiUda());
+    su('pfi-uda-vuota', 'click', () => aggiungiUda());
 
     const lista = document.getElementById('pfi-uda-lista');
     lista.addEventListener('click', e => {
@@ -394,25 +404,36 @@ function collegaEventi() {
         if (e.target.dataset?.campo === 'tipo' || e.target.dataset?.campo === 'anno') aggiornaUda();
     });
 
-    document.getElementById('pfi-word').addEventListener('click', esportaWord);
-    document.getElementById('pfi-print').addEventListener('click', () => window.print());
-    document.getElementById('pfi-save-json').addEventListener('click', salvaBozza);
-    document.getElementById('pfi-load-json').addEventListener('click', () =>
+    su('pfi-word', 'click', esportaWord);
+    su('pfi-print', 'click', () => window.print());
+    su('pfi-save-json', 'click', salvaBozza);
+    su('pfi-load-json', 'click', () =>
         document.getElementById('pfi-file').click());
-    document.getElementById('pfi-file').addEventListener('change', apriBozza);
-    document.getElementById('pfi-reset').addEventListener('click', svuota);
+    su('pfi-file', 'change', apriBozza);
+    su('pfi-reset', 'click', svuota);
 
-    document.getElementById('pfi-accedi').addEventListener('click', apriAccesso);
-    document.getElementById('pfi-accesso-form').addEventListener('submit', accedi);
-    document.getElementById('pfi-acc-annulla').addEventListener('click', () =>
+    su('pfi-accedi', 'click', apriAccesso);
+    su('pfi-accesso-form', 'submit', accedi);
+    su('pfi-acc-annulla', 'click', () =>
         document.getElementById('pfi-accesso').close());
-    document.getElementById('pfi-elenco-chiudi').addEventListener('click', () =>
-        document.getElementById('pfi-elenco').close());
-    document.getElementById('pfi-classe-attiva').addEventListener('change', e =>
-        impostaClasse(e.target.value));
-    document.getElementById('pfi-esci').addEventListener('click', esci);
-    document.getElementById('pfi-cloud-salva').addEventListener('click', salvaCloud);
-    document.getElementById('pfi-cloud-apri').addEventListener('click', apriDaCloud);
+    su('pfi-nuovo-form', 'submit', creaNuovo);
+    su('pfi-nuovo-classe', 'change', e => {
+        const nuova = e.target.value === '__nuova__';
+        document.getElementById('pfi-nuovo-classe-box').hidden = !nuova;
+        const c = stato.classi.find(x => x.id === e.target.value);
+        // su una classe esistente si eredita il suo tutor; su una nuova, sei tu
+        document.getElementById('pfi-nuovo-as').value =
+            (c ? c.anno_scolastico : document.getElementById('pfi-nuovo-as').value) || '';
+        document.getElementById('pfi-nuovo-tutor').value =
+            (c && c.tutor) ? c.tutor : stato.nomeCompleto;
+    });
+    su('pfi-mostra-archiviati', 'change', caricaElenco);
+    su('pfi-elimina-form', 'submit', eliminaDefinitivo);
+    su('pfi-el-annulla', 'click', () =>
+        document.getElementById('pfi-elimina').close());
+    su('pfi-esci', 'click', esci);
+    su('pfi-cloud-salva', 'click', salvaCloud);
+    su('pfi-cloud-apri', 'click', apriDaCloud);
 }
 
 // ============================================================
@@ -683,36 +704,6 @@ async function ripristinaSessione() {
 function applicaProfilo(p) {
     stato.docente = p.docente || '';
     stato.nomeCompleto = p.nomeCompleto || p.docente || '';
-    stato.classi = p.classi || [];
-
-    const sel = document.getElementById('pfi-classe-attiva');
-    sel.innerHTML = stato.classi.length
-        ? stato.classi.map(c => `<option>${escapeHtml(c)}</option>`).join('')
-        : '<option value="">nessuna classe assegnata</option>';
-
-    const salvata = sessionStorage.getItem(IDENTITA_KEY) || '';
-    impostaClasse(stato.classi.includes(salvata) ? salvata : (stato.classi[0] || ''));
-}
-
-/** Riporta nel PFI la classe scelta e il nome del tutor per l'anno corrispondente. */
-function impostaClasse(classe) {
-    stato.classeAttiva = classe || '';
-    const sel = document.getElementById('pfi-classe-attiva');
-    if (sel.value !== stato.classeAttiva) sel.value = stato.classeAttiva;
-    if (stato.classeAttiva) sessionStorage.setItem(IDENTITA_KEY, stato.classeAttiva);
-
-    const form = document.getElementById('pfi-form');
-    const campoClasse = form.elements['classe'];
-    if (campoClasse && stato.classeAttiva) campoClasse.value = stato.classeAttiva;
-
-    // «3ª A» -> anno 3: il tutor va nella riga di quell'annualità
-    const anno = Number((stato.classeAttiva.match(/[1-5]/) || [])[0]);
-    if (anno && stato.nomeCompleto) {
-        const campoTutor = form.elements[`tutor_${anno}`];
-        if (campoTutor && !campoTutor.value.trim()) campoTutor.value = stato.nomeCompleto;
-        const firma = form.elements[`an_${anno}_tutorfirma`];
-        if (firma && !firma.value.trim()) firma.value = stato.nomeCompleto;
-    }
     aggiornaEtichettaCloud();
 }
 
@@ -729,11 +720,13 @@ function aggiornaEtichettaCloud() {
 
 function modalitaCloud(attivo) {
     document.getElementById('pfi-accedi').hidden = attivo;
-    document.getElementById('pfi-classe-box').hidden = !attivo || !stato.classi.length;
     document.getElementById('pfi-cloud-salva').hidden = !attivo;
     document.getElementById('pfi-cloud-apri').hidden = !attivo;
     document.getElementById('pfi-esci').hidden = !attivo;
+    document.getElementById('pfi-gestione').hidden = !attivo;
     aggiornaEtichettaCloud();
+    if (attivo) caricaClassi().then(caricaElenco);
+    notificaAltezza();
 }
 
 async function chiamaApi(azione, corpo) {
@@ -750,6 +743,8 @@ async function chiamaApi(azione, corpo) {
     if (!risposta.ok) throw new Error(dati.error || `Errore ${risposta.status}`);
     return dati;
 }
+
+// ---------- accesso ----------
 
 function apriAccesso() {
     const err = document.getElementById('pfi-acc-errore');
@@ -788,71 +783,227 @@ async function accedi(evento) {
 function esci() {
     sessionStorage.removeItem(SESSION_KEY);
     sessionStorage.removeItem(IDENTITA_KEY);
-    Object.assign(stato, { token: '', docente: '', nomeCompleto: '', classi: [], classeAttiva: '' });
+    Object.assign(stato, {
+        token: '', docente: '', nomeCompleto: '',
+        classi: [], classeAttiva: '', documentoId: '', eliminandoId: ''
+    });
     modalitaCloud(false);
+}
+
+// ---------- sezione 1: crea un nuovo PFI ----------
+
+async function caricaClassi() {
+    try {
+        const d = await chiamaApi('classi', {});
+        stato.classi = d.classi || [];
+    } catch { stato.classi = []; }
+
+    const sel = document.getElementById('pfi-nuovo-classe');
+    sel.innerHTML = stato.classi
+        .map(c => `<option value="${escapeAttr(c.id)}">${escapeHtml(c.nome)} — ${escapeHtml(c.anno_scolastico || 's.a.')} (${c.studenti})</option>`)
+        .join('') + '<option value="__nuova__">+ Nuova classe…</option>';
+
+    if (!stato.classi.length) sel.value = '__nuova__';
+    sel.dispatchEvent(new Event('change'));
+    if (!document.getElementById('pfi-nuovo-tutor').value) {
+        document.getElementById('pfi-nuovo-tutor').value = stato.nomeCompleto;
+    }
+}
+
+async function creaNuovo(evento) {
+    evento.preventDefault();
+    const err = document.getElementById('pfi-nuovo-errore');
+    err.hidden = true;
+
+    const sel = document.getElementById('pfi-nuovo-classe').value;
+    const classe = sel === '__nuova__'
+        ? document.getElementById('pfi-nuovo-classe-nome').value.trim()
+        : (stato.classi.find(c => c.id === sel)?.nome || '');
+    const anno = document.getElementById('pfi-nuovo-as').value.trim();
+    const tutor = document.getElementById('pfi-nuovo-tutor').value.trim();
+    const cognome = document.getElementById('pfi-nuovo-cognome').value.trim();
+    const nome = document.getElementById('pfi-nuovo-nome').value.trim();
+
+    if (!classe) { err.textContent = 'Indica la classe.'; err.hidden = false; return; }
+    if (!cognome || !nome) { err.textContent = 'Indica cognome e nome dello studente.'; err.hidden = false; return; }
+
+    // modulo pulito con l'intestazione già compilata
+    document.getElementById('pfi-form').reset();
+    stato.uda = []; stato.documentoId = '';
+    aggiornaUda(); ricalcolaOre();
+
+    const f = document.getElementById('pfi-form');
+    f.elements['cognome'].value = cognome;
+    f.elements['nome'].value = nome;
+    f.elements['classe'].value = classe;
+    f.elements['annoScolastico'].value = anno;
+    impostaClasse(classe, tutor);
+
+    try {
+        await chiamaApi('salva', {
+            etichetta: `${cognome} ${nome}`, classe, anno_scolastico: anno, tutor, payload: raccogli()
+        });
+        document.getElementById('pfi-nuovo-cognome').value = '';
+        document.getElementById('pfi-nuovo-nome').value = '';
+        await caricaClassi(); await caricaElenco();
+        document.getElementById('q1').scrollIntoView({ behavior: 'smooth' });
+    } catch (e) {
+        err.textContent = e.message; err.hidden = false;
+    }
+}
+
+/** Riporta nel PFI la classe e il nome del tutor per l'anno corrispondente. */
+function impostaClasse(classe, tutor) {
+    stato.classeAttiva = classe || '';
+    const form = document.getElementById('pfi-form');
+    const campoClasse = form.elements['classe'];
+    if (campoClasse && stato.classeAttiva) campoClasse.value = stato.classeAttiva;
+
+    const nomeTutor = tutor || stato.nomeCompleto;
+    const anno = Number((stato.classeAttiva.match(/[1-5]/) || [])[0]);
+    if (anno && nomeTutor) {
+        const campoTutor = form.elements[`tutor_${anno}`];
+        if (campoTutor && !campoTutor.value.trim()) campoTutor.value = nomeTutor;
+        const firma = form.elements[`an_${anno}_tutorfirma`];
+        if (firma && !firma.value.trim()) firma.value = nomeTutor;
+    }
+    aggiornaEtichettaCloud();
+}
+
+// ---------- sezione 2: PFI già creati, per classe ----------
+
+async function caricaElenco() {
+    const box = document.getElementById('pfi-lista-classi');
+    const archiviati = document.getElementById('pfi-mostra-archiviati').checked;
+    box.innerHTML = '<p class="pfi-nota">Caricamento…</p>';
+
+    try {
+        const d = await chiamaApi('elenco', { archiviati });
+        const voci = d.documenti || [];
+        document.getElementById('pfi-lista-sottotitolo').textContent = archiviati
+            ? `${voci.length} PFI archiviati.`
+            : `${voci.length} PFI, raggruppati per classe.`;
+
+        if (!voci.length) {
+            box.innerHTML = `<p class="pfi-nota">${archiviati ? 'Nessun PFI archiviato.' : 'Nessun PFI creato finora.'}</p>`;
+            notificaAltezza();
+            return;
+        }
+
+        const gruppi = new Map();
+        voci.forEach(v => {
+            const k = v.classe || '(senza classe)';
+            if (!gruppi.has(k)) gruppi.set(k, []);
+            gruppi.get(k).push(v);
+        });
+
+        box.innerHTML = [...gruppi.entries()].map(([classe, studenti]) => `
+            <section class="pfi-gruppo">
+                <h3>${escapeHtml(classe)} <span>${studenti.length} student${studenti.length === 1 ? 'e' : 'i'}</span></h3>
+                <ul>
+                    ${studenti.map(v => `
+                        <li>
+                            <button type="button" class="pfi-elenco-voce" data-apri="${escapeAttr(v.id)}">
+                                <span class="pfi-elenco-nome">${escapeHtml(v.etichetta)}</span>
+                                <span class="pfi-elenco-meta">${escapeHtml(v.anno_scolastico || 's.a.')} · ultimo aggiornamento ${new Date(v.aggiornato_il).toLocaleDateString('it-IT')}${v.aggiornato_da ? ' di ' + escapeHtml(v.aggiornato_da) : ''}</span>
+                            </button>
+                            <div class="pfi-voce-azioni">
+                                <button type="button" class="pfi-mini" data-archivia="${escapeAttr(v.id)}" data-ripristina="${archiviati}">${archiviati ? 'Ripristina' : 'Archivia'}</button>
+                                ${archiviati ? `<button type="button" class="pfi-mini pfi-mini-pericolo" data-elimina="${escapeAttr(v.id)}" data-nome="${escapeAttr(v.etichetta)}">Cancella</button>` : ''}
+                            </div>
+                        </li>`).join('')}
+                </ul>
+            </section>`).join('');
+    } catch (e) {
+        box.innerHTML = `<p class="pfi-nota">Lettura non riuscita: ${escapeHtml(e.message)}</p>`;
+    }
+    notificaAltezza();
 }
 
 async function salvaCloud() {
     const pacchetto = raccogli();
     const etichetta = `${pacchetto.campi.cognome || ''} ${pacchetto.campi.nome || ''}`.trim();
-    if (!etichetta) {
-        alert('Compila cognome e nome dello studente prima di salvare.');
-        return;
-    }
+    if (!etichetta) { alert('Compila cognome e nome dello studente prima di salvare.'); return; }
     const classe = stato.classeAttiva || pacchetto.campi.classe || '';
+    if (!classe) { alert('Assegna la classe prima di salvare.'); return; }
     try {
-        await chiamaApi('salva', {
-            etichetta,
-            classe,
+        const r = await chiamaApi('salva', {
+            etichetta, classe,
             anno_scolastico: pacchetto.campi.annoScolastico || '',
+            tutor: stato.nomeCompleto,
             payload: pacchetto
         });
-        alert(`PFI di ${etichetta} salvato — classe ${classe}.`);
+        stato.documentoId = r.id;
+        alert(`PFI di ${etichetta} salvato — classe ${r.classe}.`);
+        await caricaClassi(); await caricaElenco();
     } catch (err) {
         alert(`Salvataggio non riuscito: ${err.message}`);
     }
 }
 
-async function apriDaCloud() {
-    const dialogo = document.getElementById('pfi-elenco');
-    const lista = document.getElementById('pfi-elenco-lista');
-    const sotto = document.getElementById('pfi-elenco-sottotitolo');
-    lista.innerHTML = '<li class="pfi-nota">Caricamento…</li>';
-    sotto.textContent = stato.classeAttiva
-        ? `Classe ${stato.classeAttiva} — tutor ${stato.nomeCompleto}`
-        : stato.nomeCompleto;
-    dialogo.showModal();
+function apriDaCloud() {
+    const g = document.getElementById('pfi-gestione');
+    g.hidden = false;
+    g.scrollIntoView({ behavior: 'smooth' });
+    caricaElenco();
+}
 
+// ---------- cancellazione protetta ----------
+
+function chiediEliminazione(id, nome) {
+    stato.eliminandoId = id;
+    document.getElementById('pfi-el-conferma').value = '';
+    document.getElementById('pfi-el-codice').value = '';
+    const err = document.getElementById('pfi-el-errore');
+    err.hidden = true;
+    document.getElementById('pfi-elimina-titolo').textContent = `Cancellare il PFI di ${nome}?`;
+    document.getElementById('pfi-elimina').showModal();
+}
+
+async function eliminaDefinitivo(evento) {
+    evento.preventDefault();
+    const err = document.getElementById('pfi-el-errore');
     try {
-        const dati = await chiamaApi('elenco', { classe: stato.classeAttiva });
-        const voci = dati.documenti || [];
-        if (!voci.length) {
-            lista.innerHTML = '<li class="pfi-nota">Nessun PFI salvato per questa classe.</li>';
-            return;
-        }
-        lista.innerHTML = voci.map(v => `
-            <li>
-                <button type="button" class="pfi-elenco-voce" data-apri="${escapeAttr(v.id)}">
-                    <span class="pfi-elenco-nome">${escapeHtml(v.etichetta)}</span>
-                    <span class="pfi-elenco-meta">${escapeHtml(v.classe || '')} · ${escapeHtml(v.anno_scolastico || 's.a.')} · aggiornato il ${new Date(v.aggiornato_il).toLocaleDateString('it-IT')}</span>
-                </button>
-            </li>`).join('');
-    } catch (err) {
-        lista.innerHTML = `<li class="pfi-nota">Lettura non riuscita: ${escapeHtml(err.message)}</li>`;
+        await chiamaApi('elimina', {
+            id: stato.eliminandoId,
+            codice: document.getElementById('pfi-el-codice').value,
+            conferma: document.getElementById('pfi-el-conferma').value
+        });
+        document.getElementById('pfi-elimina').close();
+        await caricaClassi(); await caricaElenco();
+    } catch (e) {
+        err.textContent = e.message;
+        err.hidden = false;
     }
 }
 
 document.addEventListener('click', async e => {
-    const id = e.target.closest('[data-apri]')?.dataset.apri;
-    if (!id) return;
-    try {
-        const doc = await chiamaApi('apri', { id });
-        applica(doc.payload);
-        if (doc.classe) impostaClasse(doc.classe);
-        document.getElementById('pfi-elenco').close();
-    } catch (err) {
-        alert(`Apertura non riuscita: ${err.message}`);
+    const apri = e.target.closest('[data-apri]');
+    if (apri) {
+        try {
+            const doc = await chiamaApi('apri', { id: apri.dataset.apri });
+            applica(doc.payload);
+            stato.documentoId = doc.id;
+            if (doc.classe) impostaClasse(doc.classe);
+            document.getElementById('q1').scrollIntoView({ behavior: 'smooth' });
+        } catch (err) { alert(`Apertura non riuscita: ${err.message}`); }
+        return;
     }
+
+    const arch = e.target.closest('[data-archivia]');
+    if (arch) {
+        try {
+            await chiamaApi('archivia', {
+                id: arch.dataset.archivia,
+                ripristina: arch.dataset.ripristina === 'true'
+            });
+            await caricaClassi(); await caricaElenco();
+        } catch (err) { alert(err.message); }
+        return;
+    }
+
+    const el = e.target.closest('[data-elimina]');
+    if (el) chiediEliminazione(el.dataset.elimina, el.dataset.nome);
 });
 
 // ============================================================
