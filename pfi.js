@@ -771,6 +771,11 @@ async function accedi(evento) {
         applicaProfilo(dati);
         modalitaCloud(true);
         document.getElementById('pfi-accesso').close();
+        if (dati.nuovo) {
+            alert(`Utenza creata: ${dati.nomeCompleto}.\n\n` +
+                  'Da ora entri con questo nome e il codice che hai scelto. ' +
+                  'Il nome comparirà come docente tutor nei PFI che compili.');
+        }
     } catch (e) {
         err.textContent = e.message;
         err.hidden = false;

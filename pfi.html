@@ -70,17 +70,22 @@
     <!-- ============ ACCESSO DOCENTE ============ -->
     <dialog id="pfi-accesso" class="pfi-dialog no-print" aria-labelledby="pfi-accesso-titolo">
         <form method="dialog" id="pfi-accesso-form">
-            <h2 id="pfi-accesso-titolo">Accesso docente tutor</h2>
+            <h2 id="pfi-accesso-titolo">Accesso docente</h2>
             <p class="pfi-nota pfi-nota-top">
-                Il codice identifica il tutor e le classi che segue. Nome e classe vengono riportati
-                nel PFI senza doverli riscrivere per ogni studente.
+                <strong>Al primo accesso scegli tu il codice</strong>: l'utenza viene creata sul momento.
+                Dalla volta successiva entri con lo stesso nome e lo stesso codice.
+                Il nome che scrivi qui è quello che comparirà come docente tutor nei PFI.
             </p>
-            <label>Nome docente
-                <input type="text" id="pfi-acc-nome" autocomplete="username" required>
+            <label>Nome e cognome
+                <input type="text" id="pfi-acc-nome" autocomplete="username"
+                       placeholder="Mario Rossi" minlength="3" required>
             </label>
             <label>Codice di accesso
-                <input type="password" id="pfi-acc-codice" autocomplete="current-password" required>
+                <input type="password" id="pfi-acc-codice" autocomplete="current-password"
+                       minlength="4" required>
             </label>
+            <p class="pfi-nota">Chi accede può aprire e modificare i PFI di tutte le classi;
+                ogni modifica resta firmata col tuo nome.</p>
             <p id="pfi-acc-errore" class="pfi-acc-errore" role="alert" hidden></p>
             <div class="pfi-dialog-azioni">
                 <button type="button" id="pfi-acc-annulla" class="pfi-btn pfi-btn-ghost">Annulla</button>
