@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="style.css?v=20260721">
     <link rel="stylesheet" href="uda.css?v=20260721">
     <link rel="stylesheet" href="didattica.css?v=20260901">
-    <link rel="stylesheet" href="assets/uda-revisione.css?v=20260902a">
+    <link rel="stylesheet" href="assets/uda-revisione.css?v=20260903a">
 </head>
 <body>
     <main class="container">
@@ -64,10 +64,13 @@
                 <p id="uda-revisione-identita"></p>
             </div>
             <div class="uda-revisione-toolbar-actions">
+                <button type="button" id="uda-revisione-crea" class="uda-revisione-primary">＋ Crea nuova UDA</button>
                 <button type="button" id="uda-revisione-elenco" class="uda-revisione-secondary">Revisioni <span id="uda-revisione-contatore">0</span></button>
                 <button type="button" id="uda-revisione-esci" class="uda-revisione-ghost">Esci</button>
             </div>
         </section>
+
+        <div id="uda-revisione-nuova-slot" class="uda-revisione-new-slot"></div>
 
         <section id="uda-revisione-pannello" class="uda-revisione-pannello" hidden aria-labelledby="uda-revisione-pannello-titolo">
             <div class="uda-revisione-pannello-head">
@@ -161,7 +164,7 @@
     </main>
 
     <script src="uda.js?v=20260902a"></script>
-    <script type="module" src="assets/uda-revisione.js?v=20260902a"></script>
+    <script type="module" src="assets/uda-revisione.js?v=20260903a"></script>
     <script>
         // Testi comuni dal JSON (meta)
         fetch('data-uda.json', { cache: 'no-store' }).then(r => r.json()).then(d => {

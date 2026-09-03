@@ -13,6 +13,7 @@ const AUTHORS = new Set([
 ]);
 const STATES = new Set(["bozza", "approvata", "applicata", "archiviata"]);
 const FIELDS = new Set([
+  "anno", "competenza", "qnq",
   "titolo", "traguardo", "compito", "situazione", "prodotto",
   "beneficiari", "ambito", "ore", "abilita", "saperi", "sviluppata",
 ]);
@@ -76,6 +77,13 @@ function cleanChanges(value: unknown) {
   for (const key of ["abilita", "saperi"]) {
     if (key in changes && !Array.isArray(changes[key])) throw new Error("Elenco didattico non valido.");
   }
+  if ("anno" in changes && (!Number.isInteger(Number(changes.anno)) || Number(changes.anno) < 1 || Number(changes.anno) > 5)) {
+    throw new Error("Anno non valido.");
+  }
+  if ("competenza" in changes && (!Number.isInteger(Number(changes.competenza)) || Number(changes.competenza) < 1 || Number(changes.competenza) > 10)) {
+    throw new Error("Competenza non valida.");
+  }
+  if ("qnq" in changes && !["2", "3", "3/4", "4"].includes(String(changes.qnq))) throw new Error("Livello QNQ non valido.");
   return changes;
 }
 
@@ -124,13 +132,20 @@ async function listRevisions(request: Request) {
 async function upsertRevision(request: Request, payload: Record<string, unknown>, sessionAuthor: string) {
   try {
     const record = cleanObject(payload.revision);
-    const udaKey = cleanString(record.uda_key, 20, true);
-    if (!/^[0-9]+\.[0-9]+$/.test(udaKey)) throw new Error("Chiave UDA non valida.");
+    const udaKey = cleanString(record.uda_key, 50, true);
+    if (!/^([0-9]+\.[0-9]+|nuova-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$/i.test(udaKey)) {
+      throw new Error("Chiave UDA non valida.");
+    }
     const authorName = cleanString(record.author_name, 40, true);
     if (!AUTHORS.has(authorName) || authorName !== sessionAuthor) throw new Error("Autore non valido per questa sessione.");
     const anno = Number(record.anno);
     if (!Number.isInteger(anno) || anno < 1 || anno > 5) throw new Error("Anno non valido.");
     const changes = cleanChanges(record.modifiche);
+    if (udaKey.startsWith("nuova-")) {
+      if (Number(changes.anno) !== anno || !changes.competenza || !changes.qnq || !cleanString(changes.titolo, 500)) {
+        throw new Error("La nuova UDA richiede anno, competenza, livello QNQ e titolo.");
+      }
+    }
     const note = cleanString(record.nota_generale, 20_000);
     if (!note && !Object.keys(changes).length) throw new Error("Scrivi un’annotazione oppure modifica almeno un campo.");
     const databaseRecord = {

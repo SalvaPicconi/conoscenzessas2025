@@ -17,6 +17,15 @@ const CAMPI = [
     ['saperi', 'Saperi essenziali', 'righe'],
     ['sviluppata', 'Materiali / UDA sviluppata', 'testo']
 ];
+const CAMPI_NUOVA = [
+    ['anno', 'Anno di corso', 'scelta-numero', [
+        ['1', '1° anno'], ['2', '2° anno'], ['3', '3° anno'], ['4', '4° anno'], ['5', '5° anno']
+    ]],
+    ['competenza', 'Competenza in uscita', 'scelta-numero', Array.from({ length: 10 }, (_, indice) => [String(indice + 1), `Competenza ${indice + 1}`])],
+    ['qnq', 'Livello QNQ', 'scelta', [['2', 'Livello 2'], ['3', 'Livello 3'], ['3/4', 'Livello 3/4'], ['4', 'Livello 4']]],
+    ...CAMPI
+];
+const TUTTI_I_CAMPI = [...CAMPI_NUOVA];
 
 const statoRev = { token: '', docente: '', autorizzato: false, uda: new Map(), revisioni: new Map() };
 const uiRev = {};
@@ -48,7 +57,8 @@ function raccogliUi() {
         docente: id('uda-revisione-docente'), password: id('uda-revisione-password'),
         authMsg: id('uda-revisione-auth-messaggio'), annulla: id('uda-revisione-annulla'),
         toolbar: id('uda-revisione-toolbar'), identita: id('uda-revisione-identita'),
-        contatore: id('uda-revisione-contatore'), elencoApri: id('uda-revisione-elenco'),
+        contatore: id('uda-revisione-contatore'), crea: id('uda-revisione-crea'),
+        nuovaSlot: id('uda-revisione-nuova-slot'), elencoApri: id('uda-revisione-elenco'),
         esci: id('uda-revisione-esci'), pannello: id('uda-revisione-pannello'),
         pannelloChiudi: id('uda-revisione-pannello-chiudi'), filtroAnno: id('uda-revisione-filtro-anno'),
         filtroDocente: id('uda-revisione-filtro-docente'), elencoMsg: id('uda-revisione-elenco-messaggio'),
@@ -61,6 +71,7 @@ function collegaEventi() {
     uiRev.annulla.addEventListener('click', () => mostraAccesso(false));
     uiRev.auth.addEventListener('submit', accedi);
     uiRev.esci.addEventListener('click', esci);
+    uiRev.crea.addEventListener('click', () => apriEditor('nuova'));
     uiRev.elencoApri.addEventListener('click', apriElenco);
     uiRev.pannelloChiudi.addEventListener('click', () => { uiRev.pannello.hidden = true; notificaAltezza(); });
     uiRev.filtroAnno.addEventListener('change', disegnaElenco);
@@ -179,27 +190,33 @@ function aggiornaAzioniSchede() {
 }
 
 function apriEditor(chiave) {
-    const uda = statoRev.uda.get(String(chiave));
-    const slot = document.querySelector(`[data-uda-revisione-slot="${CSS.escape(String(chiave))}"]`);
+    const richiestaNuova = chiave === 'nuova';
+    const chiaveEffettiva = richiestaNuova ? `nuova-${crypto.randomUUID()}` : String(chiave);
+    const nuova = chiaveEffettiva.startsWith('nuova-');
+    const uda = nuova ? creaUdaVuota(chiaveEffettiva) : statoRev.uda.get(chiaveEffettiva);
+    const slot = nuova ? uiRev.nuovaSlot : document.querySelector(`[data-uda-revisione-slot="${CSS.escape(chiaveEffettiva)}"]`);
     if (!uda || !slot || !statoRev.autorizzato) return;
     document.querySelectorAll('.uda-revisione-editor').forEach(nodo => nodo.remove());
-    const salvata = revisionePersonale(chiave);
-    const originale = creaSnapshot(uda);
+    const salvata = revisionePersonale(chiaveEffettiva);
+    const definizioni = nuova ? CAMPI_NUOVA : CAMPI;
+    const originale = nuova ? creaSnapshot(creaUdaVuota(chiaveEffettiva), definizioni) : creaSnapshot(uda, definizioni);
     const form = document.createElement('form');
     form.className = 'uda-revisione-editor';
     const testata = document.createElement('div');
     testata.className = 'uda-revisione-editor-head';
     const titolo = document.createElement('h3');
-    titolo.textContent = `Proposta di ${statoRev.docente} · UDA ${uda.id}`;
+    titolo.textContent = nuova ? `Nuova UDA · proposta di ${statoRev.docente}` : `Proposta di ${statoRev.docente} · UDA ${uda.id}`;
     const chiudi = creaBottone('Chiudi', 'uda-revisione-secondary');
     chiudi.addEventListener('click', () => { form.remove(); notificaAltezza(); });
     testata.append(titolo, chiudi);
     const intro = document.createElement('p');
     intro.className = 'uda-revisione-editor-intro';
-    intro.textContent = 'Compila solo i campi da cambiare. Il testo pubblico resta invariato finché la proposta non viene applicata ai file sorgente.';
+    intro.textContent = nuova
+        ? 'Scrivi la nuova unità da zero. Sarà salvata come bozza condivisa e non cambierà il fascicolo pubblico.'
+        : 'Compila solo i campi da cambiare. Il testo pubblico resta invariato finché la proposta non viene applicata ai file sorgente.';
     const campi = document.createElement('div');
     campi.className = 'uda-revisione-fields';
-    CAMPI.forEach(definizione => campi.appendChild(creaCampo(definizione, originale, salvata?.modifiche || {})));
+    definizioni.forEach(definizione => campi.appendChild(creaCampo(definizione, originale, salvata?.modifiche || {}, nuova)));
     const nota = document.createElement('label');
     nota.className = 'uda-revisione-field uda-revisione-note';
     nota.appendChild(document.createTextNode('Annotazione generale'));
@@ -217,20 +234,26 @@ function apriEditor(chiave) {
     const salva = creaBottone('Salva proposta', 'uda-revisione-primary', 'submit');
     piede.append(esito, salva);
     form.append(testata, intro, campi, nota, piede);
-    form.addEventListener('submit', evento => salvaRevisione(evento, uda, originale, esito, salva));
+    form.addEventListener('submit', evento => salvaRevisione(evento, uda, originale, esito, salva, definizioni, nuova));
     slot.appendChild(form);
     form.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     notificaAltezza();
 }
 
-function creaCampo([chiave, etichetta, tipo], originale, modifiche) {
+function creaCampo([chiave, etichetta, tipo, opzioni = []], originale, modifiche, nuova = false) {
     const label = document.createElement('label');
     label.className = 'uda-revisione-field';
-    if (tipo !== 'testo') label.classList.add('uda-revisione-field-wide');
+    if (!['testo', 'scelta', 'scelta-numero'].includes(tipo)) label.classList.add('uda-revisione-field-wide');
     const titolo = document.createElement('span');
     titolo.textContent = etichetta;
-    const controllo = tipo === 'testo' ? document.createElement('input') : document.createElement('textarea');
+    let controllo;
+    if (tipo === 'scelta' || tipo === 'scelta-numero') {
+        controllo = document.createElement('select');
+        aggiungiOpzione(controllo, '', 'Seleziona…');
+        opzioni.forEach(([valore, testo]) => aggiungiOpzione(controllo, valore, testo));
+    } else controllo = tipo === 'testo' ? document.createElement('input') : document.createElement('textarea');
     controllo.name = chiave;
+    if (nuova && ['anno', 'competenza', 'qnq', 'titolo'].includes(chiave)) controllo.required = true;
     if (controllo.tagName === 'TEXTAREA') controllo.rows = tipo === 'righe' ? 7 : 4;
     controllo.value = formattaValore(Object.hasOwn(modifiche, chiave) ? modifiche[chiave] : originale[chiave], tipo);
     controllo.dataset.originale = JSON.stringify(originale[chiave]);
@@ -250,24 +273,29 @@ function aggiornaStatoCampo(label, controllo) {
     label.dataset.changed = String(!uguali(leggiValore(controllo.value, controllo.dataset.tipo), JSON.parse(controllo.dataset.originale)));
 }
 
-async function salvaRevisione(evento, uda, originale, esito, bottone) {
+async function salvaRevisione(evento, uda, originale, esito, bottone, definizioni = CAMPI, nuova = false) {
     evento.preventDefault();
     const form = evento.currentTarget;
     const modifiche = {};
-    CAMPI.forEach(([chiave, , tipo]) => {
+    definizioni.forEach(([chiave, , tipo]) => {
         const valore = leggiValore(form.elements.namedItem(chiave).value, tipo);
         if (!uguali(valore, originale[chiave])) modifiche[chiave] = valore;
     });
     const nota = form.elements.namedItem('nota_generale').value.trim();
+    if (nuova && (!modifiche.titolo || !modifiche.anno || !modifiche.competenza || !modifiche.qnq)) {
+        return messaggio(esito, 'Indica almeno anno, competenza, livello QNQ e titolo.', 'errore');
+    }
     if (!nota && !Object.keys(modifiche).length) return messaggio(esito, 'Scrivi un’annotazione oppure modifica almeno un campo.', 'errore');
     bottone.disabled = true;
     messaggio(esito, 'Salvataggio…');
     try {
         const esistente = revisionePersonale(uda.id);
         const dati = await chiamaApi('upsert', { revision: {
-            uda_key: String(uda.id), author_name: statoRev.docente, anno: Number(uda.anno),
-            titolo_uda: uda.titolo, originale, modifiche, nota_generale: nota,
-            stato: esistente?.stato || 'bozza', source_version: 'data-uda.json'
+            uda_key: String(uda.id), author_name: statoRev.docente,
+            anno: nuova ? Number(modifiche.anno) : Number(uda.anno),
+            titolo_uda: nuova ? modifiche.titolo : uda.titolo,
+            originale, modifiche, nota_generale: nota,
+            stato: esistente?.stato || 'bozza', source_version: nuova ? 'nuova-uda' : 'data-uda.json'
         }});
         statoRev.revisioni.set(chiaveRevisione(dati.revision.uda_key, dati.revision.author_name), dati.revision);
         aggiornaContatore();
@@ -280,8 +308,13 @@ async function salvaRevisione(evento, uda, originale, esito, bottone) {
     }
 }
 
-function creaSnapshot(uda) {
-    return Object.fromEntries(CAMPI.map(([chiave, , tipo]) => [chiave, structuredClone(uda[chiave] ?? (tipo === 'righe' ? [] : ''))]));
+function creaSnapshot(uda, definizioni = CAMPI) {
+    return Object.fromEntries(definizioni.map(([chiave, , tipo]) => [chiave, structuredClone(uda[chiave] ?? (tipo === 'righe' ? [] : ''))]));
+}
+
+function creaUdaVuota(chiave) {
+    return { id: chiave, anno: '', competenza: '', qnq: '', titolo: '', traguardo: '', compito: '', situazione: '',
+        prodotto: '', beneficiari: '', ambito: '', ore: '', abilita: [], saperi: [], sviluppata: '' };
 }
 
 function formattaValore(valore, tipo) {
@@ -290,6 +323,7 @@ function formattaValore(valore, tipo) {
 }
 
 function leggiValore(valore, tipo) {
+    if (tipo === 'scelta-numero') return valore ? Number(valore) : '';
     if (tipo !== 'righe') return valore.trim();
     return valore.split('\n').map(riga => riga.trim()).filter(Boolean).map(riga => {
         const [testo, insegnamenti = ''] = riga.split('||');
@@ -334,7 +368,9 @@ function creaSchedaRevisione(voce) {
     autore.className = 'uda-revisione-author';
     autore.textContent = voce.author_name;
     const titolo = document.createElement('h3');
-    titolo.textContent = `UDA ${voce.uda_key} — ${voce.titolo_uda}`;
+    titolo.textContent = String(voce.uda_key).startsWith('nuova-')
+        ? `Nuova UDA proposta · ${voce.anno}° anno — ${voce.titolo_uda}`
+        : `UDA ${voce.uda_key} — ${voce.titolo_uda}`;
     const meta = document.createElement('p');
     meta.textContent = `Aggiornata ${new Intl.DateTimeFormat('it-IT', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(voce.updated_at))}`;
     titoloBox.append(autore, titolo, meta);
@@ -373,8 +409,10 @@ function creaConfronto(chiave, voce) {
     const box = document.createElement('section');
     box.className = 'uda-revisione-comparison';
     const titolo = document.createElement('h4');
-    titolo.textContent = CAMPI.find(campo => campo[0] === chiave)?.[1] || chiave;
-    box.append(titolo, testoConfronto('Testo pubblico', voce.originale?.[chiave]), testoConfronto(`Proposta di ${voce.author_name}`, voce.modifiche?.[chiave]));
+    titolo.textContent = TUTTI_I_CAMPI.find(campo => campo[0] === chiave)?.[1] || chiave;
+    const nuova = String(voce.uda_key).startsWith('nuova-');
+    box.append(titolo, testoConfronto(nuova ? 'Da compilare' : 'Testo pubblico', voce.originale?.[chiave]),
+        testoConfronto(`Proposta di ${voce.author_name}`, voce.modifiche?.[chiave]));
     return box;
 }
 
@@ -390,6 +428,10 @@ function testoConfronto(etichetta, valore) {
 
 function apriDaElenco(chiave) {
     uiRev.pannello.hidden = true;
+    if (String(chiave).startsWith('nuova-')) {
+        apriEditor(chiave);
+        return;
+    }
     const card = document.querySelector(`[data-uda-revisione-key="${CSS.escape(String(chiave))}"]`);
     card?.classList.add('group-expanded');
     card?.querySelector('.uda-acc-header')?.setAttribute('aria-expanded', 'true');
