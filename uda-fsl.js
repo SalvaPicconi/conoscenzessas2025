@@ -94,6 +94,7 @@ function card(u) {
             <div class="sin-grid"><div class="sin-item"><div class="sin-label">Abilità mobilitate</div><div class="sin-value"><ul class="sin-list">${u.abilita.map(row).join('')}</ul></div></div>
             <div class="sin-item"><div class="sin-label">Saperi essenziali documentali</div><div class="sin-value"><ul class="sin-list">${u.saperi.map(row).join('')}</ul><p class="pfi-nota">Base normativa da mantenere; eventuali nuovi saperi vengono affiancati in revisione.</p></div></div></div>
             <div class="uda-fsl-subjects"><strong>Insegnamenti coinvolti</strong><div class="uda-fsl-subject-list">${renderSubjectChips(subjects)}</div></div>
+            <div class="uda-ore-slot" data-uda-ore-slot="${esc(u.id)}"></div>
             <div class="uda-revisione-slot" data-uda-revisione-slot="${esc(u.id)}"></div>
         </div></article>`;
 }

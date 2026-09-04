@@ -49,6 +49,21 @@ associati pubblicamente a un nominativo. Sono conservati nella tabella privata
 eseguita direttamente sul database di produzione e non è registrata nel repository; in assenza
 di un'autorizzazione esplicita la funzione nega i cambi di stato riservati.
 
+### Ripartizione oraria
+
+Le ore che ogni docente concorda per il proprio insegnamento viaggiano dentro lo
+stesso record di revisione, nel campo `modifiche.oreRipartizione`: una mappa da
+insegnamento a ore, che registra soltanto gli scostamenti dalla proposta
+proporzionale. La proposta di partenza arriva in `originale.oreRipartizione` e
+delimita la banda ammessa: la funzione rifiuta le ore che si allontanano più del
+40% da quella cifra, come fa l'interfaccia in `assets/uda-ore.js`.
+
+Non serve applicare SQL: `modifiche` è già `jsonb` senza vincoli sulle chiavi. Va
+però ridistribuita la funzione, perché l'elenco `FIELDS` scarta i campi che non
+conosce e senza aggiornamento rifiuterebbe il salvataggio delle ore:
+
+    supabase functions deploy curricolo-uda-revisioni --project-ref ruplzgcnheddmqqdephp
+
 L'elenco mostrato nelle tre interfacce è definito una sola volta in
 `assets/uda-revisione.js`. La stessa anagrafica deve restare allineata con
 `AUTHORS` nella funzione e con i vincoli `author_name` delle due tabelle SQL.

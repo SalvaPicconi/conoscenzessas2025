@@ -12,6 +12,7 @@ Sito pubblicato: https://salvapicconi.github.io/conoscenzessas2025/
 - **Area Generale** — le 12 competenze dell'area generale con assi culturali, abilità e conoscenze.
 - **UDA d'asse** — 48 schede del quinquennio, filtrabili per anno, competenza e insegnamento, con area collegiale per annotazioni e proposte.
 - **UDA trasversali · Tutte le materie** — catalogo autonomo e progressivo di UDA interdisciplinari, filtrabili per anno, asse e insegnamento, predisposto per modifica, revisione e creazione condivisa.
+- **Ripartizione oraria** — in ogni scheda UDA le ore sono divise fra gli insegnamenti coinvolti in proporzione al quadro orario dell'istituto; a docente autenticato la proposta è modificabile entro il 40% e il sito avvisa quando la somma non copre il monte ore dell'UDA.
 - **UDA FSL** — quattro UDA adattabili alle esperienze del triennio: area minori, disabilità, anziani e preparazione sanitaria/possibile raccordo OSS; coinvolgono solo le quattro discipline d'indirizzo definite dall'istituto.
 - **PFI** — progetto formativo individuale compilabile con scelta delle UDA dai tre cataloghi.
 - **Rubriche di Valutazione** — rubriche per competenze con pesi configurabili e calcolo del voto ponderato (disponibili: Metodologie Operative biennio, classe 3ª e classi 4ª-5ª; le altre discipline sono in preparazione).
@@ -32,6 +33,9 @@ Sito pubblicato: https://salvapicconi.github.io/conoscenzessas2025/
 - `uda-trasversali.html` + `uda-trasversali.js` + `data-uda-trasversali.json` — UDA trasversali
 - `uda-fsl.html` + `uda-fsl.js` + `data-uda-fsl.json` — UDA per la Formazione scuola-lavoro
 - `assets/uda-revisione.js` + `assets/uda-revisione.css` — modifica e revisione collegiale dei tre cataloghi; saperi documentali protetti e integrazioni libere
+- `assets/uda-ore.js` — ripartizione oraria delle UDA per insegnamento: proposta proporzionale, modifica del docente entro il 40% e avviso quando il monte ore non torna
+- `data-quadro-orario.json` — quadro orario dell'istituto, sorgente unica dei pesi della ripartizione
+- `data-ripartizione-ore.json` + `RIPARTIZIONE-ORE-UDA.md` — ripartizione calcolata e sua versione stampabile, generate da `tools/genera_ripartizione_ore.py`
 - `data-area-indirizzo.json` — dati area di indirizzo (fonte: Excel definitivo)
 - `data-area-generale.json` — dati area generale
 - `correzioni_competenze.json` — correzioni opzionali ai titoli delle competenze
@@ -42,6 +46,11 @@ Sito pubblicato: https://salvapicconi.github.io/conoscenzessas2025/
 ## Aggiornamento dei dati
 
 I contenuti del curricolo vivono nei due file JSON: modificando quelli, statistiche e contatori del sito si aggiornano automaticamente. Per l'area di indirizzo la fonte di riferimento è il file Excel definitivo.
+
+La ripartizione oraria non si scrive a mano. Dopo ogni modifica al quadro orario o al monte ore di una UDA va rigenerata:
+
+    python3 tools/genera_ripartizione_ore.py
+
 
 ## Pubblicazione
 

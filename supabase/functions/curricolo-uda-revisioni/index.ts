@@ -19,8 +19,11 @@ const FIELDS = new Set([
   "periodo", "assi", "competenzeGenerali", "competenzeSSAS", "competenzeEuropee",
   "titolo", "traguardo", "compito", "situazione", "prodotto",
   "beneficiari", "ambito", "areaTirocinio", "ore", "abilita", "saperi",
-  "integrazioniSaperi", "segnalazioneSaperi", "sviluppata",
+  "integrazioniSaperi", "segnalazioneSaperi", "sviluppata", "oreRipartizione",
 ]);
+// Scostamento massimo del docente dalla proposta proporzionale delle ore.
+const ORE_TOLLERANZA = 0.4;
+const ORE_MASSIME_UDA = 400;
 
 const supabaseUrl = Deno.env.get("SUPABASE_URL") ?? "";
 const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "";
@@ -80,7 +83,37 @@ function cleanObject(value: unknown) {
   return value as Record<string, unknown>;
 }
 
-function cleanChanges(value: unknown) {
+// Ripartizione oraria: mappa insegnamento → ore concordate dal docente.
+// Contiene solo gli scostamenti dalla proposta proporzionale, che arriva in
+// `originale` e delimita la banda entro cui lo scostamento è ammesso.
+function cleanHours(value: unknown, baseline: unknown) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    throw new Error("Ripartizione oraria non valida.");
+  }
+  const hours = value as Record<string, unknown>;
+  const entries = Object.entries(hours);
+  if (entries.length > 30) throw new Error("Troppi insegnamenti nella ripartizione oraria.");
+  const proposal = baseline && typeof baseline === "object" && !Array.isArray(baseline)
+    ? baseline as Record<string, unknown>
+    : {};
+  for (const [subject, amount] of entries) {
+    if (!subject.trim() || subject.length > 80) throw new Error("Insegnamento non valido nella ripartizione oraria.");
+    const numero = Number(amount);
+    if (!Number.isInteger(numero) || numero < 1 || numero > ORE_MASSIME_UDA) {
+      throw new Error(`Ore non valide per ${subject}.`);
+    }
+    const base = Number(proposal[subject]);
+    if (!Number.isFinite(base) || base <= 0) continue;
+    const minimo = Math.max(1, Math.round(base * (1 - ORE_TOLLERANZA)));
+    const massimo = Math.max(1, Math.round(base * (1 + ORE_TOLLERANZA)));
+    if (numero < minimo || numero > massimo) {
+      throw new Error(`Le ore di ${subject} devono restare fra ${minimo} e ${massimo}: la proposta proporzionale è di ${base} ore e lo scostamento consentito è del 40%.`);
+    }
+  }
+  return hours;
+}
+
+function cleanChanges(value: unknown, baseline: unknown = {}) {
   const changes = cleanObject(value);
   for (const key of Object.keys(changes)) {
     if (!FIELDS.has(key)) throw new Error("La proposta contiene un campo non valido.");
@@ -104,6 +137,12 @@ function cleanChanges(value: unknown) {
     throw new Error("Competenze SSAS non valide.");
   }
   if ("qnq" in changes && !["2", "3", "3/4", "4"].includes(String(changes.qnq))) throw new Error("Livello QNQ non valido.");
+  if ("oreRipartizione" in changes) {
+    changes.oreRipartizione = cleanHours(
+      changes.oreRipartizione,
+      (baseline as Record<string, unknown>)?.oreRipartizione,
+    );
+  }
   return changes;
 }
 
@@ -163,7 +202,8 @@ async function upsertRevision(request: Request, payload: Record<string, unknown>
     if (!AUTHORS.has(authorName) || authorName !== sessionAuthor) throw new Error("Autore non valido per questa sessione.");
     const anno = Number(record.anno);
     if (!Number.isInteger(anno) || anno < 1 || anno > 5) throw new Error("Anno non valido.");
-    const changes = cleanChanges(record.modifiche);
+    const originale = cleanObject(record.originale);
+    const changes = cleanChanges(record.modifiche, originale);
     if (udaKey.startsWith("nuova-f-")) {
       if (anno < 3 || Number(changes.anno) !== anno || !changes.qnq || !cleanString(changes.titolo, 500) ||
           !cleanString(changes.areaTirocinio, 500) || !(changes.competenzeSSAS as unknown[])?.length || !(changes.saperi as unknown[])?.length) {
@@ -191,7 +231,7 @@ async function upsertRevision(request: Request, payload: Record<string, unknown>
     const databaseRecord = {
       uda_key: udaKey, author_name: authorName, anno,
       titolo_uda: cleanString(record.titolo_uda, 500, true),
-      originale: cleanObject(record.originale), modifiche: changes,
+      originale, modifiche: changes,
       nota_generale: note,
       stato: STATES.has(String(record.stato)) ? String(record.stato) : "bozza",
       source_version: cleanString(record.source_version, 160) || null,

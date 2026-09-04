@@ -1,0 +1,2333 @@
+{
+  "meta": {
+    "titolo": "Ripartizione oraria delle UDA per insegnamento",
+    "sottotitolo": "Proposta proporzionale calcolata sul quadro orario dell'istituto",
+    "fonte": "Generato da tools/genera_ripartizione_ore.py a partire da data-quadro-orario.json e dai tre cataloghi delle UDA. Non modificare a mano: rigenerare.",
+    "metodo": "Le ore di ciascuna UDA sono ripartite fra gli insegnamenti coinvolti in proporzione alle ore settimanali che ogni insegnamento ha in quell'anno di corso. Il calcolo è fatto su una UDA per volta, senza vincoli cumulativi sull'anno.",
+    "arrotondamento": "Metodo dei resti maggiori: le ore intere avanzate vanno agli insegnamenti con il resto più alto, così la somma coincide sempre con il monte ore dell'UDA. A parità di resto ha la precedenza l'insegnamento con più ore settimanali.",
+    "tolleranzaDocente": 0.4,
+    "notaTolleranza": "Ogni docente può modificare le ore del proprio insegnamento entro il 40% in più o in meno rispetto alla proposta proporzionale, con un minimo di un'ora. Se la somma delle ore concordate non copre esattamente il monte ore dell'UDA, il consiglio di classe deve accordarsi.",
+    "monteConvenzionaleFSL": 30,
+    "notaFSL": "Le UDA di Formazione scuola-lavoro non hanno un monte ore proprio: è deliberato nel piano FSL d'istituto e nel progetto formativo individuale. Per rendere calcolabile la ripartizione si usa un monte convenzionale di 30 ore, da sostituire con quello effettivo.",
+    "settimaneAnno": 33
+  },
+  "uda": {
+    "1.1": {
+      "genere": "asse",
+      "anno": 1,
+      "titolo": "Il mio paese che aiuta",
+      "ore": "12–15",
+      "totaleMin": 12,
+      "totaleMax": 15,
+      "voci": [
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 7,
+          "min": 5,
+          "max": 6
+        },
+        {
+          "ins": "Scienze Umane",
+          "oreSett": 4,
+          "min": 3,
+          "max": 4
+        },
+        {
+          "ins": "Diritto",
+          "oreSett": 2,
+          "min": 2,
+          "max": 2
+        },
+        {
+          "ins": "TIC",
+          "oreSett": 2,
+          "min": 1,
+          "max": 2
+        },
+        {
+          "ins": "Storia",
+          "oreSett": 1,
+          "min": 1,
+          "max": 1
+        }
+      ]
+    },
+    "1.2": {
+      "genere": "asse",
+      "anno": 1,
+      "titolo": "La classe come squadra",
+      "ore": "10–12",
+      "totaleMin": 10,
+      "totaleMax": 12,
+      "voci": [
+        {
+          "ins": "Italiano",
+          "oreSett": 4,
+          "min": 3,
+          "max": 4
+        },
+        {
+          "ins": "Scienze Umane",
+          "oreSett": 4,
+          "min": 3,
+          "max": 3
+        },
+        {
+          "ins": "Inglese",
+          "oreSett": 3,
+          "min": 2,
+          "max": 3
+        },
+        {
+          "ins": "Spagnolo",
+          "oreSett": 2,
+          "min": 2,
+          "max": 2
+        }
+      ]
+    },
+    "1.3": {
+      "genere": "asse",
+      "anno": 1,
+      "titolo": "Oltre i pregiudizi",
+      "ore": "12–15",
+      "totaleMin": 12,
+      "totaleMax": 15,
+      "voci": [
+        {
+          "ins": "Scienze Umane",
+          "oreSett": 4,
+          "min": 5,
+          "max": 7
+        },
+        {
+          "ins": "Diritto",
+          "oreSett": 2,
+          "min": 3,
+          "max": 3
+        },
+        {
+          "ins": "TIC",
+          "oreSett": 2,
+          "min": 3,
+          "max": 3
+        },
+        {
+          "ins": "Storia",
+          "oreSett": 1,
+          "min": 1,
+          "max": 2
+        }
+      ]
+    },
+    "1.4": {
+      "genere": "asse",
+      "anno": 1,
+      "titolo": "Bisogni ad ogni età",
+      "ore": "12–15",
+      "totaleMin": 12,
+      "totaleMax": 15,
+      "voci": [
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 7,
+          "min": 6,
+          "max": 8
+        },
+        {
+          "ins": "Scienze Integrate",
+          "oreSett": 4,
+          "min": 4,
+          "max": 5
+        },
+        {
+          "ins": "Scienze Motorie",
+          "oreSett": 2,
+          "min": 2,
+          "max": 2
+        }
+      ]
+    },
+    "1.5": {
+      "genere": "asse",
+      "anno": 1,
+      "titolo": "Che cos'è la salute?",
+      "ore": "8–10",
+      "totaleMin": 8,
+      "totaleMax": 10,
+      "voci": [
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 7,
+          "min": 5,
+          "max": 6
+        },
+        {
+          "ins": "Scienze Umane",
+          "oreSett": 4,
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    "1.6": {
+      "genere": "asse",
+      "anno": 1,
+      "titolo": "Sicuri a scuola",
+      "ore": "8–10",
+      "totaleMin": 8,
+      "totaleMax": 10,
+      "voci": [
+        {
+          "ins": "Scienze Integrate",
+          "oreSett": 4,
+          "min": 5,
+          "max": 6
+        },
+        {
+          "ins": "Diritto",
+          "oreSett": 2,
+          "min": 2,
+          "max": 3
+        },
+        {
+          "ins": "Storia",
+          "oreSett": 1,
+          "min": 1,
+          "max": 1
+        }
+      ]
+    },
+    "1.7": {
+      "genere": "asse",
+      "anno": 1,
+      "titolo": "Il volantino dei servizi",
+      "ore": "10–12",
+      "totaleMin": 10,
+      "totaleMax": 12,
+      "voci": [
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 7,
+          "min": 5,
+          "max": 6
+        },
+        {
+          "ins": "Italiano",
+          "oreSett": 4,
+          "min": 3,
+          "max": 4
+        },
+        {
+          "ins": "TIC",
+          "oreSett": 2,
+          "min": 2,
+          "max": 2
+        }
+      ]
+    },
+    "1.8": {
+      "genere": "asse",
+      "anno": 1,
+      "titolo": "Giochiamo insieme",
+      "ore": "10–12",
+      "totaleMin": 10,
+      "totaleMax": 12,
+      "voci": [
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 7,
+          "min": 8,
+          "max": 9
+        },
+        {
+          "ins": "Scienze Motorie",
+          "oreSett": 2,
+          "min": 2,
+          "max": 3
+        }
+      ]
+    },
+    "1.9": {
+      "genere": "asse",
+      "anno": 1,
+      "titolo": "I dati della mia classe",
+      "ore": "10–12",
+      "totaleMin": 10,
+      "totaleMax": 12,
+      "voci": [
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 7,
+          "min": 5,
+          "max": 6
+        },
+        {
+          "ins": "Matematica",
+          "oreSett": 4,
+          "min": 3,
+          "max": 4
+        },
+        {
+          "ins": "TIC",
+          "oreSett": 2,
+          "min": 2,
+          "max": 2
+        }
+      ]
+    },
+    "2.1": {
+      "genere": "asse",
+      "anno": 2,
+      "titolo": "Conosci il tuo territorio",
+      "ore": "15–18",
+      "totaleMin": 15,
+      "totaleMax": 18,
+      "voci": [
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 6,
+          "min": 6,
+          "max": 7
+        },
+        {
+          "ins": "Scienze Umane",
+          "oreSett": 4,
+          "min": 4,
+          "max": 5
+        },
+        {
+          "ins": "Diritto",
+          "oreSett": 2,
+          "min": 2,
+          "max": 3
+        },
+        {
+          "ins": "TIC",
+          "oreSett": 2,
+          "min": 2,
+          "max": 2
+        },
+        {
+          "ins": "Storia",
+          "oreSett": 1,
+          "min": 1,
+          "max": 1
+        }
+      ]
+    },
+    "2.2": {
+      "genere": "asse",
+      "anno": 2,
+      "titolo": "Un'iniziativa per la scuola",
+      "ore": "12–15",
+      "totaleMin": 12,
+      "totaleMax": 15,
+      "voci": [
+        {
+          "ins": "Italiano",
+          "oreSett": 4,
+          "min": 6,
+          "max": 8
+        },
+        {
+          "ins": "Scienze Umane",
+          "oreSett": 4,
+          "min": 6,
+          "max": 7
+        }
+      ]
+    },
+    "2.3": {
+      "genere": "asse",
+      "anno": 2,
+      "titolo": "Comunicare senza barriere",
+      "ore": "12–15",
+      "totaleMin": 12,
+      "totaleMax": 15,
+      "voci": [
+        {
+          "ins": "Scienze Umane",
+          "oreSett": 4,
+          "min": 6,
+          "max": 7
+        },
+        {
+          "ins": "Diritto",
+          "oreSett": 2,
+          "min": 3,
+          "max": 4
+        },
+        {
+          "ins": "TIC",
+          "oreSett": 2,
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    "2.4": {
+      "genere": "asse",
+      "anno": 2,
+      "titolo": "Stili di vita sotto la lente",
+      "ore": "12–15",
+      "totaleMin": 12,
+      "totaleMax": 15,
+      "voci": [
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 6,
+          "min": 6,
+          "max": 8
+        },
+        {
+          "ins": "Scienze Integrate",
+          "oreSett": 4,
+          "min": 4,
+          "max": 5
+        },
+        {
+          "ins": "Scienze Motorie",
+          "oreSett": 2,
+          "min": 2,
+          "max": 2
+        }
+      ]
+    },
+    "2.5": {
+      "genere": "asse",
+      "anno": 2,
+      "titolo": "Chi si prende cura?",
+      "ore": "10–12",
+      "totaleMin": 10,
+      "totaleMax": 12,
+      "voci": [
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 6,
+          "min": 6,
+          "max": 7
+        },
+        {
+          "ins": "Scienze Umane",
+          "oreSett": 4,
+          "min": 4,
+          "max": 5
+        }
+      ]
+    },
+    "2.6": {
+      "genere": "asse",
+      "anno": 2,
+      "titolo": "Rischi in casa",
+      "ore": "10–12",
+      "totaleMin": 10,
+      "totaleMax": 12,
+      "voci": [
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 6,
+          "min": 5,
+          "max": 5
+        },
+        {
+          "ins": "Scienze Integrate",
+          "oreSett": 4,
+          "min": 3,
+          "max": 4
+        },
+        {
+          "ins": "Diritto",
+          "oreSett": 2,
+          "min": 1,
+          "max": 2
+        },
+        {
+          "ins": "Storia",
+          "oreSett": 1,
+          "min": 1,
+          "max": 1
+        }
+      ]
+    },
+    "2.7": {
+      "genere": "asse",
+      "anno": 2,
+      "titolo": "Guida ai servizi per i coetanei",
+      "ore": "12–15",
+      "totaleMin": 12,
+      "totaleMax": 15,
+      "voci": [
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 6,
+          "min": 6,
+          "max": 8
+        },
+        {
+          "ins": "Italiano",
+          "oreSett": 4,
+          "min": 4,
+          "max": 5
+        },
+        {
+          "ins": "TIC",
+          "oreSett": 2,
+          "min": 2,
+          "max": 2
+        }
+      ]
+    },
+    "2.8": {
+      "genere": "asse",
+      "anno": 2,
+      "titolo": "Animazione all'open day",
+      "ore": "12–15",
+      "totaleMin": 12,
+      "totaleMax": 15,
+      "voci": [
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 6,
+          "min": 7,
+          "max": 9
+        },
+        {
+          "ins": "Scienze Motorie",
+          "oreSett": 2,
+          "min": 3,
+          "max": 3
+        },
+        {
+          "ins": "TIC",
+          "oreSett": 2,
+          "min": 2,
+          "max": 3
+        }
+      ]
+    },
+    "2.9": {
+      "genere": "asse",
+      "anno": 2,
+      "titolo": "Fotografia di una realtà sociale",
+      "ore": "12–15",
+      "totaleMin": 12,
+      "totaleMax": 15,
+      "voci": [
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 6,
+          "min": 6,
+          "max": 8
+        },
+        {
+          "ins": "Matematica",
+          "oreSett": 4,
+          "min": 4,
+          "max": 5
+        },
+        {
+          "ins": "TIC",
+          "oreSett": 2,
+          "min": 2,
+          "max": 2
+        }
+      ]
+    },
+    "3.1": {
+      "genere": "asse",
+      "anno": 3,
+      "titolo": "Dal bisogno al progetto",
+      "ore": "20–25",
+      "totaleMin": 20,
+      "totaleMax": 25,
+      "voci": [
+        {
+          "ins": "Igiene e Cultura M.S.",
+          "oreSett": 5,
+          "min": 6,
+          "max": 8
+        },
+        {
+          "ins": "Diritto e T.A.",
+          "oreSett": 4,
+          "min": 5,
+          "max": 6
+        },
+        {
+          "ins": "Psicologia",
+          "oreSett": 4,
+          "min": 5,
+          "max": 6
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 4,
+          "max": 5
+        }
+      ]
+    },
+    "3.2": {
+      "genere": "asse",
+      "anno": 3,
+      "titolo": "In équipe",
+      "ore": "12–15",
+      "totaleMin": 12,
+      "totaleMax": 15,
+      "voci": [
+        {
+          "ins": "Italiano",
+          "oreSett": 4,
+          "min": 4,
+          "max": 5
+        },
+        {
+          "ins": "Psicologia",
+          "oreSett": 4,
+          "min": 3,
+          "max": 5
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 3,
+          "max": 3
+        },
+        {
+          "ins": "Inglese",
+          "oreSett": 2,
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "senzaOre": [
+        "TIC"
+      ]
+    },
+    "3.3": {
+      "genere": "asse",
+      "anno": 3,
+      "titolo": "Accogliere e capire",
+      "ore": "12–15",
+      "totaleMin": 12,
+      "totaleMax": 15,
+      "voci": [
+        {
+          "ins": "Psicologia",
+          "oreSett": 4,
+          "min": 7,
+          "max": 9
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    "3.4": {
+      "genere": "asse",
+      "anno": 3,
+      "titolo": "Crescere insieme",
+      "ore": "48",
+      "totaleMin": 48,
+      "totaleMax": 48,
+      "voci": [
+        {
+          "ins": "Igiene e Cultura M.S.",
+          "oreSett": 5,
+          "min": 15,
+          "max": 15
+        },
+        {
+          "ins": "Diritto e T.A.",
+          "oreSett": 4,
+          "min": 12,
+          "max": 12
+        },
+        {
+          "ins": "Psicologia",
+          "oreSett": 4,
+          "min": 12,
+          "max": 12
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 9,
+          "max": 9
+        }
+      ]
+    },
+    "3.5": {
+      "genere": "asse",
+      "anno": 3,
+      "titolo": "Prevenire è curare",
+      "ore": "18–20",
+      "totaleMin": 18,
+      "totaleMax": 20,
+      "voci": [
+        {
+          "ins": "Igiene e Cultura M.S.",
+          "oreSett": 5,
+          "min": 6,
+          "max": 6
+        },
+        {
+          "ins": "Diritto e T.A.",
+          "oreSett": 4,
+          "min": 5,
+          "max": 5
+        },
+        {
+          "ins": "Psicologia",
+          "oreSett": 4,
+          "min": 4,
+          "max": 5
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    "3.6": {
+      "genere": "asse",
+      "anno": 3,
+      "titolo": "Caccia al rischio",
+      "ore": "10–12",
+      "totaleMin": 10,
+      "totaleMax": 12,
+      "voci": [
+        {
+          "ins": "Igiene e Cultura M.S.",
+          "oreSett": 5,
+          "min": 6,
+          "max": 8
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 4,
+          "max": 4
+        }
+      ],
+      "senzaOre": [
+        "TIC"
+      ]
+    },
+    "3.7": {
+      "genere": "asse",
+      "anno": 3,
+      "titolo": "La mappa degli accessi",
+      "ore": "12–15",
+      "totaleMin": 12,
+      "totaleMax": 15,
+      "voci": [
+        {
+          "ins": "Igiene e Cultura M.S.",
+          "oreSett": 5,
+          "min": 5,
+          "max": 6
+        },
+        {
+          "ins": "Diritto e T.A.",
+          "oreSett": 4,
+          "min": 4,
+          "max": 5
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    "3.8": {
+      "genere": "asse",
+      "anno": 3,
+      "titolo": "Laboratorio di animazione per i minori",
+      "ore": "18–20",
+      "totaleMin": 18,
+      "totaleMax": 20,
+      "voci": [
+        {
+          "ins": "Psicologia",
+          "oreSett": 4,
+          "min": 10,
+          "max": 11
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 8,
+          "max": 9
+        }
+      ]
+    },
+    "3.9": {
+      "genere": "asse",
+      "anno": 3,
+      "titolo": "Progetto benessere a scuola",
+      "ore": "12–15",
+      "totaleMin": 12,
+      "totaleMax": 15,
+      "voci": [
+        {
+          "ins": "Igiene e Cultura M.S.",
+          "oreSett": 5,
+          "min": 5,
+          "max": 6
+        },
+        {
+          "ins": "Psicologia",
+          "oreSett": 4,
+          "min": 4,
+          "max": 5
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    "3.10": {
+      "genere": "asse",
+      "anno": 3,
+      "titolo": "Osservare e documentare",
+      "ore": "12–15",
+      "totaleMin": 12,
+      "totaleMax": 15,
+      "voci": [
+        {
+          "ins": "Matematica",
+          "oreSett": 3,
+          "min": 6,
+          "max": 8
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 6,
+          "max": 7
+        }
+      ],
+      "senzaOre": [
+        "TIC"
+      ]
+    },
+    "4.1": {
+      "genere": "asse",
+      "anno": 4,
+      "titolo": "Gestire per aiutare",
+      "ore": "20–25",
+      "totaleMin": 20,
+      "totaleMax": 25,
+      "voci": [
+        {
+          "ins": "Diritto e T.A.",
+          "oreSett": 4,
+          "min": 7,
+          "max": 9
+        },
+        {
+          "ins": "Matematica",
+          "oreSett": 3,
+          "min": 5,
+          "max": 6
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 5,
+          "max": 6
+        },
+        {
+          "ins": "Storia",
+          "oreSett": 2,
+          "min": 3,
+          "max": 4
+        }
+      ],
+      "senzaOre": [
+        "TIC"
+      ]
+    },
+    "4.2": {
+      "genere": "asse",
+      "anno": 4,
+      "titolo": "Presentare all'équipe",
+      "ore": "10–12",
+      "totaleMin": 10,
+      "totaleMax": 12,
+      "voci": [
+        {
+          "ins": "Italiano",
+          "oreSett": 4,
+          "min": 3,
+          "max": 3
+        },
+        {
+          "ins": "Matematica",
+          "oreSett": 3,
+          "min": 2,
+          "max": 3
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 2,
+          "max": 2
+        },
+        {
+          "ins": "Inglese",
+          "oreSett": 2,
+          "min": 2,
+          "max": 2
+        },
+        {
+          "ins": "Spagnolo",
+          "oreSett": 2,
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "senzaOre": [
+        "TIC"
+      ]
+    },
+    "4.3": {
+      "genere": "asse",
+      "anno": 4,
+      "titolo": "Osservare la relazione",
+      "ore": "12–15",
+      "totaleMin": 12,
+      "totaleMax": 15,
+      "voci": [
+        {
+          "ins": "Italiano",
+          "oreSett": 4,
+          "min": 5,
+          "max": 6
+        },
+        {
+          "ins": "Psicologia",
+          "oreSett": 4,
+          "min": 4,
+          "max": 5
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    "4.4": {
+      "genere": "asse",
+      "anno": 4,
+      "titolo": "Vivere con la disabilità",
+      "ore": "51",
+      "totaleMin": 51,
+      "totaleMax": 51,
+      "voci": [
+        {
+          "ins": "Igiene e Cultura M.S.",
+          "oreSett": 5,
+          "min": 18,
+          "max": 18
+        },
+        {
+          "ins": "Psicologia",
+          "oreSett": 4,
+          "min": 15,
+          "max": 15
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 11,
+          "max": 11
+        },
+        {
+          "ins": "Storia",
+          "oreSett": 2,
+          "min": 7,
+          "max": 7
+        }
+      ]
+    },
+    "4.5": {
+      "genere": "asse",
+      "anno": 4,
+      "titolo": "Il piano di assistenza",
+      "ore": "18–20",
+      "totaleMin": 18,
+      "totaleMax": 20,
+      "voci": [
+        {
+          "ins": "Igiene e Cultura M.S.",
+          "oreSett": 5,
+          "min": 8,
+          "max": 8
+        },
+        {
+          "ins": "Psicologia",
+          "oreSett": 4,
+          "min": 6,
+          "max": 7
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 4,
+          "max": 5
+        }
+      ]
+    },
+    "4.6": {
+      "genere": "asse",
+      "anno": 4,
+      "titolo": "Abitare sicuro",
+      "ore": "12–15",
+      "totaleMin": 12,
+      "totaleMax": 15,
+      "voci": [
+        {
+          "ins": "Igiene e Cultura M.S.",
+          "oreSett": 5,
+          "min": 8,
+          "max": 9
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 4,
+          "max": 6
+        }
+      ],
+      "senzaOre": [
+        "Scienze Integrate"
+      ]
+    },
+    "4.7": {
+      "genere": "asse",
+      "anno": 4,
+      "titolo": "Sportello orienta-servizi",
+      "ore": "12–15",
+      "totaleMin": 12,
+      "totaleMax": 15,
+      "voci": [
+        {
+          "ins": "Psicologia",
+          "oreSett": 4,
+          "min": 5,
+          "max": 6
+        },
+        {
+          "ins": "Matematica",
+          "oreSett": 3,
+          "min": 4,
+          "max": 5
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 3,
+          "max": 4
+        }
+      ],
+      "senzaOre": [
+        "TIC"
+      ]
+    },
+    "4.8": {
+      "genere": "asse",
+      "anno": 4,
+      "titolo": "Animare nei servizi",
+      "ore": "18–20 (+PCTO)",
+      "totaleMin": 18,
+      "totaleMax": 20,
+      "voci": [
+        {
+          "ins": "Psicologia",
+          "oreSett": 4,
+          "min": 10,
+          "max": 11
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 8,
+          "max": 9
+        }
+      ]
+    },
+    "4.9": {
+      "genere": "asse",
+      "anno": 4,
+      "titolo": "Un progetto per includere",
+      "ore": "18–20",
+      "totaleMin": 18,
+      "totaleMax": 20,
+      "voci": [
+        {
+          "ins": "Igiene e Cultura M.S.",
+          "oreSett": 5,
+          "min": 8,
+          "max": 8
+        },
+        {
+          "ins": "Psicologia",
+          "oreSett": 4,
+          "min": 6,
+          "max": 7
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 4,
+          "max": 5
+        }
+      ]
+    },
+    "4.10": {
+      "genere": "asse",
+      "anno": 4,
+      "titolo": "Il report professionale",
+      "ore": "12–15",
+      "totaleMin": 12,
+      "totaleMax": 15,
+      "voci": [
+        {
+          "ins": "Igiene e Cultura M.S.",
+          "oreSett": 5,
+          "min": 4,
+          "max": 5
+        },
+        {
+          "ins": "Italiano",
+          "oreSett": 4,
+          "min": 3,
+          "max": 4
+        },
+        {
+          "ins": "Matematica",
+          "oreSett": 3,
+          "min": 3,
+          "max": 3
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "senzaOre": [
+        "TIC"
+      ]
+    },
+    "5.1": {
+      "genere": "asse",
+      "anno": 5,
+      "titolo": "Il progetto completo",
+      "ore": "25–30",
+      "totaleMin": 25,
+      "totaleMax": 30,
+      "voci": [
+        {
+          "ins": "Diritto e T.A.",
+          "oreSett": 4,
+          "min": 9,
+          "max": 11
+        },
+        {
+          "ins": "Psicologia",
+          "oreSett": 4,
+          "min": 9,
+          "max": 11
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 7,
+          "max": 8
+        }
+      ]
+    },
+    "5.2": {
+      "genere": "asse",
+      "anno": 5,
+      "titolo": "Professionisti in rete",
+      "ore": "12–15",
+      "totaleMin": 12,
+      "totaleMax": 15,
+      "voci": [
+        {
+          "ins": "Diritto e T.A.",
+          "oreSett": 4,
+          "min": 3,
+          "max": 4
+        },
+        {
+          "ins": "Italiano",
+          "oreSett": 4,
+          "min": 3,
+          "max": 4
+        },
+        {
+          "ins": "Psicologia",
+          "oreSett": 4,
+          "min": 3,
+          "max": 4
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 3,
+          "max": 3
+        }
+      ]
+    },
+    "5.3": {
+      "genere": "asse",
+      "anno": 5,
+      "titolo": "Mediatori di comunicazione",
+      "ore": "12–15",
+      "totaleMin": 12,
+      "totaleMax": 15,
+      "voci": [
+        {
+          "ins": "Psicologia",
+          "oreSett": 4,
+          "min": 5,
+          "max": 5
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 3,
+          "max": 4
+        },
+        {
+          "ins": "Inglese",
+          "oreSett": 2,
+          "min": 2,
+          "max": 3
+        },
+        {
+          "ins": "Spagnolo",
+          "oreSett": 2,
+          "min": 2,
+          "max": 3
+        }
+      ]
+    },
+    "5.4": {
+      "genere": "asse",
+      "anno": 5,
+      "titolo": "Il PAI in azione",
+      "ore": "18–20",
+      "totaleMin": 18,
+      "totaleMax": 20,
+      "voci": [
+        {
+          "ins": "Igiene e Cultura M.S.",
+          "oreSett": 5,
+          "min": 6,
+          "max": 6
+        },
+        {
+          "ins": "Diritto e T.A.",
+          "oreSett": 4,
+          "min": 5,
+          "max": 5
+        },
+        {
+          "ins": "Psicologia",
+          "oreSett": 4,
+          "min": 4,
+          "max": 5
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    "5.5": {
+      "genere": "asse",
+      "anno": 5,
+      "titolo": "Emergenza e cura",
+      "ore": "18–20",
+      "totaleMin": 18,
+      "totaleMax": 20,
+      "voci": [
+        {
+          "ins": "Igiene e Cultura M.S.",
+          "oreSett": 5,
+          "min": 10,
+          "max": 11
+        },
+        {
+          "ins": "Psicologia",
+          "oreSett": 4,
+          "min": 8,
+          "max": 9
+        }
+      ]
+    },
+    "5.6": {
+      "genere": "asse",
+      "anno": 5,
+      "titolo": "L'ambiente su misura",
+      "ore": "12–15",
+      "totaleMin": 12,
+      "totaleMax": 15,
+      "voci": [
+        {
+          "ins": "Igiene e Cultura M.S.",
+          "oreSett": 5,
+          "min": 8,
+          "max": 9
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 4,
+          "max": 6
+        }
+      ],
+      "senzaOre": [
+        "TIC"
+      ]
+    },
+    "5.7": {
+      "genere": "asse",
+      "anno": 5,
+      "titolo": "La carta dei servizi",
+      "ore": "12–15",
+      "totaleMin": 12,
+      "totaleMax": 15,
+      "voci": [
+        {
+          "ins": "Diritto e T.A.",
+          "oreSett": 4,
+          "min": 7,
+          "max": 9
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 5,
+          "max": 6
+        }
+      ],
+      "senzaOre": [
+        "TIC"
+      ]
+    },
+    "5.8": {
+      "genere": "asse",
+      "anno": 5,
+      "titolo": "Un evento per il territorio",
+      "ore": "18–20",
+      "totaleMin": 18,
+      "totaleMax": 20,
+      "voci": [
+        {
+          "ins": "Diritto e T.A.",
+          "oreSett": 4,
+          "min": 7,
+          "max": 8
+        },
+        {
+          "ins": "Matematica",
+          "oreSett": 3,
+          "min": 6,
+          "max": 6
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 5,
+          "max": 6
+        }
+      ],
+      "senzaOre": [
+        "TIC"
+      ]
+    },
+    "5.9": {
+      "genere": "asse",
+      "anno": 5,
+      "titolo": "La presa in carico integrata",
+      "ore": "22–25",
+      "totaleMin": 22,
+      "totaleMax": 25,
+      "voci": [
+        {
+          "ins": "Psicologia",
+          "oreSett": 4,
+          "min": 13,
+          "max": 14
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 9,
+          "max": 11
+        }
+      ]
+    },
+    "5.10": {
+      "genere": "asse",
+      "anno": 5,
+      "titolo": "Monitorare e valutare",
+      "ore": "12–15",
+      "totaleMin": 12,
+      "totaleMax": 15,
+      "voci": [
+        {
+          "ins": "Diritto e T.A.",
+          "oreSett": 4,
+          "min": 5,
+          "max": 6
+        },
+        {
+          "ins": "Matematica",
+          "oreSett": 3,
+          "min": 4,
+          "max": 5
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    "T1.1": {
+      "genere": "trasversale",
+      "anno": 1,
+      "titolo": "Educazione alla pace e alla non violenza: dalle regole quotidiane al regolamento di classe",
+      "ore": "12–15",
+      "totaleMin": 12,
+      "totaleMax": 15,
+      "voci": [
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 7,
+          "min": 4,
+          "max": 5
+        },
+        {
+          "ins": "Italiano",
+          "oreSett": 4,
+          "min": 2,
+          "max": 3
+        },
+        {
+          "ins": "Scienze Umane",
+          "oreSett": 4,
+          "min": 2,
+          "max": 3
+        },
+        {
+          "ins": "Diritto",
+          "oreSett": 2,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "ins": "Scienze Motorie",
+          "oreSett": 2,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "ins": "TIC",
+          "oreSett": 2,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "ins": "Storia",
+          "oreSett": 1,
+          "min": 1,
+          "max": 1
+        }
+      ]
+    },
+    "T1.2": {
+      "genere": "trasversale",
+      "anno": 1,
+      "titolo": "Io cittadino digitale: dallo smartphone all'intelligenza artificiale",
+      "ore": "12–15",
+      "totaleMin": 12,
+      "totaleMax": 15,
+      "voci": [
+        {
+          "ins": "Italiano",
+          "oreSett": 4,
+          "min": 3,
+          "max": 3
+        },
+        {
+          "ins": "Matematica",
+          "oreSett": 4,
+          "min": 2,
+          "max": 3
+        },
+        {
+          "ins": "Scienze Integrate",
+          "oreSett": 4,
+          "min": 2,
+          "max": 3
+        },
+        {
+          "ins": "Scienze Umane",
+          "oreSett": 4,
+          "min": 2,
+          "max": 3
+        },
+        {
+          "ins": "Inglese",
+          "oreSett": 3,
+          "min": 2,
+          "max": 2
+        },
+        {
+          "ins": "TIC",
+          "oreSett": 2,
+          "min": 1,
+          "max": 1
+        }
+      ]
+    },
+    "T2.1": {
+      "genere": "trasversale",
+      "anno": 2,
+      "titolo": "Fiaba e racconto come strumento di crescita",
+      "ore": "15–18",
+      "totaleMin": 15,
+      "totaleMax": 18,
+      "voci": [
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 6,
+          "min": 4,
+          "max": 5
+        },
+        {
+          "ins": "Italiano",
+          "oreSett": 4,
+          "min": 3,
+          "max": 3
+        },
+        {
+          "ins": "Scienze Umane",
+          "oreSett": 4,
+          "min": 2,
+          "max": 3
+        },
+        {
+          "ins": "Inglese",
+          "oreSett": 3,
+          "min": 2,
+          "max": 2
+        },
+        {
+          "ins": "Scienze Motorie",
+          "oreSett": 2,
+          "min": 1,
+          "max": 2
+        },
+        {
+          "ins": "Spagnolo",
+          "oreSett": 2,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "ins": "TIC",
+          "oreSett": 2,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "ins": "Storia",
+          "oreSett": 1,
+          "min": 1,
+          "max": 1
+        }
+      ]
+    },
+    "T2.2": {
+      "genere": "trasversale",
+      "anno": 2,
+      "titolo": "Leggere il territorio: dati, mappe e ambiente di vita",
+      "ore": "15–18",
+      "totaleMin": 15,
+      "totaleMax": 18,
+      "voci": [
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 6,
+          "min": 4,
+          "max": 4
+        },
+        {
+          "ins": "Italiano",
+          "oreSett": 4,
+          "min": 2,
+          "max": 3
+        },
+        {
+          "ins": "Matematica",
+          "oreSett": 4,
+          "min": 2,
+          "max": 3
+        },
+        {
+          "ins": "Scienze Integrate",
+          "oreSett": 4,
+          "min": 2,
+          "max": 3
+        },
+        {
+          "ins": "Scienze Umane",
+          "oreSett": 4,
+          "min": 2,
+          "max": 2
+        },
+        {
+          "ins": "Diritto",
+          "oreSett": 2,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "ins": "TIC",
+          "oreSett": 2,
+          "min": 1,
+          "max": 1
+        },
+        {
+          "ins": "Storia",
+          "oreSett": 1,
+          "min": 1,
+          "max": 1
+        }
+      ]
+    },
+    "T3.1": {
+      "genere": "trasversale",
+      "anno": 3,
+      "titolo": "Linguaggi, numeri e storie per capire la realtà",
+      "ore": "18–20",
+      "totaleMin": 18,
+      "totaleMax": 20,
+      "voci": [
+        {
+          "ins": "Diritto e T.A.",
+          "oreSett": 4,
+          "min": 4,
+          "max": 4
+        },
+        {
+          "ins": "Italiano",
+          "oreSett": 4,
+          "min": 3,
+          "max": 4
+        },
+        {
+          "ins": "Psicologia",
+          "oreSett": 4,
+          "min": 3,
+          "max": 4
+        },
+        {
+          "ins": "Matematica",
+          "oreSett": 3,
+          "min": 3,
+          "max": 3
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 3,
+          "max": 3
+        },
+        {
+          "ins": "Inglese",
+          "oreSett": 2,
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "senzaOre": [
+        "TIC"
+      ]
+    },
+    "T3.2": {
+      "genere": "trasversale",
+      "anno": 3,
+      "titolo": "Salute e prevenzione nell'era digitale",
+      "ore": "18–20",
+      "totaleMin": 18,
+      "totaleMax": 20,
+      "voci": [
+        {
+          "ins": "Igiene e Cultura M.S.",
+          "oreSett": 5,
+          "min": 4,
+          "max": 4
+        },
+        {
+          "ins": "Italiano",
+          "oreSett": 4,
+          "min": 3,
+          "max": 4
+        },
+        {
+          "ins": "Psicologia",
+          "oreSett": 4,
+          "min": 3,
+          "max": 4
+        },
+        {
+          "ins": "Matematica",
+          "oreSett": 3,
+          "min": 3,
+          "max": 3
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 3,
+          "max": 3
+        },
+        {
+          "ins": "Scienze Motorie",
+          "oreSett": 2,
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "senzaOre": [
+        "TIC"
+      ]
+    },
+    "T4.1": {
+      "genere": "trasversale",
+      "anno": 4,
+      "titolo": "Informarsi criticamente: media, dati e intelligenza artificiale",
+      "ore": "20–25",
+      "totaleMin": 20,
+      "totaleMax": 25,
+      "voci": [
+        {
+          "ins": "Diritto e T.A.",
+          "oreSett": 4,
+          "min": 4,
+          "max": 5
+        },
+        {
+          "ins": "Italiano",
+          "oreSett": 4,
+          "min": 4,
+          "max": 5
+        },
+        {
+          "ins": "Psicologia",
+          "oreSett": 4,
+          "min": 4,
+          "max": 5
+        },
+        {
+          "ins": "Matematica",
+          "oreSett": 3,
+          "min": 3,
+          "max": 4
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 3,
+          "max": 4
+        },
+        {
+          "ins": "Storia",
+          "oreSett": 2,
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "senzaOre": [
+        "TIC"
+      ]
+    },
+    "T4.2": {
+      "genere": "trasversale",
+      "anno": 4,
+      "titolo": "Economia dei servizi alla persona: risorse, costi e sostenibilità",
+      "ore": "20–25",
+      "totaleMin": 20,
+      "totaleMax": 25,
+      "voci": [
+        {
+          "ins": "Igiene e Cultura M.S.",
+          "oreSett": 5,
+          "min": 6,
+          "max": 6
+        },
+        {
+          "ins": "Diritto e T.A.",
+          "oreSett": 4,
+          "min": 4,
+          "max": 5
+        },
+        {
+          "ins": "Matematica",
+          "oreSett": 3,
+          "min": 3,
+          "max": 4
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 3,
+          "max": 4
+        },
+        {
+          "ins": "Inglese",
+          "oreSett": 2,
+          "min": 2,
+          "max": 3
+        },
+        {
+          "ins": "Storia",
+          "oreSett": 2,
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "senzaOre": [
+        "TIC"
+      ]
+    },
+    "T5.1": {
+      "genere": "trasversale",
+      "anno": 5,
+      "titolo": "Diritti umani e cittadinanza globale: dalla Costituzione all'Agenda 2030",
+      "ore": "22–25",
+      "totaleMin": 22,
+      "totaleMax": 25,
+      "voci": [
+        {
+          "ins": "Igiene e Cultura M.S.",
+          "oreSett": 5,
+          "min": 4,
+          "max": 4
+        },
+        {
+          "ins": "Diritto e T.A.",
+          "oreSett": 4,
+          "min": 3,
+          "max": 3
+        },
+        {
+          "ins": "Italiano",
+          "oreSett": 4,
+          "min": 3,
+          "max": 3
+        },
+        {
+          "ins": "Psicologia",
+          "oreSett": 4,
+          "min": 3,
+          "max": 3
+        },
+        {
+          "ins": "Matematica",
+          "oreSett": 3,
+          "min": 2,
+          "max": 3
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 2,
+          "max": 3
+        },
+        {
+          "ins": "Inglese",
+          "oreSett": 2,
+          "min": 2,
+          "max": 2
+        },
+        {
+          "ins": "Spagnolo",
+          "oreSett": 2,
+          "min": 2,
+          "max": 2
+        },
+        {
+          "ins": "Storia",
+          "oreSett": 2,
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "senzaOre": [
+        "TIC"
+      ]
+    },
+    "T5.2": {
+      "genere": "trasversale",
+      "anno": 5,
+      "titolo": "Orientarsi dopo il diploma: lavoro, formazione terziaria e progetto di vita",
+      "ore": "20–25",
+      "totaleMin": 20,
+      "totaleMax": 25,
+      "voci": [
+        {
+          "ins": "Diritto e T.A.",
+          "oreSett": 4,
+          "min": 4,
+          "max": 5
+        },
+        {
+          "ins": "Italiano",
+          "oreSett": 4,
+          "min": 3,
+          "max": 5
+        },
+        {
+          "ins": "Psicologia",
+          "oreSett": 4,
+          "min": 3,
+          "max": 5
+        },
+        {
+          "ins": "Matematica",
+          "oreSett": 3,
+          "min": 3,
+          "max": 3
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 3,
+          "max": 3
+        },
+        {
+          "ins": "Inglese",
+          "oreSett": 2,
+          "min": 2,
+          "max": 2
+        },
+        {
+          "ins": "Storia",
+          "oreSett": 2,
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "senzaOre": [
+        "TIC"
+      ]
+    },
+    "T3.3": {
+      "genere": "trasversale",
+      "anno": 3,
+      "titolo": "Povertà educativa e partecipazione: un patto di comunità",
+      "ore": "20–24",
+      "totaleMin": 20,
+      "totaleMax": 24,
+      "voci": [
+        {
+          "ins": "Diritto e T.A.",
+          "oreSett": 4,
+          "min": 4,
+          "max": 5
+        },
+        {
+          "ins": "Italiano",
+          "oreSett": 4,
+          "min": 3,
+          "max": 5
+        },
+        {
+          "ins": "Psicologia",
+          "oreSett": 4,
+          "min": 3,
+          "max": 4
+        },
+        {
+          "ins": "Matematica",
+          "oreSett": 3,
+          "min": 3,
+          "max": 3
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 3,
+          "max": 3
+        },
+        {
+          "ins": "Inglese",
+          "oreSett": 2,
+          "min": 2,
+          "max": 2
+        },
+        {
+          "ins": "Storia",
+          "oreSett": 2,
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "senzaOre": [
+        "TIC"
+      ]
+    },
+    "T4.3": {
+      "genere": "trasversale",
+      "anno": 4,
+      "titolo": "Accessibilità universale: spazi, informazioni e partecipazione",
+      "ore": "22–26",
+      "totaleMin": 22,
+      "totaleMax": 26,
+      "voci": [
+        {
+          "ins": "Igiene e Cultura M.S.",
+          "oreSett": 5,
+          "min": 4,
+          "max": 4
+        },
+        {
+          "ins": "Diritto e T.A.",
+          "oreSett": 4,
+          "min": 3,
+          "max": 4
+        },
+        {
+          "ins": "Italiano",
+          "oreSett": 4,
+          "min": 3,
+          "max": 4
+        },
+        {
+          "ins": "Psicologia",
+          "oreSett": 4,
+          "min": 3,
+          "max": 4
+        },
+        {
+          "ins": "Matematica",
+          "oreSett": 3,
+          "min": 3,
+          "max": 3
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 2,
+          "max": 3
+        },
+        {
+          "ins": "Inglese",
+          "oreSett": 2,
+          "min": 2,
+          "max": 2
+        },
+        {
+          "ins": "Storia",
+          "oreSett": 2,
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "senzaOre": [
+        "TIC"
+      ]
+    },
+    "T5.3": {
+      "genere": "trasversale",
+      "anno": 5,
+      "titolo": "Mediazione interculturale nei servizi alla persona",
+      "ore": "22–26",
+      "totaleMin": 22,
+      "totaleMax": 26,
+      "voci": [
+        {
+          "ins": "Diritto e T.A.",
+          "oreSett": 4,
+          "min": 4,
+          "max": 5
+        },
+        {
+          "ins": "Italiano",
+          "oreSett": 4,
+          "min": 3,
+          "max": 5
+        },
+        {
+          "ins": "Psicologia",
+          "oreSett": 4,
+          "min": 3,
+          "max": 4
+        },
+        {
+          "ins": "Matematica",
+          "oreSett": 3,
+          "min": 3,
+          "max": 3
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 3,
+          "max": 3
+        },
+        {
+          "ins": "Inglese",
+          "oreSett": 2,
+          "min": 2,
+          "max": 2
+        },
+        {
+          "ins": "Spagnolo",
+          "oreSett": 2,
+          "min": 2,
+          "max": 2
+        },
+        {
+          "ins": "Storia",
+          "oreSett": 2,
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "senzaOre": [
+        "TIC"
+      ]
+    },
+    "T5.4": {
+      "genere": "trasversale",
+      "anno": 5,
+      "titolo": "Violenza di genere: cultura, prevenzione e rete di tutela",
+      "ore": "24–28",
+      "totaleMin": 24,
+      "totaleMax": 28,
+      "voci": [
+        {
+          "ins": "Diritto e T.A.",
+          "oreSett": 4,
+          "min": 4,
+          "max": 5
+        },
+        {
+          "ins": "Italiano",
+          "oreSett": 4,
+          "min": 4,
+          "max": 5
+        },
+        {
+          "ins": "Psicologia",
+          "oreSett": 4,
+          "min": 4,
+          "max": 5
+        },
+        {
+          "ins": "Matematica",
+          "oreSett": 3,
+          "min": 3,
+          "max": 4
+        },
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 3,
+          "min": 3,
+          "max": 3
+        },
+        {
+          "ins": "Inglese",
+          "oreSett": 2,
+          "min": 2,
+          "max": 2
+        },
+        {
+          "ins": "Scienze Motorie",
+          "oreSett": 2,
+          "min": 2,
+          "max": 2
+        },
+        {
+          "ins": "Storia",
+          "oreSett": 2,
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "senzaOre": [
+        "TIC"
+      ]
+    },
+    "FSL3.1": {
+      "genere": "fsl",
+      "anno": 3,
+      "titolo": "Area minori: osservare, accompagnare e documentare",
+      "ore": "Da definire nel piano FSL d'istituto e nel progetto formativo individuale",
+      "totaleMin": 30,
+      "totaleMax": 30,
+      "convenzionale": true,
+      "voci": [
+        {
+          "ins": "IGIENE E CULTURA MEDICO SANITARIA",
+          "oreSett": 5,
+          "min": 9,
+          "max": 9
+        },
+        {
+          "ins": "DIRITTO E TEC. AMM.",
+          "oreSett": 4,
+          "min": 8,
+          "max": 8
+        },
+        {
+          "ins": "PSICOLOGIA GENERALE ED APPLICATA",
+          "oreSett": 4,
+          "min": 7,
+          "max": 7
+        },
+        {
+          "ins": "METODOLOGIE OPERATIVE",
+          "oreSett": 3,
+          "min": 6,
+          "max": 6
+        }
+      ]
+    },
+    "FSL4.1": {
+      "genere": "fsl",
+      "anno": 4,
+      "titolo": "Area disabilità: inclusione, autonomia e progetto individualizzato",
+      "ore": "Da definire nel piano FSL d'istituto e nel progetto formativo individuale",
+      "totaleMin": 30,
+      "totaleMax": 30,
+      "convenzionale": true,
+      "voci": [
+        {
+          "ins": "IGIENE E CULTURA MEDICO SANITARIA",
+          "oreSett": 5,
+          "min": 9,
+          "max": 9
+        },
+        {
+          "ins": "DIRITTO E TEC. AMM.",
+          "oreSett": 4,
+          "min": 8,
+          "max": 8
+        },
+        {
+          "ins": "PSICOLOGIA GENERALE ED APPLICATA",
+          "oreSett": 4,
+          "min": 7,
+          "max": 7
+        },
+        {
+          "ins": "METODOLOGIE OPERATIVE",
+          "oreSett": 3,
+          "min": 6,
+          "max": 6
+        }
+      ]
+    },
+    "FSL5.1": {
+      "genere": "fsl",
+      "anno": 5,
+      "titolo": "Area anziani: assistenza, qualità di vita e lavoro in struttura residenziale",
+      "ore": "Da definire nel piano FSL d'istituto e nel progetto formativo individuale",
+      "totaleMin": 30,
+      "totaleMax": 30,
+      "convenzionale": true,
+      "voci": [
+        {
+          "ins": "IGIENE E CULTURA MEDICO SANITARIA",
+          "oreSett": 5,
+          "min": 9,
+          "max": 9
+        },
+        {
+          "ins": "DIRITTO E TEC. AMM.",
+          "oreSett": 4,
+          "min": 8,
+          "max": 8
+        },
+        {
+          "ins": "PSICOLOGIA GENERALE ED APPLICATA",
+          "oreSett": 4,
+          "min": 7,
+          "max": 7
+        },
+        {
+          "ins": "METODOLOGIE OPERATIVE",
+          "oreSett": 3,
+          "min": 6,
+          "max": 6
+        }
+      ]
+    },
+    "FSL5.2": {
+      "genere": "fsl",
+      "anno": 5,
+      "titolo": "Verso la qualifica OSS: procedure assistenziali e lavoro nell'équipe sanitaria",
+      "ore": "Da definire nel piano FSL d'istituto, nel progetto formativo e negli eventuali accordi per il raccordo OSS",
+      "totaleMin": 30,
+      "totaleMax": 30,
+      "convenzionale": true,
+      "voci": [
+        {
+          "ins": "IGIENE E CULTURA MEDICO SANITARIA",
+          "oreSett": 5,
+          "min": 9,
+          "max": 9
+        },
+        {
+          "ins": "DIRITTO E TEC. AMM.",
+          "oreSett": 4,
+          "min": 8,
+          "max": 8
+        },
+        {
+          "ins": "PSICOLOGIA GENERALE ED APPLICATA",
+          "oreSett": 4,
+          "min": 7,
+          "max": 7
+        },
+        {
+          "ins": "METODOLOGIE OPERATIVE",
+          "oreSett": 3,
+          "min": 6,
+          "max": 6
+        }
+      ]
+    }
+  }
+}

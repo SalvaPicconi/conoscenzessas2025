@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "titolo": "Quadro orario dell'istituto — indirizzo SSAS",
+    "sottotitolo": "Sorgente unica dei pesi usati per ripartire il monte ore delle UDA fra gli insegnamenti",
+    "settimanaScolastica": "Lunedì, mercoledì, venerdì e sabato 8.05-13.05 (5 ore); martedì e giovedì 8.05-14.05 (6 ore). Totale 32 ore settimanali.",
+    "settimaneAnno": 33,
+    "notaCompresenze": "Nel biennio Metodologie operative e Scienze umane e sociali hanno una quota di compresenza con l'ITP. Il peso usato per la ripartizione è il totale delle ore di presenza del docente, cioè la somma delle due cifre indicate nel quadro orario: Metodologie operative 4+3 in prima e 3+3 in seconda, Scienze umane e sociali 3 in compresenza più 1 autonoma.",
+    "regola": {
+      "metodo": "Le ore di ciascuna UDA sono ripartite fra gli insegnamenti coinvolti in proporzione alle ore settimanali che ogni insegnamento ha in quell'anno di corso. Il calcolo è fatto su una UDA per volta, senza vincoli cumulativi sull'anno.",
+      "arrotondamento": "Metodo dei resti maggiori: le ore intere avanzate vanno agli insegnamenti con il resto più alto, così la somma coincide sempre con il monte ore dell'UDA. A parità di resto ha la precedenza l'insegnamento con più ore settimanali.",
+      "tolleranzaDocente": 0.4,
+      "notaTolleranza": "Ogni docente può modificare le ore del proprio insegnamento entro il 40% in più o in meno rispetto alla proposta proporzionale, con un minimo di un'ora. Se la somma delle ore concordate non copre esattamente il monte ore dell'UDA, il consiglio di classe deve accordarsi.",
+      "monteConvenzionaleFSL": 30,
+      "notaFSL": "Le UDA di Formazione scuola-lavoro non hanno un monte ore proprio: è deliberato nel piano FSL d'istituto e nel progetto formativo individuale. Per rendere calcolabile la ripartizione si usa un monte convenzionale di 30 ore, da sostituire con quello effettivo."
+    }
+  },
+  "insegnamenti": {
+    "Italiano": { "etichetta": "Lingua e letteratura italiana", "ore": [4, 4, 4, 4, 4] },
+    "Inglese": { "etichetta": "Lingua inglese", "ore": [3, 3, 2, 2, 2] },
+    "Spagnolo": { "etichetta": "Lingua spagnola", "ore": [2, 2, 2, 2, 2] },
+    "Matematica": { "etichetta": "Matematica", "ore": [4, 4, 3, 3, 3] },
+    "Storia": { "etichetta": "Storia", "ore": [1, 1, 2, 2, 2] },
+    "Geografia": { "etichetta": "Geografia", "ore": [1, 1, 0, 0, 0] },
+    "Diritto": { "etichetta": "Diritto ed economia", "ore": [2, 2, 0, 0, 0] },
+    "Scienze Umane": { "etichetta": "Scienze umane e sociali", "ore": [4, 4, 0, 0, 0], "quadro": ["3 (di cui 3 in compresenza)", "1+3"], "notaPeso": "Peso 4 in prima e in seconda: tre ore in compresenza con l'ITP più una autonoma." },
+    "Metodologie Operative": { "etichetta": "Metodologie operative", "ore": [7, 6, 3, 3, 3], "quadro": ["4+3", "3+3", "3", "3", "3"], "notaPeso": "Nel biennio il peso somma le ore autonome e quelle in compresenza: 4+3 in prima, 3+3 in seconda." },
+    "Scienze Integrate": { "etichetta": "Scienze integrate (Fisica/Chimica e Scienze della Terra/Biologia)", "ore": [4, 4, 0, 0, 0], "quadro": ["2+2", "2+2"], "notaPeso": "Somma delle due discipline scientifiche del biennio, 2 ore ciascuna." },
+    "TIC": { "etichetta": "Informatica (TIC)", "ore": [2, 2, 0, 0, 0] },
+    "Diritto e T.A.": { "etichetta": "Diritto, economia e tecnica amministrativa del settore socio-sanitario", "ore": [0, 0, 4, 4, 4] },
+    "Igiene e Cultura M.S.": { "etichetta": "Igiene e cultura medico-sanitaria", "ore": [0, 0, 5, 5, 5] },
+    "Psicologia": { "etichetta": "Psicologia generale ed applicata", "ore": [0, 0, 4, 4, 4] },
+    "Scienze Motorie": { "etichetta": "Scienze motorie e sportive", "ore": [2, 2, 2, 2, 2] },
+    "Religione": { "etichetta": "Religione cattolica o attività alternative", "ore": [1, 1, 1, 1, 1] }
+  },
+  "alias": {
+    "METODOLOGIE OPERATIVE": "Metodologie Operative",
+    "IGIENE E CULTURA MEDICO SANITARIA": "Igiene e Cultura M.S.",
+    "PSICOLOGIA GENERALE ED APPLICATA": "Psicologia",
+    "DIRITTO E TEC. AMM.": "Diritto e T.A."
+  }
+}

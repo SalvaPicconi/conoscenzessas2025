@@ -57,7 +57,10 @@ const CAMPI_NUOVA = [
     ...CAMPI,
     ...CAMPI_SAPERI_NUOVA
 ];
-const TUTTI_I_CAMPI = [...CAMPI_NUOVA];
+// La ripartizione oraria ha un'interfaccia propria (assets/uda-ore.js) e non
+// compare fra i campi dell'editor: qui serve solo a intitolarla nel confronto.
+const CAMPO_ORE = ['oreRipartizione', 'Ripartizione oraria per insegnamento', 'ore'];
+const TUTTI_I_CAMPI = [...CAMPI_NUOVA, CAMPO_ORE];
 
 const statoRev = { token: '', docente: '', autorizzato: false, puoGestireStati: false, uda: new Map(), revisioni: new Map() };
 const uiRev = {};
@@ -231,6 +234,7 @@ function aggiornaAzioniSchede() {
             azioni.appendChild(badge);
         }
     });
+    document.dispatchEvent(new CustomEvent('curricolo:uda-sessione'));
     notificaAltezza();
 }
 
@@ -357,6 +361,13 @@ async function salvaRevisione(evento, uda, originale, esito, bottone, definizion
         const valore = leggiValore(form.elements.namedItem(chiave).value, tipo);
         if (!uguali(valore, originale[chiave])) modifiche[chiave] = valore;
     });
+    const modificheDelForm = Object.keys(modifiche).length;
+    // I campi con interfaccia propria, come la ripartizione oraria, non passano
+    // da questo form: vanno riportati così come sono, o il salvataggio li perde.
+    const gestitiDalForm = new Set(definizioni.map(([chiave]) => chiave));
+    Object.entries(revisionePersonale(uda.id)?.modifiche || {}).forEach(([chiave, valore]) => {
+        if (!gestitiDalForm.has(chiave)) modifiche[chiave] = valore;
+    });
     const nota = form.elements.namedItem('nota_generale').value.trim();
     if (nuova && (!modifiche.titolo || !modifiche.anno || !modifiche.qnq)) {
         return messaggio(esito, 'Indica almeno anno, livello QNQ e titolo.', 'errore');
@@ -374,7 +385,7 @@ async function salvaRevisione(evento, uda, originale, esito, bottone, definizion
     if (duplicati.length) {
         return messaggio(esito, `Rimuovi ${duplicati.length === 1 ? 'il sapere integrativo già presente' : 'i saperi integrativi già presenti'} nella base normativa: ${duplicati.join('; ')}`, 'errore');
     }
-    if (!nota && !Object.keys(modifiche).length) return messaggio(esito, 'Scrivi un’annotazione oppure modifica almeno un campo.', 'errore');
+    if (!nota && !modificheDelForm) return messaggio(esito, 'Scrivi un’annotazione oppure modifica almeno un campo.', 'errore');
     bottone.disabled = true;
     messaggio(esito, 'Salvataggio…');
     try {
@@ -424,6 +435,10 @@ function creaUdaVuota(chiave) {
 }
 
 function formattaValore(valore, tipo) {
+    if (tipo === 'ore') {
+        const voci = Object.entries(valore && typeof valore === 'object' ? valore : {});
+        return voci.length ? voci.map(([ins, ore]) => `${ins}: ${ore} ore`).join('\n') : 'Proposta proporzionale confermata';
+    }
     if (tipo === 'righe') return (Array.isArray(valore) ? valore : []).map(riga => `${riga.t || ''} || ${(riga.ins || []).join(', ')}`).join('\n');
     if (tipo === 'lista') return (Array.isArray(valore) ? valore : []).join('\n');
     if (tipo === 'numeri') return (Array.isArray(valore) ? valore : []).join(', ');
@@ -605,6 +620,35 @@ function notificaAltezza() {
         window.parent.postMessage({ type: 'iframeContentHeight', height: altezza }, window.location.origin);
     }, 20);
 }
+
+// Ponte per assets/uda-ore.js: la ripartizione oraria è una proposta come le
+// altre e viaggia dentro lo stesso record, ma ha un'interfaccia separata.
+window.CurricoloRevisione = {
+    get docente() { return statoRev.autorizzato ? statoRev.docente : ''; },
+    revisioniUda,
+    revisionePersonale,
+    async salvaCampo(chiave, campo, valore, originaleCampo) {
+        if (!statoRev.autorizzato) throw new Error('Sessione non attiva. Accedi di nuovo.');
+        const uda = statoRev.uda.get(String(chiave));
+        if (!uda) throw new Error('UDA non riconosciuta.');
+        const esistente = revisionePersonale(chiave);
+        if (esistente && ['approvata', 'applicata'].includes(esistente.stato) && !statoRev.puoGestireStati) {
+            throw new Error('La proposta è già stata validata e non può più essere modificata.');
+        }
+        const dati = await chiamaApi('upsert', { revision: {
+            uda_key: String(chiave), author_name: statoRev.docente, anno: Number(uda.anno),
+            titolo_uda: uda.titolo,
+            originale: { ...(esistente?.originale || {}), [campo]: originaleCampo },
+            modifiche: { ...(esistente?.modifiche || {}), [campo]: valore },
+            nota_generale: esistente?.nota_generale || '',
+            stato: esistente?.stato || 'bozza', source_version: DATA_SOURCE
+        }});
+        statoRev.revisioni.set(chiaveRevisione(dati.revision.uda_key, dati.revision.author_name), dati.revision);
+        aggiornaContatore();
+        aggiornaAzioniSchede();
+        return dati.revision;
+    }
+};
 
 async function chiamaApi(action, payload = {}, pubblica = false) {
     const headers = { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}`, 'Content-Type': 'application/json' };

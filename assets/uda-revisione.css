@@ -255,3 +255,127 @@ button:disabled { cursor: wait; opacity: 0.62; }
     .uda-revisione-pannello,
     .uda-revisione-slot { display: none !important; }
 }
+
+/* Ripartizione oraria per insegnamento (assets/uda-ore.js) */
+.uda-ore-box {
+    margin: 1rem 0 0;
+    padding: 1rem 1.1rem 1.1rem;
+    border: 1px solid #bfd6d0;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #f4fbf8, #fffdf7);
+}
+.uda-ore-box h4 {
+    margin: 0;
+    color: #0b6b63;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+.uda-ore-metodo,
+.uda-ore-nota {
+    margin: 0.35rem 0 0;
+    color: #526a65;
+    font-size: 0.85rem;
+    line-height: 1.45;
+}
+.uda-ore-nota {
+    padding-top: 0.6rem;
+    border-top: 1px dashed #cfe3dd;
+    font-style: italic;
+}
+
+.uda-ore-tabella {
+    width: 100%;
+    margin-top: 0.8rem;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+.uda-ore-tabella th,
+.uda-ore-tabella td {
+    padding: 0.45rem 0.5rem;
+    border-bottom: 1px solid #dceae5;
+    text-align: left;
+    vertical-align: middle;
+}
+.uda-ore-tabella thead th {
+    color: #0b6b63;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+/* Prima colonna elastica, colonne numeriche strette e allineate a destra:
+   la specificità deve superare quella di «.uda-ore-tabella th, td» qui sopra. */
+.uda-ore-tabella th:first-child,
+.uda-ore-tabella td:first-child { width: 100%; }
+.uda-ore-tabella .uda-ore-num {
+    width: 1%;
+    padding-left: 1.5rem;
+    text-align: right;
+    white-space: nowrap;
+}
+.uda-ore-tabella tfoot th,
+.uda-ore-tabella tfoot td {
+    border-bottom: none;
+    border-top: 2px solid #bfd6d0;
+    font-weight: 800;
+}
+.uda-ore-tabella tr[data-divergente="true"] { background: #fff4e4; }
+.uda-ore-firma {
+    display: block;
+    margin-top: 0.15rem;
+    color: #7a6a4f;
+    font-size: 0.76rem;
+}
+
+.uda-ore-tabella input[type="number"] {
+    width: 5rem;
+    min-height: 2.25rem;
+    padding: 0.3rem 0.5rem;
+    border: 1px solid #bfd6d0;
+    border-radius: 10px;
+    background: #fff;
+    font: inherit;
+    text-align: right;
+}
+.uda-ore-tabella input[data-fuori-banda="true"] {
+    border-color: #c0392b;
+    background: #fdf0ee;
+}
+
+.uda-ore-avviso {
+    margin: 0.75rem 0 0;
+    padding: 0.55rem 0.7rem;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    line-height: 1.45;
+}
+.uda-ore-avviso:empty { display: none; }
+.uda-ore-avviso[data-stato="ok"] { background: #e6f6ee; color: #146c46; }
+.uda-ore-avviso[data-stato="attenzione"] { background: #fdf1dc; color: #8a5a10; font-weight: 700; }
+.uda-ore-avviso[data-stato="errore"] { background: #fdece9; color: #9f2822; font-weight: 700; }
+
+.uda-ore-azioni {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 0.8rem;
+}
+.uda-ore-azioni small {
+    flex: 1 1 100%;
+    color: #526a65;
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+.uda-ore-messaggio { flex: 1 1 auto; margin: 0; color: #526a65; font-size: 0.85rem; }
+.uda-ore-messaggio[data-tipo="errore"] { color: #9f2822; }
+.uda-ore-messaggio[data-tipo="successo"] { color: #147142; font-weight: 800; }
+
+@media (max-width: 640px) {
+    .uda-ore-tabella { font-size: 0.84rem; }
+    .uda-ore-tabella th,
+    .uda-ore-tabella td { padding: 0.4rem 0.3rem; }
+    .uda-ore-tabella input[type="number"] { width: 4rem; }
+}
