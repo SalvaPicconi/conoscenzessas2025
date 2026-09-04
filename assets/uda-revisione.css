@@ -358,6 +358,9 @@ button:disabled { cursor: wait; opacity: 0.62; }
     font-weight: 800;
 }
 .uda-ore-tabella tr[data-divergente="true"] { background: #fff4e4; }
+/* Fuori di qui il chip resta su una riga sola; dentro la tabella deve cedere,
+   o «Psicologia generale ed applicata» impone da sola la larghezza minima. */
+.uda-ore-tabella .ins-chip { white-space: normal; }
 .uda-ore-firma {
     display: block;
     margin-top: 0.15rem;
@@ -409,11 +412,61 @@ button:disabled { cursor: wait; opacity: 0.62; }
 .uda-ore-messaggio[data-tipo="errore"] { color: #9f2822; }
 .uda-ore-messaggio[data-tipo="successo"] { color: #147142; font-weight: 800; }
 
+/* Sul telefono quattro colonne non entrano: la tabella si impila e ogni
+   insegnamento diventa un blocco con le sue voci: valore a destra, intestazione
+   di colonna a sinistra, riscritta da data-etichetta. I ruoli ARIA li dichiara
+   preservaRuoli() in assets/uda-ore.js, perché display:block cancella quelli
+   impliciti della tabella. */
 @media (max-width: 640px) {
-    .uda-ore-tabella { font-size: 0.84rem; }
+    .uda-ore-tabella { font-size: 0.86rem; }
+    .uda-ore-tabella,
+    .uda-ore-tabella thead,
+    .uda-ore-tabella tbody,
+    .uda-ore-tabella tfoot,
+    .uda-ore-tabella tr,
     .uda-ore-tabella th,
-    .uda-ore-tabella td { padding: 0.4rem 0.3rem; }
-    .uda-ore-tabella input[type="number"] { width: 4rem; }
+    .uda-ore-tabella td { display: block; }
+    .uda-ore-tabella thead,
+    .uda-ore-tabella .uda-ore-vuota { display: none; }
+    .uda-ore-tabella tr {
+        padding: 0.6rem 0;
+        border-bottom: 1px solid #dceae5;
+    }
+    .uda-ore-tabella th,
+    .uda-ore-tabella td {
+        padding: 0;
+        border-bottom: none;
+    }
+    .uda-ore-tabella td:first-child { margin-bottom: 0.4rem; }
+    .uda-ore-tabella .uda-ore-num {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        width: auto;
+        min-height: 1.9rem;
+        padding: 0.1rem 0;
+    }
+    .uda-ore-tabella .uda-ore-num::before {
+        content: attr(data-etichetta);
+        color: #0b6b63;
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        white-space: nowrap;
+    }
+    .uda-ore-tabella tbody tr:last-child { border-bottom: none; }
+    .uda-ore-tabella tfoot tr {
+        padding-top: 0.7rem;
+        border-top: 2px solid #bfd6d0;
+        border-bottom: none;
+    }
+    .uda-ore-tabella tfoot th {
+        margin-bottom: 0.25rem;
+        border-top: none;
+    }
+    .uda-ore-tabella tfoot td { border-top: none; }
 }
 
 /* Ore dell'insegnamento accanto al suo nome, e durata dell'UDA in intestazione */
@@ -429,17 +482,6 @@ button:disabled { cursor: wait; opacity: 0.62; }
     background: #ece7fb;
     color: #4b3b8f;
 }
-.uda-ore-durata {
-    margin: 0.7rem 0 0;
-    padding: 0.55rem 0.7rem;
-    border-radius: 10px;
-    background: #f0edfb;
-    color: #4b3b8f;
-    font-size: 0.85rem;
-    line-height: 1.45;
-}
-.uda-ore-durata:empty { display: none; }
-
 /* Votazione per la scelta delle UDA (assets/uda-voto.js) */
 .uda-voto-box {
     margin: 1rem 0 0;

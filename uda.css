@@ -278,6 +278,10 @@
     white-space: nowrap;
 }
 
+/* Nella riga «Materiali» la pillola porta il nome per esteso del fascicolo già
+   pronto: sul telefono deve andare a capo, o da sola sfonda la scheda. */
+.sin-value .pill-stato { white-space: normal; }
+
 /* Chip insegnamento accanto a ogni voce */
 .ins-chip {
     display: inline-flex;
