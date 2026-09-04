@@ -74,6 +74,16 @@ function disegnaTutte() {
 // Settimane di lezione necessarie: le detta l'insegnamento che deve trovare più
 // ore dentro il proprio orario settimanale, perché gli altri procedono in
 // parallelo. È la durata minima, a piena dedizione.
+//
+// ATTENZIONE — convenzione ancora aperta. Questo numero presuppone che la
+// materia più carica dedichi all'UDA tutte le proprie ore settimanali, cosa che
+// nella pratica non succede: la 3.4 «Crescere insieme», 48 ore, risulta di 3
+// settimane, ma a due ore a settimana per materia sarebbero 8. Finché la scelta
+// non arriva, l'etichetta mostrata deve conservare il «min.» davanti al numero,
+// o il dato inganna chi mette l'UDA in calendario. Se si passa alla stima
+// realistica, il divisore diventa Math.min(oreDedicate, riga.oreSett) e va
+// cambiato anche durata_settimane() in tools/genera_ripartizione_ore.py.
+//
 // Stessa formula in tools/genera_ripartizione_ore.py, per il documento stampabile.
 function durata(righe) {
     let settimane = 0;

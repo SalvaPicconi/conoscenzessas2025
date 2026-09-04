@@ -76,6 +76,16 @@ def durata_settimane(voci: list[dict]) -> tuple[int, str]:
     Gli insegnamenti procedono in parallelo, quindi il tempo lo impone quello
     che deve ricavare più ore dal proprio orario settimanale. È la durata
     minima, a piena dedizione.
+
+    ATTENZIONE — convenzione ancora aperta. Il numero presuppone che la materia
+    più carica dedichi all'UDA tutte le proprie ore settimanali, cosa che nella
+    pratica non succede: la 3.4 «Crescere insieme», 48 ore, risulta di 3
+    settimane, ma a due ore a settimana per materia sarebbero 8. Finché la
+    scelta non arriva, il testo prodotto deve dire «almeno», o il dato inganna
+    chi mette l'UDA in calendario. Se si passa alla stima realistica il divisore
+    diventa min(ore_dedicate, voce["oreSett"]) e va cambiata anche durata() in
+    assets/uda-ore.js.
+
     Stessa formula in assets/uda-ore.js, dove si aggiorna con le ore concordate.
     """
     peggiore = max(voci, key=lambda voce: voce["max"] / voce["oreSett"])
