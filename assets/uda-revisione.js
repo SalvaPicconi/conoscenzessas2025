@@ -3,6 +3,7 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 const API_URL = `${SUPABASE_URL}/functions/v1/curricolo-uda-revisioni`;
 const SESSION_KEY = 'curricolo:uda-revisione-session';
 const IDENTITY_KEY = 'curricolo:uda-revisione-identita';
+const MODE_KEY = 'curricolo:uda-accesso-modalita';
 const DATA_SOURCE = document.documentElement.dataset.udaSource || 'data-uda.json';
 const UDA_KIND = document.documentElement.dataset.udaKind || 'asse';
 const IS_TRASVERSALE = UDA_KIND === 'trasversale';
@@ -62,7 +63,7 @@ const CAMPI_NUOVA = [
 const CAMPO_ORE = ['oreRipartizione', 'Ripartizione oraria per insegnamento', 'ore'];
 const TUTTI_I_CAMPI = [...CAMPI_NUOVA, CAMPO_ORE];
 
-const statoRev = { token: '', docente: '', autorizzato: false, puoGestireStati: false, uda: new Map(), revisioni: new Map() };
+const statoRev = { token: '', docente: '', autorizzato: false, puoGestireStati: false, modalita: '', uda: new Map(), revisioni: new Map() };
 const uiRev = {};
 
 document.addEventListener('DOMContentLoaded', inizializzaRevisioni);
@@ -91,6 +92,7 @@ function raccogliUi() {
     const id = nome => document.getElementById(nome);
     Object.assign(uiRev, {
         apri: id('uda-revisione-apri-accesso'), auth: id('uda-revisione-auth'),
+        authTitolo: id('uda-revisione-auth-titolo'), authDescrizione: id('uda-revisione-auth-descrizione'),
         docente: id('uda-revisione-docente'), password: id('uda-revisione-password'),
         authMsg: id('uda-revisione-auth-messaggio'), annulla: id('uda-revisione-annulla'),
         toolbar: id('uda-revisione-toolbar'), identita: id('uda-revisione-identita'),
@@ -104,7 +106,7 @@ function raccogliUi() {
 }
 
 function collegaEventi() {
-    uiRev.apri.addEventListener('click', () => mostraAccesso(true));
+    uiRev.apri.addEventListener('click', () => { void richiediAccesso('revisione'); });
     uiRev.annulla.addEventListener('click', () => mostraAccesso(false));
     uiRev.auth.addEventListener('submit', accedi);
     uiRev.esci.addEventListener('click', esci);
@@ -123,17 +125,39 @@ function mostraAccesso(visibile) {
     notificaAltezza();
 }
 
+async function richiediAccesso(modalita = 'revisione') {
+    statoRev.modalita = modalita === 'voto' ? 'voto' : 'revisione';
+    aggiornaTestiAccesso();
+    if (statoRev.autorizzato) {
+        await attivaArea();
+        return;
+    }
+    mostraAccesso(true);
+}
+
+function aggiornaTestiAccesso() {
+    const voto = statoRev.modalita === 'voto';
+    if (uiRev.authTitolo) uiRev.authTitolo.textContent = voto ? 'Accedi alla votazione' : 'Accedi alla revisione';
+    if (uiRev.authDescrizione) uiRev.authDescrizione.textContent = voto
+        ? 'Usa lo stesso nome e la stessa password previsti per la revisione delle UDA.'
+        : 'Accedi allo spazio di modifica e revisione delle UDA.';
+    const invia = uiRev.auth?.querySelector('button[type="submit"]');
+    if (invia) invia.textContent = voto ? 'Accedi e vota' : 'Accedi e modifica';
+}
+
 async function ripristinaSessione() {
     const token = sessionStorage.getItem(SESSION_KEY) || '';
     const docente = sessionStorage.getItem(IDENTITY_KEY) || '';
     if (!token || !DOCENTI.includes(docente)) return false;
     statoRev.token = token;
     statoRev.docente = docente;
+    statoRev.modalita = sessionStorage.getItem(MODE_KEY) === 'voto' ? 'voto' : 'revisione';
     try {
         const dati = await chiamaApi('session');
         if (dati.author_name !== docente) throw new Error('Sessione non valida');
         statoRev.autorizzato = true;
         statoRev.puoGestireStati = dati.permissions?.manage_status === true;
+        aggiornaTestiAccesso();
         return true;
     } catch {
         cancellaSessione();
@@ -156,6 +180,7 @@ async function accedi(evento) {
         statoRev.puoGestireStati = dati.permissions?.manage_status === true;
         sessionStorage.setItem(SESSION_KEY, dati.token);
         sessionStorage.setItem(IDENTITY_KEY, dati.author_name);
+        sessionStorage.setItem(MODE_KEY, statoRev.modalita || 'revisione');
         uiRev.password.value = '';
         await attivaArea();
         mostraAccesso(false);
@@ -167,10 +192,19 @@ async function accedi(evento) {
 }
 
 async function attivaArea() {
-    uiRev.apri.hidden = true;
-    uiRev.toolbar.hidden = false;
-    uiRev.identita.textContent = `${statoRev.docente} · proposte personali, confronto condiviso`;
-    await caricaRevisioni();
+    const revisione = statoRev.modalita !== 'voto';
+    sessionStorage.setItem(MODE_KEY, revisione ? 'revisione' : 'voto');
+    uiRev.apri.hidden = revisione;
+    uiRev.toolbar.hidden = !revisione;
+    uiRev.pannello.hidden = true;
+    document.querySelectorAll('.uda-revisione-editor').forEach(nodo => nodo.remove());
+    if (revisione) {
+        uiRev.identita.textContent = `${statoRev.docente} · proposte personali, confronto condiviso`;
+        await caricaRevisioni();
+    } else {
+        statoRev.revisioni = new Map();
+        aggiornaContatore();
+    }
     aggiornaAzioniSchede();
     notificaAltezza();
 }
@@ -191,7 +225,8 @@ async function esci() {
 function cancellaSessione() {
     sessionStorage.removeItem(SESSION_KEY);
     sessionStorage.removeItem(IDENTITY_KEY);
-    Object.assign(statoRev, { token: '', docente: '', autorizzato: false, puoGestireStati: false, revisioni: new Map() });
+    sessionStorage.removeItem(MODE_KEY);
+    Object.assign(statoRev, { token: '', docente: '', autorizzato: false, puoGestireStati: false, modalita: '', revisioni: new Map() });
 }
 
 async function caricaRevisioni() {
@@ -213,7 +248,7 @@ function aggiornaAzioniSchede() {
         const slot = scheda.querySelector(`[data-uda-revisione-slot="${CSS.escape(chiave)}"]`);
         if (!slot) return;
         let azioni = slot.querySelector('.uda-revisione-card-actions');
-        if (!statoRev.autorizzato) return azioni?.remove();
+        if (!statoRev.autorizzato || statoRev.modalita !== 'revisione') return azioni?.remove();
         if (!azioni) {
             azioni = document.createElement('div');
             azioni.className = 'uda-revisione-card-actions';
@@ -625,14 +660,23 @@ function notificaAltezza() {
 // altre e viaggia dentro lo stesso record, ma ha un'interfaccia separata.
 window.CurricoloRevisione = {
     get docente() { return statoRev.autorizzato ? statoRev.docente : ''; },
+    get modalita() { return statoRev.autorizzato ? statoRev.modalita : ''; },
+    get puoRevisionare() { return statoRev.autorizzato && statoRev.modalita === 'revisione'; },
     get puoGestire() { return statoRev.autorizzato && statoRev.puoGestireStati; },
-    // Le azioni sui voti viaggiano sulla stessa sessione: la votazione non
-    // apre un canale proprio, riusa questo.
-    api: (azione, dati) => chiamaApi(azione, dati),
+    apriAccesso: modalita => richiediAccesso(modalita),
+    esci,
+    // Revisione e voto hanno ingressi distinti, ma riusano la stessa sessione
+    // autenticata e quindi la stessa password lato server.
+    api: (azione, dati) => {
+        if (['votes', 'vote', 'ballot', 'choice'].includes(azione) && statoRev.modalita !== 'voto') {
+            throw new Error('Apri prima lo spazio “Vota le preferenze per le UDA”.');
+        }
+        return chiamaApi(azione, dati);
+    },
     revisioniUda,
     revisionePersonale,
     async salvaCampo(chiave, campo, valore, originaleCampo) {
-        if (!statoRev.autorizzato) throw new Error('Sessione non attiva. Accedi di nuovo.');
+        if (!statoRev.autorizzato || statoRev.modalita !== 'revisione') throw new Error('Apri prima lo spazio di modifica e revisione.');
         const uda = statoRev.uda.get(String(chiave));
         if (!uda) throw new Error('UDA non riconosciuta.');
         const esistente = revisionePersonale(chiave);

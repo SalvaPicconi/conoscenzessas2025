@@ -14,12 +14,17 @@ const NOME_GENERE = GENERE === 'trasversale' ? 'trasversali' : 'd’asse';
 const VOTI_PER_DOCENTE = 2;
 
 const statoVoto = { voti: [], votazioni: [], caricato: false, uda: new Map(), messaggio: null, rosaInCorso: new Map() };
+const uiVoto = {};
 
 document.addEventListener('DOMContentLoaded', avviaVotazione);
 document.addEventListener('curricolo:uda-rendered', () => { disegnaSchede(); disegnaPannello(); });
 document.addEventListener('curricolo:uda-sessione', sincronizza);
 
 async function avviaVotazione() {
+    uiVoto.accesso = document.getElementById('uda-voto-accesso');
+    uiVoto.apri = document.getElementById('uda-voto-apri-accesso');
+    uiVoto.messaggio = document.getElementById('uda-voto-accesso-messaggio');
+    uiVoto.apri?.addEventListener('click', gestisciAccessoVoto);
     const fonte = document.documentElement.dataset.udaSource || 'data-uda.json';
     try {
         const risposta = await fetch(fonte, { cache: 'no-store' });
@@ -32,10 +37,38 @@ async function avviaVotazione() {
     sincronizza();
 }
 
+function inModalitaVoto() {
+    return window.CurricoloRevisione?.modalita === 'voto';
+}
+
+async function gestisciAccessoVoto() {
+    if (!window.CurricoloRevisione) return;
+    uiVoto.apri.disabled = true;
+    try {
+        if (inModalitaVoto()) await window.CurricoloRevisione.esci();
+        else await window.CurricoloRevisione.apriAccesso('voto');
+    } finally {
+        uiVoto.apri.disabled = false;
+        aggiornaAccessoVoto();
+    }
+}
+
+function aggiornaAccessoVoto() {
+    if (!uiVoto.apri) return;
+    const attiva = inModalitaVoto() && Boolean(window.CurricoloRevisione?.docente);
+    uiVoto.accesso?.classList.toggle('is-active', attiva);
+    uiVoto.apri.textContent = attiva ? 'Esci dalla votazione' : 'Vota le preferenze per le UDA';
+    uiVoto.apri.className = attiva ? 'uda-revisione-secondary' : 'uda-voto-primary';
+    if (uiVoto.messaggio) uiVoto.messaggio.textContent = attiva
+        ? `${window.CurricoloRevisione.docente} · spazio di votazione attivo`
+        : '';
+}
+
 // I voti si leggono solo a sessione attiva: l'elenco richiede il token.
 async function sincronizza() {
+    aggiornaAccessoVoto();
     const docente = window.CurricoloRevisione?.docente || '';
-    if (!docente) {
+    if (!docente || !inModalitaVoto()) {
         Object.assign(statoVoto, { voti: [], votazioni: [], caricato: false });
         return aggiornaTutto();
     }
@@ -109,7 +142,7 @@ function disegnaSchede() {
         // Niente pulsanti finché il server non ha risposto: se le tabelle non
         // sono ancora state create, o la funzione non è aggiornata, la
         // votazione semplicemente non compare invece di fallire sotto le mani.
-        if (!docente || !statoVoto.caricato) return;
+        if (!docente || !inModalitaVoto() || !statoVoto.caricato) return;
         // Si vota solo dentro la rosa messa al voto: fuori non c'è nulla da
         // premere, e la scheda non porta comandi che il server rifiuterebbe.
         if (!rosaDi(anno).includes(chiave)) return;
@@ -202,7 +235,7 @@ function disegnaPannello() {
     if (!contenitore) return;
     contenitore.replaceChildren();
     const docente = window.CurricoloRevisione?.docente || '';
-    if (!docente || !statoVoto.caricato) return;
+    if (!docente || !inModalitaVoto() || !statoVoto.caricato) return;
 
     const box = document.createElement('section');
     box.className = 'uda-voto-pannello';

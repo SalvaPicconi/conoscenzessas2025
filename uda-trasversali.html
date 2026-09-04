@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="style.css?v=20260721">
     <link rel="stylesheet" href="uda.css?v=20260904c">
     <link rel="stylesheet" href="didattica.css?v=20260901">
-    <link rel="stylesheet" href="assets/uda-revisione.css?v=20260905l">
+    <link rel="stylesheet" href="assets/uda-revisione.css?v=20260905n">
     <link rel="stylesheet" href="assets/navigazione.css?v=20260905l">
 </head>
 <body>
@@ -37,6 +37,18 @@
             </details>
         </section>
 
+        <section id="uda-voto-accesso" class="uda-voto-accesso" aria-labelledby="uda-voto-accesso-titolo">
+            <div>
+                <p class="uda-revisione-eyebrow">Scelta collegiale</p>
+                <h2 id="uda-voto-accesso-titolo">Vota le preferenze per le UDA</h2>
+                <p>Entra nello spazio riservato alla votazione. Per accedere usa lo stesso nome e la stessa password della revisione.</p>
+                <p id="uda-voto-accesso-messaggio" class="uda-revisione-messaggio" role="status" aria-live="polite"></p>
+            </div>
+            <button type="button" id="uda-voto-apri-accesso" class="uda-voto-primary">Vota le preferenze per le UDA</button>
+        </section>
+
+        <div id="uda-votazione" class="uda-votazione"></div>
+
         <section class="uda-revisione-accesso" aria-label="Revisione collegiale delle UDA trasversali">
             <div>
                 <p class="uda-revisione-eyebrow">Lavoro collegiale</p>
@@ -46,7 +58,9 @@
             <button type="button" id="uda-revisione-apri-accesso" class="uda-revisione-primary">Accedi per modificare</button>
         </section>
 
-        <form id="uda-revisione-auth" class="uda-revisione-auth" hidden>
+        <form id="uda-revisione-auth" class="uda-revisione-auth" aria-labelledby="uda-revisione-auth-titolo" hidden>
+            <h2 id="uda-revisione-auth-titolo">Accesso docenti</h2>
+            <p id="uda-revisione-auth-descrizione">Inserisci le credenziali per continuare.</p>
             <div class="uda-revisione-auth-grid">
                 <label for="uda-revisione-docente">Docente
                     <select id="uda-revisione-docente" required>
@@ -137,15 +151,14 @@
         </section>
 
         <div id="trasversali-count" class="uda-count" aria-live="polite"></div>
-        <div id="uda-votazione" class="uda-votazione"></div>
         <div id="trasversali-list"></div>
         <div id="trasversali-loading" class="loading" role="status">Caricamento UDA trasversali...</div>
     </main>
 
     <script src="uda-trasversali.js?v=20260905l"></script>
-    <script type="module" src="assets/uda-revisione.js?v=20260905l"></script>
-    <script type="module" src="assets/uda-ore.js?v=20260905l"></script>
-    <script type="module" src="assets/uda-voto.js?v=20260905m"></script>
+    <script type="module" src="assets/uda-revisione.js?v=20260905n"></script>
+    <script type="module" src="assets/uda-ore.js?v=20260905n"></script>
+    <script type="module" src="assets/uda-voto.js?v=20260905n"></script>
 <script src="assets/navigazione.js?v=20260905l"></script>
 </body>
 </html>

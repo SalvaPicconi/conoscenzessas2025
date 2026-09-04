@@ -1,4 +1,5 @@
 .uda-revisione-accesso,
+.uda-voto-accesso,
 .uda-revisione-auth,
 .uda-revisione-toolbar,
 .uda-revisione-pannello {
@@ -16,12 +17,44 @@
     box-shadow: 0 10px 30px rgba(19, 78, 74, 0.08);
 }
 
+.uda-voto-accesso {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    margin: 1rem 0;
+    padding: 1.15rem 1.25rem;
+    border: 2px solid #e7b857;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #fff8e8, #fdf1dc);
+}
+.uda-voto-accesso.is-active { border-color: #2a8f62; background: linear-gradient(135deg, #edf9f3, #e2f5e9); }
+.uda-voto-accesso h2 { margin: 0; color: #173a36; }
+.uda-voto-accesso p { margin: 0.2rem 0 0; }
+.uda-voto-primary {
+    flex: 0 0 auto;
+    min-height: 2.75rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid #7c2d12;
+    border-radius: 9px;
+    background: #7c2d12;
+    color: #fff;
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
+}
+.uda-voto-primary:hover,
+.uda-voto-primary:focus-visible { background: #5f210c; }
+.uda-voto-primary:disabled { cursor: wait; opacity: 0.65; }
+
 .uda-revisione-accesso h2,
+.uda-revisione-auth h2,
 .uda-revisione-pannello h2,
 .uda-revisione-editor h3,
 .uda-revisione-summary h3 { margin: 0; }
 
 .uda-revisione-accesso p,
+.uda-revisione-auth > p,
 .uda-revisione-toolbar p,
 .uda-revisione-summary p { margin: 0.2rem 0 0; }
 
@@ -229,6 +262,7 @@ button:disabled { cursor: wait; opacity: 0.62; }
 
 @media (max-width: 680px) {
     .uda-revisione-accesso,
+    .uda-voto-accesso,
     .uda-revisione-toolbar,
     .uda-revisione-pannello-head,
     .uda-revisione-summary-head { align-items: stretch; flex-direction: column; }
@@ -244,12 +278,14 @@ button:disabled { cursor: wait; opacity: 0.62; }
     .uda-revisione-card-actions { justify-content: space-between; }
     .uda-revisione-toolbar-actions { flex-wrap: wrap; }
     .uda-revisione-toolbar-actions button { flex: 1 1 auto; }
+    .uda-voto-accesso button { width: 100%; }
     .uda-revisione-editor { padding: 0.8rem; }
     .uda-revisione-editor-footer { margin: 1rem -0.8rem -0.8rem; padding: 0.55rem 0.8rem; }
 }
 
 @media print {
     .uda-revisione-accesso,
+    .uda-voto-accesso,
     .uda-revisione-auth,
     .uda-revisione-toolbar,
     .uda-revisione-pannello,

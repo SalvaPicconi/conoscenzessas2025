@@ -202,7 +202,7 @@ function componiScelte(chiave, ripartizione) {
 
 function creaBlocco(chiave, ripartizione, righe) {
     const docente = window.CurricoloRevisione?.docente || '';
-    const modificabile = Boolean(docente);
+    const modificabile = Boolean(docente && window.CurricoloRevisione?.puoRevisionare);
 
     const box = document.createElement('section');
     box.className = 'uda-ore-box';

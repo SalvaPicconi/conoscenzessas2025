@@ -36,7 +36,7 @@ Sito pubblicato: https://salvapicconi.github.io/conoscenzessas2025/
 - `uda-fsl.html` + `uda-fsl.js` + `data-uda-fsl.json` — UDA per la Formazione scuola-lavoro
 - `assets/uda-revisione.js` + `assets/uda-revisione.css` — modifica e revisione collegiale dei tre cataloghi; saperi documentali protetti e integrazioni libere
 - `assets/uda-ore.js` — ripartizione oraria delle UDA per insegnamento: proposta proporzionale, modifica del docente entro il 40% e avviso quando il monte ore non torna
-- `assets/uda-voto.js` — votazione per la scelta delle UDA: rosa messa al voto, un voto per docente e due per anno, classifica consultiva e conferma della scelta
+- `assets/uda-voto.js` — spazio di votazione separato dalla revisione, accessibile con le stesse credenziali: rosa messa al voto, un voto per docente e due per anno, classifica consultiva e conferma della scelta
 - `assets/navigazione.js` + `assets/navigazione.css` — navigazione fra le sezioni: barra fissa nelle pagine autonome, barra rapida nella pagina principale, niente quando la pagina è dentro un iframe
 - `data-quadro-orario.json` — quadro orario dell'istituto, sorgente unica dei pesi della ripartizione
 - `data-ripartizione-ore.json` + `RIPARTIZIONE-ORE-UDA.md` — ripartizione calcolata e sua versione stampabile, generate da `tools/genera_ripartizione_ore.py`
