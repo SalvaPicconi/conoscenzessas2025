@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="it" data-uda-source="data-uda.json" data-uda-kind="asse">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Piano delle unità di apprendimento del consiglio di classe: il coordinatore raccoglie la scelta collegiale e stampa l'allegato alla programmazione di classe.">
+    <meta name="theme-color" content="#0b5f5a">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <title>Piano delle UDA — Consiglio di classe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20260721">
+    <link rel="stylesheet" href="uda.css?v=20260906a">
+    <link rel="stylesheet" href="didattica.css?v=20260901">
+    <link rel="stylesheet" href="assets/uda-revisione.css?v=20260905p">
+    <link rel="stylesheet" href="piano-uda.css?v=20260906a">
+    <link rel="stylesheet" href="assets/navigazione.css?v=20260905l">
+</head>
+<body>
+<main class="container">
+
+    <header class="header page-hero">
+        <div class="hero-card">
+            <h1>Piano delle unità di apprendimento</h1>
+            <div class="subline">IIS Meucci - Mattei Cagliari, Sede Decimomannu — Servizi per la Sanità e l’Assistenza Sociale</div>
+            <p class="subtitle">Strumento del coordinatore: dopo il confronto in consiglio di classe si stampa l’allegato alla programmazione</p>
+        </div>
+    </header>
+
+    <section class="piano-guida" aria-labelledby="piano-guida-titolo">
+        <p class="uda-revisione-eyebrow">A che cosa serve</p>
+        <h2 id="piano-guida-titolo">Dal confronto in consiglio al documento firmato</h2>
+        <p>Il consiglio di classe discute e sceglie le unità di apprendimento dell’anno; il coordinatore, che presiede
+            la seduta su delega del dirigente scolastico, le riporta qui, indica il periodo di svolgimento e stampa il
+            <strong>Piano delle UDA</strong> da allegare alla programmazione di classe. Il documento esce completo di
+            prospetto delle unità, ripartizione del monte ore fra gli insegnamenti, schede sintetiche, riferimenti
+            normativi e spazio per le firme.</p>
+        <details class="piano-norme">
+            <summary>Riferimenti normativi su cui si fonda il piano</summary>
+            <ul id="piano-norme-elenco"></ul>
+        </details>
+    </section>
+
+    <!-- Barra dei comandi -->
+    <section class="piano-toolbar" aria-label="Azioni sul piano">
+        <div class="piano-toolbar-group">
+            <button type="button" data-azione="word" class="piano-btn piano-btn-primary">📄 Scarica il Piano in Word</button>
+            <button type="button" data-azione="stampa" class="piano-btn">🖨 Stampa / PDF</button>
+        </div>
+        <div class="piano-toolbar-group piano-toolbar-right">
+            <span id="piano-stato" class="piano-stato" role="status" aria-live="polite"></span>
+            <button type="button" data-azione="svuota" class="piano-btn piano-btn-ghost">Svuota il modulo</button>
+        </div>
+    </section>
+
+    <!-- 1 · dati del consiglio -->
+    <section class="piano-blocco" aria-labelledby="piano-dati-titolo">
+        <h2 id="piano-dati-titolo"><span class="piano-num">1</span> Dati del consiglio di classe</h2>
+        <div class="piano-griglia">
+            <label for="piano-anno">Anno di corso
+                <select id="piano-anno" data-campo="anno">
+                    <option value="">Scegli l’anno</option>
+                    <option value="1">1° anno</option>
+                    <option value="2">2° anno</option>
+                    <option value="3">3° anno</option>
+                    <option value="4">4° anno</option>
+                    <option value="5">5° anno</option>
+                </select>
+            </label>
+            <label for="piano-classe">Classe e sezione
+                <input type="text" id="piano-classe" data-campo="classe" placeholder="es. 3ª A" autocomplete="off">
+            </label>
+            <label for="piano-as">Anno scolastico
+                <input type="text" id="piano-as" data-campo="annoScolastico" placeholder="es. 2026/2027" autocomplete="off">
+            </label>
+            <label for="piano-coordinatore">Coordinatore del consiglio di classe
+                <input type="text" id="piano-coordinatore" data-campo="coordinatore" placeholder="Nome e cognome" autocomplete="off">
+            </label>
+            <label for="piano-dirigente">Dirigente scolastico
+                <input type="text" id="piano-dirigente" data-campo="dirigente" placeholder="Nome e cognome" autocomplete="off">
+            </label>
+            <label for="piano-data">Data della seduta
+                <input type="date" id="piano-data" data-campo="dataSeduta">
+            </label>
+            <label for="piano-verbale">Verbale n.
+                <input type="text" id="piano-verbale" data-campo="verbale" placeholder="es. 3" autocomplete="off">
+            </label>
+            <label class="piano-largo" for="piano-docenti">Composizione del consiglio di classe — un docente per riga
+                <textarea id="piano-docenti" data-campo="docenti" rows="6" placeholder="Cognome Nome — Disciplina&#10;Cognome Nome — Disciplina"></textarea>
+            </label>
+        </div>
+    </section>
+
+    <!-- 2 · scelta delle UDA -->
+    <section class="piano-blocco" aria-labelledby="piano-scelta-titolo">
+        <h2 id="piano-scelta-titolo"><span class="piano-num">2</span> Unità di apprendimento deliberate</h2>
+        <p class="piano-nota">Spunta le UDA che il consiglio ha scelto di attivare e indica per ciascuna il periodo di
+            svolgimento. Le tre famiglie restano distinte: UDA d’asse, UDA trasversali e UDA di formazione
+            scuola-lavoro.</p>
+
+        <div class="piano-import">
+            <div>
+                <p class="uda-revisione-eyebrow">Scelta collegiale</p>
+                <p id="piano-import-messaggio" class="piano-nota">Se il collegio ha già votato e confermato le UDA
+                    dell’anno, puoi importarle invece di spuntarle a mano.</p>
+            </div>
+            <button type="button" id="piano-import" class="piano-btn">Importa la scelta confermata</button>
+        </div>
+
+        <!-- Modulo di accesso condiviso con la votazione: viene mostrato da assets/uda-revisione.js -->
+        <form id="uda-revisione-auth" class="uda-revisione-auth" aria-labelledby="uda-revisione-auth-titolo" hidden>
+            <h2 id="uda-revisione-auth-titolo">Accedi alla votazione</h2>
+            <p id="uda-revisione-auth-descrizione">Inserisci nome e password.</p>
+            <div class="uda-revisione-auth-grid">
+                <label for="uda-revisione-docente">Docente
+                    <select id="uda-revisione-docente" required>
+                        <option value="">Scegli il tuo nome</option>
+                    </select>
+                </label>
+                <label for="uda-revisione-password">Password
+                    <input type="password" id="uda-revisione-password" autocomplete="current-password" required>
+                </label>
+            </div>
+            <div class="uda-revisione-auth-actions">
+                <p id="uda-revisione-auth-messaggio" class="uda-revisione-messaggio" role="status" aria-live="polite"></p>
+                <button type="button" id="uda-revisione-annulla" class="uda-revisione-secondary">Annulla</button>
+                <button type="submit" class="uda-revisione-primary">Accedi e vota</button>
+            </div>
+        </form>
+
+        <div id="piano-catalogo" class="piano-catalogo"></div>
+    </section>
+
+    <!-- 3 · riepilogo -->
+    <section class="piano-blocco" aria-labelledby="piano-riepilogo-titolo">
+        <h2 id="piano-riepilogo-titolo"><span class="piano-num">3</span> Riepilogo del monte ore</h2>
+        <p class="piano-nota">Le ore di ogni UDA sono ripartite fra gli insegnamenti coinvolti in proporzione al quadro
+            orario d’istituto. È la proposta di partenza: il consiglio può modificarla, purché la somma copra il monte
+            ore dell’unità.</p>
+        <div id="piano-riepilogo"></div>
+    </section>
+
+    <!-- 4 · note -->
+    <section class="piano-blocco" aria-labelledby="piano-note-titolo">
+        <h2 id="piano-note-titolo"><span class="piano-num">4</span> Deliberazione e note del consiglio</h2>
+        <label class="piano-largo" for="piano-note">Annotazioni da riportare nel documento
+            <textarea id="piano-note" data-campo="note" rows="5" placeholder="Accorpamenti decisi, adattamenti per studenti con PFI personalizzato, vincoli di calendario, raccordi con la formazione scuola-lavoro…"></textarea>
+        </label>
+        <p class="piano-nota">La formula di approvazione, i riferimenti normativi e lo spazio per le firme del
+            coordinatore, dei docenti e del dirigente sono già inclusi nel documento stampato.</p>
+    </section>
+
+    <section class="piano-toolbar" aria-label="Stampa del piano">
+        <div class="piano-toolbar-group">
+            <button type="button" data-azione="word" class="piano-btn piano-btn-primary">📄 Scarica il Piano in Word</button>
+            <button type="button" data-azione="stampa" class="piano-btn">🖨 Stampa / PDF</button>
+        </div>
+        <div class="piano-toolbar-group piano-toolbar-right">
+            <span id="piano-stato-basso" class="piano-stato" role="status" aria-live="polite"></span>
+        </div>
+    </section>
+
+    <!-- Impianto della revisione: serve solo a far funzionare l'accesso condiviso -->
+    <div class="piano-nascosto" aria-hidden="true">
+        <button type="button" id="uda-revisione-apri-accesso">Accedi</button>
+        <section id="uda-revisione-toolbar" hidden>
+            <p id="uda-revisione-identita"></p>
+            <button type="button" id="uda-revisione-crea">Crea</button>
+            <button type="button" id="uda-revisione-elenco">Revisioni <span id="uda-revisione-contatore">0</span></button>
+            <button type="button" id="uda-revisione-esci">Esci</button>
+        </section>
+        <div id="uda-revisione-nuova-slot"></div>
+        <section id="uda-revisione-pannello" hidden>
+            <button type="button" id="uda-revisione-pannello-chiudi">Chiudi</button>
+            <select id="uda-revisione-filtro-anno"><option value="">Tutti</option></select>
+            <select id="uda-revisione-filtro-docente"><option value="">Tutti</option></select>
+            <p id="uda-revisione-elenco-messaggio"></p>
+            <div id="uda-revisione-elenco-contenuto"></div>
+        </section>
+    </div>
+
+    <p class="piano-piede">I dati digitati restano nel browser di chi compila: nulla viene inviato al sito. Svuota il
+        modulo quando il documento è stato stampato e consegnato.</p>
+
+</main>
+
+<script src="assets/uda-documento.js?v=20260906a"></script>
+<script src="piano-uda.js?v=20260906a"></script>
+<script type="module" src="assets/uda-revisione.js?v=20260905o"></script>
+<script src="assets/navigazione.js?v=20260905l"></script>
+</body>
+</html>
