@@ -399,6 +399,31 @@
     font-size: 13px;
 }
 
+.uda-fonti-ricerca {
+    margin-top: 14px;
+    padding: 12px 15px;
+    border: 1px solid color-mix(in srgb, var(--accent-a) 22%, var(--glass-border));
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--accent-a) 4%, var(--card-solid));
+    color: var(--ink-soft);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.uda-fonti-ricerca summary {
+    color: var(--ink);
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.uda-fonti-ricerca p {
+    margin: 10px 0 0;
+}
+
+.uda-fonti-ricerca a {
+    font-weight: 700;
+}
+
 .uda-acc-trasversale {
     border-color: color-mix(in srgb, var(--accent-a) 25%, var(--glass-border));
 }

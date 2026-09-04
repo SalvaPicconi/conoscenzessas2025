@@ -5,7 +5,7 @@
 //
 // Cataloghi UDA pubblicati in questo sito:
 //   data-uda.json ............... 48 UDA d'asse, una per competenza intermedia
-//   data-uda-trasversali.json ... 10 UDA trasversali fra i quattro assi culturali
+//   data-uda-trasversali.json ... UDA trasversali fra i quattro assi culturali
 //   data-uda-fsl.json ............ 4 UDA per la Formazione scuola-lavoro
 // ============================================================
 
@@ -39,7 +39,7 @@ if (window.parent !== window) {
 const stato = {
     catalogoIndirizzo: [],      // 48 UDA d'asse — data-uda.json
     metaIndirizzo: null,
-    catalogoTrasversali: [],    // 10 UDA trasversali — data-uda-trasversali.json
+    catalogoTrasversali: [],    // UDA trasversali — data-uda-trasversali.json
     metaTrasversali: null,
     catalogoFsl: [],            // 4 UDA FSL — data-uda-fsl.json
     metaFsl: null,
@@ -167,7 +167,7 @@ function costruisciAnnualita() {
 // ============================================================
 
 async function caricaCataloghi() {
-    // Tre cataloghi pubblicati nel sito: 48 UDA d'asse + 10 trasversali + 4 FSL
+    // Tre cataloghi pubblicati nel sito: UDA d'asse + trasversali + FSL
     const [asse, trasv, fsl] = await Promise.allSettled([
         fetch('data-uda.json', { cache: 'no-store' }).then(r => r.json()),
         fetch('data-uda-trasversali.json', { cache: 'no-store' }).then(r => r.json()),

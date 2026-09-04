@@ -1,5 +1,5 @@
 // Catalogo autonomo delle UDA trasversali — rendering e filtri
-// Dati: data-uda-trasversali.json (10 schede interdisciplinari, due per anno)
+// Dati: data-uda-trasversali.json (catalogo interdisciplinare progressivo)
 
 if (window.parent !== window) {
     document.documentElement.classList.add('embedded');

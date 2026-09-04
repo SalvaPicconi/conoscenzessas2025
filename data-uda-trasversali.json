@@ -1,7 +1,7 @@
 {
   "meta": {
     "titolo": "UDA trasversali — quinquennio SSAS",
-    "sottotitolo": "Dieci unità interdisciplinari costruite sugli assi culturali dell'istruzione professionale",
+    "sottotitolo": "Quattordici unità interdisciplinari costruite sugli assi culturali dell'istruzione professionale",
     "fonte": "Prima stesura per i dipartimenti. Assi culturali e attribuzione degli insegnamenti da D.M. 92/2018, Allegato 3I (quadri orari dell'indirizzo SSAS); competenze dell'area generale da data-area-generale.json; competenze in uscita da Allegato C; competenze chiave da Raccomandazione del Consiglio UE 22 maggio 2018.",
     "riferimenti": [
       "D.Lgs. 61/2017 art. 5 c. 1 lett. b) — aggregazione degli insegnamenti negli assi culturali",
@@ -11,7 +11,7 @@
       "Linee guida D.M. 766/2018, Box n. 7 — carattere prioritariamente interdisciplinare delle UdA",
       "Linee guida D.M. 766/2018, Box n. 8 — format di riferimento dell'UdA"
     ],
-    "nota": "Due UDA per ciascun anno di corso, ognuna a cavallo di almeno tre assi culturali. Nell'istruzione professionale le materie di indirizzo costituiscono l'asse scientifico, tecnologico e professionale: per questo compaiono anche nelle UDA trasversali. Titoli, compiti di realtà e monte ore sono una proposta da validare in sede di dipartimento.",
+    "nota": "Una rosa progressiva di UDA per il quinquennio, ognuna a cavallo di almeno tre assi culturali. Nell'istruzione professionale le materie di indirizzo costituiscono l'asse scientifico, tecnologico e professionale: per questo compaiono anche nelle UDA trasversali. Titoli, compiti di realtà e monte ore sono proposte da discutere, modificare e validare collegialmente.",
     "assi": [
       "Asse dei linguaggi",
       "Asse matematico",
@@ -860,7 +860,7 @@
         "Competenza digitale"
       ],
       "traguardo": "Collaborare all'elaborazione di un progetto di integrazione sociale e contrasto allo stigma rivolto a un gruppo, individuando e interpretando i dati significativi relativi al fenomeno rappresentato.",
-      "compito": "Dossier di analisi su come i media rappresentano una categoria fragile — migranti, anziani, persone con disabilità: raccolta di un corpus di articoli, analisi del lessico, confronto con i dati reali e proposta di una contro-narrazione pubblicabile sul sito della scuola.",
+      "compito": "Dossier di analisi su come i media rappresentano una categoria esposta a stereotipi — migranti, anziani, persone con disabilità o persone con disagio psichico: raccolta di un corpus di articoli, analisi del lessico, confronto con i dati disponibili e proposta di una contro-narrazione pubblicabile sul sito della scuola.",
       "ore": "20–25",
       "abilita": [
         {
@@ -946,7 +946,7 @@
           ]
         }
       ],
-      "situazione": "Migranti, anziani e persone con disabilità compaiono nei media dentro cornici ricorrenti che i dati reali spesso smentiscono, e che pesano su chi lavora nei servizi.",
+      "situazione": "Migranti, anziani, persone con disabilità e persone con disagio psichico compaiono nei media dentro cornici ricorrenti che i dati disponibili spesso smentiscono, e che alimentano discriminazione e stigma.",
       "prodotto": "Dossier di analisi su come i media rappresentano una categoria fragile — migranti, anziani, persone con disabilità: raccolta di un corpus di articoli, analisi del lessico, confronto con i dati reali e proposta di una contro-narrazione pubblicabile sul sito della scuola.",
       "beneficiari": "La comunità scolastica, tramite la pubblicazione della contro-narrazione sul sito dell'istituto.",
       "ambito": "interna",
@@ -1378,6 +1378,376 @@
       "tipo": "Trasversale",
       "qnq": "4",
       "competenza": 10,
+      "sviluppata": true
+    },
+    {
+      "id": "T3.3",
+      "anno": 3,
+      "periodo": "intero anno",
+      "titolo": "Povertà educativa e partecipazione: un patto di comunità",
+      "assi": [
+        "Asse dei linguaggi",
+        "Asse matematico",
+        "Asse storico sociale",
+        "Asse scientifico, tecnologico e professionale"
+      ],
+      "competenzeGenerali": [
+        1,
+        3,
+        10,
+        12
+      ],
+      "competenzeSSAS": [
+        1,
+        2,
+        10
+      ],
+      "competenzeEuropee": [
+        "Competenza in materia di cittadinanza",
+        "Competenza imprenditoriale",
+        "Competenza alfabetica funzionale",
+        "Competenza personale, sociale e capacità di imparare a imparare"
+      ],
+      "traguardo": "Collaborare alla progettazione di un intervento di comunità, leggendo bisogni e risorse del territorio e documentando obiettivi, attività, responsabilità e risultati attesi.",
+      "compito": "Elaborare, a partire da dati e testimonianze, una proposta di patto educativo di comunità contro una forma di povertà educativa: mappa delle risorse, destinatari, obiettivi, attività, budget essenziale, indicatori e presentazione a un possibile partner territoriale.",
+      "ore": "20–24",
+      "abilita": [
+        {
+          "t": "Raccogliere e interpretare dati territoriali senza confondere fatti, opinioni e bisogni percepiti",
+          "ins": ["Matematica", "Italiano"]
+        },
+        {
+          "t": "Ricostruire le trasformazioni sociali e territoriali che incidono sulle opportunità educative",
+          "ins": ["Storia"]
+        },
+        {
+          "t": "Individuare soggetti pubblici, scuola e Terzo settore coinvolgibili nel progetto",
+          "ins": ["Diritto e T.A.", "Metodologie Operative"]
+        },
+        {
+          "t": "Definire obiettivi, attività, responsabilità e indicatori verificabili",
+          "ins": ["Metodologie Operative", "Matematica"]
+        },
+        {
+          "t": "Favorire ascolto, partecipazione e cooperazione nel gruppo di progettazione",
+          "ins": ["Psicologia", "Metodologie Operative"]
+        },
+        {
+          "t": "Produrre un dossier digitale e presentare la proposta a interlocutori diversi",
+          "ins": ["Italiano", "TIC", "Inglese"]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Povertà educativa, disuguaglianze e partecipazione dei giovani",
+          "ins": ["Storia", "Diritto e T.A."]
+        },
+        {
+          "t": "Patti educativi di comunità, sussidiarietà e reti territoriali",
+          "ins": ["Diritto e T.A.", "Metodologie Operative"]
+        },
+        {
+          "t": "Fasi essenziali della progettazione sociale e documentazione di progetto",
+          "ins": ["Metodologie Operative"]
+        },
+        {
+          "t": "Indicatori, percentuali, tabelle e rappresentazioni grafiche",
+          "ins": ["Matematica", "TIC"]
+        },
+        {
+          "t": "Tecniche di ascolto e dinamiche della partecipazione",
+          "ins": ["Psicologia"]
+        },
+        {
+          "t": "Testo progettuale, argomentazione e presentazione pubblica",
+          "ins": ["Italiano", "Inglese"]
+        }
+      ],
+      "situazione": "Nel territorio esistono opportunità educative, ma non tutti i ragazzi riescono ad accedervi e scuola, enti e associazioni spesso agiscono senza una lettura condivisa dei bisogni.",
+      "prodotto": "Proposta di patto educativo di comunità con dossier dei bisogni, mappa dei partner, microprogetto, budget essenziale, indicatori e presentazione pubblica.",
+      "beneficiari": "Adolescenti del territorio e soggetti della comunità educante coinvolti nella proposta.",
+      "ambito": "esterna",
+      "tipo": "Trasversale",
+      "qnq": "3",
+      "competenza": 1,
+      "sviluppata": true
+    },
+    {
+      "id": "T4.3",
+      "anno": 4,
+      "periodo": "intero anno",
+      "titolo": "Accessibilità universale: spazi, informazioni e partecipazione",
+      "assi": [
+        "Asse dei linguaggi",
+        "Asse matematico",
+        "Asse storico sociale",
+        "Asse scientifico, tecnologico e professionale"
+      ],
+      "competenzeGenerali": [
+        1,
+        6,
+        10,
+        11
+      ],
+      "competenzeSSAS": [
+        6,
+        4,
+        7
+      ],
+      "competenzeEuropee": [
+        "Competenza in materia di cittadinanza",
+        "Competenza matematica e competenza in scienze, tecnologie e ingegneria",
+        "Competenza imprenditoriale",
+        "Competenza personale, sociale e capacità di imparare a imparare"
+      ],
+      "traguardo": "Valutare l'accessibilità di un ambiente o di un servizio e proporre miglioramenti che sostengano sicurezza, autonomia, comprensibilità dell'informazione e partecipazione.",
+      "compito": "Realizzare l'audit di accessibilità di uno spazio o servizio scolastico o territoriale: osservazione con utenti o testimoni privilegiati, rilevazioni, analisi delle informazioni, individuazione delle barriere e proposta motivata di soluzioni secondo i principi della progettazione universale.",
+      "ore": "22–26",
+      "abilita": [
+        {
+          "t": "Riconoscere barriere fisiche, sensoriali, cognitive, comunicative e organizzative",
+          "ins": ["Metodologie Operative", "Psicologia"]
+        },
+        {
+          "t": "Rilevare misure e organizzare dati con criteri trasparenti",
+          "ins": ["Matematica", "TIC"]
+        },
+        {
+          "t": "Valutare sicurezza e fruibilità senza sostituirsi alle valutazioni tecniche professionali",
+          "ins": ["Igiene e Cultura M.S.", "Metodologie Operative"]
+        },
+        {
+          "t": "Collegare accessibilità, non discriminazione e accomodamento ragionevole ai diritti della persona",
+          "ins": ["Diritto e T.A.", "Storia"]
+        },
+        {
+          "t": "Riscrivere informazioni e segnaletica in forma chiara e multimodale",
+          "ins": ["Italiano", "Inglese", "TIC"]
+        },
+        {
+          "t": "Formulare priorità, costi essenziali e benefici attesi delle soluzioni",
+          "ins": ["Diritto e T.A.", "Matematica"]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Accessibilità, progettazione universale e accomodamento ragionevole",
+          "ins": ["Diritto e T.A.", "Metodologie Operative"]
+        },
+        {
+          "t": "Autonomia, capacità residue e partecipazione della persona",
+          "ins": ["Psicologia", "Metodologie Operative"]
+        },
+        {
+          "t": "Barriere architettoniche, percettive, cognitive e digitali",
+          "ins": ["TIC", "Metodologie Operative"]
+        },
+        {
+          "t": "Principi essenziali di sicurezza e fruibilità degli ambienti di vita",
+          "ins": ["Igiene e Cultura M.S."]
+        },
+        {
+          "t": "Scale di osservazione, misure, tabelle e priorità d'intervento",
+          "ins": ["Matematica"]
+        },
+        {
+          "t": "Linguaggio chiaro, comunicazione aumentativa e accessibilità dei contenuti",
+          "ins": ["Italiano", "Inglese", "TIC"]
+        }
+      ],
+      "situazione": "Uno spazio o un servizio può essere formalmente aperto a tutti ma restare difficile da raggiungere, comprendere o usare per persone con differenti esigenze e modalità di funzionamento.",
+      "prodotto": "Rapporto di audit con evidenze, mappa delle barriere, proposte prioritarie, prototipo di informazione accessibile e presentazione ai responsabili dello spazio o servizio.",
+      "beneficiari": "Utenti dello spazio o servizio analizzato, con particolare attenzione alle persone che incontrano barriere alla partecipazione.",
+      "ambito": "esterna",
+      "tipo": "Trasversale",
+      "qnq": "3/4",
+      "competenza": 6,
+      "sviluppata": true
+    },
+    {
+      "id": "T5.3",
+      "anno": 5,
+      "periodo": "intero anno",
+      "titolo": "Mediazione interculturale nei servizi alla persona",
+      "assi": [
+        "Asse dei linguaggi",
+        "Asse matematico",
+        "Asse storico sociale",
+        "Asse scientifico, tecnologico e professionale"
+      ],
+      "competenzeGenerali": [
+        1,
+        4,
+        5,
+        7,
+        10
+      ],
+      "competenzeSSAS": [
+        3,
+        7,
+        1
+      ],
+      "competenzeEuropee": [
+        "Competenza multilinguistica",
+        "Competenza in materia di cittadinanza",
+        "Competenza in materia di consapevolezza ed espressione culturali",
+        "Competenza alfabetica funzionale"
+      ],
+      "traguardo": "Facilitare la comunicazione tra persone e gruppi riconoscendo ostacoli linguistici, culturali e organizzativi, nel rispetto dei ruoli professionali e del diritto di accesso ai servizi.",
+      "compito": "Progettare un protocollo simulato di accoglienza e mediazione per un servizio sociale, educativo, culturale o di orientamento: analisi dei possibili ostacoli, dialoghi professionali, materiali plurilingui essenziali, criteri di invio al mediatore e verifica della comprensione.",
+      "ore": "22–26",
+      "abilita": [
+        {
+          "t": "Analizzare una situazione comunicativa distinguendo lingua, cultura, ruolo e bisogno informativo",
+          "ins": ["Psicologia", "Metodologie Operative"]
+        },
+        {
+          "t": "Usare strategie di ascolto, riformulazione e verifica della comprensione",
+          "ins": ["Italiano", "Psicologia"]
+        },
+        {
+          "t": "Produrre materiali essenziali in più lingue con fonti controllate",
+          "ins": ["Italiano", "Inglese", "Spagnolo", "TIC"]
+        },
+        {
+          "t": "Ricostruire fenomeni migratori e pluralità culturali evitando generalizzazioni",
+          "ins": ["Storia"]
+        },
+        {
+          "t": "Individuare diritti, doveri, privacy e confini del ruolo del mediatore",
+          "ins": ["Diritto e T.A."]
+        },
+        {
+          "t": "Leggere dati essenziali sull'accesso ai servizi e rappresentarli correttamente",
+          "ins": ["Matematica", "TIC"]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Mediazione linguistica e interculturale: funzioni, limiti e responsabilità",
+          "ins": ["Metodologie Operative", "Diritto e T.A."]
+        },
+        {
+          "t": "Comunicazione interculturale, stereotipi ed errori di attribuzione",
+          "ins": ["Psicologia", "Italiano"]
+        },
+        {
+          "t": "Migrazioni contemporanee, pluralità culturale e accesso ai diritti",
+          "ins": ["Storia", "Diritto e T.A."]
+        },
+        {
+          "t": "Linguaggio chiaro, testi di servizio e lessico dell'accoglienza",
+          "ins": ["Italiano", "Inglese", "Spagnolo"]
+        },
+        {
+          "t": "Trattamento dei dati personali e riservatezza nella relazione di aiuto",
+          "ins": ["Diritto e T.A."]
+        },
+        {
+          "t": "Frequenze, percentuali e rappresentazioni dei dati sull'utenza",
+          "ins": ["Matematica", "TIC"]
+        }
+      ],
+      "situazione": "L'accesso a un servizio può fallire anche quando la prestazione esiste, perché informazioni, linguaggi e aspettative non sono condivisi e nessuno verifica che la persona abbia davvero compreso.",
+      "prodotto": "Protocollo simulato di accoglienza e mediazione con diagramma del processo, scenari dialogati, materiali plurilingui accessibili e griglia di verifica della comprensione.",
+      "beneficiari": "Utenti e operatori del servizio simulato, con attenzione alle persone che incontrano ostacoli linguistici o culturali.",
+      "ambito": "mista",
+      "tipo": "Trasversale",
+      "qnq": "4",
+      "competenza": 3,
+      "sviluppata": true
+    },
+    {
+      "id": "T5.4",
+      "anno": 5,
+      "periodo": "intero anno",
+      "titolo": "Violenza di genere: cultura, prevenzione e rete di tutela",
+      "assi": [
+        "Asse dei linguaggi",
+        "Asse matematico",
+        "Asse storico sociale",
+        "Asse scientifico, tecnologico e professionale"
+      ],
+      "competenzeGenerali": [
+        1,
+        2,
+        7,
+        10
+      ],
+      "competenzeSSAS": [
+        9,
+        1,
+        2,
+        7
+      ],
+      "competenzeEuropee": [
+        "Competenza in materia di cittadinanza",
+        "Competenza personale, sociale e capacità di imparare a imparare",
+        "Competenza alfabetica funzionale",
+        "Competenza digitale"
+      ],
+      "traguardo": "Riconoscere le radici culturali e le forme della violenza di genere, contribuendo a iniziative di prevenzione e orientando correttamente verso la rete di tutela senza improvvisare interventi specialistici.",
+      "compito": "Analizzare un caso interamente simulato e un corpus di messaggi culturali e mediatici; produrre una nota d'équipe, una mappa aggiornata della rete territoriale e una proposta di prevenzione per la comunità scolastica, rispettando sicurezza, riservatezza e confini di ruolo.",
+      "ore": "24–28",
+      "abilita": [
+        {
+          "t": "Riconoscere stereotipi di genere, linguaggi discriminatori e normalizzazione della violenza",
+          "ins": ["Italiano", "Storia", "Psicologia"]
+        },
+        {
+          "t": "Leggere dati sulla violenza distinguendo frequenze, percentuali, fonti e limiti informativi",
+          "ins": ["Matematica", "TIC"]
+        },
+        {
+          "t": "Individuare principi giuridici, misure di tutela e soggetti competenti della rete",
+          "ins": ["Diritto e T.A."]
+        },
+        {
+          "t": "Redigere una nota professionale descrittiva, pertinente e rispettosa della riservatezza",
+          "ins": ["Italiano", "Metodologie Operative"]
+        },
+        {
+          "t": "Cooperare in équipe simulata rispettando ruoli, procedure e limiti d'intervento",
+          "ins": ["Metodologie Operative", "Psicologia"]
+        },
+        {
+          "t": "Progettare un messaggio di prevenzione responsabile, accessibile e non colpevolizzante",
+          "ins": ["Italiano", "TIC", "Inglese"]
+        }
+      ],
+      "saperi": [
+        {
+          "t": "Stereotipi e ruoli di genere nella storia, nella lingua e nei media",
+          "ins": ["Storia", "Italiano"]
+        },
+        {
+          "t": "Forme della violenza di genere, dinamiche relazionali e conseguenze sociali",
+          "ins": ["Psicologia"]
+        },
+        {
+          "t": "Principi normativi di tutela, servizi competenti e lavoro di rete",
+          "ins": ["Diritto e T.A.", "Metodologie Operative"]
+        },
+        {
+          "t": "Comunicazione professionale, riservatezza e vittimizzazione secondaria",
+          "ins": ["Metodologie Operative", "Italiano"]
+        },
+        {
+          "t": "Fonti statistiche, indicatori e limiti dei dati sui fenomeni sommersi",
+          "ins": ["Matematica", "TIC"]
+        },
+        {
+          "t": "Educazione al rispetto, consenso e prevenzione nei contesti scolastici",
+          "ins": ["Psicologia", "Scienze Motorie"]
+        }
+      ],
+      "situazione": "La violenza di genere viene spesso ridotta a emergenza privata o raccontata con stereotipi; a scuola occorre imparare a leggerne le radici, comunicare responsabilmente e conoscere la rete senza simulare competenze cliniche o investigative.",
+      "prodotto": "Dossier su caso simulato con analisi culturale e statistica, nota d'équipe, mappa documentata della rete di tutela e progetto di prevenzione per la comunità scolastica.",
+      "beneficiari": "La comunità scolastica; il caso è esclusivamente simulato e ogni eventuale situazione reale segue i protocolli dell'istituto e i servizi competenti.",
+      "ambito": "mista",
+      "tipo": "Trasversale",
+      "qnq": "4",
+      "competenza": 9,
       "sviluppata": true
     }
   ]

@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 """
-Genera data-uda-trasversali.json — 10 UDA trasversali, due per anno di corso.
+Generatore storico delle 10 UDA trasversali originarie.
+
+Il catalogo pubblico è stato successivamente revisionato e ampliato direttamente
+in data-uda-trasversali.json. Per evitare di sovrascrivere le revisioni collegiali,
+questo script richiede ora l'opzione esplicita --legacy-write.
 
 ASSI CULTURALI: quelli della normativa per l'istruzione professionale.
 D.M. 92/2018, Allegato 3I (indirizzo «Servizi per la sanità e l'assistenza
@@ -27,6 +31,7 @@ generale sia quelle di indirizzo. Titoli, compiti di realtà e monte ore sono un
 prima stesura da validare in sede di dipartimento.
 """
 import json
+import sys
 from collections import Counter
 
 # --- Assi normativi e insegnamenti, da D.M. 92/2018 Allegato 3I -------------
@@ -524,4 +529,10 @@ def main():
 
 
 if __name__ == '__main__':
+    if '--legacy-write' not in sys.argv:
+        raise SystemExit(
+            'Generatore storico non eseguito: data-uda-trasversali.json è il catalogo '
+            'revisionato. Usare --legacy-write solo per rigenerare consapevolmente le '
+            '10 schede originarie.'
+        )
     main()
