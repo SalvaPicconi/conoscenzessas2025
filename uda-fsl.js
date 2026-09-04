@@ -4,6 +4,12 @@ let fslData = null;
 const filters = { anno: null, area: '', insegnamento: '', search: '' };
 const expanded = new Set();
 const esc = value => String(value ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+const SUBJECT_CLASS = {
+    'METODOLOGIE OPERATIVE': 'ins-met',
+    'IGIENE E CULTURA MEDICO SANITARIA': 'ins-igi',
+    'DIRITTO E TEC. AMM.': 'ins-dir',
+    'PSICOLOGIA GENERALE ED APPLICATA': 'ins-psi'
+};
 
 document.addEventListener('DOMContentLoaded', init);
 
@@ -72,25 +78,39 @@ function render() {
 
 function card(u) {
     const open = expanded.has(u.id);
-    const competencies = (u.competenzeSSAS || []).map(n => `<span class="uda-chip">C${n}</span>`).join('');
+    const subjects = orderedSubjects(u);
+    const competencies = (u.competenzeSSAS || []).map(n => `<span class="uda-chip uda-chip-primary">C${n}</span>`).join('');
     return `<article class="uda-acc uda-acc-trasversale ${open ? 'group-expanded' : ''}" data-id="${esc(u.id)}" data-uda-revisione-key="${esc(u.id)}">
         <button type="button" class="uda-acc-header" aria-expanded="${open}">
             <span class="uda-acc-id">${esc(u.id)}</span><span class="uda-acc-main"><span class="uda-acc-title">${esc(u.titolo)}</span><span class="uda-acc-sub">${u.anno}° anno · ${esc(u.areaTirocinio)} · QNQ ${esc(u.qnq)}</span></span>
             <span class="uda-acc-arrow" aria-hidden="true">⌄</span>
         </button>
         <div class="uda-acc-body" ${open ? '' : 'hidden'}>
-            <div class="uda-chip-row">${competencies}${(u.competenzeEuropee || []).map(c => `<span class="uda-chip uda-chip-secondary">${esc(c)}</span>`).join('')}</div>
+            <div class="uda-chip-row" aria-label="Competenze coinvolte">${competencies}${(u.competenzeEuropee || []).map(c => `<span class="uda-chip uda-chip-secondary">${esc(c)}</span>`).join('')}</div>
             ${section('Traguardo formativo', `<p>${esc(u.traguardo)}</p>`)}
             ${section('Contesto adattabile', `<p>${esc(u.situazione)}</p><p><strong>Area:</strong> ${esc(u.ambito)}</p>`)}
             ${section('Compito autentico', `<p>${esc(u.compito)}</p>`)}
             ${section('Prodotto ed evidenze', `<p>${esc(u.prodotto)}</p><p><strong>Beneficiari:</strong> ${esc(u.beneficiari)}</p><p><strong>Monte ore:</strong> ${esc(u.ore)}</p>`)}
             <div class="sin-grid"><div class="sin-item"><div class="sin-label">Abilità mobilitate</div><div class="sin-value"><ul class="sin-list">${u.abilita.map(row).join('')}</ul></div></div>
             <div class="sin-item"><div class="sin-label">Saperi essenziali documentali</div><div class="sin-value"><ul class="sin-list">${u.saperi.map(row).join('')}</ul><p class="pfi-nota">Base normativa da mantenere; eventuali nuovi saperi vengono affiancati in revisione.</p></div></div></div>
+            <div class="uda-fsl-subjects"><strong>Insegnamenti coinvolti</strong><div class="uda-fsl-subject-list">${renderSubjectChips(subjects)}</div></div>
             <div class="uda-revisione-slot" data-uda-revisione-slot="${esc(u.id)}"></div>
         </div></article>`;
 }
 
 function section(title, body) { return `<section class="uda-detail-section"><h3>${title}</h3>${body}</section>`; }
-function row(item) { return `<li>${esc(item.t)} <span class="uda-voce-ins">${item.ins.map(labelSubject).map(esc).join(' · ')}</span></li>`; }
+function row(item) { return `<li>${esc(item.t)} ${renderSubjectChips(item.ins)}</li>`; }
+function renderSubjectChips(subjects) {
+    return (subjects || []).map(subject => {
+        const highlighted = filters.insegnamento === subject ? ' ins-chip-highlight' : '';
+        return `<span class="ins-chip ${SUBJECT_CLASS[subject] || ''}${highlighted}">${esc(labelSubject(subject))}</span>`;
+    }).join('');
+}
+function orderedSubjects(u) {
+    const used = new Set([...u.abilita, ...u.saperi].flatMap(item => item.ins || []));
+    const ordered = (fslData.meta.insegnamenti || []).filter(subject => used.has(subject));
+    [...used].filter(subject => !ordered.includes(subject)).sort().forEach(subject => ordered.push(subject));
+    return ordered;
+}
 function labelSubject(value) { return ({'METODOLOGIE OPERATIVE':'Metodologie Operative','IGIENE E CULTURA MEDICO SANITARIA':'Igiene e Cultura M.S.','DIRITTO E TEC. AMM.':'Diritto e T.A.','PSICOLOGIA GENERALE ED APPLICATA':'Psicologia generale ed applicata'})[value] || value; }
 function notifyHeight() { setTimeout(() => { if (window.parent !== window) window.parent.postMessage({ type: 'iframeContentHeight', height: Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) }, window.location.origin); }, 30); }
