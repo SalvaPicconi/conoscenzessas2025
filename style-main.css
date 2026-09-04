@@ -260,7 +260,7 @@ button, input, select { font: inherit; }
     line-height: 1.45;
 }
 
-/* Navigazione: tre vere porte d'ingresso */
+/* Navigazione principale del curricolo */
 .tab-navigation {
     position: sticky;
     top: 12px;

@@ -178,7 +178,7 @@ function renderUdaCard(u, autoExpand) {
         : '';
 
     return `
-        <div class="uda-acc ${expanded ? 'group-expanded' : ''}" data-id="${escapeHTML(u.id)}">
+        <div class="uda-acc ${expanded ? 'group-expanded' : ''}" data-id="${escapeHTML(u.id)}" data-uda-revisione-key="${escapeHTML(u.id)}">
             <button type="button" class="uda-acc-header" data-uda-id="${escapeHTML(u.id)}" aria-expanded="${expanded}" aria-controls="${panelId}">
                 <span class="uda-num ${ANNO_CLASS[u.anno]}">${u.id}</span>
                 <span class="uda-acc-main">
@@ -221,6 +221,7 @@ function renderUdaCard(u, autoExpand) {
                             <span class="sin-ore">· Monte ore indicativo: ${escapeHTML(u.ore)}</span></div>
                     </div>
                 </div>
+                <div class="uda-revisione-slot" data-uda-revisione-slot="${escapeHTML(u.id)}"></div>
             </div>
         </div>
     `;
@@ -264,6 +265,7 @@ function render() {
     });
 
     list.innerHTML = sections.join('');
+    document.dispatchEvent(new CustomEvent('curricolo:uda-rendered'));
     notifyParentHeight();
 }
 

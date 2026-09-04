@@ -10,6 +10,10 @@ Sito pubblicato: https://salvapicconi.github.io/conoscenzessas2025/
 
 - **Area di Indirizzo** — apre con il **Curricolo illustrato per immagini**, un percorso narrativo dal biennio al profilo in uscita; seguono le 10 competenze declinate su Biennio, Terzo, Quarto e Quinto anno (39 schede: competenza intermedia, abilità, conoscenze, insegnamenti coinvolti), con filtri, ricerca, raggruppamento e statistiche per insegnamento calcolate dai dati.
 - **Area Generale** — le 12 competenze dell'area generale con assi culturali, abilità e conoscenze.
+- **UDA d'asse** — 48 schede del quinquennio, filtrabili per anno, competenza e insegnamento, con area collegiale per annotazioni e proposte.
+- **UDA trasversali · Tutte le materie** — catalogo autonomo di 10 UDA interdisciplinari, filtrabili per anno, asse e insegnamento, predisposto per modifica, revisione e creazione condivisa.
+- **UDA FSL** — quattro UDA adattabili alle esperienze del triennio: area minori, disabilità, anziani e preparazione sanitaria/possibile raccordo OSS; coinvolgono solo le quattro discipline d'indirizzo definite dall'istituto.
+- **PFI** — progetto formativo individuale compilabile con scelta delle UDA dai tre cataloghi.
 - **Rubriche di Valutazione** — rubriche per competenze con pesi configurabili e calcolo del voto ponderato (disponibili: Metodologie Operative biennio, classe 3ª e classi 4ª-5ª; le altre discipline sono in preparazione).
 
 ## Esportazioni
@@ -24,6 +28,10 @@ Sito pubblicato: https://salvapicconi.github.io/conoscenzessas2025/
 - `area-indirizzo.html` + `script.js` + `style.css` + `curricolo-illustrato.css` — curricolo area di indirizzo e racconto visuale
 - `assets/curricolo-illustrato/` — quattro illustrazioni WebP ottimizzate e prompt di produzione
 - `area-generale.html` + `area-generale.js` + `area-generale.css` — curricolo area generale
+- `uda.html` + `uda.js` + `data-uda.json` — UDA d'asse
+- `uda-trasversali.html` + `uda-trasversali.js` + `data-uda-trasversali.json` — UDA trasversali
+- `uda-fsl.html` + `uda-fsl.js` + `data-uda-fsl.json` — UDA per la Formazione scuola-lavoro
+- `assets/uda-revisione.js` + `assets/uda-revisione.css` — modifica e revisione collegiale dei tre cataloghi; saperi documentali protetti e integrazioni libere
 - `data-area-indirizzo.json` — dati area di indirizzo (fonte: Excel definitivo)
 - `data-area-generale.json` — dati area generale
 - `correzioni_competenze.json` — correzioni opzionali ai titoli delle competenze

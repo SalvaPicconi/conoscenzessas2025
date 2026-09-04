@@ -83,9 +83,11 @@ SEZIONI = {
              "astratte finché non si mostra che cosa cambiano nel lavoro quotidiano di cura.",
              "La comunità scolastica e il territorio, con un ospite esterno all'evento pubblico.",
              'esterna'),
-    'T5.2': ("A pochi mesi dal diploma molti studenti non conoscono i percorsi che si aprono né "
-             "come si presenta ciò che hanno imparato in cinque anni.",
-             "Lo studente stesso, che porta il portfolio al colloquio d'esame e alle selezioni.",
+    'T5.2': ("A pochi mesi dal diploma molti studenti conoscono in modo frammentario le opportunità "
+             "formative e lavorative e faticano a trasformare esperienze, motivazioni e competenze "
+             "in una scelta documentata e realistica.",
+             "Lo studente, che utilizza il portfolio per l'esame, le candidature e le successive "
+             "scelte formative o professionali.",
              'mista'),
 }
 
@@ -390,23 +392,24 @@ UDA = [
         'titolo': 'Orientarsi dopo il diploma: lavoro, formazione terziaria e progetto di vita',
         'assi': [ASSE_S, ASSE_L, ASSE_M, ASSE_P],
         'competenzeGenerali': [5, 10, 12],
-        'competenzeSSAS': [9, 10],
+        'competenzeSSAS': [10, 3],
         'competenzeEuropee': ['Competenza imprenditoriale',
                               'Competenza personale, sociale e capacità di imparare a imparare',
                               'Competenza multilinguistica'],
-        'traguardo': 'Costruire un progetto personale post-diploma fondato sulla conoscenza dei percorsi '
-                     'formativi, del mercato del lavoro e dei propri punti di forza.',
+        'traguardo': 'Costruire un progetto personale post-diploma fondato su dati attendibili relativi '
+                     'ai percorsi formativi e al mercato del lavoro, comunicando in modo professionale '
+                     'le competenze maturate nel quinquennio.',
         'compito': 'Portfolio personale di orientamento: bilancio delle competenze maturate nel '
-                   'quinquennio e nei PCTO, analisi di due sbocchi concreti — uno formativo e uno '
-                   'lavorativo — con dati sul settore, curriculum in italiano e in inglese, e '
-                   'presentazione orale del proprio progetto davanti alla commissione.',
+                   'quinquennio e nella formazione scuola-lavoro, analisi documentata di due sbocchi '
+                   'concreti — uno formativo e uno lavorativo — curriculum in italiano e in inglese '
+                   'e presentazione motivata del proprio progetto post-diploma.',
         'ore': '20–25',
         'abilita': [
             {'t': 'Redigere un curriculum in formato europeo, in italiano e in inglese', 'ins': ['Italiano', 'Inglese']},
             {'t': 'Sostenere un colloquio di selezione simulato', 'ins': ['Italiano', 'Psicologia']},
             {'t': 'Leggere dati su occupazione e fabbisogni professionali del settore', 'ins': ['Matematica', 'Diritto e T.A.']},
             {'t': 'Individuare requisiti d\'accesso ai percorsi terziari e alle professioni regolamentate', 'ins': ['Diritto e T.A.']},
-            {'t': 'Rileggere le esperienze di PCTO in termini di competenze acquisite', 'ins': ['Metodologie Operative']},
+            {'t': 'Rileggere le esperienze di formazione scuola-lavoro in termini di competenze acquisite', 'ins': ['Metodologie Operative']},
             {'t': 'Riconoscere i propri punti di forza e le proprie motivazioni', 'ins': ['Psicologia']},
             {'t': 'Ricostruire le trasformazioni del lavoro di cura nel tempo', 'ins': ['Storia']},
             {'t': 'Organizzare la documentazione del portfolio in formato digitale', 'ins': ['TIC']},

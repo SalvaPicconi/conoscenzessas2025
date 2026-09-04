@@ -88,14 +88,14 @@
         9
       ],
       "competenzeSSAS": [
-        4,
-        3
+        3,
+        2
       ],
       "competenzeEuropee": [
         "Competenza in materia di cittadinanza",
         "Competenza personale, sociale e capacità di imparare a imparare"
       ],
-      "traguardo": "Riconoscere il conflitto come fatto ordinario delle relazioni e individuare, in riferimento ai principi costituzionali, modi non violenti di affrontarlo nella vita di classe.",
+      "traguardo": "Agire per favorire il superamento di stereotipi e pregiudizi in ambito scolastico e nei contesti di vita quotidiana, partecipando e cooperando nel gruppo di lavoro scolastico attraverso l'ascolto attivo e la comunicazione non conflittuale.",
       "compito": "Regolamento di convivenza della classe elaborato dagli studenti: analisi di casi di conflitto realmente accaduti, individuazione delle regole necessarie, stesura del testo normativo e discussione in assemblea con votazione finale.",
       "ore": "12–15",
       "abilita": [
@@ -109,6 +109,20 @@
         {
           "t": "Produrre un testo regolativo chiaro, coeso e adeguato al destinatario",
           "ins": [
+            "Italiano"
+          ]
+        },
+        {
+          "t": "Individuare stereotipi, pregiudizi e modalità comportamentali volte al loro superamento",
+          "ins": [
+            "Scienze Umane",
+            "Storia"
+          ]
+        },
+        {
+          "t": "Ascoltare attivamente, esporre le proprie idee e comunicare in modo non conflittuale nel gruppo",
+          "ins": [
+            "Scienze Umane",
             "Italiano"
           ]
         },
@@ -147,6 +161,20 @@
           ]
         },
         {
+          "t": "Culture, contesti, gruppi sociali, pregiudizi e stereotipi",
+          "ins": [
+            "Scienze Umane",
+            "Storia"
+          ]
+        },
+        {
+          "t": "Il gruppo, le sue dinamiche e la comunicazione non conflittuale",
+          "ins": [
+            "Scienze Umane",
+            "Italiano"
+          ]
+        },
+        {
           "t": "Conflitto, aggressività, mediazione: nozioni di base",
           "ins": [
             "Scienze Umane"
@@ -177,7 +205,7 @@
       "ambito": "interna",
       "tipo": "Trasversale",
       "qnq": "2",
-      "competenza": 4,
+      "competenza": 3,
       "sviluppata": true
     },
     {
@@ -196,15 +224,14 @@
         11
       ],
       "competenzeSSAS": [
-        10,
-        7
+        10
       ],
       "competenzeEuropee": [
         "Competenza digitale",
         "Competenza in materia di cittadinanza"
       ],
-      "traguardo": "Usare gli strumenti digitali in modo consapevole, riconoscendo il trattamento dei propri dati e distinguendo un contenuto attendibile da uno che non lo è.",
-      "compito": "Guida all'uso consapevole dello smartphone per gli studenti delle terze medie in visita di orientamento: dieci schede su privacy, impronta digitale, riconoscimento delle fonti e uso degli assistenti basati su intelligenza artificiale.",
+      "traguardo": "Utilizzare applicativi web e offline per raccogliere e organizzare dati qualitativi e quantitativi relativi all'uso digitale dei coetanei, accertando la pertinenza e l'attendibilità delle informazioni e la sicurezza nella trasmissione dei dati.",
+      "compito": "Guida all'uso consapevole dello smartphone per gli studenti delle terze medie in visita di orientamento: dieci schede su privacy, impronta digitale, riconoscimento delle fonti e uso degli assistenti basati su intelligenza artificiale, corredate dalla sintesi grafica di una rilevazione anonima sull'uso dei media fra coetanei.",
       "ore": "12–15",
       "abilita": [
         {
@@ -286,7 +313,7 @@
         }
       ],
       "situazione": "Gli studenti usano lo smartphone molte ore al giorno senza sapere quali dati cedono, e chiedono a un'intelligenza artificiale risposte che non sanno verificare.",
-      "prodotto": "Guida all'uso consapevole dello smartphone per gli studenti delle terze medie in visita di orientamento: dieci schede su privacy, impronta digitale, riconoscimento delle fonti e uso degli assistenti basati su intelligenza artificiale.",
+      "prodotto": "Guida all'uso consapevole dello smartphone per gli studenti delle terze medie in visita di orientamento: dieci schede su privacy, impronta digitale, riconoscimento delle fonti e uso degli assistenti basati su intelligenza artificiale, corredate dalla sintesi grafica di una rilevazione anonima sull'uso dei media fra coetanei.",
       "beneficiari": "Gli studenti delle terze medie in visita di orientamento, destinatari della guida.",
       "ambito": "esterna",
       "tipo": "Trasversale",
@@ -310,14 +337,14 @@
         6
       ],
       "competenzeSSAS": [
-        6,
-        5
+        8,
+        4
       ],
       "competenzeEuropee": [
         "Competenza alfabetica funzionale",
         "Competenza in materia di consapevolezza ed espressione culturali"
       ],
-      "traguardo": "Riconoscere nella narrazione uno strumento educativo e usarla per accompagnare un bambino nella comprensione di sé e degli altri.",
+      "traguardo": "Realizzare una semplice attività di animazione ludica e sociale in un contesto noto, riconoscendo e adattando materiali e modalità ai bisogni legati all'età dei bambini.",
       "compito": "Laboratorio di lettura animata per una sezione della scuola dell'infanzia: scelta motivata di tre testi, adattamento per la lettura ad alta voce, realizzazione dell'attività e osservazione documentata delle reazioni dei bambini.",
       "ore": "15–18",
       "abilita": [
@@ -334,8 +361,22 @@
           ]
         },
         {
-          "t": "Progettare e condurre un'attività di animazione alla lettura",
+          "t": "Identificare e applicare semplici tecniche di animazione alla lettura",
           "ins": [
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Riconoscere i bisogni del bambino legati all'età e adattare testo, tempi e materiali",
+          "ins": [
+            "Scienze Umane",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Usare voce, gesto e movimento come strumenti educativi e di animazione",
+          "ins": [
+            "Scienze Motorie",
             "Metodologie Operative"
           ]
         },
@@ -369,14 +410,22 @@
           ]
         },
         {
-          "t": "Sviluppo del linguaggio e dell'immaginazione nel bambino",
+          "t": "Sviluppo del linguaggio, dell'immaginazione e principali bisogni legati all'età del bambino",
           "ins": [
-            "Scienze Umane"
+            "Scienze Umane",
+            "Metodologie Operative"
           ]
         },
         {
           "t": "Tecniche di animazione alla lettura",
           "ins": [
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Tecniche ludico-motorie per l'animazione e la socializzazione",
+          "ins": [
+            "Scienze Motorie",
             "Metodologie Operative"
           ]
         },
@@ -401,7 +450,7 @@
       "ambito": "esterna",
       "tipo": "Trasversale",
       "qnq": "2",
-      "competenza": 6,
+      "competenza": 8,
       "sviluppata": true
     },
     {
@@ -421,13 +470,13 @@
       ],
       "competenzeSSAS": [
         1,
-        6
+        10
       ],
       "competenzeEuropee": [
         "Competenza matematica e competenza in scienze, tecnologie e ingegneria",
         "Competenza digitale"
       ],
-      "traguardo": "Descrivere con dati e mappe il territorio in cui si vive, mettendo in relazione caratteristiche ambientali, servizi disponibili e condizioni di vita della popolazione.",
+      "traguardo": "Costruire una mappa dei servizi sociali, socio-sanitari e socio-educativi del territorio e delle principali prestazioni rivolte alle diverse utenze, utilizzando applicativi web e offline per raccogliere, verificare e organizzare dati qualitativi e quantitativi.",
       "compito": "Dossier statistico-cartografico del proprio comune: popolazione per fasce d'età, servizi presenti, barriere architettoniche rilevate sul campo, restituiti in grafici e in una mappa digitale commentata, consegnata all'ufficio servizi sociali.",
       "ore": "15–18",
       "abilita": [
@@ -448,6 +497,13 @@
           "t": "Costruire una mappa digitale georeferenziata con punti di interesse",
           "ins": [
             "TIC"
+          ]
+        },
+        {
+          "t": "Identificare le diverse tipologie di servizi, le prestazioni e le utenze cui si rivolgono",
+          "ins": [
+            "Metodologie Operative",
+            "Scienze Umane"
           ]
         },
         {
@@ -497,9 +553,17 @@
           ]
         },
         {
-          "t": "Tecniche di rilevazione sul territorio",
+          "t": "Tecniche di rilevazione sul territorio e criteri di attendibilità dei dati",
           "ins": [
-            "Metodologie Operative"
+            "Metodologie Operative",
+            "TIC"
+          ]
+        },
+        {
+          "t": "Tipologie di servizi sociali, socio-educativi, socio-sanitari e relative utenze",
+          "ins": [
+            "Metodologie Operative",
+            "Scienze Umane"
           ]
         },
         {
@@ -541,17 +605,24 @@
         12
       ],
       "competenzeSSAS": [
-        7,
+        3,
         10
       ],
       "competenzeEuropee": [
         "Competenza alfabetica funzionale",
         "Competenza multilinguistica"
       ],
-      "traguardo": "Gestire l'interazione comunicativa in contesto professionale, padroneggiando i lessici specialistici e sapendo tradurre dati in discorso comprensibile.",
+      "traguardo": "Agire anche in ambienti non noti individuando modalità di comunicazione idonee a favorire la relazione, utilizzando forme comunicative coerenti con l'ambito professionale e con i dati raccolti sul caso.",
       "compito": "Relazione professionale su un caso di servizio, redatta in due versioni: una per gli operatori, con lessico tecnico, e una per la famiglia dell'utente, in linguaggio piano; entrambe corredate dai dati essenziali del caso e da una scheda di sintesi.",
       "ore": "18–20",
       "abilita": [
+        {
+          "t": "Identificare i bisogni comunicativi in relazione alle diverse tipologie di utenti e gruppi",
+          "ins": [
+            "Psicologia",
+            "Metodologie Operative"
+          ]
+        },
         {
           "t": "Selezionare registro e lessico in funzione del destinatario",
           "ins": [
@@ -641,7 +712,7 @@
       "ambito": "mista",
       "tipo": "Trasversale",
       "qnq": "3",
-      "competenza": 7,
+      "competenza": 3,
       "sviluppata": true
     },
     {
@@ -660,14 +731,15 @@
         11
       ],
       "competenzeSSAS": [
-        6,
+        9,
+        5,
         10
       ],
       "competenzeEuropee": [
         "Competenza matematica e competenza in scienze, tecnologie e ingegneria",
         "Competenza digitale"
       ],
-      "traguardo": "Valutare l'attendibilità dell'informazione sanitaria che circola in rete e usare strumenti digitali per attività di prevenzione rivolte a un destinatario reale.",
+      "traguardo": "Collaborare all'attuazione di un programma di prevenzione primaria nel proprio ambito di vita, programmando semplici azioni di promozione della salute e utilizzando dati e fonti sanitarie protetti e attendibili.",
       "compito": "Campagna di prevenzione rivolta ai coetanei su un tema scelto fra alimentazione, movimento e dipendenze: analisi di contenuti sanitari trovati in rete, individuazione di quelli non attendibili e produzione di materiale corretto in formato digitale, diffuso nella scuola.",
       "ore": "18–20",
       "abilita": [
@@ -761,7 +833,7 @@
       "ambito": "interna",
       "tipo": "Trasversale",
       "qnq": "3",
-      "competenza": 6,
+      "competenza": 9,
       "sviluppata": true
     },
     {
@@ -781,13 +853,13 @@
       ],
       "competenzeSSAS": [
         9,
-        4
+        10
       ],
       "competenzeEuropee": [
         "Competenza in materia di cittadinanza",
         "Competenza digitale"
       ],
-      "traguardo": "Analizzare criticamente il discorso pubblico su temi sociali, riconoscendo stereotipi, distorsioni e responsabilità nell'uso di sistemi automatici.",
+      "traguardo": "Collaborare all'elaborazione di un progetto di integrazione sociale e contrasto allo stigma rivolto a un gruppo, individuando e interpretando i dati significativi relativi al fenomeno rappresentato.",
       "compito": "Dossier di analisi su come i media rappresentano una categoria fragile — migranti, anziani, persone con disabilità: raccolta di un corpus di articoli, analisi del lessico, confronto con i dati reali e proposta di una contro-narrazione pubblicabile sul sito della scuola.",
       "ore": "20–25",
       "abilita": [
@@ -899,16 +971,30 @@
       ],
       "competenzeSSAS": [
         1,
-        9
+        10
       ],
       "competenzeEuropee": [
         "Competenza imprenditoriale",
         "Competenza matematica e competenza in scienze, tecnologie e ingegneria"
       ],
-      "traguardo": "Comprendere come si finanzia e si organizza un servizio alla persona e valutare la sostenibilità economica di un intervento.",
-      "compito": "Piano economico essenziale di un servizio realmente esistente sul territorio — centro diurno, ludoteca, servizio domiciliare: voci di costo, fonti di finanziamento, costo per utente e proposta motivata di una misura di sostenibilità, presentata al responsabile del servizio.",
+      "traguardo": "Organizzare tempi e modi di predisposizione della documentazione e dei dati contabili di un servizio, partecipando alla ricerca ed elaborazione dei dati significativi e formulando una proposta motivata di sostenibilità.",
+      "compito": "Dossier economico-organizzativo di un servizio realmente esistente sul territorio — centro diurno, ludoteca, servizio domiciliare: struttura e ruoli, cronoprogramma, modelli amministrativi e contabili essenziali, voci di costo, fonti di finanziamento, costo per utente e proposta motivata di sostenibilità, presentata al responsabile del servizio.",
       "ore": "20–25",
       "abilita": [
+        {
+          "t": "Predisporre semplici documenti amministrativi e contabili ricorrendo a modelli predefiniti",
+          "ins": [
+            "Diritto e T.A.",
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Organizzare tempi, fasi e responsabilità delle attività attraverso un cronoprogramma",
+          "ins": [
+            "Metodologie Operative",
+            "Matematica"
+          ]
+        },
         {
           "t": "Costruire un budget essenziale distinguendo costi fissi e variabili",
           "ins": [
@@ -1006,7 +1092,7 @@
         }
       ],
       "situazione": "I servizi alla persona chiudono o riducono le prestazioni per ragioni economiche che gli operatori conoscono poco e non sanno leggere in un bilancio.",
-      "prodotto": "Piano economico essenziale di un servizio realmente esistente sul territorio — centro diurno, ludoteca, servizio domiciliare: voci di costo, fonti di finanziamento, costo per utente e proposta motivata di una misura di sostenibilità, presentata al responsabile del servizio.",
+      "prodotto": "Dossier economico-organizzativo del servizio con struttura e ruoli, cronoprogramma, modelli amministrativi e contabili essenziali, budget, costo per utente e proposta motivata di sostenibilità.",
       "beneficiari": "Il responsabile del servizio analizzato, cui si presenta il piano economico.",
       "ambito": "esterna",
       "tipo": "Trasversale",
@@ -1030,18 +1116,34 @@
         6
       ],
       "competenzeSSAS": [
+        8,
         3,
-        4,
-        7
+        1
       ],
       "competenzeEuropee": [
         "Competenza in materia di cittadinanza",
         "Competenza in materia di consapevolezza ed espressione culturali"
       ],
-      "traguardo": "Collegare i principi costituzionali agli obiettivi di sviluppo sostenibile e riconoscerne le implicazioni deontologiche nel lavoro sociale.",
+      "traguardo": "Realizzare in collaborazione un'attività culturale adeguata al contesto e ai bisogni della comunità, facilitando la comunicazione tra persone di culture diverse e contribuendo a un progetto che promuova pari opportunità e diritti.",
       "compito": "Evento pubblico d'istituto su un obiettivo dell'Agenda 2030 attinente ai servizi alla persona: ricerca documentale, individuazione dei riferimenti costituzionali e internazionali, produzione dei materiali e conduzione dell'incontro con un ospite esterno.",
       "ore": "22–25",
       "abilita": [
+        {
+          "t": "Valutare sostenibilità ed efficacia dell'evento e coordinare il contributo dei diversi gruppi di lavoro",
+          "ins": [
+            "Metodologie Operative",
+            "Diritto e T.A.",
+            "Matematica"
+          ]
+        },
+        {
+          "t": "Adattare la comunicazione a persone e gruppi di culture e contesti diversi",
+          "ins": [
+            "Psicologia",
+            "Inglese",
+            "Spagnolo"
+          ]
+        },
         {
           "t": "Collegare norme costituzionali e fonti internazionali sui diritti umani",
           "ins": [
@@ -1085,6 +1187,14 @@
         }
       ],
       "saperi": [
+        {
+          "t": "Progettazione, organizzazione e valutazione di un'attività culturale rivolta alla comunità",
+          "ins": [
+            "Metodologie Operative",
+            "Diritto e T.A.",
+            "TIC"
+          ]
+        },
         {
           "t": "Costituzione italiana e Dichiarazione universale dei diritti umani",
           "ins": [
@@ -1132,7 +1242,7 @@
       "ambito": "esterna",
       "tipo": "Trasversale",
       "qnq": "4",
-      "competenza": 3,
+      "competenza": 8,
       "sviluppata": true
     },
     {
@@ -1152,16 +1262,16 @@
         12
       ],
       "competenzeSSAS": [
-        9,
-        10
+        10,
+        3
       ],
       "competenzeEuropee": [
         "Competenza imprenditoriale",
         "Competenza personale, sociale e capacità di imparare a imparare",
         "Competenza multilinguistica"
       ],
-      "traguardo": "Costruire un progetto personale post-diploma fondato sulla conoscenza dei percorsi formativi, del mercato del lavoro e dei propri punti di forza.",
-      "compito": "Portfolio personale di orientamento: bilancio delle competenze maturate nel quinquennio e nei PCTO, analisi di due sbocchi concreti — uno formativo e uno lavorativo — con dati sul settore, curriculum in italiano e in inglese, e presentazione orale del proprio progetto davanti alla commissione.",
+      "traguardo": "Costruire un progetto personale post-diploma fondato su dati attendibili relativi ai percorsi formativi e al mercato del lavoro, comunicando in modo professionale le competenze maturate nel quinquennio.",
+      "compito": "Portfolio personale di orientamento: bilancio delle competenze maturate nel quinquennio e nella formazione scuola-lavoro, analisi documentata di due sbocchi concreti — uno formativo e uno lavorativo — curriculum in italiano e in inglese e presentazione motivata del proprio progetto post-diploma.",
       "ore": "20–25",
       "abilita": [
         {
@@ -1192,7 +1302,7 @@
           ]
         },
         {
-          "t": "Rileggere le esperienze di PCTO in termini di competenze acquisite",
+          "t": "Rileggere le esperienze di formazione scuola-lavoro in termini di competenze acquisite",
           "ins": [
             "Metodologie Operative"
           ]
@@ -1261,13 +1371,13 @@
           ]
         }
       ],
-      "situazione": "A pochi mesi dal diploma molti studenti non conoscono i percorsi che si aprono né come si presenta ciò che hanno imparato in cinque anni.",
-      "prodotto": "Portfolio personale di orientamento: bilancio delle competenze maturate nel quinquennio e nei PCTO, analisi di due sbocchi concreti — uno formativo e uno lavorativo — con dati sul settore, curriculum in italiano e in inglese, e presentazione orale del proprio progetto davanti alla commissione.",
-      "beneficiari": "Lo studente stesso, che porta il portfolio al colloquio d'esame e alle selezioni.",
+      "situazione": "A pochi mesi dal diploma molti studenti conoscono in modo frammentario le opportunità formative e lavorative e faticano a trasformare esperienze, motivazioni e competenze in una scelta documentata e realistica.",
+      "prodotto": "Portfolio personale con bilancio delle competenze, confronto documentato fra due sbocchi, curriculum bilingue e presentazione del progetto post-diploma.",
+      "beneficiari": "Lo studente, che utilizza il portfolio per l'esame, le candidature e le successive scelte formative o professionali.",
       "ambito": "mista",
       "tipo": "Trasversale",
       "qnq": "4",
-      "competenza": 9,
+      "competenza": 10,
       "sviluppata": true
     }
   ]

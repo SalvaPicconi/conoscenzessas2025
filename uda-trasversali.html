@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="it" data-uda-source="data-uda.json" data-uda-kind="asse">
+<html lang="it" data-uda-source="data-uda-trasversali.json" data-uda-kind="trasversale">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Fascicolo delle 48 UDA d'asse del quinquennio SSAS.">
+    <meta name="description" content="Catalogo delle UDA trasversali che collegano gli insegnamenti del quinquennio SSAS.">
     <meta name="theme-color" content="#0b5f5a">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <title>Fascicolo UDA d'asse - Quinquennio SSAS</title>
+    <title>UDA trasversali · Tutte le materie — Quinquennio SSAS</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet">
@@ -19,17 +19,24 @@
     <main class="container">
         <header class="header page-hero">
             <div class="hero-card">
-                <h1>Fascicolo delle UDA d'asse — Quinquennio</h1>
+                <h1>UDA trasversali · Tutte le materie</h1>
                 <div class="subline">IIS Meucci - Mattei Cagliari, Sede Decimomannu</div>
-                <p class="subtitle">Schede sintetiche in formato D.I. 92/2018 · base per il Piano delle UDA di inizio anno</p>
+                <p class="subtitle">Progettazione interdisciplinare · competenze generali, professionali ed europee</p>
             </div>
         </header>
 
-        <section class="uda-revisione-accesso" aria-label="Revisione collegiale delle UDA">
+        <section class="uda-trasversali-intro" aria-labelledby="trasversali-introduzione">
+            <p class="uda-trasversali-kicker">Un catalogo autonomo</p>
+            <h2 id="trasversali-introduzione">Dieci proposte da leggere, discutere e sviluppare</h2>
+            <p>Due UDA per ciascun anno di corso. Ogni proposta collega almeno tre assi culturali e rende esplicito il contributo dei diversi insegnamenti. Il filtro per materia permette a ogni docente di individuare subito le unità in cui è coinvolto.</p>
+            <p class="uda-trasversali-nota" id="uda-trasversali-nota"></p>
+        </section>
+
+        <section class="uda-revisione-accesso" aria-label="Revisione collegiale delle UDA trasversali">
             <div>
                 <p class="uda-revisione-eyebrow">Lavoro collegiale</p>
-                <h2>Revisione delle UDA</h2>
-                <p>Il fascicolo resta consultabile da tutti. I saperi documentali rimangono nella scheda; i docenti autorizzati possono proporre integrazioni e modifiche senza cambiare subito il testo pubblico.</p>
+                <h2>Modifica e revisione</h2>
+                <p>Il catalogo resta consultabile da tutti. I saperi documentali rimangono nella scheda; i docenti autorizzati possono proporre integrazioni, modifiche o nuove UDA senza cambiare subito il testo pubblico.</p>
             </div>
             <button type="button" id="uda-revisione-apri-accesso" class="uda-revisione-primary">Accedi per modificare</button>
         </section>
@@ -52,13 +59,13 @@
             </div>
         </form>
 
-        <section id="uda-revisione-toolbar" class="uda-revisione-toolbar" hidden aria-label="Strumenti di revisione">
+        <section id="uda-revisione-toolbar" class="uda-revisione-toolbar" hidden aria-label="Strumenti di revisione delle UDA trasversali">
             <div>
                 <p class="uda-revisione-eyebrow">Modalità revisione attiva</p>
                 <p id="uda-revisione-identita"></p>
             </div>
             <div class="uda-revisione-toolbar-actions">
-                <button type="button" id="uda-revisione-crea" class="uda-revisione-primary">＋ Crea nuova UDA</button>
+                <button type="button" id="uda-revisione-crea" class="uda-revisione-primary">＋ Crea nuova UDA trasversale</button>
                 <button type="button" id="uda-revisione-elenco" class="uda-revisione-secondary">Revisioni <span id="uda-revisione-contatore">0</span></button>
                 <button type="button" id="uda-revisione-esci" class="uda-revisione-ghost">Esci</button>
             </div>
@@ -70,7 +77,7 @@
             <div class="uda-revisione-pannello-head">
                 <div>
                     <p class="uda-revisione-eyebrow">Area condivisa</p>
-                    <h2 id="uda-revisione-pannello-titolo">Annotazioni e proposte</h2>
+                    <h2 id="uda-revisione-pannello-titolo">Annotazioni e proposte trasversali</h2>
                 </div>
                 <button type="button" id="uda-revisione-pannello-chiudi" class="uda-revisione-secondary">Chiudi</button>
             </div>
@@ -93,80 +100,43 @@
             <div id="uda-revisione-elenco-contenuto"></div>
         </section>
 
-        <p class="uda-intro">48 schede sintetiche — una per ogni competenza intermedia del curricolo
-            (9 per il 1° e 2° anno, 10 per 3ª, 4ª e 5ª; la C9 non prevede traguardi nel biennio).
-            Per ciascuna UDA, <strong>saperi essenziali e abilità sono attribuiti agli insegnamenti referenti</strong>
-            secondo le griglie del curricolo di indirizzo.</p>
-
-        <!-- Impianto comune a tutte le UDA -->
-        <section class="uda-common">
-            <div class="uda-common-card">
-                <div class="uda-label">🔄 Fasi standard di ogni UDA</div>
-                <ol id="uda-fasi"></ol>
-            </div>
-            <div class="uda-common-card">
-                <div class="uda-label">📋 Valutazione standard</div>
-                <p id="uda-valutazione"></p>
-            </div>
-            <div class="uda-common-card">
-                <div class="uda-label">🗓 Piano delle UDA di inizio anno</div>
-                <p id="uda-nota-piano"></p>
-            </div>
-        </section>
-
-        <!-- Toolbar filtri -->
-        <section class="filter-panel uda-toolbar" aria-label="Filtri UDA">
-            <div class="uda-anni">
+        <section class="filter-panel uda-toolbar" aria-label="Filtri UDA trasversali">
+            <div class="uda-anni" id="trasversali-anni">
                 <span class="uda-anni-label">Anno:</span>
-                <button type="button" class="anno-pill" data-anno="1" aria-pressed="false">1°</button>
-                <button type="button" class="anno-pill" data-anno="2" aria-pressed="false">2°</button>
-                <button type="button" class="anno-pill" data-anno="3" aria-pressed="false">3°</button>
-                <button type="button" class="anno-pill" data-anno="4" aria-pressed="false">4°</button>
-                <button type="button" class="anno-pill" data-anno="5" aria-pressed="false">5°</button>
+                <button type="button" class="anno-pill trasversale-anno-pill" data-anno="1" aria-pressed="false">1°</button>
+                <button type="button" class="anno-pill trasversale-anno-pill" data-anno="2" aria-pressed="false">2°</button>
+                <button type="button" class="anno-pill trasversale-anno-pill" data-anno="3" aria-pressed="false">3°</button>
+                <button type="button" class="anno-pill trasversale-anno-pill" data-anno="4" aria-pressed="false">4°</button>
+                <button type="button" class="anno-pill trasversale-anno-pill" data-anno="5" aria-pressed="false">5°</button>
             </div>
             <div class="filter-grid uda-filter-grid">
                 <div class="filter-item">
-                    <label for="uda-competenza">Competenza in uscita</label>
-                    <select id="uda-competenza">
-                        <option value="">Tutte le competenze</option>
-                    </select>
+                    <label for="trasversali-asse">Asse culturale</label>
+                    <select id="trasversali-asse"><option value="">Tutti gli assi</option></select>
                 </div>
                 <div class="filter-item">
-                    <label for="uda-insegnamento">Insegnamento</label>
-                    <select id="uda-insegnamento">
-                        <option value="">Tutti gli insegnamenti</option>
-                    </select>
+                    <label for="trasversali-insegnamento">Insegnamento</label>
+                    <select id="trasversali-insegnamento"><option value="">Tutti gli insegnamenti</option></select>
                 </div>
             </div>
             <div class="search-row">
                 <div class="search-container">
-                    <label class="sr-only" for="uda-search">Cerca nelle unità di apprendimento</label>
-                    <input id="uda-search" type="text" placeholder="Cerca in titoli, compiti, saperi e abilità…" autocomplete="off">
+                    <label class="sr-only" for="trasversali-search">Cerca nelle UDA trasversali</label>
+                    <input id="trasversali-search" type="text" placeholder="Cerca in titoli, competenze, compiti, saperi e abilità…" autocomplete="off">
                     <span class="search-icon" aria-hidden="true">🔍</span>
                 </div>
                 <div class="actions-row">
-                    <button type="button" id="uda-reset" class="reset-btn">Azzera filtri</button>
+                    <button type="button" id="trasversali-reset" class="reset-btn">Azzera filtri</button>
                 </div>
             </div>
         </section>
 
-        <div id="uda-count" class="uda-count" aria-live="polite"></div>
-
-        <div id="uda-list"></div>
-
-        <div id="uda-loading" class="loading" role="status">Caricamento UDA...</div>
+        <div id="trasversali-count" class="uda-count" aria-live="polite"></div>
+        <div id="trasversali-list"></div>
+        <div id="trasversali-loading" class="loading" role="status">Caricamento UDA trasversali...</div>
     </main>
 
-    <script src="uda.js?v=20260904b"></script>
+    <script src="uda-trasversali.js?v=20260904b"></script>
     <script type="module" src="assets/uda-revisione.js?v=20260904d"></script>
-    <script>
-        // Testi comuni dal JSON (meta)
-        fetch('data-uda.json', { cache: 'no-store' }).then(r => r.json()).then(d => {
-            document.getElementById('uda-fasi').innerHTML =
-                d.meta.fasiStandard.map(f => `<li>${f}</li>`).join('');
-            document.getElementById('uda-valutazione').textContent = d.meta.valutazioneStandard;
-            document.getElementById('uda-nota-piano').textContent = d.meta.notaPiano;
-        });
-    </script>
 </body>
 </html>

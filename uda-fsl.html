@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="it" data-uda-source="data-uda-fsl.json" data-uda-kind="fsl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="UDA per la Formazione scuola-lavoro del triennio SSAS.">
+    <meta name="theme-color" content="#0b5f5a">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <title>UDA FSL — Formazione scuola-lavoro SSAS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20260721">
+    <link rel="stylesheet" href="uda.css?v=20260904c">
+    <link rel="stylesheet" href="didattica.css?v=20260901">
+    <link rel="stylesheet" href="assets/uda-revisione.css?v=20260904c">
+</head>
+<body>
+<main class="container">
+    <header class="header page-hero"><div class="hero-card">
+        <h1>UDA FSL · Formazione scuola-lavoro</h1>
+        <div class="subline">IIS Meucci - Mattei Cagliari, Sede Decimomannu</div>
+        <p class="subtitle">Dal terzo al quinto anno · esperienza, competenze professionali e rielaborazione</p>
+    </div></header>
+
+    <section class="uda-trasversali-intro" aria-labelledby="fsl-introduzione">
+        <p class="uda-trasversali-kicker">Un catalogo autonomo e adattabile</p>
+        <h2 id="fsl-introduzione">Quattro percorsi collegati alle aree di tirocinio</h2>
+        <p>Area minori al terzo anno, disabilità al quarto, anziani e preparazione sanitaria al quinto. La struttura indicata non è un vincolo: sede, utenza e attività vengono precisate nel progetto formativo.</p>
+        <p><strong>Discipline coinvolte:</strong> Metodologie Operative, Igiene e Cultura Medico Sanitaria, Diritto e Tecnica Amministrativa, Psicologia Generale ed Applicata.</p>
+        <p class="uda-trasversali-nota" id="fsl-nota"></p>
+    </section>
+
+    <section class="uda-revisione-accesso" aria-label="Revisione collegiale delle UDA FSL">
+        <div><p class="uda-revisione-eyebrow">Lavoro collegiale</p><h2>Modifica e revisione</h2>
+            <p>I saperi documentali restano nella scheda. I docenti autorizzati possono proporre integrazioni, modifiche o nuove UDA.</p></div>
+        <button type="button" id="uda-revisione-apri-accesso" class="uda-revisione-primary">Accedi per modificare</button>
+    </section>
+    <form id="uda-revisione-auth" class="uda-revisione-auth" hidden>
+        <div class="uda-revisione-auth-grid">
+            <label for="uda-revisione-docente">Docente<select id="uda-revisione-docente" required><option value="">Scegli il tuo nome</option></select></label>
+            <label for="uda-revisione-password">Password<input type="password" id="uda-revisione-password" autocomplete="current-password" required></label>
+        </div>
+        <div class="uda-revisione-auth-actions"><p id="uda-revisione-auth-messaggio" class="uda-revisione-messaggio" role="status" aria-live="polite"></p>
+            <button type="button" id="uda-revisione-annulla" class="uda-revisione-secondary">Annulla</button><button type="submit" class="uda-revisione-primary">Accedi</button></div>
+    </form>
+    <section id="uda-revisione-toolbar" class="uda-revisione-toolbar" hidden aria-label="Strumenti di revisione UDA FSL">
+        <div><p class="uda-revisione-eyebrow">Modalità revisione attiva</p><p id="uda-revisione-identita"></p></div>
+        <div class="uda-revisione-toolbar-actions"><button type="button" id="uda-revisione-crea" class="uda-revisione-primary">＋ Crea nuova UDA FSL</button>
+            <button type="button" id="uda-revisione-elenco" class="uda-revisione-secondary">Revisioni <span id="uda-revisione-contatore">0</span></button>
+            <button type="button" id="uda-revisione-esci" class="uda-revisione-ghost">Esci</button></div>
+    </section>
+    <div id="uda-revisione-nuova-slot" class="uda-revisione-new-slot"></div>
+    <section id="uda-revisione-pannello" class="uda-revisione-pannello" hidden aria-labelledby="uda-revisione-pannello-titolo">
+        <div class="uda-revisione-pannello-head"><div><p class="uda-revisione-eyebrow">Area condivisa</p><h2 id="uda-revisione-pannello-titolo">Proposte FSL</h2></div>
+            <button type="button" id="uda-revisione-pannello-chiudi" class="uda-revisione-secondary">Chiudi</button></div>
+        <div class="uda-revisione-filters"><label>Anno<select id="uda-revisione-filtro-anno"><option value="">Tutti</option><option value="3">3° anno</option><option value="4">4° anno</option><option value="5">5° anno</option></select></label>
+            <label>Docente<select id="uda-revisione-filtro-docente"><option value="">Tutti</option></select></label></div>
+        <p id="uda-revisione-elenco-messaggio" class="uda-revisione-messaggio" role="status" aria-live="polite"></p><div id="uda-revisione-elenco-contenuto"></div>
+    </section>
+
+    <section class="filter-panel uda-toolbar" aria-label="Filtri UDA FSL">
+        <div class="uda-anni"><span class="uda-anni-label">Anno:</span>
+            <button type="button" class="anno-pill fsl-anno-pill" data-anno="3" aria-pressed="false">3°</button>
+            <button type="button" class="anno-pill fsl-anno-pill" data-anno="4" aria-pressed="false">4°</button>
+            <button type="button" class="anno-pill fsl-anno-pill" data-anno="5" aria-pressed="false">5°</button>
+        </div>
+        <div class="filter-grid uda-filter-grid"><div class="filter-item"><label for="fsl-area">Area di tirocinio</label><select id="fsl-area"><option value="">Tutte le aree</option></select></div>
+            <div class="filter-item"><label for="fsl-insegnamento">Insegnamento</label><select id="fsl-insegnamento"><option value="">Tutti gli insegnamenti</option></select></div></div>
+        <div class="search-row"><div class="search-container"><label class="sr-only" for="fsl-search">Cerca nelle UDA FSL</label><input id="fsl-search" type="text" placeholder="Cerca in titoli, aree, compiti, saperi e abilità…" autocomplete="off"><span class="search-icon" aria-hidden="true">🔍</span></div>
+            <div class="actions-row"><button type="button" id="fsl-reset" class="reset-btn">Azzera filtri</button></div></div>
+    </section>
+    <div id="fsl-count" class="uda-count" aria-live="polite"></div><div id="fsl-list"></div><div id="fsl-loading" class="loading" role="status">Caricamento UDA FSL...</div>
+</main>
+<script src="uda-fsl.js?v=20260904c"></script>
+<script type="module" src="assets/uda-revisione.js?v=20260904d"></script>
+</body>
+</html>

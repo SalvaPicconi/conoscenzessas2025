@@ -1,0 +1,178 @@
+{
+  "meta": {
+    "titolo": "UDA FSL — Formazione scuola-lavoro SSAS",
+    "sottotitolo": "Quattro percorsi adattabili alla sede di tirocinio dal terzo al quinto anno",
+    "fonte": "Competenze intermedie, abilità e saperi essenziali sono ricondotti al curricolo di indirizzo SSAS (Allegato C al D.M. 92/2018). La denominazione Formazione scuola-lavoro sostituisce PCTO dall'a.s. 2025/2026 senza modificarne obblighi, contenuti e finalità.",
+    "nota": "La struttura ospitante indicata è un esempio, non un vincolo. Il Consiglio di classe specifica sede, utenza, attività consentite, tempi, tutor, sicurezza e criteri di valutazione nel progetto formativo. Le UDA coinvolgono esclusivamente Metodologie Operative, Igiene e Cultura Medico Sanitaria, Diritto e Tecnica Amministrativa, Psicologia Generale ed Applicata.",
+    "insegnamenti": [
+      "METODOLOGIE OPERATIVE",
+      "IGIENE E CULTURA MEDICO SANITARIA",
+      "DIRITTO E TEC. AMM.",
+      "PSICOLOGIA GENERALE ED APPLICATA"
+    ],
+    "competenzeSSAS": {
+      "1": "Collaborare nella gestione di progetti e attività dei servizi sociali, socio-sanitari e socio-educativi",
+      "2": "Partecipare e cooperare nei gruppi di lavoro e nelle équipe multi-professionali",
+      "4": "Prendersi cura e collaborare al soddisfacimento dei bisogni di base",
+      "5": "Partecipare alla presa in carico socio-assistenziale e sanitaria applicando procedure e tecniche stabilite",
+      "6": "Curare l'ambiente di vita salvaguardando sicurezza, capacità residue e autonomia",
+      "9": "Realizzare azioni a sostegno e tutela della persona fragile e della famiglia",
+      "10": "Raccogliere, conservare, elaborare e trasmettere dati professionali in sicurezza"
+    }
+  },
+  "uda": [
+    {
+      "id": "FSL3.1",
+      "tipo": "FSL",
+      "anno": 3,
+      "periodo": "Preparazione · esperienza in struttura · rielaborazione",
+      "areaTirocinio": "Area minori",
+      "qnq": "3",
+      "titolo": "Area minori: osservare, accompagnare e documentare",
+      "competenzeSSAS": [4, 1, 5],
+      "competenzeEuropee": [
+        "Competenza personale, sociale e capacità di imparare a imparare",
+        "Competenza in materia di cittadinanza"
+      ],
+      "traguardo": "Programmare e realizzare, sotto la guida dei tutor, semplici azioni rivolte al benessere del minore, riconoscendo compiti, protocolli, bisogni e modalità di documentazione del servizio.",
+      "situazione": "La classe si prepara a un'esperienza nell'area minori. La scuola dell'infanzia è una possibile sede, ma il percorso resta adattabile ad altri servizi socio-educativi definiti nel progetto formativo.",
+      "compito": "Prima dell'inserimento, costruire una scheda adattabile per osservazione, sicurezza, regole del servizio e proposta di una semplice attività. Durante l'esperienza, osservare e collaborare esclusivamente nelle attività autorizzate dai tutor. Al termine, produrre una rielaborazione professionale anonima che colleghi bisogni, attività, protocolli e apprendimenti.",
+      "prodotto": "Dossier FSL individuale: profilo del servizio, griglia di osservazione, piano di una semplice attività, diario riflessivo e relazione finale anonimizzata.",
+      "beneficiari": "Minori accolti dal servizio, nel rispetto del progetto formativo e sotto supervisione",
+      "ambito": "Struttura ospitante dell'area minori; scuola dell'infanzia come esempio non vincolante",
+      "ore": "Da definire nel piano FSL d'istituto e nel progetto formativo individuale",
+      "abilita": [
+        {"t": "Riconoscere bisogni, routine, risorse e fattori di benessere del minore nel contesto osservato", "ins": ["PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE"]},
+        {"t": "Decodificare compiti, procedure e responsabilità delle figure presenti nel servizio", "ins": ["METODOLOGIE OPERATIVE", "DIRITTO E TEC. AMM."]},
+        {"t": "Applicare indicazioni di igiene e sicurezza pertinenti alle attività autorizzate", "ins": ["IGIENE E CULTURA MEDICO SANITARIA", "METODOLOGIE OPERATIVE"]},
+        {"t": "Compilare strumenti di osservazione e documentazione tutelando riservatezza e identità", "ins": ["METODOLOGIE OPERATIVE", "DIRITTO E TEC. AMM."]}
+      ],
+      "saperi": [
+        {"t": "Tecniche di osservazione e accudimento in età evolutiva", "ins": ["PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE"]},
+        {"t": "Elementi di puericultura e igiene del bambino", "ins": ["IGIENE E CULTURA MEDICO SANITARIA"]},
+        {"t": "Norme igieniche e di sicurezza sul lavoro", "ins": ["IGIENE E CULTURA MEDICO SANITARIA"]},
+        {"t": "Linee guida, protocolli e procedure", "ins": ["METODOLOGIE OPERATIVE", "IGIENE E CULTURA MEDICO SANITARIA"]},
+        {"t": "Metodologia del lavoro sociale, socio-sanitario socio-educativo", "ins": ["METODOLOGIE OPERATIVE", "PSICOLOGIA GENERALE ED APPLICATA"]},
+        {"t": "I soggetti giuridici del settore profit, no profit del settore pubblico", "ins": ["DIRITTO E TEC. AMM.", "METODOLOGIE OPERATIVE"]}
+      ],
+      "integrazioniSaperi": [],
+      "sviluppata": false
+    },
+    {
+      "id": "FSL4.1",
+      "tipo": "FSL",
+      "anno": 4,
+      "periodo": "Preparazione · esperienza in struttura · rielaborazione",
+      "areaTirocinio": "Area disabilità",
+      "qnq": "3/4",
+      "titolo": "Area disabilità: inclusione, autonomia e progetto individualizzato",
+      "competenzeSSAS": [4, 6, 9],
+      "competenzeEuropee": [
+        "Competenza personale, sociale e capacità di imparare a imparare",
+        "Competenza in materia di cittadinanza",
+        "Competenza imprenditoriale"
+      ],
+      "traguardo": "Partecipare, sotto supervisione, ad attività rivolte ai bisogni di base, all'inclusione e all'autonomia della persona con disabilità, collegando osservazione, progetto individualizzato, ambiente, sicurezza e lavoro multiprofessionale.",
+      "situazione": "La sede può essere una struttura di accoglienza, semiresidenziale, residenziale, socio-educativa o socio-sanitaria. Obiettivi e attività vengono precisati solo dopo aver conosciuto utenza, organizzazione e mandato della struttura.",
+      "compito": "Analizzare in forma anonima una situazione osservata, individuare bisogni e capacità residue, ricostruire il contributo delle figure professionali e progettare una micro-azione realistica per inclusione, autonomia o qualità della vita, coerente con regole e procedure della sede.",
+      "prodotto": "Dossier di esperienza con profilo organizzativo, osservazione multidimensionale, schema di progetto individualizzato, analisi di accessibilità e sicurezza, micro-intervento e relazione riflessiva.",
+      "beneficiari": "Persone con disabilità accolte dal servizio, nel rispetto del progetto formativo e sotto supervisione",
+      "ambito": "Servizi di accoglienza, semiresidenziali, residenziali, socio-educativi o socio-sanitari",
+      "ore": "Da definire nel piano FSL d'istituto e nel progetto formativo individuale",
+      "abilita": [
+        {"t": "Rilevare bisogni, risorse, capacità residue e barriere senza formulare diagnosi", "ins": ["PSICOLOGIA GENERALE ED APPLICATA", "IGIENE E CULTURA MEDICO SANITARIA", "METODOLOGIE OPERATIVE"]},
+        {"t": "Collegare osservazioni, obiettivi, attività e verifica in un semplice progetto individualizzato", "ins": ["METODOLOGIE OPERATIVE", "PSICOLOGIA GENERALE ED APPLICATA"]},
+        {"t": "Valutare elementi di accessibilità, igiene, sicurezza e sostegno all'autonomia", "ins": ["IGIENE E CULTURA MEDICO SANITARIA", "METODOLOGIE OPERATIVE"]},
+        {"t": "Riconoscere organizzazione, responsabilità e tutele proprie della struttura ospitante", "ins": ["DIRITTO E TEC. AMM.", "METODOLOGIE OPERATIVE"]}
+      ],
+      "saperi": [
+        {"t": "Tipi e cause di disabilità, sue classificazioni e misurazioni", "ins": ["IGIENE E CULTURA MEDICO SANITARIA", "PSICOLOGIA GENERALE ED APPLICATA"]},
+        {"t": "Bisogni specifici dell'anziano e della persona con disabilità", "ins": ["PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE"]},
+        {"t": "Il Piano Assistenziale Individualizzato e le Unità di Valutazione Multidimensionale", "ins": ["METODOLOGIE OPERATIVE", "IGIENE E CULTURA MEDICO SANITARIA"]},
+        {"t": "Diagnosi funzionale, capacità residue, supporto all'autonomia", "ins": ["IGIENE E CULTURA MEDICO SANITARIA", "METODOLOGIE OPERATIVE"]},
+        {"t": "Norme di igiene e di sanità pubblica", "ins": ["IGIENE E CULTURA MEDICO SANITARIA"]},
+        {"t": "Le problematiche psico-sociali connesse alle diverse categorie di utenza dei servizi", "ins": ["PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE"]},
+        {"t": "L'organizzazione delle imprese e delle aziende", "ins": ["DIRITTO E TEC. AMM.", "METODOLOGIE OPERATIVE"]}
+      ],
+      "integrazioniSaperi": [],
+      "sviluppata": false
+    },
+    {
+      "id": "FSL5.1",
+      "tipo": "FSL",
+      "anno": 5,
+      "periodo": "Preparazione · esperienza in struttura · rielaborazione",
+      "areaTirocinio": "Area anziani",
+      "qnq": "4",
+      "titolo": "Area anziani: assistenza, qualità di vita e lavoro in struttura residenziale",
+      "competenzeSSAS": [5, 4, 6],
+      "competenzeEuropee": [
+        "Competenza personale, sociale e capacità di imparare a imparare",
+        "Competenza in materia di cittadinanza"
+      ],
+      "traguardo": "Collaborare, nei limiti del ruolo dello studente e sotto supervisione, alla presa in carico socio-assistenziale della persona anziana, applicando procedure stabilite e sostenendo sicurezza, capacità residue, autonomia e qualità della vita.",
+      "situazione": "L'esperienza si svolge ordinariamente in strutture residenziali per anziani, comprese eventuali RSA. La scheda resta utilizzabile anche in altre strutture coerenti con l'area anziani definite dall'istituto.",
+      "compito": "Ricostruire, su un caso anonimizzato, il percorso dal bisogno alla presa in carico: osservazione, livelli di autonomia, obiettivi assistenziali, procedure, ausili, relazione con la persona e la famiglia, documentazione e verifica. Distinguere sempre attività osservabili, attività collaborabili e attività non consentite allo studente.",
+      "prodotto": "Caso professionale anonimizzato con mappa della presa in carico, scheda delle capacità residue, analisi di ambiente e ausili, procedura commentata e relazione finale.",
+      "beneficiari": "Persone anziane accolte dalla struttura, nel rispetto del progetto formativo e sotto supervisione",
+      "ambito": "Strutture residenziali per anziani, incluse RSA, o altre sedi coerenti definite nel progetto",
+      "ore": "Da definire nel piano FSL d'istituto e nel progetto formativo individuale",
+      "abilita": [
+        {"t": "Rilevare bisogni di base, stato di benessere e livelli di autonomia con strumenti assegnati", "ins": ["IGIENE E CULTURA MEDICO SANITARIA", "METODOLOGIE OPERATIVE"]},
+        {"t": "Riconoscere procedure, ausili e misure di sicurezza pertinenti alla situazione osservata", "ins": ["IGIENE E CULTURA MEDICO SANITARIA", "METODOLOGIE OPERATIVE"]},
+        {"t": "Adottare modalità relazionali rispettose della persona anziana e della famiglia", "ins": ["PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE"]},
+        {"t": "Interpretare organizzazione, accreditamento, responsabilità e sistemi di qualità della struttura", "ins": ["DIRITTO E TEC. AMM.", "METODOLOGIE OPERATIVE"]}
+      ],
+      "saperi": [
+        {"t": "Strumenti e tecniche per la rilevazione dello stato di salute e scale dei livelli di autonomia", "ins": ["IGIENE E CULTURA MEDICO SANITARIA", "METODOLOGIE OPERATIVE"]},
+        {"t": "Caratteristiche, fasi e tipologia delle relazioni di aiuto e di cura in rapporto ai bisogni della persona anziana, della persona con disabilità e della sua famiglia", "ins": ["PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE"]},
+        {"t": "Elementi di etica e deontologia professionale nei servizi alla persona", "ins": ["PSICOLOGIA GENERALE ED APPLICATA", "DIRITTO E TEC. AMM."]},
+        {"t": "Ausili e strumenti per il mantenimento delle capacità residue e l'autonomia delle persone negli ambienti di vita", "ins": ["METODOLOGIE OPERATIVE", "IGIENE E CULTURA MEDICO SANITARIA"]},
+        {"t": "Criteri e uso degli spazi e degli arredi in condizioni di comfort e di sicurezza negli ambienti di vita", "ins": ["METODOLOGIE OPERATIVE"]},
+        {"t": "Normative regionali e accreditamento dei servizi e delle strutture", "ins": ["DIRITTO E TEC. AMM.", "METODOLOGIE OPERATIVE"]},
+        {"t": "I sistemi di qualità: regole di gestione e procedure", "ins": ["DIRITTO E TEC. AMM.", "METODOLOGIE OPERATIVE"]}
+      ],
+      "integrazioniSaperi": [],
+      "sviluppata": false
+    },
+    {
+      "id": "FSL5.2",
+      "tipo": "FSL",
+      "anno": 5,
+      "periodo": "Preparazione laboratoriale · esperienza osservativa/operativa autorizzata · rielaborazione",
+      "areaTirocinio": "Area sanitaria · raccordo possibile con qualifica OSS",
+      "qnq": "4",
+      "titolo": "Verso la qualifica OSS: procedure assistenziali e lavoro nell'équipe sanitaria",
+      "competenzeSSAS": [5, 2, 10],
+      "competenzeEuropee": [
+        "Competenza personale, sociale e capacità di imparare a imparare",
+        "Competenza digitale"
+      ],
+      "traguardo": "Applicare in simulazione e, quando autorizzato, in contesto sanitario procedure e tecniche stabilite, collaborando con l'équipe e documentando dati e attività nel rispetto di sicurezza, riservatezza, responsabilità e confini professionali.",
+      "situazione": "Il percorso prepara a un possibile raccordo futuro con la qualifica OSS, senza attribuire qualifiche né mansioni che non competono allo studente. La sede, le attività consentite e la supervisione devono essere definite nel progetto formativo e negli eventuali accordi istituzionali.",
+      "compito": "Affrontare un caso assistenziale simulato e confrontarlo con l'organizzazione osservata in un contesto sanitario: bisogni, parametri e dati assegnati, prevenzione del rischio, ausili e presidi, comunicazione in équipe, consegna professionale e tracciabilità. Per ogni azione indicare chi è competente, quale procedura la regola e quale supervisione è necessaria.",
+      "prodotto": "Dossier sanitario simulato: analisi del caso, sequenza procedurale commentata, matrice ruoli-responsabilità, scheda di osservazione, consegna professionale simulata e autovalutazione.",
+      "beneficiari": "Persone assistite in contesti sanitari, esclusivamente entro attività autorizzate e sotto supervisione qualificata",
+      "ambito": "Laboratorio scolastico e, se previsto da accordi e progetto formativo, struttura sanitaria",
+      "ore": "Da definire nel piano FSL d'istituto, nel progetto formativo e negli eventuali accordi per il raccordo OSS",
+      "abilita": [
+        {"t": "Applicare in simulazione procedure assegnate di prevenzione, sicurezza e assistenza di base", "ins": ["IGIENE E CULTURA MEDICO SANITARIA", "METODOLOGIE OPERATIVE"]},
+        {"t": "Riconoscere limiti del proprio ruolo, responsabilità delle figure e necessità della supervisione", "ins": ["DIRITTO E TEC. AMM.", "METODOLOGIE OPERATIVE"]},
+        {"t": "Comunicare osservazioni e dati pertinenti con modalità professionali nell'équipe", "ins": ["PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE"]},
+        {"t": "Registrare e trasmettere dati assegnati nel rispetto di procedure, riservatezza e tracciabilità", "ins": ["DIRITTO E TEC. AMM.", "METODOLOGIE OPERATIVE"]}
+      ],
+      "saperi": [
+        {"t": "Strumenti e tecniche per la rilevazione dello stato di salute e scale dei livelli di autonomia", "ins": ["IGIENE E CULTURA MEDICO SANITARIA", "METODOLOGIE OPERATIVE"]},
+        {"t": "Modalità di rilevazione e tipologia dei parametri vitali", "ins": ["IGIENE E CULTURA MEDICO SANITARIA"]},
+        {"t": "Primo soccorso: modalità e pratiche d'intervento", "ins": ["IGIENE E CULTURA MEDICO SANITARIA"]},
+        {"t": "Dispositivi a supporto delle funzioni vitali e della nutrizione artificiale", "ins": ["IGIENE E CULTURA MEDICO SANITARIA"]},
+        {"t": "Le cure palliative", "ins": ["IGIENE E CULTURA MEDICO SANITARIA", "PSICOLOGIA GENERALE ED APPLICATA"]},
+        {"t": "Elementi di etica e deontologia professionale nei servizi alla persona", "ins": ["PSICOLOGIA GENERALE ED APPLICATA", "DIRITTO E TEC. AMM."]},
+        {"t": "Modalità, tecniche e strumenti di monitoraggio di progetti e interventi", "ins": ["METODOLOGIE OPERATIVE"]},
+        {"t": "I sistemi di qualità: regole di gestione e procedure", "ins": ["DIRITTO E TEC. AMM.", "METODOLOGIE OPERATIVE"]}
+      ],
+      "integrazioniSaperi": [],
+      "sviluppata": false
+    }
+  ]
+}

@@ -30,6 +30,31 @@ Con la CLI di Supabase:
 
     supabase functions deploy pfi --project-ref ruplzgcnheddmqqdephp
 
+## `functions/curricolo-uda-revisioni/index.ts`
+
+L'API condivisa dalle sezioni **UDA d'asse**, **UDA trasversali** e **UDA FSL**. Gestisce accesso docente,
+sessioni temporanee, elenco delle proposte, salvataggio e stato della revisione. Le proposte
+restano separate dai JSON pubblici finché non vengono approvate e applicate ai file sorgente.
+
+Per estendere una banca dati già configurata alle chiavi `T1.1…T5.2`, `FSL3.1…FSL5.2` e alle nuove proposte
+trasversali/FSL va prima applicato `consenti-uda-trasversali.sql`; solo dopo si può distribuire
+la funzione aggiornata:
+
+    supabase functions deploy curricolo-uda-revisioni --project-ref ruplzgcnheddmqqdephp
+
+Questi passaggi modificano il servizio remoto e non fanno parte della semplice anteprima locale.
+I permessi di gestione degli stati sono applicati esclusivamente dalla funzione e non vengono
+associati pubblicamente a un nominativo. Prima della distribuzione va configurato in Supabase il
+segreto `CURRICOLO_UDA_STATUS_MANAGERS`, con l'elenco autorizzato separato da virgole. In assenza
+del segreto la funzione nega a tutti i cambi di stato riservati.
+
+L'elenco mostrato nelle tre interfacce è definito una sola volta in
+`assets/uda-revisione.js`. La stessa anagrafica deve restare allineata con
+`AUTHORS` nella funzione e con i vincoli `author_name` delle due tabelle SQL.
+Per aggiungere docenti a un database già esistente bisogna quindi applicare anche
+la parte dedicata ai docenti di `consenti-uda-trasversali.sql`, prima di distribuire
+la funzione aggiornata.
+
 ## Non finisce sul sito
 
 `_config.yml` esclude questa cartella dalla pubblicazione: il codice sta nel

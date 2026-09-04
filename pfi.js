@@ -3,9 +3,10 @@
 // Struttura: modello ufficiale INDIRE (6 quadri) + allegato UDA
 // richiesto dal D.M. 92/2018 art. 4 c. 6 («nelle quali è strutturato»)
 //
-// Cataloghi UDA, entrambi pubblicati in questo sito:
+// Cataloghi UDA pubblicati in questo sito:
 //   data-uda.json ............... 48 UDA d'asse, una per competenza intermedia
 //   data-uda-trasversali.json ... 10 UDA trasversali fra i quattro assi culturali
+//   data-uda-fsl.json ............ 4 UDA per la Formazione scuola-lavoro
 // ============================================================
 
 const SUPABASE_URL = 'https://ruplzgcnheddmqqdephp.supabase.co';
@@ -25,7 +26,7 @@ const INTERVENTI = [
     'Sostegno alla realizzazione del PFI (peer tutoring, studio assistito)',
     'Orientamento e ri-orientamento',
     'Attività in ambiente extrascolastico in orario curricolare',
-    'PCTO / apprendistato',
+    'Formazione scuola-lavoro (ex PCTO) / apprendistato',
     'Progetti di ampliamento dell\'offerta formativa',
     'Alfabetizzazione italiano L2'
 ];
@@ -40,6 +41,8 @@ const stato = {
     metaIndirizzo: null,
     catalogoTrasversali: [],    // 10 UDA trasversali — data-uda-trasversali.json
     metaTrasversali: null,
+    catalogoFsl: [],            // 4 UDA FSL — data-uda-fsl.json
+    metaFsl: null,
     uda: [],            // UDA inserite nel PFI
     seq: 0,
     token: '',
@@ -164,10 +167,11 @@ function costruisciAnnualita() {
 // ============================================================
 
 async function caricaCataloghi() {
-    // Due cataloghi pubblicati nel sito: 48 UDA d'asse + 10 trasversali
-    const [asse, trasv] = await Promise.allSettled([
+    // Tre cataloghi pubblicati nel sito: 48 UDA d'asse + 10 trasversali + 4 FSL
+    const [asse, trasv, fsl] = await Promise.allSettled([
         fetch('data-uda.json', { cache: 'no-store' }).then(r => r.json()),
-        fetch('data-uda-trasversali.json', { cache: 'no-store' }).then(r => r.json())
+        fetch('data-uda-trasversali.json', { cache: 'no-store' }).then(r => r.json()),
+        fetch('data-uda-fsl.json', { cache: 'no-store' }).then(r => r.json())
     ]);
 
     if (asse.status === 'fulfilled') {
@@ -180,6 +184,15 @@ async function caricaCataloghi() {
     if (trasv.status === 'fulfilled') {
         stato.catalogoTrasversali = trasv.value.uda || [];
         stato.metaTrasversali = trasv.value.meta || null;
+    } else {
+        console.error('Impossibile caricare il catalogo delle UDA trasversali:', trasv.reason);
+    }
+
+    if (fsl.status === 'fulfilled') {
+        stato.catalogoFsl = fsl.value.uda || [];
+        stato.metaFsl = fsl.value.meta || null;
+    } else {
+        console.error('Impossibile caricare il catalogo delle UDA FSL:', fsl.reason);
     }
 
     const selComp = document.getElementById('pfi-uda-competenza');
@@ -193,11 +206,12 @@ async function caricaCataloghi() {
     popolaScelta();
 }
 
-/** Elenco unificato dei due cataloghi, con marcatore di provenienza. */
+/** Elenco unificato dei tre cataloghi, con marcatore di provenienza. */
 function tutteLeUda() {
     return [
         ...stato.catalogoIndirizzo.map(u => ({ ...u, _fonte: 'asse' })),
-        ...stato.catalogoTrasversali.map(u => ({ ...u, _fonte: 'trasversale' }))
+        ...stato.catalogoTrasversali.map(u => ({ ...u, _fonte: 'trasversale' })),
+        ...stato.catalogoFsl.map(u => ({ ...u, _fonte: 'fsl' }))
     ];
 }
 
@@ -215,7 +229,7 @@ function popolaScelta() {
         .sort((a, b) => a.anno - b.anno || a._fonte.localeCompare(b._fonte))
         .map(u => ({
             key: `${u._fonte}:${u.id}`,
-            testo: `${ANNO_ETICHETTA[u.anno]} · ${u._fonte === 'trasversale' ? 'Trasversale' : 'C' + u.competenza} — ${u.titolo}`
+            testo: `${ANNO_ETICHETTA[u.anno]} · ${u._fonte === 'trasversale' ? 'Trasversale' : u._fonte === 'fsl' ? 'FSL · ' + u.areaTirocinio : 'C' + u.competenza} — ${u.titolo}`
         }));
 
     sel.innerHTML = voci.length
@@ -226,6 +240,24 @@ function popolaScelta() {
 
 function daCatalogo(key) {
     const [fonte, id] = key.split(':');
+
+    if (fonte === 'fsl') {
+        const u = stato.catalogoFsl.find(x => x.id === id);
+        if (!u) return null;
+        const tit = stato.metaFsl?.competenzeSSAS || {};
+        const ins = [...new Set([...(u.abilita || []), ...(u.saperi || [])].flatMap(x => x.ins || []))];
+        return {
+            titolo: u.titolo, tipo: 'FSL', anno: u.anno, periodo: u.periodo || '',
+            competenze: (u.competenzeSSAS || []).map(c => `C${c} — ${tit[c] || ''}`).join('\n') + `\nTraguardo: ${u.traguardo || ''}`,
+            europee: (u.competenzeEuropee || []).join('\n'), insegnamenti: ins.join(', '),
+            saperi: (u.saperi || []).map(s => `${s.t} (${(s.ins || []).join(', ')})`).join('\n'),
+            situazione: u.situazione || '', prodotto: u.prodotto || u.compito || '', beneficiari: u.beneficiari || '',
+            ambito: 'mista', compito: u.compito || '', ore: u.ore || '',
+            attivita: (u.abilita || []).map(a => `${a.t} (${(a.ins || []).join(', ')})`).join('\n'),
+            valutazione: 'Osservazione dei processi, evidenze concordate con tutor scolastico e tutor esterno, prodotto finale e autovalutazione.',
+            livello: '', qnq: u.qnq || '', origine: `UDA FSL — scheda ${u.id} · ${u.areaTirocinio}`
+        };
+    }
 
     if (fonte === 'trasversale') {
         const u = stato.catalogoTrasversali.find(x => x.id === id);
@@ -316,7 +348,7 @@ function aggiornaUda() {
                 <label class="pfi-col-2">Titolo dell'UDA <input type="text" data-campo="titolo" value="${escapeAttr(u.titolo)}"></label>
                 <label>Tipo
                     <select data-campo="tipo">
-                        ${['Indirizzo', 'Trasversale', 'Asse culturale', 'PCTO'].map(t =>
+                        ${['Indirizzo', 'Trasversale', 'FSL', 'Asse culturale', 'PCTO (storico)'].map(t =>
                             `<option${t === u.tipo ? ' selected' : ''}>${t}</option>`).join('')}
                     </select>
                 </label>
@@ -578,7 +610,7 @@ function esportaWord() {
         ['Esiti delle prove di ingresso', esc(d.proveIngresso)],
         ['Debiti in ingresso', esc(d.debitiIngresso)],
         ['Crediti dimostrabili', esc(d.creditiIngresso)],
-        ['Precedenti esperienze di PCTO o apprendistato', esc(d.esperienzePcto)]
+        ['Precedenti esperienze di formazione scuola-lavoro (ex PCTO) o apprendistato', esc(d.esperienzePcto)]
     ]));
     p.push('<h3>Competenze acquisite in contesti non formali e informali</h3>');
     p.push(tab([

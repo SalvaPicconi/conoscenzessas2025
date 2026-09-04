@@ -62,7 +62,7 @@
             <div class="tab-intro">
                 <span class="section-kicker">Scegli il tuo punto di partenza</span>
                 <h2>Da dove vuoi iniziare?</h2>
-                <p>Quattro prospettive complementari: le prime tre per leggere il curricolo, la quarta per compilarlo nel PFI di ciascuno studente.</p>
+                <p>Sei prospettive complementari: dal curricolo alle UDA d'asse, trasversali e FSL, fino alla compilazione del PFI.</p>
             </div>
             <div class="tab-buttons-wrapper" role="tablist" aria-label="Aree del curricolo">
                 <button type="button" class="tab-button active" data-tab="indirizzo" id="tab-indirizzo" role="tab" aria-selected="true" aria-controls="content-indirizzo">
@@ -75,10 +75,18 @@
                 </button>
                 <button type="button" class="tab-button" data-tab="uda" id="tab-uda" role="tab" aria-selected="false" aria-controls="content-uda" tabindex="-1">
                     <span class="tab-icon" aria-hidden="true">03</span>
-                    <span class="tab-copy"><span class="tab-label">UDA</span><span class="tab-description">D'asse e trasversali</span></span>
+                    <span class="tab-copy"><span class="tab-label">UDA d'asse</span><span class="tab-description">Competenze di indirizzo</span></span>
+                </button>
+                <button type="button" class="tab-button" data-tab="trasversali" id="tab-trasversali" role="tab" aria-selected="false" aria-controls="content-trasversali" tabindex="-1">
+                    <span class="tab-icon" aria-hidden="true">04</span>
+                    <span class="tab-copy"><span class="tab-label">UDA trasversali</span><span class="tab-description">Tutte le materie</span></span>
+                </button>
+                <button type="button" class="tab-button" data-tab="fsl" id="tab-fsl" role="tab" aria-selected="false" aria-controls="content-fsl" tabindex="-1">
+                    <span class="tab-icon" aria-hidden="true">05</span>
+                    <span class="tab-copy"><span class="tab-label">UDA FSL</span><span class="tab-description">Formazione scuola-lavoro</span></span>
                 </button>
                 <button type="button" class="tab-button" data-tab="pfi" id="tab-pfi" role="tab" aria-selected="false" aria-controls="content-pfi" tabindex="-1">
-                    <span class="tab-icon" aria-hidden="true">04</span>
+                    <span class="tab-icon" aria-hidden="true">06</span>
                     <span class="tab-copy"><span class="tab-label">PFI</span><span class="tab-description">Progetto formativo individuale</span></span>
                 </button>
             </div>
@@ -94,7 +102,15 @@
         </div>
 
         <div class="tab-content" id="content-uda" role="tabpanel" aria-labelledby="tab-uda" aria-hidden="true" hidden>
-            <iframe src="uda.html" title="Fascicolo delle unità di apprendimento SSAS" class="content-iframe" loading="lazy"></iframe>
+            <iframe src="uda.html" title="Fascicolo delle UDA d'asse SSAS" class="content-iframe" loading="lazy"></iframe>
+        </div>
+
+        <div class="tab-content" id="content-trasversali" role="tabpanel" aria-labelledby="tab-trasversali" aria-hidden="true" hidden>
+            <iframe src="uda-trasversali.html" title="UDA trasversali di tutte le materie SSAS" class="content-iframe" loading="lazy"></iframe>
+        </div>
+
+        <div class="tab-content" id="content-fsl" role="tabpanel" aria-labelledby="tab-fsl" aria-hidden="true" hidden>
+            <iframe src="uda-fsl.html" title="UDA per la Formazione scuola-lavoro SSAS" class="content-iframe" loading="lazy"></iframe>
         </div>
 
         <div class="tab-content" id="content-pfi" role="tabpanel" aria-labelledby="tab-pfi" aria-hidden="true" hidden>

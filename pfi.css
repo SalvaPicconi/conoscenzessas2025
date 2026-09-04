@@ -386,7 +386,7 @@
 }
 
 .pfi-uda-card[data-tipo="Trasversale"] { border-left-color: #457b9d; }
-.pfi-uda-card[data-tipo="PCTO"] { border-left-color: #e7aa34; }
+.pfi-uda-card[data-tipo="PCTO"], .pfi-uda-card[data-tipo="PCTO (storico)"], .pfi-uda-card[data-tipo="FSL"] { border-left-color: #e7aa34; }
 .pfi-uda-card[data-tipo="Asse culturale"] { border-left-color: #df6b4f; }
 
 .pfi-uda-testa {
@@ -410,7 +410,7 @@
 }
 
 .pfi-uda-card[data-tipo="Trasversale"] .pfi-uda-badge { background: #dce9f0; color: #2f5f7d; }
-.pfi-uda-card[data-tipo="PCTO"] .pfi-uda-badge { background: #faedcb; color: #8a6414; }
+.pfi-uda-card[data-tipo="PCTO"] .pfi-uda-badge, .pfi-uda-card[data-tipo="PCTO (storico)"] .pfi-uda-badge, .pfi-uda-card[data-tipo="FSL"] .pfi-uda-badge { background: #faedcb; color: #8a6414; }
 .pfi-uda-card[data-tipo="Asse culturale"] .pfi-uda-badge { background: #f8dfd7; color: #a44432; }
 
 .pfi-uda-titolo {
