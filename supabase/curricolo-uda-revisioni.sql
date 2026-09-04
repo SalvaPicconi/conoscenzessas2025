@@ -16,6 +16,33 @@ create policy "nessun accesso client alla configurazione curricolo"
     on private.curricolo_uda_revision_config for all to anon, authenticated
     using (false) with check (false);
 
+create table if not exists private.curricolo_uda_revision_permissions (
+    author_name text primary key,
+    can_manage_status boolean not null default false,
+    updated_at timestamptz not null default now()
+);
+alter table private.curricolo_uda_revision_permissions enable row level security;
+revoke all on table private.curricolo_uda_revision_permissions from public, anon, authenticated;
+
+create or replace function public.verifica_curricolo_uda_gestione_stati(p_author_name text)
+returns boolean
+language sql
+stable
+security definer
+set search_path = ''
+as $$
+    select coalesce(
+        (
+            select permissions.can_manage_status
+            from private.curricolo_uda_revision_permissions as permissions
+            where permissions.author_name = p_author_name
+        ),
+        false
+    );
+$$;
+revoke all on function public.verifica_curricolo_uda_gestione_stati(text) from public, anon, authenticated;
+grant execute on function public.verifica_curricolo_uda_gestione_stati(text) to service_role;
+
 create or replace function public.verifica_curricolo_uda_password(p_password text)
 returns boolean
 language sql

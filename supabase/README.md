@@ -44,9 +44,10 @@ la funzione aggiornata:
 
 Questi passaggi modificano il servizio remoto e non fanno parte della semplice anteprima locale.
 I permessi di gestione degli stati sono applicati esclusivamente dalla funzione e non vengono
-associati pubblicamente a un nominativo. Prima della distribuzione va configurato in Supabase il
-segreto `CURRICOLO_UDA_STATUS_MANAGERS`, con l'elenco autorizzato separato da virgole. In assenza
-del segreto la funzione nega a tutti i cambi di stato riservati.
+associati pubblicamente a un nominativo. Sono conservati nella tabella privata
+`private.curricolo_uda_revision_permissions`, non accessibile ai client. L'assegnazione viene
+eseguita direttamente sul database di produzione e non è registrata nel repository; in assenza
+di un'autorizzazione esplicita la funzione nega i cambi di stato riservati.
 
 L'elenco mostrato nelle tre interfacce è definito una sola volta in
 `assets/uda-revisione.js`. La stessa anagrafica deve restare allineata con

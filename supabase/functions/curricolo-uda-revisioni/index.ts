@@ -14,10 +14,6 @@ const AUTHORS = new Set([
   "Prof.ssa Isabella Urru",
 ]);
 const STATES = new Set(["bozza", "approvata", "applicata", "archiviata"]);
-const STATUS_MANAGERS = new Set(
-  (Deno.env.get("CURRICOLO_UDA_STATUS_MANAGERS") ?? "")
-    .split(",").map(value => value.trim()).filter(Boolean),
-);
 const FIELDS = new Set([
   "anno", "competenza", "qnq",
   "periodo", "assi", "competenzeGenerali", "competenzeSSAS", "competenzeEuropee",
@@ -32,8 +28,11 @@ const admin = createClient(supabaseUrl, serviceRoleKey, {
   auth: { persistSession: false, autoRefreshToken: false },
 });
 
-function permissionsFor(authorName: string) {
-  return { manage_status: STATUS_MANAGERS.has(authorName) };
+async function permissionsFor(authorName: string) {
+  const { data, error } = await admin.rpc("verifica_curricolo_uda_gestione_stati", {
+    p_author_name: authorName,
+  });
+  return { manage_status: !error && data === true };
 }
 
 function corsHeaders(request: Request) {
@@ -141,7 +140,7 @@ async function login(request: Request, payload: Record<string, unknown>) {
   if (insertError) return json(request, { error: "Accesso temporaneamente non disponibile." }, 503);
   return json(request, {
     ok: true, token, author_name: authorName, expires_at: expiresAt,
-    permissions: permissionsFor(authorName),
+    permissions: await permissionsFor(authorName),
   });
 }
 
@@ -185,7 +184,8 @@ async function upsertRevision(request: Request, payload: Record<string, unknown>
     const { data: existing, error: existingError } = await admin.from("curricolo_uda_revisioni")
       .select("stato").eq("uda_key", udaKey).eq("author_name", authorName).maybeSingle();
     if (existingError) throw existingError;
-    if (!permissionsFor(sessionAuthor).manage_status && existing && ["approvata", "applicata"].includes(String(existing.stato))) {
+    const permissions = await permissionsFor(sessionAuthor);
+    if (!permissions.manage_status && existing && ["approvata", "applicata"].includes(String(existing.stato))) {
       throw new Error("La proposta è già stata validata e non può più essere modificata.");
     }
     const databaseRecord = {
@@ -212,12 +212,13 @@ async function updateStatus(request: Request, payload: Record<string, unknown>, 
   const id = cleanString(payload.id, 50, true);
   const state = cleanString(payload.state, 20, true);
   if (!/^[0-9a-f-]{36}$/i.test(id) || !STATES.has(state)) return json(request, { error: "Aggiornamento non valido." }, 400);
-  if (!permissionsFor(sessionAuthor).manage_status && !["bozza", "archiviata"].includes(state)) {
+  const permissions = await permissionsFor(sessionAuthor);
+  if (!permissions.manage_status && !["bozza", "archiviata"].includes(state)) {
     return json(request, { error: "Operazione non consentita." }, 403);
   }
   let query = admin.from("curricolo_uda_revisioni")
     .update({ stato: state, updated_at: new Date().toISOString() }).eq("id", id);
-  if (!permissionsFor(sessionAuthor).manage_status) query = query.eq("author_name", sessionAuthor).in("stato", ["bozza", "archiviata"]);
+  if (!permissions.manage_status) query = query.eq("author_name", sessionAuthor).in("stato", ["bozza", "archiviata"]);
   const { data, error } = await query
     .select("id,uda_key,author_name,anno,titolo_uda,originale,modifiche,nota_generale,stato,source_version,created_at,updated_at")
     .single();
@@ -236,7 +237,7 @@ Deno.serve(async (request: Request) => {
   const sessionAuthor = await verifySession(request);
   if (!sessionAuthor) return json(request, { error: "Sessione scaduta. Accedi di nuovo." }, 401);
   if (action === "session") {
-    return json(request, { ok: true, author_name: sessionAuthor, permissions: permissionsFor(sessionAuthor) });
+    return json(request, { ok: true, author_name: sessionAuthor, permissions: await permissionsFor(sessionAuthor) });
   }
   if (action === "list") return await listRevisions(request);
   if (action === "upsert") return await upsertRevision(request, payload, sessionAuthor);
