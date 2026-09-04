@@ -239,13 +239,14 @@ function creaBlocco(chiave, ripartizione, righe) {
         chip.textContent = ETICHETTE[riga.ins] || riga.ins;
         nome.appendChild(chip);
         if (riga.proposte.length) nome.appendChild(creaFirma(riga));
-        const settimanali = celleNumero(String(riga.oreSett));
-        const proposta = celleNumero(riga.min === riga.max ? String(riga.max) : `${riga.min}–${riga.max}`);
+        const settimanali = celleNumero(String(riga.oreSett), intestazioni[1]);
+        const proposta = celleNumero(riga.min === riga.max ? String(riga.max) : `${riga.min}–${riga.max}`, intestazioni[2]);
         tr.append(nome, settimanali, proposta);
         if (modificabile) {
             const [minimo, massimo] = banda(riga.max);
             const cella = document.createElement('td');
             cella.className = 'uda-ore-num';
+            cella.dataset.etichetta = intestazioni[3];
             const input = document.createElement('input');
             input.type = 'number';
             input.min = String(minimo);
@@ -269,16 +270,21 @@ function creaBlocco(chiave, ripartizione, righe) {
     const rigaPiede = document.createElement('tr');
     const etichettaPiede = document.createElement('th');
     etichettaPiede.textContent = 'Totale';
+    // Nel piede le ore settimanali non si sommano: la cella resta vuota e sul
+    // telefono, dove ogni cella diventa una riga a sé, sparisce del tutto.
     const vuota = document.createElement('td');
-    const totaleProposta = celleNumero(etichettaTotale(ripartizione));
+    vuota.className = 'uda-ore-vuota';
+    const totaleProposta = celleNumero(etichettaTotale(ripartizione), intestazioni[2]);
     rigaPiede.append(etichettaPiede, vuota, totaleProposta);
     if (modificabile) {
         const totale = document.createElement('td');
         totale.className = 'uda-ore-num uda-ore-totale';
+        totale.dataset.etichetta = intestazioni[3];
         rigaPiede.appendChild(totale);
     }
     tfoot.appendChild(rigaPiede);
     tabella.append(thead, tbody, tfoot);
+    preservaRuoli(tabella);
     box.appendChild(tabella);
 
     if (ripartizione.senzaOre?.length) {
@@ -329,6 +335,18 @@ function creaBlocco(chiave, ripartizione, righe) {
     return box;
 }
 
+// Sul telefono il CSS impila le celle con display:block e i browser perdono i
+// ruoli impliciti della tabella: dichiararli qui li conserva per chi legge con
+// uno screen reader. Su schermo largo sono ridondanti e innocui.
+function preservaRuoli(tabella) {
+    tabella.setAttribute('role', 'table');
+    tabella.querySelectorAll('thead, tbody, tfoot').forEach(gruppo => gruppo.setAttribute('role', 'rowgroup'));
+    tabella.querySelectorAll('tr').forEach(riga => riga.setAttribute('role', 'row'));
+    tabella.querySelectorAll('thead th').forEach(cella => cella.setAttribute('role', 'columnheader'));
+    tabella.querySelectorAll('tbody th, tfoot th').forEach(cella => cella.setAttribute('role', 'rowheader'));
+    tabella.querySelectorAll('td').forEach(cella => cella.setAttribute('role', 'cell'));
+}
+
 function creaFirma(riga) {
     const firma = document.createElement('small');
     firma.className = 'uda-ore-firma';
@@ -338,10 +356,14 @@ function creaFirma(riga) {
     return firma;
 }
 
-function celleNumero(testo) {
+// L'etichetta di colonna viaggia sulla cella: sul telefono il CSS impila la
+// tabella e la riscrive davanti al valore, perché l'intestazione non è più in
+// cima alla colonna.
+function celleNumero(testo, etichetta) {
     const td = document.createElement('td');
     td.className = 'uda-ore-num';
     td.textContent = testo;
+    if (etichetta) td.dataset.etichetta = etichetta;
     return td;
 }
 
