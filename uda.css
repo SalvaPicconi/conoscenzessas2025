@@ -517,3 +517,89 @@
         padding-bottom: 7px;
     }
 }
+
+/* ============================================================
+   Stampa della singola UDA — comandi in testa alla scheda aperta
+   ============================================================ */
+
+.uda-stampa {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 14px;
+    padding: 10px 12px;
+    border: 1px solid rgba(99, 102, 241, 0.22);
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(238, 242, 255, 0.9), rgba(236, 254, 255, 0.85));
+}
+
+.uda-stampa-etichetta {
+    margin-right: auto;
+    color: #3730a3;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+.uda-stampa button {
+    min-height: 40px;
+    padding: 9px 14px;
+    border-radius: 10px;
+    font: inherit;
+    font-size: 13.5px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.16s ease, color 0.16s ease;
+}
+
+.uda-stampa-primario {
+    border: 1px solid #4338ca;
+    background: #4338ca;
+    color: #fff;
+}
+
+.uda-stampa-primario:hover:not(:disabled),
+.uda-stampa-primario:focus-visible:not(:disabled) {
+    background: #312e81;
+}
+
+.uda-stampa-secondario {
+    border: 1px solid #4338ca;
+    background: #fff;
+    color: #312e81;
+}
+
+.uda-stampa-secondario:hover:not(:disabled),
+.uda-stampa-secondario:focus-visible:not(:disabled) {
+    background: #e0e7ff;
+}
+
+.uda-stampa button:disabled {
+    cursor: default;
+    opacity: 0.75;
+}
+
+.uda-stampa-nota {
+    flex: 1 0 100%;
+    margin: 2px 0 0;
+    color: var(--ink-soft, #4b5872);
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+@media (max-width: 720px) {
+    .uda-stampa {
+        gap: 7px;
+    }
+
+    .uda-stampa-etichetta {
+        flex: 1 0 100%;
+        margin-right: 0;
+    }
+
+    .uda-stampa button {
+        flex: 1 1 auto;
+    }
+}

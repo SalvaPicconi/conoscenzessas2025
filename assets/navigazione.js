@@ -1,6 +1,6 @@
 // Navigazione fra le sezioni del curricolo.
 //
-// Le sei sezioni vivono in due modi: dentro index.html, come linguette che
+// Le sette sezioni vivono in due modi: dentro index.html, come linguette che
 // caricano un iframe, e da sole, quando si apre direttamente uda.html o si
 // arriva da un collegamento. Nel secondo caso mancava qualsiasi via di ritorno.
 //
@@ -16,7 +16,8 @@ const SEZIONI = [
     { id: 'uda', etichetta: 'UDA d’asse', pagina: 'uda.html' },
     { id: 'trasversali', etichetta: 'UDA trasversali', pagina: 'uda-trasversali.html' },
     { id: 'fsl', etichetta: 'UDA FSL', pagina: 'uda-fsl.html' },
-    { id: 'pfi', etichetta: 'PFI', pagina: 'pfi.html' }
+    { id: 'pfi', etichetta: 'PFI', pagina: 'pfi.html' },
+    { id: 'piano', etichetta: 'Piano delle UDA', pagina: 'piano-uda.html' }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {

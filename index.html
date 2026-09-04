@@ -63,7 +63,7 @@
             <div class="tab-intro">
                 <span class="section-kicker">Scegli il tuo punto di partenza</span>
                 <h2>Da dove vuoi iniziare?</h2>
-                <p>Sei prospettive complementari: dal curricolo alle UDA d'asse, trasversali e FSL, fino alla compilazione del PFI.</p>
+                <p>Sette prospettive complementari: dal curricolo alle UDA d'asse, trasversali e FSL, fino al PFI e al Piano delle UDA che il coordinatore allega alla programmazione di classe.</p>
             </div>
             <div class="tab-buttons-wrapper" role="tablist" aria-label="Aree del curricolo">
                 <button type="button" class="tab-button active" data-tab="indirizzo" id="tab-indirizzo" role="tab" aria-selected="true" aria-controls="content-indirizzo">
@@ -89,6 +89,10 @@
                 <button type="button" class="tab-button" data-tab="pfi" id="tab-pfi" role="tab" aria-selected="false" aria-controls="content-pfi" tabindex="-1">
                     <span class="tab-icon" aria-hidden="true">06</span>
                     <span class="tab-copy"><span class="tab-label">PFI</span><span class="tab-description">Progetto formativo individuale</span></span>
+                </button>
+                <button type="button" class="tab-button" data-tab="piano" id="tab-piano" role="tab" aria-selected="false" aria-controls="content-piano" tabindex="-1">
+                    <span class="tab-icon" aria-hidden="true">07</span>
+                    <span class="tab-copy"><span class="tab-label">Piano delle UDA</span><span class="tab-description">Stampa del coordinatore</span></span>
                 </button>
             </div>
         </div>
@@ -116,6 +120,10 @@
 
         <div class="tab-content" id="content-pfi" role="tabpanel" aria-labelledby="tab-pfi" aria-hidden="true" hidden>
             <iframe src="pfi.html" title="Progetto Formativo Individuale compilabile" class="content-iframe" loading="lazy"></iframe>
+        </div>
+
+        <div class="tab-content" id="content-piano" role="tabpanel" aria-labelledby="tab-piano" aria-hidden="true" hidden>
+            <iframe src="piano-uda.html" title="Piano delle UDA del consiglio di classe" class="content-iframe" loading="lazy"></iframe>
         </div>
     </main>
 

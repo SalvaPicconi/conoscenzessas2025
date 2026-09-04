@@ -1,0 +1,413 @@
+/* ============================================================
+   Piano delle UDA — pagina del coordinatore
+   ============================================================ */
+
+.piano-guida,
+.piano-blocco,
+.piano-toolbar {
+    margin: 0 0 18px;
+    padding: 20px 22px;
+    border: 1px solid var(--stroke, rgba(99, 102, 241, 0.16));
+    border-radius: var(--radius-lg, 22px);
+    background: var(--card-solid, #fff);
+    box-shadow: var(--shadow-card, 0 18px 44px -30px rgba(30, 41, 99, 0.45));
+}
+
+.piano-guida h2,
+.piano-blocco h2 {
+    margin: 4px 0 10px;
+    font-size: 20px;
+    line-height: 1.3;
+}
+
+.piano-guida p,
+.piano-blocco > p {
+    margin: 0 0 10px;
+    color: var(--ink-soft, #4b5872);
+}
+
+.piano-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    margin-right: 8px;
+    border-radius: 9px;
+    background: var(--grad-accent, linear-gradient(120deg, #4f46e5, #0ea5e9));
+    color: #fff;
+    font-size: 14px;
+    font-weight: 800;
+    vertical-align: 2px;
+}
+
+.piano-norme {
+    margin-top: 12px;
+    border: 1px solid var(--stroke-soft, rgba(148, 163, 184, 0.22));
+    border-radius: 14px;
+    background: rgba(238, 242, 255, 0.5);
+}
+
+.piano-norme > summary {
+    padding: 11px 14px;
+    color: #312e81;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.piano-norme ul {
+    margin: 0;
+    padding: 0 18px 14px 32px;
+}
+
+.piano-norme li {
+    margin-bottom: 8px;
+    color: var(--ink-soft, #4b5872);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* ---------- barra dei comandi ---------- */
+
+/* Niente barra appiccicata: in cima c'è già la navigazione del curricolo e
+   dentro l'iframe della pagina principale lo scorrimento è della madre. I
+   comandi sono ripetuti in fondo, così non si risale mai. */
+.piano-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+}
+
+.piano-toolbar-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.piano-toolbar-right {
+    margin-left: auto;
+}
+
+.piano-btn {
+    min-height: 44px;
+    padding: 10px 16px;
+    border: 1px solid #4338ca;
+    border-radius: 11px;
+    background: #fff;
+    color: #312e81;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.16s ease;
+}
+
+.piano-btn:hover:not(:disabled),
+.piano-btn:focus-visible:not(:disabled) {
+    background: #e0e7ff;
+}
+
+.piano-btn-primary {
+    background: #4338ca;
+    color: #fff;
+}
+
+.piano-btn-primary:hover:not(:disabled),
+.piano-btn-primary:focus-visible:not(:disabled) {
+    background: #312e81;
+}
+
+.piano-btn-ghost {
+    border-color: rgba(148, 163, 184, 0.5);
+    color: var(--ink-soft, #4b5872);
+}
+
+.piano-btn:disabled {
+    cursor: wait;
+    opacity: 0.6;
+}
+
+.piano-stato {
+    color: var(--ink-soft, #4b5872);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* ---------- modulo dati ---------- */
+
+.piano-griglia {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+}
+
+.piano-griglia label,
+.piano-blocco > label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    color: var(--ink, #0b1220);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.piano-largo {
+    grid-column: 1 / -1;
+}
+
+.piano-griglia input,
+.piano-griglia select,
+.piano-griglia textarea,
+.piano-blocco > label textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid rgba(148, 163, 184, 0.55);
+    border-radius: 10px;
+    background: #fff;
+    color: var(--ink, #0b1220);
+    font: inherit;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.piano-griglia textarea,
+.piano-blocco > label textarea {
+    min-height: 92px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.piano-griglia input:focus-visible,
+.piano-griglia select:focus-visible,
+.piano-griglia textarea:focus-visible,
+.piano-blocco > label textarea:focus-visible {
+    outline: 2px solid #4338ca;
+    outline-offset: 1px;
+}
+
+/* ---------- scelta delle UDA ---------- */
+
+.piano-import {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin: 14px 0 18px;
+    padding: 14px 16px;
+    border: 2px solid #e7b857;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #fff8e8, #fdf1dc);
+}
+
+.piano-import .piano-nota {
+    margin: 2px 0 0;
+    max-width: 62ch;
+}
+
+.piano-gruppo {
+    margin-bottom: 20px;
+    padding-top: 4px;
+    border-top: 1px solid var(--stroke-soft, rgba(148, 163, 184, 0.22));
+}
+
+.piano-gruppo:first-child {
+    border-top: none;
+}
+
+.piano-gruppo-testa {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.piano-gruppo-testa h3 {
+    margin: 0;
+    font-family: var(--font-display, inherit);
+    font-size: 17px;
+}
+
+.piano-conteggio {
+    margin-left: auto;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: #eef2ff;
+    color: #3730a3;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.piano-nota {
+    margin: 4px 0 10px;
+    color: var(--ink-soft, #4b5872);
+    font-size: 13.5px;
+    line-height: 1.5;
+}
+
+.piano-avviso {
+    margin: 8px 0;
+    padding: 12px 14px;
+    border: 1px dashed rgba(148, 163, 184, 0.6);
+    border-radius: 12px;
+    color: var(--ink-soft, #4b5872);
+    font-size: 14px;
+}
+
+.piano-voce {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 8px;
+    padding: 12px 14px;
+    border: 1px solid var(--stroke-soft, rgba(148, 163, 184, 0.22));
+    border-radius: 14px;
+    background: #fff;
+}
+
+.piano-voce[data-scelta="true"] {
+    border-color: #2a8f62;
+    background: linear-gradient(135deg, #f2fbf6, #eefaf3);
+}
+
+.piano-voce > input[type="checkbox"] {
+    flex: 0 0 auto;
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    accent-color: #2a8f62;
+    cursor: pointer;
+}
+
+.piano-voce-corpo {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.piano-voce-titolo {
+    display: block;
+    color: var(--ink, #0b1220);
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.35;
+    cursor: pointer;
+}
+
+.piano-voce-meta {
+    margin: 3px 0 0;
+    color: #3730a3;
+    font-size: 12.5px;
+    font-weight: 700;
+}
+
+.piano-voce-traguardo {
+    margin: 6px 0 0;
+    color: var(--ink-soft, #4b5872);
+    font-size: 13.5px;
+    line-height: 1.5;
+}
+
+.piano-voce-periodo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    font-size: 12.5px;
+    font-weight: 800;
+}
+
+.piano-voce-periodo select {
+    padding: 7px 10px;
+    border: 1px solid rgba(148, 163, 184, 0.55);
+    border-radius: 9px;
+    background: #fff;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+/* ---------- riepilogo ---------- */
+
+.piano-tabella {
+    width: 100%;
+    margin-top: 6px;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.piano-tabella th,
+.piano-tabella td {
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--stroke-soft, rgba(148, 163, 184, 0.22));
+    text-align: left;
+    vertical-align: top;
+}
+
+.piano-tabella thead th {
+    color: var(--ink-soft, #4b5872);
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.piano-tabella tbody th {
+    font-weight: 700;
+}
+
+.piano-tabella tfoot th,
+.piano-tabella tfoot td {
+    border-top: 2px solid rgba(99, 102, 241, 0.3);
+    border-bottom: none;
+    font-weight: 800;
+}
+
+.piano-tabella th:first-child { width: 38%; }
+.piano-tabella th:nth-child(2) { width: 22%; }
+
+.piano-tabella .piano-ore {
+    font-variant-numeric: tabular-nums;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.piano-codici {
+    color: var(--ink-soft, #4b5872);
+    font-size: 12.5px;
+}
+
+.piano-piede {
+    margin: 6px 0 28px;
+    color: var(--ink-faint, #626d82);
+    font-size: 12.5px;
+    text-align: center;
+}
+
+/* L'impianto della revisione serve solo a far funzionare l'accesso condiviso */
+.piano-nascosto {
+    display: none;
+}
+
+@media (max-width: 720px) {
+    .piano-guida,
+    .piano-blocco,
+    .piano-toolbar {
+        padding: 16px 14px;
+    }
+
+    .piano-toolbar-right {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .piano-btn {
+        flex: 1 1 auto;
+    }
+
+    .piano-conteggio {
+        margin-left: 0;
+    }
+}
