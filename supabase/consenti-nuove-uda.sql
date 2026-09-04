@@ -6,4 +6,4 @@ alter table public.curricolo_uda_revisioni
 
 alter table public.curricolo_uda_revisioni
     add constraint curricolo_uda_revisioni_uda_key_check
-    check (uda_key ~ '^([0-9]+\.[0-9]+|T[1-5]\.[0-9]+|nuova-(t-)?[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$');
+    check (uda_key ~ '^([0-9]+\.[0-9]+|T[1-5]\.[0-9]+|FSL[3-5]\.[0-9]+|nuova-(t-|f-)?[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$');

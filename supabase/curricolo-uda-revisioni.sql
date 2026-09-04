@@ -38,7 +38,7 @@ grant execute on function public.verifica_curricolo_uda_password(text) to servic
 
 create table if not exists public.curricolo_uda_revisioni (
     id uuid primary key default gen_random_uuid(),
-    uda_key text not null check (uda_key ~ '^([0-9]+\.[0-9]+|T[1-5]\.[0-9]+|nuova-(t-)?[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$'),
+    uda_key text not null check (uda_key ~ '^([0-9]+\.[0-9]+|T[1-5]\.[0-9]+|FSL[3-5]\.[0-9]+|nuova-(t-|f-)?[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$'),
     author_name text not null check (author_name in (
         'Prof. Picconi', 'Prof. Pinna', 'Prof.ssa Manca',
         'Prof.ssa Cossu', 'Prof.ssa Preite', 'Prof.ssa Sanna',
