@@ -66,21 +66,30 @@ conosce e senza aggiornamento rifiuterebbe il salvataggio delle ore:
 
 ### Votazione per la scelta delle UDA
 
-Un docente vale un voto, e ne ha due per anno di corso fra le UDA d'asse e due
-fra le trasversali: tanti quante sono le UDA da attivare. Il tetto è applicato
-dalla funzione, non dal database, perché il messaggio deve dire al docente quali
-voti ha già speso e come liberarne uno. Le UDA FSL restano fuori: sono già una
-per anno e area di tirocinio.
+Si vota in due tempi. Prima chi ha i permessi di gestione mette al voto una rosa
+di UDA, dopo la consultazione: senza quel passaggio si voterebbe su dieci schede
+che nessuno ha discusso. Poi i docenti votano soltanto dentro la rosa, un voto a
+testa per UDA e due per anno di corso, tanti quante sono le UDA da attivare.
 
-La classifica è consultiva. Diventa la scelta ufficiale solo quando chi ha i
-permessi di gestione la conferma, e resta registrata in
-`curricolo_uda_scelte` con il nome di chi l'ha confermata.
+Il tetto dei voti e l'appartenenza alla rosa sono verificati dalla funzione, non
+dal database, perché i messaggi devono dire al docente quali voti ha già speso e
+come liberarne uno. Le UDA FSL restano fuori: sono già una per anno e area di
+tirocinio.
+
+La classifica è consultiva. Diventa la scelta ufficiale solo quando chi gestisce
+la conferma, e tutto lo stato — rosa, scelta, chi ha aperto e chi ha confermato —
+sta in `curricolo_uda_votazione`. Cambiare la rosa azzera la scelta e cancella i
+voti dati a UDA che ne sono uscite: non possono restare a gonfiare conteggi che
+nessuno vede più.
+
+Le tre azioni sono `ballot` per aprire la votazione, `vote` per il singolo voto e
+`choice` per confermare la scelta.
 
 Qui servono entrambi i passaggi, nell'ordine. Prima le tabelle:
 
     psql "$DATABASE_URL" -f supabase/votazione-uda.sql
 
-poi la funzione, che espone le azioni `votes`, `vote` e `choice`:
+poi la funzione, che espone le azioni `votes`, `ballot`, `vote` e `choice`:
 
     supabase functions deploy curricolo-uda-revisioni --project-ref ruplzgcnheddmqqdephp
 

@@ -29,6 +29,8 @@ const ORE_MASSIME_UDA = 400;
 const VOTI_PER_DOCENTE = 2;
 const GENERI_UDA = new Set(["asse", "trasversale"]);
 const CHIAVE_VOTABILE = /^([0-9]+\.[0-9]+|T[1-5]\.[0-9]+)$/;
+// Quante UDA si possono mettere al voto in una sola rosa.
+const ROSA_MASSIMA = 12;
 
 const supabaseUrl = Deno.env.get("SUPABASE_URL") ?? "";
 const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "";
@@ -271,25 +273,78 @@ async function updateStatus(request: Request, payload: Record<string, unknown>, 
   return json(request, { revision: data });
 }
 
-// Voti e scelta ufficiale, restituiti insieme: al client servono sempre
-// entrambi per disegnare la classifica.
+// Voti e stato della votazione, restituiti sempre insieme: al client servono
+// entrambi per sapere se si vota, su cosa e con quale esito.
 async function listVotes(request: Request) {
-  const [voti, scelte] = await Promise.all([
+  const [voti, votazione] = await Promise.all([
     admin.from("curricolo_uda_voti").select("uda_key,author_name,anno,genere"),
-    admin.from("curricolo_uda_scelte").select("anno,genere,uda_keys,confermata_da,updated_at"),
+    admin.from("curricolo_uda_votazione")
+      .select("anno,genere,rosa,scelta,aperta_da,aperta_il,confermata_da,confermata_il"),
   ]);
-  if (voti.error || scelte.error) return json(request, { error: "Impossibile caricare i voti." }, 500);
-  return json(request, { votes: voti.data ?? [], choices: scelte.data ?? [] });
+  if (voti.error || votazione.error) return json(request, { error: "Impossibile caricare i voti." }, 500);
+  return json(request, { votes: voti.data ?? [], ballots: votazione.data ?? [] });
+}
+
+function readScope(payload: Record<string, unknown>) {
+  const anno = Number(payload.anno);
+  if (!Number.isInteger(anno) || anno < 1 || anno > 5) throw new Error("Anno non valido.");
+  const genere = cleanString(payload.genere, 20, true);
+  if (!GENERI_UDA.has(genere)) throw new Error("Genere di UDA non valido.");
+  return { anno, genere };
+}
+
+function readKeys(value: unknown, massimo: number) {
+  const chiavi = Array.isArray(value) ? value.map(String) : [];
+  if (chiavi.length > massimo) throw new Error(`Non si possono indicare più di ${massimo} UDA.`);
+  if (chiavi.some(chiave => !CHIAVE_VOTABILE.test(chiave))) throw new Error("Chiave UDA non valida.");
+  if (new Set(chiavi).size !== chiavi.length) throw new Error("La stessa UDA compare due volte.");
+  return chiavi;
+}
+
+async function ballotFor(anno: number, genere: string) {
+  const { data, error } = await admin.from("curricolo_uda_votazione")
+    .select("rosa,scelta").eq("anno", anno).eq("genere", genere).maybeSingle();
+  if (error) throw error;
+  return data as { rosa: string[]; scelta: string[] } | null;
+}
+
+// Apertura della votazione: chi gestisce mette al voto una rosa di UDA, dopo la
+// consultazione. Senza rosa non si vota.
+async function openBallot(request: Request, payload: Record<string, unknown>, sessionAuthor: string) {
+  try {
+    const permissions = await permissionsFor(sessionAuthor);
+    if (!permissions.manage_status) return json(request, { error: "Operazione non consentita." }, 403);
+    const { anno, genere } = readScope(payload);
+    const rosa = readKeys(payload.rosa, ROSA_MASSIMA);
+    if (rosa.length && rosa.length <= VOTI_PER_DOCENTE) {
+      throw new Error(`Con ${rosa.length} UDA non c'è nulla da votare: se ne devono attivare ${VOTI_PER_DOCENTE}. Mettine al voto almeno ${VOTI_PER_DOCENTE + 1}.`);
+    }
+    const adesso = new Date().toISOString();
+    const { error } = await admin.from("curricolo_uda_votazione").upsert({
+      anno, genere, rosa,
+      // Cambiare la rosa rimette in gioco la scelta: non può restare una
+      // decisione confermata su schede che non sono più in votazione.
+      scelta: [], confermata_da: null, confermata_il: null,
+      aperta_da: sessionAuthor, aperta_il: adesso,
+    }, { onConflict: "anno,genere" });
+    if (error) throw error;
+    // I voti dati a UDA uscite dalla rosa non contano più: si tolgono, invece
+    // di restare a gonfiare conteggi che nessuno vede.
+    let pulizia = admin.from("curricolo_uda_voti").delete().eq("anno", anno).eq("genere", genere);
+    if (rosa.length) pulizia = pulizia.not("uda_key", "in", `(${rosa.map(chiave => `"${chiave}"`).join(",")})`);
+    const { error: erroreVoti } = await pulizia;
+    if (erroreVoti) throw erroreVoti;
+    return await listVotes(request);
+  } catch (error) {
+    return json(request, { error: error instanceof Error ? error.message : "Rosa non registrata." }, 400);
+  }
 }
 
 async function castVote(request: Request, payload: Record<string, unknown>, sessionAuthor: string) {
   try {
     const udaKey = cleanString(payload.uda_key, 50, true);
     if (!CHIAVE_VOTABILE.test(udaKey)) throw new Error("Su questa UDA non si vota.");
-    const anno = Number(payload.anno);
-    if (!Number.isInteger(anno) || anno < 1 || anno > 5) throw new Error("Anno non valido.");
-    const genere = cleanString(payload.genere, 20, true);
-    if (!GENERI_UDA.has(genere)) throw new Error("Genere di UDA non valido.");
+    const { anno, genere } = readScope(payload);
     const rimuovi = payload.rimuovi === true;
 
     if (rimuovi) {
@@ -299,8 +354,13 @@ async function castVote(request: Request, payload: Record<string, unknown>, sess
       return await listVotes(request);
     }
 
+    const votazione = await ballotFor(anno, genere);
+    if (!votazione?.rosa?.length) throw new Error(`La votazione di ${anno}ª non è ancora aperta.`);
+    if (!votazione.rosa.includes(udaKey)) throw new Error("Questa UDA non è fra quelle messe al voto.");
+    if (votazione.scelta?.length) throw new Error(`La scelta di ${anno}ª è già stata confermata: la votazione è chiusa.`);
+
     // Il tetto si verifica qui, non nel database: il messaggio deve dire al
-    // docente quanti voti ha e come liberarne uno.
+    // docente quanti voti ha speso e come liberarne uno.
     const { data: spesi, error: erroreConteggio } = await admin.from("curricolo_uda_voti")
       .select("uda_key").eq("author_name", sessionAuthor).eq("anno", anno).eq("genere", genere);
     if (erroreConteggio) throw erroreConteggio;
@@ -320,23 +380,22 @@ async function castVote(request: Request, payload: Record<string, unknown>, sess
   }
 }
 
-// La classifica è consultiva: solo chi ha i permessi di gestione la trasforma
-// nella scelta ufficiale dell'anno.
+// La classifica è consultiva: solo chi gestisce la trasforma nella scelta
+// ufficiale, e solo fra le UDA che erano davvero in votazione.
 async function confirmChoice(request: Request, payload: Record<string, unknown>, sessionAuthor: string) {
   try {
     const permissions = await permissionsFor(sessionAuthor);
     if (!permissions.manage_status) return json(request, { error: "Operazione non consentita." }, 403);
-    const anno = Number(payload.anno);
-    if (!Number.isInteger(anno) || anno < 1 || anno > 5) throw new Error("Anno non valido.");
-    const genere = cleanString(payload.genere, 20, true);
-    if (!GENERI_UDA.has(genere)) throw new Error("Genere di UDA non valido.");
-    const chiavi = Array.isArray(payload.uda_keys) ? payload.uda_keys.map(String) : [];
-    if (chiavi.length > VOTI_PER_DOCENTE) throw new Error(`Si scelgono al massimo ${VOTI_PER_DOCENTE} UDA per anno.`);
-    if (chiavi.some(chiave => !CHIAVE_VOTABILE.test(chiave))) throw new Error("Chiave UDA non valida.");
-    if (new Set(chiavi).size !== chiavi.length) throw new Error("La stessa UDA compare due volte.");
-    const { error } = await admin.from("curricolo_uda_scelte").upsert({
-      anno, genere, uda_keys: chiavi, confermata_da: sessionAuthor, updated_at: new Date().toISOString(),
-    }, { onConflict: "anno,genere" });
+    const { anno, genere } = readScope(payload);
+    const scelta = readKeys(payload.uda_keys, VOTI_PER_DOCENTE);
+    const votazione = await ballotFor(anno, genere);
+    if (!votazione?.rosa?.length) throw new Error(`La votazione di ${anno}ª non è mai stata aperta.`);
+    if (scelta.some(chiave => !votazione.rosa.includes(chiave))) {
+      throw new Error("Si può scegliere solo fra le UDA messe al voto.");
+    }
+    const { error } = await admin.from("curricolo_uda_votazione").update({
+      scelta, confermata_da: sessionAuthor, confermata_il: new Date().toISOString(),
+    }).eq("anno", anno).eq("genere", genere);
     if (error) throw error;
     return await listVotes(request);
   } catch (error) {
@@ -362,6 +421,7 @@ Deno.serve(async (request: Request) => {
   if (action === "status") return await updateStatus(request, payload, sessionAuthor);
   if (action === "votes") return await listVotes(request);
   if (action === "vote") return await castVote(request, payload, sessionAuthor);
+  if (action === "ballot") return await openBallot(request, payload, sessionAuthor);
   if (action === "choice") return await confirmChoice(request, payload, sessionAuthor);
   if (action === "logout") {
     const token = request.headers.get("x-curricolo-session") ?? "";

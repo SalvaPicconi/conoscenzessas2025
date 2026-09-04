@@ -1,12 +1,10 @@
 // Votazione per la scelta delle UDA da attivare.
 //
-// Un docente vale un voto: non ci sono punteggi, vince chi ne raccoglie di più.
-// Ogni docente dispone di due voti per anno di corso, tanti quante sono le UDA
-// da scegliere, e li può spostare quando vuole togliendone uno.
-//
-// La classifica è consultiva. Diventa la scelta ufficiale dell'anno solo quando
-// chi ha i permessi di gestione la conferma, e da quel momento la scheda porta
-// il contrassegno anche a scheda chiusa.
+// Si vota in due tempi. Prima chi ha i permessi di gestione mette al voto una
+// rosa di UDA, dopo la consultazione collegiale: votare su dieci schede che
+// nessuno ha discusso non produce una scelta. Poi i docenti votano dentro la
+// rosa, un voto a testa per UDA e due voti per anno di corso, spostabili
+// togliendone uno. Alla fine la scelta viene confermata.
 //
 // Le UDA FSL restano fuori: sono già una per anno e area di tirocinio, non c'è
 // nulla da mettere in concorrenza.
@@ -15,7 +13,7 @@ const GENERE = document.documentElement.dataset.udaKind === 'trasversale' ? 'tra
 const NOME_GENERE = GENERE === 'trasversale' ? 'trasversali' : 'd’asse';
 const VOTI_PER_DOCENTE = 2;
 
-const statoVoto = { voti: [], scelte: [], caricato: false, uda: new Map(), messaggio: null };
+const statoVoto = { voti: [], votazioni: [], caricato: false, uda: new Map(), messaggio: null, rosaInCorso: new Map() };
 
 document.addEventListener('DOMContentLoaded', avviaVotazione);
 document.addEventListener('curricolo:uda-rendered', () => { disegnaSchede(); disegnaPannello(); });
@@ -38,7 +36,7 @@ async function avviaVotazione() {
 async function sincronizza() {
     const docente = window.CurricoloRevisione?.docente || '';
     if (!docente) {
-        Object.assign(statoVoto, { voti: [], scelte: [], caricato: false });
+        Object.assign(statoVoto, { voti: [], votazioni: [], caricato: false });
         return aggiornaTutto();
     }
     if (statoVoto.caricato) return aggiornaTutto();
@@ -47,9 +45,7 @@ async function sincronizza() {
 
 async function caricaVoti() {
     try {
-        const dati = await window.CurricoloRevisione.api('votes');
-        statoVoto.voti = dati.votes || [];
-        statoVoto.scelte = dati.choices || [];
+        assorbi(await window.CurricoloRevisione.api('votes'));
         statoVoto.caricato = true;
     } catch (errore) {
         console.error('Impossibile caricare i voti:', errore);
@@ -73,15 +69,28 @@ function votiSpesi(anno) {
     return statoVoto.voti.filter(voce => voce.author_name === docente && voce.anno === anno && voce.genere === GENERE);
 }
 
-function sceltaDi(anno) {
-    return statoVoto.scelte.find(voce => voce.anno === anno && voce.genere === GENERE)?.uda_keys || [];
+function assorbi(dati) {
+    statoVoto.voti = dati.votes || [];
+    statoVoto.votazioni = dati.ballots || [];
 }
 
-// Classifica di un anno: più voti prima, a parità l'identificativo dell'UDA,
-// così l'ordine non cambia da un caricamento all'altro.
+function votazioneDi(anno) {
+    return statoVoto.votazioni.find(voce => voce.anno === anno && voce.genere === GENERE) || null;
+}
+
+function rosaDi(anno) { return votazioneDi(anno)?.rosa || []; }
+function sceltaDi(anno) { return votazioneDi(anno)?.scelta || []; }
+
+function udaDellAnno(anno) {
+    return [...statoVoto.uda.values()].filter(uda => Number(uda.anno) === anno);
+}
+
+// Classifica di un anno: solo le UDA messe al voto, più voti prima, a parità
+// l'identificativo, così l'ordine non cambia da un caricamento all'altro.
 function classifica(anno) {
-    return [...statoVoto.uda.values()]
-        .filter(uda => Number(uda.anno) === anno)
+    const rosa = rosaDi(anno);
+    return udaDellAnno(anno)
+        .filter(uda => rosa.includes(String(uda.id)))
         .map(uda => ({ uda, voti: votiDi(uda.id) }))
         .sort((a, b) => b.voti.length - a.voti.length || String(a.uda.id).localeCompare(String(b.uda.id), 'it', { numeric: true }));
 }
@@ -101,6 +110,9 @@ function disegnaSchede() {
         // sono ancora state create, o la funzione non è aggiornata, la
         // votazione semplicemente non compare invece di fallire sotto le mani.
         if (!docente || !statoVoto.caricato) return;
+        // Si vota solo dentro la rosa messa al voto: fuori non c'è nulla da
+        // premere, e la scheda non porta comandi che il server rifiuterebbe.
+        if (!rosaDi(anno).includes(chiave)) return;
         slot.appendChild(creaRiquadroVoto(chiave, anno, voti, docente));
     });
 }
@@ -118,11 +130,11 @@ function marcaTestata(slot, quantita, scelta) {
     if (quantita) contenitore.appendChild(creaPillola(`🗳 ${quantita} ${quantita === 1 ? 'voto' : 'voti'}`, 'pill-voti'));
 }
 
-function creaPillola(testo, classe) {
+function creaPillola(contenuto, classe) {
     const pillola = document.createElement('span');
     pillola.className = `pill ${classe}`;
     pillola.dataset.udaVotoPill = 'true';
-    pillola.textContent = testo;
+    pillola.textContent = contenuto;
     return pillola;
 }
 
@@ -131,13 +143,16 @@ function creaRiquadroVoto(chiave, anno, voti, docente) {
     box.className = 'uda-voto-box';
     const mio = voti.some(voce => voce.author_name === docente);
     const spesi = votiSpesi(anno);
+    const conclusa = sceltaDi(anno).length > 0;
     const esauriti = !mio && spesi.length >= VOTI_PER_DOCENTE;
 
     const titolo = document.createElement('h4');
     titolo.textContent = 'Scelta delle UDA da attivare';
     const spiegazione = document.createElement('p');
     spiegazione.className = 'uda-voto-testo';
-    spiegazione.textContent = esauriti
+    spiegazione.textContent = conclusa
+        ? `La scelta di ${anno}ª è già stata confermata: la votazione è chiusa.`
+        : esauriti
         ? `Hai già usato i tuoi ${VOTI_PER_DOCENTE} voti di ${anno}ª su ${spesi.map(voce => voce.uda_key).join(' e ')}. Togli un voto per spostarlo qui.`
         : `Hai ${VOTI_PER_DOCENTE - spesi.length + (mio ? 1 : 0)} ${VOTI_PER_DOCENTE - spesi.length + (mio ? 1 : 0) === 1 ? 'voto disponibile' : 'voti disponibili'} fra le UDA ${NOME_GENERE} di ${anno}ª.`;
 
@@ -147,7 +162,7 @@ function creaRiquadroVoto(chiave, anno, voti, docente) {
     bottone.type = 'button';
     bottone.className = mio ? 'uda-revisione-secondary' : 'uda-revisione-primary';
     bottone.textContent = mio ? 'Togli il mio voto' : 'Vota questa UDA';
-    bottone.disabled = esauriti;
+    bottone.disabled = esauriti || conclusa;
     bottone.addEventListener('click', () => vota(chiave, anno, mio, bottone));
     azioni.appendChild(bottone);
 
@@ -174,9 +189,7 @@ function creaRiquadroVoto(chiave, anno, voti, docente) {
 async function vota(chiave, anno, rimuovi, bottone) {
     bottone.disabled = true;
     try {
-        const dati = await window.CurricoloRevisione.api('vote', { uda_key: chiave, anno, genere: GENERE, rimuovi });
-        statoVoto.voti = dati.votes || [];
-        statoVoto.scelte = dati.choices || [];
+        assorbi(await window.CurricoloRevisione.api('vote', { uda_key: chiave, anno, genere: GENERE, rimuovi }));
     } catch (errore) {
         statoVoto.messaggio = { chiave, testo: errore.message || 'Voto non registrato.', tipo: 'errore' };
     }
@@ -197,7 +210,7 @@ function disegnaPannello() {
     titolo.textContent = `Scelta delle UDA ${NOME_GENERE} da attivare`;
     const intro = document.createElement('p');
     intro.className = 'uda-voto-testo';
-    intro.textContent = `Ogni docente ha ${VOTI_PER_DOCENTE} voti per anno di corso. La classifica è consultiva: la scelta diventa ufficiale quando viene confermata.`;
+    intro.textContent = `Si vota in due tempi: prima vengono messe al voto alcune UDA, dopo la consultazione, poi ogni docente esprime ${VOTI_PER_DOCENTE} voti per anno di corso. La classifica è consultiva finché la scelta non viene confermata.`;
     box.append(titolo, intro);
 
     const anni = [...new Set([...statoVoto.uda.values()].map(uda => Number(uda.anno)))].sort();
@@ -208,46 +221,50 @@ function disegnaPannello() {
 function creaBloccoAnno(anno) {
     const blocco = document.createElement('article');
     blocco.className = 'uda-voto-anno';
-    const ordinate = classifica(anno);
-    const confermate = sceltaDi(anno);
-    const votate = ordinate.filter(voce => voce.voti.length);
+    const gestisco = Boolean(window.CurricoloRevisione?.puoGestire);
+    const tutte = udaDellAnno(anno);
+    const rosa = rosaDi(anno);
+    const scelta = sceltaDi(anno);
 
     const testata = document.createElement('div');
     testata.className = 'uda-voto-anno-testa';
     const titolo = document.createElement('h3');
-    titolo.textContent = `${anno}ª — ${ordinate.length} UDA ${NOME_GENERE}`;
+    titolo.textContent = `${anno}ª — ${tutte.length} UDA ${NOME_GENERE}`;
     testata.appendChild(titolo);
+    blocco.appendChild(testata);
 
-    // Quando le UDA disponibili sono già quante se ne devono scegliere, non c'è
-    // gara: si dice e basta, invece di far votare a vuoto.
-    if (ordinate.length <= VOTI_PER_DOCENTE) {
-        const nota = document.createElement('p');
-        nota.className = 'uda-voto-testo';
-        nota.textContent = `Sono ${ordinate.length}, cioè esattamente quante se ne devono attivare: entrano tutte, non serve votare.`;
-        blocco.append(testata, nota);
+    // Quando le UDA disponibili sono già quante se ne devono attivare non c'è
+    // gara: si dice e basta, invece di far aprire una votazione a vuoto.
+    if (tutte.length <= VOTI_PER_DOCENTE) {
+        blocco.appendChild(testo(`Sono ${tutte.length}, cioè esattamente quante se ne devono attivare: entrano tutte, non serve votare.`));
         return blocco;
     }
 
-    if (window.CurricoloRevisione?.puoGestire) {
-        const conferma = document.createElement('button');
-        conferma.type = 'button';
-        conferma.className = 'uda-revisione-primary';
-        conferma.textContent = confermate.length ? 'Aggiorna la scelta' : 'Conferma le prime due';
-        conferma.disabled = votate.length < VOTI_PER_DOCENTE;
-        conferma.title = votate.length < VOTI_PER_DOCENTE
-            ? 'Servono almeno due UDA votate per confermare la scelta.'
-            : '';
-        conferma.addEventListener('click', () => confermaScelta(anno, ordinate.slice(0, VOTI_PER_DOCENTE).map(voce => voce.uda.id), conferma));
-        testata.appendChild(conferma);
+    if (!rosa.length) {
+        blocco.dataset.fase = 'da-aprire';
+        testata.appendChild(etichettaFase('Votazione non aperta'));
+        blocco.appendChild(testo(gestisco
+            ? `Scegli le UDA da mettere al voto, almeno ${VOTI_PER_DOCENTE + 1}, e apri la votazione. Fino ad allora i docenti non vedono nulla da votare.`
+            : 'La votazione non è ancora aperta: verranno messe al voto alcune UDA dopo la consultazione.'));
+        if (gestisco) blocco.appendChild(creaSelettoreRosa(anno, tutte, rosa));
+        return blocco;
     }
-    blocco.appendChild(testata);
 
+    blocco.dataset.fase = scelta.length ? 'conclusa' : 'in-corso';
+    testata.appendChild(etichettaFase(scelta.length ? 'Scelta confermata' : 'Votazione aperta'));
+    const votazione = votazioneDi(anno);
+    blocco.appendChild(testo(scelta.length
+        ? `Votazione chiusa. Sono state messe al voto ${rosa.length} UDA.`
+        : `Sono al voto ${rosa.length} UDA su ${tutte.length}, messe in votazione da ${votazione.aperta_da}. Ogni docente ha ${VOTI_PER_DOCENTE} voti.`));
+
+    const ordinate = classifica(anno);
+    const votate = ordinate.filter(voce => voce.voti.length);
     const elenco = document.createElement('ol');
     elenco.className = 'uda-voto-classifica';
     ordinate.forEach((voce, posizione) => {
         const riga = document.createElement('li');
         if (posizione < VOTI_PER_DOCENTE && voce.voti.length) riga.dataset.inTesta = 'true';
-        if (confermate.includes(String(voce.uda.id))) riga.dataset.scelta = 'true';
+        if (scelta.includes(String(voce.uda.id))) riga.dataset.scelta = 'true';
         const nome = document.createElement('span');
         nome.className = 'uda-voto-nome';
         nome.textContent = `${voce.uda.id} · ${voce.uda.titolo}`;
@@ -261,33 +278,146 @@ function creaBloccoAnno(anno) {
     });
     blocco.appendChild(elenco);
 
-    const pareggio = ordinate.length > VOTI_PER_DOCENTE
+    const pareggio = !scelta.length && ordinate.length > VOTI_PER_DOCENTE
         && ordinate[VOTI_PER_DOCENTE - 1].voti.length
         && ordinate[VOTI_PER_DOCENTE - 1].voti.length === ordinate[VOTI_PER_DOCENTE].voti.length;
     if (pareggio) {
-        const avviso = document.createElement('p');
+        const avviso = testo('Pareggio al secondo posto: la classifica da sola non decide, serve una scelta esplicita del consiglio.');
         avviso.className = 'uda-voto-avviso';
-        avviso.textContent = 'Pareggio al secondo posto: la classifica da sola non decide, serve una scelta esplicita del consiglio.';
         blocco.appendChild(avviso);
     }
 
-    if (confermate.length) {
-        const voce = statoVoto.scelte.find(riga => riga.anno === anno && riga.genere === GENERE);
-        const nota = document.createElement('p');
+    if (scelta.length) {
+        const quando = new Intl.DateTimeFormat('it-IT', { dateStyle: 'medium', timeStyle: 'short' })
+            .format(new Date(votazione.confermata_il));
+        const nota = testo(`Scelta confermata da ${votazione.confermata_da} il ${quando}: ${scelta.join(' e ')}.`);
         nota.className = 'uda-voto-confermata';
-        const quando = new Intl.DateTimeFormat('it-IT', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(voce.updated_at));
-        nota.textContent = `Scelta confermata da ${voce.confermata_da} il ${quando}: ${confermate.join(' e ')}.`;
         blocco.appendChild(nota);
     }
+
+    if (gestisco) {
+        const azioni = document.createElement('div');
+        azioni.className = 'uda-voto-azioni';
+        if (!scelta.length) {
+            const conferma = creaBottone(`Conferma le prime ${VOTI_PER_DOCENTE}`, 'uda-revisione-primary');
+            conferma.disabled = votate.length < VOTI_PER_DOCENTE;
+            conferma.title = conferma.disabled ? `Servono almeno ${VOTI_PER_DOCENTE} UDA votate per confermare.` : '';
+            conferma.addEventListener('click', () => confermaScelta(anno, ordinate.slice(0, VOTI_PER_DOCENTE).map(voce => String(voce.uda.id)), conferma));
+            azioni.appendChild(conferma);
+        }
+        const cambia = creaBottone(scelta.length ? 'Riapri la votazione' : 'Cambia la rosa', 'uda-revisione-secondary');
+        cambia.addEventListener('click', () => {
+            statoVoto.rosaInCorso.set(anno, new Set(rosa));
+            aggiornaTutto();
+        });
+        azioni.appendChild(cambia);
+        blocco.appendChild(azioni);
+        if (statoVoto.rosaInCorso.has(anno)) blocco.appendChild(creaSelettoreRosa(anno, tutte, rosa));
+    }
     return blocco;
+}
+
+// Selettore della rosa, riservato a chi gestisce: si spuntano le UDA da mettere
+// al voto e si apre la votazione.
+function creaSelettoreRosa(anno, tutte, rosa) {
+    const scelte = statoVoto.rosaInCorso.get(anno) || new Set(rosa);
+    statoVoto.rosaInCorso.set(anno, scelte);
+
+    const box = document.createElement('div');
+    box.className = 'uda-voto-rosa';
+    const elenco = document.createElement('div');
+    elenco.className = 'uda-voto-rosa-elenco';
+    tutte.forEach(uda => {
+        const chiave = String(uda.id);
+        const riga = document.createElement('label');
+        riga.className = 'uda-voto-rosa-voce';
+        const casella = document.createElement('input');
+        casella.type = 'checkbox';
+        casella.checked = scelte.has(chiave);
+        casella.addEventListener('change', () => {
+            if (casella.checked) scelte.add(chiave); else scelte.delete(chiave);
+            aggiornaConteggioRosa(box, anno);
+        });
+        const testoVoce = document.createElement('span');
+        testoVoce.textContent = `${uda.id} · ${uda.titolo}`;
+        riga.append(casella, testoVoce);
+        elenco.appendChild(riga);
+    });
+    box.appendChild(elenco);
+
+    const azioni = document.createElement('div');
+    azioni.className = 'uda-voto-azioni';
+    const conteggio = document.createElement('p');
+    conteggio.className = 'uda-voto-testo uda-voto-rosa-conteggio';
+    const apri = creaBottone(rosa.length ? 'Aggiorna la rosa' : 'Apri la votazione', 'uda-revisione-primary');
+    apri.addEventListener('click', () => apriVotazione(anno, [...scelte], apri));
+    const annulla = creaBottone('Annulla', 'uda-revisione-secondary');
+    annulla.addEventListener('click', () => { statoVoto.rosaInCorso.delete(anno); aggiornaTutto(); });
+    azioni.append(apri, annulla, conteggio);
+    box.appendChild(azioni);
+    if (statoVoto.messaggio?.chiave === `rosa-${anno}`) {
+        const esito = document.createElement('p');
+        esito.className = 'uda-voto-messaggio';
+        esito.dataset.tipo = statoVoto.messaggio.tipo;
+        esito.setAttribute('role', 'status');
+        esito.textContent = statoVoto.messaggio.testo;
+        box.appendChild(esito);
+        statoVoto.messaggio = null;
+    }
+    aggiornaConteggioRosa(box, anno);
+    return box;
+}
+
+function aggiornaConteggioRosa(box, anno) {
+    const scelte = statoVoto.rosaInCorso.get(anno) || new Set();
+    const conteggio = box.querySelector('.uda-voto-rosa-conteggio');
+    const apri = box.querySelector('.uda-revisione-primary');
+    const troppePoche = scelte.size > 0 && scelte.size <= VOTI_PER_DOCENTE;
+    conteggio.textContent = scelte.size === 0
+        ? 'Nessuna UDA selezionata: la votazione resterà chiusa.'
+        : troppePoche
+        ? `Ne hai selezionate ${scelte.size} e se ne devono attivare ${VOTI_PER_DOCENTE}: non ci sarebbe nulla da scegliere. Selezionane almeno ${VOTI_PER_DOCENTE + 1}.`
+        : `${scelte.size} UDA al voto.`;
+    apri.disabled = troppePoche;
+}
+
+async function apriVotazione(anno, rosa, bottone) {
+    bottone.disabled = true;
+    try {
+        assorbi(await window.CurricoloRevisione.api('ballot', { anno, genere: GENERE, rosa }));
+        statoVoto.rosaInCorso.delete(anno);
+    } catch (errore) {
+        statoVoto.messaggio = { chiave: `rosa-${anno}`, testo: errore.message || 'Rosa non registrata.', tipo: 'errore' };
+    }
+    aggiornaTutto();
+}
+
+function testo(contenuto) {
+    const nodo = document.createElement('p');
+    nodo.className = 'uda-voto-testo';
+    nodo.textContent = contenuto;
+    return nodo;
+}
+
+function etichettaFase(contenuto) {
+    const nodo = document.createElement('span');
+    nodo.className = 'uda-voto-fase';
+    nodo.textContent = contenuto;
+    return nodo;
+}
+
+function creaBottone(contenuto, classe) {
+    const bottone = document.createElement('button');
+    bottone.type = 'button';
+    bottone.className = classe;
+    bottone.textContent = contenuto;
+    return bottone;
 }
 
 async function confermaScelta(anno, chiavi, bottone) {
     bottone.disabled = true;
     try {
-        const dati = await window.CurricoloRevisione.api('choice', { anno, genere: GENERE, uda_keys: chiavi });
-        statoVoto.voti = dati.votes || [];
-        statoVoto.scelte = dati.choices || [];
+        assorbi(await window.CurricoloRevisione.api('choice', { anno, genere: GENERE, uda_keys: chiavi }));
     } catch (errore) {
         console.error('Scelta non registrata:', errore);
     }
