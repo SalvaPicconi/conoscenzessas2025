@@ -1,0 +1,8 @@
+# Configurazione di GitHub Pages.
+#
+# Il sito è statico e non usa Jekyll per generare pagine: questo file serve
+# solo a tenere fuori dalla pubblicazione le cartelle che stanno nel
+# repository come archivio, e che nessuna pagina del sito richiama.
+exclude:
+  - supabase/      # copia di riferimento del codice del server PFI
+  - tools/         # script usati una volta per generare i file dati
