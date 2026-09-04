@@ -138,9 +138,7 @@ async function richiediAccesso(modalita = 'revisione') {
 function aggiornaTestiAccesso() {
     const voto = statoRev.modalita === 'voto';
     if (uiRev.authTitolo) uiRev.authTitolo.textContent = voto ? 'Accedi alla votazione' : 'Accedi alla revisione';
-    if (uiRev.authDescrizione) uiRev.authDescrizione.textContent = voto
-        ? 'Usa lo stesso nome e la stessa password previsti per la revisione delle UDA.'
-        : 'Accedi allo spazio di modifica e revisione delle UDA.';
+    if (uiRev.authDescrizione) uiRev.authDescrizione.textContent = 'Inserisci nome e password.';
     const invia = uiRev.auth?.querySelector('button[type="submit"]');
     if (invia) invia.textContent = voto ? 'Accedi e vota' : 'Accedi e modifica';
 }

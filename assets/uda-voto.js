@@ -57,7 +57,7 @@ function aggiornaAccessoVoto() {
     if (!uiVoto.apri) return;
     const attiva = inModalitaVoto() && Boolean(window.CurricoloRevisione?.docente);
     uiVoto.accesso?.classList.toggle('is-active', attiva);
-    uiVoto.apri.textContent = attiva ? 'Esci dalla votazione' : 'Vota le preferenze per le UDA';
+    uiVoto.apri.textContent = attiva ? 'Esci dalla votazione' : 'Entra';
     uiVoto.apri.className = attiva ? 'uda-revisione-secondary' : 'uda-voto-primary';
     if (uiVoto.messaggio) uiVoto.messaggio.textContent = attiva
         ? `${window.CurricoloRevisione.docente} · spazio di votazione attivo`

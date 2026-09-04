@@ -30,10 +30,9 @@
             <div>
                 <p class="uda-revisione-eyebrow">Scelta collegiale</p>
                 <h2 id="uda-voto-accesso-titolo">Vota le preferenze per le UDA</h2>
-                <p>Entra nello spazio riservato alla votazione. Per accedere usa lo stesso nome e la stessa password della revisione.</p>
                 <p id="uda-voto-accesso-messaggio" class="uda-revisione-messaggio" role="status" aria-live="polite"></p>
             </div>
-            <button type="button" id="uda-voto-apri-accesso" class="uda-voto-primary">Vota le preferenze per le UDA</button>
+            <button type="button" id="uda-voto-apri-accesso" class="uda-voto-primary">Entra</button>
         </section>
 
         <div id="uda-votazione" class="uda-votazione"></div>
@@ -42,14 +41,14 @@
             <div>
                 <p class="uda-revisione-eyebrow">Lavoro collegiale</p>
                 <h2>Revisione delle UDA</h2>
-                <p>Il fascicolo resta consultabile da tutti. I saperi documentali rimangono nella scheda; i docenti autorizzati possono proporre integrazioni e modifiche senza cambiare subito il testo pubblico.</p>
+                <p>Spazio riservato ai docenti.</p>
             </div>
             <button type="button" id="uda-revisione-apri-accesso" class="uda-revisione-primary">Accedi per modificare</button>
         </section>
 
         <form id="uda-revisione-auth" class="uda-revisione-auth" aria-labelledby="uda-revisione-auth-titolo" hidden>
             <h2 id="uda-revisione-auth-titolo">Accesso docenti</h2>
-            <p id="uda-revisione-auth-descrizione">Inserisci le credenziali per continuare.</p>
+            <p id="uda-revisione-auth-descrizione">Inserisci nome e password.</p>
             <div class="uda-revisione-auth-grid">
                 <label for="uda-revisione-docente">Docente
                     <select id="uda-revisione-docente" required>
@@ -173,9 +172,9 @@
     </main>
 
     <script src="uda.js?v=20260905l"></script>
-    <script type="module" src="assets/uda-revisione.js?v=20260905n"></script>
+    <script type="module" src="assets/uda-revisione.js?v=20260905o"></script>
     <script type="module" src="assets/uda-ore.js?v=20260905n"></script>
-    <script type="module" src="assets/uda-voto.js?v=20260905n"></script>
+    <script type="module" src="assets/uda-voto.js?v=20260905o"></script>
     <script>
         // Testi comuni dal JSON (meta)
         fetch('data-uda.json', { cache: 'no-store' }).then(r => r.json()).then(d => {
