@@ -1,0 +1,131 @@
+/* Navigazione fra le sezioni del curricolo — vedi assets/navigazione.js.
+   Pensata prima per il telefono: una sola riga, voci scorrevoli in orizzontale
+   e bersagli abbastanza grandi da centrare con il pollice. */
+
+.nav-curricolo,
+.nav-rapida {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    box-sizing: border-box;
+    padding: 0.5rem 0.75rem;
+    padding-left: max(0.75rem, env(safe-area-inset-left));
+    padding-right: max(0.75rem, env(safe-area-inset-right));
+    background: rgba(11, 95, 90, 0.97);
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(8, 60, 57, 0.22);
+}
+
+@supports (backdrop-filter: blur(10px)) {
+    .nav-curricolo,
+    .nav-rapida { background: rgba(11, 95, 90, 0.88); backdrop-filter: blur(10px); }
+}
+
+/* Barra della pagina autonoma: resta in cima mentre si scorre. */
+.nav-curricolo {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    padding-top: max(0.5rem, env(safe-area-inset-top));
+}
+
+/* Barra rapida della pagina principale: compare in basso, dove arriva il pollice.
+   La regola display serve esplicitamente, o vincerebbe sul display:flex qui sotto. */
+.nav-rapida[hidden] { display: none; }
+
+.nav-rapida {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 60;
+    padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+    box-shadow: 0 -6px 20px rgba(8, 60, 57, 0.22);
+}
+
+.nav-rapida-titolo {
+    flex: 0 0 auto;
+    color: #a7f3d0;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+.nav-curricolo-home {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 0.3rem;
+    min-height: 2.75rem;
+    padding: 0.4rem 0.7rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-decoration: none;
+}
+.nav-curricolo-home:hover,
+.nav-curricolo-home:focus-visible { background: rgba(255, 255, 255, 0.26); }
+
+.nav-curricolo-sezioni {
+    display: flex;
+    flex: 1 1 auto;
+    gap: 0.35rem;
+    min-width: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+}
+.nav-curricolo-sezioni::-webkit-scrollbar { display: none; }
+
+.nav-curricolo-sezioni[data-bordi="destra"] { mask-image: linear-gradient(90deg, #000 82%, transparent 100%); }
+.nav-curricolo-sezioni[data-bordi="sinistra"] { mask-image: linear-gradient(90deg, transparent 0, #000 18%); }
+.nav-curricolo-sezioni[data-bordi="entrambi"] { mask-image: linear-gradient(90deg, transparent 0, #000 14%, #000 86%, transparent 100%); }
+
+.nav-curricolo-voce {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    min-height: 2.75rem;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.86);
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    scroll-snap-align: center;
+    cursor: pointer;
+}
+.nav-curricolo-voce:hover,
+.nav-curricolo-voce:focus-visible {
+    background: rgba(255, 255, 255, 0.16);
+    color: #fff;
+}
+.nav-curricolo-voce[aria-current] {
+    background: #fff;
+    color: #0b5f5a;
+    font-weight: 800;
+}
+
+.nav-curricolo :focus-visible,
+.nav-rapida :focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+
+@media (max-width: 560px) {
+    .nav-curricolo { gap: 0.4rem; }
+    .nav-curricolo-home { font-size: 0; gap: 0; padding: 0.4rem 0.75rem; }
+    .nav-curricolo-home span[aria-hidden] { font-size: 1.1rem; }
+    .nav-rapida-titolo { display: none; }
+}
+
+@media print {
+    .nav-curricolo,
+    .nav-rapida { display: none !important; }
+}

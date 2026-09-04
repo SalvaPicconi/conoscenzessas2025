@@ -379,3 +379,27 @@ button:disabled { cursor: wait; opacity: 0.62; }
     .uda-ore-tabella td { padding: 0.4rem 0.3rem; }
     .uda-ore-tabella input[type="number"] { width: 4rem; }
 }
+
+/* Ore dell'insegnamento accanto al suo nome, e durata dell'UDA in intestazione */
+.ins-chip-ore {
+    margin-left: 0.35rem;
+    padding-left: 0.35rem;
+    border-left: 1px solid currentColor;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    opacity: 0.72;
+}
+.pill-durata {
+    background: #ece7fb;
+    color: #4b3b8f;
+}
+.uda-ore-durata {
+    margin: 0.7rem 0 0;
+    padding: 0.55rem 0.7rem;
+    border-radius: 10px;
+    background: #f0edfb;
+    color: #4b3b8f;
+    font-size: 0.85rem;
+    line-height: 1.45;
+}
+.uda-ore-durata:empty { display: none; }

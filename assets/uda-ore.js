@@ -59,9 +59,100 @@ function disegnaTutte() {
         const chiave = slot.dataset.udaOreSlot;
         const ripartizione = ripartizioni[chiave];
         slot.replaceChildren();
-        if (ripartizione) slot.appendChild(creaBlocco(chiave, ripartizione));
+        if (!ripartizione) return;
+        const righe = componiScelte(chiave, ripartizione);
+        slot.appendChild(creaBlocco(chiave, ripartizione, righe));
+        const scheda = slot.closest('[data-uda-revisione-key]');
+        if (scheda) {
+            marcaChips(scheda, righe);
+            marcaDurata(scheda, righe);
+        }
     });
     notificaAltezza();
+}
+
+// Settimane di lezione necessarie: le detta l'insegnamento che deve trovare più
+// ore dentro il proprio orario settimanale, perché gli altri procedono in
+// parallelo. È la durata minima, a piena dedizione.
+// Stessa formula in tools/genera_ripartizione_ore.py, per il documento stampabile.
+function durata(righe) {
+    let settimane = 0;
+    let insegnamento = '';
+    righe.forEach(riga => {
+        const necessarie = riga.effettive / riga.oreSett;
+        if (necessarie > settimane) {
+            settimane = necessarie;
+            insegnamento = riga.ins;
+        }
+    });
+    return { settimane: Math.max(1, Math.ceil(settimane)), insegnamento };
+}
+
+function etichettaSettimane(quantita) {
+    return quantita === 1 ? '1 settimana' : `${quantita} settimane`;
+}
+
+// Riallinea tutto ciò che dipende dalle ore — durata, pillola e ore nei chip —
+// mentre il docente le sta modificando, non solo dopo il salvataggio.
+// Alla prima chiamata il riquadro non è ancora nel documento: pillola e chip li
+// scrive disegnaTutte subito dopo.
+function aggiornaDerivati(box, campi, righe) {
+    const correnti = righe.map(riga => {
+        const valore = Number(campi.get(riga.ins)?.value);
+        return Number.isFinite(valore) && valore > 0 ? { ...riga, effettive: valore } : riga;
+    });
+    const { settimane, insegnamento } = durata(correnti);
+    const riga = correnti.find(voce => voce.ins === insegnamento);
+    const testo = box.querySelector('.uda-ore-durata');
+    if (testo && riga) {
+        testo.textContent = `Durata: almeno ${etichettaSettimane(settimane)} di lezione. Il tempo è dettato da ${ETICHETTE[insegnamento] || insegnamento}, che deve ricavare ${ore(riga.effettive)} dalle sue ${riga.oreSett} settimanali. Se gli insegnamenti dedicano all'UDA metà delle proprie ore, il tempo raddoppia.`;
+    }
+    const scheda = box.closest('[data-uda-revisione-key]');
+    if (!scheda) return;
+    const pillola = scheda.querySelector('[data-uda-ore-durata]');
+    if (pillola) pillola.textContent = `📅 min. ${etichettaSettimane(settimane)}`;
+    if (campi.size) marcaChips(scheda, correnti);
+}
+
+// Ore di ciascun insegnamento accanto al suo nome, ovunque compaia nella scheda:
+// così il docente le trova già di fianco alle abilità e ai saperi che lo riguardano.
+function marcaChips(scheda, righe) {
+    const perEtichetta = new Map(righe.map(riga => [ETICHETTE[riga.ins] || riga.ins, riga]));
+    scheda.querySelectorAll('.ins-chip').forEach(chip => {
+        if (chip.closest('.uda-ore-box')) return;
+        chip.querySelector('.ins-chip-ore')?.remove();
+        const riga = perEtichetta.get(chip.textContent.trim());
+        if (!riga) return;
+        const quota = document.createElement('span');
+        quota.className = 'ins-chip-ore';
+        quota.textContent = etichettaOreVoce(riga);
+        chip.appendChild(quota);
+    });
+}
+
+function etichettaOreVoce(riga) {
+    if (riga.proposte.length || riga.min === riga.max) return `${riga.effettive} h`;
+    return `${riga.min}–${riga.max} h`;
+}
+
+// Durata accanto al monte ore, nell'intestazione: visibile a scheda chiusa.
+function marcaDurata(scheda, righe) {
+    const testata = scheda.querySelector('.uda-acc-header');
+    if (!testata) return;
+    testata.querySelector('[data-uda-ore-durata]')?.remove();
+    let contenitore = testata.querySelector('.uda-acc-pills');
+    if (!contenitore) {
+        contenitore = document.createElement('span');
+        contenitore.className = 'uda-acc-pills';
+        testata.insertBefore(contenitore, testata.querySelector('.uda-acc-arrow, .group-chevron'));
+    }
+    const { settimane } = durata(righe);
+    const pillola = document.createElement('span');
+    pillola.className = 'pill pill-durata';
+    pillola.dataset.udaOreDurata = 'true';
+    pillola.textContent = `📅 min. ${etichettaSettimane(settimane)}`;
+    pillola.title = 'Durata minima in settimane di lezione, se gli insegnamenti coinvolti dedicano all’UDA tutte le proprie ore.';
+    contenitore.appendChild(pillola);
 }
 
 // Banda entro cui il docente può spostare le ore del proprio insegnamento,
@@ -99,9 +190,8 @@ function componiScelte(chiave, ripartizione) {
     });
 }
 
-function creaBlocco(chiave, ripartizione) {
+function creaBlocco(chiave, ripartizione, righe) {
     const docente = window.CurricoloRevisione?.docente || '';
-    const righe = componiScelte(chiave, ripartizione);
     const modificabile = Boolean(docente);
 
     const box = document.createElement('section');
@@ -156,7 +246,7 @@ function creaBlocco(chiave, ripartizione) {
             input.dataset.base = String(riga.max);
             input.setAttribute('aria-label', `Ore concordate per ${ETICHETTE[riga.ins] || riga.ins}`);
             input.title = `Consentito da ${minimo} a ${massimo} ore: ${Math.round(tolleranza * 100)}% attorno alla proposta di ${ore(riga.max)}.`;
-            input.addEventListener('input', () => aggiornaTotale(box, ripartizione, campi));
+            input.addEventListener('input', () => aggiornaTotale(box, ripartizione, campi, righe));
             campi.set(riga.ins, input);
             cella.appendChild(input);
             tr.appendChild(cella);
@@ -189,6 +279,10 @@ function creaBlocco(chiave, ripartizione) {
         box.appendChild(nota);
     }
 
+    const tempo = document.createElement('p');
+    tempo.className = 'uda-ore-durata';
+    box.appendChild(tempo);
+
     const avviso = document.createElement('p');
     avviso.className = 'uda-ore-avviso';
     avviso.setAttribute('role', 'status');
@@ -214,14 +308,14 @@ function creaBlocco(chiave, ripartizione) {
                 const voce = ripartizione.voci.find(riga => riga.ins === ins);
                 input.value = String(voce.max);
             });
-            aggiornaTotale(box, ripartizione, campi);
+            aggiornaTotale(box, ripartizione, campi, righe);
         });
         salva.addEventListener('click', () => salvaOre(chiave, ripartizione, campi, esito, salva));
         piede.append(spiegazione, ripristina, salva, esito);
         box.appendChild(piede);
     }
 
-    aggiornaTotale(box, ripartizione, campi);
+    aggiornaTotale(box, ripartizione, campi, righe);
     return box;
 }
 
@@ -253,7 +347,8 @@ function ore(quantita) {
 
 // Confronta la somma delle ore concordate con il monte ore dell'UDA e scrive
 // l'avviso: è il punto in cui il consiglio di classe si accorge di dover parlare.
-function aggiornaTotale(box, ripartizione, campi) {
+function aggiornaTotale(box, ripartizione, campi, righe) {
+    aggiornaDerivati(box, campi, righe);
     const avviso = box.querySelector('.uda-ore-avviso');
     const cella = box.querySelector('.uda-ore-totale');
     if (!campi.size) {

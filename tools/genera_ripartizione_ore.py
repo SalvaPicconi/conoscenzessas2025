@@ -18,6 +18,7 @@ i dipartimenti. I file delle UDA non vengono toccati.
 from __future__ import annotations
 
 import json
+import math
 import re
 from pathlib import Path
 
@@ -69,6 +70,19 @@ def insegnamenti_citati(uda: dict) -> list[str]:
     return elenco
 
 
+def durata_settimane(voci: list[dict]) -> tuple[int, str]:
+    """Settimane di lezione necessarie e insegnamento che le detta.
+
+    Gli insegnamenti procedono in parallelo, quindi il tempo lo impone quello
+    che deve ricavare più ore dal proprio orario settimanale. È la durata
+    minima, a piena dedizione.
+    Stessa formula in assets/uda-ore.js, dove si aggiorna con le ore concordate.
+    """
+    peggiore = max(voci, key=lambda voce: voce["max"] / voce["oreSett"])
+    settimane = math.ceil(peggiore["max"] / peggiore["oreSett"])
+    return max(1, settimane), peggiore["ins"]
+
+
 def etichetta_totale(voce: dict) -> str:
     if voce["totaleMin"] == voce["totaleMax"]:
         return f"{voce['totaleMax']}"
@@ -91,6 +105,10 @@ def scrivi_documento(ripartizioni: dict[str, dict], quadro: dict, monte_fsl: int
         f"Le UDA di Formazione scuola-lavoro sono calcolate su un monte convenzionale di {monte_fsl} ore,",
         "da sostituire con quello deliberato nel piano FSL d'istituto.",
         "",
+        "La durata indicata è il minimo: la impone l'insegnamento che deve ricavare più ore dal",
+        "proprio orario settimanale, ipotizzando che vi dedichi tutte le sue ore. Se gli insegnamenti",
+        "dedicano all'UDA metà delle proprie ore, il tempo raddoppia.",
+        "",
         "Nell'applicativo ogni docente può modificare le proprie ore entro il "
         f"{round(regola['tolleranzaDocente'] * 100)}% in più o in meno rispetto a questa proposta.",
         "",
@@ -109,11 +127,13 @@ def scrivi_documento(ripartizioni: dict[str, dict], quadro: dict, monte_fsl: int
         )
         righe += ["", f"## Classe {anno}ª", "", f"Ore settimanali: {orario_anno}."]
         for chiave, voce in del_anno:
+            settimane, piu_lungo = durata_settimane(voce["voci"])
             righe += [
                 "",
                 f"### {chiave} · {voce['titolo']}",
                 "",
-                f"*{NOMI_GENERE[voce['genere']]} — monte ore {etichetta_totale(voce)}*",
+                f"*{NOMI_GENERE[voce['genere']]} — monte ore {etichetta_totale(voce)} — durata almeno "
+                f"{settimane} {'settimana' if settimane == 1 else 'settimane'}, dettata da {piu_lungo}*",
                 "",
                 "| Insegnamento | Ore settimanali | Ore nell'UDA |",
                 "|---|---:|---:|",

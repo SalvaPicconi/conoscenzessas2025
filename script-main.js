@@ -23,9 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
         panel.setAttribute('aria-hidden', 'true');
     });
 
+    // L'ancora ha la precedenza sull'ultima scheda usata: index.html#uda arriva
+    // dai pulsanti di ritorno delle pagine aperte da sole.
+    const esiste = id => Boolean(id) && tabButtons.some(btn => btn.dataset.tab === id);
+    const tabDaAncora = decodeURIComponent(window.location.hash.replace('#', ''));
     const storedTab = localStorage.getItem(TAB_STORAGE_KEY);
-    const initialTab = storedTab && tabButtons.some(btn => btn.dataset.tab === storedTab)
-        ? storedTab
+    const initialTab = esiste(tabDaAncora) ? tabDaAncora
+        : esiste(storedTab) ? storedTab
         : tabButtons[0].dataset.tab;
 
     setActiveTab(initialTab, { tabButtons, tabPanels, persist: false, focusButton: false });
@@ -35,6 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
             setActiveTab(button.dataset.tab, { tabButtons, tabPanels, focusButton: false });
             scrollToTabs(tabNavigation);
         });
+    });
+
+    // L'indirizzo segue la sezione, così il collegamento è condivisibile e il
+    // tasto indietro del telefono torna alla sezione precedente.
+    window.addEventListener('hashchange', () => {
+        const id = decodeURIComponent(window.location.hash.replace('#', ''));
+        if (esiste(id)) setActiveTab(id, { tabButtons, tabPanels });
     });
 
     tabNavigation.addEventListener('keydown', event => {
@@ -118,6 +129,9 @@ function setActiveTab(targetId, { tabButtons, tabPanels, persist = true, focusBu
 
     if (persist) {
         localStorage.setItem(TAB_STORAGE_KEY, targetId);
+        if (window.location.hash.replace('#', '') !== targetId) {
+            history.replaceState(null, '', `#${targetId}`);
+        }
     }
 
     const activePanel = tabPanels.find(panel => panel.id === `content-${targetId}`);
