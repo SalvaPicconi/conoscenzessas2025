@@ -481,7 +481,7 @@ button:disabled { cursor: wait; opacity: 0.62; }
     background: #e9f7ef;
     border-left: 4px solid #2a8f62;
 }
-.uda-voto-nome { flex: 1 1 auto; min-width: 0; color: #173a36; }
+.uda-voto-nome { flex: 1 1 0; min-width: 0; color: #173a36; }
 .uda-voto-conteggio {
     flex: 0 0 auto;
     color: #8a5a10;
@@ -557,4 +557,45 @@ button:disabled { cursor: wait; opacity: 0.62; }
 @media (max-width: 560px) {
     .uda-voto-rosa-elenco { grid-template-columns: 1fr; }
     .uda-voto-azioni button { width: 100%; }
+}
+
+/* Di cosa si tratta e prova esperta, nelle liste della votazione */
+.uda-voto-classifica li { align-items: flex-start; }
+.uda-voto-nome strong { display: block; color: #173a36; }
+.uda-voto-descrizione {
+    margin: 0.2rem 0 0;
+    color: #5c6b66;
+    font-size: 0.83rem;
+    line-height: 1.45;
+}
+.uda-voto-prova {
+    margin-top: 0.3rem;
+    font-size: 0.83rem;
+}
+.uda-voto-prova > summary {
+    display: inline-block;
+    padding: 0.2rem 0;
+    color: #0b5f5a;
+    font-weight: 700;
+    cursor: pointer;
+}
+.uda-voto-prova > summary:hover { text-decoration: underline; }
+.uda-voto-prova p {
+    margin: 0.3rem 0 0;
+    padding: 0.5rem 0.65rem;
+    border-radius: 8px;
+    background: #f2f7f5;
+    color: #304b46;
+    line-height: 1.5;
+}
+
+.uda-voto-rosa-voce { align-items: flex-start; }
+.uda-voto-rosa-voce input { margin-top: 0.55rem; }
+.uda-voto-rosa-testo { min-width: 0; }
+.uda-voto-rosa-testo > label {
+    display: block;
+    padding: 0.25rem 0;
+    color: #173a36;
+    font-weight: 700;
+    cursor: pointer;
 }

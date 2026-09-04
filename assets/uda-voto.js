@@ -265,9 +265,11 @@ function creaBloccoAnno(anno) {
         const riga = document.createElement('li');
         if (posizione < VOTI_PER_DOCENTE && voce.voti.length) riga.dataset.inTesta = 'true';
         if (scelta.includes(String(voce.uda.id))) riga.dataset.scelta = 'true';
-        const nome = document.createElement('span');
+        const nome = document.createElement('div');
         nome.className = 'uda-voto-nome';
-        nome.textContent = `${voce.uda.id} · ${voce.uda.titolo}`;
+        const intestazione = document.createElement('strong');
+        intestazione.textContent = `${voce.uda.id} · ${voce.uda.titolo}`;
+        nome.append(intestazione, ...descrizione(voce.uda));
         const conteggio = document.createElement('span');
         conteggio.className = 'uda-voto-conteggio';
         conteggio.textContent = voce.voti.length
@@ -329,17 +331,22 @@ function creaSelettoreRosa(anno, tutte, rosa) {
     elenco.className = 'uda-voto-rosa-elenco';
     tutte.forEach(uda => {
         const chiave = String(uda.id);
-        const riga = document.createElement('label');
+        const riga = document.createElement('div');
         riga.className = 'uda-voto-rosa-voce';
         const casella = document.createElement('input');
         casella.type = 'checkbox';
+        casella.id = `rosa-${GENERE}-${anno}-${chiave.replace(/[^a-zA-Z0-9]/g, '-')}`;
         casella.checked = scelte.has(chiave);
         casella.addEventListener('change', () => {
             if (casella.checked) scelte.add(chiave); else scelte.delete(chiave);
             aggiornaConteggioRosa(box, anno);
         });
-        const testoVoce = document.createElement('span');
-        testoVoce.textContent = `${uda.id} · ${uda.titolo}`;
+        const testoVoce = document.createElement('div');
+        testoVoce.className = 'uda-voto-rosa-testo';
+        const etichetta = document.createElement('label');
+        etichetta.htmlFor = casella.id;
+        etichetta.textContent = `${uda.id} · ${uda.titolo}`;
+        testoVoce.append(etichetta, ...descrizione(uda));
         riga.append(casella, testoVoce);
         elenco.appendChild(riga);
     });
@@ -390,6 +397,44 @@ async function apriVotazione(anno, rosa, bottone) {
         statoVoto.messaggio = { chiave: `rosa-${anno}`, testo: errore.message || 'Rosa non registrata.', tipo: 'errore' };
     }
     aggiornaTutto();
+}
+
+// Di cosa si tratta e come si verifica: senza queste due righe si voterebbe
+// leggendo solo il titolo. La prova esperta sta in un blocco richiudibile, così
+// l'elenco resta scorribile e chi vuole approfondire apre.
+function descrizione(uda) {
+    const nodi = [];
+    if (uda.traguardo) {
+        const traguardo = document.createElement('p');
+        traguardo.className = 'uda-voto-descrizione';
+        traguardo.textContent = uda.traguardo;
+        nodi.push(traguardo);
+    }
+    const prova = uda.compito || '';
+    // Nelle UDA d'asse compito e prodotto sono lo stesso testo: ripeterlo non
+    // aggiunge nulla.
+    const prodotto = uda.prodotto && uda.prodotto !== prova ? uda.prodotto : '';
+    if (!prova && !prodotto) return nodi;
+    const dettaglio = document.createElement('details');
+    dettaglio.className = 'uda-voto-prova';
+    const sommario = document.createElement('summary');
+    sommario.textContent = 'Prova esperta';
+    dettaglio.appendChild(sommario);
+    if (prova) {
+        const corpo = document.createElement('p');
+        corpo.textContent = prova;
+        dettaglio.appendChild(corpo);
+    }
+    if (prodotto) {
+        const corpo = document.createElement('p');
+        corpo.innerHTML = '';
+        const titolo = document.createElement('strong');
+        titolo.textContent = 'Prodotto atteso: ';
+        corpo.append(titolo, document.createTextNode(prodotto));
+        dettaglio.appendChild(corpo);
+    }
+    nodi.push(dettaglio);
+    return nodi;
 }
 
 function testo(contenuto) {
