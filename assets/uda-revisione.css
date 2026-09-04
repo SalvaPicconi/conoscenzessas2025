@@ -482,17 +482,6 @@ button:disabled { cursor: wait; opacity: 0.62; }
     background: #ece7fb;
     color: #4b3b8f;
 }
-.uda-ore-durata {
-    margin: 0.7rem 0 0;
-    padding: 0.55rem 0.7rem;
-    border-radius: 10px;
-    background: #f0edfb;
-    color: #4b3b8f;
-    font-size: 0.85rem;
-    line-height: 1.45;
-}
-.uda-ore-durata:empty { display: none; }
-
 /* Votazione per la scelta delle UDA (assets/uda-voto.js) */
 .uda-voto-box {
     margin: 1rem 0 0;

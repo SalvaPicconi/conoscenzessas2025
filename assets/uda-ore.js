@@ -102,25 +102,25 @@ function etichettaSettimane(quantita) {
     return quantita === 1 ? '1 settimana' : `${quantita} settimane`;
 }
 
-// Riallinea tutto ciò che dipende dalle ore — durata, pillola e ore nei chip —
+// Riallinea ciò che dipende dalle ore — pillola della durata e ore nei chip —
 // mentre il docente le sta modificando, non solo dopo il salvataggio.
 // Alla prima chiamata il riquadro non è ancora nel documento: pillola e chip li
 // scrive disegnaTutte subito dopo.
+//
+// La scheda mostra solo il numero di settimane. Come lo si ricava — quale
+// insegnamento detta il tempo, quante ore deve ricavare dalle proprie
+// settimanali, che a dedizione dimezzata il tempo raddoppia — è ragionamento
+// di lavoro nostro: sta nel commento a durata() qui sopra, non davanti a chi
+// consulta il curricolo.
 function aggiornaDerivati(box, campi, righe) {
     const correnti = righe.map(riga => {
         const valore = Number(campi.get(riga.ins)?.value);
         return Number.isFinite(valore) && valore > 0 ? { ...riga, effettive: valore } : riga;
     });
-    const { settimane, insegnamento } = durata(correnti);
-    const riga = correnti.find(voce => voce.ins === insegnamento);
-    const testo = box.querySelector('.uda-ore-durata');
-    if (testo && riga) {
-        testo.textContent = `Durata: almeno ${etichettaSettimane(settimane)} di lezione. Il tempo è dettato da ${ETICHETTE[insegnamento] || insegnamento}, che deve ricavare ${ore(riga.effettive)} dalle sue ${riga.oreSett} settimanali. Se gli insegnamenti dedicano all'UDA metà delle proprie ore, il tempo raddoppia.`;
-    }
     const scheda = box.closest('[data-uda-revisione-key]');
     if (!scheda) return;
     const pillola = scheda.querySelector('[data-uda-ore-durata]');
-    if (pillola) pillola.textContent = `📅 min. ${etichettaSettimane(settimane)}`;
+    if (pillola) pillola.textContent = `📅 min. ${etichettaSettimane(durata(correnti).settimane)}`;
     if (campi.size) marcaChips(scheda, correnti);
 }
 
@@ -161,7 +161,7 @@ function marcaDurata(scheda, righe) {
     pillola.className = 'pill pill-durata';
     pillola.dataset.udaOreDurata = 'true';
     pillola.textContent = `📅 min. ${etichettaSettimane(settimane)}`;
-    pillola.title = 'Durata minima in settimane di lezione, se gli insegnamenti coinvolti dedicano all’UDA tutte le proprie ore.';
+    pillola.title = 'Durata minima in settimane di lezione.';
     contenitore.appendChild(pillola);
 }
 
@@ -294,10 +294,6 @@ function creaBlocco(chiave, ripartizione, righe) {
         nota.textContent = `${elenco}: concorre ai contenuti dell'UDA ma non ha ore proprie, perché non è presente nel quadro orario di questo anno di corso. I relativi compiti restano agli insegnamenti sopra elencati.`;
         box.appendChild(nota);
     }
-
-    const tempo = document.createElement('p');
-    tempo.className = 'uda-ore-durata';
-    box.appendChild(tempo);
 
     const avviso = document.createElement('p');
     avviso.className = 'uda-ore-avviso';
