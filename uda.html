@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="style.css?v=20260721">
     <link rel="stylesheet" href="uda.css?v=20260904b">
     <link rel="stylesheet" href="didattica.css?v=20260901">
-    <link rel="stylesheet" href="assets/uda-revisione.css?v=20260905b">
-    <link rel="stylesheet" href="assets/navigazione.css?v=20260905g">
+    <link rel="stylesheet" href="assets/uda-revisione.css?v=20260905h">
+    <link rel="stylesheet" href="assets/navigazione.css?v=20260905h">
 </head>
 <body>
     <main class="container">
@@ -153,14 +153,16 @@
 
         <div id="uda-count" class="uda-count" aria-live="polite"></div>
 
+        <div id="uda-votazione" class="uda-votazione"></div>
         <div id="uda-list"></div>
 
         <div id="uda-loading" class="loading" role="status">Caricamento UDA...</div>
     </main>
 
-    <script src="uda.js?v=20260905b"></script>
-    <script type="module" src="assets/uda-revisione.js?v=20260905b"></script>
-    <script type="module" src="assets/uda-ore.js?v=20260905b"></script>
+    <script src="uda.js?v=20260905h"></script>
+    <script type="module" src="assets/uda-revisione.js?v=20260905h"></script>
+    <script type="module" src="assets/uda-ore.js?v=20260905h"></script>
+    <script type="module" src="assets/uda-voto.js?v=20260905h"></script>
     <script>
         // Testi comuni dal JSON (meta)
         fetch('data-uda.json', { cache: 'no-store' }).then(r => r.json()).then(d => {
@@ -170,6 +172,6 @@
             document.getElementById('uda-nota-piano').textContent = d.meta.notaPiano;
         });
     </script>
-<script src="assets/navigazione.js?v=20260905g"></script>
+<script src="assets/navigazione.js?v=20260905h"></script>
 </body>
 </html>

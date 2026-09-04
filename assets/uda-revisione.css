@@ -403,3 +403,106 @@ button:disabled { cursor: wait; opacity: 0.62; }
     line-height: 1.45;
 }
 .uda-ore-durata:empty { display: none; }
+
+/* Votazione per la scelta delle UDA (assets/uda-voto.js) */
+.uda-voto-box {
+    margin: 1rem 0 0;
+    padding: 0.9rem 1.1rem 1rem;
+    border: 1px solid #d9c9a8;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #fffaf0, #fdfdf7);
+}
+.uda-voto-box h4,
+.uda-voto-pannello h2 {
+    margin: 0;
+    color: #8a5a10;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+.uda-voto-testo,
+.uda-voto-elenco {
+    margin: 0.35rem 0 0;
+    color: #6b5c42;
+    font-size: 0.85rem;
+    line-height: 1.45;
+}
+.uda-voto-elenco { font-style: italic; }
+.uda-voto-azioni { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.7rem; }
+.uda-voto-messaggio { margin: 0.6rem 0 0; font-size: 0.85rem; }
+.uda-voto-messaggio[data-tipo="errore"] { color: #9f2822; font-weight: 700; }
+
+.pill-voti { background: #fdf1dc; color: #8a5a10; }
+.pill-scelta { background: #e2f5e9; color: #146c46; }
+
+.uda-voto-pannello {
+    margin: 0 0 1.5rem;
+    padding: 1.15rem 1.25rem 1.25rem;
+    border: 1px solid #d9c9a8;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #fffaf0, #fffdf7);
+    box-shadow: 0 10px 26px rgba(138, 90, 16, 0.08);
+}
+.uda-voto-anno { margin-top: 1.1rem; }
+.uda-voto-anno-testa {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem;
+}
+.uda-voto-anno-testa h3 { margin: 0; font-size: 1rem; color: #173a36; }
+
+.uda-voto-classifica {
+    margin: 0.6rem 0 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: posizione;
+}
+.uda-voto-classifica li {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.45rem 0.6rem;
+    border-bottom: 1px solid #efe4cf;
+    counter-increment: posizione;
+}
+.uda-voto-classifica li::before {
+    content: counter(posizione) ".";
+    flex: 0 0 1.6rem;
+    color: #a08a5f;
+    font-variant-numeric: tabular-nums;
+    font-weight: 800;
+}
+.uda-voto-classifica li[data-in-testa="true"] { background: #fdf6e7; }
+.uda-voto-classifica li[data-scelta="true"] {
+    background: #e9f7ef;
+    border-left: 4px solid #2a8f62;
+}
+.uda-voto-nome { flex: 1 1 auto; min-width: 0; color: #173a36; }
+.uda-voto-conteggio {
+    flex: 0 0 auto;
+    color: #8a5a10;
+    font-size: 0.85rem;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.uda-voto-avviso,
+.uda-voto-confermata {
+    margin: 0.6rem 0 0;
+    padding: 0.55rem 0.7rem;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    line-height: 1.45;
+}
+.uda-voto-avviso { background: #fdf1dc; color: #8a5a10; font-weight: 700; }
+.uda-voto-confermata { background: #e9f7ef; color: #146c46; font-weight: 700; }
+
+@media (max-width: 560px) {
+    .uda-voto-anno-testa button { width: 100%; }
+    .uda-voto-classifica li { flex-wrap: wrap; }
+    .uda-voto-conteggio { flex-basis: 100%; padding-left: 1.6rem; }
+}

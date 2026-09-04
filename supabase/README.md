@@ -64,6 +64,30 @@ conosce e senza aggiornamento rifiuterebbe il salvataggio delle ore:
 
     supabase functions deploy curricolo-uda-revisioni --project-ref ruplzgcnheddmqqdephp
 
+### Votazione per la scelta delle UDA
+
+Un docente vale un voto, e ne ha due per anno di corso fra le UDA d'asse e due
+fra le trasversali: tanti quante sono le UDA da attivare. Il tetto è applicato
+dalla funzione, non dal database, perché il messaggio deve dire al docente quali
+voti ha già speso e come liberarne uno. Le UDA FSL restano fuori: sono già una
+per anno e area di tirocinio.
+
+La classifica è consultiva. Diventa la scelta ufficiale solo quando chi ha i
+permessi di gestione la conferma, e resta registrata in
+`curricolo_uda_scelte` con il nome di chi l'ha confermata.
+
+Qui servono entrambi i passaggi, nell'ordine. Prima le tabelle:
+
+    psql "$DATABASE_URL" -f supabase/votazione-uda.sql
+
+poi la funzione, che espone le azioni `votes`, `vote` e `choice`:
+
+    supabase functions deploy curricolo-uda-revisioni --project-ref ruplzgcnheddmqqdephp
+
+Finché mancano, il sito non mostra nulla della votazione: `assets/uda-voto.js`
+disegna i pulsanti solo dopo che il server ha risposto, così una distribuzione
+incompleta non lascia in pagina comandi che falliscono.
+
 L'elenco mostrato nelle tre interfacce è definito una sola volta in
 `assets/uda-revisione.js`. La stessa anagrafica deve restare allineata con
 `AUTHORS` nella funzione e con i vincoli `author_name` delle due tabelle SQL.

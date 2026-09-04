@@ -625,6 +625,10 @@ function notificaAltezza() {
 // altre e viaggia dentro lo stesso record, ma ha un'interfaccia separata.
 window.CurricoloRevisione = {
     get docente() { return statoRev.autorizzato ? statoRev.docente : ''; },
+    get puoGestire() { return statoRev.autorizzato && statoRev.puoGestireStati; },
+    // Le azioni sui voti viaggiano sulla stessa sessione: la votazione non
+    // apre un canale proprio, riusa questo.
+    api: (azione, dati) => chiamaApi(azione, dati),
     revisioniUda,
     revisionePersonale,
     async salvaCampo(chiave, campo, valore, originaleCampo) {

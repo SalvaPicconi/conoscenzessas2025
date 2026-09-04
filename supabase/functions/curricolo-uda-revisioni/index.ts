@@ -24,6 +24,11 @@ const FIELDS = new Set([
 // Scostamento massimo del docente dalla proposta proporzionale delle ore.
 const ORE_TOLLERANZA = 0.4;
 const ORE_MASSIME_UDA = 400;
+// Voti a disposizione di ogni docente per anno di corso e genere di UDA:
+// tanti quante sono le UDA da scegliere.
+const VOTI_PER_DOCENTE = 2;
+const GENERI_UDA = new Set(["asse", "trasversale"]);
+const CHIAVE_VOTABILE = /^([0-9]+\.[0-9]+|T[1-5]\.[0-9]+)$/;
 
 const supabaseUrl = Deno.env.get("SUPABASE_URL") ?? "";
 const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "";
@@ -266,6 +271,79 @@ async function updateStatus(request: Request, payload: Record<string, unknown>, 
   return json(request, { revision: data });
 }
 
+// Voti e scelta ufficiale, restituiti insieme: al client servono sempre
+// entrambi per disegnare la classifica.
+async function listVotes(request: Request) {
+  const [voti, scelte] = await Promise.all([
+    admin.from("curricolo_uda_voti").select("uda_key,author_name,anno,genere"),
+    admin.from("curricolo_uda_scelte").select("anno,genere,uda_keys,confermata_da,updated_at"),
+  ]);
+  if (voti.error || scelte.error) return json(request, { error: "Impossibile caricare i voti." }, 500);
+  return json(request, { votes: voti.data ?? [], choices: scelte.data ?? [] });
+}
+
+async function castVote(request: Request, payload: Record<string, unknown>, sessionAuthor: string) {
+  try {
+    const udaKey = cleanString(payload.uda_key, 50, true);
+    if (!CHIAVE_VOTABILE.test(udaKey)) throw new Error("Su questa UDA non si vota.");
+    const anno = Number(payload.anno);
+    if (!Number.isInteger(anno) || anno < 1 || anno > 5) throw new Error("Anno non valido.");
+    const genere = cleanString(payload.genere, 20, true);
+    if (!GENERI_UDA.has(genere)) throw new Error("Genere di UDA non valido.");
+    const rimuovi = payload.rimuovi === true;
+
+    if (rimuovi) {
+      const { error } = await admin.from("curricolo_uda_voti").delete()
+        .eq("uda_key", udaKey).eq("author_name", sessionAuthor);
+      if (error) throw error;
+      return await listVotes(request);
+    }
+
+    // Il tetto si verifica qui, non nel database: il messaggio deve dire al
+    // docente quanti voti ha e come liberarne uno.
+    const { data: spesi, error: erroreConteggio } = await admin.from("curricolo_uda_voti")
+      .select("uda_key").eq("author_name", sessionAuthor).eq("anno", anno).eq("genere", genere);
+    if (erroreConteggio) throw erroreConteggio;
+    const giaVotata = (spesi ?? []).some(voce => voce.uda_key === udaKey);
+    if (!giaVotata && (spesi ?? []).length >= VOTI_PER_DOCENTE) {
+      const elenco = (spesi ?? []).map(voce => voce.uda_key).join(" e ");
+      throw new Error(
+        `Hai già usato i tuoi ${VOTI_PER_DOCENTE} voti di ${anno}ª su ${elenco}. Togli un voto per spostarlo su un'altra UDA.`,
+      );
+    }
+    const { error } = await admin.from("curricolo_uda_voti")
+      .upsert({ uda_key: udaKey, author_name: sessionAuthor, anno, genere }, { onConflict: "uda_key,author_name" });
+    if (error) throw error;
+    return await listVotes(request);
+  } catch (error) {
+    return json(request, { error: error instanceof Error ? error.message : "Voto non registrato." }, 400);
+  }
+}
+
+// La classifica è consultiva: solo chi ha i permessi di gestione la trasforma
+// nella scelta ufficiale dell'anno.
+async function confirmChoice(request: Request, payload: Record<string, unknown>, sessionAuthor: string) {
+  try {
+    const permissions = await permissionsFor(sessionAuthor);
+    if (!permissions.manage_status) return json(request, { error: "Operazione non consentita." }, 403);
+    const anno = Number(payload.anno);
+    if (!Number.isInteger(anno) || anno < 1 || anno > 5) throw new Error("Anno non valido.");
+    const genere = cleanString(payload.genere, 20, true);
+    if (!GENERI_UDA.has(genere)) throw new Error("Genere di UDA non valido.");
+    const chiavi = Array.isArray(payload.uda_keys) ? payload.uda_keys.map(String) : [];
+    if (chiavi.length > VOTI_PER_DOCENTE) throw new Error(`Si scelgono al massimo ${VOTI_PER_DOCENTE} UDA per anno.`);
+    if (chiavi.some(chiave => !CHIAVE_VOTABILE.test(chiave))) throw new Error("Chiave UDA non valida.");
+    if (new Set(chiavi).size !== chiavi.length) throw new Error("La stessa UDA compare due volte.");
+    const { error } = await admin.from("curricolo_uda_scelte").upsert({
+      anno, genere, uda_keys: chiavi, confermata_da: sessionAuthor, updated_at: new Date().toISOString(),
+    }, { onConflict: "anno,genere" });
+    if (error) throw error;
+    return await listVotes(request);
+  } catch (error) {
+    return json(request, { error: error instanceof Error ? error.message : "Scelta non registrata." }, 400);
+  }
+}
+
 Deno.serve(async (request: Request) => {
   if (request.method === "OPTIONS") return new Response("ok", { headers: corsHeaders(request) });
   if (request.method !== "POST") return json(request, { error: "Metodo non consentito." }, 405);
@@ -282,6 +360,9 @@ Deno.serve(async (request: Request) => {
   if (action === "list") return await listRevisions(request);
   if (action === "upsert") return await upsertRevision(request, payload, sessionAuthor);
   if (action === "status") return await updateStatus(request, payload, sessionAuthor);
+  if (action === "votes") return await listVotes(request);
+  if (action === "vote") return await castVote(request, payload, sessionAuthor);
+  if (action === "choice") return await confirmChoice(request, payload, sessionAuthor);
   if (action === "logout") {
     const token = request.headers.get("x-curricolo-session") ?? "";
     if (token) await admin.from("curricolo_uda_revision_sessions").delete().eq("token_hash", await sha256(token));
