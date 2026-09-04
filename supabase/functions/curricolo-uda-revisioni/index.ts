@@ -110,7 +110,9 @@ function cleanHours(value: unknown, baseline: unknown) {
       throw new Error(`Ore non valide per ${subject}.`);
     }
     const base = Number(proposal[subject]);
-    if (!Number.isFinite(base) || base <= 0) continue;
+    if (!Number.isFinite(base) || base <= 0) {
+      throw new Error(`L'insegnamento ${subject} non è presente nella proposta oraria di base.`);
+    }
     const minimo = Math.max(1, Math.round(base * (1 - ORE_TOLLERANZA)));
     const massimo = Math.max(1, Math.round(base * (1 + ORE_TOLLERANZA)));
     if (numero < minimo || numero > massimo) {
@@ -301,6 +303,11 @@ function readKeys(value: unknown, massimo: number) {
   return chiavi;
 }
 
+function keyMatchesScope(chiave: string, anno: number, genere: string) {
+  const prefisso = genere === "trasversale" ? `T${anno}.` : `${anno}.`;
+  return chiave.startsWith(prefisso);
+}
+
 async function ballotFor(anno: number, genere: string) {
   const { data, error } = await admin.from("curricolo_uda_votazione")
     .select("rosa,scelta").eq("anno", anno).eq("genere", genere).maybeSingle();
@@ -316,6 +323,9 @@ async function openBallot(request: Request, payload: Record<string, unknown>, se
     if (!permissions.manage_status) return json(request, { error: "Operazione non consentita." }, 403);
     const { anno, genere } = readScope(payload);
     const rosa = readKeys(payload.rosa, ROSA_MASSIMA);
+    if (rosa.some(chiave => !keyMatchesScope(chiave, anno, genere))) {
+      throw new Error("La rosa contiene UDA di un altro anno o di un'altra categoria.");
+    }
     if (rosa.length && rosa.length <= VOTI_PER_DOCENTE) {
       throw new Error(`Con ${rosa.length} UDA non c'è nulla da votare: se ne devono attivare ${VOTI_PER_DOCENTE}. Mettine al voto almeno ${VOTI_PER_DOCENTE + 1}.`);
     }
@@ -345,6 +355,9 @@ async function castVote(request: Request, payload: Record<string, unknown>, sess
     const udaKey = cleanString(payload.uda_key, 50, true);
     if (!CHIAVE_VOTABILE.test(udaKey)) throw new Error("Su questa UDA non si vota.");
     const { anno, genere } = readScope(payload);
+    if (!keyMatchesScope(udaKey, anno, genere)) {
+      throw new Error("L'UDA non appartiene all'anno o alla categoria indicati.");
+    }
     const rimuovi = payload.rimuovi === true;
 
     if (rimuovi) {
@@ -388,6 +401,12 @@ async function confirmChoice(request: Request, payload: Record<string, unknown>,
     if (!permissions.manage_status) return json(request, { error: "Operazione non consentita." }, 403);
     const { anno, genere } = readScope(payload);
     const scelta = readKeys(payload.uda_keys, VOTI_PER_DOCENTE);
+    if (scelta.length !== VOTI_PER_DOCENTE) {
+      throw new Error(`La scelta finale deve contenere esattamente ${VOTI_PER_DOCENTE} UDA.`);
+    }
+    if (scelta.some(chiave => !keyMatchesScope(chiave, anno, genere))) {
+      throw new Error("La scelta contiene UDA di un altro anno o di un'altra categoria.");
+    }
     const votazione = await ballotFor(anno, genere);
     if (!votazione?.rosa?.length) throw new Error(`La votazione di ${anno}ª non è mai stata aperta.`);
     if (scelta.some(chiave => !votazione.rosa.includes(chiave))) {

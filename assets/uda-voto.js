@@ -284,7 +284,7 @@ function creaBloccoAnno(anno) {
         && ordinate[VOTI_PER_DOCENTE - 1].voti.length
         && ordinate[VOTI_PER_DOCENTE - 1].voti.length === ordinate[VOTI_PER_DOCENTE].voti.length;
     if (pareggio) {
-        const avviso = testo('Pareggio al secondo posto: la classifica da sola non decide, serve una scelta esplicita del consiglio.');
+        const avviso = testo('Pareggio al secondo posto: prima della conferma il consiglio deve risolverlo spostando almeno un voto.');
         avviso.className = 'uda-voto-avviso';
         blocco.appendChild(avviso);
     }
@@ -302,8 +302,10 @@ function creaBloccoAnno(anno) {
         azioni.className = 'uda-voto-azioni';
         if (!scelta.length) {
             const conferma = creaBottone(`Conferma le prime ${VOTI_PER_DOCENTE}`, 'uda-revisione-primary');
-            conferma.disabled = votate.length < VOTI_PER_DOCENTE;
-            conferma.title = conferma.disabled ? `Servono almeno ${VOTI_PER_DOCENTE} UDA votate per confermare.` : '';
+            conferma.disabled = votate.length < VOTI_PER_DOCENTE || pareggio;
+            conferma.title = pareggio
+                ? 'Prima di confermare occorre risolvere il pareggio al secondo posto.'
+                : conferma.disabled ? `Servono almeno ${VOTI_PER_DOCENTE} UDA votate per confermare.` : '';
             conferma.addEventListener('click', () => confermaScelta(anno, ordinate.slice(0, VOTI_PER_DOCENTE).map(voce => String(voce.uda.id)), conferma));
             azioni.appendChild(conferma);
         }
