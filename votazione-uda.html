@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="it" data-uda-source="data-uda.json" data-uda-kind="asse">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Votazione collegiale delle UDA: ogni docente esprime una preferenza da 1 a 5 sulle unità messe al voto e la classifica diventa la scelta ufficiale del collegio.">
+    <meta name="theme-color" content="#0b5f5a">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <title>Votazione delle UDA — Preferenze del collegio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20260721">
+    <link rel="stylesheet" href="uda.css?v=20260906a">
+    <link rel="stylesheet" href="didattica.css?v=20260901">
+    <link rel="stylesheet" href="assets/uda-revisione.css?v=20260906b">
+    <link rel="stylesheet" href="votazione-uda.css?v=20260906b">
+    <link rel="stylesheet" href="assets/navigazione.css?v=20260906b">
+</head>
+<body>
+<main class="container">
+
+    <header class="header page-hero">
+        <div class="hero-card">
+            <h1>Votazione delle UDA</h1>
+            <div class="subline">IIS Meucci - Mattei Cagliari, Sede Decimomannu</div>
+            <p class="subtitle">Ogni docente esprime una preferenza da 1 a 5 sulle unità messe al voto dopo la consultazione collegiale</p>
+        </div>
+    </header>
+
+    <!-- Accesso -->
+    <section id="voto-accesso" class="voto-accesso" aria-labelledby="voto-accesso-titolo">
+        <div>
+            <p class="uda-revisione-eyebrow">Spazio riservato ai docenti</p>
+            <h2 id="voto-accesso-titolo">Entra per esprimere le tue preferenze</h2>
+            <p id="voto-accesso-messaggio" class="uda-revisione-messaggio" role="status" aria-live="polite">Le preferenze si leggono e si danno solo a docente riconosciuto.</p>
+        </div>
+        <button type="button" id="voto-apri-accesso" class="voto-primary">Entra nella votazione</button>
+    </section>
+
+    <!-- Modulo di accesso condiviso con la revisione -->
+    <form id="uda-revisione-auth" class="uda-revisione-auth" aria-labelledby="uda-revisione-auth-titolo" hidden>
+        <h2 id="uda-revisione-auth-titolo">Accedi alla votazione</h2>
+        <p id="uda-revisione-auth-descrizione">Inserisci nome e password.</p>
+        <div class="uda-revisione-auth-grid">
+            <label for="uda-revisione-docente">Docente
+                <select id="uda-revisione-docente" required>
+                    <option value="">Scegli il tuo nome</option>
+                </select>
+            </label>
+            <label for="uda-revisione-password">Password
+                <input type="password" id="uda-revisione-password" autocomplete="current-password" required>
+            </label>
+        </div>
+        <div class="uda-revisione-auth-actions">
+            <p id="uda-revisione-auth-messaggio" class="uda-revisione-messaggio" role="status" aria-live="polite"></p>
+            <button type="button" id="uda-revisione-annulla" class="uda-revisione-secondary">Annulla</button>
+            <button type="submit" class="uda-revisione-primary">Accedi e vota</button>
+        </div>
+    </form>
+
+    <!-- Come funziona -->
+    <section class="voto-guida" aria-labelledby="voto-guida-titolo">
+        <p class="uda-revisione-eyebrow">Come funziona</p>
+        <h2 id="voto-guida-titolo">Si vota in due tempi</h2>
+        <ol class="voto-passi">
+            <li><strong>Dopo la consultazione</strong>, chi ha i permessi di gestione mette al voto una rosa di UDA per
+                ciascun anno di corso: si vota solo su ciò di cui il collegio ha discusso.</li>
+            <li><strong>Ogni docente dà una preferenza da 1 a 5</strong> alle UDA della rosa — quante ne vuole, e può
+                cambiarla finché la votazione resta aperta.</li>
+            <li><strong>Vince chi somma più punti</strong> — non la media più alta, altrimenti passerebbe davanti
+                una UDA con un solo 5. A parità di punti conta la media, poi quante preferenze ha raccolto. La
+                classifica è consultiva: diventa la scelta ufficiale quando chi gestisce conferma le due in testa.</li>
+        </ol>
+        <div class="voto-scala" role="list" aria-label="Significato della scala di preferenza"></div>
+        <p class="voto-nota">Le UDA di formazione scuola-lavoro restano fuori dalla votazione: sono già una per anno e
+            area di tirocinio, non c'è nulla da mettere in concorrenza.</p>
+    </section>
+
+    <!-- Selettore del catalogo -->
+    <section class="voto-selettore" aria-label="Catalogo da votare">
+        <span class="voto-selettore-label">Catalogo:</span>
+        <div class="voto-generi" role="tablist" aria-label="Catalogo delle UDA">
+            <button type="button" class="voto-genere is-active" data-genere="asse" role="tab" aria-selected="true">UDA d’asse</button>
+            <button type="button" class="voto-genere" data-genere="trasversale" role="tab" aria-selected="false">UDA trasversali</button>
+        </div>
+    </section>
+
+    <div id="voto-contenuto" class="voto-contenuto"></div>
+
+    <p class="voto-piede">La classifica resta consultiva finché non viene confermata. Chi ha i permessi di gestione apre
+        la votazione, ne cambia la rosa e conferma la scelta; il risultato confermato si ritrova nel
+        <a href="index.html#piano">Piano delle UDA</a> del coordinatore.</p>
+
+    <!-- Impianto della revisione: serve solo a far funzionare l'accesso condiviso -->
+    <div class="voto-nascosto" aria-hidden="true">
+        <button type="button" id="uda-revisione-apri-accesso">Accedi</button>
+        <section id="uda-revisione-toolbar" hidden>
+            <p id="uda-revisione-identita"></p>
+            <button type="button" id="uda-revisione-crea">Crea</button>
+            <button type="button" id="uda-revisione-elenco">Revisioni <span id="uda-revisione-contatore">0</span></button>
+            <button type="button" id="uda-revisione-esci">Esci</button>
+        </section>
+        <div id="uda-revisione-nuova-slot"></div>
+        <section id="uda-revisione-pannello" hidden>
+            <button type="button" id="uda-revisione-pannello-chiudi">Chiudi</button>
+            <select id="uda-revisione-filtro-anno"><option value="">Tutti</option></select>
+            <select id="uda-revisione-filtro-docente"><option value="">Tutti</option></select>
+            <p id="uda-revisione-elenco-messaggio"></p>
+            <div id="uda-revisione-elenco-contenuto"></div>
+        </section>
+    </div>
+
+</main>
+
+<script src="votazione-uda.js?v=20260906b"></script>
+<script type="module" src="assets/uda-revisione.js?v=20260905o"></script>
+<script src="assets/navigazione.js?v=20260906b"></script>
+</body>
+</html>

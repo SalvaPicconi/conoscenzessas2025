@@ -1,5 +1,4 @@
 .uda-revisione-accesso,
-.uda-voto-accesso,
 .uda-revisione-auth,
 .uda-revisione-toolbar,
 .uda-revisione-pannello {
@@ -17,35 +16,6 @@
     box-shadow: 0 10px 30px rgba(19, 78, 74, 0.08);
 }
 
-.uda-voto-accesso {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.25rem;
-    margin: 1rem 0;
-    padding: 1.15rem 1.25rem;
-    border: 2px solid #e7b857;
-    border-radius: 14px;
-    background: linear-gradient(135deg, #fff8e8, #fdf1dc);
-}
-.uda-voto-accesso.is-active { border-color: #2a8f62; background: linear-gradient(135deg, #edf9f3, #e2f5e9); }
-.uda-voto-accesso h2 { margin: 0; color: #173a36; }
-.uda-voto-accesso p { margin: 0.2rem 0 0; }
-.uda-voto-primary {
-    flex: 0 0 auto;
-    min-height: 2.75rem;
-    padding: 0.75rem 1rem;
-    border: 1px solid #7c2d12;
-    border-radius: 9px;
-    background: #7c2d12;
-    color: #fff;
-    font: inherit;
-    font-weight: 800;
-    cursor: pointer;
-}
-.uda-voto-primary:hover,
-.uda-voto-primary:focus-visible { background: #5f210c; }
-.uda-voto-primary:disabled { cursor: wait; opacity: 0.65; }
 
 .uda-revisione-accesso h2,
 .uda-revisione-auth h2,
@@ -262,7 +232,6 @@ button:disabled { cursor: wait; opacity: 0.62; }
 
 @media (max-width: 680px) {
     .uda-revisione-accesso,
-    .uda-voto-accesso,
     .uda-revisione-toolbar,
     .uda-revisione-pannello-head,
     .uda-revisione-summary-head { align-items: stretch; flex-direction: column; }
@@ -278,14 +247,12 @@ button:disabled { cursor: wait; opacity: 0.62; }
     .uda-revisione-card-actions { justify-content: space-between; }
     .uda-revisione-toolbar-actions { flex-wrap: wrap; }
     .uda-revisione-toolbar-actions button { flex: 1 1 auto; }
-    .uda-voto-accesso button { width: 100%; }
     .uda-revisione-editor { padding: 0.8rem; }
     .uda-revisione-editor-footer { margin: 1rem -0.8rem -0.8rem; padding: 0.55rem 0.8rem; }
 }
 
 @media print {
     .uda-revisione-accesso,
-    .uda-voto-accesso,
     .uda-revisione-auth,
     .uda-revisione-toolbar,
     .uda-revisione-pannello,
@@ -481,199 +448,4 @@ button:disabled { cursor: wait; opacity: 0.62; }
 .pill-durata {
     background: #ece7fb;
     color: #4b3b8f;
-}
-/* Votazione per la scelta delle UDA (assets/uda-voto.js) */
-.uda-voto-box {
-    margin: 1rem 0 0;
-    padding: 0.9rem 1.1rem 1rem;
-    border: 1px solid #d9c9a8;
-    border-radius: 16px;
-    background: linear-gradient(135deg, #fffaf0, #fdfdf7);
-}
-.uda-voto-box h4,
-.uda-voto-pannello h2 {
-    margin: 0;
-    color: #8a5a10;
-    font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
-.uda-voto-testo,
-.uda-voto-elenco {
-    margin: 0.35rem 0 0;
-    color: #6b5c42;
-    font-size: 0.85rem;
-    line-height: 1.45;
-}
-.uda-voto-elenco { font-style: italic; }
-.uda-voto-azioni { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.7rem; }
-.uda-voto-messaggio { margin: 0.6rem 0 0; font-size: 0.85rem; }
-.uda-voto-messaggio[data-tipo="errore"] { color: #9f2822; font-weight: 700; }
-
-.pill-voti { background: #fdf1dc; color: #8a5a10; }
-.pill-scelta { background: #e2f5e9; color: #146c46; }
-
-.uda-voto-pannello {
-    margin: 0 0 1.5rem;
-    padding: 1.15rem 1.25rem 1.25rem;
-    border: 1px solid #d9c9a8;
-    border-radius: 18px;
-    background: linear-gradient(135deg, #fffaf0, #fffdf7);
-    box-shadow: 0 10px 26px rgba(138, 90, 16, 0.08);
-}
-.uda-voto-anno { margin-top: 1.1rem; }
-.uda-voto-anno-testa {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.6rem;
-}
-.uda-voto-anno-testa h3 { margin: 0; font-size: 1rem; color: #173a36; }
-
-.uda-voto-classifica {
-    margin: 0.6rem 0 0;
-    padding: 0;
-    list-style: none;
-    counter-reset: posizione;
-}
-.uda-voto-classifica li {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 0.75rem;
-    padding: 0.45rem 0.6rem;
-    border-bottom: 1px solid #efe4cf;
-    counter-increment: posizione;
-}
-.uda-voto-classifica li::before {
-    content: counter(posizione) ".";
-    flex: 0 0 1.6rem;
-    color: #a08a5f;
-    font-variant-numeric: tabular-nums;
-    font-weight: 800;
-}
-.uda-voto-classifica li[data-in-testa="true"] { background: #fdf6e7; }
-.uda-voto-classifica li[data-scelta="true"] {
-    background: #e9f7ef;
-    border-left: 4px solid #2a8f62;
-}
-.uda-voto-nome { flex: 1 1 0; min-width: 0; color: #173a36; }
-.uda-voto-conteggio {
-    flex: 0 0 auto;
-    color: #8a5a10;
-    font-size: 0.85rem;
-    font-weight: 800;
-    white-space: nowrap;
-}
-
-.uda-voto-avviso,
-.uda-voto-confermata {
-    margin: 0.6rem 0 0;
-    padding: 0.55rem 0.7rem;
-    border-radius: 10px;
-    font-size: 0.85rem;
-    line-height: 1.45;
-}
-.uda-voto-avviso { background: #fdf1dc; color: #8a5a10; font-weight: 700; }
-.uda-voto-confermata { background: #e9f7ef; color: #146c46; font-weight: 700; }
-
-@media (max-width: 560px) {
-    .uda-voto-anno-testa button { width: 100%; }
-    .uda-voto-classifica li { flex-wrap: wrap; }
-    .uda-voto-conteggio { flex-basis: 100%; padding-left: 1.6rem; }
-}
-
-/* Fasi della votazione e selettore della rosa */
-.uda-voto-fase {
-    padding: 0.2rem 0.6rem;
-    border-radius: 999px;
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    white-space: nowrap;
-}
-.uda-voto-anno[data-fase="da-aprire"] .uda-voto-fase { background: #ece7fb; color: #4b3b8f; }
-.uda-voto-anno[data-fase="in-corso"] .uda-voto-fase { background: #fdf1dc; color: #8a5a10; }
-.uda-voto-anno[data-fase="conclusa"] .uda-voto-fase { background: #e2f5e9; color: #146c46; }
-
-.uda-voto-rosa {
-    margin-top: 0.8rem;
-    padding: 0.85rem;
-    border: 1px dashed #c8b28a;
-    border-radius: 12px;
-    background: #fffdf7;
-}
-.uda-voto-rosa-elenco {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
-    gap: 0.2rem;
-}
-.uda-voto-rosa-voce {
-    display: flex;
-    align-items: center;
-    gap: 0.55rem;
-    min-height: 2.75rem;
-    padding: 0.3rem 0.4rem;
-    border-radius: 8px;
-    color: #173a36;
-    font-size: 0.88rem;
-    line-height: 1.35;
-    cursor: pointer;
-}
-.uda-voto-rosa-voce:hover { background: #f6f1e4; }
-.uda-voto-rosa-voce input {
-    flex: 0 0 auto;
-    width: 1.15rem;
-    height: 1.15rem;
-    accent-color: #0b6b63;
-}
-.uda-voto-rosa-conteggio { flex: 1 1 100%; margin: 0; }
-
-@media (max-width: 560px) {
-    .uda-voto-rosa-elenco { grid-template-columns: 1fr; }
-    .uda-voto-azioni button { width: 100%; }
-}
-
-/* Di cosa si tratta e prova esperta, nelle liste della votazione */
-.uda-voto-classifica li { align-items: flex-start; }
-.uda-voto-nome strong { display: block; color: #173a36; }
-.uda-voto-descrizione {
-    margin: 0.2rem 0 0;
-    color: #5c6b66;
-    font-size: 0.83rem;
-    line-height: 1.45;
-}
-.uda-voto-prova {
-    margin-top: 0.3rem;
-    font-size: 0.83rem;
-}
-.uda-voto-prova > summary {
-    display: inline-block;
-    padding: 0.2rem 0;
-    color: #0b5f5a;
-    font-weight: 700;
-    cursor: pointer;
-}
-.uda-voto-prova > summary:hover { text-decoration: underline; }
-.uda-voto-prova p {
-    margin: 0.3rem 0 0;
-    padding: 0.5rem 0.65rem;
-    border-radius: 8px;
-    background: #f2f7f5;
-    color: #304b46;
-    line-height: 1.5;
-}
-
-.uda-voto-rosa-voce { align-items: flex-start; }
-.uda-voto-rosa-voce input { margin-top: 0.55rem; }
-.uda-voto-rosa-testo { min-width: 0; }
-.uda-voto-rosa-testo > label {
-    display: block;
-    padding: 0.25rem 0;
-    color: #173a36;
-    font-weight: 700;
-    cursor: pointer;
 }

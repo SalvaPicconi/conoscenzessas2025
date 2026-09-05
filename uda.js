@@ -221,7 +221,6 @@ function renderUdaCard(u, autoExpand) {
                             <span class="sin-ore">· Monte ore indicativo: ${escapeHTML(u.ore)}</span></div>
                     </div>
                 </div>
-                <div class="uda-voto-slot" data-uda-voto-slot="${escapeHTML(u.id)}"></div>
                 <div class="uda-ore-slot" data-uda-ore-slot="${escapeHTML(u.id)}"></div>
                 <div class="uda-revisione-slot" data-uda-revisione-slot="${escapeHTML(u.id)}"></div>
             </div>

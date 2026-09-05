@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="style.css?v=20260721">
     <link rel="stylesheet" href="uda.css?v=20260906a">
     <link rel="stylesheet" href="didattica.css?v=20260901">
-    <link rel="stylesheet" href="assets/uda-revisione.css?v=20260905p">
-    <link rel="stylesheet" href="assets/navigazione.css?v=20260905l">
+    <link rel="stylesheet" href="assets/uda-revisione.css?v=20260906b">
+    <link rel="stylesheet" href="assets/navigazione.css?v=20260906b">
 </head>
 <body>
     <main class="container">
@@ -25,17 +25,6 @@
                 <p class="subtitle">Schede sintetiche in formato D.I. 92/2018 · base per il Piano delle UDA di inizio anno</p>
             </div>
         </header>
-
-        <section id="uda-voto-accesso" class="uda-voto-accesso" aria-labelledby="uda-voto-accesso-titolo">
-            <div>
-                <p class="uda-revisione-eyebrow">Scelta collegiale</p>
-                <h2 id="uda-voto-accesso-titolo">Vota le preferenze per le UDA</h2>
-                <p id="uda-voto-accesso-messaggio" class="uda-revisione-messaggio" role="status" aria-live="polite"></p>
-            </div>
-            <button type="button" id="uda-voto-apri-accesso" class="uda-voto-primary">Entra</button>
-        </section>
-
-        <div id="uda-votazione" class="uda-votazione"></div>
 
         <section class="uda-revisione-accesso" aria-label="Revisione collegiale delle UDA">
             <div>
@@ -175,7 +164,6 @@
     <script src="assets/uda-documento.js?v=20260906a"></script>
     <script type="module" src="assets/uda-revisione.js?v=20260905o"></script>
     <script type="module" src="assets/uda-ore.js?v=20260905p"></script>
-    <script type="module" src="assets/uda-voto.js?v=20260905o"></script>
     <script type="module" src="assets/uda-stampa.js?v=20260906a"></script>
     <script>
         // Testi comuni dal JSON (meta)
@@ -186,6 +174,6 @@
             document.getElementById('uda-nota-piano').textContent = d.meta.notaPiano;
         });
     </script>
-<script src="assets/navigazione.js?v=20260905l"></script>
+<script src="assets/navigazione.js?v=20260906b"></script>
 </body>
 </html>

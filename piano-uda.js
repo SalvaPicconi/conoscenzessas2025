@@ -8,7 +8,7 @@
 //
 // Quando il collegio ha votato e confermato le UDA dell'anno, la scelta si
 // importa invece di essere ricopiata: si passa dall'accesso della votazione,
-// lo stesso di assets/uda-voto.js, e si leggono le delibere già registrate.
+// lo stesso di votazione-uda.js, e si leggono le delibere già registrate.
 //
 // Nulla viene inviato: la bozza vive nel localStorage del browser di chi
 // compila, perché un piano a metà non deve andare perso fra una seduta e la

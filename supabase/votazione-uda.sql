@@ -2,10 +2,9 @@
 --
 -- Si vota in due tempi. Prima chi ha i permessi di gestione mette al voto una
 -- rosa di UDA, dopo la consultazione collegiale: senza quel passaggio si
--- voterebbe su dieci schede che nessuno ha discusso. Poi i docenti votano
--- soltanto dentro la rosa, un voto a testa per UDA e due voti per anno di
--- corso, tanti quante sono le UDA da attivare. Alla fine la scelta viene
--- confermata e resta registrata con il nome di chi l'ha decisa.
+-- voterebbe su dieci schede che nessuno ha discusso. Poi ogni docente assegna
+-- una preferenza da 1 a 5 alle UDA della rosa, quante ne vuole. Alla fine la
+-- scelta viene confermata e resta registrata con il nome di chi l'ha decisa.
 --
 -- Come le altre tabelle del curricolo l'accesso dai client è chiuso: si passa
 -- soltanto dalla funzione Edge, che gira con la service role.
@@ -34,11 +33,23 @@ alter table public.curricolo_uda_votazione enable row level security;
 revoke all on table public.curricolo_uda_votazione from anon, authenticated;
 grant select, insert, update, delete on table public.curricolo_uda_votazione to service_role;
 
+drop policy if exists "nessun accesso client alla votazione curricolo" on public.curricolo_uda_votazione;
 create policy "nessun accesso client alla votazione curricolo"
     on public.curricolo_uda_votazione for all to anon, authenticated
     using (false) with check (false);
 
-create table if not exists public.curricolo_uda_voti (
+-- Il voto era un sì o un niente, con un tetto di due preferenze per anno.
+-- Contare quante volte una UDA era stata scelta non diceva però quanto la si
+-- volesse, e obbligava a spendere i due voti alla cieca. Ora ogni riga porta
+-- una preferenza da 1 a 5 e non c'è più un tetto: si esprime un giudizio su
+-- ogni UDA della rosa, e la classifica si legge sulla media.
+--
+-- La tabella si rifà invece di migrarla perché non ha mai raccolto un voto: la
+-- colonna nuova sarebbe partita con un valore inventato per righe che non
+-- esistono.
+drop table if exists public.curricolo_uda_voti;
+
+create table public.curricolo_uda_voti (
     uda_key text not null check (uda_key ~ '^([0-9]+\.[0-9]+|T[1-5]\.[0-9]+)$'),
     author_name text not null check (author_name in (
         'Prof. Picconi', 'Prof. Pinna', 'Prof.ssa Manca',
@@ -48,17 +59,22 @@ create table if not exists public.curricolo_uda_voti (
     )),
     anno smallint not null check (anno between 1 and 5),
     genere text not null check (genere in ('asse', 'trasversale')),
+    -- 1 non la attiverei · 2 poco convincente · 3 possibile · 4 buona proposta
+    -- · 5 da attivare senz'altro
+    punteggio smallint not null check (punteggio between 1 and 5),
     created_at timestamptz not null default now(),
+    aggiornato_il timestamptz not null default now(),
     primary key (uda_key, author_name)
 );
 
 comment on table public.curricolo_uda_voti is
-    'Un voto per docente e per UDA. Il tetto di due voti per anno e l''appartenenza alla rosa sono applicati dalla funzione Edge.';
+    'Una preferenza da 1 a 5 per docente e per UDA. L''appartenenza alla rosa e la chiusura della votazione sono applicate dalla funzione Edge.';
+comment on column public.curricolo_uda_voti.punteggio is
+    'Preferenza del docente, da 1 (non la attiverei) a 5 (da attivare senz''altro).';
 
--- Serve a contare i voti già spesi da un docente in un anno, il controllo più
--- frequente della funzione.
-create index if not exists curricolo_uda_voti_budget_idx
-    on public.curricolo_uda_voti (author_name, anno, genere);
+-- Serve a calcolare la media di un anno, la lettura più frequente.
+create index if not exists curricolo_uda_voti_scope_idx
+    on public.curricolo_uda_voti (anno, genere);
 create index if not exists curricolo_uda_voti_uda_idx
     on public.curricolo_uda_voti (uda_key);
 
@@ -66,6 +82,7 @@ alter table public.curricolo_uda_voti enable row level security;
 revoke all on table public.curricolo_uda_voti from anon, authenticated;
 grant select, insert, update, delete on table public.curricolo_uda_voti to service_role;
 
+drop policy if exists "nessun accesso client ai voti curricolo" on public.curricolo_uda_voti;
 create policy "nessun accesso client ai voti curricolo"
     on public.curricolo_uda_voti for all to anon, authenticated
     using (false) with check (false);

@@ -1,0 +1,522 @@
+/* ============================================================
+   Votazione delle UDA — preferenze da 1 a 5
+   ============================================================ */
+
+.voto-accesso,
+.voto-guida,
+.voto-selettore,
+.voto-anno {
+    margin: 0 0 18px;
+    padding: 18px 20px;
+    border: 1px solid var(--stroke, rgba(99, 102, 241, 0.16));
+    border-radius: var(--radius-lg, 22px);
+    background: var(--card-solid, #fff);
+    box-shadow: var(--shadow-card, 0 18px 44px -30px rgba(30, 41, 99, 0.45));
+}
+
+/* ---------- accesso ---------- */
+
+.voto-accesso {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    border: 2px solid #e7b857;
+    background: linear-gradient(135deg, #fff8e8, #fdf1dc);
+}
+
+.voto-accesso.is-active {
+    border-color: #2a8f62;
+    background: linear-gradient(135deg, #edf9f3, #e2f5e9);
+}
+
+.voto-accesso h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #173a36;
+}
+
+.voto-accesso p {
+    margin: 4px 0 0;
+}
+
+.voto-primary {
+    flex: 0 0 auto;
+    min-height: 2.75rem;
+    padding: 0.75rem 1.1rem;
+    border: 1px solid #7c2d12;
+    border-radius: 10px;
+    background: #7c2d12;
+    color: #fff;
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.voto-primary:hover:not(:disabled),
+.voto-primary:focus-visible:not(:disabled) { background: #5f210c; }
+.voto-primary:disabled { cursor: wait; opacity: 0.65; }
+
+.voto-ghost {
+    margin-top: 8px;
+    padding: 6px 10px;
+    border: 1px solid rgba(148, 163, 184, 0.6);
+    border-radius: 9px;
+    background: #fff;
+    color: var(--ink-soft, #4b5872);
+    font: inherit;
+    font-size: 12.5px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.voto-ghost:hover,
+.voto-ghost:focus-visible { background: #f1f5f9; }
+
+/* ---------- come funziona ---------- */
+
+.voto-guida h2 {
+    margin: 4px 0 10px;
+    font-size: 20px;
+}
+
+.voto-passi {
+    margin: 0 0 14px;
+    padding-left: 20px;
+    color: var(--ink-soft, #4b5872);
+}
+
+.voto-passi li {
+    margin-bottom: 6px;
+    line-height: 1.55;
+}
+
+.voto-scala {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.voto-scala-voce {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 11px;
+    border: 1px solid var(--stroke-soft, rgba(148, 163, 184, 0.22));
+    border-radius: 11px;
+    background: #fcfcff;
+}
+
+.voto-scala-stelle {
+    color: #d97706;
+    font-size: 13px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.voto-scala-testo {
+    color: var(--ink-soft, #4b5872);
+    font-size: 12.5px;
+    font-weight: 700;
+}
+
+.voto-nota,
+.voto-piede {
+    color: var(--ink-faint, #626d82);
+    font-size: 12.5px;
+    line-height: 1.55;
+}
+
+.voto-piede {
+    margin: 4px 0 28px;
+    text-align: center;
+}
+
+/* ---------- selettore del catalogo ---------- */
+
+.voto-selettore {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 18px;
+}
+
+.voto-selettore-label {
+    color: var(--ink-soft, #4b5872);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.voto-generi {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.voto-genere {
+    min-height: 40px;
+    padding: 8px 15px;
+    border: 1px solid #4338ca;
+    border-radius: 999px;
+    background: #fff;
+    color: #312e81;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.voto-genere:hover:not(.is-active),
+.voto-genere:focus-visible:not(.is-active) { background: #e0e7ff; }
+.voto-genere.is-active { background: #4338ca; color: #fff; }
+
+/* ---------- blocco dell'anno ---------- */
+
+.voto-anno-testa {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+.voto-anno-testa h2 {
+    margin: 0;
+    font-size: 19px;
+}
+
+.voto-fase {
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+}
+
+.voto-anno[data-fase="da-aprire"] .voto-fase { background: #ece7fb; color: #4b3b8f; }
+.voto-anno[data-fase="in-corso"] .voto-fase { background: #fdf1dc; color: #8a5a10; }
+.voto-anno[data-fase="conclusa"] .voto-fase { background: #e2f5e9; color: #146c46; }
+.voto-anno[data-fase="senza-gara"] .voto-fase { background: #eef2ff; color: #3730a3; }
+
+.voto-testo {
+    margin: 0 0 10px;
+    color: var(--ink-soft, #4b5872);
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.voto-avviso {
+    margin: 0 0 18px;
+    padding: 16px 18px;
+    border: 1px dashed rgba(148, 163, 184, 0.6);
+    border-radius: 14px;
+    color: var(--ink-soft, #4b5872);
+    font-size: 14.5px;
+    text-align: center;
+}
+
+.voto-messaggio {
+    margin: 8px 0 0;
+    font-size: 13px;
+}
+
+.voto-messaggio[data-tipo="errore"] {
+    color: #9f2822;
+    font-weight: 700;
+}
+
+/* ---------- preferenze ---------- */
+
+.voto-preferenze h3,
+.voto-classifica-box h3,
+.voto-rosa h3 {
+    margin: 16px 0 8px;
+    font-family: var(--font-display, inherit);
+    font-size: 15.5px;
+    color: #173a36;
+}
+
+.voto-voce {
+    margin-bottom: 10px;
+    padding: 13px 15px;
+    border: 1px solid var(--stroke-soft, rgba(148, 163, 184, 0.22));
+    border-radius: 14px;
+    background: #fff;
+}
+
+.voto-voce[data-espressa="true"] {
+    border-color: #2a8f62;
+    background: linear-gradient(135deg, #f6fdf9, #f0fbf5);
+}
+
+.voto-voce-testa h4 {
+    margin: 0;
+    font-family: var(--font-display, inherit);
+    font-size: 15px;
+    line-height: 1.35;
+}
+
+.voto-descrizione {
+    margin: 5px 0 0;
+    color: var(--ink-soft, #4b5872);
+    font-size: 13.5px;
+    line-height: 1.5;
+}
+
+.voto-prova {
+    margin: 7px 0 0;
+    font-size: 13px;
+}
+
+.voto-prova > summary {
+    color: #3730a3;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.voto-prova p {
+    margin: 5px 0 0;
+    color: var(--ink-soft, #4b5872);
+    line-height: 1.5;
+}
+
+/* ---------- stelle ---------- */
+
+.voto-stelle {
+    margin: 11px 0 0;
+    padding: 0;
+    border: none;
+}
+
+.voto-stelle-scelta {
+    display: flex;
+    gap: 2px;
+}
+
+.voto-stella-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+.voto-stella {
+    padding: 2px 3px;
+    color: #cbd5e1;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.12s ease, transform 0.12s ease;
+}
+
+.voto-stella:hover { transform: scale(1.12); }
+
+/* La stella scelta e tutte quelle che la precedono restano accese: è il segno
+   che si legge senza contare le stelle una per una. Le radio stanno in ordine
+   naturale — 1 a sinistra, 5 a destra, frecce della tastiera che vanno nello
+   stesso verso — quindi «accendi anche quelle prima» si scrive guardando
+   avanti con :has(). Dove :has() non arriva resta accesa solo la stella
+   scelta: il valore si legge comunque nella riga «4 / 5» qui sotto. */
+.voto-stella-input:checked + .voto-stella,
+.voto-stella:has(~ .voto-stella-input:checked) {
+    color: #f59e0b;
+}
+
+.voto-stelle-scelta:hover .voto-stella { color: #cbd5e1; }
+.voto-stelle-scelta .voto-stella:hover,
+.voto-stelle-scelta .voto-stella:has(~ .voto-stella:hover) { color: #fbbf24; }
+
+.voto-stella-input:focus-visible + .voto-stella {
+    outline: 2px solid #4338ca;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+.voto-stelle-esito {
+    margin: 4px 0 0;
+    color: #92400e;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.voto-voce:not([data-espressa="true"]) .voto-stelle-esito {
+    color: var(--ink-faint, #626d82);
+    font-weight: 700;
+}
+
+/* ---------- classifica ---------- */
+
+.voto-classifica {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: posizione;
+}
+
+.voto-classifica li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 6px;
+    padding: 11px 13px 11px 40px;
+    position: relative;
+    border: 1px solid var(--stroke-soft, rgba(148, 163, 184, 0.22));
+    border-radius: 12px;
+    background: #fff;
+}
+
+.voto-classifica li::before {
+    counter-increment: posizione;
+    content: counter(posizione);
+    position: absolute;
+    left: 13px;
+    top: 11px;
+    color: var(--ink-faint, #626d82);
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.voto-classifica li[data-in-testa="true"] { background: #fffbeb; border-color: #fcd34d; }
+.voto-classifica li[data-scelta="true"] { background: #ecfdf5; border-color: #34d399; }
+
+.voto-classifica-nome {
+    flex: 1 1 260px;
+    min-width: 0;
+    color: #173a36;
+    font-size: 14.5px;
+}
+
+.voto-classifica-chi {
+    margin: 4px 0 0;
+    color: var(--ink-faint, #626d82);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.voto-classifica-punteggio {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-left: auto;
+}
+
+.voto-punti {
+    color: #92400e;
+    font-family: var(--font-display, inherit);
+    font-size: 20px;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.15;
+    white-space: nowrap;
+}
+
+.voto-quante {
+    color: var(--ink-faint, #626d82);
+    font-size: 11.5px;
+    font-weight: 700;
+}
+
+.voto-avviso-pareggio,
+.voto-confermata {
+    margin: 10px 0 0;
+    padding: 10px 13px;
+    border-radius: 11px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.voto-avviso-pareggio { background: #fdf1dc; color: #8a5a10; }
+.voto-confermata { background: #e9f7ef; color: #146c46; }
+
+/* ---------- azioni e rosa ---------- */
+
+.voto-azioni {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.voto-rosa {
+    margin-top: 14px;
+    padding: 14px 16px;
+    border: 2px solid #e7b857;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #fffdf7, #fdf6e9);
+}
+
+.voto-rosa h3 { margin-top: 0; }
+
+.voto-rosa-elenco {
+    display: grid;
+    gap: 7px;
+}
+
+.voto-rosa-voce {
+    display: flex;
+    gap: 11px;
+    padding: 10px 12px;
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    border-radius: 11px;
+    background: #fff;
+}
+
+.voto-rosa-voce input[type="checkbox"] {
+    flex: 0 0 auto;
+    width: 19px;
+    height: 19px;
+    margin-top: 2px;
+    accent-color: #7c2d12;
+    cursor: pointer;
+}
+
+.voto-rosa-testo { flex: 1 1 auto; min-width: 0; }
+
+.voto-rosa-testo > label {
+    display: block;
+    color: var(--ink, #0b1220);
+    font-size: 14.5px;
+    font-weight: 800;
+    line-height: 1.35;
+    cursor: pointer;
+}
+
+.voto-rosa-conteggio {
+    flex: 1 1 100%;
+    margin: 0;
+}
+
+/* L'impianto della revisione serve solo a far funzionare l'accesso condiviso */
+.voto-nascosto { display: none; }
+
+@media (max-width: 720px) {
+    .voto-accesso,
+    .voto-guida,
+    .voto-selettore,
+    .voto-anno {
+        padding: 15px 14px;
+    }
+
+    .voto-accesso button,
+    .voto-genere,
+    .voto-azioni button { flex: 1 1 auto; }
+
+    .voto-stella { font-size: 34px; }
+
+    .voto-classifica-punteggio {
+        flex-direction: row;
+        align-items: baseline;
+        gap: 7px;
+        margin-left: 40px;
+    }
+}
