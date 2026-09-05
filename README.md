@@ -22,17 +22,24 @@ Sito pubblicato: https://salvapicconi.github.io/conoscenzessas2025/
 
 ## Esportazioni
 
-- **Excel** — tabella del curricolo (rispetta i filtri attivi)
-- **Word** — modello di Piano di Lavoro individuale precompilato con competenze, abilità e conoscenze
+- **Excel** (`.xlsx`) — tabella del curricolo, con intestazione bloccata e colonne dimensionate (rispetta i filtri attivi)
+- **Word** (`.docx`) — modello di Piano di Lavoro individuale precompilato con competenze, abilità e conoscenze
 - **Scheda UDA** — ogni scheda dei tre cataloghi si scarica in Word o si stampa in PDF nel format dell'unità di
   apprendimento delle Linee guida (D.M. 766/2019, Box n. 8): le sezioni ricavabili dal curricolo escono compilate,
   quelle su fasi, accompagnamento dei docenti, documentazione e rubrica escono predisposte da completare in consiglio
 - **Piano delle UDA** — il documento del coordinatore, in Word o in PDF
 - **JSON** — dati grezzi
 
-Il file Word è HTML con le estensioni Office (formato A4, margini e piè di pagina numerato): si apre in Word e in
-LibreOffice senza conversioni. La stampa passa da un foglio nascosto, così funziona anche quando la pagina è dentro
-l'iframe della pagina principale.
+Tutti i file Office sono veri: `.docx` e `.xlsx` sono pacchetti Office Open XML (ECMA-376) scritti dal browser,
+senza librerie esterne. Prima erano HTML con l'estensione cambiata — un trucco che Word 2016 e successivi rifiutano
+(«il contenuto non corrisponde all'estensione»), che Pages e Google Documenti non aprono, e che quando Word riusciva
+ad aprire lasciava accanto al documento la cartella `nome_files`. Il documento esce in A4 con margini, stili dei
+titoli, tabelle con intestazione ripetuta a ogni pagina e piè di pagina numerato.
+
+Il contenuto è descritto una volta sola come elenco di blocchi (`assets/documento-office.js`) e reso in due modi: il
+file Office e la pagina che il browser stampa in PDF. Così il documento consegnato è lo stesso che si è visto a
+schermo. La stampa passa da un foglio fuori campo, non da una finestra nuova, così funziona anche quando la pagina è
+dentro l'iframe della pagina principale.
 
 ## Riferimenti normativi citati nei documenti
 
@@ -54,8 +61,10 @@ coordinatore); D.P.R. 8 marzo 1999, n. 275 art. 4; D.Lgs. 13 aprile 2017, n. 62;
 - `piano-uda.html` + `piano-uda.js` + `piano-uda.css` — Piano delle UDA del consiglio di classe: dati della seduta,
   scelta delle unità sui tre cataloghi, riepilogo del monte ore e stampa dell'allegato; la bozza resta nel browser
   di chi compila
-- `assets/uda-documento.js` — motore documentale condiviso: compone le schede UDA e il Piano, produce il file Word
-  e la stampa PDF, e tiene in un solo posto i riferimenti normativi
+- `assets/documento-office.js` — generatore di documenti Office: modello a blocchi, scrittura di `.docx` e `.xlsx`
+  (ZIP e OOXML fatti a mano, nessuna libreria), resa HTML per la stampa in PDF
+- `assets/uda-documento.js` — contenuto dei documenti delle UDA: la scheda della singola unità, i pezzi che il
+  Piano riusa e i riferimenti normativi, in un solo posto
 - `assets/uda-stampa.js` — comandi «Scarica in Word» e «Stampa / PDF» in testa a ogni scheda dei tre cataloghi
 - `assets/uda-revisione.js` + `assets/uda-revisione.css` — modifica e revisione collegiale dei tre cataloghi; saperi documentali protetti e integrazioni libere
 - `assets/uda-ore.js` — ripartizione oraria delle UDA per insegnamento: proposta proporzionale, modifica del docente entro il 40% e avviso quando il monte ore non torna

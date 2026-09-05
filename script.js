@@ -342,73 +342,147 @@ function orderSubjectsByPriority(subjects, primary) {
 
 // Export helpers
 function exportExcel() {
-    const baseData = (filteredData && filteredData.length) ? getVisibleData() : allData;
-    const data = (baseData && baseData.length) ? baseData : allData;
-    if (!data || !data.length) {
-        alert('Non ci sono dati da esportare.');
-        return;
-    }
-    const headerHtml = buildExportHeader();
-    const htmlTable = buildHtmlTable(data);
-    const content = `\uFEFF<html><head><meta charset="UTF-8"></head><body>${headerHtml}${htmlTable}</body></html>`;
-    // Usa MIME legacy per compatibilità Excel
-    downloadFile(content, 'application/vnd.ms-excel', 'curricolo_ssas_area_indirizzo.xls');
+    const data = datiDaEsportare();
+    if (!data) return;
+    const D = window.DocumentoOffice;
+    D.scaricaXlsx('curricolo_ssas_area_indirizzo.xlsx', {
+        nome: 'Curricolo SSAS',
+        intestazioni: ['Competenza', 'Titolo', 'Periodo', 'Livello QNQ', 'Competenza intermedia',
+                       'Abilità', 'Conoscenze', 'Insegnamenti'],
+        larghezze: [13, 38, 12, 11, 42, 46, 46, 26],
+        righe: data.map(item => [
+            `Competenza ${item.competenzaNum}`,
+            item.competenzaTitolo,
+            item.periodo,
+            String(item.livelloQNQ ?? ''),
+            item.competenzaIntermedia,
+            (item.abilita || []).join('\n'),
+            (item.conoscenze || []).map(c => c.nome).join('\n'),
+            (item.insegnamentoCoinvolti || []).join(', ')
+        ])
+    }, { titolo: 'Curricolo SSAS — Area di indirizzo' });
 }
 
 function exportWord() {
-    const baseData = (filteredData && filteredData.length) ? getVisibleData() : allData;
-    const data = (baseData && baseData.length) ? baseData : allData;
-    if (!data || !data.length) {
-        alert('Non ci sono dati da esportare.');
-        return;
-    }
-    const documentHtml = buildWordDocument(data);
-    const content = `\uFEFF<html><head><meta charset=\"UTF-8\"></head><body>${documentHtml}</body></html>`;
-    // MIME per Word
-    downloadFile(content, 'application/msword', 'curricolo_ssas_area_indirizzo.doc');
+    const data = datiDaEsportare();
+    if (!data) return;
+    const D = window.DocumentoOffice;
+    const disciplina = filters.insegnamento || '_____________';
+    const vuoto = '_____________';
+
+    const nodi = [
+        D.paragrafo('IIS Meucci - Mattei Cagliari, Sede Decimomannu', 'istituto'),
+        D.paragrafo('Competenze di indirizzo ai sensi del D.M. 24 maggio 2018, n. 92, Allegato C', 'indirizzo'),
+        D.linea(),
+        D.titolo(1, `PIANO DI LAVORO DI ${disciplina.toUpperCase()}`),
+        D.titolo(2, 'Informazioni generali'),
+        tabellaModulo([
+            ['Docente', vuoto],
+            ['Disciplina', disciplina],
+            ['Classe / sezione', vuoto],
+            ['Anno scolastico', vuoto],
+            ['Ore settimanali', vuoto]
+        ]),
+        D.titolo(2, 'Metodologia'),
+        D.titolo(3, 'Attività'), D.righe(4),
+        D.titolo(3, 'Strumenti'), D.righe(4),
+        D.titolo(3, 'Verifiche'), D.righe(3),
+        D.titolo(3, 'Criteri e modalità di valutazione'), D.righe(4),
+        D.titolo(3, 'Attività di recupero in itinere'),
+        D.paragrafo('Ogni qualvolta si rendesse necessario, si provvederà al recupero delle conoscenze e abilità pregresse.')
+    ];
+
+    raggruppaPerCompetenza(data).forEach(gruppo => {
+        nodi.push(D.titolo(2, `Competenza ${gruppo.numero} — ${gruppo.titolo}`));
+
+        const intermedie = [...gruppo.competenzeIntermedie.entries()].flatMap(([periodo, descrizioni]) =>
+            [...descrizioni].map(descrizione => [
+                D.testo(`${periodo}: `, { grassetto: true }),
+                D.testo(descrizione)
+            ]));
+        if (intermedie.length) {
+            nodi.push(D.titolo(3, 'Competenze intermedie'));
+            nodi.push(D.elenco(intermedie));
+        }
+        if (gruppo.conoscenze.size) {
+            nodi.push(D.titolo(3, 'Conoscenze'));
+            nodi.push(D.elenco([...gruppo.conoscenze]));
+        }
+        if (gruppo.abilita.size) {
+            nodi.push(D.titolo(3, 'Abilità'));
+            nodi.push(D.elenco([...gruppo.abilita]));
+        }
+        if (gruppo.periods.size) {
+            nodi.push(D.titolo(3, 'Contenuti per periodo'));
+            nodi.push(D.tabella({
+                intestazioni: ['Periodo', 'Contenuti'],
+                larghezze: [28, 72],
+                righe: [...gruppo.periods.keys()].map(periodo => [periodo, ''])
+            }));
+        }
+    });
+
+    nodi.push(D.firme(['Cagliari, __/__/______', 'Il/La docente']));
+
+    D.scaricaDocx('Piano-di-lavoro-SSAS.docx', nodi, {
+        titolo: `Piano di lavoro di ${disciplina}`,
+        istituto: 'IIS Meucci - Mattei Cagliari'
+    });
 }
 
 function exportJSON() {
-    const baseData = (filteredData && filteredData.length) ? getVisibleData() : allData;
-    const data = (baseData && baseData.length) ? baseData : allData;
-    if (!data || !data.length) {
-        alert('Non ci sono dati da esportare.');
-        return;
-    }
-    const jsonStr = JSON.stringify(data, null, 2);
-    downloadFile(jsonStr, 'application/json;charset=utf-8;', 'curricolo_ssas_area_indirizzo.json');
+    const data = datiDaEsportare();
+    if (!data) return;
+    downloadFile(JSON.stringify(data, null, 2), 'application/json;charset=utf-8;', 'curricolo_ssas_area_indirizzo.json');
 }
 
-// Costruisce una tabella HTML per l'esportazione (Excel/Word)
-function buildHtmlTable(data, rich = false) {
-    const header = ['Competenza', 'Titolo', 'Periodo', 'Livello QNQ', 'Comp. Intermedia', 'Abilità', 'Conoscenze', 'Insegnamenti'];
-    // Filtra eventuali elementi non validi per evitare righe vuote
-    const safeData = (data || []).filter(item => item && item.competenzaNum !== undefined && item.competenzaTitolo !== undefined);
-    const rows = safeData.map(item => {
-        const abilita = (item.abilita || []).join(' • ');
-        const conoscenze = (item.conoscenze || []).map(c => c.nome).join(' • ');
-        const insegnamenti = (item.insegnamentoCoinvolti || []).join(' • ');
-        return [
-            `Competenza ${item.competenzaNum}`,
-            escapeHtml(item.competenzaTitolo),
-            escapeHtml(item.periodo),
-            escapeHtml(String(item.livelloQNQ)),
-            escapeHtml(item.competenzaIntermedia),
-            escapeHtml(abilita),
-            escapeHtml(conoscenze),
-            escapeHtml(insegnamenti)
-        ];
-    });
+// Le tre esportazioni partono dagli stessi dati: quelli visibili se ci sono
+// filtri attivi, altrimenti tutti.
+function datiDaEsportare() {
+    const base = (filteredData && filteredData.length) ? getVisibleData() : allData;
+    const data = (base && base.length) ? base : allData;
+    if (!data || !data.length) {
+        alert('Non ci sono dati da esportare.');
+        return null;
+    }
+    return data.filter(item => item && item.competenzaNum !== undefined && item.competenzaTitolo !== undefined);
+}
 
-    // Larghezze colonne pensate per Word con table-layout:fixed
-    const colPerc = ['8%','22%','9%','7%','20%','12%','12%','10%'];
-    const thBase = 'text-align:left;border:1px solid #ddd;padding:6px;background:#f3f4f6';
-    const thead = `<thead><tr>${header.map((h,i) => `<th style=\"${thBase};width:${colPerc[i]}\">${h}</th>`).join('')}</tr></thead>`;
-    const tdBase = 'border:1px solid #ddd;padding:6px;vertical-align:top;word-wrap:break-word;overflow-wrap:anywhere;white-space:normal;page-break-inside:avoid';
-    const tbody = `<tbody>${rows.map(r => `<tr style=\"page-break-inside:avoid\">${r.map((c,i) => `<td style=\"${tdBase};width:${colPerc[i]}\">${c}</td>`).join('')}</tr>`).join('')}</tbody>`;
-    const fontSize = rich ? '11px' : '12px';
-    const tableAttrs = rich ? ` style=\"width:95%;margin:0 auto;table-layout:fixed;border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;font-size:${fontSize}\"` : '';
-    return `<table${tableAttrs}>${thead}${tbody}</table>`;
+function tabellaModulo(righe) {
+    const D = window.DocumentoOffice;
+    return D.tabella({
+        larghezze: [34, 66],
+        righe: righe.map(([etichetta, valore]) => [
+            { frammenti: D.frammenti(etichetta), grassetto: true, sfondo: 'FAFAFA' },
+            valore
+        ])
+    });
+}
+
+function raggruppaPerCompetenza(data) {
+    const mappa = new Map();
+    data.forEach(item => {
+        const chiave = item.competenzaNum;
+        const voce = mappa.get(chiave) || {
+            numero: item.competenzaNum,
+            titolo: item.competenzaTitolo || '',
+            periods: new Map(),
+            competenzeIntermedie: new Map(),
+            abilita: new Set(),
+            conoscenze: new Set()
+        };
+        const periodo = item.periodo || 'Periodo non specificato';
+        if (!voce.periods.has(periodo)) voce.periods.set(periodo, true);
+        (item.abilita || []).forEach(a => voce.abilita.add(a));
+        (item.conoscenze || []).forEach(c => { if (c && c.nome) voce.conoscenze.add(c.nome); });
+        if (item.competenzaIntermedia) {
+            const perPeriodo = voce.competenzeIntermedie.get(periodo) || new Set();
+            perPeriodo.add(item.competenzaIntermedia);
+            voce.competenzeIntermedie.set(periodo, perPeriodo);
+        }
+        mappa.set(chiave, voce);
+    });
+    return [...mappa.values()].sort((a, b) => a.numero - b.numero);
 }
 
 function escapeHtml(value) {
@@ -419,252 +493,6 @@ function escapeHtml(value) {
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#039;');
-}
-
-// Costruisce l'header per i documenti esportati
-function buildExportHeader(rich = false) {
-    const title = document.querySelector('.header h1')?.textContent?.trim() || '';
-    const subline = document.querySelector('.header .subline')?.textContent?.trim() || '';
-    const subtitle = document.querySelector('.header .subtitle')?.textContent?.trim() || '';
-    const style = rich
-        ? '<style>h1{margin:0 0 4px 0;font-size:18px} .exp-subline{margin:0 0 2px 0;font-size:12px;color:#374151;font-weight:600} .exp-subtitle{margin:0 0 12px 0;font-size:11px;color:#6b7280;font-style:italic}</style>'
-        : '';
-    const titleHtml = title ? `<h1>${escapeHtml(title)}</h1>` : '';
-    const sublineHtml = subline ? `<div class="exp-subline">${escapeHtml(subline)}</div>` : '';
-    const subtitleHtml = subtitle ? `<div class="exp-subtitle">${escapeHtml(subtitle)}</div>` : '';
-	return `${style}${titleHtml}${sublineHtml}${subtitleHtml}`;
-}
-
-function buildWordDocument(data) {
-	const style = `
-		<style>
-			body { font-family: "Times New Roman", serif; font-size: 12pt; color: #000; }
-			.word-heading { text-align: center; font-size: 11pt; margin: 0 0 4pt 0; }
-			.word-title { text-align: center; font-size: 14pt; font-weight: 600; margin: 0 0 12pt 0; }
-			.word-table { width: 100%; border-collapse: collapse; margin-bottom: 12pt; }
-			.word-table td { border: 1px solid #bfbfbf; padding: 6pt; vertical-align: top; }
-			.word-table .header-cell { text-align: center; font-weight: 700; background: #f2f2f2; }
-			.word-table .label-cell { width: 32%; font-weight: 600; }
-			.word-period-table td:first-child { width: 35%; font-weight: 600; }
-			.word-section-title { text-align: center; font-weight: 700; margin: 0; }
-			.word-list { margin: 0; padding-left: 16pt; }
-			.word-list li { margin-bottom: 3pt; }
-			.word-spacer { height: 12pt; }
-			.word-blank { margin: 4pt 0; }
-			.word-footer { margin-top: 32pt; font-size: 12pt; }
-		</style>
-	`;
-	const discipline = filters.insegnamento ? escapeHtml(filters.insegnamento) : '_____________';
-	const sections = [];
-	sections.push(style);
-	sections.push(buildWordHeading());
-	sections.push(`<p class="word-title">PIANO DI LAVORO DI ${discipline}</p>`);
-	sections.push(renderGeneralInfoTable());
-	sections.push(renderMethodologySection());
-
-	const grouped = groupForWordDocument(data);
-	grouped.forEach(group => {
-		sections.push(renderCompetenceBlock(group));
-	});
-
-	sections.push(renderWordFooter());
-	return sections.join('');
-}
-
-function buildWordHeading() {
-	const lines = [
-		'IIS Meucci - Mattei Cagliari, Sede Decimomannu',
-		'Competenze di indirizzo, ai sensi del Decreto del Ministro dell’istruzione, dell’università e della ricerca 24 maggio 2018, n. 92, Allegato C'
-	];
-	return lines.map(line => `<p class="word-heading">${line}</p>`).join('');
-}
-
-function renderGeneralInfoTable() {
-	const placeholder = '_____________';
-	const discipline = filters.insegnamento ? escapeHtml(filters.insegnamento) : placeholder;
-	const rows = [
-		{ label: 'DOCENTE', value: placeholder },
-		{ label: 'DISCIPLINA', value: discipline },
-		{ label: 'CLASSE/SEZIONE', value: placeholder },
-		{ label: 'ANNO SCOLASTICO', value: placeholder },
-		{ label: 'ORE SETTIMANALI _____________', value: placeholder },
-		{ label: 'ORE SETTIMANALI _____________', value: placeholder }
-	];
-
-	const header = `
-		<tr>
-			<td class="header-cell" colspan="2">INFORMAZIONI GENERALI</td>
-		</tr>
-	`;
-	const body = rows.map(row => `
-		<tr>
-			<td class="label-cell">${row.label}</td>
-			<td>${row.value || placeholder}</td>
-		</tr>
-	`).join('');
-	return `<table class="word-table">${header}${body}</table>`;
-}
-
-function renderMethodologySection() {
-	const rows = [
-		{ title: 'METODOLOGIA', content: [], placeholders: 0 },
-		{ title: 'Attività', content: [], placeholders: 4 },
-		{ title: 'Strumenti', content: [], placeholders: 6 },
-		{ title: 'Verifiche', content: [], placeholders: 3 },
-		{ title: 'Criteri e modalità di valutazione', content: [], placeholders: 6 },
-		{
-			title: 'Attività di recupero in itinere',
-			content: [
-				'Ogni qualvolta si rendesse necessario, si provvederà al recupero delle conoscenze e abilità pregresse'
-			],
-			placeholders: 0
-		}
-	];
-
-	const htmlRows = rows.map((row, index) => {
-		const isHeader = index === 0;
-		if (isHeader) {
-			return `<tr><td class="header-cell">${row.title}</td></tr>`;
-		}
-		if (!row.content.length) {
-			const placeholders = row.placeholders
-				? Array.from({ length: row.placeholders }, () => '<p class="word-blank">_____________</p>').join('')
-				: '<div class="word-spacer"></div>';
-			return `
-				<tr>
-					<td>
-						<p class="word-section-title">${row.title}</p>
-						${placeholders}
-					</td>
-				</tr>
-			`;
-		}
-		const list = `<ul class="word-list">${row.content.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`;
-		return `
-			<tr>
-				<td>
-					<p class="word-section-title">${row.title}</p>
-					${list}
-				</td>
-			</tr>
-		`;
-	}).join('');
-
-	return `<table class="word-table">${htmlRows}</table>`;
-}
-
-function groupForWordDocument(data) {
-	const map = new Map();
-	data.forEach(item => {
-		if (!item || item.competenzaNum === undefined) {
-			return;
-		}
-		const key = item.competenzaNum;
-		const entry = map.get(key) || {
-			numero: item.competenzaNum,
-			titolo: item.competenzaTitolo || '',
-			periods: new Map(),
-			competenzeIntermedie: new Map(),
-			abilita: new Set(),
-			conoscenze: new Set()
-		};
-
-		const periodKey = item.periodo || 'Periodo non specificato';
-		const knowledgeByPeriod = entry.periods.get(periodKey) || {
-			conoscenze: new Set(),
-			abilita: new Set()
-		};
-
-		(item.abilita || []).forEach(abilita => {
-			entry.abilita.add(abilita);
-			knowledgeByPeriod.abilita.add(abilita);
-		});
-		(item.conoscenze || []).forEach(conoscenza => {
-			if (conoscenza?.nome) {
-				entry.conoscenze.add(conoscenza.nome);
-				knowledgeByPeriod.conoscenze.add(conoscenza.nome);
-			}
-		});
-
-		if (item.competenzaIntermedia) {
-			const perPeriod = entry.competenzeIntermedie.get(periodKey) || new Set();
-			perPeriod.add(item.competenzaIntermedia);
-			entry.competenzeIntermedie.set(periodKey, perPeriod);
-		}
-		entry.periods.set(periodKey, knowledgeByPeriod);
-		map.set(key, entry);
-	});
-
-	return Array.from(map.values()).sort((a, b) => a.numero - b.numero);
-}
-
-function renderCompetenceBlock(group) {
-	const sections = [];
-	sections.push(renderSimpleTable('COMPETENZE', [
-		`Competenza ${group.numero}: ${escapeHtml(group.titolo)}`
-	]));
-
-	const intermedie = Array.from(group.competenzeIntermedie.entries()).flatMap(([periodo, descrizioni]) =>
-		Array.from(descrizioni).map(descrizione => `${escapeHtml(periodo)}: ${escapeHtml(descrizione)}`)
-	);
-
-	if (intermedie.length) {
-		sections.push(renderSimpleTable('COMPETENZE INTERMEDIE', intermedie));
-	}
-
-	const conoscenze = Array.from(group.conoscenze);
-	if (conoscenze.length) {
-		sections.push(renderSimpleTable('Conoscenze', conoscenze.map(escapeHtml)));
-	}
-
-	const abilita = Array.from(group.abilita);
-	if (abilita.length) {
-		sections.push(renderSimpleTable('Abilità', abilita.map(escapeHtml)));
-	}
-
-	sections.push(renderPeriodTables(group.periods));
-
-	return sections.join('');
-}
-
-function renderSimpleTable(title, lines) {
-	const header = `<tr><td class="header-cell">${title}</td></tr>`;
-	const bodyContent = (lines && lines.length)
-		? `<ul class="word-list">${lines.map(line => `<li>${line}</li>`).join('')}</ul>`
-		: '<p class="word-blank">_____________</p><p class="word-blank">_____________</p><p class="word-blank">_____________</p>';
-	const body = `<tr><td>${bodyContent}</td></tr>`;
-	return `<table class="word-table">${header}${body}</table>`;
-}
-
-function renderPeriodTables(periodsMap) {
-	if (!periodsMap || !periodsMap.size) {
-		return '';
-	}
-	const periods = Array.from(periodsMap.keys());
-	const blankContent = '<p class="word-blank">_____________</p><p class="word-blank">_____________</p><p class="word-blank">_____________</p>';
-	const rows = (periods.length ? periods : ['_____________']).map(periodo => `
-		<tr>
-			<td>${escapeHtml(periodo)}</td>
-			<td>${blankContent}</td>
-		</tr>
-	`).join('');
-	return `
-		<table class="word-table word-period-table">
-			<tr>
-				<td class="header-cell">Periodo</td>
-				<td class="header-cell">Contenuti</td>
-			</tr>
-			${rows}
-		</table>
-	`;
-}
-
-function renderWordFooter() {
-	return `
-		<p class="word-footer">
-			Cagliari, __/__/____&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Il/La docente
-		</p>
-	`;
 }
 
 function downloadFile(content, mimeType, filename) {

@@ -90,15 +90,15 @@ function consegna(uda, modo, bottone) {
     const etichettaOriginale = bottone.textContent;
     bottone.disabled = true;
     try {
-        const { html, nomeDocumento } = documento.documentoUda(uda, {
+        const { nodi, meta } = documento.documentoUda(uda, {
             meta: stato.meta,
             genere: GENERE,
             ripartizione: stato.ripartizione
         });
         if (modo === 'word') {
-            documento.scaricaWord(documento.nomeFile(['UDA', uda.id, uda.titolo], 'doc'), html);
+            documento.scaricaDocx(documento.nomeFile(['UDA', uda.id, uda.titolo], 'docx'), nodi, meta);
         } else {
-            documento.stampa(html);
+            documento.stampa(nodi, meta);
         }
         bottone.textContent = modo === 'word' ? '✓ File pronto' : '✓ Anteprima aperta';
     } catch (errore) {

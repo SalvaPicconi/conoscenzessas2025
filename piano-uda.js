@@ -496,12 +496,16 @@ function consegna(modo) {
         messaggioStato('Seleziona almeno una UDA prima di stampare il piano.');
         return;
     }
-    const { html } = costruisciPiano(scelte);
+    const { nodi, meta } = costruisciPiano(scelte);
     if (modo === 'word') {
-        documento.scaricaWord(documento.nomeFile(['Piano UDA', stato.dati.classe, stato.dati.annoScolastico], 'doc'), html);
+        documento.scaricaDocx(
+            documento.nomeFile(['Piano UDA', stato.dati.classe, stato.dati.annoScolastico], 'docx'),
+            nodi,
+            meta
+        );
         messaggioStato('File Word generato.');
     } else {
-        documento.stampa(html);
+        documento.stampa(nodi, meta);
         messaggioStato('Anteprima di stampa aperta.');
     }
     setTimeout(aggiornaStato, 4000);
@@ -509,92 +513,97 @@ function consegna(modo) {
 
 function costruisciPiano(scelte) {
     const d = window.CurricoloDocumento;
+    const B = d.blocchi;
     const dati = stato.dati;
     const classe = dati.classe || '__________';
     const annoScolastico = dati.annoScolastico || '________';
     const nomeDocumento = `Piano delle UDA — classe ${classe} — a.s. ${annoScolastico}`;
     const docenti = (dati.docenti || '').split('\n').map(riga => riga.trim()).filter(Boolean);
 
-    const parti = [];
-    parti.push(d.testata());
-    parti.push('<p class="doc-occhiello">Allegato alla programmazione del consiglio di classe</p>');
-    parti.push('<h1>PIANO DELLE UNITÀ DI APPRENDIMENTO</h1>');
-    parti.push(`<p class="doc-sottotitolo">Classe ${d.esc(classe)} — Anno scolastico ${d.esc(annoScolastico)}</p>`);
-    parti.push(`<p class="doc-catenaccio">${d.esc(d.INDIRIZZO)} · ${d.esc(d.ANNO_ETICHETTA[annoScelto()] || '')}</p>`);
+    const nodi = [
+        ...d.testata(),
+        B.paragrafo('Allegato alla programmazione del consiglio di classe', 'occhiello'),
+        B.titolo(1, 'PIANO DELLE UNITÀ DI APPRENDIMENTO'),
+        B.paragrafo(`Classe ${classe} — Anno scolastico ${annoScolastico}`, 'sottotitolo'),
+        B.paragrafo(`${d.INDIRIZZO} · ${d.ANNO_ETICHETTA[annoScelto()] || ''}`, 'catenaccio'),
+        ...d.tabellaVoci([
+            ['Classe e sezione', classe],
+            ['Anno di corso', d.ANNO_ETICHETTA[annoScelto()] || ''],
+            ['Anno scolastico', annoScolastico],
+            ['Coordinatore del consiglio di classe', dati.coordinatore || ''],
+            ['Dirigente scolastico', dati.dirigente || ''],
+            ['Seduta del consiglio di classe', d.dataItaliana(dati.dataSeduta)],
+            ['Verbale n.', dati.verbale || ''],
+            ['Unità di apprendimento deliberate', String(scelte.length)]
+        ], { tieniVuote: true }),
+        ...bloccoDelibera(scelte, docenti),
+        ...d.sezione('2', 'Prospetto delle unità di apprendimento deliberate', prospetto(scelte),
+            'Le unità di apprendimento costituiscono il riferimento per la valutazione, la certificazione e il riconoscimento dei crediti — D.Lgs. 61/2017, art. 2, comma 1.'),
+        ...d.sezione('3', 'Ripartizione del monte ore fra gli insegnamenti', ripartizioneStampata(scelte),
+            'Proposta proporzionale calcolata sul quadro orario d’istituto. Ogni docente può modificare le ore del proprio insegnamento entro il 40%, purché la somma copra il monte ore dell’unità.'),
+        ...d.sezione('4', 'Impianto comune delle unità di apprendimento', impiantoComune()),
+        ...((dati.note || '').trim()
+            ? d.sezione('5', 'Note del consiglio di classe', [B.paragrafo(dati.note)])
+            : []),
+        ...schede(scelte),
+        ...d.bloccoRiferimenti('Riferimenti normativi'),
+        ...sottoscrizione(docenti),
+        B.paragrafo(`Documento generato dal Curricolo Verticale SSAS dell’${d.ISTITUTO} — ${d.SEDE}. I contenuti delle unità derivano dal curricolo di indirizzo (D.M. 92/2018, Allegato C) e dai cataloghi delle UDA d’asse, trasversali e di formazione scuola-lavoro.`, 'piede')
+    ];
 
-    parti.push(d.tabellaVoci([
-        ['Classe e sezione', d.esc(classe)],
-        ['Anno di corso', d.esc(d.ANNO_ETICHETTA[annoScelto()] || '')],
-        ['Anno scolastico', d.esc(annoScolastico)],
-        ['Coordinatore del consiglio di classe', d.esc(dati.coordinatore || '')],
-        ['Dirigente scolastico', d.esc(dati.dirigente || '')],
-        ['Seduta del consiglio di classe', d.dataItaliana(dati.dataSeduta)],
-        ['Verbale n.', d.esc(dati.verbale || '')],
-        ['Unità di apprendimento deliberate', `${scelte.length}`]
-    ], { tieniVuote: true }));
-
-    parti.push(bloccoDelibera(scelte, docenti));
-    parti.push(d.sezione('2', 'Prospetto delle unità di apprendimento deliberate', prospetto(scelte),
-        'Le unità di apprendimento costituiscono il riferimento per la valutazione, la certificazione e il riconoscimento dei crediti — D.Lgs. 61/2017, art. 2, comma 1.'));
-    parti.push(d.sezione('3', 'Ripartizione del monte ore fra gli insegnamenti', ripartizioneStampata(scelte),
-        'Proposta proporzionale calcolata sul quadro orario d’istituto. Ogni docente può modificare le ore del proprio insegnamento entro il 40%, purché la somma copra il monte ore dell’unità.'));
-    parti.push(d.sezione('4', 'Impianto comune delle unità di apprendimento', impiantoComune()));
-    if ((dati.note || '').trim()) {
-        parti.push(d.sezione('5', 'Note del consiglio di classe', d.paragrafo(dati.note)));
-    }
-
-    parti.push(schede(scelte));
-    parti.push(d.bloccoRiferimenti('Riferimenti normativi'));
-    parti.push(sottoscrizione(docenti));
-
-    parti.push(`<p class="doc-piede">Documento generato dal Curricolo Verticale SSAS dell’${d.esc(d.ISTITUTO)} — ${d.esc(d.SEDE)}. I contenuti delle unità derivano dal curricolo di indirizzo (D.M. 92/2018, Allegato C) e dai cataloghi delle UDA d’asse, trasversali e di formazione scuola-lavoro.</p>`);
-
-    return { html: d.documento({ titolo: nomeDocumento, corpo: parti.filter(Boolean).join('\n'), nomeDocumento }), nomeDocumento };
+    return { nodi, meta: { titolo: nomeDocumento, istituto: d.ISTITUTO }, nomeDocumento };
 }
 
 function bloccoDelibera(scelte, docenti) {
     const d = window.CurricoloDocumento;
+    const B = d.blocchi;
     const dati = stato.dati;
     const seduta = d.dataItaliana(dati.dataSeduta) || '____________';
-    const verbale = d.esc(dati.verbale || '____');
-    const classe = d.esc(dati.classe || '__________');
-    const annoScolastico = d.esc(dati.annoScolastico || '________');
+    const verbale = dati.verbale || '____';
+    const classe = dati.classe || '__________';
+    const annoScolastico = dati.annoScolastico || '________';
     const quanti = docenti.length ? `, composto da ${docenti.length} docenti` : '';
+    const quante = scelte.length === 1
+        ? 'L’unità indicata è progettata'
+        : `Le ${scelte.length} unità indicate sono progettate`;
 
-    return d.sezione('1', 'Deliberazione del consiglio di classe', `
-        <div class="doc-delibera">
-            <p>Il Consiglio della classe <strong>${classe}</strong> dell’indirizzo ${d.esc(d.INDIRIZZO)}${quanti},
-            riunito in data <strong>${seduta}</strong> (verbale n. ${verbale}) e presieduto dal coordinatore su delega
-            del dirigente scolastico, conclusa la consultazione sulle proposte dei dipartimenti e dei singoli docenti,
-            <strong>approva il presente Piano delle unità di apprendimento</strong> per l’anno scolastico
-            ${annoScolastico}, che costituisce parte integrante della programmazione di classe.</p>
-            <p>Le ${scelte.length === 1 ? 'unità indicata è progettata' : `${scelte.length} unità indicate sono progettate`}
-            in forma interdisciplinare, con l’aggregazione degli insegnamenti negli assi culturali e il ricorso a
-            metodologie di apprendimento di tipo induttivo, in attuazione dell’art. 5, comma 1, lettere b), c), d) ed f)
-            del D.Lgs. 13 aprile 2017, n. 61, e dell’art. 6, comma 4, del D.M. 24 maggio 2018, n. 92.</p>
-            <p>Per gli studenti la cui progettazione è personalizzata, le unità qui deliberate sono quelle «nelle quali
-            è strutturato il Progetto formativo individuale» (D.M. 92/2018, art. 4, comma 6) e i loro risultati
-            costituiscono oggetto della valutazione (art. 4, comma 7).</p>
-        </div>`);
+    return d.sezione('1', 'Deliberazione del consiglio di classe', [
+        B.riquadro([
+            B.paragrafo([
+                B.testo('Il Consiglio della classe '),
+                B.testo(classe, { grassetto: true }),
+                B.testo(` dell’indirizzo ${d.INDIRIZZO}${quanti}, riunito in data `),
+                B.testo(seduta, { grassetto: true }),
+                B.testo(` (verbale n. ${verbale}) e presieduto dal coordinatore su delega del dirigente scolastico, conclusa la consultazione sulle proposte dei dipartimenti e dei singoli docenti, `),
+                B.testo('approva il presente Piano delle unità di apprendimento', { grassetto: true }),
+                B.testo(` per l’anno scolastico ${annoScolastico}, che costituisce parte integrante della programmazione di classe.`)
+            ]),
+            B.paragrafo(`${quante} in forma interdisciplinare, con l’aggregazione degli insegnamenti negli assi culturali e il ricorso a metodologie di apprendimento di tipo induttivo, in attuazione dell’art. 5, comma 1, lettere b), c), d) ed f) del D.Lgs. 13 aprile 2017, n. 61, e dell’art. 6, comma 4, del D.M. 24 maggio 2018, n. 92.`),
+            B.paragrafo('Per gli studenti la cui progettazione è personalizzata, le unità qui deliberate sono quelle «nelle quali è strutturato il Progetto formativo individuale» (D.M. 92/2018, art. 4, comma 6) e i loro risultati costituiscono oggetto della valutazione (art. 4, comma 7).')
+        ])
+    ]);
 }
 
 function prospetto(scelte) {
     const d = window.CurricoloDocumento;
-    const righe = scelte.map((voce, indice) => [
-        `<span class="num">${indice + 1}</span>`,
-        `<strong>${d.esc(voce.uda.id)}</strong>`,
-        `${d.esc(voce.uda.titolo)}<br><span class="doc-ins">${d.esc(nomeGenere(voce.genere))}${voce.uda.areaTirocinio ? ` · ${d.esc(voce.uda.areaTirocinio)}` : ''}</span>`,
-        d.esc(competenzeSintetiche(voce)),
-        d.esc(voce.scelta.periodo || ''),
-        `<span class="num">${d.esc(oreDocumento(voce))}</span>`
-    ]);
-    return d.tabellaColonne(['#', 'Codice', 'Denominazione e tipologia', 'Competenze', 'Periodo', 'Ore'], righe, 'doc-tab-prospetto');
-}
-
-function nomeGenere(genere) {
-    return genere === 'trasversale' ? 'UDA trasversale'
-        : genere === 'fsl' ? 'UDA di formazione scuola-lavoro'
-        : 'UDA d’asse';
+    const B = d.blocchi;
+    return [B.tabella({
+        intestazioni: ['#', 'Codice', 'Denominazione e tipologia', 'Competenze', 'Periodo', 'Ore'],
+        larghezze: [4, 10, 40, 16, 18, 12],
+        righe: scelte.map((voce, indice) => [
+            { frammenti: B.frammenti(String(indice + 1)), allineamento: 'center' },
+            { frammenti: B.frammenti(String(voce.uda.id)), grassetto: true },
+            {
+                frammenti: [
+                    B.testo(`${voce.uda.titolo}\n`),
+                    B.testo(d.nomeGenere(voce.genere) + (voce.uda.areaTirocinio ? ` · ${voce.uda.areaTirocinio}` : ''), { piccolo: true })
+                ]
+            },
+            competenzeSintetiche(voce),
+            voce.scelta.periodo || '',
+            { frammenti: B.frammenti(oreDocumento(voce)), allineamento: 'center' }
+        ])
+    })];
 }
 
 function competenzeSintetiche(voce) {
@@ -609,111 +618,117 @@ function competenzeSintetiche(voce) {
 function oreDocumento(voce) {
     const ripartizione = stato.ripartizione[voce.chiave];
     if (!ripartizione) return voce.uda.ore || '';
-    const testo = intervallo(ripartizione.totaleMin, ripartizione.totaleMax);
-    return ripartizione.convenzionale ? `${testo}*` : testo;
+    const testoOre = intervallo(ripartizione.totaleMin, ripartizione.totaleMax);
+    return ripartizione.convenzionale ? `${testoOre}*` : testoOre;
 }
 
 // Matrice insegnamenti × UDA finché le colonne stanno in pagina; oltre, il
 // totale per insegnamento, che è il dato che serve davvero.
 function ripartizioneStampata(scelte) {
     const d = window.CurricoloDocumento;
+    const B = d.blocchi;
     const righe = riepilogoOre();
-    if (!righe.length) return '';
+    if (!righe.length) return [];
     const totaleMin = scelte.reduce((somma, voce) => somma + (stato.ripartizione[voce.chiave]?.totaleMin || 0), 0);
     const totaleMax = scelte.reduce((somma, voce) => somma + (stato.ripartizione[voce.chiave]?.totaleMax || 0), 0);
     const convenzionali = scelte.some(voce => stato.ripartizione[voce.chiave]?.convenzionale);
     const nota = convenzionali
-        ? `<p class="doc-nota">* ${d.esc(stato.metaRipartizione.notaFSL || 'Le UDA di formazione scuola-lavoro non hanno un monte ore proprio: quello indicato è convenzionale e va sostituito con quello deliberato nel piano FSL d’istituto.')}</p>`
-        : '';
+        ? [B.paragrafo(`* ${stato.metaRipartizione.notaFSL || 'Le UDA di formazione scuola-lavoro non hanno un monte ore proprio: quello indicato è convenzionale e va sostituito con quello deliberato nel piano FSL d’istituto.'}`, 'nota')]
+        : [];
 
     if (scelte.length <= 8) {
-        const intestazioni = ['Insegnamento', ...scelte.map(voce => voce.uda.id), 'Totale'];
+        const larghezzaCodice = Math.floor(62 / (scelte.length + 1));
         const corpo = righe.map(riga => [
-            d.esc(riga.nome),
+            riga.nome,
             ...scelte.map(voce => {
                 const cella = riga.perUda.get(voce.chiave);
-                return `<span class="num">${cella ? d.esc(intervallo(cella.min, cella.max)) : '—'}</span>`;
+                return { frammenti: B.frammenti(cella ? intervallo(cella.min, cella.max) : '—'), allineamento: 'center' };
             }),
-            `<span class="num"><strong>${d.esc(intervallo(riga.min, riga.max))}</strong></span>`
+            { frammenti: B.frammenti(intervallo(riga.min, riga.max)), grassetto: true, allineamento: 'center' }
         ]);
         corpo.push([
-            '<strong>Monte ore dell’UDA</strong>',
-            ...scelte.map(voce => `<span class="num"><strong>${d.esc(oreDocumento(voce))}</strong></span>`),
-            `<span class="num"><strong>${d.esc(intervallo(totaleMin, totaleMax))}</strong></span>`
+            { frammenti: B.frammenti('Monte ore dell’UDA'), grassetto: true },
+            ...scelte.map(voce => ({ frammenti: B.frammenti(oreDocumento(voce)), grassetto: true, allineamento: 'center' })),
+            { frammenti: B.frammenti(intervallo(totaleMin, totaleMax)), grassetto: true, allineamento: 'center' }
         ]);
-        return d.tabellaColonne(intestazioni, corpo, 'doc-tab-matrice') + nota;
+        return [
+            B.tabella({
+                intestazioni: ['Insegnamento', ...scelte.map(voce => String(voce.uda.id)), 'Totale'],
+                larghezze: [38, ...scelte.map(() => larghezzaCodice), 62 - larghezzaCodice * scelte.length],
+                righe: corpo
+            }),
+            ...nota
+        ];
     }
 
     const corpo = righe.map(riga => [
-        d.esc(riga.nome),
-        `<span class="num">${d.esc(intervallo(riga.min, riga.max))}</span>`,
-        `<span class="doc-ins">${d.esc([...riga.perUda.keys()].join(' · '))}</span>`
+        riga.nome,
+        { frammenti: B.frammenti(intervallo(riga.min, riga.max)), allineamento: 'center' },
+        { frammenti: [B.testo([...riga.perUda.keys()].join(' · '), { piccolo: true })] }
     ]);
     corpo.push([
-        '<strong>Totale delle UDA deliberate</strong>',
-        `<span class="num"><strong>${d.esc(intervallo(totaleMin, totaleMax))}</strong></span>`,
+        { frammenti: B.frammenti('Totale delle UDA deliberate'), grassetto: true },
+        { frammenti: B.frammenti(intervallo(totaleMin, totaleMax)), grassetto: true, allineamento: 'center' },
         ''
     ]);
-    return d.tabellaColonne(['Insegnamento', 'Ore complessive', 'UDA coinvolte'], corpo, 'doc-tab-ore') + nota;
+    return [
+        B.tabella({ intestazioni: ['Insegnamento', 'Ore complessive', 'UDA coinvolte'], larghezze: [38, 18, 44], righe: corpo }),
+        ...nota
+    ];
 }
 
 function impiantoComune() {
     const d = window.CurricoloDocumento;
-    const metaAsse = stato.catalogo.get(stato.ordine.find(chiave => stato.catalogo.get(chiave)?.genere === 'asse'))?.meta || {};
-    const fasi = metaAsse.fasiStandard || [];
-    const valutazione = metaAsse.valutazioneStandard || '';
-    const parti = [];
-    if (fasi.length) {
-        parti.push('<h3>Fasi comuni a ogni unità di apprendimento</h3>');
-        parti.push(`<ol class="doc-lista">${fasi.map(fase => `<li>${d.esc(fase)}</li>`).join('')}</ol>`);
+    const B = d.blocchi;
+    const chiaveAsse = stato.ordine.find(chiave => stato.catalogo.get(chiave)?.genere === 'asse');
+    const metaAsse = stato.catalogo.get(chiaveAsse)?.meta || {};
+    const nodi = [];
+    if ((metaAsse.fasiStandard || []).length) {
+        nodi.push(B.titolo(3, 'Fasi comuni a ogni unità di apprendimento'));
+        nodi.push(B.elenco(metaAsse.fasiStandard, true));
     }
-    if (valutazione) {
-        parti.push('<h3>Valutazione</h3>');
-        parti.push(`<p>${d.esc(valutazione)}</p>`);
-        parti.push('<p class="doc-fonte">Rubrica ad almeno quattro livelli — Linee guida D.M. 766/2019, Box n. 8, voce 8; la valutazione ha per oggetto i risultati delle unità di apprendimento — D.M. 92/2018, art. 4, comma 7.</p>');
+    if (metaAsse.valutazioneStandard) {
+        nodi.push(B.titolo(3, 'Valutazione'));
+        nodi.push(B.paragrafo(metaAsse.valutazioneStandard));
+        nodi.push(B.paragrafo('Rubrica ad almeno quattro livelli — Linee guida D.M. 766/2019, Box n. 8, voce 8; la valutazione ha per oggetto i risultati delle unità di apprendimento — D.M. 92/2018, art. 4, comma 7.', 'fonte'));
     }
-    return parti.join('');
+    return nodi;
 }
 
 function schede(scelte) {
     const d = window.CurricoloDocumento;
-    const blocchi = scelte.map((voce, indice) => {
-        const scheda = d.schedaUda(voce.uda, {
+    const B = d.blocchi;
+    if (!scelte.length) return [];
+    const nodi = [
+        B.titolo(2, 'Schede sintetiche delle unità di apprendimento'),
+        B.paragrafo('Format dell’unità di apprendimento — Linee guida D.M. 766/2019, Box n. 8. La scheda completa di ciascuna unità, con fasi, attività di accompagnamento, documentazione e rubrica, si scarica dal fascicolo delle UDA.', 'fonte')
+    ];
+    scelte.forEach((voce, indice) => {
+        // Solo la prima scheda apre una pagina nuova: le altre sono lunghe una
+        // pagina e mezza e forzare il salto lascerebbe mezze pagine bianche.
+        if (indice === 0) nodi.push(B.interruzione());
+        nodi.push(B.titolo(2, `Scheda ${indice + 1} — ${voce.uda.id} · ${voce.uda.titolo}`));
+        nodi.push(B.paragrafo(`${d.nomeGenere(voce.genere)} · ${voce.scelta.periodo || ''} · ${oreDocumento(voce)} ore`, 'fonte'));
+        nodi.push(...d.schedaUda(voce.uda, {
             meta: voce.meta,
             genere: voce.genere,
             ripartizione: stato.ripartizione,
             compatta: true
-        });
-        // Solo la prima scheda apre una pagina nuova: le altre sono lunghe una
-        // pagina e mezza e forzare il salto lascerebbe mezze pagine bianche.
-        return `<div class="doc-scheda doc-compatta ${indice === 0 ? 'doc-scheda-nuova' : ''}">
-            <h2>Scheda ${indice + 1} — ${d.esc(voce.uda.id)} · ${d.esc(voce.uda.titolo)}</h2>
-            <p class="doc-fonte">${d.esc(nomeGenere(voce.genere))} · ${d.esc(voce.scelta.periodo || '')} · ${d.esc(oreDocumento(voce))} ore</p>
-            ${scheda}
-        </div>`;
+        }));
     });
-    if (!blocchi.length) return '';
-    return `<section class="doc-sezione">
-        <h2>Schede sintetiche delle unità di apprendimento</h2>
-        <p class="doc-fonte">Format dell’unità di apprendimento — Linee guida D.M. 766/2019, Box n. 8. La scheda completa di ciascuna unità, con fasi, attività di accompagnamento, documentazione e rubrica, si scarica dal fascicolo delle UDA.</p>
-    </section>
-    ${blocchi.join('')}`;
+    return nodi;
 }
 
 function sottoscrizione(docenti) {
     const d = window.CurricoloDocumento;
+    const B = d.blocchi;
     const righe = docenti.length
-        ? docenti.map(riga => [d.esc(riga), '&nbsp;'])
-        : Array.from({ length: 8 }, () => ['&nbsp;', '&nbsp;']);
-    const tabella = d.tabellaColonne(['Docente e insegnamento', 'Firma'], righe, 'doc-tab-firme');
-    return `<section class="doc-sezione">
-        <h2>Sottoscrizione</h2>
-        <p>Il presente piano è stato approvato dal consiglio di classe nella seduta indicata e viene allegato alla
-        programmazione di classe.</p>
-        ${tabella}
-        <table class="doc-firme">
-            <tr><td class="linea"></td><td class="linea"></td></tr>
-            <tr><td>Il/La coordinatore/coordinatrice del consiglio di classe</td><td>Il Dirigente scolastico</td></tr>
-        </table>
-    </section>`;
+        ? docenti.map(riga => [riga, ''])
+        : Array.from({ length: 8 }, () => ['', '']);
+    return [
+        B.titolo(2, 'Sottoscrizione'),
+        B.paragrafo('Il presente piano è stato approvato dal consiglio di classe nella seduta indicata e viene allegato alla programmazione di classe.'),
+        B.tabella({ intestazioni: ['Docente e insegnamento', 'Firma'], larghezze: [58, 42], righe }),
+        B.firme(['Il/La coordinatore/coordinatrice del consiglio di classe', 'Il Dirigente scolastico'])
+    ];
 }
