@@ -26,6 +26,14 @@ variabili d'ambiente di Supabase (`SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`).
 Questa cartella non si aggiorna da sola. Dopo ogni modifica alla funzione
 pubblicata, riportare qui il codice e fare commit — altrimenti la copia mente.
 
+Vale anche al contrario, ed è già successo: fra settembre 2026 e la votazione a
+preferenze la copia nel repository era **avanti** di tre modifiche mai
+distribuite — i controlli che una UDA appartenga davvero all'anno e alla
+categoria indicati, il numero esatto di UDA nella scelta finale e l'insegnamento
+assente dalla proposta oraria. Chi commette una modifica alla funzione la
+distribuisca subito, o la prossima distribuzione porterà con sé cambiamenti che
+nessuno si aspetta.
+
 Con la CLI di Supabase:
 
     supabase functions deploy pfi --project-ref ruplzgcnheddmqqdephp
@@ -68,21 +76,32 @@ conosce e senza aggiornamento rifiuterebbe il salvataggio delle ore:
 
 Si vota in due tempi. Prima chi ha i permessi di gestione mette al voto una rosa
 di UDA, dopo la consultazione: senza quel passaggio si voterebbe su dieci schede
-che nessuno ha discusso. Poi i docenti votano soltanto dentro la rosa, un voto a
-testa per UDA e due per anno di corso, tanti quante sono le UDA da attivare.
+che nessuno ha discusso. Poi ogni docente assegna una **preferenza da 1 a 5** a
+quante UDA della rosa vuole, e può riscriverla finché la votazione resta aperta.
 
-Il tetto dei voti e l'appartenenza alla rosa sono verificati dalla funzione, non
-dal database, perché i messaggi devono dire al docente quali voti ha già speso e
-come liberarne uno. Le UDA FSL restano fuori: sono già una per anno e area di
-tirocinio.
+Il voto era binario, con un tetto di due preferenze per anno. Contare quante
+volte una UDA era stata scelta non diceva però quanto la si volesse, e obbligava
+a spendere i due voti alla cieca su una rosa appena discussa. Ora la riga porta
+un `punteggio` fra 1 e 5, il tetto non esiste più e la classifica si legge sulla
+somma dei punti.
+
+L'ordine della classifica è deciso dal client (`votazione-uda.js`), non dalla
+funzione: vince chi somma più punti, a parità di punti conta la media e poi il
+numero di preferenze. Ordinare per media sola premierebbe una UDA con un solo 5
+rispetto a una votata 5 e 4 da due docenti.
+
+L'appartenenza alla rosa, la scala 1–5 e la chiusura dopo la conferma sono
+verificate dalla funzione; il vincolo `punteggio between 1 and 5` sta anche nel
+database. Le UDA FSL restano fuori: sono già una per anno e area di tirocinio.
 
 La classifica è consultiva. Diventa la scelta ufficiale solo quando chi gestisce
 la conferma, e tutto lo stato — rosa, scelta, chi ha aperto e chi ha confermato —
-sta in `curricolo_uda_votazione`. Cambiare la rosa azzera la scelta e cancella i
-voti dati a UDA che ne sono uscite: non possono restare a gonfiare conteggi che
-nessuno vede più.
+sta in `curricolo_uda_votazione`. Cambiare la rosa azzera la scelta e cancella le
+preferenze date a UDA che ne sono uscite: non possono restare a gonfiare conteggi
+che nessuno vede più.
 
-Le tre azioni sono `ballot` per aprire la votazione, `vote` per il singolo voto e
+Le tre azioni sono `ballot` per aprire la votazione, `vote` per la singola
+preferenza (`punteggio` da 1 a 5, oppure `rimuovi: true` per ritirarla) e
 `choice` per confermare la scelta.
 
 Qui servono entrambi i passaggi, nell'ordine. Prima le tabelle:
@@ -93,8 +112,12 @@ poi la funzione, che espone le azioni `votes`, `ballot`, `vote` e `choice`:
 
     supabase functions deploy curricolo-uda-revisioni --project-ref ruplzgcnheddmqqdephp
 
-Finché mancano, il sito non mostra nulla della votazione: `assets/uda-voto.js`
-disegna i pulsanti solo dopo che il server ha risposto, così una distribuzione
+Attenzione: `votazione-uda.sql` **rifà** `curricolo_uda_voti` invece di
+migrarla. Va bene finché la tabella è vuota; se un giorno contenesse preferenze
+da conservare, servirà un `alter table` al posto del `drop`.
+
+Finché mancano, il sito non mostra nulla della votazione: `votazione-uda.js`
+disegna i comandi solo dopo che il server ha risposto, così una distribuzione
 incompleta non lascia in pagina comandi che falliscono.
 
 L'elenco mostrato nelle tre interfacce è definito una sola volta in

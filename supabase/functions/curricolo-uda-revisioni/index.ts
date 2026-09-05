@@ -24,9 +24,13 @@ const FIELDS = new Set([
 // Scostamento massimo del docente dalla proposta proporzionale delle ore.
 const ORE_TOLLERANZA = 0.4;
 const ORE_MASSIME_UDA = 400;
-// Voti a disposizione di ogni docente per anno di corso e genere di UDA:
-// tanti quante sono le UDA da scegliere.
-const VOTI_PER_DOCENTE = 2;
+// Quante UDA si attivano per anno di corso e genere. Non è più un tetto di
+// voti: ogni docente esprime una preferenza su tutte le UDA della rosa che
+// vuole, e da qui si sa quante ne entrano in classifica.
+const UDA_DA_ATTIVARE = 2;
+// Estremi della scala di preferenza.
+const PUNTEGGIO_MINIMO = 1;
+const PUNTEGGIO_MASSIMO = 5;
 const GENERI_UDA = new Set(["asse", "trasversale"]);
 const CHIAVE_VOTABILE = /^([0-9]+\.[0-9]+|T[1-5]\.[0-9]+)$/;
 // Quante UDA si possono mettere al voto in una sola rosa.
@@ -279,7 +283,7 @@ async function updateStatus(request: Request, payload: Record<string, unknown>, 
 // entrambi per sapere se si vota, su cosa e con quale esito.
 async function listVotes(request: Request) {
   const [voti, votazione] = await Promise.all([
-    admin.from("curricolo_uda_voti").select("uda_key,author_name,anno,genere"),
+    admin.from("curricolo_uda_voti").select("uda_key,author_name,anno,genere,punteggio"),
     admin.from("curricolo_uda_votazione")
       .select("anno,genere,rosa,scelta,aperta_da,aperta_il,confermata_da,confermata_il"),
   ]);
@@ -326,8 +330,8 @@ async function openBallot(request: Request, payload: Record<string, unknown>, se
     if (rosa.some(chiave => !keyMatchesScope(chiave, anno, genere))) {
       throw new Error("La rosa contiene UDA di un altro anno o di un'altra categoria.");
     }
-    if (rosa.length && rosa.length <= VOTI_PER_DOCENTE) {
-      throw new Error(`Con ${rosa.length} UDA non c'è nulla da votare: se ne devono attivare ${VOTI_PER_DOCENTE}. Mettine al voto almeno ${VOTI_PER_DOCENTE + 1}.`);
+    if (rosa.length && rosa.length <= UDA_DA_ATTIVARE) {
+      throw new Error(`Con ${rosa.length} UDA non c'è nulla da votare: se ne devono attivare ${UDA_DA_ATTIVARE}. Mettine al voto almeno ${UDA_DA_ATTIVARE + 1}.`);
     }
     const adesso = new Date().toISOString();
     const { error } = await admin.from("curricolo_uda_votazione").upsert({
@@ -350,6 +354,16 @@ async function openBallot(request: Request, payload: Record<string, unknown>, se
   }
 }
 
+// Preferenza da 1 a 5 su una UDA della rosa. Non c'è un tetto: si può dare un
+// giudizio a tutte, e riscriverlo finché la votazione resta aperta.
+function readPunteggio(value: unknown) {
+  const punteggio = Number(value);
+  if (!Number.isInteger(punteggio) || punteggio < PUNTEGGIO_MINIMO || punteggio > PUNTEGGIO_MASSIMO) {
+    throw new Error(`La preferenza deve essere un numero intero da ${PUNTEGGIO_MINIMO} a ${PUNTEGGIO_MASSIMO}.`);
+  }
+  return punteggio;
+}
+
 async function castVote(request: Request, payload: Record<string, unknown>, sessionAuthor: string) {
   try {
     const udaKey = cleanString(payload.uda_key, 50, true);
@@ -359,6 +373,13 @@ async function castVote(request: Request, payload: Record<string, unknown>, sess
       throw new Error("L'UDA non appartiene all'anno o alla categoria indicati.");
     }
     const rimuovi = payload.rimuovi === true;
+    const votazione = await ballotFor(anno, genere);
+
+    // Ritirare la propria preferenza resta possibile solo finché la votazione è
+    // aperta: dopo la conferma la classifica non deve più potersi muovere.
+    if (votazione?.scelta?.length) {
+      throw new Error(`La scelta di ${anno}ª è già stata confermata: la votazione è chiusa.`);
+    }
 
     if (rimuovi) {
       const { error } = await admin.from("curricolo_uda_voti").delete()
@@ -367,29 +388,23 @@ async function castVote(request: Request, payload: Record<string, unknown>, sess
       return await listVotes(request);
     }
 
-    const votazione = await ballotFor(anno, genere);
+    const punteggio = readPunteggio(payload.punteggio);
     if (!votazione?.rosa?.length) throw new Error(`La votazione di ${anno}ª non è ancora aperta.`);
     if (!votazione.rosa.includes(udaKey)) throw new Error("Questa UDA non è fra quelle messe al voto.");
-    if (votazione.scelta?.length) throw new Error(`La scelta di ${anno}ª è già stata confermata: la votazione è chiusa.`);
 
-    // Il tetto si verifica qui, non nel database: il messaggio deve dire al
-    // docente quanti voti ha speso e come liberarne uno.
-    const { data: spesi, error: erroreConteggio } = await admin.from("curricolo_uda_voti")
-      .select("uda_key").eq("author_name", sessionAuthor).eq("anno", anno).eq("genere", genere);
-    if (erroreConteggio) throw erroreConteggio;
-    const giaVotata = (spesi ?? []).some(voce => voce.uda_key === udaKey);
-    if (!giaVotata && (spesi ?? []).length >= VOTI_PER_DOCENTE) {
-      const elenco = (spesi ?? []).map(voce => voce.uda_key).join(" e ");
-      throw new Error(
-        `Hai già usato i tuoi ${VOTI_PER_DOCENTE} voti di ${anno}ª su ${elenco}. Togli un voto per spostarlo su un'altra UDA.`,
-      );
-    }
     const { error } = await admin.from("curricolo_uda_voti")
-      .upsert({ uda_key: udaKey, author_name: sessionAuthor, anno, genere }, { onConflict: "uda_key,author_name" });
+      .upsert({
+        uda_key: udaKey,
+        author_name: sessionAuthor,
+        anno,
+        genere,
+        punteggio,
+        aggiornato_il: new Date().toISOString(),
+      }, { onConflict: "uda_key,author_name" });
     if (error) throw error;
     return await listVotes(request);
   } catch (error) {
-    return json(request, { error: error instanceof Error ? error.message : "Voto non registrato." }, 400);
+    return json(request, { error: error instanceof Error ? error.message : "Preferenza non registrata." }, 400);
   }
 }
 
@@ -400,9 +415,9 @@ async function confirmChoice(request: Request, payload: Record<string, unknown>,
     const permissions = await permissionsFor(sessionAuthor);
     if (!permissions.manage_status) return json(request, { error: "Operazione non consentita." }, 403);
     const { anno, genere } = readScope(payload);
-    const scelta = readKeys(payload.uda_keys, VOTI_PER_DOCENTE);
-    if (scelta.length !== VOTI_PER_DOCENTE) {
-      throw new Error(`La scelta finale deve contenere esattamente ${VOTI_PER_DOCENTE} UDA.`);
+    const scelta = readKeys(payload.uda_keys, UDA_DA_ATTIVARE);
+    if (scelta.length !== UDA_DA_ATTIVARE) {
+      throw new Error(`La scelta finale deve contenere esattamente ${UDA_DA_ATTIVARE} UDA.`);
     }
     if (scelta.some(chiave => !keyMatchesScope(chiave, anno, genere))) {
       throw new Error("La scelta contiene UDA di un altro anno o di un'altra categoria.");
