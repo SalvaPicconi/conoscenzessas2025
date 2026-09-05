@@ -23,43 +23,42 @@
     const SEDE = 'Sede di Decimomannu';
     const INDIRIZZO = 'Servizi per la Sanità e l’Assistenza Sociale';
 
-    // Riferimenti normativi citati in calce a ogni documento. Sono le fonti su
-    // cui si regge il fatto stesso che il percorso sia organizzato in UDA: senza
-    // di esse il Piano non è allegabile alla programmazione di classe.
-    const RIFERIMENTI = [
-        {
-            norma: 'D.Lgs. 13 aprile 2017, n. 61',
-            oggetto: 'Revisione dei percorsi dell’istruzione professionale. Art. 2, comma 1: l’unità di apprendimento è l’insieme autonomamente significativo di competenze, abilità e conoscenze in cui è organizzato il percorso formativo dello studente e costituisce il riferimento per la valutazione, la certificazione e il riconoscimento dei crediti. Art. 5, comma 1: lett. b) aggregazione delle discipline negli assi culturali; lett. c) progettazione interdisciplinare dei percorsi didattici; lett. d) metodologie di apprendimento di tipo induttivo, con esperienze laboratoriali e in contesti operativi; lett. f) organizzazione per unità di apprendimento.'
-        },
-        {
-            norma: 'D.M. 24 maggio 2018, n. 92',
-            oggetto: 'Regolamento sui profili di uscita degli indirizzi dell’istruzione professionale. Art. 4, comma 6: le unità di apprendimento sono quelle «nelle quali è strutturato il Progetto formativo individuale». Art. 4, comma 7: la valutazione ha per oggetto i risultati delle unità di apprendimento. Art. 6, comma 4: la progettazione per unità di apprendimento accompagna l’intero quinquennio. Allegati 2-I e 3-I: profilo di uscita, competenze e quadro orario dell’indirizzo SSAS.'
-        },
-        {
-            norma: 'D.M. 23 agosto 2019, n. 766',
-            oggetto: 'Linee guida per favorire e sostenere l’adozione del nuovo assetto didattico e organizzativo dei percorsi di istruzione professionale. Box n. 7: carattere prioritariamente interdisciplinare delle UdA. Box n. 8: format di riferimento dell’UdA e rubrica ad almeno quattro livelli. § 3.2.2: valutazione riferita alle unità di apprendimento e livelli di padronanza.'
-        },
-        {
-            norma: 'D.Lgs. 16 aprile 1994, n. 297, art. 5, comma 8',
-            oggetto: 'Il consiglio di classe è presieduto dal dirigente scolastico oppure da un docente, suo delegato, membro del consiglio: è la delega su cui si fonda la funzione di coordinatore del consiglio di classe.'
-        },
-        {
-            norma: 'D.P.R. 8 marzo 1999, n. 275, art. 4',
-            oggetto: 'Autonomia didattica delle istituzioni scolastiche nella progettazione, nell’articolazione modulare e nell’aggregazione delle discipline.'
-        },
-        {
-            norma: 'D.Lgs. 13 aprile 2017, n. 62',
-            oggetto: 'Norme in materia di valutazione e certificazione delle competenze.'
-        },
-        {
-            norma: 'L. 20 agosto 2019, n. 92 e D.M. 7 settembre 2024, n. 183',
-            oggetto: 'Insegnamento trasversale dell’educazione civica e relative Linee guida, per le unità di apprendimento che ne sviluppano i nuclei concettuali (almeno 33 ore annue).'
-        },
-        {
-            norma: 'Raccomandazione del Consiglio UE 22 maggio 2018',
-            oggetto: 'Competenze chiave per l’apprendimento permanente, richiamate nelle schede delle UDA trasversali e di formazione scuola-lavoro.'
-        }
-    ];
+    // Riferimenti normativi e glossario dei termini: la fonte è
+    // data-normativa.json, la stessa che alimenta la pagina del glossario. Qui
+    // non se ne tiene una seconda copia, altrimenti l'elenco stampato in calce
+    // al Piano e quello letto a schermo finirebbero prima o poi per divergere.
+    //
+    // I due elenchi si riempiono dopo il caricamento ma conservano la loro
+    // identità: chi li ha già in mano — piano-uda.js li scorre per disegnare le
+    // norme — continua a vedere l'array giusto. La stampa avviene sempre dopo
+    // un clic, quindi molto più tardi del caricamento.
+    const RIFERIMENTI = [];
+    const GLOSSARIO = [];
+
+    const pronto = fetch('data-normativa.json', { cache: 'no-store' })
+        .then(risposta => {
+            if (!risposta.ok) throw new Error(`HTTP ${risposta.status}`);
+            return risposta.json();
+        })
+        .then(json => {
+            (json.fonti || []).forEach(fonte => RIFERIMENTI.push({
+                id: fonte.id,
+                norma: fonte.norma,
+                oggetto: fonte.oggetto
+            }));
+            (json.glossario || []).forEach(voce => GLOSSARIO.push(voce));
+            return json;
+        })
+        .catch(errore => {
+            console.warn('Riferimenti normativi non disponibili:', errore);
+            return null;
+        });
+
+    // Sigla breve di una norma, per le citazioni dentro il glossario stampato.
+    function siglaNorma(id) {
+        const voce = RIFERIMENTI.find(riga => riga.id === id);
+        return voce ? voce.norma : id;
+    }
 
     const ANNO_ETICHETTA = { 1: '1° anno', 2: '2° anno', 3: '3° anno', 4: '4° anno', 5: '5° anno' };
 
@@ -292,6 +291,34 @@
     function bloccoRiferimenti(titolo = 'Riferimenti normativi') {
         const voci = RIFERIMENTI.map(voce =>
             `<li><strong>${esc(voce.norma)}</strong> — ${esc(voce.oggetto)}</li>`).join('');
+        return `<section class="doc-sezione">
+            <h2>${esc(titolo)}</h2>
+            <ul class="doc-lista">${voci}</ul>
+        </section>`;
+    }
+
+    // Le parole della scheda con la loro definizione e la norma che le regge.
+    // Serve a chi legge il documento fuori dal consiglio — dirigenza, famiglie,
+    // ispezione — e non ha davanti il glossario del sito.
+    const TERMINI_SCHEDA = ['uda', 'competenza', 'traguardo-intermedio', 'situazione-problema',
+        'compito-di-realta', 'abilita', 'saperi-essenziali', 'quadro-orario', 'rubrica',
+        'livelli-padronanza', 'qnq'];
+
+    function bloccoGlossario(termini = TERMINI_SCHEDA, titolo = 'Glossario dei termini usati nella scheda') {
+        if (!GLOSSARIO.length) return '';
+        const voci = termini
+            .map(chiave => GLOSSARIO.find(voce => voce.id === chiave))
+            .filter(Boolean)
+            .map(voce => {
+                const fonti = (voce.riferimenti || [])
+                    .map(riferimento => riferimento.luogo
+                        ? `${siglaNorma(riferimento.fonte)}, ${riferimento.luogo}`
+                        : siglaNorma(riferimento.fonte))
+                    .join('; ');
+                const avvertenza = voce.avvertenza ? ` <em>${esc(voce.avvertenza)}</em>` : '';
+                return `<li><strong>${esc(voce.termine)}</strong> — ${esc(voce.definizione)}${avvertenza}${fonti ? `<br><span class="doc-ins">Fonte: ${esc(fonti)}</span>` : ''}</li>`;
+            }).join('');
+        if (!voci) return '';
         return `<section class="doc-sezione">
             <h2>${esc(titolo)}</h2>
             <ul class="doc-lista">${voci}</ul>
@@ -568,6 +595,7 @@ ${testata()}
 <p class="doc-sottotitolo">${esc(uda.id)} · ${esc(ANNO_ETICHETTA[uda.anno] || '')}${uda.qnq ? ` · Livello QNQ ${esc(uda.qnq)}` : ''}</p>
 <p class="doc-catenaccio">Scheda redatta secondo il format delle Linee guida dell’istruzione professionale (D.M. 766/2019, Box n. 8)</p>
 ${schedaUda(uda, contesto)}
+${bloccoGlossario()}
 ${bloccoRiferimenti()}
 <table class="doc-firme">
     <tr><td class="linea"></td><td class="linea"></td></tr>
@@ -582,6 +610,9 @@ ${bloccoRiferimenti()}
         SEDE,
         INDIRIZZO,
         RIFERIMENTI,
+        GLOSSARIO,
+        pronto,
+        bloccoGlossario,
         ANNO_ETICHETTA,
         esc,
         paragrafo,

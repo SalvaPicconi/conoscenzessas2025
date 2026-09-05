@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="uda.css?v=20260906a">
     <link rel="stylesheet" href="didattica.css?v=20260901">
     <link rel="stylesheet" href="assets/uda-revisione.css?v=20260905p">
-    <link rel="stylesheet" href="assets/navigazione.css?v=20260905l">
+    <link rel="stylesheet" href="assets/normativa.css?v=20260906b">
+    <link rel="stylesheet" href="assets/navigazione.css?v=20260906b">
 </head>
 <body>
     <main class="container">
@@ -115,15 +116,15 @@
         <!-- Impianto comune a tutte le UDA -->
         <section class="uda-common">
             <div class="uda-common-card">
-                <div class="uda-label">🔄 Fasi standard di ogni UDA</div>
+                <div class="uda-label" data-termine="uda">🔄 Fasi standard di ogni UDA</div>
                 <ol id="uda-fasi"></ol>
             </div>
             <div class="uda-common-card">
-                <div class="uda-label">📋 Valutazione standard</div>
+                <div class="uda-label" data-termine="rubrica">📋 Valutazione standard</div>
                 <p id="uda-valutazione"></p>
             </div>
             <div class="uda-common-card">
-                <div class="uda-label">🗓 Piano delle UDA di inizio anno</div>
+                <div class="uda-label" data-termine="piano-uda">🗓 Piano delle UDA di inizio anno</div>
                 <p id="uda-nota-piano"></p>
             </div>
         </section>
@@ -171,8 +172,8 @@
         <div id="uda-loading" class="loading" role="status">Caricamento UDA...</div>
     </main>
 
-    <script src="uda.js?v=20260905l"></script>
-    <script src="assets/uda-documento.js?v=20260906a"></script>
+    <script src="uda.js?v=20260906b"></script>
+    <script src="assets/uda-documento.js?v=20260906b"></script>
     <script type="module" src="assets/uda-revisione.js?v=20260905o"></script>
     <script type="module" src="assets/uda-ore.js?v=20260905p"></script>
     <script type="module" src="assets/uda-voto.js?v=20260905o"></script>
@@ -186,6 +187,7 @@
             document.getElementById('uda-nota-piano').textContent = d.meta.notaPiano;
         });
     </script>
-<script src="assets/navigazione.js?v=20260905l"></script>
+<script src="assets/normativa.js?v=20260906b"></script>
+<script src="assets/navigazione.js?v=20260906b"></script>
 </body>
 </html>

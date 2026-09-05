@@ -454,6 +454,9 @@ function descrizione(uda) {
     dettaglio.className = 'uda-voto-prova';
     const sommario = document.createElement('summary');
     sommario.textContent = 'Prova esperta';
+    // «Prova esperta» è termine di mestiere, non di legge: il segno accanto alla
+    // parola lo dice, e indica su quali norme la prova si regge davvero.
+    sommario.dataset.termine = 'prova-esperta';
     dettaglio.appendChild(sommario);
     if (prova) {
         const corpo = document.createElement('p');

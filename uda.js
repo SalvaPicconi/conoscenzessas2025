@@ -195,28 +195,28 @@ function renderUdaCard(u, autoExpand) {
             <div class="uda-acc-body" id="${panelId}" ${expanded ? '' : 'hidden'}>
                 <div class="uda-sintetica">
                     <div class="sin-row">
-                        <div class="sin-label">Competenza in uscita</div>
+                        <div class="sin-label" data-termine="competenza">Competenza in uscita</div>
                         <div class="sin-value">C${u.competenza} — ${escapeHTML(compTitolo)} (Allegato 2-i, D.I. 92/2018)</div>
                     </div>
                     <div class="sin-row">
-                        <div class="sin-label">Traguardo intermedio</div>
+                        <div class="sin-label" data-termine="traguardo-intermedio">Traguardo intermedio</div>
                         <div class="sin-value">${escapeHTML(u.traguardo)}</div>
                     </div>
                     <div class="sin-row">
-                        <div class="sin-label">Compito di realtà</div>
+                        <div class="sin-label" data-termine="compito-di-realta">Compito di realtà</div>
                         <div class="sin-value">${escapeHTML(u.compito)}</div>
                     </div>
                     <div class="sin-row">
-                        <div class="sin-label">Abilità essenziali</div>
+                        <div class="sin-label" data-termine="abilita">Abilità essenziali</div>
                         <div class="sin-value"><ul class="sin-list">${u.abilita.map(renderVoce).join('')}</ul></div>
                     </div>
                     <div class="sin-row">
-                        <div class="sin-label">Saperi essenziali</div>
+                        <div class="sin-label" data-termine="saperi-essenziali">Saperi essenziali</div>
                         <div class="sin-value"><ul class="sin-list">${u.saperi.map(renderVoce).join('')}</ul></div>
                     </div>
                     ${svilHtml}
                     <div class="sin-row">
-                        <div class="sin-label">Insegnamenti · Ore</div>
+                        <div class="sin-label" data-termine="quadro-orario">Insegnamenti · Ore</div>
                         <div class="sin-value">${renderInsChips(insTotali)}
                             <span class="sin-ore">· Monte ore indicativo: ${escapeHTML(u.ore)}</span></div>
                     </div>

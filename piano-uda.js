@@ -23,6 +23,10 @@ const FONTE_RIPARTIZIONE = 'data-ripartizione-ore.json';
 const ARCHIVIO = 'curricolo:piano-uda';
 const PERIODI = ['1° quadrimestre', '2° quadrimestre', 'Intero anno scolastico'];
 const CAMPI_LIBERI = ['anno', 'classe', 'annoScolastico', 'coordinatore', 'dirigente', 'dataSeduta', 'verbale', 'docenti', 'note'];
+// I termini che il Piano usa davvero: si stampano in coda con definizione e
+// norma, così l'allegato si legge anche fuori dal consiglio che l'ha scritto.
+const TERMINI_PIANO = ['uda', 'piano-uda', 'consiglio-classe', 'competenza', 'traguardo-intermedio',
+    'compito-di-realta', 'quadro-orario', 'rubrica', 'qnq'];
 
 const stato = {
     catalogo: new Map(),   // id → { uda, genere, meta }
@@ -111,7 +115,16 @@ function collegaEventi() {
     document.getElementById('piano-import').addEventListener('click', () => importaScelta(true));
 }
 
+// L'elenco delle norme arriva da data-normativa.json attraverso il motore
+// documentale: si disegna quando il caricamento è finito, non prima.
 function disegnaNorme() {
+    const documento = window.CurricoloDocumento;
+    if (!documento) return;
+    if (documento.pronto) return documento.pronto.then(scriviNorme);
+    scriviNorme();
+}
+
+function scriviNorme() {
     const elenco = document.getElementById('piano-norme-elenco');
     const documento = window.CurricoloDocumento;
     if (!elenco || !documento) return;
@@ -544,6 +557,7 @@ function costruisciPiano(scelte) {
     }
 
     parti.push(schede(scelte));
+    parti.push(d.bloccoGlossario(TERMINI_PIANO, 'Glossario dei termini usati nel Piano'));
     parti.push(d.bloccoRiferimenti('Riferimenti normativi'));
     parti.push(sottoscrizione(docenti));
 

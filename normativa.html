@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Glossario normativo del curricolo SSAS: le parole usate nel sito, la loro definizione e la norma su cui si reggono.">
+    <meta name="theme-color" content="#0b5f5a">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <title>Glossario normativo — Curricolo SSAS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20260721">
+    <link rel="stylesheet" href="uda.css?v=20260906a">
+    <link rel="stylesheet" href="assets/normativa.css?v=20260906b">
+    <link rel="stylesheet" href="assets/navigazione.css?v=20260906b">
+</head>
+<body>
+<main class="container">
+    <header class="header page-hero"><div class="hero-card">
+        <h1>Glossario normativo</h1>
+        <div class="subline">IIS Meucci - Mattei Cagliari, Sede Decimomannu</div>
+        <p class="subtitle">Le parole usate nel sito, che cosa significano e su quale norma si reggono</p>
+    </div></header>
+
+    <div class="norma-page-intro" id="norma-intro"></div>
+
+    <h2>Come leggere le schede</h2>
+    <ul class="norma-legenda" id="norma-legenda"></ul>
+
+    <section aria-labelledby="norma-titolo-glossario">
+        <h2 id="norma-titolo-glossario">I termini</h2>
+        <p class="norma-esito" id="norma-conteggio"></p>
+
+        <div class="norma-strumenti">
+            <label for="norma-ricerca">Cerca un termine
+                <input type="search" id="norma-ricerca" placeholder="UDA, prova esperta, PFI, rubrica…" autocomplete="off">
+            </label>
+            <label for="norma-filtro">Fondamento
+                <select id="norma-filtro">
+                    <option value="">Tutti</option>
+                    <option value="definizione">Definizione di legge</option>
+                    <option value="termine">Termine normativo</option>
+                    <option value="uso">Termine d’uso professionale</option>
+                </select>
+            </label>
+        </div>
+
+        <p class="norma-esito" id="norma-esito" role="status" aria-live="polite"></p>
+        <div class="norma-elenco" id="norma-glossario"></div>
+    </section>
+
+    <section aria-labelledby="norma-titolo-fonti">
+        <h2 id="norma-titolo-fonti">Le fonti</h2>
+        <p class="norma-esito">Estremi completi delle norme citate nel glossario e in calce ai documenti stampati dal sito.</p>
+        <div class="norma-elenco" id="norma-fonti"></div>
+    </section>
+</main>
+
+<script src="assets/normativa.js?v=20260906b"></script>
+<script src="assets/navigazione.js?v=20260906b"></script>
+</body>
+</html>

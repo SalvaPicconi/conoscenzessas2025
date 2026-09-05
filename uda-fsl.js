@@ -87,19 +87,24 @@ function card(u) {
         </button>
         <div class="uda-acc-body" ${open ? '' : 'hidden'}>
             <div class="uda-chip-row" aria-label="Competenze coinvolte">${competencies}${(u.competenzeEuropee || []).map(c => `<span class="uda-chip uda-chip-secondary">${esc(c)}</span>`).join('')}</div>
-            ${section('Traguardo formativo', `<p>${esc(u.traguardo)}</p>`)}
-            ${section('Contesto adattabile', `<p>${esc(u.situazione)}</p><p><strong>Area:</strong> ${esc(u.ambito)}</p>`)}
-            ${section('Compito autentico', `<p>${esc(u.compito)}</p>`)}
-            ${section('Prodotto ed evidenze', `<p>${esc(u.prodotto)}</p><p><strong>Beneficiari:</strong> ${esc(u.beneficiari)}</p><p><strong>Monte ore:</strong> ${esc(u.ore)}</p>`)}
-            <div class="sin-grid"><div class="sin-item"><div class="sin-label">Abilità mobilitate</div><div class="sin-value"><ul class="sin-list">${u.abilita.map(row).join('')}</ul></div></div>
-            <div class="sin-item"><div class="sin-label">Saperi essenziali documentali</div><div class="sin-value"><ul class="sin-list">${u.saperi.map(row).join('')}</ul><p class="pfi-nota">Base normativa da mantenere; eventuali nuovi saperi vengono affiancati in revisione.</p></div></div></div>
+            ${section('Traguardo formativo', `<p>${esc(u.traguardo)}</p>`, 'traguardo-intermedio')}
+            ${section('Contesto adattabile', `<p>${esc(u.situazione)}</p><p><strong>Area:</strong> ${esc(u.ambito)}</p>`, 'situazione-problema')}
+            ${section('Compito autentico', `<p>${esc(u.compito)}</p>`, 'compito-di-realta')}
+            ${section('Prodotto ed evidenze', `<p>${esc(u.prodotto)}</p><p><strong>Beneficiari:</strong> ${esc(u.beneficiari)}</p><p><strong>Monte ore:</strong> ${esc(u.ore)}</p>`, 'prodotto')}
+            <div class="sin-grid"><div class="sin-item"><div class="sin-label" data-termine="abilita">Abilità mobilitate</div><div class="sin-value"><ul class="sin-list">${u.abilita.map(row).join('')}</ul></div></div>
+            <div class="sin-item"><div class="sin-label" data-termine="saperi-essenziali">Saperi essenziali documentali</div><div class="sin-value"><ul class="sin-list">${u.saperi.map(row).join('')}</ul><p class="pfi-nota">Base normativa da mantenere; eventuali nuovi saperi vengono affiancati in revisione.</p></div></div></div>
             <div class="uda-fsl-subjects"><strong>Insegnamenti coinvolti</strong><div class="uda-fsl-subject-list">${renderSubjectChips(subjects)}</div></div>
             <div class="uda-ore-slot" data-uda-ore-slot="${esc(u.id)}"></div>
             <div class="uda-revisione-slot" data-uda-revisione-slot="${esc(u.id)}"></div>
         </div></article>`;
 }
 
-function section(title, body) { return `<section class="uda-detail-section"><h3>${title}</h3>${body}</section>`; }
+// Il terzo argomento aggancia il titolo al glossario normativo: assets/normativa.js
+// trasforma l'attributo in un segno cliccabile con definizione e fonte.
+function section(title, body, termine) {
+    const marca = termine ? ` data-termine="${termine}"` : '';
+    return `<section class="uda-detail-section"><h3${marca}>${title}</h3>${body}</section>`;
+}
 function row(item) { return `<li>${esc(item.t)} ${renderSubjectChips(item.ins)}</li>`; }
 function renderSubjectChips(subjects) {
     return (subjects || []).map(subject => {

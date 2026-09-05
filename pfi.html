@@ -13,14 +13,15 @@
     <link rel="stylesheet" href="style.css?v=20260721">
     <link rel="stylesheet" href="pfi.css?v=20260901">
     <link rel="stylesheet" href="didattica.css?v=20260901">
-    <link rel="stylesheet" href="assets/navigazione.css?v=20260905l">
+    <link rel="stylesheet" href="assets/normativa.css?v=20260906b">
+    <link rel="stylesheet" href="assets/navigazione.css?v=20260906b">
 </head>
 <body>
 <main class="container">
 
     <header class="header page-hero no-print">
         <div class="hero-card">
-            <h1>Progetto Formativo Individuale</h1>
+            <h1 data-termine="pfi">Progetto Formativo Individuale</h1>
             <div class="subline">IIS Meucci - Mattei Cagliari, Sede Decimomannu — Servizi per la sanità e l'assistenza sociale</div>
             <p class="subtitle">Modulo compilabile conforme al D.Lgs. 61/2017 art. 5 c. 1 lett. a), al D.M. 92/2018 artt. 4 e 6 e al modello di riferimento delle Linee guida (Box n. 10)</p>
         </div>
@@ -232,7 +233,7 @@
         </fieldset>
 
         <fieldset class="pfi-fieldset">
-            <legend>Docente tutor per annualità</legend>
+            <legend data-termine="tutor">Docente tutor per annualità</legend>
             <div class="pfi-griglia pfi-griglia-5" id="pfi-tutor-anni"></div>
             <p class="pfi-nota">Individuato dal dirigente scolastico, sentito il consiglio di classe — D.M. 92/2018 art. 6 c. 3.</p>
         </fieldset>
@@ -240,7 +241,7 @@
 
     <!-- ============ QUADRO 2 ============ -->
     <section class="pfi-quadro" id="q2">
-        <h2><span class="pfi-num">Quadro 2</span> Sintesi del bilancio personale iniziale</h2>
+        <h2 data-termine="bilancio-personale"><span class="pfi-num">Quadro 2</span> Sintesi del bilancio personale iniziale</h2>
         <p class="pfi-fonte">D.M. 92/2018 art. 2 e art. 6 c. 2 · Linee guida, Box n. 10 e nota 37</p>
         <p class="pfi-nota pfi-nota-top">
             Data di rilevazione: <input type="date" name="bilancioData" class="pfi-inline-date">
@@ -264,7 +265,7 @@
             <label class="pfi-col-2">Precedenti esperienze di formazione scuola-lavoro (ex PCTO) o apprendistato <textarea name="esperienzePcto" rows="2"></textarea></label>
         </div>
 
-        <h3>Competenze acquisite in contesti non formali e informali</h3>
+        <h3 data-termine="competenza">Competenze acquisite in contesti non formali e informali</h3>
         <p class="pfi-nota pfi-nota-top">Rilevate nel colloquio condotto dal docente tutor.</p>
         <div class="pfi-griglia pfi-griglia-2">
             <label>Attitudini <textarea name="attitudini" rows="2"></textarea></label>
@@ -278,7 +279,7 @@
 
     <!-- ============ QUADRO 3 ============ -->
     <section class="pfi-quadro" id="q3">
-        <h2><span class="pfi-num">Quadro 3</span> Obiettivi previsti in termini di personalizzazione</h2>
+        <h2 data-termine="personalizzazione"><span class="pfi-num">Quadro 3</span> Obiettivi previsti in termini di personalizzazione</h2>
         <p class="pfi-fonte">Modello PFI INDIRE, Quadro 3 — «attraverso gli interventi di personalizzazione o attraverso particolari UdA»</p>
         <label class="pfi-full">A partire dai bisogni formativi emersi dal bilancio iniziale, il consiglio di classe individua i seguenti obiettivi
             <textarea name="obiettivi" rows="5"></textarea>
@@ -354,7 +355,7 @@
 
     <!-- ============ QUADRO 7 — L'ALLEGATO ============ -->
     <section class="pfi-quadro pfi-quadro-uda" id="q7">
-        <h2><span class="pfi-num">Quadro 7</span> Piano didattico delle unità di apprendimento</h2>
+        <h2 data-termine="uda"><span class="pfi-num">Quadro 7</span> Piano didattico delle unità di apprendimento</h2>
         <p class="pfi-fonte">
             D.M. 92/2018 art. 4 c. 6 — le UDA «nelle quali è strutturato» il PFI · art. 6 c. 4 — per tutta
             la durata del quinquennio, con progettazione interdisciplinare · Linee guida, Box n. 8
@@ -408,7 +409,7 @@
 
     <!-- ============ QUADRO 8 ============ -->
     <section class="pfi-quadro" id="q8">
-        <h2><span class="pfi-num">Quadro 8</span> Livelli di padronanza delle competenze</h2>
+        <h2 data-termine="livelli-padronanza"><span class="pfi-num">Quadro 8</span> Livelli di padronanza delle competenze</h2>
         <p class="pfi-fonte">Linee guida, Box n. 8 voce 8 — rubrica ad almeno 4 livelli · livelli QNQ (Tabella A)</p>
         <p class="pfi-nota pfi-nota-top">
             Valutazione collegiale del consiglio di classe, riferita alle UDA inserite nel Quadro 7
@@ -465,7 +466,8 @@
 
 </main>
 
-<script src="pfi.js?v=20260901"></script>
-<script src="assets/navigazione.js?v=20260905l"></script>
+<script src="pfi.js?v=20260906b"></script>
+<script src="assets/normativa.js?v=20260906b"></script>
+<script src="assets/navigazione.js?v=20260906b"></script>
 </body>
 </html>

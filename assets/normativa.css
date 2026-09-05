@@ -1,0 +1,335 @@
+/* ============================================================
+   Glossario normativo — segno accanto alla parola e pagina delle fonti
+   Estende style.css: usa i token del tema, non ne introduce di nuovi.
+   Ogni token porta con sé il proprio valore di ripiego, perché le rubriche
+   di valutazione hanno stili propri e non caricano style.css: senza ripiego
+   il segno accanto alla parola vi comparirebbe senza colore.
+   ============================================================ */
+
+/* ---------- Segno accanto alla parola ---------- */
+
+.norma-termine {
+    position: relative;
+}
+
+.norma-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 17px;
+    height: 17px;
+    margin-left: 5px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--accent-a, #4f46e5);
+    font-size: 13px;
+    line-height: 1;
+    cursor: pointer;
+    vertical-align: baseline;
+    transition: color .15s ease, transform .15s ease;
+}
+
+.norma-chip:hover,
+.norma-chip[aria-expanded="true"] {
+    color: var(--accent-c, #8b5cf6);
+    transform: scale(1.15);
+}
+
+.norma-chip:focus-visible {
+    outline: 2px solid var(--accent-b, #0ea5e9);
+    outline-offset: 2px;
+}
+
+/* ---------- Pannello della definizione ---------- */
+
+.norma-pop {
+    position: absolute;
+    z-index: 60;
+    width: min(380px, calc(100vw - 24px));
+    padding: 16px 18px;
+    background: var(--card-solid, #ffffff);
+    border: 1px solid var(--stroke, rgba(99, 102, 241, 0.16));
+    border-radius: var(--radius-md, 14px);
+    box-shadow: 0 24px 60px -24px rgba(30, 41, 99, .55);
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--ink-soft, #4b5872);
+}
+
+.norma-pop-occhiello {
+    margin: 0 0 4px;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--accent-a, #4f46e5);
+}
+
+.norma-pop-titolo {
+    margin: 0 0 8px;
+    font-size: 15.5px;
+    color: var(--ink, #0b1220);
+}
+
+.norma-pop-citazione,
+.norma-voce-citazione {
+    margin: 0 0 8px;
+    padding-left: 12px;
+    border-left: 3px solid var(--accent-b, #0ea5e9);
+    font-style: italic;
+    color: var(--ink, #0b1220);
+}
+
+.norma-pop-testo { margin: 0; }
+
+.norma-pop-avvertenza,
+.norma-voce-avvertenza {
+    margin: 8px 0 0;
+    padding: 8px 10px;
+    border-radius: 10px;
+    background: rgba(234, 179, 8, .12);
+    border: 1px solid rgba(234, 179, 8, .35);
+    color: #7a5b00;
+    font-size: 12.5px;
+}
+
+.norma-pop-etichetta,
+.norma-voce-etichetta {
+    margin: 12px 0 4px;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--ink-faint, #626d82);
+}
+
+.norma-pop-fonti {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 12.5px;
+}
+
+.norma-pop-fonti li { margin-bottom: 4px; }
+
+.norma-pop-vai {
+    margin: 12px 0 0;
+    font-size: 12.5px;
+}
+
+.norma-pop-vai a {
+    color: var(--accent-a, #4f46e5);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.norma-pop-vai a:hover { text-decoration: underline; }
+
+/* ---------- Pagina del glossario ---------- */
+
+.norma-page-intro {
+    background: var(--card, rgba(255, 255, 255, 0.82));
+    border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.85));
+    border-radius: var(--radius-lg, 22px);
+    padding: 20px 22px;
+    box-shadow: var(--shadow-card, 0 18px 44px -30px rgba(30, 41, 99, 0.45));
+    color: var(--ink-soft, #4b5872);
+    line-height: 1.65;
+    margin-bottom: 20px;
+}
+
+.norma-page-intro p + p { margin-top: 10px; }
+
+.norma-avvertenza {
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: rgba(79, 70, 229, .07);
+    border: 1px solid var(--stroke, rgba(99, 102, 241, 0.16));
+    font-size: 13.5px;
+}
+
+.norma-legenda {
+    list-style: none;
+    display: grid;
+    gap: 8px;
+    margin: 0 0 22px;
+    padding: 0;
+    font-size: 13px;
+    color: var(--ink-soft, #4b5872);
+}
+
+.norma-legenda li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px;
+    line-height: 1.5;
+}
+
+.norma-badge {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 999px;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.norma-badge-definizione {
+    background: rgba(16, 185, 129, .14);
+    color: #0f7a5f;
+}
+
+.norma-badge-termine {
+    background: rgba(79, 70, 229, .12);
+    color: var(--accent-a, #4f46e5);
+}
+
+.norma-badge-uso {
+    background: rgba(234, 179, 8, .16);
+    color: #8a6400;
+}
+
+.norma-strumenti {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: flex-end;
+    margin-bottom: 18px;
+}
+
+.norma-strumenti label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--ink-faint, #626d82);
+}
+
+.norma-strumenti input,
+.norma-strumenti select {
+    font: inherit;
+    font-size: 14px;
+    text-transform: none;
+    letter-spacing: normal;
+    font-weight: 400;
+    color: var(--ink, #0b1220);
+    padding: 9px 12px;
+    border: 1px solid var(--stroke, rgba(99, 102, 241, 0.16));
+    border-radius: 12px;
+    background: var(--card-solid, #ffffff);
+    min-width: 200px;
+}
+
+.norma-strumenti input:focus-visible,
+.norma-strumenti select:focus-visible {
+    outline: 2px solid var(--accent-b, #0ea5e9);
+    outline-offset: 1px;
+}
+
+.norma-esito {
+    font-size: 13px;
+    color: var(--ink-faint, #626d82);
+    margin-bottom: 14px;
+}
+
+.norma-elenco {
+    display: grid;
+    gap: 14px;
+    margin-bottom: 34px;
+}
+
+.norma-voce,
+.norma-fonte {
+    background: var(--card, rgba(255, 255, 255, 0.82));
+    border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.85));
+    border-radius: var(--radius-md, 14px);
+    padding: 16px 18px;
+    box-shadow: var(--shadow-card, 0 18px 44px -30px rgba(30, 41, 99, 0.45));
+    color: var(--ink-soft, #4b5872);
+    font-size: 14px;
+    line-height: 1.6;
+    scroll-margin-top: 90px;
+}
+
+.norma-voce-evidenziata {
+    border-color: var(--accent-b, #0ea5e9);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, .18), var(--shadow-card, 0 18px 44px -30px rgba(30, 41, 99, 0.45));
+}
+
+.norma-voce-testa {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.norma-voce-testa h3,
+.norma-fonte h3 {
+    margin: 0;
+    font-size: 16.5px;
+    color: var(--ink, #0b1220);
+}
+
+.norma-voce-definizione { margin: 0; }
+
+.norma-voce-fonti ul {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 13px;
+}
+
+.norma-voce-fonti li { margin-bottom: 4px; }
+
+.norma-voce-fonti a {
+    color: var(--accent-a, #4f46e5);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.norma-voce-fonti a:hover { text-decoration: underline; }
+
+.norma-voce-uso {
+    margin: 12px 0 0;
+    padding-top: 10px;
+    border-top: 1px dashed var(--stroke-soft, rgba(148, 163, 184, 0.22));
+    font-size: 13px;
+    color: var(--ink-faint, #626d82);
+}
+
+.norma-fonte-titolo {
+    margin: 4px 0 0;
+    font-style: italic;
+    color: var(--ink, #0b1220);
+}
+
+.norma-fonte-gu,
+.norma-fonte-nota {
+    margin: 4px 0 0;
+    font-size: 12.5px;
+    color: var(--ink-faint, #626d82);
+}
+
+.norma-fonte-oggetto { margin: 8px 0 0; }
+
+@media (max-width: 640px) {
+    .norma-strumenti { flex-direction: column; align-items: stretch; }
+    .norma-strumenti input,
+    .norma-strumenti select { min-width: 0; width: 100%; }
+}
+
+@media print {
+    .norma-chip,
+    .norma-pop,
+    .norma-strumenti { display: none !important; }
+    .norma-voce,
+    .norma-fonte { break-inside: avoid; box-shadow: none; }
+}

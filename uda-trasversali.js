@@ -209,19 +209,19 @@ function renderTrasversaleCard(u, autoExpand) {
                         <div class="sin-value"><ul class="sin-list">${renderCompetenzaList(u.competenzeSSAS, meta.competenzeSSAS, 'C')}</ul></div>
                     </div>
                     <div class="sin-row">
-                        <div class="sin-label">Traguardo</div>
+                        <div class="sin-label" data-termine="traguardo-intermedio">Traguardo</div>
                         <div class="sin-value">${escapeHTML(u.traguardo)}</div>
                     </div>
                     <div class="sin-row">
-                        <div class="sin-label">Situazione / problema</div>
+                        <div class="sin-label" data-termine="situazione-problema">Situazione / problema</div>
                         <div class="sin-value">${escapeHTML(u.situazione)}</div>
                     </div>
                     <div class="sin-row">
-                        <div class="sin-label">Compito di realtà</div>
+                        <div class="sin-label" data-termine="compito-di-realta">Compito di realtà</div>
                         <div class="sin-value">${escapeHTML(u.compito)}</div>
                     </div>
                     <div class="sin-row">
-                        <div class="sin-label">Prodotto</div>
+                        <div class="sin-label" data-termine="prodotto">Prodotto</div>
                         <div class="sin-value">${escapeHTML(u.prodotto)}</div>
                     </div>
                     <div class="sin-row">
@@ -229,11 +229,11 @@ function renderTrasversaleCard(u, autoExpand) {
                         <div class="sin-value">${escapeHTML(u.beneficiari)}${u.ambito ? ` <span class="pill pill-ambito">${escapeHTML(u.ambito)}</span>` : ''}</div>
                     </div>
                     <div class="sin-row">
-                        <div class="sin-label">Abilità per insegnamento</div>
+                        <div class="sin-label" data-termine="abilita">Abilità per insegnamento</div>
                         <div class="sin-value"><ul class="sin-list">${u.abilita.map(item => renderVoceTrasversale(item)).join('')}</ul></div>
                     </div>
                     <div class="sin-row">
-                        <div class="sin-label">Saperi per insegnamento</div>
+                        <div class="sin-label" data-termine="saperi-essenziali">Saperi per insegnamento</div>
                         <div class="sin-value"><ul class="sin-list">${u.saperi.map(item => renderVoceTrasversale(item)).join('')}</ul></div>
                     </div>
                     <div class="sin-row">
