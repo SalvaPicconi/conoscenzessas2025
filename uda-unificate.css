@@ -1,0 +1,81 @@
+/* Proposta di UDA unificate — stili propri della sezione.
+   Tutto il resto è ereditato da style.css, uda.css e didattica.css. */
+
+.unif-competenza {
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+    margin-bottom: 6px;
+}
+
+.unif-competenza-num {
+    flex: 0 0 auto;
+    padding: 1px 8px;
+    border-radius: 999px;
+    background: #0b5f5a;
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.unif-nota-rubrica {
+    margin: 8px 0 0;
+    font-size: 0.88rem;
+    color: #4a5f5d;
+    font-style: italic;
+}
+
+.unif-traguardi li {
+    margin-bottom: 6px;
+}
+
+.unif-rif {
+    margin-left: 6px;
+    font-size: 0.8rem;
+    color: #6b7d7b;
+    white-space: nowrap;
+}
+
+.unif-fonde {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.unif-fonde li {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: baseline;
+    padding: 6px 0;
+    border-bottom: 1px dashed #d7e3e1;
+}
+
+.unif-fonde li:last-child {
+    border-bottom: none;
+}
+
+.unif-fonde-id {
+    flex: 0 0 auto;
+    padding: 1px 8px;
+    border-radius: 6px;
+    background: #eef4f3;
+    font-weight: 700;
+    color: #0b5f5a;
+}
+
+.unif-fonde-titolo {
+    font-weight: 600;
+}
+
+.unif-fonde-nota {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.unif-rubrica { margin: 12px 0; padding: 10px; border: 1px solid #b9cdca; border-radius: 8px; }
+.unif-rubrica summary { cursor: pointer; font-weight: 700; }
+.unif-rubrica dt { margin-top: 10px; font-weight: 700; }
+.unif-rubrica dd { margin: 4px 0 12px; }
+.uda-acc-pills .pill { white-space: normal; }
+.sin-value { min-width: 0; overflow-wrap: anywhere; }

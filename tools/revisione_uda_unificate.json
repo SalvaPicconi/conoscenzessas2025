@@ -1,0 +1,1449 @@
+{
+  "versione": "2026-09-06.4",
+  "stato": "Proposta redazionale da validare collegialmente",
+  "criterioValutazione": "Livelli descrittivi proposti, senza conversione automatica in voto o certificazione. Strumenti compensativi e supporti previsti non penalizzano il livello. Se l’evidenza manca, registrare «Non osservato», senza assegnare automaticamente il livello 1. Valutare separatamente ciascuna competenza.",
+  "schede": {
+    "U1.1": {
+      "modifiche": {
+        "situazione": "Una famiglia chiede informazioni sui servizi sociali, socio-sanitari e socio-educativi del territorio. Occorre distinguere bisogni, destinatari e prestazioni e presentare informazioni comprensibili, verificabili e aggiornate.",
+        "anno": 2,
+        "collocazione": "Spostata in seconda su indicazione del docente. Identificativo U1.1 conservato per la tracciabilità; schede di origine 1.1 e 1.7 del biennio, mantenute senza modifiche.",
+        "traguardo": "Riconoscere la rete territoriale dei servizi alla persona e predisporre informazioni comprensibili su destinatari, prestazioni e riferimenti di accesso",
+        "compito": "Costruire una mappa di almeno tre servizi sociali, socio-sanitari o socio-educativi rivolti a diverse tipologie di utenza. Distinguere ente, destinatari, prestazioni e contatti; preparare un materiale informativo per una famiglia del caso didattico, indicando fonti e data di verifica. La proposta riguarda la rete generale; i servizi specifici per i coetanei sono approfonditi separatamente in U2.1.",
+        "prodotto": "Mappa della rete generale dei servizi e scheda informativa rivolta alla famiglia del caso, con fonti, data di verifica ed eventuali dati non reperiti.",
+        "beneficiari": "Famiglia descritta nel caso didattico; eventuale restituzione a famiglie reali da concordare con la scuola.",
+        "sintesi": "Creare una mappa dei servizi alla persona e una scheda informativa per le famiglie, con fonti e contatti verificati."
+      },
+      "rubrica": [
+        {
+          "competenza": 1,
+          "indicatore": "Identifica almeno tre servizi distinguendo ente, destinatari e prestazioni",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Identifica almeno tre servizi distinguendo ente, destinatari e prestazioni», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Identifica almeno tre servizi distinguendo ente, destinatari e prestazioni», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Identifica almeno tre servizi distinguendo ente, destinatari e prestazioni», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Identifica almeno tre servizi distinguendo ente, destinatari e prestazioni», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        },
+        {
+          "competenza": 7,
+          "indicatore": "Produce un volantino comprensibile con destinatari, prestazioni e contatti verificabili",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Produce un volantino comprensibile con destinatari, prestazioni e contatti verificabili», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Produce un volantino comprensibile con destinatari, prestazioni e contatti verificabili», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Produce un volantino comprensibile con destinatari, prestazioni e contatti verificabili», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Produce un volantino comprensibile con destinatari, prestazioni e contatti verificabili», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        }
+      ]
+    },
+    "U1.2": {
+      "modifiche": {
+        "situazione": "La classe deve concordare regole e modalità di collaborazione per un’attività comune. Il compito richiede di distribuire ruoli, ascoltare punti di vista diversi e affrontare stereotipi con una comunicazione rispettosa.",
+        "beneficiari": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola.",
+        "sintesi": "Affrontare un episodio didattico di esclusione: concordare una regola del patto di classe e realizzare il messaggio che la spiega.",
+        "compito": "La classe esamina un episodio simulato di esclusione. I gruppi, con ruoli assegnati, riconoscono lo stereotipo, discutono le conseguenze, formulano una regola del patto e un messaggio che ne favorisca l’applicazione. Diario di gruppo e breve motivazione individuale documentano cooperazione e comunicazione.",
+        "prodotto": "Regola motivata del patto di classe, messaggio contro lo stereotipo e diario di gruppo."
+      },
+      "rubrica": [
+        {
+          "competenza": 2,
+          "indicatore": "Svolge il ruolo assegnato e contribuisce alle decisioni del gruppo sul patto",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Svolge il ruolo assegnato e contribuisce alle decisioni del gruppo sul patto», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Svolge il ruolo assegnato e contribuisce alle decisioni del gruppo sul patto», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Svolge il ruolo assegnato e contribuisce alle decisioni del gruppo sul patto», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Svolge il ruolo assegnato e contribuisce alle decisioni del gruppo sul patto», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        },
+        {
+          "competenza": 3,
+          "indicatore": "Riconosce uno stereotipo e propone un messaggio che ne contrasti gli effetti",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Riconosce uno stereotipo e propone un messaggio che ne contrasti gli effetti», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Riconosce uno stereotipo e propone un messaggio che ne contrasti gli effetti», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Riconosce uno stereotipo e propone un messaggio che ne contrasti gli effetti», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Riconosce uno stereotipo e propone un messaggio che ne contrasti gli effetti», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        }
+      ]
+    },
+    "U1.3": {
+      "modifiche": {
+        "situazione": "Si confrontano casi didattici di persone di età diverse per riconoscere bisogni e fattori di benessere. Gli studenti distinguono ciò che osservano dalle proprie interpretazioni e collegano le dimensioni biologica, psicologica e sociale della salute.",
+        "beneficiari": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola.",
+        "sintesi": "Confrontare bisogni e stili di vita a età diverse e costruire una mappa della salute biologica, psicologica e sociale."
+      },
+      "rubrica": [
+        {
+          "competenza": 4,
+          "indicatore": "Rileva con la guida prevista condizioni e bisogni legati all’età senza confondere dati e interpretazioni",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Rileva con la guida prevista condizioni e bisogni legati all’età senza confondere dati e interpretazioni», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Rileva con la guida prevista condizioni e bisogni legati all’età senza confondere dati e interpretazioni», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Rileva con la guida prevista condizioni e bisogni legati all’età senza confondere dati e interpretazioni», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Rileva con la guida prevista condizioni e bisogni legati all’età senza confondere dati e interpretazioni», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        },
+        {
+          "competenza": 5,
+          "indicatore": "Collega dimensioni biologiche, psicologiche e sociali e propone atteggiamenti coerenti nel caso",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Collega dimensioni biologiche, psicologiche e sociali e propone atteggiamenti coerenti nel caso», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Collega dimensioni biologiche, psicologiche e sociali e propone atteggiamenti coerenti nel caso», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Collega dimensioni biologiche, psicologiche e sociali e propone atteggiamenti coerenti nel caso», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Collega dimensioni biologiche, psicologiche e sociali e propone atteggiamenti coerenti nel caso», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        }
+      ]
+    },
+    "U1.4": {
+      "modifiche": {
+        "situazione": "La classe esamina un ambiente scolastico attraverso una rilevazione guidata. Deve riconoscere potenziali rischi, organizzare i dati e proporre comportamenti coerenti con la sicurezza delle persone.",
+        "beneficiari": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola.",
+        "sintesi": "Rilevare rischi a scuola, organizzare i dati in grafici e proporre un decalogo di comportamenti sicuri."
+      },
+      "rubrica": [
+        {
+          "competenza": 6,
+          "indicatore": "Riconosce un rischio scolastico e mette in atto una condotta preventiva nella simulazione",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Riconosce un rischio scolastico e mette in atto una condotta preventiva nella simulazione», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Riconosce un rischio scolastico e mette in atto una condotta preventiva nella simulazione», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Riconosce un rischio scolastico e mette in atto una condotta preventiva nella simulazione», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Riconosce un rischio scolastico e mette in atto una condotta preventiva nella simulazione», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        },
+        {
+          "competenza": 10,
+          "indicatore": "Organizza i dati del questionario e costruisce grafici coerenti con i dati raccolti",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Organizza i dati del questionario e costruisce grafici coerenti con i dati raccolti», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Organizza i dati del questionario e costruisce grafici coerenti con i dati raccolti», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Organizza i dati del questionario e costruisce grafici coerenti con i dati raccolti», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Organizza i dati del questionario e costruisce grafici coerenti con i dati raccolti», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        }
+      ]
+    },
+    "U1.5": {
+      "modifiche": {
+        "situazione": "Un gruppo deve partecipare a un gioco inclusivo. Gli studenti scelgono obiettivi, regole, materiali e tempi e verificano come la conduzione favorisca la partecipazione di ciascuno.",
+        "beneficiari": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola.",
+        "sintesi": "Progettare e condurre un gioco inclusivo per la classe, con regole, tempi e autovalutazione."
+      },
+      "rubrica": [
+        {
+          "competenza": 8,
+          "indicatore": "Conduce un gioco con obiettivo, regole e tempi comprensibili, adattandolo alle risposte del gruppo",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Conduce un gioco con obiettivo, regole e tempi comprensibili, adattandolo alle risposte del gruppo», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Conduce un gioco con obiettivo, regole e tempi comprensibili, adattandolo alle risposte del gruppo», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Conduce un gioco con obiettivo, regole e tempi comprensibili, adattandolo alle risposte del gruppo», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Conduce un gioco con obiettivo, regole e tempi comprensibili, adattandolo alle risposte del gruppo», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        }
+      ]
+    },
+    "U2.1": {
+      "modifiche": {
+        "situazione": "Un adolescente cerca opportunità di ascolto, supporto e partecipazione nel territorio. Gli studenti individuano i servizi rivolti ai coetanei, verificano a chi si rivolgono e come si accede, e preparano una guida con linguaggio adeguato ai destinatari.",
+        "traguardo": "Individuare servizi e opportunità rivolti agli adolescenti e produrre una guida comprensibile per i coetanei",
+        "compito": "Realizzare una guida digitale ai servizi per adolescenti, con una mappa delle opportunità verificate: consultori, sportelli d’ascolto, spazi giovani o altri servizi pertinenti effettivamente reperiti. Per ogni voce distinguere destinatari, prestazioni, ente e modalità di accesso. Dichiarare fonti, data di verifica e informazioni non reperite. Verificare la comprensibilità con un gruppo di coetanei in attività scolastica; la diffusione esterna è da concordare.",
+        "prodotto": "Guida ai servizi per i coetanei con mappa digitale, riferimenti verificabili e breve riscontro sulla comprensibilità.",
+        "beneficiari": "Studenti e adolescenti destinatari della guida; modalità di consultazione e diffusione da concordare.",
+        "sintesi": "Preparare una guida digitale ai servizi per adolescenti, verificando destinatari, prestazioni e modalità di accesso."
+      },
+      "rubrica": [
+        {
+          "competenza": 1,
+          "indicatore": "Individua servizi per adolescenti effettivamente documentati distinguendo ente, destinatari, prestazioni e modalità di accesso",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Individua servizi per adolescenti effettivamente documentati distinguendo ente, destinatari, prestazioni e modalità di accesso», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Individua servizi per adolescenti effettivamente documentati distinguendo ente, destinatari, prestazioni e modalità di accesso», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Individua servizi per adolescenti effettivamente documentati distinguendo ente, destinatari, prestazioni e modalità di accesso», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Individua servizi per adolescenti effettivamente documentati distinguendo ente, destinatari, prestazioni e modalità di accesso», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        },
+        {
+          "competenza": 7,
+          "indicatore": "Seleziona e presenta informazioni sui servizi pertinenti ai bisogni degli adolescenti",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Seleziona e presenta informazioni sui servizi pertinenti ai bisogni degli adolescenti», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Seleziona e presenta informazioni sui servizi pertinenti ai bisogni degli adolescenti», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Seleziona e presenta informazioni sui servizi pertinenti ai bisogni degli adolescenti», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Seleziona e presenta informazioni sui servizi pertinenti ai bisogni degli adolescenti», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        }
+      ]
+    },
+    "U2.2": {
+      "modifiche": {
+        "situazione": "Si progetta un’iniziativa di accoglienza scolastica che favorisca la partecipazione di studenti con esperienze e provenienze diverse. Il gruppo deve organizzare le attività e comunicarle in modo accessibile e rispettoso della riservatezza.",
+        "beneficiari": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola.",
+        "sintesi": "Organizzare un’iniziativa di accoglienza e comunicarla con materiali multimediali rispettosi delle differenze."
+      },
+      "rubrica": [
+        {
+          "competenza": 2,
+          "indicatore": "Rispetta ruoli e impegni e documenta il contributo alle decisioni sull’iniziativa",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Rispetta ruoli e impegni e documenta il contributo alle decisioni sull’iniziativa», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Rispetta ruoli e impegni e documenta il contributo alle decisioni sull’iniziativa», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Rispetta ruoli e impegni e documenta il contributo alle decisioni sull’iniziativa», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Rispetta ruoli e impegni e documenta il contributo alle decisioni sull’iniziativa», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        },
+        {
+          "competenza": 3,
+          "indicatore": "Produce una comunicazione multimediale rispettosa delle differenze e applica le regole di privacy previste",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Produce una comunicazione multimediale rispettosa delle differenze e applica le regole di privacy previste», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Produce una comunicazione multimediale rispettosa delle differenze e applica le regole di privacy previste», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Produce una comunicazione multimediale rispettosa delle differenze e applica le regole di privacy previste», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Produce una comunicazione multimediale rispettosa delle differenze e applica le regole di privacy previste», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        }
+      ]
+    },
+    "U2.3a": {
+      "modifiche": {
+        "traguardo": "Rilevare, in modo guidato, condizioni, stili di vita e bisogni legati all'età",
+        "compito": "Rilevare stili di vita per età e preparare una guida illustrata basata sui dati raccolti.",
+        "situazione": "Caso didattico assegnato dal docente, collegabile alla UDA U2.3b senza sovrapporre attività e valutazioni.",
+        "prodotto": "Indagine sugli stili di vita per fasce d'età e guida illustrata ai sani stili di vita per età.",
+        "beneficiari": "Destinatari del caso didattico; eventuali contesti reali da concordare.",
+        "ambito": "mista",
+        "sintesi": "Rilevare stili di vita per età e preparare una guida illustrata basata sui dati raccolti.",
+        "collegataA": "U2.3b",
+        "derivaDa": "U2.3"
+      },
+      "rubrica": [
+        {
+          "competenza": 4,
+          "indicatore": "Rileva e confronta stili di vita per età usando la scheda guidata",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Rileva e confronta stili di vita per età usando la scheda guidata», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Rileva e confronta stili di vita per età usando la scheda guidata», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Rileva e confronta stili di vita per età usando la scheda guidata», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Rileva e confronta stili di vita per età usando la scheda guidata», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        }
+      ],
+      "struttura": {
+        "id": "U2.3a",
+        "anno": 2,
+        "competenze": [
+          4
+        ],
+        "fonde": [
+          "2.4"
+        ]
+      }
+    },
+    "U2.3b": {
+      "modifiche": {
+        "traguardo": "Adottare atteggiamenti coerenti al concetto di salute bio-psico-sociale; descrivere i soggetti della presa in carico",
+        "compito": "Analizzare un caso simulato di malattia e rappresentare i soggetti della rete di cura e i loro ruoli.",
+        "situazione": "Caso didattico assegnato dal docente, collegabile alla UDA U2.3a senza sovrapporre attività e valutazioni.",
+        "prodotto": "Su un caso simulato di malattia, elaborato grafico commentato della rete della presa in carico (famiglia, medico, servizi).",
+        "beneficiari": "Destinatari del caso didattico; eventuali contesti reali da concordare.",
+        "ambito": "interna",
+        "sintesi": "Analizzare un caso simulato di malattia e rappresentare i soggetti della rete di cura e i loro ruoli.",
+        "collegataA": "U2.3a",
+        "derivaDa": "U2.3"
+      },
+      "rubrica": [
+        {
+          "competenza": 5,
+          "indicatore": "Collega salute bio-psico-sociale e ruoli dei soggetti della presa in carico nel caso",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Collega salute bio-psico-sociale e ruoli dei soggetti della presa in carico nel caso», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Collega salute bio-psico-sociale e ruoli dei soggetti della presa in carico nel caso», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Collega salute bio-psico-sociale e ruoli dei soggetti della presa in carico nel caso», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Collega salute bio-psico-sociale e ruoli dei soggetti della presa in carico nel caso», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        }
+      ],
+      "struttura": {
+        "id": "U2.3b",
+        "anno": 2,
+        "competenze": [
+          5
+        ],
+        "fonde": [
+          "2.5"
+        ]
+      }
+    },
+    "U2.4": {
+      "modifiche": {
+        "situazione": "Si analizzano casi di ambienti domestici per individuare rischi e comportamenti preventivi. I dati disponibili sugli incidenti sono utilizzati indicando fonte, periodo e territorio, senza estendere i risultati a contesti non documentati.",
+        "beneficiari": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola.",
+        "sintesi": "Analizzare rischi domestici su un insieme di dati definito; produrre grafici, checklist e indicazioni preventive per le famiglie.",
+        "compito": "Il docente fornisce o concorda un insieme di dati sui rischi domestici, con fonte, periodo e contesto dichiarati; se costruito per l’esercitazione è indicato come simulato. Gli studenti elaborano i dati, collegano i risultati ai casi di ambiente domestico e producono checklist e opuscolo. Una simulazione individuale verifica il comportamento preventivo, senza dipendere da statistiche locali non reperite.",
+        "prodotto": "Grafici con fonti e limiti dei dati, checklist dei casi e opuscolo di prevenzione."
+      },
+      "rubrica": [
+        {
+          "competenza": 6,
+          "indicatore": "Individua rischi domestici e dimostra nella simulazione comportamenti preventivi coerenti",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Individua rischi domestici e dimostra nella simulazione comportamenti preventivi coerenti», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Individua rischi domestici e dimostra nella simulazione comportamenti preventivi coerenti», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Individua rischi domestici e dimostra nella simulazione comportamenti preventivi coerenti», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Individua rischi domestici e dimostra nella simulazione comportamenti preventivi coerenti», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        },
+        {
+          "competenza": 10,
+          "indicatore": "Elabora dati sugli incidenti distinguendo fonte, ambito territoriale e limiti della rilevazione",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Elabora dati sugli incidenti distinguendo fonte, ambito territoriale e limiti della rilevazione», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Elabora dati sugli incidenti distinguendo fonte, ambito territoriale e limiti della rilevazione», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Elabora dati sugli incidenti distinguendo fonte, ambito territoriale e limiti della rilevazione», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Elabora dati sugli incidenti distinguendo fonte, ambito territoriale e limiti della rilevazione», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        }
+      ]
+    },
+    "U2.5": {
+      "modifiche": {
+        "situazione": "La scuola prepara un’attività di animazione per un evento concordato. Gli studenti progettano una proposta adeguata ai partecipanti, ne organizzano la conduzione e documentano partecipazione e possibili adattamenti.",
+        "beneficiari": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola.",
+        "sintesi": "Progettare e condurre un’attività di animazione per un evento scolastico."
+      },
+      "rubrica": [
+        {
+          "competenza": 8,
+          "indicatore": "Progetta e conduce l’animazione dell’open day rispettando destinatari, materiali e tempi",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Progetta e conduce l’animazione dell’open day rispettando destinatari, materiali e tempi», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Progetta e conduce l’animazione dell’open day rispettando destinatari, materiali e tempi», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Progetta e conduce l’animazione dell’open day rispettando destinatari, materiali e tempi», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Progetta e conduce l’animazione dell’open day rispettando destinatari, materiali e tempi», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        }
+      ]
+    },
+    "U3.1": {
+      "modifiche": {
+        "situazione": "Un servizio simulato richiede di ordinare la documentazione relativa a un progetto individualizzato. Gli studenti lavorano su modelli e dati didattici, collegando bisogni, informazioni pertinenti e protezione dei dati.",
+        "beneficiari": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola.",
+        "sintesi": "Preparare la documentazione di un progetto individualizzato nello stesso servizio simulato, distinguendo dati di contesto e dati del caso.",
+        "compito": "Un servizio simulato fornisce dati di contesto e un caso individuale separato. Gli studenti elaborano i dati sociali per motivare il progetto, compilano e ordinano PAI simulato, modulistica e diario riferiti alla persona. Il dossier distingue finalità e scala delle due raccolte e applica le regole di protezione dei dati.",
+        "prodotto": "Dossier del servizio con analisi dei dati di contesto e documentazione individuale chiaramente distinta."
+      },
+      "rubrica": [
+        {
+          "competenza": 1,
+          "indicatore": "Compila e ordina documenti del progetto usando i modelli assegnati in modo coerente",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Compila e ordina documenti del progetto usando i modelli assegnati in modo coerente», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Compila e ordina documenti del progetto usando i modelli assegnati in modo coerente», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Compila e ordina documenti del progetto usando i modelli assegnati in modo coerente», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Compila e ordina documenti del progetto usando i modelli assegnati in modo coerente», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        },
+        {
+          "competenza": 10,
+          "indicatore": "Raccoglie ed elabora dati pertinenti al dossier applicando le regole di protezione previste",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Raccoglie ed elabora dati pertinenti al dossier applicando le regole di protezione previste», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Raccoglie ed elabora dati pertinenti al dossier applicando le regole di protezione previste», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Raccoglie ed elabora dati pertinenti al dossier applicando le regole di protezione previste», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Raccoglie ed elabora dati pertinenti al dossier applicando le regole di protezione previste», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        }
+      ]
+    },
+    "U3.2": {
+      "modifiche": {
+        "situazione": "Un utente viene accolto da un servizio simulato. Le informazioni emerse nel colloquio devono essere selezionate e condivise nella riunione d’équipe, rispettando ruoli professionali, bisogni comunicativi e riservatezza.",
+        "beneficiari": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola.",
+        "sintesi": "Simulare un colloquio di accoglienza e una riunione d’équipe sullo stesso caso, con scheda e verbale."
+      },
+      "rubrica": [
+        {
+          "competenza": 2,
+          "indicatore": "Contribuisce alla riunione sul caso e redige un resoconto fedele alle decisioni",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Contribuisce alla riunione sul caso e redige un resoconto fedele alle decisioni», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Contribuisce alla riunione sul caso e redige un resoconto fedele alle decisioni», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Contribuisce alla riunione sul caso e redige un resoconto fedele alle decisioni», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Contribuisce alla riunione sul caso e redige un resoconto fedele alle decisioni», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        },
+        {
+          "competenza": 3,
+          "indicatore": "Sceglie e utilizza modalità comunicative adatte ai bisogni dell’utente nel colloquio",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Sceglie e utilizza modalità comunicative adatte ai bisogni dell’utente nel colloquio», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Sceglie e utilizza modalità comunicative adatte ai bisogni dell’utente nel colloquio», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Sceglie e utilizza modalità comunicative adatte ai bisogni dell’utente nel colloquio», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Sceglie e utilizza modalità comunicative adatte ai bisogni dell’utente nel colloquio», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        }
+      ]
+    },
+    "U3.3": {
+      "modifiche": {
+        "situazione": "Un caso educativo descrive bisogni e attività quotidiane di un bambino. Gli studenti programmano azioni di osservazione e accudimento e verificano le condizioni di igiene e sicurezza dell’ambiente prima della simulazione.",
+        "traguardo": "Programmare azioni guidate di osservazione e accudimento del bambino e rilevare le condizioni di sicurezza dell’ambiente",
+        "beneficiari": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola.",
+        "sintesi": "Progettare attività di accudimento per la prima infanzia e rilevare i rischi dell’ambiente educativo."
+      },
+      "rubrica": [
+        {
+          "competenza": 4,
+          "indicatore": "Programma attività di accudimento coerenti con età e bisogni del bambino",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Programma attività di accudimento coerenti con età e bisogni del bambino», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Programma attività di accudimento coerenti con età e bisogni del bambino», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Programma attività di accudimento coerenti con età e bisogni del bambino», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Programma attività di accudimento coerenti con età e bisogni del bambino», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        },
+        {
+          "competenza": 6,
+          "indicatore": "Rileva rischi nell’ambiente e redige una segnalazione con priorità e destinatario appropriati",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Rileva rischi nell’ambiente e redige una segnalazione con priorità e destinatario appropriati», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Rileva rischi nell’ambiente e redige una segnalazione con priorità e destinatario appropriati», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Rileva rischi nell’ambiente e redige una segnalazione con priorità e destinatario appropriati», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Rileva rischi nell’ambiente e redige una segnalazione con priorità e destinatario appropriati», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        }
+      ]
+    },
+    "U3.4": {
+      "modifiche": {
+        "situazione": "La scuola propone di lavorare su un tema di prevenzione primaria scelto dopo una rilevazione guidata. Il gruppo deve distinguere bisogni documentati, risorse e vincoli, selezionare fonti affidabili e organizzare una semplice azione educativa.",
+        "beneficiari": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola.",
+        "sintesi": "Realizzare una semplice azione di prevenzione primaria a scuola, partendo da bisogni rilevati e fonti affidabili."
+      },
+      "rubrica": [
+        {
+          "competenza": 5,
+          "indicatore": "Formula semplici azioni preventive coerenti con bisogni, risorse e vincoli rilevati",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Formula semplici azioni preventive coerenti con bisogni, risorse e vincoli rilevati», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Formula semplici azioni preventive coerenti con bisogni, risorse e vincoli rilevati», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Formula semplici azioni preventive coerenti con bisogni, risorse e vincoli rilevati», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Formula semplici azioni preventive coerenti con bisogni, risorse e vincoli rilevati», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        },
+        {
+          "competenza": 9,
+          "indicatore": "Contribuisce all’attuazione della prevenzione primaria a scuola e ne documenta gli esiti",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Contribuisce all’attuazione della prevenzione primaria a scuola e ne documenta gli esiti», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Contribuisce all’attuazione della prevenzione primaria a scuola e ne documenta gli esiti», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Contribuisce all’attuazione della prevenzione primaria a scuola e ne documenta gli esiti», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Contribuisce all’attuazione della prevenzione primaria a scuola e ne documenta gli esiti», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        }
+      ]
+    },
+    "U3.5": {
+      "modifiche": {
+        "traguardo": "Progettare un percorso di accesso a un’attività socio-educativa per minori, collegando informazione alle famiglie e animazione",
+        "situazione": "Scenario didattico: un servizio per minori vuole facilitare la partecipazione delle famiglie a un laboratorio. Occorre rendere comprensibili accesso e prestazioni e predisporre un’attività adeguata ai bambini destinatari.",
+        "compito": "Gli studenti confrontano le modalità di accesso a più opportunità socio-educative pertinenti ai bisogni dello stesso gruppo di minori, documentando fonti e dati mancanti. Motivano la scelta del laboratorio, preparano le informazioni per le famiglie e progettano, conducono e valutano l’attività. Il repertorio mantiene il confronto fra servizi e non si riduce alla locandina del laboratorio.",
+        "prodotto": "Repertorio comparativo degli accessi, scelta motivata, scheda del laboratorio e report degli esiti.",
+        "beneficiari": "Minori e famiglie del servizio partner, da concordare; in assenza di partner, destinatari simulati dichiarati.",
+        "sintesi": "Confrontare opportunità e accessi ai servizi per minori, motivare la scelta di un laboratorio e progettarlo e condurlo per i destinatari individuati."
+      },
+      "rubrica": [
+        {
+          "competenza": 7,
+          "indicatore": "Distingue accesso ed erogazione del servizio e documenta fonti e informazioni mancanti",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Distingue accesso ed erogazione del servizio e documenta fonti e informazioni mancanti», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Distingue accesso ed erogazione del servizio e documenta fonti e informazioni mancanti», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Distingue accesso ed erogazione del servizio e documenta fonti e informazioni mancanti», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Distingue accesso ed erogazione del servizio e documenta fonti e informazioni mancanti», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        },
+        {
+          "competenza": 8,
+          "indicatore": "Progetta, conduce e valuta il laboratorio in relazione all’età e ai bisogni dei minori",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Progetta, conduce e valuta il laboratorio in relazione all’età e ai bisogni dei minori», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Progetta, conduce e valuta il laboratorio in relazione all’età e ai bisogni dei minori», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Progetta, conduce e valuta il laboratorio in relazione all’età e ai bisogni dei minori», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Progetta, conduce e valuta il laboratorio in relazione all’età e ai bisogni dei minori», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        }
+      ]
+    },
+    "U4.1": {
+      "modifiche": {
+        "situazione": "Un servizio simulato affida al gruppo la documentazione di un progetto. Gli studenti organizzano attività e dati amministrativi e contabili e preparano un report che renda verificabili le informazioni utilizzate.",
+        "beneficiari": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola.",
+        "sintesi": "Gestire documenti amministrativi e dati sociali dello stesso progetto simulato, distinguendone funzione e risultati nel report.",
+        "compito": "Per lo stesso progetto di servizio, gli studenti organizzano un registro amministrativo e contabile e un insieme distinto di dati sulle condizioni sociali o di salute dei destinatari. Elaborano i dati con statistica di base e producono un report che collega risorse e interventi senza confondere spese sostenute e risultati per le persone.",
+        "prodotto": "Fascicolo amministrativo, elaborazione dei dati sociali e report con sezioni e conclusioni distinte."
+      },
+      "rubrica": [
+        {
+          "competenza": 1,
+          "indicatore": "Organizza attività, documenti e dati contabili rispettando tempi e modelli assegnati",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Organizza attività, documenti e dati contabili rispettando tempi e modelli assegnati», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Organizza attività, documenti e dati contabili rispettando tempi e modelli assegnati», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Organizza attività, documenti e dati contabili rispettando tempi e modelli assegnati», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Organizza attività, documenti e dati contabili rispettando tempi e modelli assegnati», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        },
+        {
+          "competenza": 10,
+          "indicatore": "Elabora e interpreta i dati del progetto in un report tecnico coerente e verificabile",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Elabora e interpreta i dati del progetto in un report tecnico coerente e verificabile», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Elabora e interpreta i dati del progetto in un report tecnico coerente e verificabile», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Elabora e interpreta i dati del progetto in un report tecnico coerente e verificabile», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Elabora e interpreta i dati del progetto in un report tecnico coerente e verificabile», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        }
+      ]
+    },
+    "U4.2": {
+      "modifiche": {
+        "situazione": "Il gruppo osserva colloqui simulati attraverso griglie condivise. Deve riconoscere le dinamiche comunicative, proporre adattamenti alla relazione d’aiuto e presentarli all’équipe con dati e supporti pertinenti.",
+        "beneficiari": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola.",
+        "sintesi": "Osservare colloqui simulati e presentare all’équipe una proposta comunicativa adatta alla persona."
+      },
+      "rubrica": [
+        {
+          "competenza": 2,
+          "indicatore": "Espone dati e proposta sul caso all’équipe con supporti pertinenti",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Espone dati e proposta sul caso all’équipe con supporti pertinenti», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Espone dati e proposta sul caso all’équipe con supporti pertinenti», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Espone dati e proposta sul caso all’équipe con supporti pertinenti», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Espone dati e proposta sul caso all’équipe con supporti pertinenti», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        },
+        {
+          "competenza": 3,
+          "indicatore": "Rileva dinamiche comunicative e motiva gli adattamenti della relazione d’aiuto",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Rileva dinamiche comunicative e motiva gli adattamenti della relazione d’aiuto», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Rileva dinamiche comunicative e motiva gli adattamenti della relazione d’aiuto», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Rileva dinamiche comunicative e motiva gli adattamenti della relazione d’aiuto», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Rileva dinamiche comunicative e motiva gli adattamenti della relazione d’aiuto», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        }
+      ]
+    },
+    "U4.3": {
+      "modifiche": {
+        "traguardo": "Contribuire all’elaborazione di un PAI e proporre azioni quotidiane e adattamenti che sostengano autonomia, igiene e sicurezza",
+        "situazione": "Scenario didattico: una persona con disabilità incontra ostacoli nelle attività quotidiane in casa. Il caso fornito dal docente descrive bisogni, capacità residue, preferenze e caratteristiche dell’abitazione.",
+        "compito": "Il docente fornisce la valutazione multidimensionale e uno schema di PAI, indicando le parti già definite e quelle da elaborare. Gli studenti progettano interventi sui bisogni quotidiani e adattamenti dell’ambiente: layout, igiene, sicurezza e sanificazione. La simulazione verifica la coerenza fra capacità residue, azioni e ambiente. L’assistenza e la partecipazione sociale restano approfondite nella distinta U4.4.",
+        "prodotto": "PAI con contributi degli studenti identificati, piano delle routine e adattamenti ambientali verificati in simulazione.",
+        "beneficiari": "Persona descritta nel caso didattico e caregiver simulato; eventuale confronto con un servizio da concordare.",
+        "sintesi": "Elaborare parti motivate di un PAI e verificarne le proposte nelle routine quotidiane e nell’ambiente domestico."
+      },
+      "rubrica": [
+        {
+          "competenza": 4,
+          "indicatore": "Propone e dimostra nella simulazione azioni quotidiane coerenti con bisogni e capacità residue",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Propone e dimostra nella simulazione azioni quotidiane coerenti con bisogni e capacità residue», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Propone e dimostra nella simulazione azioni quotidiane coerenti con bisogni e capacità residue», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Propone e dimostra nella simulazione azioni quotidiane coerenti con bisogni e capacità residue», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Propone e dimostra nella simulazione azioni quotidiane coerenti con bisogni e capacità residue», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        },
+        {
+          "competenza": 6,
+          "indicatore": "Motiva e verifica scelte di allestimento, igiene e sicurezza dell’ambiente",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Motiva e verifica scelte di allestimento, igiene e sicurezza dell’ambiente», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Motiva e verifica scelte di allestimento, igiene e sicurezza dell’ambiente», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Motiva e verifica scelte di allestimento, igiene e sicurezza dell’ambiente», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Motiva e verifica scelte di allestimento, igiene e sicurezza dell’ambiente», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        }
+      ]
+    },
+    "U4.4": {
+      "modifiche": {
+        "situazione": "Scenario didattico: una persona parzialmente non autosufficiente necessita di sostegno nei bisogni di base e rischia di interrompere le proprie relazioni sociali. Il caso specifica capacità residue, risorse familiari e opportunità di partecipazione.",
+        "compito": "Predisporre sullo stesso caso un piano operativo che colleghi assistenza di base, prevenzione e partecipazione sociale: obiettivi, azioni, ruoli, risorse e indicatori. Distinguere i tre livelli di prevenzione e motivare quelli pertinenti al caso. Affrontare la prevenzione delle lesioni da pressione in laboratorio didattico sotto guida docente, con eventuale raccordo OSS da confermare. Utilizzare gli adattamenti ambientali di U4.3 come prerequisito, evitando di riprodurne il progetto.",
+        "prodotto": "Piano assistenziale e di partecipazione sul caso, con azioni preventive motivate, responsabilità, indicatori e verifica individuale in laboratorio.",
+        "beneficiari": "Persona e famiglia del caso simulato; eventuali apporti di operatori e laboratori esterni da concordare.",
+        "sintesi": "Collegare assistenza di base, prevenzione e partecipazione sociale in un piano operativo sullo stesso caso."
+      },
+      "rubrica": [
+        {
+          "competenza": 5,
+          "indicatore": "Predispone interventi sui bisogni di base e dimostra nel laboratorio didattico le azioni previste",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Predispone interventi sui bisogni di base e dimostra nel laboratorio didattico le azioni previste», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Predispone interventi sui bisogni di base e dimostra nel laboratorio didattico le azioni previste», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Predispone interventi sui bisogni di base e dimostra nel laboratorio didattico le azioni previste», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Predispone interventi sui bisogni di base e dimostra nel laboratorio didattico le azioni previste», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        },
+        {
+          "competenza": 9,
+          "indicatore": "Collega azioni di inclusione e prevenzione a obiettivi, ruoli e indicatori verificabili",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Collega azioni di inclusione e prevenzione a obiettivi, ruoli e indicatori verificabili», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Collega azioni di inclusione e prevenzione a obiettivi, ruoli e indicatori verificabili», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Collega azioni di inclusione e prevenzione a obiettivi, ruoli e indicatori verificabili», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Collega azioni di inclusione e prevenzione a obiettivi, ruoli e indicatori verificabili», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        }
+      ]
+    },
+    "U4.5": {
+      "modifiche": {
+        "situazione": "Scenario didattico: un servizio vuole favorire la partecipazione di persone anziane isolate. Interessi, difficoltà di accesso e opportunità territoriali devono essere rilevati prima di proporre un’attività.",
+        "compito": "Il percorso collega tre momenti sullo stesso gruppo: colloquio su interessi e ostacoli, orientamento motivato alle opportunità disponibili, progettazione e realizzazione dell’animazione. Prima dell’avvio la scuola concorda il contesto e i ruoli necessari. Se manca il contesto reale, la simulazione resta preparatoria e non attesta la realizzazione prevista da C8; le due attività possono essere programmate separatamente.",
+        "prodotto": "Schede dei colloqui, orientamento motivato, progetto di animazione e osservazioni sulla partecipazione.",
+        "beneficiari": "Gruppo di persone anziane di un servizio da concordare; destinatari simulati nella fase preparatoria.",
+        "sintesi": "Dal colloquio con lo stesso gruppo di anziani, motivare l’accesso a un servizio e realizzare un’attività di animazione coerente."
+      },
+      "rubrica": [
+        {
+          "competenza": 7,
+          "indicatore": "Conduce il colloquio e motiva l’orientamento ai servizi in base a bisogni e accessibilità",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Conduce il colloquio e motiva l’orientamento ai servizi in base a bisogni e accessibilità», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Conduce il colloquio e motiva l’orientamento ai servizi in base a bisogni e accessibilità», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Conduce il colloquio e motiva l’orientamento ai servizi in base a bisogni e accessibilità», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Conduce il colloquio e motiva l’orientamento ai servizi in base a bisogni e accessibilità», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        },
+        {
+          "competenza": 8,
+          "indicatore": "Programma e realizza nel contesto reale concordato un’attività coerente con i bisogni rilevati",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Programma e realizza nel contesto reale concordato un’attività coerente con i bisogni rilevati», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Programma e realizza nel contesto reale concordato un’attività coerente con i bisogni rilevati», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Programma e realizza nel contesto reale concordato un’attività coerente con i bisogni rilevati», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Programma e realizza nel contesto reale concordato un’attività coerente con i bisogni rilevati», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        }
+      ]
+    },
+    "U5.1": {
+      "modifiche": {
+        "situazione": "Un servizio simulato deve pianificare e monitorare un intervento. Gli studenti collaborano alla definizione di attività, risorse e raccordi territoriali e costruiscono indicatori per documentare risultati e qualità del servizio.",
+        "traguardo": "Collaborare alla gestione simulata di un progetto di servizio e al monitoraggio degli esiti con dati e indicatori di qualità",
+        "beneficiari": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola.",
+        "sintesi": "Collaborare a un progetto simulato di servizio, con budget, rete territoriale e indicatori di monitoraggio."
+      },
+      "rubrica": [
+        {
+          "competenza": 1,
+          "indicatore": "Collega bisogni, budget, rete e rendicontazione nel progetto simulato di servizio",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Collega bisogni, budget, rete e rendicontazione nel progetto simulato di servizio», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Collega bisogni, budget, rete e rendicontazione nel progetto simulato di servizio», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Collega bisogni, budget, rete e rendicontazione nel progetto simulato di servizio», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Collega bisogni, budget, rete e rendicontazione nel progetto simulato di servizio», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        },
+        {
+          "competenza": 10,
+          "indicatore": "Definisce indicatori e trasmette dati coerenti per valutare esiti e criteri di qualità",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Definisce indicatori e trasmette dati coerenti per valutare esiti e criteri di qualità», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Definisce indicatori e trasmette dati coerenti per valutare esiti e criteri di qualità», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Definisce indicatori e trasmette dati coerenti per valutare esiti e criteri di qualità», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Definisce indicatori e trasmette dati coerenti per valutare esiti e criteri di qualità», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        }
+      ]
+    },
+    "U5.2": {
+      "modifiche": {
+        "traguardo": "Partecipare all’équipe multi-professionale su un caso e facilitare la comunicazione con utenti di lingue e culture diverse",
+        "situazione": "Un caso simulato richiede il contributo di più figure professionali e modalità di comunicazione adatte alla persona. Gli studenti cooperano nei ruoli assegnati e predispongono materiali accessibili, motivando scelte linguistiche e relazionali.",
+        "beneficiari": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola.",
+        "sintesi": "Cooperare in un’équipe simulata e preparare materiali accessibili per facilitare la comunicazione con l’utente."
+      },
+      "rubrica": [
+        {
+          "competenza": 2,
+          "indicatore": "Coopera nell’équipe distinguendo ruoli professionali e motivando il proprio contributo",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Coopera nell’équipe distinguendo ruoli professionali e motivando il proprio contributo», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Coopera nell’équipe distinguendo ruoli professionali e motivando il proprio contributo», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Coopera nell’équipe distinguendo ruoli professionali e motivando il proprio contributo», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Coopera nell’équipe distinguendo ruoli professionali e motivando il proprio contributo», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        },
+        {
+          "competenza": 3,
+          "indicatore": "Adatta materiali e mediazione ai bisogni linguistici e comunicativi dell’utente",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Adatta materiali e mediazione ai bisogni linguistici e comunicativi dell’utente», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Adatta materiali e mediazione ai bisogni linguistici e comunicativi dell’utente», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Adatta materiali e mediazione ai bisogni linguistici e comunicativi dell’utente», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Adatta materiali e mediazione ai bisogni linguistici e comunicativi dell’utente», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        }
+      ]
+    },
+    "U5.3": {
+      "modifiche": {
+        "situazione": "Un PAI didattico descrive bisogni, preferenze e capacità residue della persona. Gli studenti formulano proposte per le attività quotidiane e l’adattamento dell’abitazione, verificando la coerenza fra autonomia, sicurezza e ausili previsti.",
+        "beneficiari": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola.",
+        "sintesi": "Tradurre un PAI in proposte per le attività quotidiane e per l’adattamento dell’abitazione."
+      },
+      "rubrica": [
+        {
+          "competenza": 4,
+          "indicatore": "Formula proposte operative per attuare il PAI e organizza le attività quotidiane",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Formula proposte operative per attuare il PAI e organizza le attività quotidiane», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Formula proposte operative per attuare il PAI e organizza le attività quotidiane», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Formula proposte operative per attuare il PAI e organizza le attività quotidiane», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Formula proposte operative per attuare il PAI e organizza le attività quotidiane», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        },
+        {
+          "competenza": 6,
+          "indicatore": "Motiva ausili e adattamenti in relazione a capacità residue, difficoltà d’uso e autonomia",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Motiva ausili e adattamenti in relazione a capacità residue, difficoltà d’uso e autonomia», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Motiva ausili e adattamenti in relazione a capacità residue, difficoltà d’uso e autonomia», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Motiva ausili e adattamenti in relazione a capacità residue, difficoltà d’uso e autonomia», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Motiva ausili e adattamenti in relazione a capacità residue, difficoltà d’uso e autonomia», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        }
+      ]
+    },
+    "U5.4a": {
+      "modifiche": {
+        "traguardo": "Presa in carico di non autosufficienza e terminalità; primo soccorso, supporto vitale, cure palliative",
+        "compito": "Svolgere prove di primo soccorso esclusivamente simulate e leggere schede su supporto vitale, nutrizione artificiale e cure palliative, con supervisione competente.",
+        "situazione": "Caso didattico assegnato dal docente, collegabile alla UDA U5.4b senza sovrapporre attività e valutazioni.",
+        "prodotto": "Evidenze individuali delle prove simulate e schede tecniche ragionate sui presidi e sulla cura.",
+        "beneficiari": "Destinatari del caso didattico; eventuali contesti reali da concordare.",
+        "ambito": "mista",
+        "sintesi": "Svolgere prove di primo soccorso esclusivamente simulate e leggere schede su supporto vitale, nutrizione artificiale e cure palliative, con supervisione competente.",
+        "collegataA": "U5.4b",
+        "derivaDa": "U5.4"
+      },
+      "rubrica": [
+        {
+          "competenza": 5,
+          "indicatore": "Distingue assistenza continuativa, emergenza e terminalità e svolge la prova simulata rispettando istruzioni e limiti del ruolo",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Distingue assistenza continuativa, emergenza e terminalità e svolge la prova simulata rispettando istruzioni e limiti del ruolo», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Distingue assistenza continuativa, emergenza e terminalità e svolge la prova simulata rispettando istruzioni e limiti del ruolo», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Distingue assistenza continuativa, emergenza e terminalità e svolge la prova simulata rispettando istruzioni e limiti del ruolo», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Distingue assistenza continuativa, emergenza e terminalità e svolge la prova simulata rispettando istruzioni e limiti del ruolo», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        }
+      ],
+      "struttura": {
+        "id": "U5.4a",
+        "anno": 5,
+        "competenze": [
+          5
+        ],
+        "fonde": [
+          "5.5"
+        ]
+      }
+    },
+    "U5.4b": {
+      "modifiche": {
+        "traguardo": "Realizzare azioni a sostegno e tutela della persona fragile/disabile e della famiglia (uscita piena)",
+        "compito": "Elaborare un progetto integrato su un caso complesso, collegando bisogni, servizi, interventi e sostegno alla famiglia.",
+        "situazione": "Caso didattico assegnato dal docente, collegabile alla UDA U5.4a senza sovrapporre attività e valutazioni.",
+        "prodotto": "Progetto integrato completo su un caso complesso (minore, anziano, disagio psichico, migrante): bisogni, rete, interventi, sostegno alla famiglia. Orientato all'Esame di Stato.",
+        "beneficiari": "Destinatari del caso didattico; eventuali contesti reali da concordare.",
+        "ambito": "interna",
+        "sintesi": "Elaborare un progetto integrato su un caso complesso, collegando bisogni, servizi, interventi e sostegno alla famiglia.",
+        "collegataA": "U5.4a",
+        "derivaDa": "U5.4"
+      },
+      "rubrica": [
+        {
+          "competenza": 9,
+          "indicatore": "Formula azioni di sostegno alla persona e alla famiglia indicando servizi, raccordi e verifiche",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Formula azioni di sostegno alla persona e alla famiglia indicando servizi, raccordi e verifiche», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Formula azioni di sostegno alla persona e alla famiglia indicando servizi, raccordi e verifiche», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Formula azioni di sostegno alla persona e alla famiglia indicando servizi, raccordi e verifiche», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Formula azioni di sostegno alla persona e alla famiglia indicando servizi, raccordi e verifiche», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        }
+      ],
+      "struttura": {
+        "id": "U5.4b",
+        "anno": 5,
+        "competenze": [
+          9
+        ],
+        "fonde": [
+          "5.9"
+        ]
+      }
+    },
+    "U5.5": {
+      "modifiche": {
+        "situazione": "Scenario didattico: un servizio vuole rendere comprensibili le proprie opportunità e coinvolgere utenti e famiglie nella progettazione di un evento accessibile. Occorre collegare diritti, qualità dell’offerta, risorse e partecipazione.",
+        "compito": "Nello stesso servizio gli studenti ricavano da fonti verificabili diritti, modalità di fruizione e criteri di qualità e li traducono in requisiti dell’evento. Predispongono guida, organizzazione e piano di raccolta fondi simulato. Una prova di orientamento chiede al destinatario di individuare il servizio pertinente e come accedervi; un’altra evidenza riguarda organizzazione e valutazione dell’evento.",
+        "prodotto": "Guida alla fruizione del servizio, progetto dell’evento, piano di raccolta fondi simulato e verifiche distinte di orientamento e partecipazione.",
+        "beneficiari": "Utenti e famiglie del servizio da concordare; destinatari simulati durante la preparazione.",
+        "sintesi": "Progettare un evento accessibile applicando i criteri della carta dei servizi e verificare che l’utente sappia orientarsi nell’offerta."
+      },
+      "rubrica": [
+        {
+          "competenza": 7,
+          "indicatore": "Traduce diritti e criteri di qualità del servizio in informazioni verificabili e requisiti dell’evento",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Traduce diritti e criteri di qualità del servizio in informazioni verificabili e requisiti dell’evento», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Traduce diritti e criteri di qualità del servizio in informazioni verificabili e requisiti dell’evento», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Traduce diritti e criteri di qualità del servizio in informazioni verificabili e requisiti dell’evento», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Traduce diritti e criteri di qualità del servizio in informazioni verificabili e requisiti dell’evento», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        },
+        {
+          "competenza": 8,
+          "indicatore": "Realizza e valuta l’evento collegando accessibilità, organizzazione e piano di fundraising",
+          "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+          "livelli": [
+            {
+              "livello": "1 · In via di acquisizione",
+              "descrittore": "Rispetto a «Realizza e valuta l’evento collegando accessibilità, organizzazione e piano di fundraising», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+            },
+            {
+              "livello": "2 · Base",
+              "descrittore": "Rispetto a «Realizza e valuta l’evento collegando accessibilità, organizzazione e piano di fundraising», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+            },
+            {
+              "livello": "3 · Intermedio",
+              "descrittore": "Rispetto a «Realizza e valuta l’evento collegando accessibilità, organizzazione e piano di fundraising», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+            },
+            {
+              "livello": "4 · Avanzato",
+              "descrittore": "Rispetto a «Realizza e valuta l’evento collegando accessibilità, organizzazione e piano di fundraising», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

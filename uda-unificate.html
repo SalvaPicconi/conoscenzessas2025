@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="it" data-uda-source="data-uda-unificate.json" data-uda-kind="unificate">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Proposta di revisione delle UDA d’asse SSAS: 21 accorpamenti, 6 schede autonome, rubriche e pianificazione da validare collegialmente.">
+    <meta name="theme-color" content="#0b5f5a">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <title>Proposta di UDA unificate - Quinquennio SSAS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20260721">
+    <link rel="stylesheet" href="uda.css?v=20260904b">
+    <link rel="stylesheet" href="didattica.css?v=20260901">
+    <link rel="stylesheet" href="uda-unificate.css?v=20260906d">
+    <link rel="stylesheet" href="assets/navigazione.css?v=20260905p">
+    <link rel="stylesheet" href="assets/stampa.css?v=20260905b">
+    <script src="assets/stampa.js?v=20260906p" defer></script>
+</head>
+<body>
+    <main class="container">
+        <header class="header page-hero">
+            <div class="hero-card">
+                <h1>Proposta di UDA unificate — Quinquennio</h1>
+                <div class="subline">IIS Meucci - Mattei Cagliari, Sede Decimomannu</div>
+                <p class="subtitle">Le 48 schede d'asse riordinate in 27 · documento di lavoro per il dipartimento</p>
+                <p>Schede sintetiche · attività e ore da concordare.</p>
+                <p><a href="revisioni/2026-09-06-riordino-applicato/REGISTRO.md">Riordino applicato: modifiche e verifiche</a></p>
+                <p><a href="revisioni/2026-09-06-sintesi/REGISTRO.md">Registro delle modifiche e dei controlli</a></p>
+            </div>
+        </header>
+
+
+
+        <section class="filter-panel uda-toolbar" aria-label="Filtri della proposta">
+            <div class="uda-anni">
+                <span class="uda-anni-label">Anno:</span>
+                <button type="button" class="anno-pill" data-anno="1" aria-pressed="false">1°</button>
+                <button type="button" class="anno-pill" data-anno="2" aria-pressed="false">2°</button>
+                <button type="button" class="anno-pill" data-anno="3" aria-pressed="false">3°</button>
+                <button type="button" class="anno-pill" data-anno="4" aria-pressed="false">4°</button>
+                <button type="button" class="anno-pill" data-anno="5" aria-pressed="false">5°</button>
+            </div>
+            <div class="filter-grid uda-filter-grid">
+                <div class="filter-item">
+                    <label for="uda-competenza">Competenza in uscita</label>
+                    <select id="uda-competenza">
+                        <option value="">Tutte le competenze</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <label for="uda-insegnamento">Insegnamento</label>
+                    <select id="uda-insegnamento">
+                        <option value="">Tutti gli insegnamenti</option>
+                    </select>
+                </div>
+            </div>
+            <div class="search-row">
+                <div class="search-container">
+                    <label class="sr-only" for="uda-search">Cerca nella proposta</label>
+                    <input id="uda-search" type="text" placeholder="Cerca in titoli, compiti, saperi e abilità…" autocomplete="off">
+                    <span class="search-icon" aria-hidden="true">🔍</span>
+                </div>
+                <div class="actions-row">
+                    <button type="button" id="uda-reset" class="reset-btn">Azzera filtri</button>
+                </div>
+            </div>
+        </section>
+
+        <div id="uda-count" class="uda-count" aria-live="polite"></div>
+
+        <div id="uda-list"></div>
+
+        <div id="uda-loading" class="loading" role="status">Caricamento della proposta...</div>
+    </main>
+
+    <script src="uda-unificate.js?v=20260906d"></script>
+<script src="assets/navigazione.js?v=20260905r"></script>
+</body>
+</html>

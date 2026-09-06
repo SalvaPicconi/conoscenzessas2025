@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Votazione collegiale delle UDA del curricolo verticale SSAS.">
+    <meta name="theme-color" content="#0b5f5a">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <title>Votazione UDA — Curricolo verticale SSAS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20260721">
+    <link rel="stylesheet" href="votazione-uda.css?v=20260905q">
+    <link rel="stylesheet" href="assets/navigazione.css?v=20260905p">
+    <link rel="stylesheet" href="assets/stampa.css?v=20260905b">
+</head>
+<body>
+    <main class="container">
+        <header class="header page-hero">
+            <div class="hero-card">
+                <h1>Votazione temporaneamente non disponibile</h1>
+                <p>Questa sezione verrà riaperta in un secondo momento.</p>
+                <p><a href="index.html#uda">Torna alle UDA</a></p>
+            </div>
+        </header>
+    </main>
+
+    <!-- Interfaccia conservata ma inerte: riattivare solo dopo le verifiche documentate. -->
+    <template id="votazione-sospesa">
+    <main class="container">
+        <header class="header page-hero">
+            <div class="hero-card">
+                <h1>Votazione delle UDA</h1>
+                <div class="subline">IIS Meucci - Mattei Cagliari, Sede Decimomannu</div>
+                <p class="subtitle">Valutazione collegiale delle sole UDA inserite nella rosa concordata</p>
+            </div>
+        </header>
+
+        <section class="voto-intro" aria-labelledby="voto-titolo">
+            <p class="voto-kicker">Scelta collegiale</p>
+            <h2 id="voto-titolo">Vota le preferenze per le UDA</h2>
+            <p>Accedi con le stesse credenziali usate per la revisione.</p>
+            <button type="button" id="voto-apri" class="voto-primary">Apri la votazione</button>
+        </section>
+
+        <p id="voto-avviso" class="voto-messaggio" role="alert"></p>
+        <button type="button" id="voto-riprova" class="voto-secondary" hidden>Riprova il caricamento</button>
+
+        <form id="voto-auth" class="voto-auth" aria-labelledby="voto-auth-titolo" hidden>
+            <h2 id="voto-auth-titolo">Accesso docenti</h2>
+            <p>Inserisci nome e password.</p>
+            <div class="voto-auth-grid">
+                <label for="voto-docente">Docente
+                    <select id="voto-docente" required>
+                        <option value="">Scegli il tuo nome</option>
+                    </select>
+                </label>
+                <label for="voto-password">Password
+                    <input type="password" id="voto-password" autocomplete="current-password" required>
+                </label>
+            </div>
+            <div class="voto-actions">
+                <p id="voto-auth-messaggio" class="voto-messaggio" role="status" aria-live="polite"></p>
+                <button type="button" id="voto-annulla" class="voto-secondary">Annulla</button>
+                <button type="submit" class="voto-primary">Accedi</button>
+            </div>
+        </form>
+
+        <section id="voto-area" class="voto-area" hidden aria-labelledby="voto-area-titolo">
+            <div class="voto-area-head">
+                <div>
+                    <p class="voto-kicker">Sessione docente</p>
+                    <h2 id="voto-area-titolo">Valuta ogni proposta da 1 a 5 stelle</h2>
+                    <p id="voto-identita"></p>
+                </div>
+                <button type="button" id="voto-esci" class="voto-secondary">Esci</button>
+            </div>
+            <p id="voto-stato" class="voto-stato" role="status" aria-live="polite"></p>
+            <form id="voto-form" hidden>
+                <div id="voto-elenco" class="voto-elenco"></div>
+                <div class="voto-salvataggio">
+                    <p id="voto-messaggio" class="voto-messaggio" role="status" aria-live="polite"></p>
+                    <button type="submit" id="voto-salva" class="voto-primary">Salva le valutazioni</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    </template>
+    <script src="assets/navigazione.js?v=20260905r"></script>
+</body>
+</html>

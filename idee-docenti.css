@@ -1,0 +1,9 @@
+.idee-panel,.idea-card {background:#fff;border:1px solid #c5d8d5;border-radius:14px;padding:clamp(16px,3vw,28px);margin:20px 0;}
+.idee-panel label {display:block;font-weight:700;margin:16px 0;}
+.idee-panel input,.idee-panel textarea,.idee-panel select {display:block;width:100%;box-sizing:border-box;padding:12px;margin-top:6px;border:1px solid #829e99;border-radius:6px;font:inherit;color:#163d38;background:#fff;}
+.idee-panel button,.idee-azioni button,.idea-card button {background:#0b5f5a;color:white;border:0;border-radius:7px;padding:12px 18px;font:inherit;cursor:pointer;min-height:44px;margin:4px;}
+button:disabled {opacity:.6;cursor:wait;}
+.idea-card p {white-space:pre-wrap;overflow-wrap:anywhere;}
+.idea-meta {color:#415d58;}
+[hidden] {display:none!important;}
+:focus-visible {outline:3px solid #c56d0b;outline-offset:3px;}

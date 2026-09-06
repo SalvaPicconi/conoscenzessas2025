@@ -1,0 +1,49 @@
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const {chromium} = require('playwright');
+const base = process.env.UDA_BASE_URL || 'http://127.0.0.1:8766/';
+const output = process.env.UDA_TEST_OUTPUT || '/tmp/ssas-unificate-verifica';
+(async () => {
+ fs.mkdirSync(output, {recursive:true});
+ const browser = await chromium.launch({headless:true, executablePath:process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE});
+ try {
+ const context = await browser.newContext({viewport:{width:1280,height:900}});
+ await context.route('https://**/*', r=>r.abort());
+ const page=await context.newPage(); const errors=[]; page.on('pageerror',e=>errors.push(e.message));
+ await page.goto(base+'uda-unificate.html',{waitUntil:'domcontentloaded'});
+ await page.waitForSelector('.uda-acc');
+ assert.equal(await page.locator('.uda-acc').count(),27);
+ assert.equal(await page.locator('.unif-rubrica').count(),48);
+ await page.locator('#uda-competenza').selectOption('8');
+ assert.equal(await page.locator('.uda-acc').count(),5); // include la seconda competenza delle coppie
+ await page.locator('#uda-reset').click();
+ await page.locator('.anno-pill[data-anno="4"]').click();
+ assert.equal(await page.locator('.uda-acc').count(),5);
+ assert.ok((await page.locator('[data-id="U4.5"]').textContent()).includes('stesso gruppo'));
+ await page.locator('#uda-search').fill('nessuna_corrispondenza_123');
+ assert.equal(await page.locator('.uda-acc').count(),0);
+ await page.locator('#uda-reset').click();
+ await page.locator('#uda-search').fill('Emergenza e cura');
+ assert.equal(await page.locator('.uda-acc').count(),1);
+ assert.equal(await page.locator('.unif-rubrica details, .unif-rubrica dl').count(),0);
+ await page.screenshot({path:path.join(output,'desktop.png'),fullPage:true});
+ await page.setViewportSize({width:390,height:844});
+ assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'overflow mobile');
+ await page.screenshot({path:path.join(output,'mobile.png'),fullPage:true});
+ await page.evaluate(()=>window.print=()=>{});
+ await page.getByRole('button',{name:'Stampa questa UDA',exact:true}).click();
+ assert.equal(await page.locator('.stampa-documento .uda-acc').count(),1);
+ assert.equal(await page.locator('.stampa-documento .unif-rubrica').count(),1);
+ assert.equal(await page.locator('.stampa-documento details, .stampa-documento dl').count(),0);
+ assert.ok((await page.locator('.stampa-documento').textContent()).includes('Ore della proposta da deliberare'));
+ await page.pdf({path:path.join(output,'U5.4a.pdf'),preferCSSPageSize:true});
+ assert.equal(await page.locator('#uda-list .unif-rubrica[open]').count(),0,'la stampa non aggiunge rubriche estese');
+ await page.goto(base+'index.html#unificate',{waitUntil:'domcontentloaded'});
+ const frame=await(await page.waitForSelector('#content-unificate iframe')).contentFrame();
+ await frame.waitForSelector('.uda-acc');
+ assert.equal(await frame.locator('.uda-acc').count(),27);
+ assert.deepEqual(errors,[]);
+ console.log('PASS browser: 27 schede; 48 rubriche; filtro seconda competenza; anno/ricerca/reset; mobile senza overflow; stampa singola con soli indicatori essenziali e ore da deliberare; originale preservato; iframe. Output: '+output);
+ } finally {await browser.close();}
+})().catch(e=>{console.error(e);process.exit(1)});

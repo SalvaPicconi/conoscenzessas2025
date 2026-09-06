@@ -66,39 +66,33 @@ conosce e senza aggiornamento rifiuterebbe il salvataggio delle ore:
 
 ### Votazione per la scelta delle UDA
 
-Si vota in due tempi. Prima chi ha i permessi di gestione mette al voto una rosa
-di UDA, dopo la consultazione: senza quel passaggio si voterebbe su dieci schede
-che nessuno ha discusso. Poi i docenti votano soltanto dentro la rosa, un voto a
-testa per UDA e due per anno di corso, tanti quante sono le UDA da attivare.
+La votazione è una sola e vive in `votazione-uda.html`, fuori dai cataloghi e
+dalla stanza di revisione. La rosa non si compone dal sito: contiene soltanto le
+UDA già decise collegialmente e viene configurata quando il committente comunica
+i riferimenti esatti. Non inserire UDA provvisorie o scelte automaticamente.
 
-Il tetto dei voti e l'appartenenza alla rosa sono verificati dalla funzione, non
-dal database, perché i messaggi devono dire al docente quali voti ha già speso e
-come liberarne uno. Le UDA FSL restano fuori: sono già una per anno e area di
-tirocinio.
+Ogni docente accede con le stesse credenziali della revisione, assegna da 1 a 5
+stelle a tutte le UDA della rosa e usa un unico pulsante di salvataggio. Finché la
+sessione è aperta può correggere le proprie valutazioni. I nomi dei votanti non
+sono restituiti al browser; le medie e il numero di valutazioni compaiono solo a
+votazione chiusa.
 
-La classifica è consultiva. Diventa la scelta ufficiale solo quando chi gestisce
-la conferma, e tutto lo stato — rosa, scelta, chi ha aperto e chi ha confermato —
-sta in `curricolo_uda_votazione`. Cambiare la rosa azzera la scelta e cancella i
-voti dati a UDA che ne sono uscite: non possono restare a gonfiare conteggi che
-nessuno vede più.
-
-Le tre azioni sono `ballot` per aprire la votazione, `vote` per il singolo voto e
-`choice` per confermare la scelta.
+Le azioni della funzione sono `ratings` per leggere la sessione e `rate` per
+salvare in blocco tutte le valutazioni del docente.
 
 Qui servono entrambi i passaggi, nell'ordine. Prima le tabelle:
 
     psql "$DATABASE_URL" -f supabase/votazione-uda.sql
 
-poi la funzione, che espone le azioni `votes`, `ballot`, `vote` e `choice`:
+poi la funzione, che espone le azioni `ratings` e `rate`:
 
     supabase functions deploy curricolo-uda-revisioni --project-ref ruplzgcnheddmqqdephp
 
-Finché mancano, il sito non mostra nulla della votazione: `assets/uda-voto.js`
-disegna i pulsanti solo dopo che il server ha risposto, così una distribuzione
-incompleta non lascia in pagina comandi che falliscono.
+Finché manca una rosa concordata, non creare la riga con `id = 1`: l'area mostra
+che le UDA da votare non sono state ancora definite.
 
-L'elenco mostrato nelle tre interfacce è definito una sola volta in
-`assets/uda-revisione.js`. La stessa anagrafica deve restare allineata con
+L'elenco dei docenti è presente in `assets/uda-revisione.js` e
+`votazione-uda.js`. La stessa anagrafica deve restare allineata con
 `AUTHORS` nella funzione e con i vincoli `author_name` delle due tabelle SQL.
 Per aggiungere docenti a un database già esistente bisogna quindi applicare anche
 la parte dedicata ai docenti di `consenti-uda-trasversali.sql`, prima di distribuire
@@ -108,3 +102,27 @@ la funzione aggiornata.
 
 `_config.yml` esclude questa cartella dalla pubblicazione: il codice sta nel
 repository, ma non viene servito da GitHub Pages.
+
+## Collaudo locale della votazione — 5 settembre 2026
+
+Il codice locale a stelle **non coincide ancora con la funzione remota v6**:
+la verifica in sola lettura ha trovato le due tabelle del voto precedente,
+ma non `curricolo_uda_votazione_stelle` e `curricolo_uda_valutazioni`.
+Nessun aggiornamento remoto è stato eseguito durante il collaudo.
+
+Sono disponibili due controlli senza scritture su Supabase:
+
+    node tools/verifica_votazione.cjs
+    node tools/verifica_votazione_server.cjs
+
+Il primo richiede Playwright/Chromium e il server statico locale sulla porta
+8765 (configurabile con `STAMPA_BASE_URL`); intercetta tutte le chiamate API.
+Il secondo richiede Node con `stripTypeScriptTypes` e testa il vero handler con
+un adattatore dati in memoria. Questi controlli non validano l'esecuzione dello
+schema SQL o le operazioni concorrenti su PostgreSQL.
+
+L'accesso attuale usa una password condivisa e un nome scelto dal menu: i voti
+sono separati per nominativo dichiarato, senza autenticazione personale.
+Inoltre lettura dello stato e salvataggio sono due operazioni distinte: prima
+dell'uso reale va garantito e collaudato il comportamento in caso di chiusura
+o modifica concorrente della rosa.

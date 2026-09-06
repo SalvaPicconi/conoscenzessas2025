@@ -74,13 +74,15 @@ Ore settimanali: Metodologie operative 7 · Lingua e letteratura italiana 4 · M
 
 ### 1.5 · Che cos'è la salute?
 
-*UDA d'asse — monte ore 8–10 — durata almeno 1 settimana, dettata da Scienze Umane*
+*UDA d'asse — monte ore 8–10 — durata almeno 2 settimane, dettata da Metodologie Operative*
 
 | Insegnamento | Ore settimanali | Ore nell'UDA |
 |---|---:|---:|
-| Metodologie Operative | 7 | **5–6** |
-| Scienze Umane | 4 | **3–4** |
+| Metodologie Operative | 7 | **8–10** |
 | **Totale** | | **8–10** |
+
+> Scienze Umane (II ANNO): concorre ai contenuti dell'UDA ma non ha ore proprie, perché non è
+> presente nel quadro orario di 1ª. I relativi compiti restano agli insegnamenti elencati sopra.
 
 ### 1.6 · Sicuri a scuola
 

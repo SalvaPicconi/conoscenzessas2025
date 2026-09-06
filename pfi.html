@@ -13,7 +13,9 @@
     <link rel="stylesheet" href="style.css?v=20260721">
     <link rel="stylesheet" href="pfi.css?v=20260901">
     <link rel="stylesheet" href="didattica.css?v=20260901">
-    <link rel="stylesheet" href="assets/navigazione.css?v=20260905l">
+    <link rel="stylesheet" href="assets/navigazione.css?v=20260905p">
+    <link rel="stylesheet" href="assets/stampa.css?v=20260905b">
+    <script src="assets/stampa.js?v=20260906p" defer></script>
 </head>
 <body>
 <main class="container">
@@ -360,19 +362,20 @@
             la durata del quinquennio, con progettazione interdisciplinare · Linee guida, Box n. 8
         </p>
         <p class="pfi-nota pfi-nota-top">
-            Scegli le UDA dalla rosa deliberata dal collegio, oppure aggiungine una a mano.
+            Scegli le UDA da inserire nel percorso dello studente, da concordare nel consiglio di classe. Il catalogo comprende anche proposte non ancora adottate.
         </p>
 
         <div class="pfi-uda-picker no-print">
             <p class="pfi-nota pfi-nota-top">
                 Cataloghi pubblicati in questo sito: <strong>48 UDA d'asse</strong> (una per ogni
                 competenza intermedia del curricolo), <strong>14 UDA trasversali</strong>
-                (interdisciplinari fra i quattro assi culturali) e <strong>4 UDA FSL</strong>.
+                (interdisciplinari fra i quattro assi culturali) e <strong>4 UDA FSL</strong> e <strong>27 proposte riordinate</strong>.
             </p>
             <div class="pfi-griglia pfi-griglia-3">
                 <label>Tipo di UDA
                     <select id="pfi-uda-tipo">
                         <option value="">Tutte</option>
+                        <option value="unificate">Unificate · proposte</option>
                         <option value="asse">D'asse</option>
                         <option value="trasversale">Trasversali</option>
                         <option value="fsl">FSL</option>
@@ -459,13 +462,13 @@
     </form>
 
     <p class="pfi-piede no-print">
-        Modulo costruito sul modello ufficiale INDIRE e sul Box n. 10 delle Linee guida (D.M. 766/2018),
+        Modulo costruito sul modello ufficiale INDIRE e sul Box n. 10 delle Linee guida (D.M. 766/2019),
         integrato con le prescrizioni del D.M. 92/2018.
     </p>
 
 </main>
 
-<script src="pfi.js?v=20260901"></script>
-<script src="assets/navigazione.js?v=20260905l"></script>
+<script src="pfi.js?v=20260906p-20260905a"></script>
+<script src="assets/navigazione.js?v=20260905r"></script>
 </body>
 </html>

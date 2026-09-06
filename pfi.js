@@ -168,10 +168,12 @@ function costruisciAnnualita() {
 
 async function caricaCataloghi() {
     // Tre cataloghi pubblicati nel sito: UDA d'asse + trasversali + FSL
-    const [asse, trasv, fsl] = await Promise.allSettled([
+    const [asse, trasv, fsl, unificate, generale] = await Promise.allSettled([
         fetch('data-uda.json', { cache: 'no-store' }).then(r => r.json()),
         fetch('data-uda-trasversali.json', { cache: 'no-store' }).then(r => r.json()),
-        fetch('data-uda-fsl.json', { cache: 'no-store' }).then(r => r.json())
+        fetch('data-uda-fsl.json', { cache: 'no-store' }).then(r => r.json()),
+        fetch('data-uda-unificate.json', { cache: 'no-store' }).then(r => r.json()),
+        fetch('data-area-generale.json', { cache: 'no-store' }).then(r => r.json())
     ]);
 
     if (asse.status === 'fulfilled') {
@@ -195,6 +197,8 @@ async function caricaCataloghi() {
         console.error('Impossibile caricare il catalogo delle UDA FSL:', fsl.reason);
     }
 
+    stato.catalogoUnificate = unificate.status === 'fulfilled' ? unificate.value.uda : [];
+    stato.titoliGenerali = generale.status === 'fulfilled' ? Object.fromEntries(generale.value.area_generale_istruzione_professionale.competenze.map(c => [c.numero,c.titolo])) : {};
     const selComp = document.getElementById('pfi-uda-competenza');
     Object.entries(stato.metaIndirizzo?.competenze || {}).forEach(([num, titolo]) => {
         const o = document.createElement('option');
@@ -210,6 +214,7 @@ async function caricaCataloghi() {
 function tutteLeUda() {
     return [
         ...stato.catalogoIndirizzo.map(u => ({ ...u, _fonte: 'asse' })),
+        ...(stato.catalogoUnificate || []).map(u => ({ ...u, _fonte: 'unificate' })),
         ...stato.catalogoTrasversali.map(u => ({ ...u, _fonte: 'trasversale' })),
         ...stato.catalogoFsl.map(u => ({ ...u, _fonte: 'fsl' }))
     ];
@@ -225,11 +230,11 @@ function popolaScelta() {
         .filter(u => (!tipo || u._fonte === tipo) &&
                      (!anno || String(u.anno) === anno) &&
                      (!competenza || String(u.competenza) === competenza ||
-                      (u.competenzeSSAS || []).map(String).includes(competenza)))
+                      (u.competenzeSSAS || u.competenze || []).map(String).includes(competenza)))
         .sort((a, b) => a.anno - b.anno || a._fonte.localeCompare(b._fonte))
         .map(u => ({
             key: `${u._fonte}:${u.id}`,
-            testo: `${ANNO_ETICHETTA[u.anno]} · ${u._fonte === 'trasversale' ? 'Trasversale' : u._fonte === 'fsl' ? 'FSL · ' + u.areaTirocinio : 'C' + u.competenza} — ${u.titolo}`
+            testo: `${ANNO_ETICHETTA[u.anno]} · ${u._fonte === 'unificate' ? 'Unificata · proposta' : u._fonte === 'trasversale' ? 'Trasversale' : u._fonte === 'fsl' ? 'FSL · ' + u.areaTirocinio : 'C' + u.competenza} — ${u.titolo}`
         }));
 
     sel.innerHTML = voci.length
@@ -239,8 +244,24 @@ function popolaScelta() {
 }
 
 function daCatalogo(key) {
+    const u=datiDaCatalogo(key);
+    return u ? {...u, catalogoKey:key, origineRefs:u.origineRefs || [key]} : null;
+}
+function datiDaCatalogo(key) {
     const [fonte, id] = key.split(':');
 
+    if (fonte === 'unificate') {
+        const u = (stato.catalogoUnificate || []).find(x => x.id === id);
+        if (!u) return null;
+        return { titolo: u.titolo, tipo: 'Unificata · proposta', anno: u.anno, periodo: '',
+            competenze: u.competenze.map(c => `C${c} — ${stato.metaIndirizzo?.competenze[c] || ''}`).join('\n'),
+            saperi: u.saperi.map(x => `${x.t} (${x.ins.join(', ')})`).join('\n'),
+            insegnamenti: [...new Set([...u.abilita,...u.saperi].flatMap(x=>x.ins))].join(', '),
+            attivita: u.abilita.map(x=>x.t).join('\n'), compito:u.sintesi, prodotto:u.sintesi,
+            valutazione:u.rubrica.map(r=>`C${r.competenza}: ${r.indicatore}`).join('\n'),
+            ore:'Da deliberare', qnq:u.qnq, origine:`Proposta unificata ${u.id}; ore originarie ${u.ore}; adozione da concordare`,
+            origineRefs:u.fonde.map(f=>'asse:'+f.id), catalogoKey:key };
+    }
     if (fonte === 'fsl') {
         const u = stato.catalogoFsl.find(x => x.id === id);
         if (!u) return null;
@@ -269,8 +290,7 @@ function daCatalogo(key) {
             tipo: 'Trasversale',
             anno: u.anno,
             periodo: u.periodo || '',
-            competenze: (u.competenzeSSAS || []).map(c => `C${c} — ${tit[c] || ''}`).join('\n') +
-                        `\nTraguardo: ${u.traguardo || ''}`,
+            competenze: [...(u.competenzeSSAS || []).map(c => `C${c} — ${tit[c] || ''}`), ...(u.competenzeGenerali || []).map(c => `AG${c} — ${stato.titoliGenerali?.[c] || 'Competenza area generale '+c}`)].join('\n') + `\nTraguardo: ${u.traguardo || ''}`,
             europee: (u.competenzeEuropee || []).join('\n'),
             insegnamenti: ins.join(', '),
             saperi: (u.saperi || []).map(s => `${s.t} (${(s.ins || []).join(', ')})`).join('\n'),
@@ -320,15 +340,25 @@ function daCatalogo(key) {
 // 3. Schede UDA inserite nel PFI
 // ============================================================
 
+function riferimentiOrigine(u) {
+    if(!u)return [];
+    if(u.origineRefs?.length)return u.origineRefs;
+    const id=(u.origine || '').match(/scheda ([\w.]+)/)?.[1];
+    return id ? [(u.tipo==='Trasversale'?'trasversale:':u.tipo==='FSL'?'fsl:':'asse:')+id] : [];
+}
 function aggiungiUda(dati) {
+    const refs = riferimentiOrigine(dati);
+    if (refs.length && stato.uda.some(u => riferimentiOrigine(u).some(r => refs.includes(r)))) {
+        alert('Questa UDA o una sua scheda di origine è già nel piano. Rimuovi la scelta precedente per sostituirla.'); return;
+    }
     stato.uda.push(Object.assign({
-        _id: `u${++stato.seq}`,
+        _id: crypto.randomUUID(),
         titolo: '', tipo: 'Indirizzo', anno: '', periodo: '',
         competenze: '', europee: '', insegnamenti: '', saperi: '',
         situazione: '', prodotto: '', beneficiari: '', ambito: '',
         compito: '', ore: '', attivita: '', valutazione: '',
         livello: '', qnq: '', origine: 'Inserita a mano'
-    }, dati || {}));
+    }, dati || {}, { _id: crypto.randomUUID() }));
     aggiornaUda();
 }
 
@@ -348,7 +378,7 @@ function aggiornaUda() {
                 <label class="pfi-col-2">Titolo dell'UDA <input type="text" data-campo="titolo" value="${escapeAttr(u.titolo)}"></label>
                 <label>Tipo
                     <select data-campo="tipo">
-                        ${['Indirizzo', 'Trasversale', 'FSL', 'Asse culturale', 'PCTO (storico)'].map(t =>
+                        ${['Indirizzo', 'Trasversale', 'FSL', 'Unificata · proposta', 'Asse culturale', 'PCTO (storico)'].map(t =>
                             `<option${t === u.tipo ? ' selected' : ''}>${t}</option>`).join('')}
                     </select>
                 </label>
@@ -362,7 +392,7 @@ function aggiornaUda() {
                 <label>Monte ore <input type="text" data-campo="ore" value="${escapeAttr(u.ore)}"></label>
             </div>
             <div class="pfi-griglia pfi-griglia-2" style="margin-top:14px">
-                <label>Competenze target — Allegato C <textarea data-campo="competenze" rows="3">${escapeHtml(u.competenze)}</textarea></label>
+                <label>Competenze target · C = SSAS, AG = area generale <textarea data-campo="competenze" rows="3">${escapeHtml(u.competenze)}</textarea></label>
                 <label>Competenze chiave europee 2018 <textarea data-campo="europee" rows="3">${escapeHtml(u.europee)}</textarea></label>
                 <label class="pfi-col-2">Insegnamenti coinvolti <input type="text" data-campo="insegnamenti" value="${escapeAttr(u.insegnamenti)}"></label>
                 <label class="pfi-col-2">Saperi essenziali mobilitati <textarea data-campo="saperi" rows="3">${escapeHtml(u.saperi)}</textarea></label>
@@ -377,11 +407,7 @@ function aggiornaUda() {
                 </label>
                 <label class="pfi-col-2">Attività degli studenti <textarea data-campo="attivita" rows="3">${escapeHtml(u.attivita)}</textarea></label>
                 <label class="pfi-col-2">Criteri ed evidenze per la valutazione <textarea data-campo="valutazione" rows="2">${escapeHtml(u.valutazione)}</textarea></label>
-                <label>Livello di padronanza raggiunto
-                    <select data-campo="livello">
-                        ${LIVELLI.map(l => `<option value="${l}"${l === u.livello ? ' selected' : ''}>${l || '—'}</option>`).join('')}
-                    </select>
-                </label>
+                ${u.livello ? `<p class="pfi-nota">Livello complessivo della bozza precedente: ${escapeHtml(u.livello)}. Per più competenze, confermare i singoli esiti nel Quadro 8.</p>` : ''}
                 <label>Livello QNQ di riferimento <input type="text" data-campo="qnq" value="${escapeAttr(u.qnq)}"></label>
             </div>
             <p class="pfi-nota">${escapeHtml(u.origine)}</p>
@@ -391,21 +417,23 @@ function aggiornaUda() {
     notificaAltezza();
 }
 
+function righeCompetenze(u) {
+    const righe = (u.competenze || '').split('\n').map(t=>t.trim()).filter(t=>t && !t.startsWith('Traguardo:'));
+    return [...new Set(righe)].map(t => ({testo:t, livello:u.livelliCompetenze?.[t] ?? (righe.length===1 ? (u.livello || '') : '')}));
+}
 function aggiornaCompetenze() {
     const corpo = document.querySelector('#pfi-competenze tbody');
     if (!corpo) return;
-    if (!stato.uda.length) {
-        corpo.innerHTML = '<tr><td colspan="4" class="pfi-nota">Nessuna UDA inserita: la tabella si popola dal Quadro 7.</td></tr>';
-        return;
-    }
-    corpo.innerHTML = stato.uda.map(u => `
-        <tr>
-            <td>${escapeHtml((u.competenze || '').split('\n')[0]) || '—'}</td>
-            <td>${escapeHtml(u.titolo) || '—'}</td>
-            <td>${escapeHtml(u.livello) || '—'}</td>
-            <td>${escapeHtml(u.qnq) || '—'}</td>
-        </tr>`).join('');
+    corpo.innerHTML = stato.uda.flatMap(u => righeCompetenze(u).map(r => `<tr>
+        <td>${escapeHtml(r.testo)}</td><td>${escapeHtml(u.titolo)}</td>
+        <td><select aria-label="Livello per ${escapeAttr(r.testo)}" data-uda-livello="${escapeAttr(u._id)}" data-competenza="${escapeAttr(r.testo)}">${LIVELLI.map(l=>`<option value="${escapeAttr(l)}"${l===r.livello?' selected':''}>${escapeHtml(l || 'Da valutare')}</option>`).join('')}</select></td>
+        <td>${escapeHtml(u.qnq || '—')}</td></tr>`)).join('') || '<tr><td colspan="4">Nessuna competenza inserita.</td></tr>';
 }
+document.addEventListener('change', e => {
+    const el=e.target.closest('[data-uda-livello]'); if(!el)return;
+    const u=stato.uda.find(u=>u._id===el.dataset.udaLivello); if(!u)return;
+    u.livelliCompetenze={...(u.livelliCompetenze || {}),[el.dataset.competenza]:el.value};
+});
 
 // ============================================================
 // 4. Eventi
@@ -454,7 +482,7 @@ function collegaEventi() {
     });
 
     su('pfi-word', 'click', esportaWord);
-    su('pfi-print', 'click', () => window.print());
+    su('pfi-print', 'click', () => window.CurricoloStampa.stampa());
     su('pfi-save-json', 'click', salvaBozza);
     su('pfi-load-json', 'click', () =>
         document.getElementById('pfi-file').click());
@@ -514,7 +542,7 @@ function applica(pacchetto) {
         else el.value = v;
     });
     stato.uda = (pacchetto?.uda || []).map(u =>
-        Object.assign({}, u, { _id: u._id || `u${++stato.seq}` }));
+        Object.assign({}, u, { _id: crypto.randomUUID() }));
     aggiornaUda();
     ricalcolaOre();
 }
@@ -679,7 +707,7 @@ function esportaWord() {
                 <p class="uda-t">UDA ${i + 1} — ${esc(u.titolo)}</p>
                 ${tab([
                     ['Tipo e anno', `${esc(u.tipo)}${u.anno ? ' · ' + ANNO_ETICHETTA[u.anno] : ''}${u.periodo ? ' · ' + esc(u.periodo) : ''}`],
-                    ['Competenze target — Allegato C', esc(u.competenze)],
+                    ['Competenze target · C = SSAS, AG = area generale', esc(u.competenze)],
                     ['Competenze chiave europee', esc(u.europee)],
                     ['Insegnamenti coinvolti', esc(u.insegnamenti)],
                     ['Saperi essenziali mobilitati', esc(u.saperi)],
@@ -700,7 +728,7 @@ function esportaWord() {
     p.push('<p class="fonte">Valutazione collegiale del consiglio di classe riferita alle UDA — Linee guida § 3.2.2 e Box n. 8 voce 8.</p>');
     if (stato.uda.length) {
         p.push(`<table><tr><th>Competenza</th><th>UDA</th><th>Livello</th><th>QNQ</th></tr>${
-            stato.uda.map(u => `<tr><td>${esc((u.competenze || '').split('\n')[0])}</td><td>${esc(u.titolo)}</td><td>${esc(u.livello)}</td><td>${esc(u.qnq)}</td></tr>`).join('')
+            stato.uda.flatMap(u => righeCompetenze(u).map(r => `<tr><td>${esc(r.testo)}</td><td>${esc(u.titolo)}</td><td>${esc(r.livello)}</td><td>${esc(u.qnq)}</td></tr>`)).join('')
         }</table>`);
     }
 

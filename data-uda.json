@@ -32,8 +32,8 @@
       "titolo": "Il mio paese che aiuta",
       "competenza": 1,
       "qnq": "2",
-      "traguardo": "Costruire mappe dei servizi del territorio e delle principali prestazioni erogate (avvio guidato)",
-      "compito": "Prima mappa (cartacea o digitale) dei servizi del proprio comune: almeno 3 servizi con ente erogatore, utenza e prestazioni.",
+      "traguardo": "Costruire mappe dei servizi principali e delle principali prestazioni erogate nell’ambito della Legge 328/2000 (avvio guidato)",
+      "compito": "Prima mappa (cartacea o digitale) dei servizi: almeno 3 servizi con ente erogatore, utenza e prestazioni.",
       "ore": "12–15",
       "abilita": [
         {
@@ -58,7 +58,11 @@
       ],
       "saperi": [
         {
-          "t": "Modelli di Welfare State in Italia",
+          "t": "Modelli di Welfare State.",
+          "ins": []
+        },
+        {
+          "t": "Il welfare in Italia",
           "ins": [
             "Metodologie Operative"
           ]
@@ -86,7 +90,7 @@
         }
       ],
       "sviluppata": null,
-      "situazione": "Molti studenti non sanno quali servizi sociali e sanitari esistano nel comune in cui vivono, né a chi ci si rivolge quando una famiglia ha bisogno di aiuto.",
+      "situazione": "Molti studenti non sanno quali servizi sociali e sanitari esistano, né a chi ci si rivolge quando una famiglia ha bisogno di aiuto.",
       "prodotto": "Prima mappa (cartacea o digitale) dei servizi del proprio comune: almeno 3 servizi con ente erogatore, utenza e prestazioni.",
       "beneficiari": "La classe e le famiglie degli studenti, cui la mappa viene consegnata.",
       "ambito": "interna"
@@ -117,7 +121,8 @@
         {
           "t": "Esporre idee rispettando le regole dello scambio",
           "ins": [
-            "Italiano"
+            "Italiano",
+            "Scienze Umane"
           ]
         }
       ],
@@ -145,7 +150,8 @@
           "ins": [
             "Italiano",
             "Inglese",
-            "Spagnolo"
+            "Spagnolo",
+            "Scienze Umane"
           ]
         }
       ],
@@ -289,7 +295,7 @@
         {
           "t": "Distinguere stato di salute e di malattia",
           "ins": [
-            "Scienze Umane"
+            "Scienze Umane (II ANNO)"
           ]
         },
         {
@@ -303,7 +309,7 @@
         {
           "t": "Le condizioni di salute bio-psico-sociale e di malattia",
           "ins": [
-            "Scienze Umane"
+            "Scienze Umane (II ANNO)"
           ]
         },
         {
@@ -1039,13 +1045,15 @@
           "t": "Decodificare i compiti dei soggetti di una procedura",
           "ins": [
             "Metodologie Operative",
-            "Igiene e Cultura M.S."
+            "Igiene e Cultura M.S.",
+            "Psicologia"
           ]
         },
         {
           "t": "Riconoscere le relazioni obiettivi-attività di un progetto",
           "ins": [
-            "Metodologie Operative"
+            "Metodologie Operative",
+            "Psicologia"
           ]
         },
         {
@@ -1074,7 +1082,8 @@
         {
           "t": "Tecniche di progettazione",
           "ins": [
-            "Metodologie Operative"
+            "Metodologie Operative",
+            "Psicologia"
           ]
         },
         {
@@ -1148,7 +1157,8 @@
           "t": "Tipologie di resoconti (report, verbali, relazioni)",
           "ins": [
             "Italiano",
-            "TIC"
+            "TIC",
+            "Psicologia"
           ]
         },
         {
@@ -1554,7 +1564,8 @@
         {
           "t": "Integrazione sociale, scolastica e lavorativa",
           "ins": [
-            "Metodologie Operative"
+            "Metodologie Operative",
+            "Psicologia"
           ]
         }
       ],

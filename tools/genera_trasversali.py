@@ -23,7 +23,7 @@ scientifico, tecnologico e professionale».
                                   tecnica amministrativa del settore socio-sanitario
 
 Riferimenti: D.Lgs. 61/2017 art. 5 c. 1 lett. b) e c); D.M. 92/2018 art. 6 c. 4
-e Allegato 3I; Linee guida D.M. 766/2018, Box n. 7 e n. 8; Raccomandazione del
+e Allegato 3I; Linee guida D.M. 766/2019, Box n. 7 e n. 8; Raccomandazione del
 Consiglio UE 22 maggio 2018 sulle competenze chiave.
 
 Ogni UDA attraversa almeno tre assi e mobilita sia le discipline dell'area
@@ -474,8 +474,8 @@ def main():
                 "D.Lgs. 61/2017 art. 5 c. 1 lett. c) — progettazione interdisciplinare dei percorsi",
                 "D.M. 92/2018 art. 6 c. 4 — per tutta la durata del quinquennio, per unità di apprendimento",
                 "D.M. 92/2018 Allegato 3I — quadri orari SSAS e attribuzione degli insegnamenti agli assi",
-                "Linee guida D.M. 766/2018, Box n. 7 — carattere prioritariamente interdisciplinare delle UdA",
-                "Linee guida D.M. 766/2018, Box n. 8 — format di riferimento dell'UdA",
+                "Linee guida D.M. 766/2019, Box n. 7 — carattere prioritariamente interdisciplinare delle UdA",
+                "Linee guida D.M. 766/2019, Box n. 8 — format di riferimento dell'UdA",
             ],
             'nota': "Due UDA per ciascun anno di corso, ognuna a cavallo di almeno tre assi culturali. "
                     "Nell'istruzione professionale le materie di indirizzo costituiscono l'asse "

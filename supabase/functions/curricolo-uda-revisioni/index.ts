@@ -1,3 +1,4 @@
+import { validaIdea } from "./idee.ts";
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import { createClient } from "npm:@supabase/supabase-js@2.112.4";
 
@@ -6,6 +7,10 @@ const ALLOWED_ORIGINS = new Set([
   "https://salvapicconi.github.io",
   "http://localhost:8420",
   "http://127.0.0.1:8420",
+  "http://localhost:8642",
+  "http://127.0.0.1:8642",
+  "http://localhost:8765",
+  "http://127.0.0.1:8765",
 ]);
 const AUTHORS = new Set([
   "Prof. Picconi", "Prof. Pinna", "Prof.ssa Manca",
@@ -24,13 +29,8 @@ const FIELDS = new Set([
 // Scostamento massimo del docente dalla proposta proporzionale delle ore.
 const ORE_TOLLERANZA = 0.4;
 const ORE_MASSIME_UDA = 400;
-// Voti a disposizione di ogni docente per anno di corso e genere di UDA:
-// tanti quante sono le UDA da scegliere.
-const VOTI_PER_DOCENTE = 2;
-const GENERI_UDA = new Set(["asse", "trasversale"]);
-const CHIAVE_VOTABILE = /^([0-9]+\.[0-9]+|T[1-5]\.[0-9]+)$/;
-// Quante UDA si possono mettere al voto in una sola rosa.
-const ROSA_MASSIMA = 12;
+const RIFERIMENTO_VOTABILE = /^(asse:[1-5]\.[0-9]+|trasversale:T[1-5]\.[0-9]+)$/;
+const ROSA_MASSIMA = 30;
 
 const supabaseUrl = Deno.env.get("SUPABASE_URL") ?? "";
 const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "";
@@ -275,151 +275,115 @@ async function updateStatus(request: Request, payload: Record<string, unknown>, 
   return json(request, { revision: data });
 }
 
-// Voti e stato della votazione, restituiti sempre insieme: al client servono
-// entrambi per sapere se si vota, su cosa e con quale esito.
-async function listVotes(request: Request) {
-  const [voti, votazione] = await Promise.all([
-    admin.from("curricolo_uda_voti").select("uda_key,author_name,anno,genere"),
-    admin.from("curricolo_uda_votazione")
-      .select("anno,genere,rosa,scelta,aperta_da,aperta_il,confermata_da,confermata_il"),
-  ]);
-  if (voti.error || votazione.error) return json(request, { error: "Impossibile caricare i voti." }, 500);
-  return json(request, { votes: voti.data ?? [], ballots: votazione.data ?? [] });
-}
+type Ballot = { id: number; rosa: string[]; stato: "preparazione" | "aperta" | "chiusa" };
+type Rating = { uda_ref: string; author_name: string; valutazione: number };
 
-function readScope(payload: Record<string, unknown>) {
-  const anno = Number(payload.anno);
-  if (!Number.isInteger(anno) || anno < 1 || anno > 5) throw new Error("Anno non valido.");
-  const genere = cleanString(payload.genere, 20, true);
-  if (!GENERI_UDA.has(genere)) throw new Error("Genere di UDA non valido.");
-  return { anno, genere };
-}
-
-function readKeys(value: unknown, massimo: number) {
-  const chiavi = Array.isArray(value) ? value.map(String) : [];
-  if (chiavi.length > massimo) throw new Error(`Non si possono indicare più di ${massimo} UDA.`);
-  if (chiavi.some(chiave => !CHIAVE_VOTABILE.test(chiave))) throw new Error("Chiave UDA non valida.");
-  if (new Set(chiavi).size !== chiavi.length) throw new Error("La stessa UDA compare due volte.");
-  return chiavi;
-}
-
-function keyMatchesScope(chiave: string, anno: number, genere: string) {
-  const prefisso = genere === "trasversale" ? `T${anno}.` : `${anno}.`;
-  return chiave.startsWith(prefisso);
-}
-
-async function ballotFor(anno: number, genere: string) {
-  const { data, error } = await admin.from("curricolo_uda_votazione")
-    .select("rosa,scelta").eq("anno", anno).eq("genere", genere).maybeSingle();
+async function activeBallot() {
+  const { data, error } = await admin.from("curricolo_uda_votazione_stelle")
+    .select("id,rosa,stato").eq("id", 1).maybeSingle();
   if (error) throw error;
-  return data as { rosa: string[]; scelta: string[] } | null;
+  if (!data) return null;
+  const ballot = data as Ballot;
+  if (!Array.isArray(ballot.rosa) || !ballot.rosa.length || ballot.rosa.length > ROSA_MASSIMA ||
+      new Set(ballot.rosa).size !== ballot.rosa.length ||
+      ballot.rosa.some(riferimento => !RIFERIMENTO_VOTABILE.test(riferimento))) {
+    throw new Error("Rosa della votazione non valida.");
+  }
+  return ballot;
 }
 
-// Apertura della votazione: chi gestisce mette al voto una rosa di UDA, dopo la
-// consultazione. Senza rosa non si vota.
-async function openBallot(request: Request, payload: Record<string, unknown>, sessionAuthor: string) {
+// L'identità dei singoli votanti non viene restituita. Durante la votazione
+// ciascun docente vede soltanto le proprie stelle; le medie compaiono quando
+// la sessione viene chiusa.
+async function listRatings(request: Request, sessionAuthor: string) {
   try {
-    const permissions = await permissionsFor(sessionAuthor);
-    if (!permissions.manage_status) return json(request, { error: "Operazione non consentita." }, 403);
-    const { anno, genere } = readScope(payload);
-    const rosa = readKeys(payload.rosa, ROSA_MASSIMA);
-    if (rosa.some(chiave => !keyMatchesScope(chiave, anno, genere))) {
-      throw new Error("La rosa contiene UDA di un altro anno o di un'altra categoria.");
+    const ballot = await activeBallot();
+    if (!ballot) return json(request, { ballot: null, my_ratings: [], results: [] });
+    const { data, error } = await admin.from("curricolo_uda_valutazioni")
+      .select("uda_ref,author_name,valutazione").eq("votazione_id", ballot.id);
+    if (error) throw error;
+    const ratings = (data ?? []) as Rating[];
+    const myRatings = ratings
+      .filter(voce => voce.author_name === sessionAuthor && ballot.rosa.includes(voce.uda_ref))
+      .map(({ uda_ref, valutazione }) => ({ uda_ref, valutazione }));
+    const results = ballot.stato === "chiusa" ? ballot.rosa.map(udaRef => {
+      const valori = ratings.filter(voce => voce.uda_ref === udaRef).map(voce => voce.valutazione);
+      return {
+        uda_ref: udaRef,
+        conteggio: valori.length,
+        media: valori.length ? valori.reduce((somma, valore) => somma + valore, 0) / valori.length : null,
+      };
+    }) : [];
+    return json(request, { ballot, my_ratings: myRatings, results });
+  } catch {
+    return json(request, { error: "Impossibile caricare la votazione." }, 500);
+  }
+}
+
+function readRatings(value: unknown, ballot: Ballot) {
+  if (!Array.isArray(value) || value.length !== ballot.rosa.length || value.length > ROSA_MASSIMA) {
+    throw new Error("Valuta tutte le UDA della rosa prima di salvare.");
+  }
+  const ratings = value.map(voce => {
+    if (!voce || typeof voce !== "object" || Array.isArray(voce)) throw new Error("Valutazione non valida.");
+    const record = voce as Record<string, unknown>;
+    const udaRef = cleanString(record.uda_ref, 80, true);
+    const valutazione = record.valutazione;
+    if (typeof valutazione !== "number") throw new Error("Valutazione non valida.");
+    if (!RIFERIMENTO_VOTABILE.test(udaRef) || !Number.isInteger(valutazione) || valutazione < 1 || valutazione > 5) {
+      throw new Error("Ogni UDA deve ricevere da 1 a 5 stelle.");
     }
-    if (rosa.length && rosa.length <= VOTI_PER_DOCENTE) {
-      throw new Error(`Con ${rosa.length} UDA non c'è nulla da votare: se ne devono attivare ${VOTI_PER_DOCENTE}. Mettine al voto almeno ${VOTI_PER_DOCENTE + 1}.`);
+    return { uda_ref: udaRef, valutazione };
+  });
+  const riferimenti = ratings.map(voce => voce.uda_ref);
+  if (new Set(riferimenti).size !== riferimenti.length ||
+      riferimenti.some(riferimento => !ballot.rosa.includes(riferimento))) {
+    throw new Error("Le valutazioni non corrispondono alla rosa collegiale.");
+  }
+  return ratings;
+}
+
+async function saveRatings(request: Request, payload: Record<string, unknown>, sessionAuthor: string) {
+  try {
+    const ballot = await activeBallot();
+    if (!ballot?.rosa?.length || ballot.stato !== "aperta") {
+      throw new Error("La votazione non è aperta.");
     }
+    const ratings = readRatings(payload.ratings, ballot);
     const adesso = new Date().toISOString();
-    const { error } = await admin.from("curricolo_uda_votazione").upsert({
-      anno, genere, rosa,
-      // Cambiare la rosa rimette in gioco la scelta: non può restare una
-      // decisione confermata su schede che non sono più in votazione.
-      scelta: [], confermata_da: null, confermata_il: null,
-      aperta_da: sessionAuthor, aperta_il: adesso,
-    }, { onConflict: "anno,genere" });
+    const records = ratings.map(voce => ({
+      votazione_id: ballot.id,
+      uda_ref: voce.uda_ref,
+      author_name: sessionAuthor,
+      valutazione: voce.valutazione,
+      updated_at: adesso,
+    }));
+    const { error } = await admin.from("curricolo_uda_valutazioni")
+      .upsert(records, { onConflict: "votazione_id,uda_ref,author_name" });
     if (error) throw error;
-    // I voti dati a UDA uscite dalla rosa non contano più: si tolgono, invece
-    // di restare a gonfiare conteggi che nessuno vede.
-    let pulizia = admin.from("curricolo_uda_voti").delete().eq("anno", anno).eq("genere", genere);
-    if (rosa.length) pulizia = pulizia.not("uda_key", "in", `(${rosa.map(chiave => `"${chiave}"`).join(",")})`);
-    const { error: erroreVoti } = await pulizia;
-    if (erroreVoti) throw erroreVoti;
-    return await listVotes(request);
+    return await listRatings(request, sessionAuthor);
   } catch (error) {
-    return json(request, { error: error instanceof Error ? error.message : "Rosa non registrata." }, 400);
+    return json(request, { error: error instanceof Error ? error.message : "Valutazioni non salvate." }, 400);
   }
 }
 
-async function castVote(request: Request, payload: Record<string, unknown>, sessionAuthor: string) {
-  try {
-    const udaKey = cleanString(payload.uda_key, 50, true);
-    if (!CHIAVE_VOTABILE.test(udaKey)) throw new Error("Su questa UDA non si vota.");
-    const { anno, genere } = readScope(payload);
-    if (!keyMatchesScope(udaKey, anno, genere)) {
-      throw new Error("L'UDA non appartiene all'anno o alla categoria indicati.");
-    }
-    const rimuovi = payload.rimuovi === true;
-
-    if (rimuovi) {
-      const { error } = await admin.from("curricolo_uda_voti").delete()
-        .eq("uda_key", udaKey).eq("author_name", sessionAuthor);
-      if (error) throw error;
-      return await listVotes(request);
-    }
-
-    const votazione = await ballotFor(anno, genere);
-    if (!votazione?.rosa?.length) throw new Error(`La votazione di ${anno}ª non è ancora aperta.`);
-    if (!votazione.rosa.includes(udaKey)) throw new Error("Questa UDA non è fra quelle messe al voto.");
-    if (votazione.scelta?.length) throw new Error(`La scelta di ${anno}ª è già stata confermata: la votazione è chiusa.`);
-
-    // Il tetto si verifica qui, non nel database: il messaggio deve dire al
-    // docente quanti voti ha speso e come liberarne uno.
-    const { data: spesi, error: erroreConteggio } = await admin.from("curricolo_uda_voti")
-      .select("uda_key").eq("author_name", sessionAuthor).eq("anno", anno).eq("genere", genere);
-    if (erroreConteggio) throw erroreConteggio;
-    const giaVotata = (spesi ?? []).some(voce => voce.uda_key === udaKey);
-    if (!giaVotata && (spesi ?? []).length >= VOTI_PER_DOCENTE) {
-      const elenco = (spesi ?? []).map(voce => voce.uda_key).join(" e ");
-      throw new Error(
-        `Hai già usato i tuoi ${VOTI_PER_DOCENTE} voti di ${anno}ª su ${elenco}. Togli un voto per spostarlo su un'altra UDA.`,
-      );
-    }
-    const { error } = await admin.from("curricolo_uda_voti")
-      .upsert({ uda_key: udaKey, author_name: sessionAuthor, anno, genere }, { onConflict: "uda_key,author_name" });
-    if (error) throw error;
-    return await listVotes(request);
-  } catch (error) {
-    return json(request, { error: error instanceof Error ? error.message : "Voto non registrato." }, 400);
-  }
+// Le idee restano separate dai cataloghi e dalla votazione. Autore dalla sessione.
+async function listIdeas(request: Request) {
+  const { data, error } = await admin.from('curricolo_uda_idee').select('*').order('updated_at', { ascending: false });
+  if (error) return json(request, { error: 'Archivio delle idee non disponibile. Il caricamento non è riuscito.' }, 503);
+  return json(request, { ideas: data ?? [] });
 }
-
-// La classifica è consultiva: solo chi gestisce la trasforma nella scelta
-// ufficiale, e solo fra le UDA che erano davvero in votazione.
-async function confirmChoice(request: Request, payload: Record<string, unknown>, sessionAuthor: string) {
-  try {
-    const permissions = await permissionsFor(sessionAuthor);
-    if (!permissions.manage_status) return json(request, { error: "Operazione non consentita." }, 403);
-    const { anno, genere } = readScope(payload);
-    const scelta = readKeys(payload.uda_keys, VOTI_PER_DOCENTE);
-    if (scelta.length !== VOTI_PER_DOCENTE) {
-      throw new Error(`La scelta finale deve contenere esattamente ${VOTI_PER_DOCENTE} UDA.`);
-    }
-    if (scelta.some(chiave => !keyMatchesScope(chiave, anno, genere))) {
-      throw new Error("La scelta contiene UDA di un altro anno o di un'altra categoria.");
-    }
-    const votazione = await ballotFor(anno, genere);
-    if (!votazione?.rosa?.length) throw new Error(`La votazione di ${anno}ª non è mai stata aperta.`);
-    if (scelta.some(chiave => !votazione.rosa.includes(chiave))) {
-      throw new Error("Si può scegliere solo fra le UDA messe al voto.");
-    }
-    const { error } = await admin.from("curricolo_uda_votazione").update({
-      scelta, confermata_da: sessionAuthor, confermata_il: new Date().toISOString(),
-    }).eq("anno", anno).eq("genere", genere);
-    if (error) throw error;
-    return await listVotes(request);
-  } catch (error) {
-    return json(request, { error: error instanceof Error ? error.message : "Scelta non registrata." }, 400);
-  }
+async function saveIdea(request: Request, payload: Record<string, unknown>, author: string) {
+  let idea;
+  try { idea = validaIdea(payload.idea); }
+  catch (error) { return json(request, { error: error instanceof Error ? error.message : 'Proposta non valida.' }, 400); }
+  const { versione, ...fields } = idea;
+  const record = { ...fields, author_name: author, versione: versione + 1, updated_at: new Date().toISOString() };
+  const result = versione === 0
+    ? await admin.from('curricolo_uda_idee').insert(record).select('*').single()
+    : await admin.from('curricolo_uda_idee').update(record).eq('id', idea.id).eq('author_name', author).eq('versione', versione).select('*').maybeSingle();
+  if (result.error || !result.data) return json(request, { error: 'Salvataggio non riuscito: verifica il servizio e la versione della proposta. Il testo resta nel modulo; ricarica l’elenco prima di riprovare.' }, 409);
+  return json(request, { idea: result.data });
 }
 
 Deno.serve(async (request: Request) => {
@@ -435,13 +399,13 @@ Deno.serve(async (request: Request) => {
   if (action === "session") {
     return json(request, { ok: true, author_name: sessionAuthor, permissions: await permissionsFor(sessionAuthor) });
   }
+  if (action === "ideas-list") return await listIdeas(request);
+  if (action === "ideas-save") return await saveIdea(request, payload, sessionAuthor);
   if (action === "list") return await listRevisions(request);
   if (action === "upsert") return await upsertRevision(request, payload, sessionAuthor);
   if (action === "status") return await updateStatus(request, payload, sessionAuthor);
-  if (action === "votes") return await listVotes(request);
-  if (action === "vote") return await castVote(request, payload, sessionAuthor);
-  if (action === "ballot") return await openBallot(request, payload, sessionAuthor);
-  if (action === "choice") return await confirmChoice(request, payload, sessionAuthor);
+  if (action === "ratings") return await listRatings(request, sessionAuthor);
+  if (action === "rate") return await saveRatings(request, payload, sessionAuthor);
   if (action === "logout") {
     const token = request.headers.get("x-curricolo-session") ?? "";
     if (token) await admin.from("curricolo_uda_revision_sessions").delete().eq("token_hash", await sha256(token));
