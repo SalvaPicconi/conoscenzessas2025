@@ -467,7 +467,8 @@ def main():
             'sottotitolo': "Dieci unità interdisciplinari costruite sugli assi culturali dell'istruzione professionale",
             'fonte': "Prima stesura per i dipartimenti. Assi culturali e attribuzione degli insegnamenti "
                      "da D.M. 92/2018, Allegato 3I (quadri orari dell'indirizzo SSAS); competenze "
-                     "dell'area generale da data-area-generale.json; competenze in uscita da Allegato C; "
+                     "dell'area generale da data-area-generale.json e dall'Allegato B delle Linee guida D.M. 766/2019; "
+                     "competenze di indirizzo dal D.M. 92/2018, Allegato 2-I, e risultati intermedi dall'Allegato C, sezione i), delle medesime Linee guida; "
                      "competenze chiave da Raccomandazione del Consiglio UE 22 maggio 2018.",
             'riferimenti': [
                 "D.Lgs. 61/2017 art. 5 c. 1 lett. b) — aggregazione degli insegnamenti negli assi culturali",

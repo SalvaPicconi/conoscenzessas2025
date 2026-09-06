@@ -18,23 +18,23 @@
       "norma": "D.Lgs. 13 aprile 2017, n. 61",
       "titolo": "Revisione dei percorsi dell’istruzione professionale nel rispetto dell’articolo 117 della Costituzione, nonché raccordo con i percorsi dell’istruzione e formazione professionale",
       "pubblicazione": "Gazzetta Ufficiale n. 112 del 16 maggio 2017, Supplemento ordinario n. 23",
-      "oggetto": "Revisione dei percorsi dell’istruzione professionale. Art. 2, comma 1: l’unità di apprendimento è l’insieme autonomamente significativo di competenze, abilità e conoscenze in cui è organizzato il percorso formativo dello studente e costituisce il riferimento per la valutazione, la certificazione e il riconoscimento dei crediti. Art. 5, comma 1: lett. a) personalizzazione del percorso e Progetto formativo individuale; lett. b) aggregazione delle discipline negli assi culturali; lett. c) progettazione interdisciplinare dei percorsi didattici; lett. d) metodologie di apprendimento di tipo induttivo, con esperienze laboratoriali e in contesti operativi; lett. e) docenti con funzione di tutor; lett. f) organizzazione per unità di apprendimento."
+      "oggetto": "Revisione dei percorsi dell’istruzione professionale. Art. 5, comma 1: lett. a) personalizzazione del percorso, Progetto formativo individuale e bilancio personale; lett. b) aggregazione delle discipline negli assi culturali; lett. c) progettazione interdisciplinare dei percorsi didattici; lett. d) metodologie di apprendimento di tipo induttivo, con esperienze laboratoriali e in contesti operativi; lett. e) raccordo con la rete nazionale delle scuole professionali ed esperienze di alternanza scuola-lavoro; lett. f) organizzazione per unità di apprendimento; lett. g) certificazione delle competenze."
     },
     {
       "id": "dm-92-2018",
       "sigla": "D.M. 92/2018",
       "norma": "D.M. 24 maggio 2018, n. 92",
       "titolo": "Regolamento recante la disciplina dei profili di uscita degli indirizzi di studio dei percorsi di istruzione professionale, ai sensi dell’art. 3, comma 3, del D.Lgs. 61/2017",
-      "pubblicazione": "Gazzetta Ufficiale n. 173 del 27 luglio 2018",
+      "pubblicazione": "Gazzetta Ufficiale n. 173 del 27 luglio 2018, Supplemento ordinario n. 35",
       "nota": "Decreto interministeriale: nei documenti compare anche come D.I. 92/2018.",
-      "oggetto": "Regolamento sui profili di uscita degli indirizzi dell’istruzione professionale. Art. 4, comma 6: le unità di apprendimento sono quelle «nelle quali è strutturato il Progetto formativo individuale». Art. 4, comma 7: la valutazione ha per oggetto i risultati delle unità di apprendimento. Art. 6, comma 4: la progettazione per unità di apprendimento accompagna l’intero quinquennio. Allegati 2-I e 3-I: profilo di uscita, competenze e quadro orario dell’indirizzo SSAS."
+      "oggetto": "Regolamento sui profili di uscita degli indirizzi dell’istruzione professionale. Art. 2: definizioni di unità di apprendimento, Progetto formativo individuale, bilancio personale, profilo di uscita e certificazione delle competenze. Art. 4, comma 6: valutazione di competenze, abilità e conoscenze in relazione alle unità di apprendimento e al PFI; comma 7: valutazione intermedia al termine del primo anno. Art. 6, commi 2-4: redazione e aggiornamento del PFI, docente tutor e progettazione per UdA lungo il quinquennio. Allegati 2-I e 3-I: profilo di uscita, competenze e quadro orario dell’indirizzo SSAS."
     },
     {
       "id": "dm-766-2019",
       "sigla": "Linee guida D.M. 766/2019",
       "norma": "D.M. 23 agosto 2019, n. 766",
       "titolo": "Linee guida per favorire e sostenere l’adozione del nuovo assetto didattico e organizzativo dei percorsi di istruzione professionale",
-      "oggetto": "Linee guida per favorire e sostenere l’adozione del nuovo assetto didattico e organizzativo dei percorsi di istruzione professionale. Box n. 7: carattere prioritariamente interdisciplinare delle UdA. Box n. 8: format di riferimento dell’UdA e rubrica ad almeno quattro livelli. § 3.2.2: valutazione riferita alle unità di apprendimento e livelli di padronanza. Parte seconda: traguardi intermedi delle competenze."
+      "oggetto": "Linee guida per favorire e sostenere l’adozione del nuovo assetto didattico e organizzativo dei percorsi di istruzione professionale. § 3.2.1 e Box n. 7: carattere prioritariamente interdisciplinare delle UdA e schema di piano annuale o biennale. Box n. 8: format di riferimento con compito di realtà, prodotti, destinatari e rubrica ad almeno quattro livelli. § 3.2.2: valutazione riferita alle unità di apprendimento e livelli di padronanza. Parte seconda, Allegati B e C: traguardi intermedi e livelli QNQ."
     },
     {
       "id": "dm-139-2007",
@@ -51,18 +51,11 @@
       "oggetto": "Autonomia didattica delle istituzioni scolastiche nella progettazione, nell’articolazione modulare e nell’aggregazione delle discipline."
     },
     {
-      "id": "dlgs-62-2017",
-      "sigla": "D.Lgs. 62/2017",
-      "norma": "D.Lgs. 13 aprile 2017, n. 62",
-      "titolo": "Norme in materia di valutazione e certificazione delle competenze nel primo ciclo ed esami di Stato",
-      "oggetto": "Norme in materia di valutazione e certificazione delle competenze."
-    },
-    {
       "id": "dlgs-13-2013",
       "sigla": "D.Lgs. 13/2013",
       "norma": "D.Lgs. 16 gennaio 2013, n. 13",
       "titolo": "Definizione delle norme generali e dei livelli essenziali delle prestazioni per l’individuazione e validazione degli apprendimenti non formali e informali e degli standard minimi di servizio del sistema nazionale di certificazione delle competenze",
-      "oggetto": "Definisce competenza, qualificazione e apprendimento formale, non formale e informale (art. 2, comma 1); istituisce il sistema nazionale di certificazione delle competenze."
+      "oggetto": "Definisce la competenza (art. 2, comma 1, lett. e), la certificazione delle competenze (art. 2, comma 1, lett. g), la qualificazione e gli apprendimenti formali, non formali e informali; l’art. 6 disciplina gli standard minimi di attestazione."
     },
     {
       "id": "dm-qnq-2018",
@@ -70,33 +63,40 @@
       "norma": "Decreto interministeriale MLPS-MIUR 8 gennaio 2018",
       "titolo": "Istituzione del Quadro nazionale delle qualificazioni rilasciate nell’ambito del Sistema nazionale di certificazione delle competenze di cui al D.Lgs. 16 gennaio 2013, n. 13",
       "pubblicazione": "Gazzetta Ufficiale n. 20 del 25 gennaio 2018",
-      "oggetto": "Istituisce il Quadro nazionale delle qualificazioni (QNQ) e ne referenzia gli otto livelli al Quadro europeo delle qualificazioni (EQF)."
+      "oggetto": "L’art. 1 istituisce il Quadro nazionale delle qualificazioni (QNQ); l’Allegato 1 descrive gli otto livelli e la loro referenziazione al Quadro europeo delle qualificazioni (EQF)."
     },
     {
       "id": "dlgs-297-1994",
       "sigla": "D.Lgs. 297/1994",
-      "norma": "D.Lgs. 16 aprile 1994, n. 297, art. 5, comma 8",
+      "norma": "D.Lgs. 16 aprile 1994, n. 297, art. 5, commi 6 e 8",
       "titolo": "Testo unico delle disposizioni legislative in materia di istruzione",
-      "oggetto": "Il consiglio di classe è presieduto dal dirigente scolastico oppure da un docente, suo delegato, membro del consiglio: è la delega su cui si fonda la funzione di coordinatore del consiglio di classe."
+      "oggetto": "Il comma 6 attribuisce al consiglio di classe il coordinamento didattico e i rapporti interdisciplinari; il comma 8 stabilisce che il consiglio è presieduto dal dirigente scolastico oppure da un docente membro del consiglio da lui delegato. La norma non tipizza ulteriori funzioni proprie del coordinatore."
     },
     {
       "id": "dl-127-2025",
       "sigla": "D.L. 127/2025, conv. L. 164/2025",
       "norma": "D.L. 9 settembre 2025, n. 127, convertito con modificazioni dalla L. 30 ottobre 2025, n. 164",
       "titolo": "Misure urgenti per la riforma dell’esame di Stato del secondo ciclo di istruzione e per il regolare avvio dell’anno scolastico 2025/2026",
-      "oggetto": "Dall’anno scolastico 2025/2026 i percorsi per le competenze trasversali e per l’orientamento assumono la denominazione di formazione scuola-lavoro; ogni riferimento ai PCTO si intende sostituito con la nuova denominazione, restando fermi obblighi, contenuti e finalità."
+      "oggetto": "L’art. 1, comma 6, dispone che dall’anno scolastico 2025/2026 i percorsi per le competenze trasversali e per l’orientamento assumano la denominazione di formazione scuola-lavoro e inserisce il comma 784-octies nell’art. 1 della L. 145/2018; restano fermi obblighi, contenuti e finalità."
+    },
+    {
+      "id": "l-145-2018",
+      "sigla": "L. 145/2018",
+      "norma": "L. 30 dicembre 2018, n. 145, art. 1, commi 784 e 784-octies",
+      "titolo": "Bilancio di previsione dello Stato per l’anno finanziario 2019 e bilancio pluriennale per il triennio 2019-2021",
+      "oggetto": "Il comma 784 stabilisce per gli istituti professionali una durata complessiva non inferiore a 210 ore nel triennio; il comma 784-octies, inserito nel 2025, sostituisce la denominazione PCTO con formazione scuola-lavoro."
     },
     {
       "id": "educazione-civica",
       "sigla": "L. 92/2019 e D.M. 183/2024",
       "norma": "L. 20 agosto 2019, n. 92 e D.M. 7 settembre 2024, n. 183",
       "titolo": "Introduzione dell’insegnamento scolastico dell’educazione civica e relative Linee guida",
-      "oggetto": "Insegnamento trasversale dell’educazione civica e relative Linee guida, per le unità di apprendimento che ne sviluppano i nuclei concettuali (almeno 33 ore annue)."
+      "oggetto": "La L. 92/2019, art. 2, istituisce l’insegnamento trasversale dell’educazione civica: almeno 33 ore annue (comma 3), affidamento secondo l’organico dell’autonomia e la classe di concorso (comma 4) e individuazione di un coordinatore (comma 5). Il D.M. 183/2024 adotta le Linee guida e ne articola i nuclei concettuali."
     },
     {
       "id": "racc-ue-2018",
       "sigla": "Raccomandazione UE 22 maggio 2018",
-      "norma": "Raccomandazione del Consiglio dell’Unione europea del 22 maggio 2018",
+      "norma": "Raccomandazione del Consiglio dell’Unione europea del 22 maggio 2018 (2018/C 189/01)",
       "titolo": "Raccomandazione relativa alle competenze chiave per l’apprendimento permanente",
       "oggetto": "Competenze chiave per l’apprendimento permanente, richiamate nelle schede delle UDA trasversali e di formazione scuola-lavoro."
     }
@@ -116,7 +116,7 @@
       "citazione": "«insieme autonomamente significativo di competenze, abilità e conoscenze, in cui è organizzato il percorso formativo dello studente»",
       "riferimenti": [
         {
-          "fonte": "dlgs-61-2017",
+          "fonte": "dm-92-2018",
           "luogo": "art. 2, comma 1",
           "dettaglio": "definizione di unità di apprendimento"
         },
@@ -152,17 +152,22 @@
         "competenze in uscita"
       ],
       "fondamento": "definizione",
-      "definizione": "Comprovata capacità di utilizzare, in situazioni di lavoro, di studio o nello sviluppo professionale, un insieme strutturato di conoscenze e di abilità acquisite nei contesti di apprendimento formale, non formale o informale.",
+      "definizione": "Comprovata capacità di utilizzare, in situazioni di lavoro, di studio o nello sviluppo professionale e personale, un insieme strutturato di conoscenze e di abilità acquisite nei contesti di apprendimento formale, non formale o informale.",
       "riferimenti": [
         {
           "fonte": "dlgs-13-2013",
-          "luogo": "art. 2, comma 1",
+          "luogo": "art. 2, comma 1, lett. e)",
           "dettaglio": "definizione di competenza nel sistema nazionale di certificazione"
         },
         {
           "fonte": "dm-92-2018",
-          "luogo": "Allegato 2-I e Allegato C",
+          "luogo": "Allegato 2-I",
           "dettaglio": "competenze del profilo di uscita dell’indirizzo SSAS"
+        },
+        {
+          "fonte": "dm-766-2019",
+          "luogo": "Parte seconda, Allegato C, sezione i)",
+          "dettaglio": "risultati di apprendimento intermedi dell’indirizzo SSAS"
         },
         {
           "fonte": "racc-ue-2018",
@@ -180,16 +185,17 @@
         "abilità mobilitate"
       ],
       "fondamento": "termine",
-      "definizione": "Capacità di applicare conoscenze e di utilizzare know-how per portare a termine compiti e risolvere problemi. Nel curricolo dell’indirizzo le abilità sono l’operativo della competenza: quello che lo studente sa fare, non quello che sa.",
+      "definizione": "Nel profilo dell’indirizzo le abilità descrivono le operazioni e le prestazioni che, insieme alle conoscenze, rendono esercitabile e osservabile una competenza. Le abilità minime del profilo finale e quelle attese nei risultati intermedi sono indicate negli allegati richiamati.",
       "riferimenti": [
         {
           "fonte": "dm-92-2018",
-          "luogo": "Allegato 2-I e Allegato C",
-          "dettaglio": "le competenze del profilo di uscita sono declinate in abilità e conoscenze"
+          "luogo": "Allegato 2-I",
+          "dettaglio": "abilità minime e conoscenze essenziali riferite alle competenze del profilo di uscita"
         },
         {
-          "fonte": "racc-ue-2018",
-          "dettaglio": "abilità come componente della competenza, insieme a conoscenze e atteggiamenti"
+          "fonte": "dm-766-2019",
+          "luogo": "Parte seconda, Allegato C, sezione i)",
+          "dettaglio": "abilità e conoscenze riferite ai risultati di apprendimento intermedi dell’indirizzo SSAS"
         }
       ],
       "usoNelSito": "Nelle schede UDA le abilità sono attribuite agli insegnamenti referenti secondo le griglie del curricolo di indirizzo."
@@ -204,17 +210,17 @@
         "conoscenza"
       ],
       "fondamento": "termine",
-      "definizione": "Le conoscenze — fatti, principi, teorie e pratiche di un settore — che il curricolo indica come indispensabili per esercitare la competenza. «Saperi essenziali» è la forma con cui il curricolo di indirizzo nomina il nucleo di conoscenze non comprimibile di ciascuna competenza intermedia.",
+      "definizione": "Le conoscenze essenziali associate alle competenze del profilo e ai risultati di apprendimento intermedi. Le Linee guida usano anche l’espressione «nuclei portanti del sapere (o saperi essenziali)» fra gli elementi da individuare nella progettazione dell’UdA.",
       "riferimenti": [
         {
           "fonte": "dm-92-2018",
-          "luogo": "Allegato 2-I e Allegato C",
-          "dettaglio": "conoscenze declinate per competenza e per anno di corso"
+          "luogo": "Allegato 2-I",
+          "dettaglio": "conoscenze essenziali associate alle competenze del profilo di uscita"
         },
         {
-          "fonte": "dlgs-61-2017",
-          "luogo": "art. 2, comma 1",
-          "dettaglio": "le conoscenze sono una delle tre componenti dell’unità di apprendimento"
+          "fonte": "dm-766-2019",
+          "luogo": "Box n. 8, voce 4, e Parte seconda, Allegato C, sezione i)",
+          "dettaglio": "nuclei portanti del sapere o saperi essenziali; conoscenze dei risultati intermedi SSAS"
         }
       ],
       "usoNelSito": "I saperi essenziali derivano dal curricolo e sono protetti in revisione: si possono affiancare integrazioni, non cancellare la base documentale."
@@ -227,12 +233,12 @@
         "profilo in uscita",
         "PECUP"
       ],
-      "fondamento": "termine",
+      "fondamento": "definizione",
       "definizione": "L’insieme delle competenze che lo studente possiede al termine del quinquennio e che identificano l’indirizzo di studio. Per Servizi per la Sanità e l’Assistenza Sociale è fissato dal regolamento con le dieci competenze dell’indirizzo.",
       "riferimenti": [
         {
           "fonte": "dm-92-2018",
-          "luogo": "Allegato 2-I e Allegato C",
+          "luogo": "art. 2, comma 1, e Allegato 2-I",
           "dettaglio": "profilo di uscita e competenze dell’indirizzo SSAS"
         },
         {
@@ -293,7 +299,7 @@
         "asse",
         "assi"
       ],
-      "fondamento": "definizione",
+      "fondamento": "termine",
       "definizione": "I raggruppamenti in cui sono aggregate le discipline: asse dei linguaggi, asse matematico, asse scientifico-tecnologico e asse storico-sociale. Nell’istruzione professionale l’aggregazione è prescritta per il biennio e le discipline di indirizzo confluiscono nell’asse scientifico, tecnologico e professionale.",
       "riferimenti": [
         {
@@ -395,8 +401,8 @@
         "compito autentico",
         "compito"
       ],
-      "fondamento": "uso",
-      "definizione": "Il prodotto o la prestazione che gli studenti realizzano in una situazione autentica, con destinatari veri e vincoli veri, e che rende osservabile la competenza. È un termine della didattica per competenze: le norme non lo definiscono, ma prescrivono ciò che esso serve a realizzare — l’apprendimento induttivo in contesti operativi e una valutazione che ha per oggetto i risultati delle unità di apprendimento.",
+      "fondamento": "termine",
+      "definizione": "Il prodotto o la prestazione che gli studenti realizzano in una situazione autentica, con destinatari e vincoli definiti, e che rende osservabile la competenza. Le Linee guida usano espressamente il termine nella progettazione e nella valutazione delle UdA, senza formularne una definizione normativa chiusa.",
       "riferimenti": [
         {
           "fonte": "dlgs-61-2017",
@@ -405,13 +411,13 @@
         },
         {
           "fonte": "dm-92-2018",
-          "luogo": "art. 4, comma 7",
-          "dettaglio": "la valutazione ha per oggetto i risultati delle unità di apprendimento"
+          "luogo": "art. 4, comma 6",
+          "dettaglio": "valutazione di competenze, abilità e conoscenze in relazione alle unità di apprendimento e al PFI"
         },
         {
           "fonte": "dm-766-2019",
-          "luogo": "Box n. 8",
-          "dettaglio": "format dell’UdA, che muove dal compito e dal prodotto atteso"
+          "luogo": "§ 3.2.1, Box n. 7, Box n. 8, voce 5, e § 3.2.2",
+          "dettaglio": "uso espresso del compito di realtà nella progettazione e nella valutazione dell’UdA"
         }
       ],
       "usoNelSito": "Dà il titolo operativo a ogni UDA dei tre cataloghi ed è la voce su cui i docenti votano quando scelgono le unità da attivare."
@@ -429,22 +435,13 @@
       "riferimenti": [
         {
           "fonte": "dm-92-2018",
-          "luogo": "art. 4, comma 7",
-          "dettaglio": "la valutazione ha per oggetto i risultati delle unità di apprendimento"
+          "luogo": "art. 4, comma 6",
+          "dettaglio": "valutazione di competenze, abilità e conoscenze in relazione alle unità di apprendimento e al PFI"
         },
         {
           "fonte": "dm-766-2019",
           "luogo": "§ 3.2.2 e Box n. 8",
           "dettaglio": "valutazione riferita alle UdA, livelli di padronanza e rubrica ad almeno quattro livelli"
-        },
-        {
-          "fonte": "dlgs-61-2017",
-          "luogo": "art. 2, comma 1",
-          "dettaglio": "l’UdA è riferimento per la valutazione, la certificazione e il riconoscimento dei crediti"
-        },
-        {
-          "fonte": "dlgs-62-2017",
-          "dettaglio": "norme in materia di valutazione e certificazione delle competenze"
         }
       ],
       "usoNelSito": "Compare nello spazio di votazione delle UDA, dove i docenti leggono di cosa tratta l’unità e con quale prova se ne verifica l’esito."
@@ -458,13 +455,13 @@
         "beneficiari",
         "ambito"
       ],
-      "fondamento": "uso",
+      "fondamento": "termine",
       "definizione": "L’esito materiale dell’unità (un opuscolo, un protocollo, un laboratorio condotto, una scheda di osservazione) e le persone cui è realmente destinato. Sono voci del format dell’UdA: servono a impedire che il compito resti un esercizio scolastico senza destinatario.",
       "riferimenti": [
         {
           "fonte": "dm-766-2019",
           "luogo": "Box n. 8",
-          "dettaglio": "prodotti in esito e documentazione del percorso nel format dell’UdA"
+          "dettaglio": "prodotti in esito e destinatari nel format di riferimento dell’UdA"
         }
       ],
       "usoNelSito": "Sezione 4 e sezione 10 della scheda UDA stampata."
@@ -492,8 +489,8 @@
         },
         {
           "fonte": "dm-92-2018",
-          "luogo": "art. 4, comma 7",
-          "dettaglio": "la valutazione ha per oggetto i risultati delle unità di apprendimento"
+          "luogo": "art. 4, comma 6",
+          "dettaglio": "valutazione di competenze, abilità e conoscenze in relazione alle unità di apprendimento e al PFI"
         }
       ],
       "usoNelSito": "Le rubriche di Metodologie Operative calcolano il voto ponderato; la sezione 11 di ogni scheda UDA stampata esce con la griglia a quattro livelli già predisposta."
@@ -531,21 +528,23 @@
         "certificazione delle competenze",
         "certificazione"
       ],
-      "fondamento": "termine",
+      "fondamento": "definizione",
       "definizione": "L’attestazione formale delle competenze acquisite, riferita a livelli e non a discipline. È il punto d’arrivo per cui l’unità di apprendimento è costruita: la legge la indica espressamente come uno degli usi dell’UdA.",
       "riferimenti": [
         {
-          "fonte": "dlgs-61-2017",
+          "fonte": "dm-92-2018",
           "luogo": "art. 2, comma 1",
-          "dettaglio": "l’UdA è riferimento per la valutazione, la certificazione e il riconoscimento dei crediti"
+          "dettaglio": "definizione di certificazione delle competenze"
         },
         {
-          "fonte": "dlgs-62-2017",
-          "dettaglio": "norme in materia di valutazione e certificazione delle competenze"
+          "fonte": "dlgs-61-2017",
+          "luogo": "art. 5, comma 1, lett. g)",
+          "dettaglio": "certificazione delle competenze acquisite nel percorso"
         },
         {
           "fonte": "dlgs-13-2013",
-          "dettaglio": "sistema nazionale di certificazione delle competenze"
+          "luogo": "art. 2, comma 1, lett. g), e art. 6",
+          "dettaglio": "definizione e standard minimi di attestazione"
         }
       ],
       "usoNelSito": "Orienta i criteri della sezione 11 della scheda UDA e la costruzione delle rubriche."
@@ -564,11 +563,17 @@
       "riferimenti": [
         {
           "fonte": "dm-qnq-2018",
-          "dettaglio": "istituzione del QNQ e referenziazione all’EQF"
+          "luogo": "art. 1 e Allegato 1",
+          "dettaglio": "istituzione del QNQ, descrittori degli otto livelli e referenziazione all’EQF"
         },
         {
           "fonte": "dlgs-13-2013",
           "dettaglio": "sistema nazionale di certificazione delle competenze in cui il QNQ si colloca"
+        },
+        {
+          "fonte": "dm-766-2019",
+          "luogo": "Parte seconda, Allegati B e C",
+          "dettaglio": "correlazione dei risultati intermedi dell’istruzione professionale ai livelli QNQ"
         }
       ],
       "usoNelSito": "Ogni UDA porta il livello QNQ di riferimento dell’anno di corso, così che il percorso resti leggibile fuori dalla scuola."
@@ -590,8 +595,8 @@
         },
         {
           "fonte": "dm-92-2018",
-          "luogo": "art. 4, comma 6",
-          "dettaglio": "le unità di apprendimento sono quelle nelle quali è strutturato il Progetto formativo individuale"
+          "luogo": "art. 2, comma 1, e art. 6, comma 2",
+          "dettaglio": "definizione del PFI; redazione da parte del consiglio di classe, termine del 31 gennaio e aggiornamento durante il percorso"
         }
       ],
       "usoNelSito": "La sezione PFI compila il progetto scegliendo le UDA dai tre cataloghi."
@@ -612,8 +617,9 @@
           "dettaglio": "il PFI è basato su un bilancio personale"
         },
         {
-          "fonte": "dlgs-13-2013",
-          "dettaglio": "riconoscimento degli apprendimenti non formali e informali"
+          "fonte": "dm-92-2018",
+          "luogo": "art. 2, comma 1, e art. 6, comma 2",
+          "dettaglio": "definizione del bilancio personale e suo impiego nella redazione del PFI"
         }
       ],
       "usoNelSito": "Apre la compilazione del PFI e motiva le scelte di personalizzazione."
@@ -653,8 +659,13 @@
       "riferimenti": [
         {
           "fonte": "dlgs-61-2017",
-          "luogo": "art. 5, comma 1, lett. e)",
-          "dettaglio": "individuazione dei docenti con funzione di tutor"
+          "luogo": "art. 5, comma 1, lett. a)",
+          "dettaglio": "PFI e bilancio personale, cui si collega la funzione tutoriale"
+        },
+        {
+          "fonte": "dm-92-2018",
+          "luogo": "art. 6, comma 3",
+          "dettaglio": "individuazione del docente tutor e funzione di sostegno all’attuazione e allo sviluppo del PFI"
         }
       ],
       "usoNelSito": "Compare fra i ruoli del PFI e fra le figure che il consiglio indica nel progetto formativo delle UDA di formazione scuola-lavoro."
@@ -673,12 +684,18 @@
       "riferimenti": [
         {
           "fonte": "dl-127-2025",
+          "luogo": "art. 1, comma 6",
           "dettaglio": "ridenominazione dei PCTO in formazione scuola-lavoro dall’a.s. 2025/2026"
         },
         {
+          "fonte": "l-145-2018",
+          "luogo": "art. 1, commi 784 e 784-octies",
+          "dettaglio": "durata minima di 210 ore negli istituti professionali e nuova denominazione"
+        },
+        {
           "fonte": "dlgs-61-2017",
-          "luogo": "art. 5, comma 1, lett. d)",
-          "dettaglio": "esperienze in contesti operativi come metodologia ordinaria dell’istruzione professionale"
+          "luogo": "art. 5, comma 1, lett. e)",
+          "dettaglio": "raccordo con la rete delle scuole professionali ed esperienze di alternanza scuola-lavoro"
         }
       ],
       "usoNelSito": "Il catalogo UDA FSL raccoglie i percorsi collegati all’area di tirocinio del triennio."
@@ -706,7 +723,7 @@
           "dettaglio": "autonomia nell’articolazione modulare del percorso"
         }
       ],
-      "usoNelSito": "La ripartizione oraria è calcolata in proporzione al quadro orario d’istituto; ogni docente può modificarla entro il 40%, purché il monte ore dell’UDA resti coperto."
+      "usoNelSito": "La ripartizione oraria è calcolata in proporzione al quadro orario d’istituto. La possibilità tecnica offerta dal sito di modificarla entro il 40%, purché il monte ore dell’UDA resti coperto, è una regola operativa interna e non coincide con gli spazi di flessibilità disciplinati dalla normativa."
     },
     {
       "id": "consiglio-classe",
@@ -717,20 +734,25 @@
         "coordinatrice"
       ],
       "fondamento": "termine",
-      "definizione": "Il consiglio di classe è presieduto dal dirigente scolastico oppure da un docente, suo delegato, membro del consiglio: è la delega su cui si fonda la funzione di coordinatore, che redige il PFI, delibera le UDA dell’anno e firma il Piano allegato alla programmazione di classe.",
+      "definizione": "Il consiglio di classe cura il coordinamento didattico e i rapporti interdisciplinari e redige il PFI. È presieduto dal dirigente scolastico oppure da un docente membro del consiglio da lui delegato. La legge non attribuisce automaticamente al coordinatore la redazione del PFI, la deliberazione delle UdA o la firma del Piano: eventuali compiti ulteriori dipendono dall’organizzazione e dalle deleghe dell’istituto.",
       "riferimenti": [
         {
           "fonte": "dlgs-297-1994",
-          "luogo": "art. 5, comma 8",
-          "dettaglio": "presidenza del consiglio di classe e delega al docente coordinatore"
+          "luogo": "art. 5, commi 6 e 8",
+          "dettaglio": "coordinamento didattico collegiale; presidenza del consiglio e delega a un docente membro"
         },
         {
           "fonte": "dm-92-2018",
-          "luogo": "art. 4, comma 6",
-          "dettaglio": "il consiglio di classe struttura il percorso in unità di apprendimento"
+          "luogo": "art. 6, comma 2",
+          "dettaglio": "redazione e aggiornamento del PFI da parte del consiglio di classe"
+        },
+        {
+          "fonte": "dm-766-2019",
+          "luogo": "§ 3.2.1 e Box n. 7",
+          "dettaglio": "progettazione delle UdA e schema di piano annuale o biennale"
         }
       ],
-      "usoNelSito": "Il Piano delle UDA è lo strumento del coordinatore: raccoglie la deliberazione, il periodo di svolgimento e le firme."
+      "usoNelSito": "Il Piano delle UDA raccoglie la programmazione collegiale, il periodo di svolgimento e le firme; l’eventuale gestione da parte del coordinatore dipende dalle scelte organizzative dell’istituto."
     },
     {
       "id": "piano-uda",
@@ -740,12 +762,17 @@
         "piano UDA"
       ],
       "fondamento": "uso",
-      "definizione": "Il documento con cui il consiglio di classe fissa quali unità di apprendimento attiva nell’anno, in quale periodo e con quale ripartizione oraria. Non è un atto tipizzato da una norma: è la forma in cui l’istituto esercita l’autonomia didattica e documenta la progettazione per unità di apprendimento richiesta per l’intero quinquennio.",
+      "definizione": "Il documento con cui il consiglio di classe fissa quali unità di apprendimento attiva nell’anno, in quale periodo e con quale ripartizione oraria. La denominazione usata dal sito non identifica un atto tipizzato, ma le Linee guida suggeriscono espressamente un apposito piano e propongono uno schema di Piano annuale o biennale delle UdA.",
       "riferimenti": [
         {
           "fonte": "dm-92-2018",
           "luogo": "art. 6, comma 4",
           "dettaglio": "progettazione per unità di apprendimento per l’intero quinquennio"
+        },
+        {
+          "fonte": "dm-766-2019",
+          "luogo": "§ 3.2.1 e Box n. 7",
+          "dettaglio": "apposito piano e schema di Piano annuale o biennale delle UdA"
         },
         {
           "fonte": "dpr-275-1999",
@@ -754,8 +781,8 @@
         },
         {
           "fonte": "dlgs-297-1994",
-          "luogo": "art. 5, comma 8",
-          "dettaglio": "competenza del consiglio di classe e funzione del coordinatore"
+          "luogo": "art. 5, comma 6",
+          "dettaglio": "coordinamento didattico e rapporti interdisciplinari del consiglio di classe"
         }
       ],
       "usoNelSito": "Si compila nella sezione 07 e si stampa come allegato alla programmazione di classe."
@@ -768,11 +795,12 @@
         "nuclei concettuali"
       ],
       "fondamento": "termine",
-      "definizione": "Insegnamento trasversale, affidato in contitolarità ai docenti del consiglio di classe, per non meno di 33 ore annue, sviluppato per nuclei concettuali. Nelle UDA trasversali è la sede naturale in cui quelle ore diventano lavoro concreto.",
+      "definizione": "Insegnamento trasversale previsto per non meno di 33 ore annue e sviluppato secondo i nuclei concettuali delle Linee guida. Nel secondo ciclo l’affidamento tiene conto dell’organico dell’autonomia e delle classi di concorso; per ciascuna classe è individuato un docente coordinatore.",
       "riferimenti": [
         {
           "fonte": "educazione-civica",
-          "dettaglio": "insegnamento trasversale dell’educazione civica e relative Linee guida"
+          "luogo": "L. 92/2019, art. 2, commi 1, 3, 4 e 5; Linee guida D.M. 183/2024",
+          "dettaglio": "trasversalità, monte ore minimo, affidamento, coordinamento e nuclei concettuali"
         },
         {
           "fonte": "racc-ue-2018",
@@ -821,12 +849,12 @@
         },
         {
           "fonte": "dm-92-2018",
-          "luogo": "Allegato 2-I e Allegato C",
+          "luogo": "Allegato 2-I",
           "dettaglio": "competenze e profilo di uscita da cui il curricolo muove"
         },
         {
           "fonte": "dm-766-2019",
-          "luogo": "Parte seconda",
+          "luogo": "Parte seconda, Allegato C, sezione i)",
           "dettaglio": "traguardi intermedi per periodo didattico"
         }
       ],

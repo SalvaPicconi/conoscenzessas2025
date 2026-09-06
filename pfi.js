@@ -362,7 +362,7 @@ function aggiornaUda() {
                 <label>Monte ore <input type="text" data-campo="ore" value="${escapeAttr(u.ore)}"></label>
             </div>
             <div class="pfi-griglia pfi-griglia-2" style="margin-top:14px">
-                <label>Competenze target — Allegato C <textarea data-campo="competenze" rows="3">${escapeHtml(u.competenze)}</textarea></label>
+                <label>Competenze target — Linee guida D.M. 766/2019, Allegato C, sezione i) <textarea data-campo="competenze" rows="3">${escapeHtml(u.competenze)}</textarea></label>
                 <label>Competenze chiave europee 2018 <textarea data-campo="europee" rows="3">${escapeHtml(u.europee)}</textarea></label>
                 <label class="pfi-col-2">Insegnamenti coinvolti <input type="text" data-campo="insegnamenti" value="${escapeAttr(u.insegnamenti)}"></label>
                 <label class="pfi-col-2">Saperi essenziali mobilitati <textarea data-campo="saperi" rows="3">${escapeHtml(u.saperi)}</textarea></label>
@@ -679,7 +679,7 @@ function esportaWord() {
                 <p class="uda-t">UDA ${i + 1} — ${esc(u.titolo)}</p>
                 ${tab([
                     ['Tipo e anno', `${esc(u.tipo)}${u.anno ? ' · ' + ANNO_ETICHETTA[u.anno] : ''}${u.periodo ? ' · ' + esc(u.periodo) : ''}`],
-                    ['Competenze target — Allegato C', esc(u.competenze)],
+                    ['Competenze target — Linee guida D.M. 766/2019, Allegato C, sezione i)', esc(u.competenze)],
                     ['Competenze chiave europee', esc(u.europee)],
                     ['Insegnamenti coinvolti', esc(u.insegnamenti)],
                     ['Saperi essenziali mobilitati', esc(u.saperi)],

@@ -2,7 +2,7 @@
 
 Sito interattivo per la consultazione del curricolo verticale dell'indirizzo **Servizi per la Sanità e l'Assistenza Sociale** — IIS Meucci-Mattei Cagliari, sede di Decimomannu.
 
-Contenuti conformi al D.M. 24 maggio 2018, n. 92, Allegato C. I dati dell'area di indirizzo sono allineati al file ufficiale `definitivo_curricolo_ssas_area_indirizzo.xlsx`.
+Profilo finale conforme al D.M. 24 maggio 2018, n. 92, Allegato 2-I; risultati intermedi ricondotti alle Linee guida D.M. 23 agosto 2019, n. 766, Parte seconda, Allegato C, sezione i). I dati dell'area di indirizzo sono allineati al file ufficiale `definitivo_curricolo_ssas_area_indirizzo.xlsx`.
 
 Sito pubblicato: https://salvapicconi.github.io/conoscenzessas2025/
 
@@ -12,7 +12,7 @@ Sito pubblicato: https://salvapicconi.github.io/conoscenzessas2025/
 - **Area Generale** — le 12 competenze dell'area generale con assi culturali, abilità e conoscenze.
 - **UDA d'asse** — 48 schede del quinquennio, filtrabili per anno, competenza e insegnamento, con area collegiale per annotazioni e proposte.
 - **UDA trasversali · Tutte le materie** — catalogo autonomo e progressivo di UDA interdisciplinari, filtrabili per anno, asse e insegnamento, predisposto per modifica, revisione e creazione condivisa.
-- **Ripartizione oraria** — in ogni scheda UDA le ore sono divise fra gli insegnamenti coinvolti in proporzione al quadro orario dell'istituto e compaiono accanto a ciascuna materia; l'intestazione indica la durata minima in settimane. A docente autenticato la proposta è modificabile entro il 40% e il sito avvisa quando la somma non copre il monte ore dell'UDA.
+- **Ripartizione oraria** — in ogni scheda UDA le ore sono divise fra gli insegnamenti coinvolti in proporzione al quadro orario dell'istituto e compaiono accanto a ciascuna materia; l'intestazione indica la durata minima in settimane. Come regola operativa interna dell'applicativo, a docente autenticato la proposta è modificabile entro il 40%; il sito avvisa quando la somma non copre il monte ore dell'UDA.
 - **Scelta delle UDA da attivare** — si vota in due tempi: dopo la consultazione viene messa al voto una rosa di UDA, poi ogni docente esprime due voti per anno di corso e vince chi ne raccoglie di più. La classifica è consultiva e diventa ufficiale quando viene confermata da chi ha i permessi di gestione.
 - **Navigazione** — le pagine aperte da sole hanno in alto una barra fissa con il ritorno al curricolo e le otto sezioni; nella pagina principale, quando le linguette escono dallo schermo, compare in basso una barra rapida per cambiare sezione. Gli indirizzi `index.html#uda`, `#trasversali`, `#fsl` e simili aprono direttamente la sezione.
 - **UDA FSL** — quattro UDA adattabili alle esperienze del triennio: area minori, disabilità, anziani e preparazione sanitaria/possibile raccordo OSS; coinvolgono solo le quattro discipline d'indirizzo definite dall'istituto.
@@ -43,21 +43,21 @@ Norme e definizioni stanno in un solo file, `data-normativa.json`: da lì vengon
 normativo, sia l'elenco stampato in calce alle schede UDA e al Piano, sia le definizioni che si aprono accanto alle
 parole nelle altre sezioni. Modificando quel file cambiano tutti e tre insieme.
 
-Le fonti citate: D.Lgs. 13 aprile 2017, n. 61 (art. 2 c. 1 — definizione di UdA; art. 5 c. 1 lett. a, b, c, d, e, f);
-D.M. 24 maggio 2018, n. 92 (art. 4 c. 6 e c. 7, art. 6 c. 4, Allegati 2-I, 3-I e C); Linee guida D.M. 23 agosto 2019,
-n. 766 (Box n. 7 e n. 8, § 3.2.2, Parte seconda); D.M. 22 agosto 2007, n. 139 (assi culturali); D.Lgs. 16 gennaio
-2013, n. 13 e D.I. 8 gennaio 2018 (competenza, certificazione, QNQ ed EQF); D.Lgs. 16 aprile 1994, n. 297 art. 5 c. 8
-(presidenza del consiglio di classe, base della funzione di coordinatore); D.P.R. 8 marzo 1999, n. 275 art. 4;
-D.Lgs. 13 aprile 2017, n. 62; D.L. 9 settembre 2025, n. 127 conv. L. 30 ottobre 2025, n. 164 (i PCTO diventano
-formazione scuola-lavoro); L. 20 agosto 2019, n. 92 e D.M. 7 settembre 2024, n. 183; Raccomandazione del Consiglio UE
-22 maggio 2018.
+Le fonti citate: D.Lgs. 13 aprile 2017, n. 61 (art. 5 c. 1 lett. a-g); D.M. 24 maggio 2018, n. 92
+(artt. 2, 4 c. 6-7 e 6 c. 2-4; Allegati 2-I e 3-I); Linee guida D.M. 23 agosto 2019, n. 766 (§ 3.2.1,
+Box n. 7 e n. 8, § 3.2.2; Parte seconda, Allegati B e C); D.M. 22 agosto 2007, n. 139 (assi culturali);
+D.Lgs. 16 gennaio 2013, n. 13 e D.I. 8 gennaio 2018 (competenza, certificazione, QNQ ed EQF);
+D.Lgs. 16 aprile 1994, n. 297, art. 5 c. 6 e 8 (coordinamento didattico e presidenza del consiglio di classe);
+D.P.R. 8 marzo 1999, n. 275, art. 4; D.L. 9 settembre 2025, n. 127, art. 1 c. 6, conv. L. 30 ottobre 2025,
+n. 164, e L. 30 dicembre 2018, n. 145, art. 1 c. 784 e 784-octies (formazione scuola-lavoro e durata minima);
+L. 20 agosto 2019, n. 92 e D.M. 7 settembre 2024, n. 183; Raccomandazione del Consiglio UE 22 maggio 2018
+(2018/C 189/01).
 
 Ogni voce del glossario dichiara il proprio fondamento, perché non tutte le parole della didattica per competenze
 sono di legge: *definizione di legge* (la norma definisce il termine), *termine normativo* (la norma lo usa senza
 definirlo), *termine d'uso professionale* (non compare nelle norme citate, ma la pratica che designa è prevista da
-quelle indicate). «Prova esperta» e «compito di realtà», per esempio, appartengono alla terza categoria: nei
-documenti destinati all'esterno vanno accompagnati alla norma sulla valutazione delle UdA, non citati come istituti
-di legge.
+quelle indicate). «Prova esperta» appartiene alla terza categoria; «compito di realtà» è invece usato espressamente
+dalle Linee guida, pur senza una definizione normativa chiusa.
 
 ## Struttura del progetto
 

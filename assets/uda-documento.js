@@ -560,7 +560,7 @@ ${corpo}
         }
 
         parti.push(sezione('7', 'Insegnamenti coinvolti e ripartizione oraria', tabellaOre(uda, contesto),
-            'Proposta proporzionale calcolata sul quadro orario d’istituto; ogni docente può modificarla entro il 40%, ferma restando la copertura del monte ore complessivo.'));
+            'Proposta proporzionale calcolata sul quadro orario d’istituto. Lo scostamento massimo del 40% è una regola operativa dell’applicativo, ferma restando la copertura del monte ore complessivo.'));
 
         if (compatta) return parti.filter(Boolean).join('');
 
@@ -577,7 +577,7 @@ ${corpo}
             ${tabellaColonne(['Evidenza osservabile', 'Livello iniziale', 'Livello base', 'Livello intermedio', 'Livello avanzato'],
                 [['&nbsp;', '&nbsp;', '&nbsp;', '&nbsp;', '&nbsp;'], ['&nbsp;', '&nbsp;', '&nbsp;', '&nbsp;', '&nbsp;'], ['&nbsp;', '&nbsp;', '&nbsp;', '&nbsp;', '&nbsp;']],
                 'doc-tab-rubrica')}`,
-            'Rubrica ad almeno quattro livelli — Linee guida D.M. 766/2019, Box n. 8, voce 8; la valutazione ha per oggetto i risultati delle UDA — D.M. 92/2018, art. 4, comma 7.'));
+            'Rubrica ad almeno quattro livelli — Linee guida D.M. 766/2019, Box n. 8, voce 8; valutazione di competenze, abilità e conoscenze in relazione alle UDA e al PFI — D.M. 92/2018, art. 4, comma 6.'));
 
         parti.push(sezione('12', 'Note del consiglio di classe', righeDaCompilare(3)));
 
@@ -601,7 +601,7 @@ ${bloccoRiferimenti()}
     <tr><td class="linea"></td><td class="linea"></td></tr>
     <tr><td>Il/La docente referente dell’UDA</td><td>Il/La coordinatore/coordinatrice del consiglio di classe</td></tr>
 </table>
-<p class="doc-piede">Documento generato dal Curricolo Verticale SSAS dell’${esc(ISTITUTO)} — ${esc(SEDE)}. I contenuti disciplinari derivano dal curricolo di indirizzo (D.M. 92/2018, Allegato C).</p>`;
+<p class="doc-piede">Documento generato dal Curricolo Verticale SSAS dell’${esc(ISTITUTO)} — ${esc(SEDE)}. Il profilo finale deriva dal D.M. 92/2018, Allegato 2-I; i risultati intermedi dalle Linee guida D.M. 766/2019, Parte seconda, Allegato C, sezione i).</p>`;
         return { html: documento({ titolo: nomeDocumento, corpo, nomeDocumento }), nomeDocumento };
     }
 

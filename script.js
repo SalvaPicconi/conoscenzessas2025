@@ -474,7 +474,7 @@ function buildWordDocument(data) {
 function buildWordHeading() {
 	const lines = [
 		'IIS Meucci - Mattei Cagliari, Sede Decimomannu',
-		'Competenze di indirizzo, ai sensi del Decreto del Ministro dell’istruzione, dell’università e della ricerca 24 maggio 2018, n. 92, Allegato C'
+		'Competenze di indirizzo: profilo finale ai sensi del D.M. 24 maggio 2018, n. 92, Allegato 2-I; risultati intermedi secondo le Linee guida D.M. 23 agosto 2019, n. 766, Parte seconda, Allegato C, sezione i)'
 	];
 	return lines.map(line => `<p class="word-heading">${line}</p>`).join('');
 }

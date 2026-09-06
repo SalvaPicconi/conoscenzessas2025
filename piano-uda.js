@@ -548,9 +548,9 @@ function costruisciPiano(scelte) {
 
     parti.push(bloccoDelibera(scelte, docenti));
     parti.push(d.sezione('2', 'Prospetto delle unità di apprendimento deliberate', prospetto(scelte),
-        'Le unità di apprendimento costituiscono il riferimento per la valutazione, la certificazione e il riconoscimento dei crediti — D.Lgs. 61/2017, art. 2, comma 1.'));
+        'Le unità di apprendimento costituiscono il riferimento per la valutazione, la certificazione e il riconoscimento dei crediti — D.M. 92/2018, art. 2, comma 1.'));
     parti.push(d.sezione('3', 'Ripartizione del monte ore fra gli insegnamenti', ripartizioneStampata(scelte),
-        'Proposta proporzionale calcolata sul quadro orario d’istituto. Ogni docente può modificare le ore del proprio insegnamento entro il 40%, purché la somma copra il monte ore dell’unità.'));
+        'Proposta proporzionale calcolata sul quadro orario d’istituto. Lo scostamento massimo del 40% è una regola operativa dell’applicativo, purché la somma copra il monte ore dell’unità.'));
     parti.push(d.sezione('4', 'Impianto comune delle unità di apprendimento', impiantoComune()));
     if ((dati.note || '').trim()) {
         parti.push(d.sezione('5', 'Note del consiglio di classe', d.paragrafo(dati.note)));
@@ -561,7 +561,7 @@ function costruisciPiano(scelte) {
     parti.push(d.bloccoRiferimenti('Riferimenti normativi'));
     parti.push(sottoscrizione(docenti));
 
-    parti.push(`<p class="doc-piede">Documento generato dal Curricolo Verticale SSAS dell’${d.esc(d.ISTITUTO)} — ${d.esc(d.SEDE)}. I contenuti delle unità derivano dal curricolo di indirizzo (D.M. 92/2018, Allegato C) e dai cataloghi delle UDA d’asse, trasversali e di formazione scuola-lavoro.</p>`);
+    parti.push(`<p class="doc-piede">Documento generato dal Curricolo Verticale SSAS dell’${d.esc(d.ISTITUTO)} — ${d.esc(d.SEDE)}. Il profilo finale deriva dal D.M. 92/2018, Allegato 2-I; i risultati intermedi dalle Linee guida D.M. 766/2019, Parte seconda, Allegato C, sezione i).</p>`);
 
     return { html: d.documento({ titolo: nomeDocumento, corpo: parti.filter(Boolean).join('\n'), nomeDocumento }), nomeDocumento };
 }
@@ -578,17 +578,18 @@ function bloccoDelibera(scelte, docenti) {
     return d.sezione('1', 'Deliberazione del consiglio di classe', `
         <div class="doc-delibera">
             <p>Il Consiglio della classe <strong>${classe}</strong> dell’indirizzo ${d.esc(d.INDIRIZZO)}${quanti},
-            riunito in data <strong>${seduta}</strong> (verbale n. ${verbale}) e presieduto dal coordinatore su delega
-            del dirigente scolastico, conclusa la consultazione sulle proposte dei dipartimenti e dei singoli docenti,
+            riunito in data <strong>${seduta}</strong> (verbale n. ${verbale}) e presieduto dal dirigente scolastico
+            oppure da un docente membro da lui delegato, concluse le attività collegiali di progettazione,
             <strong>approva il presente Piano delle unità di apprendimento</strong> per l’anno scolastico
             ${annoScolastico}, che costituisce parte integrante della programmazione di classe.</p>
             <p>Le ${scelte.length === 1 ? 'unità indicata è progettata' : `${scelte.length} unità indicate sono progettate`}
             in forma interdisciplinare, con l’aggregazione degli insegnamenti negli assi culturali e il ricorso a
             metodologie di apprendimento di tipo induttivo, in attuazione dell’art. 5, comma 1, lettere b), c), d) ed f)
             del D.Lgs. 13 aprile 2017, n. 61, e dell’art. 6, comma 4, del D.M. 24 maggio 2018, n. 92.</p>
-            <p>Per gli studenti la cui progettazione è personalizzata, le unità qui deliberate sono quelle «nelle quali
-            è strutturato il Progetto formativo individuale» (D.M. 92/2018, art. 4, comma 6) e i loro risultati
-            costituiscono oggetto della valutazione (art. 4, comma 7).</p>
+            <p>Per gli studenti la cui progettazione è personalizzata, le unità qui deliberate possono concorrere a
+            strutturare il Progetto formativo individuale, articolato per unità di apprendimento (D.M. 92/2018,
+            art. 2, comma 1). La valutazione di competenze, abilità e conoscenze è effettuata in relazione alle unità
+            di apprendimento e al PFI (art. 4, comma 6).</p>
         </div>`);
 }
 
@@ -684,7 +685,7 @@ function impiantoComune() {
     if (valutazione) {
         parti.push('<h3>Valutazione</h3>');
         parti.push(`<p>${d.esc(valutazione)}</p>`);
-        parti.push('<p class="doc-fonte">Rubrica ad almeno quattro livelli — Linee guida D.M. 766/2019, Box n. 8, voce 8; la valutazione ha per oggetto i risultati delle unità di apprendimento — D.M. 92/2018, art. 4, comma 7.</p>');
+        parti.push('<p class="doc-fonte">Rubrica ad almeno quattro livelli — Linee guida D.M. 766/2019, Box n. 8, voce 8; valutazione di competenze, abilità e conoscenze in relazione alle unità di apprendimento e al PFI — D.M. 92/2018, art. 4, comma 6.</p>');
     }
     return parti.join('');
 }

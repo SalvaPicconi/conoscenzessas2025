@@ -81,7 +81,7 @@
         return fontiPerId.get(id) || null;
     }
 
-    // «D.M. 92/2018, art. 4, comma 7» — la forma con cui una citazione va letta
+    // «D.M. 92/2018, art. 4, comma 6» — la forma con cui una citazione va letta
     // ad alta voce in consiglio.
     function citazioneBreve(riferimento) {
         const norma = fonte(riferimento.fonte);
