@@ -1,5 +1,5 @@
--- Estende l'area di revisione con bozze di UDA create da zero.
--- Le chiavi UUID distinguono queste proposte dalle 48 UDA pubbliche numerate.
+-- Consente di salvare proposte di revisione sulle 27 UDA d'asse unificate.
+-- Sono ammessi codici U1.1 ... U5.5 e le varianti deliberate a/b.
 
 alter table public.curricolo_uda_revisioni
     drop constraint if exists curricolo_uda_revisioni_uda_key_check;

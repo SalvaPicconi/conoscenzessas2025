@@ -209,7 +209,7 @@ async function upsertRevision(request: Request, payload: Record<string, unknown>
   try {
     const record = cleanObject(payload.revision);
     const udaKey = cleanString(record.uda_key, 50, true);
-    if (!/^([0-9]+\.[0-9]+|T[1-5]\.[0-9]+|FSL[3-5]\.[0-9]+|nuova-(t-|f-)?[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$/i.test(udaKey)) {
+    if (!/^([0-9]+\.[0-9]+|U[1-5]\.[0-9]+[a-z]?|T[1-5]\.[0-9]+|FSL[3-5]\.[0-9]+|nuova-(t-|f-)?[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$/i.test(udaKey)) {
       throw new Error("Chiave UDA non valida.");
     }
     const authorName = cleanString(record.author_name, 40, true);

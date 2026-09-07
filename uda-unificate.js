@@ -225,7 +225,7 @@ function renderUdaCard(u, autoExpand) {
     const accorpata = u.fonde.length > 1;
 
     return `
-        <div class="uda-acc ${expanded ? 'group-expanded' : ''}" data-id="${escapeHTML(u.id)}">
+        <div class="uda-acc ${expanded ? 'group-expanded' : ''}" data-id="${escapeHTML(u.id)}" data-uda-revisione-key="${escapeHTML(u.id)}">
             <button type="button" class="uda-acc-header" data-uda-id="${escapeHTML(u.id)}" aria-expanded="${expanded}" aria-controls="${panelId}">
                 <span class="uda-num ${ANNO_CLASS[u.anno]}">${escapeHTML(u.id)}</span>
                 <span class="uda-acc-main">
@@ -283,6 +283,7 @@ function renderUdaCard(u, autoExpand) {
                         <div class="sin-value">${renderFonde(u)}</div>
                     </div>
                 </div>
+                <div class="uda-revisione-slot" data-uda-revisione-slot="${escapeHTML(u.id)}"></div>
             </div>
         </div>
     `;

@@ -44,3 +44,7 @@ Tutte le 66 ripartizioni coincidono con il monte ore complessivo della rispettiv
 ## Stato deliberativo
 
 Le scelte sono predisposte per la discussione del dipartimento. La postilla non le presenta come già deliberate: la ratifica collegiale resta necessaria.
+
+## Correzione successiva: revisione delle UDA unificate
+
+La pagina delle 27 UDA unificate inizialmente non caricava l'area «Accedi per modificare»: il sistema di revisione era collegato soltanto ai cataloghi precedenti. La funzione è stata estesa alle UDA unificate mantenendo invariati accesso, permessi e carattere propositivo delle modifiche. Il vincolo della banca dati e la funzione Edge accettano ora anche codici `U1.1`–`U5.5`, comprese le varianti `a` e `b`. Un controllo automatico verifica la presenza delle 27 azioni «Proponi una modifica» e l'apertura effettiva dell'editor.

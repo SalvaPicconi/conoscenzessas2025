@@ -8,6 +8,7 @@ const DATA_SOURCE = document.documentElement.dataset.udaSource || 'data-uda.json
 const UDA_KIND = document.documentElement.dataset.udaKind || 'asse';
 const IS_TRASVERSALE = UDA_KIND === 'trasversale';
 const IS_FSL = UDA_KIND === 'fsl';
+const IS_UNIFICATA = UDA_KIND === 'unificate';
 const IS_COLLEGIALE = IS_TRASVERSALE || IS_FSL;
 const NEW_KEY_PREFIX = IS_FSL ? 'nuova-f-' : IS_TRASVERSALE ? 'nuova-t-' : 'nuova-';
 const NEW_SOURCE_VERSION = IS_FSL ? 'nuova-uda-fsl' : IS_TRASVERSALE ? 'nuova-uda-trasversale' : 'nuova-uda';
@@ -231,7 +232,7 @@ async function caricaRevisioni() {
     const dati = await chiamaApi('list');
     const revisioniPagina = (dati.revisions || []).filter(voce => {
         const source = voce.source_version || '';
-        if (IS_COLLEGIALE) {
+        if (IS_COLLEGIALE || IS_UNIFICATA) {
             return source === DATA_SOURCE || source === NEW_SOURCE_VERSION;
         }
         return source === '' || source === DATA_SOURCE || source === NEW_SOURCE_VERSION;
