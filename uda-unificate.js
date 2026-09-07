@@ -4,9 +4,9 @@
 //   · ogni scheda porta due competenze in uscita invece di una;
 //   · mostra le schede d'asse da cui nasce, con i traguardi di origine.
 //
-// I dati stanno in data-uda-unificate.json, generato da
-// tools/genera_uda_unificate.py. Il fascicolo d'asse resta invariato: questa
-// è una proposta di lavoro, non lo sostituisce.
+// Le 27 unificate stanno in data-uda-unificate.json. Nella stessa vista sono
+// mostrate anche le 9 nuove proposte tracciate in data-uda.json, senza farle
+// passare per accorpamenti già inclusi nel catalogo delle unificate.
 
 if (window.parent !== window) {
     document.documentElement.classList.add('embedded');
@@ -29,8 +29,15 @@ document.addEventListener('DOMContentLoaded', init);
 
 async function init() {
     try {
-        const response = await fetch('data-uda-unificate.json', { cache: 'no-store' });
-        udaData = await response.json();
+        const [response, responseAsse] = await Promise.all([
+            fetch('data-uda-unificate.json', { cache: 'no-store' }),
+            fetch('data-uda.json', { cache: 'no-store' })
+        ]);
+        if (!response.ok || !responseAsse.ok) throw new Error(`HTTP ${response.status}/${responseAsse.status}`);
+        const unificate = await response.json();
+        const asse = await responseAsse.json();
+        const nuove = asse.uda.filter(u => u.origineProposta).map(adattaNuovaProposta);
+        udaData = { ...unificate, uda: [...unificate.uda, ...nuove] };
         setupIntestazione();
         setupToolbar();
         render();
@@ -43,6 +50,18 @@ async function init() {
         if (loading) loading.classList.add('hidden');
         notifyParentHeight();
     }
+}
+
+function adattaNuovaProposta(u) {
+    return {
+        ...u,
+        competenze: u.competenze?.length ? u.competenze : [u.competenza],
+        sintesi: u.compito,
+        fonde: [{ id: u.id, titolo: u.titolo, competenza: u.competenza }],
+        rubrica: [],
+        materialiOrigine: [],
+        nuovaProposta: true
+    };
 }
 
 function setupIntestazione() {
@@ -210,6 +229,9 @@ function renderPianificazione(u) {
 }
 
 function renderRubrica(u) {
+    if (u.nuovaProposta) {
+        return '<p>Rubrica da integrare nel formato digitale; per le otto proposte della collega resta conservata negli originali ODT.</p>';
+    }
     return `<ul class="sin-list">${u.rubrica.map(d => `<li class="unif-rubrica"><strong>C${d.competenza}</strong> — ${escapeHTML(d.indicatore)}</li>`).join('')}</ul>`;
 }
 
@@ -222,21 +244,28 @@ function renderUdaCard(u, autoExpand) {
     const expanded = autoExpand || expandedUda.has(u.id);
     const insTotali = insegnamentiOrdinati(u);
     const panelId = `uda-panel-${String(u.id).replace(/[^a-zA-Z0-9_-]/g, '-')}`;
-    const accorpata = u.fonde.length > 1;
+    const accorpata = !u.nuovaProposta && u.fonde.length > 1;
+    const revisione = u.nuovaProposta ? '' : ` data-uda-revisione-key="${escapeHTML(u.id)}"`;
+    const origine = u.nuovaProposta
+        ? (u.origineProposta === 'concordata'
+            ? '<p class="unif-fonde-nota">Nuova proposta concordata il 7 settembre 2026.</p>'
+            : '<p class="unif-fonde-nota">Nuova proposta ricavata dall’originale ODT della collega, conservato nell’archivio di revisione.</p>')
+        : renderFonde(u);
 
     return `
-        <div class="uda-acc ${expanded ? 'group-expanded' : ''}" data-id="${escapeHTML(u.id)}" data-uda-revisione-key="${escapeHTML(u.id)}">
+        <div class="uda-acc ${u.nuovaProposta ? 'uda-nuova' : ''} ${expanded ? 'group-expanded' : ''}" data-id="${escapeHTML(u.id)}"${revisione}>
             <button type="button" class="uda-acc-header" data-uda-id="${escapeHTML(u.id)}" aria-expanded="${expanded}" aria-controls="${panelId}">
                 <span class="uda-num ${ANNO_CLASS[u.anno]}">${escapeHTML(u.id)}</span>
                 <span class="uda-acc-main">
                     <span class="uda-acc-title">${escapeHTML(u.titolo)}</span>
                     <span class="uda-acc-sub">${etichettaCompetenze(u)} ·
-                        ${accorpata ? `fonde le schede ${u.fonde.map(f => escapeHTML(f.id)).join(' e ')}` : 'scheda mantenuta autonoma'}</span>
+                        ${u.nuovaProposta ? (u.origineProposta === 'concordata' ? 'proposta concordata' : 'proposta della collega') : accorpata ? `fonde le schede ${u.fonde.map(f => escapeHTML(f.id)).join(' e ')}` : 'scheda mantenuta autonoma'}</span>
                 </span>
                 <span class="uda-acc-pills">
+                    ${u.nuovaProposta ? '<span class="pill pill-nuova">NUOVA</span>' : ''}
                     <span class="pill ${ANNO_CLASS[u.anno]}">${ANNO_LABEL[u.anno]}</span>
                     <span class="pill pill-qnq">QNQ ${escapeHTML(u.qnq)}</span>
-                    <span class="pill pill-comp">Ore da definire</span>
+                    <span class="pill pill-comp">${u.nuovaProposta ? `${escapeHTML(u.ore)} ore` : 'Ore da definire'}</span>
                 </span>
                 <span class="group-chevron" aria-hidden="true">▸</span>
             </button>
@@ -270,7 +299,7 @@ function renderUdaCard(u, autoExpand) {
                     <div class="sin-row">
                         <div class="sin-label">Insegnamenti · Ore</div>
                         <div class="sin-value">${renderInsChips(insTotali)}
-                            <span class="sin-ore">· Somma ore di origine: ${escapeHTML(u.ore)}. Ore della proposta da deliberare.</span></div>
+                            <span class="sin-ore">${u.nuovaProposta ? `· Monte ore indicato: ${escapeHTML(u.ore)}.` : `· Somma ore di origine: ${escapeHTML(u.ore)}. Ore della proposta da deliberare.`}</span></div>
                     </div>
 
                     <div class="sin-row">
@@ -279,11 +308,11 @@ function renderUdaCard(u, autoExpand) {
                     </div>
 
                     <div class="sin-row">
-                        <div class="sin-label">Schede d'asse di origine</div>
-                        <div class="sin-value">${renderFonde(u)}</div>
+                        <div class="sin-label">${u.nuovaProposta ? 'Provenienza' : "Schede d'asse di origine"}</div>
+                        <div class="sin-value">${origine}</div>
                     </div>
                 </div>
-                <div class="uda-revisione-slot" data-uda-revisione-slot="${escapeHTML(u.id)}"></div>
+                ${u.nuovaProposta ? '' : `<div class="uda-revisione-slot" data-uda-revisione-slot="${escapeHTML(u.id)}"></div>`}
             </div>
         </div>
     `;
@@ -297,7 +326,7 @@ function render() {
     const autoExpand = hasActiveUdaFilters();
     const visible = udaData.uda.filter(udaMatches);
 
-    counter.textContent = `${visible.length} ${visible.length === 1 ? 'scheda' : 'schede'} su ${udaData.uda.length}` +
+    counter.textContent = `${visible.length} ${visible.length === 1 ? 'scheda' : 'schede'} su ${udaData.uda.length} · 27 unificate + 9 nuove` +
         (udaFilters.insegnamento ? ` · evidenziato: ${udaFilters.insegnamento}` : '');
 
     if (!visible.length) {
@@ -314,13 +343,14 @@ function render() {
     [1, 2, 3, 4, 5].forEach(anno => {
         const inAnno = visible.filter(u => u.anno === anno);
         if (!inAnno.length) return;
-        const origine = inAnno.reduce((n, u) => n + u.fonde.length, 0);
+        const unificate = inAnno.filter(u => !u.nuovaProposta);
+        const nuove = inAnno.filter(u => u.nuovaProposta);
+        const origine = unificate.reduce((n, u) => n + u.fonde.length, 0);
         sections.push(`
             <div class="uda-section">
                 <div class="uda-section-header">
                     <span class="uda-icon anno-badge ${ANNO_CLASS[anno]}">${anno}°</span>
-                    <h2>${ANNO_LABEL[anno].toUpperCase()} — ${inAnno.length} ${inAnno.length === 1 ? 'scheda' : 'schede'}
-                        da ${origine} del fascicolo d'asse</h2>
+                    <h2>${ANNO_LABEL[anno].toUpperCase()} — ${unificate.length} unificate da ${origine} origini${nuove.length ? ` · ${nuove.length} nuove` : ''}</h2>
                     <span class="uda-rule"></span>
                 </div>
                 ${inAnno.map(u => renderUdaCard(u, autoExpand)).join('')}

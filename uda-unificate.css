@@ -79,3 +79,16 @@
 .unif-rubrica dd { margin: 4px 0 12px; }
 .uda-acc-pills .pill { white-space: normal; }
 .sin-value { min-width: 0; overflow-wrap: anywhere; }
+
+.uda-acc.uda-nuova {
+    border: 2px solid #d18b00;
+    box-shadow: 0 8px 22px rgba(209, 139, 0, 0.12);
+}
+
+.pill.pill-nuova {
+    background: #fff0c2;
+    color: #704600;
+    border: 1px solid #d18b00;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+}

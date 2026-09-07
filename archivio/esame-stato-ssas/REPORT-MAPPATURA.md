@@ -12,7 +12,7 @@ Evidenze osservate nel sito pubblico:
 
 - il curricolo è riferito ai **Servizi per la Sanità e l'Assistenza Sociale** e richiama il **D.M. 24 maggio 2018, n. 92, Allegato C**;
 - il percorso è articolato in cinque annualità e collega area di indirizzo, area generale, UDA d'asse unificate, UDA trasversali, FSL, PFI e Piano delle UDA;
-- nella sezione live delle UDA d'asse unificate risultano **27 schede** complessive;
+- la sezione delle UDA d'asse mantiene **27 schede unificate** e, dal rilascio del 7 settembre, mostra nella stessa vista anche **9 nuove proposte** con etichetta dedicata;
 - la terza annualità è esposta come **5 schede da 10 del fascicolo d'asse**, tutte a **QNQ 3**;
 - le cinque schede live di terza sono:
   - **U3.1 — Dal bisogno al progetto · Osservare e documentare**, C1 + C10;
@@ -194,3 +194,5 @@ Sono mantenuti visivamente distinti quattro livelli: contenuti del quadro d'esam
 La nuova sezione non è collegata al PFI, alla revisione condivisa o alla votazione. Non modifica le 27 UDA unificate, le 14 UDA trasversali o le 4 UDA FSL.
 
 Nello stesso rilascio, ma come intervento distinto dalla sezione Esame, il catalogo storico `data-uda.json` passa da 48 a 57 schede: otto UDA provengono dagli originali ODT della collega e la 5.13 «Ricerca quantitativa e ricerca qualitativa» è stata autorizzata espressamente il 7 settembre 2026. La tracciabilità di questo intervento è conservata in `revisioni/2026-09-07-uda-collega/`.
+
+Per renderle immediatamente reperibili, le nove proposte compaiono anche nella pagina delle UDA unificate con il badge **NUOVA**. Questa collocazione è soltanto espositiva: i dati restano separati e le nove schede non vengono conteggiate come accorpamenti già deliberati.

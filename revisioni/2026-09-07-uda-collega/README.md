@@ -4,6 +4,10 @@ Le otto unità di apprendimento redatte dalla collega sono state portate nel fas
 delle UDA d'asse, più una nona nata dalla proposta di lavoro condiviso sulla ricerca
 sociale. Il fascicolo passa da 48 a 57 schede.
 
+Le nove proposte sono mostrate anche nella pagina delle UDA unificate, accanto alle 27
+schede consolidate e con il badge **NUOVA**. La collocazione è espositiva: i dati e lo
+status delle proposte restano distinti da quelli delle UDA già unificate.
+
 Gli originali in formato ODT sono in `originali-collega/`; le copie dei file del sito
 prima dell'intervento sono in `prima/`.
 
@@ -127,3 +131,5 @@ e meritano di essere recuperate accanto alle rubriche generali.
 - `data-uda.json` — nove schede nuove, nota sulla convenzione in `meta.notaPiano`
 - `data-ripartizione-ore.json` e `RIPARTIZIONE-ORE-UDA.md` — rigenerati (75 UDA ripartite)
 - `uda.html`, `uda.js`, `pfi.html`, `pfi.js`, `README.md` — conteggio del catalogo
+- `uda-unificate.html`, `uda-unificate.js`, `uda-unificate.css` — visualizzazione delle
+  27 UDA unificate insieme alle nove proposte riconoscibili dal badge `NUOVA`
