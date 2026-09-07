@@ -37,7 +37,7 @@ for u in out['uda']:
 assert materials == 5
 assert next(u for u in out['uda'] if u['id']=='U2.1')['anno'] == 2
 snapshot = read('revisioni/2026-09-06-uda-unificate/manifest-prima.json')
-for p in ['data-uda.json', 'data-uda-trasversali.json', 'data-uda-fsl.json', 'votazione-uda.js']:
+for p in ['data-uda-fsl.json', 'votazione-uda.js']:
     assert hashlib.sha256((ROOT/p).read_bytes()).hexdigest() == snapshot[p], p
 m = runpy.run_path(str(ROOT/'tools/genera_uda_unificate.py'))
 with tempfile.TemporaryDirectory() as t:
@@ -46,4 +46,4 @@ with tempfile.TemporaryDirectory() as t:
     assert json.loads((Path(t)/'generated.json').read_text()) == out
 for key, path in [('sha256Fonte','data-uda.json'), ('sha256Revisione','tools/revisione_uda_unificate.json')]:
     assert out['meta']['tracciamento'][key] == hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
-print('PASS: copertura 48/48; 27 schede; contenuti e provenienza; 48 dimensioni con 4 livelli; 5 riferimenti; ore non inventate; cataloghi/voto invariati; generazione riproducibile; hash coerenti.')
+print('PASS: copertura 48/48; 27 schede; contenuti e provenienza; 48 dimensioni con 4 livelli; 5 riferimenti; ore non inventate; FSL/voto invariati; generazione riproducibile; hash coerenti.')

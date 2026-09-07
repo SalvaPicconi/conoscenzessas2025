@@ -603,3 +603,11 @@
         flex: 1 1 auto;
     }
 }
+.voce-nota {
+    display: block;
+    margin-top: 0.35rem;
+    color: #6b4f16;
+    font-size: 0.82rem;
+    font-style: italic;
+    line-height: 1.35;
+}

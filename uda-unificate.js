@@ -19,22 +19,11 @@ const expandedUda = new Set();
 const ANNO_LABEL = { 1: '1° anno', 2: '2° anno', 3: '3° anno', 4: '4° anno', 5: '5° anno' };
 const ANNO_CLASS = { 1: 'per-biennio', 2: 'per-biennio', 3: 'per-terzo', 4: 'per-quarto', 5: 'per-quinto' };
 
-const INS_CLASS = {
-    'Metodologie Operative': 'ins-met',
-    'Psicologia': 'ins-psi',
-    'Igiene e Cultura M.S.': 'ins-igi',
-    'Diritto': 'ins-dir',
-    'Diritto e T.A.': 'ins-dir',
-    'Scienze Umane': 'ins-su',
-    'Scienze Integrate': 'ins-si',
-    'Scienze Motorie': 'ins-sm',
-    'Italiano': 'ins-ita',
-    'Inglese': 'ins-lin',
-    'Spagnolo': 'ins-lin',
-    'Storia': 'ins-sto',
-    'Matematica': 'ins-mat',
-    'TIC': 'ins-tic'
-};
+// Colore identificativo per insegnamento: lo decide assets/insegnamenti.js, che
+// riconosce la materia comunque sia scritta nel catalogo.
+const classeIns = nome => (window.Insegnamenti ? window.Insegnamenti.classe(nome) : '');
+const nomeIns = nome => (window.Insegnamenti && window.Insegnamenti.canonico(nome)) || nome;
+const stessoIns = (uno, altro) => (window.Insegnamenti ? window.Insegnamenti.stesso(uno, altro) : uno === altro);
 
 document.addEventListener('DOMContentLoaded', init);
 
@@ -130,7 +119,7 @@ function udaMatches(u) {
     // solo se è la prima: le schede unificate ne portano due.
     if (udaFilters.competenza && !u.competenze.map(String).includes(udaFilters.competenza)) return false;
     if (udaFilters.insegnamento) {
-        const involved = [...u.abilita, ...u.saperi].some(x => x.ins.includes(udaFilters.insegnamento));
+        const involved = [...u.abilita, ...u.saperi].some(x => x.ins.some(i => stessoIns(i, udaFilters.insegnamento)));
         if (!involved) return false;
     }
     if (udaFilters.search) {
@@ -169,13 +158,16 @@ function insegnamentiOrdinati(u) {
 
 function renderInsChips(insList) {
     return insList.map(ins => {
-        const hl = udaFilters.insegnamento === ins ? ' ins-chip-highlight' : '';
-        return `<span class="ins-chip ${INS_CLASS[ins] || ''}${hl}">${escapeHTML(ins)}</span>`;
+        const hl = udaFilters.insegnamento && stessoIns(ins, udaFilters.insegnamento) ? ' ins-chip-highlight' : '';
+        return `<span class="ins-chip ${classeIns(ins)}${hl}">${escapeHTML(ins)}</span>`;
     }).join('');
 }
 
 function renderVoce(item) {
-    return `<li>${escapeHTML(item.t)} ${renderInsChips(item.ins)}</li>`;
+    const nota = item.notaAttribuzione
+        ? `<span class="voce-nota">${escapeHTML(item.notaAttribuzione)}</span>`
+        : '';
+    return `<li>${escapeHTML(item.t)} ${renderInsChips(item.ins)}${nota}</li>`;
 }
 
 function etichettaCompetenze(u) {

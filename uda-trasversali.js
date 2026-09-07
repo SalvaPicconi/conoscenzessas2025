@@ -12,23 +12,11 @@ const ANNO_LABEL = { 1: '1° anno', 2: '2° anno', 3: '3° anno', 4: '4° anno',
 const ANNO_PERIODO = { 1: 'Biennio', 2: 'Biennio', 3: 'Terzo Anno', 4: 'Quarto Anno', 5: 'Quinto Anno' };
 const ANNO_CLASS = { 1: 'per-biennio', 2: 'per-biennio', 3: 'per-terzo', 4: 'per-quarto', 5: 'per-quinto' };
 
-// Colore identificativo per insegnamento
-const INS_CLASS = {
-    'Metodologie Operative': 'ins-met',
-    'Psicologia': 'ins-psi',
-    'Igiene e Cultura M.S.': 'ins-igi',
-    'Diritto': 'ins-dir',
-    'Diritto e T.A.': 'ins-dir',
-    'Scienze Umane': 'ins-su',
-    'Scienze Integrate': 'ins-si',
-    'Scienze Motorie': 'ins-sm',
-    'Italiano': 'ins-ita',
-    'Inglese': 'ins-lin',
-    'Spagnolo': 'ins-lin',
-    'Storia': 'ins-sto',
-    'Matematica': 'ins-mat',
-    'TIC': 'ins-tic'
-};
+// Colore identificativo per insegnamento: lo decide assets/insegnamenti.js, che
+// riconosce la materia comunque sia scritta nel catalogo.
+const classeIns = nome => (window.Insegnamenti ? window.Insegnamenti.classe(nome) : '');
+const nomeIns = nome => (window.Insegnamenti && window.Insegnamenti.canonico(nome)) || nome;
+const stessoIns = (uno, altro) => (window.Insegnamenti ? window.Insegnamenti.stesso(uno, altro) : uno === altro);
 
 document.addEventListener('DOMContentLoaded', init);
 
@@ -119,8 +107,8 @@ function insegnamentiOrdinati(u) {
 
 function renderInsChips(insList, highlighted = trasversaliFilters.insegnamento) {
     return insList.map(ins => {
-        const hl = highlighted === ins ? ' ins-chip-highlight' : '';
-        return `<span class="ins-chip ${INS_CLASS[ins] || ''}${hl}">${escapeHTML(ins)}</span>`;
+        const hl = highlighted && stessoIns(ins, highlighted) ? ' ins-chip-highlight' : '';
+        return `<span class="ins-chip ${classeIns(ins)}${hl}">${escapeHTML(ins)}</span>`;
     }).join('');
 }
 
@@ -133,7 +121,7 @@ function trasversaleMatches(u) {
     if (trasversaliFilters.anno && String(u.anno) !== trasversaliFilters.anno) return false;
     if (trasversaliFilters.asse && !(u.assi || []).includes(trasversaliFilters.asse)) return false;
     if (trasversaliFilters.insegnamento) {
-        const involved = [...u.abilita, ...u.saperi].some(x => x.ins.includes(trasversaliFilters.insegnamento));
+        const involved = [...u.abilita, ...u.saperi].some(x => x.ins.some(i => stessoIns(i, trasversaliFilters.insegnamento)));
         if (!involved) return false;
     }
     if (trasversaliFilters.search) {

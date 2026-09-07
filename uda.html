@@ -10,19 +10,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260906live1">
-    <link rel="stylesheet" href="uda.css?v=20260906live1">
-    <link rel="stylesheet" href="didattica.css?v=20260906live1">
-    <link rel="stylesheet" href="assets/uda-revisione.css?v=20260906live1">
-    <link rel="stylesheet" href="assets/navigazione.css?v=20260906live1">
-    <link rel="stylesheet" href="assets/stampa.css?v=20260906live1">
-    <script src="assets/stampa.js?v=20260906live1" defer></script>
+    <link rel="stylesheet" href="style.css?v=20260907dip1">
+    <link rel="stylesheet" href="uda.css?v=20260907dip1">
+    <link rel="stylesheet" href="didattica.css?v=20260907dip1">
+    <link rel="stylesheet" href="assets/uda-revisione.css?v=20260907dip1">
+    <link rel="stylesheet" href="assets/navigazione.css?v=20260907dip1">
+    <link rel="stylesheet" href="assets/stampa.css?v=20260907dip1">
+    <script src="assets/stampa.js?v=20260907dip1" defer></script>
 </head>
 <body>
     <main class="container">
         <header class="header page-hero">
             <div class="hero-card">
-                <h1>Fascicolo delle UDA d'asse — Quinquennio</h1>
+                <h1>Archivio delle UDA d'asse precedenti — Quinquennio</h1>
                 <div class="subline">IIS Meucci - Mattei Cagliari, Sede Decimomannu</div>
                 <p class="subtitle">Schede sintetiche in formato D.I. 92/2018 · base per il Piano delle UDA di inizio anno</p>
             </div>
@@ -98,7 +98,7 @@
             <div id="uda-revisione-elenco-contenuto"></div>
         </section>
 
-        <p class="uda-intro">48 schede sintetiche — una per ogni competenza intermedia del curricolo
+        <p class="uda-intro"><strong>Catalogo storico di consultazione:</strong> queste schede non vanno sommate alle UDA unificate proposte per il dipartimento. <a href="uda-unificate.html">Vai alle 27 UDA d'asse unificate</a>.<br>48 schede sintetiche — una per ogni competenza intermedia del curricolo
             (9 per il 1° e 2° anno, 10 per 3ª, 4ª e 5ª; la C9 non prevede traguardi nel biennio).
             Per ciascuna UDA, <strong>saperi essenziali e abilità sono attribuiti agli insegnamenti referenti</strong>
             secondo le griglie del curricolo di indirizzo.</p>
@@ -162,12 +162,13 @@
         <div id="uda-loading" class="loading" role="status">Caricamento UDA...</div>
     </main>
 
-    <script src="uda.js?v=20260906live1"></script>
-    <script src="assets/documento-office.js?v=20260906live1"></script>
-    <script src="assets/uda-documento.js?v=20260906live1"></script>
-    <script type="module" src="assets/uda-revisione.js?v=20260906live1"></script>
-    <script type="module" src="assets/uda-ore.js?v=20260906live1"></script>
-    <script type="module" src="assets/uda-stampa.js?v=20260906live1"></script>
+    <script src="assets/insegnamenti.js?v=20260907dip1"></script>
+    <script src="uda.js?v=20260907dip1"></script>
+    <script src="assets/documento-office.js?v=20260907dip1"></script>
+    <script src="assets/uda-documento.js?v=20260907dip1"></script>
+    <script type="module" src="assets/uda-revisione.js?v=20260907dip1"></script>
+    <script type="module" src="assets/uda-ore.js?v=20260907dip1"></script>
+    <script type="module" src="assets/uda-stampa.js?v=20260907dip1"></script>
     <script>
         // Testi comuni dal JSON (meta)
         fetch('data-uda.json', { cache: 'no-store' }).then(r => r.json()).then(d => {
@@ -177,6 +178,6 @@
             document.getElementById('uda-nota-piano').textContent = d.meta.notaPiano;
         });
     </script>
-<script src="assets/navigazione.js?v=20260906live1"></script>
+<script src="assets/navigazione.js?v=20260907dip1"></script>
 </body>
 </html>

@@ -13,21 +13,12 @@
 const FONTE_RIPARTIZIONE = 'data-ripartizione-ore.json';
 const CAMPO = 'oreRipartizione';
 
-const ETICHETTE = {
-    'METODOLOGIE OPERATIVE': 'Metodologie Operative',
-    'IGIENE E CULTURA MEDICO SANITARIA': 'Igiene e Cultura M.S.',
-    'DIRITTO E TEC. AMM.': 'Diritto e T.A.',
-    'PSICOLOGIA GENERALE ED APPLICATA': 'Psicologia generale ed applicata'
-};
-const CLASSI = {
-    'Metodologie Operative': 'ins-met', 'METODOLOGIE OPERATIVE': 'ins-met',
-    'Psicologia': 'ins-psi', 'PSICOLOGIA GENERALE ED APPLICATA': 'ins-psi',
-    'Igiene e Cultura M.S.': 'ins-igi', 'IGIENE E CULTURA MEDICO SANITARIA': 'ins-igi',
-    'Diritto': 'ins-dir', 'Diritto e T.A.': 'ins-dir', 'DIRITTO E TEC. AMM.': 'ins-dir',
-    'Scienze Umane': 'ins-su', 'Scienze Integrate': 'ins-si', 'Scienze Motorie': 'ins-sm',
-    'Italiano': 'ins-ita', 'Inglese': 'ins-lin', 'Spagnolo': 'ins-lin',
-    'Storia': 'ins-sto', 'Matematica': 'ins-mat', 'TIC': 'ins-tic'
-};
+// Nome, colore ed equivalenza fra scritture diverse della stessa materia stanno
+// in assets/insegnamenti.js: i cataloghi la scrivono in maiuscolo, per esteso o
+// con un'annotazione fra parentesi, e qui devono coincidere lo stesso.
+const RICONOSCITORE = window.Insegnamenti;
+const nomeIns = ins => (RICONOSCITORE && RICONOSCITORE.canonico(ins)) || ins;
+const classeIns = ins => (RICONOSCITORE ? RICONOSCITORE.classe(ins) : '');
 
 let ripartizioni = null;
 let tolleranza = 0.4;
@@ -127,11 +118,11 @@ function aggiornaDerivati(box, campi, righe) {
 // Ore di ciascun insegnamento accanto al suo nome, ovunque compaia nella scheda:
 // così il docente le trova già di fianco alle abilità e ai saperi che lo riguardano.
 function marcaChips(scheda, righe) {
-    const perEtichetta = new Map(righe.map(riga => [ETICHETTE[riga.ins] || riga.ins, riga]));
+    const perEtichetta = new Map(righe.map(riga => [nomeIns(riga.ins), riga]));
     scheda.querySelectorAll('.ins-chip').forEach(chip => {
         if (chip.closest('.uda-ore-box')) return;
         chip.querySelector('.ins-chip-ore')?.remove();
-        const riga = perEtichetta.get(chip.textContent.trim());
+        const riga = perEtichetta.get(nomeIns(chip.textContent.trim()));
         if (!riga) return;
         const quota = document.createElement('span');
         quota.className = 'ins-chip-ore';
@@ -235,8 +226,8 @@ function creaBlocco(chiave, ripartizione, righe) {
         const tr = document.createElement('tr');
         const nome = document.createElement('td');
         const chip = document.createElement('span');
-        chip.className = `ins-chip ${CLASSI[riga.ins] || ''}`;
-        chip.textContent = ETICHETTE[riga.ins] || riga.ins;
+        chip.className = `ins-chip ${classeIns(riga.ins)}`;
+        chip.textContent = nomeIns(riga.ins);
         nome.appendChild(chip);
         if (riga.proposte.length) nome.appendChild(creaFirma(riga));
         const settimanali = celleNumero(String(riga.oreSett), intestazioni[1]);
@@ -255,7 +246,7 @@ function creaBlocco(chiave, ripartizione, righe) {
             input.value = String(riga.effettive);
             input.dataset.ins = riga.ins;
             input.dataset.base = String(riga.max);
-            input.setAttribute('aria-label', `Ore concordate per ${ETICHETTE[riga.ins] || riga.ins}`);
+            input.setAttribute('aria-label', `Ore concordate per ${nomeIns(riga.ins)}`);
             input.title = `Consentito da ${minimo} a ${massimo} ore: ${Math.round(tolleranza * 100)}% attorno alla proposta di ${ore(riga.max)}.`;
             input.addEventListener('input', () => aggiornaTotale(box, ripartizione, campi, righe));
             campi.set(riga.ins, input);
@@ -290,7 +281,7 @@ function creaBlocco(chiave, ripartizione, righe) {
     if (ripartizione.senzaOre?.length) {
         const nota = document.createElement('p');
         nota.className = 'uda-ore-nota';
-        const elenco = ripartizione.senzaOre.map(ins => ETICHETTE[ins] || ins).join(', ');
+        const elenco = ripartizione.senzaOre.map(nomeIns).join(', ');
         nota.textContent = `${elenco}: concorre ai contenuti dell'UDA ma non ha ore proprie, perché non è presente nel quadro orario di questo anno di corso. I relativi compiti restano agli insegnamenti sopra elencati.`;
         box.appendChild(nota);
     }
@@ -317,7 +308,7 @@ function creaBlocco(chiave, ripartizione, righe) {
         const salva = creaBottone('Salva le ore', 'uda-revisione-primary');
         ripristina.addEventListener('click', () => {
             campi.forEach((input, ins) => {
-                const voce = ripartizione.voci.find(riga => riga.ins === ins);
+                const voce = ripartizione.voci.find(riga => nomeIns(riga.ins) === nomeIns(ins));
                 input.value = String(voce.max);
             });
             aggiornaTotale(box, ripartizione, campi, righe);
@@ -391,7 +382,7 @@ function aggiornaTotale(box, ripartizione, campi, righe) {
         const [minimo, massimo] = banda(Number(input.dataset.base));
         input.dataset.fuoriBanda = String(!Number.isInteger(valore) || valore < minimo || valore > massimo);
         if (Number.isFinite(valore)) totale += valore;
-        if (input.dataset.fuoriBanda === 'true') fuoriBanda.push(ETICHETTE[ins] || ins);
+        if (input.dataset.fuoriBanda === 'true') fuoriBanda.push(nomeIns(ins));
     });
     if (cella) cella.textContent = ore(totale);
     const { totaleMin, totaleMax } = ripartizione;
@@ -425,7 +416,7 @@ async function salvaOre(chiave, ripartizione, campi, esito, bottone) {
         const base = Number(input.dataset.base);
         const [minimo, massimo] = banda(base);
         if (!Number.isInteger(valore) || valore < minimo || valore > massimo) {
-            fuoriBanda.push(`${ETICHETTE[ins] || ins} (consentito ${minimo}–${massimo})`);
+            fuoriBanda.push(`${nomeIns(ins)} (consentito ${minimo}–${massimo})`);
             return;
         }
         // Si registrano solo gli scostamenti: chi conferma la proposta non occupa la scheda.

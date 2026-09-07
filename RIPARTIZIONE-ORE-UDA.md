@@ -74,15 +74,13 @@ Ore settimanali: Metodologie operative 7 · Lingua e letteratura italiana 4 · M
 
 ### 1.5 · Che cos'è la salute?
 
-*UDA d'asse — monte ore 8–10 — durata almeno 2 settimane, dettata da Metodologie Operative*
+*UDA d'asse — monte ore 8–10 — durata almeno 1 settimana, dettata da Scienze Integrate*
 
 | Insegnamento | Ore settimanali | Ore nell'UDA |
 |---|---:|---:|
-| Metodologie Operative | 7 | **8–10** |
+| Metodologie Operative | 7 | **5–6** |
+| Scienze Integrate | 4 | **3–4** |
 | **Totale** | | **8–10** |
-
-> Scienze Umane (II ANNO): concorre ai contenuti dell'UDA ma non ha ore proprie, perché non è
-> presente nel quadro orario di 1ª. I relativi compiti restano agli insegnamenti elencati sopra.
 
 ### 1.6 · Sicuri a scuola
 
@@ -162,25 +160,23 @@ Ore settimanali: Metodologie operative 6 · Lingua e letteratura italiana 4 · M
 
 ### 2.1 · Conosci il tuo territorio
 
-*UDA d'asse — monte ore 15–18 — durata almeno 2 settimane, dettata da Diritto*
+*UDA d'asse — monte ore 15–18 — durata almeno 2 settimane, dettata da Storia*
 
 | Insegnamento | Ore settimanali | Ore nell'UDA |
 |---|---:|---:|
-| Metodologie Operative | 6 | **6–7** |
-| Scienze Umane | 4 | **4–5** |
-| Diritto | 2 | **2–3** |
-| TIC | 2 | **2** |
-| Storia | 1 | **1** |
+| Metodologie Operative | 6 | **8–10** |
+| Diritto | 2 | **3** |
+| TIC | 2 | **3** |
+| Storia | 1 | **1–2** |
 | **Totale** | | **15–18** |
 
 ### 2.2 · Un'iniziativa per la scuola
 
-*UDA d'asse — monte ore 12–15 — durata almeno 2 settimane, dettata da Italiano*
+*UDA d'asse — monte ore 12–15 — durata almeno 4 settimane, dettata da Italiano*
 
 | Insegnamento | Ore settimanali | Ore nell'UDA |
 |---|---:|---:|
-| Italiano | 4 | **6–8** |
-| Scienze Umane | 4 | **6–7** |
+| Italiano | 4 | **12–15** |
 | **Totale** | | **12–15** |
 
 ### 2.3 · Comunicare senza barriere
@@ -469,14 +465,14 @@ Ore settimanali: Igiene e cultura medico-sanitaria 5 · Lingua e letteratura ita
 
 ### FSL3.1 · Area minori: osservare, accompagnare e documentare
 
-*UDA FSL — monte ore 30 — durata almeno 2 settimane, dettata da DIRITTO E TEC. AMM.*
+*UDA FSL — monte ore 30 — durata almeno 2 settimane, dettata da Diritto e T.A.*
 
 | Insegnamento | Ore settimanali | Ore nell'UDA |
 |---|---:|---:|
-| IGIENE E CULTURA MEDICO SANITARIA | 5 | **9** |
-| DIRITTO E TEC. AMM. | 4 | **8** |
-| PSICOLOGIA GENERALE ED APPLICATA | 4 | **7** |
-| METODOLOGIE OPERATIVE | 3 | **6** |
+| Igiene e Cultura M.S. | 5 | **9** |
+| Diritto e T.A. | 4 | **8** |
+| Psicologia | 4 | **7** |
+| Metodologie Operative | 3 | **6** |
 | **Totale** | | **30** |
 
 ## Classe 4ª
@@ -666,14 +662,14 @@ Ore settimanali: Igiene e cultura medico-sanitaria 5 · Lingua e letteratura ita
 
 ### FSL4.1 · Area disabilità: inclusione, autonomia e progetto individualizzato
 
-*UDA FSL — monte ore 30 — durata almeno 2 settimane, dettata da DIRITTO E TEC. AMM.*
+*UDA FSL — monte ore 30 — durata almeno 2 settimane, dettata da Diritto e T.A.*
 
 | Insegnamento | Ore settimanali | Ore nell'UDA |
 |---|---:|---:|
-| IGIENE E CULTURA MEDICO SANITARIA | 5 | **9** |
-| DIRITTO E TEC. AMM. | 4 | **8** |
-| PSICOLOGIA GENERALE ED APPLICATA | 4 | **7** |
-| METODOLOGIE OPERATIVE | 3 | **6** |
+| Igiene e Cultura M.S. | 5 | **9** |
+| Diritto e T.A. | 4 | **8** |
+| Psicologia | 4 | **7** |
+| Metodologie Operative | 3 | **6** |
 | **Totale** | | **30** |
 
 ## Classe 5ª
@@ -876,24 +872,24 @@ Ore settimanali: Igiene e cultura medico-sanitaria 5 · Lingua e letteratura ita
 
 ### FSL5.1 · Area anziani: assistenza, qualità di vita e lavoro in struttura residenziale
 
-*UDA FSL — monte ore 30 — durata almeno 2 settimane, dettata da DIRITTO E TEC. AMM.*
+*UDA FSL — monte ore 30 — durata almeno 2 settimane, dettata da Diritto e T.A.*
 
 | Insegnamento | Ore settimanali | Ore nell'UDA |
 |---|---:|---:|
-| IGIENE E CULTURA MEDICO SANITARIA | 5 | **9** |
-| DIRITTO E TEC. AMM. | 4 | **8** |
-| PSICOLOGIA GENERALE ED APPLICATA | 4 | **7** |
-| METODOLOGIE OPERATIVE | 3 | **6** |
+| Igiene e Cultura M.S. | 5 | **9** |
+| Diritto e T.A. | 4 | **8** |
+| Psicologia | 4 | **7** |
+| Metodologie Operative | 3 | **6** |
 | **Totale** | | **30** |
 
 ### FSL5.2 · Verso la qualifica OSS: procedure assistenziali e lavoro nell'équipe sanitaria
 
-*UDA FSL — monte ore 30 — durata almeno 2 settimane, dettata da DIRITTO E TEC. AMM.*
+*UDA FSL — monte ore 30 — durata almeno 2 settimane, dettata da Diritto e T.A.*
 
 | Insegnamento | Ore settimanali | Ore nell'UDA |
 |---|---:|---:|
-| IGIENE E CULTURA MEDICO SANITARIA | 5 | **9** |
-| DIRITTO E TEC. AMM. | 4 | **8** |
-| PSICOLOGIA GENERALE ED APPLICATA | 4 | **7** |
-| METODOLOGIE OPERATIVE | 3 | **6** |
+| Igiene e Cultura M.S. | 5 | **9** |
+| Diritto e T.A. | 4 | **8** |
+| Psicologia | 4 | **7** |
+| Metodologie Operative | 3 | **6** |
 | **Totale** | | **30** |

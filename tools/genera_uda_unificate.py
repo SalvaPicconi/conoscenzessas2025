@@ -366,11 +366,18 @@ def unisci_voci(schede, campo):
             chiave = voce["t"].strip().lower()
             if chiave not in unite:
                 unite[chiave] = {"t": voce["t"], "ins": list(voce["ins"])}
+                if voce.get("notaAttribuzione"):
+                    unite[chiave]["notaAttribuzione"] = voce["notaAttribuzione"]
                 ordine.append(chiave)
             else:
                 for ins in voce["ins"]:
                     if ins not in unite[chiave]["ins"]:
                         unite[chiave]["ins"].append(ins)
+                if voce.get("notaAttribuzione"):
+                    note = unite[chiave].setdefault("notaAttribuzione", "").split(" · ")
+                    if voce["notaAttribuzione"] not in note:
+                        note.append(voce["notaAttribuzione"])
+                        unite[chiave]["notaAttribuzione"] = " · ".join(filter(None, note))
     return [unite[k] for k in ordine]
 
 

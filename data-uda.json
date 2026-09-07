@@ -68,7 +68,13 @@
           ]
         },
         {
-          "t": "Tipologie di servizi e di utenza",
+          "t": "Tipologie di servizi",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Tipologie di utenza dei servizi",
           "ins": [
             "Metodologie Operative",
             "Scienze Umane"
@@ -295,8 +301,9 @@
         {
           "t": "Distinguere stato di salute e di malattia",
           "ins": [
-            "Scienze Umane (II ANNO)"
-          ]
+            "Scienze integrate"
+          ],
+          "notaAttribuzione": "Scienze Umane sviluppa il nucleo nel 2° anno; nella presente UDA di 1° anno l'attribuzione è a Scienze integrate."
         },
         {
           "t": "Descrivere i compiti dei soggetti della presa in carico",
@@ -309,8 +316,9 @@
         {
           "t": "Le condizioni di salute bio-psico-sociale e di malattia",
           "ins": [
-            "Scienze Umane (II ANNO)"
-          ]
+            "Scienze integrate"
+          ],
+          "notaAttribuzione": "Scienze Umane sviluppa il nucleo nel 2° anno; nella presente UDA di 1° anno l'attribuzione è a Scienze integrate."
         },
         {
           "t": "I soggetti della presa in carico e i loro compiti",
@@ -556,9 +564,9 @@
         {
           "t": "Individuare le opportunità del territorio",
           "ins": [
-            "Metodologie Operative",
-            "Scienze Umane"
-          ]
+            "Metodologie Operative"
+          ],
+          "notaAttribuzione": "Per Scienze Umane il nucleo è collocato nel 1° anno."
         },
         {
           "t": "Utilizzare supporti informatici applicati al lavoro sociale",
@@ -577,18 +585,24 @@
           ]
         },
         {
-          "t": "Tipologie di servizi e utenza",
+          "t": "Tipologie di servizi",
           "ins": [
-            "Metodologie Operative",
-            "Scienze Umane"
+            "Metodologie Operative"
           ]
+        },
+        {
+          "t": "Tipologie di utenza dei servizi",
+          "ins": [
+            "Metodologie Operative"
+          ],
+          "notaAttribuzione": "Per Scienze Umane il nucleo è collocato nel 1° anno."
         },
         {
           "t": "Reti territoriali formali e informali",
           "ins": [
-            "Scienze Umane",
             "Metodologie Operative"
-          ]
+          ],
+          "notaAttribuzione": "Per Scienze Umane il nucleo è collocato nel 1° anno."
         },
         {
           "t": "Strumenti digitali di mappatura",
@@ -614,17 +628,11 @@
       "ore": "12–15",
       "abilita": [
         {
-          "t": "Individuare le dinamiche dei gruppi",
-          "ins": [
-            "Scienze Umane"
-          ]
-        },
-        {
           "t": "Comunicare in modo non conflittuale",
           "ins": [
-            "Scienze Umane",
             "Italiano"
-          ]
+          ],
+          "notaAttribuzione": "Per Scienze Umane il nucleo è collocato nel 1° anno."
         },
         {
           "t": "Esporre le proprie idee nel gruppo di lavoro",
@@ -635,23 +643,11 @@
       ],
       "saperi": [
         {
-          "t": "Il gruppo e le sue dinamiche",
-          "ins": [
-            "Scienze Umane"
-          ]
-        },
-        {
-          "t": "Socializzazione",
-          "ins": [
-            "Scienze Umane"
-          ]
-        },
-        {
           "t": "Comunicazione e gestione delle riunioni",
           "ins": [
-            "Italiano",
-            "Scienze Umane"
-          ]
+            "Italiano"
+          ],
+          "notaAttribuzione": "Per Scienze Umane il nucleo è collocato nel 1° anno."
         }
       ],
       "sviluppata": null,
@@ -1084,7 +1080,8 @@
           "ins": [
             "Metodologie Operative",
             "Psicologia"
-          ]
+          ],
+          "notaAttribuzione": "Scelta didattica dei docenti oltre le attribuzioni del curricolo verticale; da ratificare in dipartimento."
         },
         {
           "t": "Il PAI",
@@ -1158,8 +1155,10 @@
           "ins": [
             "Italiano",
             "TIC",
-            "Psicologia"
-          ]
+            "Psicologia",
+            "Metodologie Operative"
+          ],
+          "notaAttribuzione": "Scelta didattica dei docenti oltre le attribuzioni del curricolo verticale; da ratificare in dipartimento."
         },
         {
           "t": "Linguaggi settoriali",
@@ -1566,7 +1565,8 @@
           "ins": [
             "Metodologie Operative",
             "Psicologia"
-          ]
+          ],
+          "notaAttribuzione": "Scelta didattica dei docenti oltre le attribuzioni del curricolo verticale; da ratificare in dipartimento."
         }
       ],
       "sviluppata": null,

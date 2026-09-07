@@ -65,15 +65,11 @@
     // orario, le altre quelle brevi delle schede. Nel documento vale una sola
     // forma, altrimenti nel riepilogo di terza la stessa materia comparirebbe
     // due volte.
-    const ETICHETTA_INS = {
-        'METODOLOGIE OPERATIVE': 'Metodologie Operative',
-        'IGIENE E CULTURA MEDICO SANITARIA': 'Igiene e Cultura M.S.',
-        'DIRITTO E TEC. AMM.': 'Diritto e T.A.',
-        'PSICOLOGIA GENERALE ED APPLICATA': 'Psicologia'
-    };
-
+    // Il riconoscimento sta in assets/insegnamenti.js: riporta al nome ufficiale
+    // qualunque scrittura, comprese quelle in maiuscolo dei cataloghi FSL e le
+    // annotazioni fra parentesi.
     function etichettaInsegnamento(nome) {
-        return ETICHETTA_INS[nome] || nome;
+        return (window.Insegnamenti && window.Insegnamenti.canonico(nome)) || nome;
     }
 
     function dataItaliana(iso) {
@@ -170,7 +166,9 @@
             intestazioni: ['Voce', 'Insegnamenti referenti'],
             larghezze: [62, 38],
             righe: voci.map(voce => [
-                String(voce.t ?? voce),
+                voce.notaAttribuzione
+                    ? `${String(voce.t ?? voce)}\nNota: ${voce.notaAttribuzione}`
+                    : String(voce.t ?? voce),
                 { frammenti: [D.testo((voce.ins || []).map(etichettaInsegnamento).join(' · '), { piccolo: true })] }
             ])
         })];

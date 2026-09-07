@@ -1,0 +1,22 @@
+{
+  "data-uda.json": {
+    "byte": 93838,
+    "sha256": "a5d38f8b860bdad26e928db39404553cc87e6b92e35f9b4ac1c9874b4c797592"
+  },
+  "data-uda-trasversali.json": {
+    "byte": 64227,
+    "sha256": "0a094b73e76bf5aa0530ad003e230260f1909771af27e043dbde18c2288a9e51"
+  },
+  "data-uda-unificate.json": {
+    "byte": 342057,
+    "sha256": "b3d75bb50a1409ec180c7f2ae90d406326fcb90f651b5d3f6d5fe064529ba331"
+  },
+  "data-ripartizione-ore.json": {
+    "byte": 47940,
+    "sha256": "70e5c96d38f5f18dc4c7e75b95a32067de9910b1935b011aa05166ab3ad7e8f2"
+  },
+  "RIPARTIZIONE-ORE-UDA.md": {
+    "byte": 31166,
+    "sha256": "fbeb946650077aafccf29c727fb00aaf1a22bc7c6c27ccba9b2e923c5777da96"
+  }
+}

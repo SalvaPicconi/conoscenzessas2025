@@ -4,12 +4,10 @@ let fslData = null;
 const filters = { anno: null, area: '', insegnamento: '', search: '' };
 const expanded = new Set();
 const esc = value => String(value ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
-const SUBJECT_CLASS = {
-    'METODOLOGIE OPERATIVE': 'ins-met',
-    'IGIENE E CULTURA MEDICO SANITARIA': 'ins-igi',
-    'DIRITTO E TEC. AMM.': 'ins-dir',
-    'PSICOLOGIA GENERALE ED APPLICATA': 'ins-psi'
-};
+// Colore ed equivalenza dei nomi: assets/insegnamenti.js. Qui i cataloghi FSL
+// scrivono le materie in maiuscolo e per esteso, ed è indifferente.
+const classeIns = nome => (window.Insegnamenti ? window.Insegnamenti.classe(nome) : '');
+const stessoIns = (uno, altro) => (window.Insegnamenti ? window.Insegnamenti.stesso(uno, altro) : uno === altro);
 
 document.addEventListener('DOMContentLoaded', init);
 
@@ -62,7 +60,7 @@ function reset() {
 function matches(u) {
     if (filters.anno && u.anno !== filters.anno) return false;
     if (filters.area && u.areaTirocinio !== filters.area) return false;
-    if (filters.insegnamento && ![...u.abilita, ...u.saperi].some(item => item.ins.includes(filters.insegnamento))) return false;
+    if (filters.insegnamento && ![...u.abilita, ...u.saperi].some(item => (item.ins || []).some(i => stessoIns(i, filters.insegnamento)))) return false;
     if (filters.search) {
         const haystack = JSON.stringify(u).toLowerCase(); if (!haystack.includes(filters.search)) return false;
     }
@@ -103,8 +101,8 @@ function section(title, body) { return `<section class="uda-detail-section"><h3>
 function row(item) { return `<li>${esc(item.t)} ${renderSubjectChips(item.ins)}</li>`; }
 function renderSubjectChips(subjects) {
     return (subjects || []).map(subject => {
-        const highlighted = filters.insegnamento === subject ? ' ins-chip-highlight' : '';
-        return `<span class="ins-chip ${SUBJECT_CLASS[subject] || ''}${highlighted}">${esc(labelSubject(subject))}</span>`;
+        const highlighted = filters.insegnamento && stessoIns(subject, filters.insegnamento) ? ' ins-chip-highlight' : '';
+        return `<span class="ins-chip ${classeIns(subject)}${highlighted}">${esc(labelSubject(subject))}</span>`;
     }).join('');
 }
 function orderedSubjects(u) {

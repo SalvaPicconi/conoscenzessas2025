@@ -20,6 +20,7 @@ from __future__ import annotations
 import json
 import math
 import re
+import unicodedata
 from pathlib import Path
 
 RADICE = Path(__file__).resolve().parent.parent
@@ -59,14 +60,67 @@ def riparto(pesi: dict[str, int], totale: int) -> dict[str, int]:
     return ore
 
 
-def insegnamenti_citati(uda: dict) -> list[str]:
-    """Insegnamenti che compaiono in abilità e saperi, nell'ordine di comparsa."""
+def chiave_insegnamento(nome: str) -> str:
+    """Forma confrontabile di un nome di insegnamento.
+
+    Lo stesso insegnamento nei cataloghi è scritto in modi diversi: «Scienze
+    Umane», «SCIENZE UMANE», «Scienze umane e sociali», e in qualche scheda con
+    un'annotazione fra parentesi come «Scienze Umane (II ANNO)». Sono la stessa
+    materia e devono pesare come tale: via le parentesi, via accenti e
+    punteggiatura, tutto minuscolo.
+
+    Stessa regola in assets/insegnamenti.js, per il sito.
+    """
+    senza_note = re.sub(r"\([^)]*\)", " ", str(nome or ""))
+    piatto = unicodedata.normalize("NFD", senza_note)
+    piatto = "".join(c for c in piatto if unicodedata.category(c) != "Mn")
+    return re.sub(r"[^a-z0-9]+", " ", piatto.lower()).strip()
+
+
+def indice_insegnamenti(quadro: dict) -> dict[str, str]:
+    """Da qualunque scrittura al nome usato dal quadro orario."""
+    indice: dict[str, str] = {}
+    for nome, voce in quadro["insegnamenti"].items():
+        indice[chiave_insegnamento(nome)] = nome
+        if voce.get("etichetta"):
+            indice[chiave_insegnamento(voce["etichetta"])] = nome
+    for variante, nome in quadro["alias"].items():
+        indice[chiave_insegnamento(variante)] = nome
+    return indice
+
+
+def canonico(nome: str, indice: dict[str, str]) -> str | None:
+    """Nome ufficiale dell'insegnamento, o None se non è riconoscibile.
+
+    Il ripiego per prefisso raccoglie le annotazioni scritte senza parentesi,
+    tipo «Scienze Umane II ANNO»; le chiavi più lunghe vincono, così «diritto e
+    ta» non finisce su «diritto».
+    """
+    chiave = chiave_insegnamento(nome)
+    if not chiave:
+        return None
+    if chiave in indice:
+        return indice[chiave]
+    for nota in sorted(indice, key=len, reverse=True):
+        if chiave.startswith(nota + " "):
+            return indice[nota]
+    return None
+
+
+def insegnamenti_citati(uda: dict, indice: dict[str, str]) -> list[str]:
+    """Insegnamenti che compaiono in abilità e saperi, nell'ordine di comparsa.
+
+    Le scritture diverse della stessa materia si fondono in una voce sola: se
+    una scheda cita «Scienze Umane» e «Scienze Umane (II ANNO)», l'insegnamento
+    resta uno e prende le ore una volta sola.
+    """
     elenco: list[str] = []
     for campo in ("abilita", "saperi"):
         for voce in uda.get(campo) or []:
             for ins in voce.get("ins") or []:
-                if ins not in elenco:
-                    elenco.append(ins)
+                nome = canonico(ins, indice) or str(ins)
+                if nome not in elenco:
+                    elenco.append(nome)
     return elenco
 
 
@@ -169,8 +223,10 @@ def main() -> None:
     ore_settimanali = quadro["insegnamenti"]
     monte_fsl = regola["monteConvenzionaleFSL"]
 
+    indice = indice_insegnamenti(quadro)
+
     def peso(ins: str, anno: int) -> int:
-        voce = ore_settimanali.get(alias.get(ins, ins))
+        voce = ore_settimanali.get(canonico(ins, indice) or "")
         return voce["ore"][anno - 1] if voce else 0
 
     ripartizioni: dict[str, dict] = {}
@@ -183,7 +239,7 @@ def main() -> None:
             convenzionale = estremi is None
             if convenzionale:
                 estremi = (monte_fsl, monte_fsl)
-            citati = insegnamenti_citati(uda)
+            citati = insegnamenti_citati(uda, indice)
             pesi = {ins: peso(ins, anno) for ins in citati if peso(ins, anno) > 0}
             senza_ore = [ins for ins in citati if peso(ins, anno) == 0]
             if not pesi:

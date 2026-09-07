@@ -560,7 +560,13 @@
           ]
         },
         {
-          "t": "Tipologie di servizi sociali, socio-educativi, socio-sanitari e relative utenze",
+          "t": "Tipologie di servizi sociali, socio-educativi e socio-sanitari",
+          "ins": [
+            "Metodologie Operative"
+          ]
+        },
+        {
+          "t": "Utenze dei servizi e loro caratteristiche",
           "ins": [
             "Metodologie Operative",
             "Scienze Umane"

@@ -370,7 +370,7 @@ function disegnaRiepilogo() {
     const totaleMin = scelte.reduce((somma, voce) => somma + (stato.ripartizione[voce.chiave]?.totaleMin || 0), 0);
     const totaleMax = scelte.reduce((somma, voce) => somma + (stato.ripartizione[voce.chiave]?.totaleMax || 0), 0);
     const piede = document.createElement('tfoot');
-    piede.innerHTML = `<tr><th scope="row">Totale delle UDA deliberate</th><td class="piano-ore">${intervallo(totaleMin, totaleMax)}</td><td>${scelte.length} ${scelte.length === 1 ? 'unità' : 'unità di apprendimento'}</td></tr>`;
+    piede.innerHTML = `<tr><th scope="row">Totale delle UDA selezionate nella bozza</th><td class="piano-ore">${intervallo(totaleMin, totaleMax)}</td><td>${scelte.length} ${scelte.length === 1 ? 'unità' : 'unità di apprendimento'}</td></tr>`;
     tabella.appendChild(piede);
 
     contenitore.appendChild(tabella);
@@ -393,7 +393,7 @@ function aggiornaStato() {
     const scelte = scelteOrdinate();
     if (!annoScelto()) return messaggioStato('Scegli l’anno di corso per iniziare.');
     messaggioStato(scelte.length
-        ? `${scelte.length} ${scelte.length === 1 ? 'UDA deliberata' : 'UDA deliberate'} · bozza salvata nel browser`
+        ? `${scelte.length} ${scelte.length === 1 ? 'UDA selezionata' : 'UDA selezionate'} · bozza salvata nel browser`
         : 'Nessuna UDA selezionata.');
 }
 
@@ -571,11 +571,11 @@ function costruisciPiano(scelte) {
             ['Dirigente scolastico', dati.dirigente || ''],
             ['Seduta del consiglio di classe', d.dataItaliana(dati.dataSeduta)],
             ['Verbale n.', dati.verbale || ''],
-            ['Unità di apprendimento deliberate', String(scelte.length)]
+            ['Unità di apprendimento selezionate nella bozza', String(scelte.length)]
         ], { tieniVuote: true }),
         B.paragrafo('Bozza da verificare e approvare nel consiglio di classe. La compilazione non attesta una deliberazione. Le ore delle UDA unificate sono somme di origine, da deliberare.', 'nota'),
         ...bloccoDelibera(scelte, docenti),
-        ...d.sezione('2', 'Prospetto delle unità di apprendimento deliberate', prospetto(scelte),
+        ...d.sezione('2', 'Prospetto delle unità di apprendimento selezionate nella bozza', prospetto(scelte),
             'Le unità di apprendimento costituiscono il riferimento per la valutazione, la certificazione e il riconoscimento dei crediti — D.Lgs. 61/2017, art. 2, comma 1.'),
         ...d.sezione('3', 'Ripartizione del monte ore fra gli insegnamenti', ripartizioneStampata(scelte),
             'Proposta proporzionale calcolata sul quadro orario d’istituto. Ogni docente può modificare le ore del proprio insegnamento entro il 40%, purché la somma copra il monte ore dell’unità.'),
@@ -705,7 +705,7 @@ function ripartizioneStampata(scelte) {
         { frammenti: [B.testo([...riga.perUda.keys()].join(' · '), { piccolo: true })] }
     ]);
     corpo.push([
-        { frammenti: B.frammenti('Totale delle UDA deliberate'), grassetto: true },
+        { frammenti: B.frammenti('Totale delle UDA selezionate nella bozza'), grassetto: true },
         { frammenti: B.frammenti(intervallo(totaleMin, totaleMax)), grassetto: true, allineamento: 'center' },
         ''
     ]);
