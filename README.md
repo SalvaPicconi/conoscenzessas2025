@@ -63,10 +63,13 @@ temporanea di sistema, senza scritture sul backend.
     python3 -m http.server 8765 --bind 127.0.0.1
     node tools/verifica_stampa.cjs
     node tools/verifica_stampa_cataloghi.cjs
+    node tools/verifica_uda_esame.cjs
 
-Il primo controllo copre PFI e rubriche. Il secondo copre i 66 elementi dei
+Il primo controllo copre PFI e rubriche. Il secondo copre i 75 elementi dei
 cataloghi, stampa singola e selezione fra filtri, piani, pagina principale e
-aree del curricolo. Sono configurabili `STAMPA_BASE_URL` e
+aree del curricolo. Il terzo verifica la nuova sezione Esame, le quattro tipologie
+separate, i sei spazi di progettazione, la 5.13 e le UDA con più competenze.
+Sono configurabili `STAMPA_BASE_URL`, `UDA_BASE_URL` e
 `PLAYWRIGHT_CHROMIUM_EXECUTABLE`.
 
 ## Struttura del progetto

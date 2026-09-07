@@ -1,0 +1,64 @@
+{
+  "dataAcquisizione": "2026-09-07",
+  "algoritmo": "sha256",
+  "totaleFile": 8,
+  "totalePagine": 172,
+  "file": [
+    {
+      "nome": "Esame-maturita-SSAS-2026.pdf",
+      "byte": 1063349,
+      "pagine": 40,
+      "sha256": "994e6d3aa23602a0dc5d43493349680cde86e426137b3358685cee717d6aa7d8",
+      "fonte": "https://rete-nazionale-sanita-assistenza-sociale.it/wp-content/uploads/2026/02/Esame-maturita%CC%80-SSAS-2026.pdf"
+    },
+    {
+      "nome": "Esame-nuovi-professionali-SSAS-2022.pdf",
+      "byte": 232134,
+      "pagine": 30,
+      "sha256": "a31e265316bec8389238b9ce91f18f54bdfa5e2604ede2b6273724887c1767d8",
+      "fonte": "https://rete-nazionale-sanita-assistenza-sociale.it/wp-content/uploads/2022/11/Esame-Nuovi-professionali-SSAS.pdf"
+    },
+    {
+      "nome": "Indicazioni-redazione-prova-professionale-2024.pdf",
+      "byte": 257442,
+      "pagine": 7,
+      "sha256": "712314ed5c3ba0ecb019907463a52026ab93190a93839cfeba896c50919bc188",
+      "fonte": "https://rete-nazionale-sanita-assistenza-sociale.it/wp-content/uploads/2024/05/2024-indicazioni-formulazione-2%C2%B0-prova.pdf"
+    },
+    {
+      "nome": "La-seconda-prova-SSAS-2022.pdf",
+      "byte": 1186459,
+      "pagine": 51,
+      "sha256": "628f8438a0bcffd9d3c3d9d81ece63053db9649eda5d89178ab2009b912f962a",
+      "fonte": "https://rete-nazionale-sanita-assistenza-sociale.it/wp-content/uploads/2022/11/La-seconda-prova-SSAS.pdf"
+    },
+    {
+      "nome": "Proposte-di-tracce-tipologia-A.pdf",
+      "byte": 376703,
+      "pagine": 11,
+      "sha256": "3dfa110d93b915e64d0d6a59507926dc2e382f6a7d08e735220644d30f85aca2",
+      "fonte": "https://rete-nazionale-sanita-assistenza-sociale.it/wp-content/uploads/2026/05/Proposte-di-tracce-tipologia-A.pdf"
+    },
+    {
+      "nome": "Proposte-di-tracce-tipologia-B.pdf",
+      "byte": 466116,
+      "pagine": 11,
+      "sha256": "58d1b5fc887df5acc53bb574ea6469876c30fbf1389c3c93c69a5439c3592222",
+      "fonte": "https://rete-nazionale-sanita-assistenza-sociale.it/wp-content/uploads/2026/05/Proposte-di-tracce-tipologia-B.pdf"
+    },
+    {
+      "nome": "Proposte-di-tracce-tipologia-C.pdf",
+      "byte": 402494,
+      "pagine": 10,
+      "sha256": "82920b89262588c9695fb34d53fc479f5c780640cb10e164c964b2b148472c60",
+      "fonte": "https://rete-nazionale-sanita-assistenza-sociale.it/wp-content/uploads/2026/05/Proposte-di-tracce-tipologia-C.pdf"
+    },
+    {
+      "nome": "Proposte-di-tracce-tipologia-D.pdf",
+      "byte": 484052,
+      "pagine": 12,
+      "sha256": "61d6541dcf6ccfcabdd903a4a9e27114ba811b1068206af042f797d04ac6aea4",
+      "fonte": "https://rete-nazionale-sanita-assistenza-sociale.it/wp-content/uploads/2026/05/Proposte-di-tracce-tipologia-D.pdf"
+    }
+  ]
+}

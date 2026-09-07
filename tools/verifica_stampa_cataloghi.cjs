@@ -2,8 +2,8 @@ const assert=require('node:assert/strict');const fs=require('node:fs');const os=
 async function azione(p,el,method='click',value) { await el.scrollIntoViewIfNeeded(); const box=await el.boundingBox(); if(box) await p.evaluate(b=>window.scrollBy({top:b.y+b.height/2-innerHeight/2,behavior:'instant'}),box); await el[method](...(value===undefined?[]:[value])); }
 const out=fs.mkdtempSync(path.join(os.tmpdir(),'ssas-cataloghi-'));const base=(process.env.STAMPA_BASE_URL || 'http://127.0.0.1:8765').replace(/\/$/,'')+'/';
 (async()=>{const b=await chromium.launch({headless:true,executablePath:process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE});const c=await b.newContext({viewport:{width:1280,height:1000}});await c.route('https://**/*',r=>r.abort());const errors=[];c.on('page',p=>p.on('pageerror',e=>errors.push(e.message)));
-for(const [file,tab,count] of [['uda.html','uda',48],['uda-trasversali.html','trasversali',14],['uda-fsl.html','fsl',4]]){
- const p=await c.newPage();await p.goto(base+'index.html#'+tab,{waitUntil:'domcontentloaded'});const f=await(await p.waitForSelector('#content-'+tab+' iframe')).contentFrame();await f.waitForSelector('.uda-ore-tabella',{state:'attached'});
+for(const [file,tab,count] of [['uda.html','uda',57],['uda-trasversali.html','trasversali',14],['uda-fsl.html','fsl',4]]){
+ const p=await c.newPage();await p.goto(tab==='uda'?base+file:base+'index.html#'+tab,{waitUntil:'domcontentloaded'});const f=tab==='uda'?p:await(await p.waitForSelector('#content-'+tab+' iframe')).contentFrame();await f.waitForSelector('.uda-ore-tabella',{state:'attached'});
  assert.equal(await f.locator('.uda-acc').count(),count);
  const ids=await f.locator('.uda-acc').evaluateAll(es=>es.map(e=>e.dataset.id));const titles=await f.locator('.uda-acc-title').allTextContents();
  const open=await f.locator('.uda-acc-body').evaluateAll(es=>es.map(e=>e.hidden));

@@ -1,6 +1,6 @@
 # Preparazione all'esame di Stato SSAS — mappatura preliminare
 
-**Stato:** ricognizione, archivio e struttura della nuova sezione locale; nessuna pubblicazione
+**Stato:** ricognizione e archivio completati; struttura della nuova sezione integrata nel sito, con contenuti delle sei UDA ancora da progettare
 **Data della ricognizione:** 7 settembre 2026
 **Scopo:** raccogliere le evidenze necessarie per progettare, in una fase successiva, una sezione di UDA per la preparazione progressiva all'esame di Stato già dalla terza classe.
 
@@ -21,11 +21,13 @@ Evidenze osservate nel sito pubblico:
   - **U3.4 — Prevenire è curare · Progetto benessere a scuola**, C5 + C9;
   - **U3.5 — La mappa degli accessi · Laboratorio di animazione per i minori**, C7 + C8.
 
-Nel catalogo locale di origine sono invece presenti le dieci competenze/UDO di terza, da 3.1 a 3.10. La differenza è quindi documentata come **accorpamento di schede**, non come cancellazione dei nuclei di lavoro originari. Questo è importante per la futura sezione: dovrà collegarsi alle UDA già presenti senza creare un secondo catalogo concorrente.
+Nel catalogo di origine sono invece presenti le dieci competenze/UDA di terza, da 3.1 a 3.10. La differenza è quindi documentata come **accorpamento di schede**, non come cancellazione dei nuclei di lavoro originari. Questo è importante per la sezione Esame: dovrà collegarsi alle UDA già presenti senza creare un secondo catalogo concorrente.
 
 ## 2. Archivio delle fonti prioritarie della Rete Nazionale
 
 Le pagine e gli allegati sono stati individuati direttamente nel sito della [Rete Nazionale I.SSAN.S.](https://rete-nazionale-sanita-assistenza-sociale.it/news-rete-nazionale/). Gli otto PDF prioritari sono stati scaricati tramite il browser e archiviati nella sottocartella [`materiali/`](materiali/). I modelli DOC/DOCX del 2026 e i documenti DOCX dei seminari 2025 restano per ora collegati alle fonti esterne: il loro download non è stato acquisito in questa sessione.
+
+Dimensioni, pagine, fonti e impronte SHA-256 sono registrate nel [`manifest-materiali.json`](manifest-materiali.json); il controllo del 7 settembre 2026 ha confermato 8 file leggibili per 172 pagine complessive.
 
 ### Materiali effettivamente archiviati
 
@@ -166,7 +168,7 @@ Ogni esercitazione dovrebbe lasciare una traccia osservabile: consegna, fonti fo
 2. analizzare le quattro raccolte di tracce 2026 con una griglia comune;
 3. confrontare il modello del 15 maggio e il piano delle attività docenti con le evidenze già prodotte dalle UDA;
 4. verificare continuità e differenze rispetto alle indicazioni 2024 e al quadro dei nuclei 2022;
-5. proporre una sezione separata, senza alterare UDA d'asse, UDA trasversali o cataloghi pubblici;
+5. sviluppare nella sezione separata le sei UDA senza confonderle con i cataloghi d'asse, trasversali o FSL;
 6. sottoporre la proposta al confronto collegiale prima di qualsiasi salvataggio, attivazione o pubblicazione.
 
 ## 6. Limiti della ricognizione
@@ -176,9 +178,9 @@ Ogni esercitazione dovrebbe lasciare una traccia osservabile: consegna, fonti fo
 - La durata di 6 ore è riportata nelle indicazioni 2024 indicizzate dalla Rete e non viene assunta come dato definitivo per il 2026 senza verifica del materiale aggiornato.
 - Le fonti della Rete sono materiali di riferimento professionale; per ogni vincolo normativo definitivo occorrerà verificare anche l'atto ministeriale vigente.
 
-## 7. Sezione locale predisposta il 7 settembre 2026
+## 7. Sezione predisposta il 7 settembre 2026
 
-È stata creata in locale la sezione autonoma **“UDA — Preparazione progressiva alla prova professionale”**, composta da:
+È stata integrata nel sito la sezione autonoma **“UDA — Preparazione progressiva alla prova professionale”**, composta da:
 
 - `uda-esame.html`;
 - `uda-esame.js`;
@@ -189,4 +191,6 @@ La sezione contiene la base metodologica ricavata dalle indicazioni RE.NA.I.SAN.
 
 Sono mantenuti visivamente distinti quattro livelli: contenuti del quadro d'esame, indicazioni metodologiche della Rete, dati del curricolo SSAS e scelte progettuali da deliberare. Non sono stati assegnati argomenti, tipologie, nuclei, competenze, discipline o ore alle sei schede.
 
-La nuova sezione non è collegata al PFI, alla revisione condivisa o alla votazione. I cataloghi `data-uda.json`, `data-uda-trasversali.json`, `data-uda-fsl.json` e i materiali delle UDA unificate non sono stati modificati. La sezione è soltanto locale: nessuna pubblicazione è stata eseguita.
+La nuova sezione non è collegata al PFI, alla revisione condivisa o alla votazione. Non modifica le 27 UDA unificate, le 14 UDA trasversali o le 4 UDA FSL.
+
+Nello stesso rilascio, ma come intervento distinto dalla sezione Esame, il catalogo storico `data-uda.json` passa da 48 a 57 schede: otto UDA provengono dagli originali ODT della collega e la 5.13 «Ricerca quantitativa e ricerca qualitativa» è stata autorizzata espressamente il 7 settembre 2026. La tracciabilità di questo intervento è conservata in `revisioni/2026-09-07-uda-collega/`.
