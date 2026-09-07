@@ -1,0 +1,15 @@
+{
+  "data-uda-unificate.json": "8cd43b1cb4155b8539694e6ca47e5b3592d7bc49adcabb384ee69a8a0526fc78",
+  "data-uda.json": "c5a040c7c4b75ad0ea45a836c18d04b210609123631149c8264a5921aeae9bc9",
+  "data-area-indirizzo.json": "bc925f2fd6b50f9f95799e224caa194197a4551a296ec4d308a1299edfdb8a9c",
+  "tools/genera_uda_unificate.py": "f378e5382209a7b9176c9a00e87891cad2cff550a1050281a9334ba8a4882454",
+  "tools/revisione_uda_unificate.json": "9162663baf5d454cc84f5130112ee47e6d0c43a3be0a0e09801cddb1d0dba1ba",
+  "uda-unificate.html": "85eb8861414688335d600f5327e78cf1575db698be0666ebfbaa250ce972d2d3",
+  "uda-unificate.js": "a235f4d1bb2203e1f94eb59ef87aa84cb7bc5aa9b1862cb0e54c783b48f658d2",
+  "README.md": "bdf0242637023047fe0ee309af5950098ca91a28f20f222ef3a9473837a88b97",
+  "index.html": "8f510433ce0621950b3b8e7a57dcb72297c8bb27fb0089dc9b1a22a7c8ffaa41",
+  "assets/navigazione.js": "3e557cbe43aefdc329cb0d74053307ca72ebdd363bf55cd6079150f27ff04aaa",
+  "tools/verifica_uda_unificate.py": "27a735a96f7bc41a2f8bc411dc6b9511bd892a49c9c7d4313bce5afa2e142f4b",
+  "tools/verifica_uda_unificate.cjs": "b55598265b3abcb57c8945c3ca2a60f7dfb68d409238b4f28c1fcda8a9620840",
+  "supabase/functions/curricolo-uda-revisioni/index.ts": "a0f96b129a84cf6821955835dce92a216cf867497c2cfb6b3a68de5fd14b7f5d"
+}

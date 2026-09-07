@@ -262,7 +262,8 @@ button, input, select { font: inherit; }
 
 /* Navigazione principale del curricolo */
 .tab-navigation {
-    position: sticky;
+    /* La barra rapida gestisce lo scorrimento senza coprire i moduli negli iframe. */
+    position: relative;
     top: 12px;
     z-index: 100;
     display: grid;

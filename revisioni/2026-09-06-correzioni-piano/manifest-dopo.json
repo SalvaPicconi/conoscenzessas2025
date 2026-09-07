@@ -1,0 +1,10 @@
+{
+  "pfi.js": "c457bc901c3a601f7ea906cb6e9bba4097913e909f8c08b35cadb5ef797d2886",
+  "pfi.html": "fa737d4d780d5f55ec01d048a5446cd151344f9b377dddf813640b1b6a7e17b8",
+  "assets/stampa.js": "aa67dbf6e04b51baebab15bcc76c79af1cb4f83cb610356b2beea24d4d6a5d99",
+  "tools/verifica_correzioni_piano.cjs": "9c0bcdedf64445515f69ab6a9401be8d1fa274596c9ce69a058e9a22e9cacf4f",
+  "tools/verifica_uda_unificate.py": "2062baf66476dfe461ca4d2ec0aee1288c037aadbb2f9cc134589b46e1bdf41c",
+  "tools/genera_uda_unificate.py": "bf8e8d4473d1548d39a7b6ea1652d8a2d34d9cbf940078b31286da1b76f0635b",
+  "data-uda-unificate.json": "c839d0ab2469cedab1868cd638f3bde9531532627ebb371a65ff6a87d5bdccbe",
+  "README.md": "0fcd180bc871a8185b34cdfe5037b8c333292ad14a2d337fb9931d440e53aabe"
+}

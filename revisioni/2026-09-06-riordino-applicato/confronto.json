@@ -1,0 +1,266 @@
+[
+  {
+    "id": "U1.1",
+    "sostituisce": "U1.1",
+    "origini": [
+      "1.1",
+      "1.7"
+    ],
+    "sintesiPrima": "Creare una mappa dei servizi alla persona e una scheda informativa per le famiglie, con fonti e contatti verificati.",
+    "sintesiDopo": "Creare una mappa dei servizi alla persona e una scheda informativa per le famiglie, con fonti e contatti verificati."
+  },
+  {
+    "id": "U1.2",
+    "sostituisce": "U1.2",
+    "origini": [
+      "1.2",
+      "1.3"
+    ],
+    "sintesiPrima": "Concordare un patto di classe e realizzare un messaggio contro gli stereotipi, lavorando con ruoli condivisi.",
+    "sintesiDopo": "Affrontare un episodio didattico di esclusione: concordare una regola del patto di classe e realizzare il messaggio che la spiega."
+  },
+  {
+    "id": "U1.3",
+    "sostituisce": "U1.3",
+    "origini": [
+      "1.4",
+      "1.5"
+    ],
+    "sintesiPrima": "Confrontare bisogni e stili di vita a età diverse e costruire una mappa della salute biologica, psicologica e sociale.",
+    "sintesiDopo": "Confrontare bisogni e stili di vita a età diverse e costruire una mappa della salute biologica, psicologica e sociale."
+  },
+  {
+    "id": "U1.4",
+    "sostituisce": "U1.4",
+    "origini": [
+      "1.6",
+      "1.9"
+    ],
+    "sintesiPrima": "Rilevare rischi a scuola, organizzare i dati in grafici e proporre un decalogo di comportamenti sicuri.",
+    "sintesiDopo": "Rilevare rischi a scuola, organizzare i dati in grafici e proporre un decalogo di comportamenti sicuri."
+  },
+  {
+    "id": "U1.5",
+    "sostituisce": "U1.5",
+    "origini": [
+      "1.8"
+    ],
+    "sintesiPrima": "Progettare e condurre un gioco inclusivo per la classe, con regole, tempi e autovalutazione.",
+    "sintesiDopo": "Progettare e condurre un gioco inclusivo per la classe, con regole, tempi e autovalutazione."
+  },
+  {
+    "id": "U2.1",
+    "sostituisce": "U2.1",
+    "origini": [
+      "2.1",
+      "2.7"
+    ],
+    "sintesiPrima": "Preparare una guida digitale ai servizi per adolescenti, verificando destinatari, prestazioni e modalità di accesso.",
+    "sintesiDopo": "Preparare una guida digitale ai servizi per adolescenti, verificando destinatari, prestazioni e modalità di accesso."
+  },
+  {
+    "id": "U2.2",
+    "sostituisce": "U2.2",
+    "origini": [
+      "2.2",
+      "2.3"
+    ],
+    "sintesiPrima": "Organizzare un’iniziativa di accoglienza e comunicarla con materiali multimediali rispettosi delle differenze.",
+    "sintesiDopo": "Organizzare un’iniziativa di accoglienza e comunicarla con materiali multimediali rispettosi delle differenze."
+  },
+  {
+    "id": "U2.3a",
+    "sostituisce": "U2.3",
+    "origini": [
+      "2.4"
+    ],
+    "sintesiPrima": "Preparare una guida agli stili di vita per età e ai soggetti della rete di cura.",
+    "sintesiDopo": "Rilevare stili di vita per età e preparare una guida illustrata basata sui dati raccolti."
+  },
+  {
+    "id": "U2.3b",
+    "sostituisce": "U2.3",
+    "origini": [
+      "2.5"
+    ],
+    "sintesiPrima": "Preparare una guida agli stili di vita per età e ai soggetti della rete di cura.",
+    "sintesiDopo": "Analizzare un caso simulato di malattia e rappresentare i soggetti della rete di cura e i loro ruoli."
+  },
+  {
+    "id": "U2.4",
+    "sostituisce": "U2.4",
+    "origini": [
+      "2.6",
+      "2.9"
+    ],
+    "sintesiPrima": "Analizzare rischi domestici e dati disponibili e produrre una checklist e un opuscolo di prevenzione.",
+    "sintesiDopo": "Analizzare rischi domestici su un insieme di dati definito; produrre grafici, checklist e indicazioni preventive per le famiglie."
+  },
+  {
+    "id": "U2.5",
+    "sostituisce": "U2.5",
+    "origini": [
+      "2.8"
+    ],
+    "sintesiPrima": "Progettare e condurre un’attività di animazione per un evento scolastico.",
+    "sintesiDopo": "Progettare e condurre un’attività di animazione per un evento scolastico."
+  },
+  {
+    "id": "U3.1",
+    "sostituisce": "U3.1",
+    "origini": [
+      "3.1",
+      "3.10"
+    ],
+    "sintesiPrima": "Preparare il dossier di un progetto individualizzato simulato, ordinando documenti e dati pertinenti.",
+    "sintesiDopo": "Preparare la documentazione di un progetto individualizzato nello stesso servizio simulato, distinguendo dati di contesto e dati del caso."
+  },
+  {
+    "id": "U3.2",
+    "sostituisce": "U3.2",
+    "origini": [
+      "3.2",
+      "3.3"
+    ],
+    "sintesiPrima": "Simulare un colloquio di accoglienza e una riunione d’équipe sullo stesso caso, con scheda e verbale.",
+    "sintesiDopo": "Simulare un colloquio di accoglienza e una riunione d’équipe sullo stesso caso, con scheda e verbale."
+  },
+  {
+    "id": "U3.3",
+    "sostituisce": "U3.3",
+    "origini": [
+      "3.4",
+      "3.6"
+    ],
+    "sintesiPrima": "Progettare attività di accudimento per la prima infanzia e rilevare i rischi dell’ambiente educativo.",
+    "sintesiDopo": "Progettare attività di accudimento per la prima infanzia e rilevare i rischi dell’ambiente educativo."
+  },
+  {
+    "id": "U3.4",
+    "sostituisce": "U3.4",
+    "origini": [
+      "3.5",
+      "3.9"
+    ],
+    "sintesiPrima": "Realizzare una semplice azione di prevenzione primaria a scuola, partendo da bisogni rilevati e fonti affidabili.",
+    "sintesiDopo": "Realizzare una semplice azione di prevenzione primaria a scuola, partendo da bisogni rilevati e fonti affidabili."
+  },
+  {
+    "id": "U3.5",
+    "sostituisce": "U3.5",
+    "origini": [
+      "3.7",
+      "3.8"
+    ],
+    "sintesiPrima": "Progettare e condurre un laboratorio per minori, collegando l’attività alle informazioni di accesso per le famiglie.",
+    "sintesiDopo": "Confrontare opportunità e accessi ai servizi per minori, motivare la scelta di un laboratorio e progettarlo e condurlo per i destinatari individuati."
+  },
+  {
+    "id": "U4.1",
+    "sostituisce": "U4.1",
+    "origini": [
+      "4.1",
+      "4.10"
+    ],
+    "sintesiPrima": "Organizzare il fascicolo amministrativo di un progetto simulato e restituire i dati in un report.",
+    "sintesiDopo": "Gestire documenti amministrativi e dati sociali dello stesso progetto simulato, distinguendone funzione e risultati nel report."
+  },
+  {
+    "id": "U4.2",
+    "sostituisce": "U4.2",
+    "origini": [
+      "4.2",
+      "4.3"
+    ],
+    "sintesiPrima": "Osservare colloqui simulati e presentare all’équipe una proposta comunicativa adatta alla persona.",
+    "sintesiDopo": "Osservare colloqui simulati e presentare all’équipe una proposta comunicativa adatta alla persona."
+  },
+  {
+    "id": "U4.3",
+    "sostituisce": "U4.3",
+    "origini": [
+      "4.4",
+      "4.6"
+    ],
+    "sintesiPrima": "Partire da un PAI fornito per proporre routine quotidiane e adattamenti dell’ambiente che sostengano autonomia e sicurezza.",
+    "sintesiDopo": "Elaborare parti motivate di un PAI e verificarne le proposte nelle routine quotidiane e nell’ambiente domestico."
+  },
+  {
+    "id": "U4.4",
+    "sostituisce": "U4.4",
+    "origini": [
+      "4.5",
+      "4.9"
+    ],
+    "sintesiPrima": "Collegare assistenza di base, prevenzione e partecipazione sociale in un piano operativo sullo stesso caso.",
+    "sintesiDopo": "Collegare assistenza di base, prevenzione e partecipazione sociale in un piano operativo sullo stesso caso."
+  },
+  {
+    "id": "U4.5",
+    "sostituisce": "U4.5",
+    "origini": [
+      "4.7",
+      "4.8"
+    ],
+    "sintesiPrima": "Orientare un gruppo di anziani ai servizi e realizzare un’attività di animazione coerente con i bisogni. La prova reale richiede un contesto concordato.",
+    "sintesiDopo": "Dal colloquio con lo stesso gruppo di anziani, motivare l’accesso a un servizio e realizzare un’attività di animazione coerente."
+  },
+  {
+    "id": "U5.1",
+    "sostituisce": "U5.1",
+    "origini": [
+      "5.1",
+      "5.10"
+    ],
+    "sintesiPrima": "Collaborare a un progetto simulato di servizio, con budget, rete territoriale e indicatori di monitoraggio.",
+    "sintesiDopo": "Collaborare a un progetto simulato di servizio, con budget, rete territoriale e indicatori di monitoraggio."
+  },
+  {
+    "id": "U5.2",
+    "sostituisce": "U5.2",
+    "origini": [
+      "5.2",
+      "5.3"
+    ],
+    "sintesiPrima": "Cooperare in un’équipe simulata e preparare materiali accessibili per facilitare la comunicazione con l’utente.",
+    "sintesiDopo": "Cooperare in un’équipe simulata e preparare materiali accessibili per facilitare la comunicazione con l’utente."
+  },
+  {
+    "id": "U5.3",
+    "sostituisce": "U5.3",
+    "origini": [
+      "5.4",
+      "5.6"
+    ],
+    "sintesiPrima": "Tradurre un PAI in proposte per le attività quotidiane e per l’adattamento dell’abitazione.",
+    "sintesiDopo": "Tradurre un PAI in proposte per le attività quotidiane e per l’adattamento dell’abitazione."
+  },
+  {
+    "id": "U5.4a",
+    "sostituisce": "U5.4",
+    "origini": [
+      "5.5"
+    ],
+    "sintesiPrima": "Lavorare su un caso complesso in tre moduli: continuità assistenziale e famiglia; primo soccorso simulato e dispositivi; terminalità e cure palliative. Prove pratiche con supervisione competente.",
+    "sintesiDopo": "Svolgere prove di primo soccorso esclusivamente simulate e leggere schede su supporto vitale, nutrizione artificiale e cure palliative, con supervisione competente."
+  },
+  {
+    "id": "U5.4b",
+    "sostituisce": "U5.4",
+    "origini": [
+      "5.9"
+    ],
+    "sintesiPrima": "Lavorare su un caso complesso in tre moduli: continuità assistenziale e famiglia; primo soccorso simulato e dispositivi; terminalità e cure palliative. Prove pratiche con supervisione competente.",
+    "sintesiDopo": "Elaborare un progetto integrato su un caso complesso, collegando bisogni, servizi, interventi e sostegno alla famiglia."
+  },
+  {
+    "id": "U5.5",
+    "sostituisce": "U5.5",
+    "origini": [
+      "5.7",
+      "5.8"
+    ],
+    "sintesiPrima": "Progettare un evento accessibile collegando carta dei servizi, informazione agli utenti, raccolta fondi simulata e valutazione degli esiti.",
+    "sintesiDopo": "Progettare un evento accessibile applicando i criteri della carta dei servizi e verificare che l’utente sappia orientarsi nell’offerta."
+  }
+]

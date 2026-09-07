@@ -19,7 +19,8 @@ const SEZIONI = [
     { id: 'fsl', etichetta: 'UDA FSL', pagina: 'uda-fsl.html' },
     { id: 'monografiche', etichetta: 'UDA monografiche', pagina: 'uda-monografiche.html' },
     { id: 'annuale', etichetta: 'Progettazione annuale', pagina: 'progettazione-annuale.html' },
-    { id: 'pfi', etichetta: 'PFI', pagina: 'pfi.html' }
+    { id: 'pfi', etichetta: 'PFI', pagina: 'pfi.html' },
+    { id: 'piano', etichetta: 'Piano delle UDA', pagina: 'piano-uda.html' }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {

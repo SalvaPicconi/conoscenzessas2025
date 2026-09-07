@@ -12,13 +12,14 @@ Sito pubblicato: https://salvapicconi.github.io/conoscenzessas2025/
 - **Area Generale** — le 12 competenze dell'area generale con assi culturali, abilità e conoscenze.
 - **UDA d'asse** — 48 schede del quinquennio, filtrabili per anno, competenza e insegnamento, con area collegiale per annotazioni e proposte.
 - **UDA unificate** — proposta di 21 accorpamenti e 6 schede autonome: quattro in prima, sette in seconda, cinque in terza e quarta, sei in quinta, derivata da tutte le 48 UDA d’asse. Revisione del 6 settembre 2026: compiti integrati, rubriche proposte per ciascuna competenza, riferimenti ai materiali originari e pianificazione da deliberare. Le ore visualizzate sono la somma di origine, non una nuova durata validata. Il catalogo è disponibile nel PFI come proposta, con controllo del doppio conteggio delle origini; non è inserito automaticamente nella votazione. Dati generati da `tools/genera_uda_unificate.py` con `tools/revisione_uda_unificate.json`. [Registro, motivazioni e controlli](revisioni/2026-09-06-riordino-applicato/REGISTRO.md).
-- **UDA monografiche · Proposte dei docenti** — idee libere, una o più per docente, con tema, profilo scientifico e culturale, descrizione, attualità e possibile sviluppo individuale o trasversale. Nessun vincolo di competenza, annualità o ore. Frontend e servizio condiviso predisposti in locale; attivazione del nuovo schema SQL e della funzione aggiornata ancora necessaria. Gli autori modificano le proprie idee, gli altri docenti autenticati le consultano. Controllo di versione contro le sovrascritture e storico nel database.
+- **UDA monografiche · Proposte dei docenti** — idee libere, una o più per docente, con tema, profilo scientifico e culturale, descrizione, attualità e possibile sviluppo individuale o trasversale. Nessun vincolo di competenza, annualità o ore. Archivio condiviso con storico e servizio Supabase attivati nel rilascio del 7 settembre 2026. Gli autori modificano le proprie idee, gli altri docenti autenticati le consultano. Controllo di versione contro le sovrascritture e storico nel database.
 - **Progettazione didattica annuale** — nuova sezione inizialmente vuota, senza proposte o modelli precompilati.
 - **UDA trasversali · Tutte le materie** — catalogo autonomo e progressivo di UDA interdisciplinari, filtrabili per anno, asse e insegnamento, predisposto per modifica, revisione e creazione condivisa.
 - **Ripartizione oraria** — in ogni scheda UDA le ore sono divise fra gli insegnamenti coinvolti in proporzione al quadro orario dell'istituto e compaiono accanto a ciascuna materia; l'intestazione indica la durata minima in settimane. A docente autenticato la proposta è modificabile entro il 40% e il sito avvisa quando la somma non copre il monte ore dell'UDA.
-- **Votazione UDA** — area autonoma, separata dai cataloghi e dalla revisione. Si accede con le stesse credenziali, si valutano da 1 a 5 stelle soltanto le UDA inserite nella rosa collegialmente concordata e si salva tutto con un unico comando. Nessuna rosa viene proposta automaticamente.
-- **Navigazione** — le pagine aperte da sole hanno in alto una barra fissa con il ritorno al curricolo e le sei sezioni; nella pagina principale, quando le linguette escono dallo schermo, compare in basso una barra rapida per cambiare sezione. Gli indirizzi `index.html#uda`, `#trasversali`, `#fsl` e simili aprono direttamente la sezione.
+- **Votazione UDA** — temporaneamente sospesa: nessun ingresso nei menu, URL diretto con avviso e scritture di voto bloccate sul server.
+- **Navigazione** — le pagine aperte da sole hanno in alto una barra fissa con il ritorno al curricolo e le dieci sezioni; nella pagina principale, quando le linguette escono dallo schermo, compare in basso una barra rapida per cambiare sezione. Gli indirizzi `index.html#uda`, `#trasversali`, `#fsl` e simili aprono direttamente la sezione.
 - **UDA FSL** — quattro UDA adattabili alle esperienze del triennio: area minori, disabilità, anziani e preparazione sanitaria/possibile raccordo OSS; coinvolgono solo le quattro discipline d'indirizzo definite dall'istituto.
+- **Piano delle UDA** — pagina del coordinatore con cataloghi originari e 27 unificate come proposte, periodi, bozza nel browser, controllo del doppio conteggio ed esportazione Word/PDF. La compilazione non attesta una delibera.
 - **PFI** — progetto formativo individuale compilabile con scelta delle UDA dai cataloghi, incluse le unificate come proposte.
 - **Rubriche di Valutazione** — rubriche per competenze con pesi configurabili e calcolo del voto ponderato (disponibili: Metodologie Operative biennio, classe 3ª e classi 4ª-5ª; le altre discipline sono in preparazione).
 
@@ -27,6 +28,8 @@ Sito pubblicato: https://salvapicconi.github.io/conoscenzessas2025/
 - **Excel** — tabella del curricolo (rispetta i filtri attivi)
 - **Word** — modello di Piano di Lavoro individuale precompilato con competenze, abilità e conoscenze
 - **JSON** — dati grezzi
+
+Tutte le esportazioni Office producono veri pacchetti `.docx` / `.xlsx` mediante `assets/documento-office.js`.
 
 ## Stampa e PDF
 
@@ -99,3 +102,7 @@ La ripartizione oraria non si scrive a mano. Dopo ogni modifica al quadro orario
 ## Pubblicazione
 
 Il sito è statico (HTML/CSS/JS, nessuna dipendenza esterna) ed è pubblicato con GitHub Pages dal branch `main`, cartella root. Ogni push su `main` aggiorna il sito.
+
+## Rilascio integrato del 7 settembre 2026
+
+Integra il main remoto `0605bde` con le revisioni locali delle UDA, del PFI e delle stampe. Archivio `revisioni/` escluso da GitHub Pages insieme a strumenti, backend e materiali interni. Il PFI conserva la modalità dimostrativa: non inserire dati di studenti reali. La progettazione annuale rimane vuota su richiesta.

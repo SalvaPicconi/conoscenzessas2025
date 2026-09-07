@@ -1,0 +1,1 @@
+PASS: 25 schede valutate, 48 origini presenti una sola volta, tre criteri e azione per ogni scheda, hash delle fonti ancora identici. Nessuna modifica dei cataloghi o della rosa.

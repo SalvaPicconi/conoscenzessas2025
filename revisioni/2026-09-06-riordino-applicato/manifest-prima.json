@@ -1,0 +1,12 @@
+{
+  "tools/genera_uda_unificate.py": "bf8e8d4473d1548d39a7b6ea1652d8a2d34d9cbf940078b31286da1b76f0635b",
+  "tools/revisione_uda_unificate.json": "bb16ec5b30392555553f29a4b9e2d5d24b58be45db62e5e2f2840f2a6c35b318",
+  "data-uda-unificate.json": "c839d0ab2469cedab1868cd638f3bde9531532627ebb371a65ff6a87d5bdccbe",
+  "uda-unificate.html": "cc5470943fe97ae7d99fe169b98cd4a0aaca1c95ba71cdd73c9fb59bc3936c16",
+  "uda-unificate.js": "8cc8fed52fd6a325c161a6c6f35888fb424c050676a2acc0cc610f23ea46b703",
+  "pfi.html": "fa737d4d780d5f55ec01d048a5446cd151344f9b377dddf813640b1b6a7e17b8",
+  "README.md": "0fcd180bc871a8185b34cdfe5037b8c333292ad14a2d337fb9931d440e53aabe",
+  "tools/verifica_uda_unificate.py": "2062baf66476dfe461ca4d2ec0aee1288c037aadbb2f9cc134589b46e1bdf41c",
+  "tools/verifica_uda_unificate.cjs": "a50874edfa88dcd515f2c13c1697459d6a8f186656f5d983d1e5b1f45bca70f2",
+  "tools/verifica_correzioni_piano.cjs": "9c0bcdedf64445515f69ab6a9401be8d1fa274596c9ce69a058e9a22e9cacf4f"
+}

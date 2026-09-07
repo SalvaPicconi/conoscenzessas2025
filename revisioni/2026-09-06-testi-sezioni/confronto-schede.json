@@ -1,0 +1,930 @@
+[
+  {
+    "id": "U1.1",
+    "campi": {
+      "anno": {
+        "prima": 1,
+        "dopo": 2
+      },
+      "collocazione": {
+        "prima": null,
+        "dopo": "Spostata in seconda su indicazione del docente. Identificativo U1.1 conservato per la tracciabilità; schede di origine 1.1 e 1.7 del biennio, mantenute senza modifiche."
+      },
+      "raccordoProfilo": {
+        "prima": null,
+        "dopo": [
+          {
+            "competenza": 1,
+            "testo": "Competenza in uscita n° 1: Collaborare nella gestione di progetti e attività dei servizi sociali, socio-sanitari e socio-educativi, rivolti a bambini e adolescenti, persone con disabilità, anziani, minori a rischio, soggetti con disagio psico-sociale e altri soggetti in situazione di svantaggio, anche attraverso lo sviluppo di reti territoriali formali e informali."
+          },
+          {
+            "competenza": 7,
+            "testo": "Competenza in uscita n°7: Gestire azioni di informazione e di orientamento dell’utente per facilitare l’accessibilità e la fruizione autonoma dei servizi pubblici e privati presenti sul territorio."
+          }
+        ]
+      },
+      "condizioniRealizzazione": {
+        "prima": null,
+        "dopo": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta."
+      },
+      "traguardo": {
+        "prima": "Costruire una prima mappa dei servizi del territorio e tradurla in materiali informativi comprensibili a chi ne ha bisogno",
+        "dopo": "Riconoscere la rete territoriale dei servizi alla persona e predisporre informazioni comprensibili su destinatari, prestazioni e riferimenti di accesso"
+      },
+      "compito": {
+        "prima": "Mappa dei servizi del proprio comune — almeno tre servizi con ente erogatore, utenza e prestazioni — e volantino informativo su uno di essi, presentato alla classe e diffuso alle famiglie.",
+        "dopo": "Costruire una mappa di almeno tre servizi sociali, socio-sanitari o socio-educativi rivolti a diverse tipologie di utenza. Distinguere ente, destinatari, prestazioni e contatti; preparare un materiale informativo per una famiglia del caso didattico, indicando fonti e data di verifica. La proposta riguarda la rete generale; i servizi specifici per i coetanei sono approfonditi separatamente in U2.1."
+      },
+      "situazione": {
+        "prima": "Molti studenti non sanno quali servizi sociali e sanitari esistano nel comune in cui vivono; e chi ne avrebbe bisogno spesso non sa che esistono, né a chi rivolgersi.",
+        "dopo": "Una famiglia chiede informazioni sui servizi sociali, socio-sanitari e socio-educativi del territorio. Occorre distinguere bisogni, destinatari e prestazioni e presentare informazioni comprensibili, verificabili e aggiornate."
+      },
+      "prodotto": {
+        "prima": "Mappa (cartacea o digitale) dei servizi del comune e volantino informativo su un servizio, con destinatari, prestazioni e contatti.",
+        "dopo": "Mappa della rete generale dei servizi e scheda informativa rivolta alla famiglia del caso, con fonti, data di verifica ed eventuali dati non reperiti."
+      },
+      "beneficiari": {
+        "prima": "Le famiglie degli studenti e le persone che potrebbero rivolgersi a quel servizio, tramite la diffusione dei materiali a scuola e nel quartiere.",
+        "dopo": "Famiglia descritta nel caso didattico; eventuale restituzione a famiglie reali da concordare con la scuola."
+      }
+    }
+  },
+  {
+    "id": "U1.2",
+    "campi": {
+      "collocazione": {
+        "prima": null,
+        "dopo": ""
+      },
+      "raccordoProfilo": {
+        "prima": null,
+        "dopo": [
+          {
+            "competenza": 2,
+            "testo": "Competenza in uscita n° 2: Partecipare e cooperare nei gruppi di lavoro e nelle équipe multi-professionali in diversi contesti organizzativi /lavorativi."
+          },
+          {
+            "competenza": 3,
+            "testo": "Competenza in uscita n° 3: Facilitare la comunicazione tra persone e gruppi, anche di culture e contesti diversi, adottando modalità comunicative e relazionali adeguate ai diversi ambiti professionali e alle diverse tipologie di utenza."
+          }
+        ]
+      },
+      "condizioniRealizzazione": {
+        "prima": null,
+        "dopo": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta."
+      },
+      "situazione": {
+        "prima": "In una classe appena formata i conflitti nascono per malintesi e per stereotipi su nazionalità, genere, disabilità e aspetto fisico che nessuno mette in discussione.",
+        "dopo": "La classe deve concordare regole e modalità di collaborazione per un’attività comune. Il compito richiede di distribuire ruoli, ascoltare punti di vista diversi e affrontare stereotipi con una comunicazione rispettosa."
+      },
+      "beneficiari": {
+        "prima": "Il gruppo classe, che adotta il patto per tutto l'anno, e gli studenti dell'istituto destinatari della campagna.",
+        "dopo": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola."
+      }
+    }
+  },
+  {
+    "id": "U1.3",
+    "campi": {
+      "collocazione": {
+        "prima": null,
+        "dopo": ""
+      },
+      "raccordoProfilo": {
+        "prima": null,
+        "dopo": [
+          {
+            "competenza": 4,
+            "testo": "Competenza in uscita n° 4: Prendersi cura e collaborare al soddisfacimento dei bisogni di base di bambini, persone con disabilità, anziani nell’espletamento delle più comuni attività quotidiane."
+          },
+          {
+            "competenza": 5,
+            "testo": "Competenza in uscita n° 5: Partecipare alla presa in carico socio-assistenziale di soggetti le cui condizioni determinino uno stato di non autosufficienza parziale o totale, di terminalità, di compromissione delle capacità cognitive e motorie, applicando procedure e tecniche stabilite e facendo uso dei principali ausili e presidi."
+          }
+        ]
+      },
+      "condizioniRealizzazione": {
+        "prima": null,
+        "dopo": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta."
+      },
+      "situazione": {
+        "prima": "Gli studenti conoscono i bisogni della propria età e li danno per validi a ogni età; e intendono la salute come semplice assenza di malattia, mentre nei servizi si lavora su una definizione più ampia.",
+        "dopo": "Si confrontano casi didattici di persone di età diverse per riconoscere bisogni e fattori di benessere. Gli studenti distinguono ciò che osservano dalle proprie interpretazioni e collegano le dimensioni biologica, psicologica e sociale della salute."
+      },
+      "beneficiari": {
+        "prima": "Il gruppo classe e le persone intervistate, cui si restituisce l'esito.",
+        "dopo": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola."
+      }
+    }
+  },
+  {
+    "id": "U1.4",
+    "campi": {
+      "collocazione": {
+        "prima": null,
+        "dopo": ""
+      },
+      "raccordoProfilo": {
+        "prima": null,
+        "dopo": [
+          {
+            "competenza": 6,
+            "testo": "Competenza in uscita n° 6: Curare l’allestimento dell’ambiente di vita della persona in difficoltà con riferimento alle misure per la salvaguardia della sua sicurezza e incolumità, anche provvedendo alla promozione e al mantenimento delle capacità residue e della autonomia nel proprio ambiente di vita."
+          },
+          {
+            "competenza": 10,
+            "testo": "Competenza in uscita n° 10: Raccogliere, conservare, elaborare e trasmettere dati relativi alle attività professionali svolte ai fini del monitoraggio e della valutazione degli interventi e dei servizi utilizzando adeguati strumenti informativi in condizioni di sicurezza e affidabilità delle fonti utilizzate."
+          }
+        ]
+      },
+      "condizioniRealizzazione": {
+        "prima": null,
+        "dopo": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta."
+      },
+      "situazione": {
+        "prima": "L'edificio scolastico presenta rischi che gli studenti attraversano ogni giorno senza riconoscerli, e sui comportamenti della classe circolano opinioni che nessuno ha mai verificato.",
+        "dopo": "La classe esamina un ambiente scolastico attraverso una rilevazione guidata. Deve riconoscere potenziali rischi, organizzare i dati e proporre comportamenti coerenti con la sicurezza delle persone."
+      },
+      "beneficiari": {
+        "prima": "La classe e il servizio di prevenzione e protezione dell'istituto, cui il decalogo viene consegnato.",
+        "dopo": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola."
+      }
+    }
+  },
+  {
+    "id": "U1.5",
+    "campi": {
+      "collocazione": {
+        "prima": null,
+        "dopo": ""
+      },
+      "raccordoProfilo": {
+        "prima": null,
+        "dopo": [
+          {
+            "competenza": 8,
+            "testo": "Competenza in uscita n° 8: Realizzare in autonomia o in collaborazione con altre figure professionali, attività educative, di animazione sociale, ludiche e culturali adeguate ai diversi contesti e ai diversi bisogni."
+          }
+        ]
+      },
+      "condizioniRealizzazione": {
+        "prima": null,
+        "dopo": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta."
+      },
+      "situazione": {
+        "prima": "Far giocare un gruppo sembra facile finché non lo si prova: senza obiettivo, regole e tempi definiti l'attività si disperde.",
+        "dopo": "Un gruppo deve partecipare a un gioco inclusivo. Gli studenti scelgono obiettivi, regole, materiali e tempi e verificano come la conduzione favorisca la partecipazione di ciascuno."
+      },
+      "beneficiari": {
+        "prima": "Il gruppo classe, che partecipa al gioco condotto dai compagni.",
+        "dopo": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola."
+      }
+    }
+  },
+  {
+    "id": "U2.1",
+    "campi": {
+      "collocazione": {
+        "prima": null,
+        "dopo": ""
+      },
+      "raccordoProfilo": {
+        "prima": null,
+        "dopo": [
+          {
+            "competenza": 1,
+            "testo": "Competenza in uscita n° 1: Collaborare nella gestione di progetti e attività dei servizi sociali, socio-sanitari e socio-educativi, rivolti a bambini e adolescenti, persone con disabilità, anziani, minori a rischio, soggetti con disagio psico-sociale e altri soggetti in situazione di svantaggio, anche attraverso lo sviluppo di reti territoriali formali e informali."
+          },
+          {
+            "competenza": 7,
+            "testo": "Competenza in uscita n°7: Gestire azioni di informazione e di orientamento dell’utente per facilitare l’accessibilità e la fruizione autonoma dei servizi pubblici e privati presenti sul territorio."
+          }
+        ]
+      },
+      "condizioniRealizzazione": {
+        "prima": null,
+        "dopo": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta."
+      },
+      "traguardo": {
+        "prima": "Costruire con padronanza la mappa dei servizi del territorio e produrre materiali divulgativi rivolti a un'utenza definita",
+        "dopo": "Individuare servizi e opportunità rivolti agli adolescenti e produrre una guida comprensibile per i coetanei"
+      },
+      "compito": {
+        "prima": "Mappa digitale interattiva con almeno cinque servizi — descrizione, destinatari, prestazioni, ente erogatore — e mini-guida divulgativa ai servizi per adolescenti (consultorio, sportelli d'ascolto, spazi giovani) ricavata dalla mappa e diffusa a scuola.",
+        "dopo": "Realizzare una guida digitale ai servizi per adolescenti, con una mappa delle opportunità verificate: consultori, sportelli d’ascolto, spazi giovani o altri servizi pertinenti effettivamente reperiti. Per ogni voce distinguere destinatari, prestazioni, ente e modalità di accesso. Dichiarare fonti, data di verifica e informazioni non reperite. Verificare la comprensibilità con un gruppo di coetanei in attività scolastica; la diffusione esterna è da concordare."
+      },
+      "rubrica": {
+        "prima": [
+          {
+            "competenza": 1,
+            "indicatore": "Descrive almeno cinque servizi distinguendo ente, destinatari e modalità di erogazione",
+            "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+            "livelli": [
+              {
+                "livello": "1 · In via di acquisizione",
+                "descrittore": "Rispetto a «Descrive almeno cinque servizi distinguendo ente, destinatari e modalità di erogazione», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+              },
+              {
+                "livello": "2 · Base",
+                "descrittore": "Rispetto a «Descrive almeno cinque servizi distinguendo ente, destinatari e modalità di erogazione», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+              },
+              {
+                "livello": "3 · Intermedio",
+                "descrittore": "Rispetto a «Descrive almeno cinque servizi distinguendo ente, destinatari e modalità di erogazione», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+              },
+              {
+                "livello": "4 · Avanzato",
+                "descrittore": "Rispetto a «Descrive almeno cinque servizi distinguendo ente, destinatari e modalità di erogazione», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+              }
+            ]
+          },
+          {
+            "competenza": 7,
+            "indicatore": "Seleziona e presenta informazioni sui servizi pertinenti ai bisogni degli adolescenti",
+            "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+            "livelli": [
+              {
+                "livello": "1 · In via di acquisizione",
+                "descrittore": "Rispetto a «Seleziona e presenta informazioni sui servizi pertinenti ai bisogni degli adolescenti», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+              },
+              {
+                "livello": "2 · Base",
+                "descrittore": "Rispetto a «Seleziona e presenta informazioni sui servizi pertinenti ai bisogni degli adolescenti», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+              },
+              {
+                "livello": "3 · Intermedio",
+                "descrittore": "Rispetto a «Seleziona e presenta informazioni sui servizi pertinenti ai bisogni degli adolescenti», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+              },
+              {
+                "livello": "4 · Avanzato",
+                "descrittore": "Rispetto a «Seleziona e presenta informazioni sui servizi pertinenti ai bisogni degli adolescenti», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+              }
+            ]
+          }
+        ],
+        "dopo": [
+          {
+            "competenza": 1,
+            "indicatore": "Individua servizi per adolescenti effettivamente documentati distinguendo ente, destinatari, prestazioni e modalità di accesso",
+            "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+            "livelli": [
+              {
+                "livello": "1 · In via di acquisizione",
+                "descrittore": "Rispetto a «Individua servizi per adolescenti effettivamente documentati distinguendo ente, destinatari, prestazioni e modalità di accesso», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+              },
+              {
+                "livello": "2 · Base",
+                "descrittore": "Rispetto a «Individua servizi per adolescenti effettivamente documentati distinguendo ente, destinatari, prestazioni e modalità di accesso», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+              },
+              {
+                "livello": "3 · Intermedio",
+                "descrittore": "Rispetto a «Individua servizi per adolescenti effettivamente documentati distinguendo ente, destinatari, prestazioni e modalità di accesso», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+              },
+              {
+                "livello": "4 · Avanzato",
+                "descrittore": "Rispetto a «Individua servizi per adolescenti effettivamente documentati distinguendo ente, destinatari, prestazioni e modalità di accesso», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+              }
+            ]
+          },
+          {
+            "competenza": 7,
+            "indicatore": "Seleziona e presenta informazioni sui servizi pertinenti ai bisogni degli adolescenti",
+            "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+            "livelli": [
+              {
+                "livello": "1 · In via di acquisizione",
+                "descrittore": "Rispetto a «Seleziona e presenta informazioni sui servizi pertinenti ai bisogni degli adolescenti», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+              },
+              {
+                "livello": "2 · Base",
+                "descrittore": "Rispetto a «Seleziona e presenta informazioni sui servizi pertinenti ai bisogni degli adolescenti», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+              },
+              {
+                "livello": "3 · Intermedio",
+                "descrittore": "Rispetto a «Seleziona e presenta informazioni sui servizi pertinenti ai bisogni degli adolescenti», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+              },
+              {
+                "livello": "4 · Avanzato",
+                "descrittore": "Rispetto a «Seleziona e presenta informazioni sui servizi pertinenti ai bisogni degli adolescenti», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+              }
+            ]
+          }
+        ]
+      },
+      "situazione": {
+        "prima": "La mappa costruita al primo anno è parziale e su carta; consultori, sportelli e spazi giovani esistono, ma gli adolescenti che ne avrebbero bisogno non sanno dove siano né che cosa offrano.",
+        "dopo": "Un adolescente cerca opportunità di ascolto, supporto e partecipazione nel territorio. Gli studenti individuano i servizi rivolti ai coetanei, verificano a chi si rivolgono e come si accede, e preparano una guida con linguaggio adeguato ai destinatari."
+      },
+      "prodotto": {
+        "prima": "Mappa digitale interattiva presentata pubblicamente e mini-guida ai servizi per adolescenti.",
+        "dopo": "Guida ai servizi per i coetanei con mappa digitale, riferimenti verificabili e breve riscontro sulla comprensibilità."
+      },
+      "beneficiari": {
+        "prima": "Le famiglie e i cittadini del comune, tramite la pubblicazione della mappa; gli studenti dell'istituto, tramite la guida.",
+        "dopo": "Studenti e adolescenti destinatari della guida; modalità di consultazione e diffusione da concordare."
+      }
+    }
+  },
+  {
+    "id": "U2.2",
+    "campi": {
+      "collocazione": {
+        "prima": null,
+        "dopo": ""
+      },
+      "raccordoProfilo": {
+        "prima": null,
+        "dopo": [
+          {
+            "competenza": 2,
+            "testo": "Competenza in uscita n° 2: Partecipare e cooperare nei gruppi di lavoro e nelle équipe multi-professionali in diversi contesti organizzativi /lavorativi."
+          },
+          {
+            "competenza": 3,
+            "testo": "Competenza in uscita n° 3: Facilitare la comunicazione tra persone e gruppi, anche di culture e contesti diversi, adottando modalità comunicative e relazionali adeguate ai diversi ambiti professionali e alle diverse tipologie di utenza."
+          }
+        ]
+      },
+      "condizioniRealizzazione": {
+        "prima": null,
+        "dopo": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta."
+      },
+      "situazione": {
+        "prima": "Ogni settembre le classi prime arrivano senza conoscere nessuno; nell'istituto convivono ragazzi di provenienze diverse, ma le occasioni per raccontare quelle differenze sono rare.",
+        "dopo": "Si progetta un’iniziativa di accoglienza scolastica che favorisca la partecipazione di studenti con esperienze e provenienze diverse. Il gruppo deve organizzare le attività e comunicarle in modo accessibile e rispettoso della riservatezza."
+      },
+      "beneficiari": {
+        "prima": "Gli studenti delle classi prime e le loro famiglie; la comunità scolastica, tramite il canale ufficiale dell'istituto.",
+        "dopo": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola."
+      }
+    }
+  },
+  {
+    "id": "U2.3",
+    "campi": {
+      "collocazione": {
+        "prima": null,
+        "dopo": ""
+      },
+      "raccordoProfilo": {
+        "prima": null,
+        "dopo": [
+          {
+            "competenza": 4,
+            "testo": "Competenza in uscita n° 4: Prendersi cura e collaborare al soddisfacimento dei bisogni di base di bambini, persone con disabilità, anziani nell’espletamento delle più comuni attività quotidiane."
+          },
+          {
+            "competenza": 5,
+            "testo": "Competenza in uscita n° 5: Partecipare alla presa in carico socio-assistenziale di soggetti le cui condizioni determinino uno stato di non autosufficienza parziale o totale, di terminalità, di compromissione delle capacità cognitive e motorie, applicando procedure e tecniche stabilite e facendo uso dei principali ausili e presidi."
+          }
+        ]
+      },
+      "condizioniRealizzazione": {
+        "prima": null,
+        "dopo": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta."
+      },
+      "situazione": {
+        "prima": "Alimentazione, sonno e movimento cambiano molto con l'età e le abitudini scorrette si consolidano quando nessuno le mette in discussione; e quando in famiglia arriva la malattia spesso non si sa chi fa che cosa fra medico, servizi sociali, ospedale e assistenza domiciliare.",
+        "dopo": "A partire da casi per fasce d’età, la classe prepara materiali sul benessere quotidiano e sui soggetti cui rivolgersi per un bisogno di cura. Le indicazioni devono distinguere promozione della salute, bisogni della persona e ruoli della rete di supporto."
+      },
+      "beneficiari": {
+        "prima": "Le famiglie degli studenti, destinatarie della guida.",
+        "dopo": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola."
+      }
+    }
+  },
+  {
+    "id": "U2.4",
+    "campi": {
+      "collocazione": {
+        "prima": null,
+        "dopo": ""
+      },
+      "raccordoProfilo": {
+        "prima": null,
+        "dopo": [
+          {
+            "competenza": 6,
+            "testo": "Competenza in uscita n° 6: Curare l’allestimento dell’ambiente di vita della persona in difficoltà con riferimento alle misure per la salvaguardia della sua sicurezza e incolumità, anche provvedendo alla promozione e al mantenimento delle capacità residue e della autonomia nel proprio ambiente di vita."
+          },
+          {
+            "competenza": 10,
+            "testo": "Competenza in uscita n° 10: Raccogliere, conservare, elaborare e trasmettere dati relativi alle attività professionali svolte ai fini del monitoraggio e della valutazione degli interventi e dei servizi utilizzando adeguati strumenti informativi in condizioni di sicurezza e affidabilità delle fonti utilizzate."
+          }
+        ]
+      },
+      "condizioniRealizzazione": {
+        "prima": null,
+        "dopo": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta."
+      },
+      "situazione": {
+        "prima": "Gli incidenti domestici sono la prima causa di infortunio per bambini e anziani e avvengono quasi sempre per rischi che si potevano rimuovere; ma di questa realtà si parla per impressioni, senza numeri.",
+        "dopo": "Si analizzano casi di ambienti domestici per individuare rischi e comportamenti preventivi. I dati disponibili sugli incidenti sono utilizzati indicando fonte, periodo e territorio, senza estendere i risultati a contesti non documentati."
+      },
+      "beneficiari": {
+        "prima": "Le famiglie del territorio, cui l'opuscolo viene distribuito.",
+        "dopo": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola."
+      }
+    }
+  },
+  {
+    "id": "U2.5",
+    "campi": {
+      "collocazione": {
+        "prima": null,
+        "dopo": ""
+      },
+      "raccordoProfilo": {
+        "prima": null,
+        "dopo": [
+          {
+            "competenza": 8,
+            "testo": "Competenza in uscita n° 8: Realizzare in autonomia o in collaborazione con altre figure professionali, attività educative, di animazione sociale, ludiche e culturali adeguate ai diversi contesti e ai diversi bisogni."
+          }
+        ]
+      },
+      "condizioniRealizzazione": {
+        "prima": null,
+        "dopo": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta."
+      },
+      "situazione": {
+        "prima": "All'open day l'istituto accoglie famiglie con bambini piccoli che restano ad aspettare senza nulla da fare mentre i genitori visitano la scuola.",
+        "dopo": "La scuola prepara un’attività di animazione per un evento concordato. Gli studenti progettano una proposta adeguata ai partecipanti, ne organizzano la conduzione e documentano partecipazione e possibili adattamenti."
+      },
+      "beneficiari": {
+        "prima": "I bambini e le famiglie in visita all'istituto.",
+        "dopo": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola."
+      }
+    }
+  },
+  {
+    "id": "U3.1",
+    "campi": {
+      "collocazione": {
+        "prima": null,
+        "dopo": ""
+      },
+      "raccordoProfilo": {
+        "prima": null,
+        "dopo": [
+          {
+            "competenza": 1,
+            "testo": "Competenza in uscita n° 1: Collaborare nella gestione di progetti e attività dei servizi sociali, socio-sanitari e socio-educativi, rivolti a bambini e adolescenti, persone con disabilità, anziani, minori a rischio, soggetti con disagio psico-sociale e altri soggetti in situazione di svantaggio, anche attraverso lo sviluppo di reti territoriali formali e informali."
+          },
+          {
+            "competenza": 10,
+            "testo": "Competenza in uscita n° 10: Raccogliere, conservare, elaborare e trasmettere dati relativi alle attività professionali svolte ai fini del monitoraggio e della valutazione degli interventi e dei servizi utilizzando adeguati strumenti informativi in condizioni di sicurezza e affidabilità delle fonti utilizzate."
+          }
+        ]
+      },
+      "condizioniRealizzazione": {
+        "prima": null,
+        "dopo": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta."
+      },
+      "situazione": {
+        "prima": "Rilevare un bisogno non basta: nei servizi va tradotto in un progetto scritto con obiettivi, azioni, responsabili e tempi; e i dati che lo giustificano vanno raccolti e trattati con regole precise.",
+        "dopo": "Un servizio simulato richiede di ordinare la documentazione relativa a un progetto individualizzato. Gli studenti lavorano su modelli e dati didattici, collegando bisogni, informazioni pertinenti e protezione dei dati."
+      },
+      "beneficiari": {
+        "prima": "Caso simulato; il progetto è valutato da un operatore dei servizi invitato in classe, il dossier è restituito al servizio o all'associazione osservata.",
+        "dopo": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola."
+      }
+    }
+  },
+  {
+    "id": "U3.2",
+    "campi": {
+      "collocazione": {
+        "prima": null,
+        "dopo": ""
+      },
+      "raccordoProfilo": {
+        "prima": null,
+        "dopo": [
+          {
+            "competenza": 2,
+            "testo": "Competenza in uscita n° 2: Partecipare e cooperare nei gruppi di lavoro e nelle équipe multi-professionali in diversi contesti organizzativi /lavorativi."
+          },
+          {
+            "competenza": 3,
+            "testo": "Competenza in uscita n° 3: Facilitare la comunicazione tra persone e gruppi, anche di culture e contesti diversi, adottando modalità comunicative e relazionali adeguate ai diversi ambiti professionali e alle diverse tipologie di utenza."
+          }
+        ]
+      },
+      "condizioniRealizzazione": {
+        "prima": null,
+        "dopo": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta."
+      },
+      "situazione": {
+        "prima": "Il primo colloquio decide se una persona tornerà; e ciò che vi si è raccolto va poi portato in équipe, dove figure professionali diverse devono arrivare a una scelta comune.",
+        "dopo": "Un utente viene accolto da un servizio simulato. Le informazioni emerse nel colloquio devono essere selezionate e condivise nella riunione d’équipe, rispettando ruoli professionali, bisogni comunicativi e riservatezza."
+      },
+      "beneficiari": {
+        "prima": "Caso simulato con utenti-tipo diversi per età, cultura e condizione; il verbale è il documento su cui si valuta il lavoro.",
+        "dopo": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola."
+      }
+    }
+  },
+  {
+    "id": "U3.3",
+    "campi": {
+      "collocazione": {
+        "prima": null,
+        "dopo": ""
+      },
+      "raccordoProfilo": {
+        "prima": null,
+        "dopo": [
+          {
+            "competenza": 4,
+            "testo": "Competenza in uscita n° 4: Prendersi cura e collaborare al soddisfacimento dei bisogni di base di bambini, persone con disabilità, anziani nell’espletamento delle più comuni attività quotidiane."
+          },
+          {
+            "competenza": 6,
+            "testo": "Competenza in uscita n° 6: Curare l’allestimento dell’ambiente di vita della persona in difficoltà con riferimento alle misure per la salvaguardia della sua sicurezza e incolumità, anche provvedendo alla promozione e al mantenimento delle capacità residue e della autonomia nel proprio ambiente di vita."
+          }
+        ]
+      },
+      "condizioniRealizzazione": {
+        "prima": null,
+        "dopo": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta."
+      },
+      "traguardo": {
+        "prima": "Programmare azioni di osservazione e accudimento del bambino e garantire la sicurezza dell'ambiente in cui si svolgono",
+        "dopo": "Programmare azioni guidate di osservazione e accudimento del bambino e rilevare le condizioni di sicurezza dell’ambiente"
+      },
+      "situazione": {
+        "prima": "Nella prima infanzia osservazione e accudimento richiedono strumenti precisi e norme igieniche rigorose; e l'ambiente in cui si opera va prima verificato con le procedure previste, non a voce.",
+        "dopo": "Un caso educativo descrive bisogni e attività quotidiane di un bambino. Gli studenti programmano azioni di osservazione e accudimento e verificano le condizioni di igiene e sicurezza dell’ambiente prima della simulazione."
+      },
+      "beneficiari": {
+        "prima": "I bambini e le educatrici del nido o della scuola dell'infanzia partner; il responsabile del servizio di prevenzione, cui va il report.",
+        "dopo": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola."
+      }
+    }
+  },
+  {
+    "id": "U3.4",
+    "campi": {
+      "collocazione": {
+        "prima": null,
+        "dopo": ""
+      },
+      "raccordoProfilo": {
+        "prima": null,
+        "dopo": [
+          {
+            "competenza": 5,
+            "testo": "Competenza in uscita n° 5: Partecipare alla presa in carico socio-assistenziale di soggetti le cui condizioni determinino uno stato di non autosufficienza parziale o totale, di terminalità, di compromissione delle capacità cognitive e motorie, applicando procedure e tecniche stabilite e facendo uso dei principali ausili e presidi."
+          },
+          {
+            "competenza": 9,
+            "testo": "Competenza in uscita n° 9: Realizzare, in collaborazione con altre figure professionali, azioni a sostegno e a tutela della persona con fragilità e/o disabilità e della sua famiglia, per favorire l’integrazione e migliorare o salvaguardare la qualità della vita."
+          }
+        ]
+      },
+      "condizioniRealizzazione": {
+        "prima": null,
+        "dopo": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta."
+      },
+      "situazione": {
+        "prima": "Dipendenze, uso problematico del digitale e affettività riguardano da vicino gli studenti dell'istituto, ma se ne parla solo quando è già successo qualcosa; e in rete le informazioni sulla prevenzione sono contraddittorie.",
+        "dopo": "La scuola propone di lavorare su un tema di prevenzione primaria scelto dopo una rilevazione guidata. Il gruppo deve distinguere bisogni documentati, risorse e vincoli, selezionare fonti affidabili e organizzare una semplice azione educativa."
+      },
+      "beneficiari": {
+        "prima": "Gli studenti dell'istituto e il referente per la salute.",
+        "dopo": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola."
+      }
+    }
+  },
+  {
+    "id": "U3.5",
+    "campi": {
+      "collocazione": {
+        "prima": null,
+        "dopo": ""
+      },
+      "raccordoProfilo": {
+        "prima": null,
+        "dopo": [
+          {
+            "competenza": 7,
+            "testo": "Competenza in uscita n°7: Gestire azioni di informazione e di orientamento dell’utente per facilitare l’accessibilità e la fruizione autonoma dei servizi pubblici e privati presenti sul territorio."
+          },
+          {
+            "competenza": 8,
+            "testo": "Competenza in uscita n° 8: Realizzare in autonomia o in collaborazione con altre figure professionali, attività educative, di animazione sociale, ludiche e culturali adeguate ai diversi contesti e ai diversi bisogni."
+          }
+        ]
+      },
+      "condizioniRealizzazione": {
+        "prima": null,
+        "dopo": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta."
+      }
+    }
+  },
+  {
+    "id": "U4.1",
+    "campi": {
+      "collocazione": {
+        "prima": null,
+        "dopo": ""
+      },
+      "raccordoProfilo": {
+        "prima": null,
+        "dopo": [
+          {
+            "competenza": 1,
+            "testo": "Competenza in uscita n° 1: Collaborare nella gestione di progetti e attività dei servizi sociali, socio-sanitari e socio-educativi, rivolti a bambini e adolescenti, persone con disabilità, anziani, minori a rischio, soggetti con disagio psico-sociale e altri soggetti in situazione di svantaggio, anche attraverso lo sviluppo di reti territoriali formali e informali."
+          },
+          {
+            "competenza": 10,
+            "testo": "Competenza in uscita n° 10: Raccogliere, conservare, elaborare e trasmettere dati relativi alle attività professionali svolte ai fini del monitoraggio e della valutazione degli interventi e dei servizi utilizzando adeguati strumenti informativi in condizioni di sicurezza e affidabilità delle fonti utilizzate."
+          }
+        ]
+      },
+      "condizioniRealizzazione": {
+        "prima": null,
+        "dopo": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta."
+      },
+      "situazione": {
+        "prima": "Un progetto sociale non si regge sulle buone intenzioni: senza gestione amministrativa corretta i finanziamenti non arrivano o vanno restituiti; e chi decide come impiegare le risorse ha bisogno di dati elaborati, non di impressioni.",
+        "dopo": "Un servizio simulato affida al gruppo la documentazione di un progetto. Gli studenti organizzano attività e dati amministrativi e contabili e preparano un report che renda verificabili le informazioni utilizzate."
+      },
+      "beneficiari": {
+        "prima": "Progetto simulato; la documentazione è verificata secondo la modulistica reale e il report è indirizzato al servizio o all'ente di riferimento.",
+        "dopo": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola."
+      }
+    }
+  },
+  {
+    "id": "U4.2",
+    "campi": {
+      "collocazione": {
+        "prima": null,
+        "dopo": ""
+      },
+      "raccordoProfilo": {
+        "prima": null,
+        "dopo": [
+          {
+            "competenza": 2,
+            "testo": "Competenza in uscita n° 2: Partecipare e cooperare nei gruppi di lavoro e nelle équipe multi-professionali in diversi contesti organizzativi /lavorativi."
+          },
+          {
+            "competenza": 3,
+            "testo": "Competenza in uscita n° 3: Facilitare la comunicazione tra persone e gruppi, anche di culture e contesti diversi, adottando modalità comunicative e relazionali adeguate ai diversi ambiti professionali e alle diverse tipologie di utenza."
+          }
+        ]
+      },
+      "condizioniRealizzazione": {
+        "prima": null,
+        "dopo": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta."
+      },
+      "situazione": {
+        "prima": "Nella relazione d'aiuto conta come si dice più di che cosa si dice, e le distorsioni comunicative sfuggono a chi non ha strumenti per rilevarle; portare poi il caso in équipe richiede di selezionare le informazioni rilevanti ed esporle in modo che gli altri possano decidere.",
+        "dopo": "Il gruppo osserva colloqui simulati attraverso griglie condivise. Deve riconoscere le dinamiche comunicative, proporre adattamenti alla relazione d’aiuto e presentarli all’équipe con dati e supporti pertinenti."
+      },
+      "beneficiari": {
+        "prima": "Équipe simulata composta dai compagni nei diversi ruoli professionali; le griglie restano come strumento di lavoro per il PCTO.",
+        "dopo": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola."
+      }
+    }
+  },
+  {
+    "id": "U4.3",
+    "campi": {
+      "collocazione": {
+        "prima": null,
+        "dopo": ""
+      },
+      "raccordoProfilo": {
+        "prima": null,
+        "dopo": [
+          {
+            "competenza": 4,
+            "testo": "Competenza in uscita n° 4: Prendersi cura e collaborare al soddisfacimento dei bisogni di base di bambini, persone con disabilità, anziani nell’espletamento delle più comuni attività quotidiane."
+          },
+          {
+            "competenza": 6,
+            "testo": "Competenza in uscita n° 6: Curare l’allestimento dell’ambiente di vita della persona in difficoltà con riferimento alle misure per la salvaguardia della sua sicurezza e incolumità, anche provvedendo alla promozione e al mantenimento delle capacità residue e della autonomia nel proprio ambiente di vita."
+          }
+        ]
+      },
+      "condizioniRealizzazione": {
+        "prima": null,
+        "dopo": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta."
+      }
+    }
+  },
+  {
+    "id": "U4.4",
+    "campi": {
+      "collocazione": {
+        "prima": null,
+        "dopo": ""
+      },
+      "raccordoProfilo": {
+        "prima": null,
+        "dopo": [
+          {
+            "competenza": 5,
+            "testo": "Competenza in uscita n° 5: Partecipare alla presa in carico socio-assistenziale di soggetti le cui condizioni determinino uno stato di non autosufficienza parziale o totale, di terminalità, di compromissione delle capacità cognitive e motorie, applicando procedure e tecniche stabilite e facendo uso dei principali ausili e presidi."
+          },
+          {
+            "competenza": 9,
+            "testo": "Competenza in uscita n° 9: Realizzare, in collaborazione con altre figure professionali, azioni a sostegno e a tutela della persona con fragilità e/o disabilità e della sua famiglia, per favorire l’integrazione e migliorare o salvaguardare la qualità della vita."
+          }
+        ]
+      },
+      "condizioniRealizzazione": {
+        "prima": null,
+        "dopo": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta."
+      }
+    }
+  },
+  {
+    "id": "U4.5",
+    "campi": {
+      "collocazione": {
+        "prima": null,
+        "dopo": ""
+      },
+      "raccordoProfilo": {
+        "prima": null,
+        "dopo": [
+          {
+            "competenza": 7,
+            "testo": "Competenza in uscita n°7: Gestire azioni di informazione e di orientamento dell’utente per facilitare l’accessibilità e la fruizione autonoma dei servizi pubblici e privati presenti sul territorio."
+          },
+          {
+            "competenza": 8,
+            "testo": "Competenza in uscita n° 8: Realizzare in autonomia o in collaborazione con altre figure professionali, attività educative, di animazione sociale, ludiche e culturali adeguate ai diversi contesti e ai diversi bisogni."
+          }
+        ]
+      },
+      "condizioniRealizzazione": {
+        "prima": null,
+        "dopo": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta."
+      }
+    }
+  },
+  {
+    "id": "U5.1",
+    "campi": {
+      "collocazione": {
+        "prima": null,
+        "dopo": ""
+      },
+      "raccordoProfilo": {
+        "prima": null,
+        "dopo": [
+          {
+            "competenza": 1,
+            "testo": "Competenza in uscita n° 1: Collaborare nella gestione di progetti e attività dei servizi sociali, socio-sanitari e socio-educativi, rivolti a bambini e adolescenti, persone con disabilità, anziani, minori a rischio, soggetti con disagio psico-sociale e altri soggetti in situazione di svantaggio, anche attraverso lo sviluppo di reti territoriali formali e informali."
+          },
+          {
+            "competenza": 10,
+            "testo": "Competenza in uscita n° 10: Raccogliere, conservare, elaborare e trasmettere dati relativi alle attività professionali svolte ai fini del monitoraggio e della valutazione degli interventi e dei servizi utilizzando adeguati strumenti informativi in condizioni di sicurezza e affidabilità delle fonti utilizzate."
+          }
+        ]
+      },
+      "condizioniRealizzazione": {
+        "prima": null,
+        "dopo": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta."
+      },
+      "traguardo": {
+        "prima": "Gestire un progetto di servizio con la rete territoriale e valutarne gli esiti con indicatori e criteri di accreditamento",
+        "dopo": "Collaborare alla gestione simulata di un progetto di servizio e al monitoraggio degli esiti con dati e indicatori di qualità"
+      },
+      "situazione": {
+        "prima": "Un servizio alla persona sta in piedi solo se bisogni, risorse, rete e rendicontazione reggono insieme; e un servizio che non misura i propri risultati non può migliorarli, né dimostrare di possedere i requisiti per l'accreditamento.",
+        "dopo": "Un servizio simulato deve pianificare e monitorare un intervento. Gli studenti collaborano alla definizione di attività, risorse e raccordi territoriali e costruiscono indicatori per documentare risultati e qualità del servizio."
+      },
+      "beneficiari": {
+        "prima": "Servizio simulato; il progetto e la relazione sono presentati a un responsabile del settore.",
+        "dopo": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola."
+      }
+    }
+  },
+  {
+    "id": "U5.2",
+    "campi": {
+      "collocazione": {
+        "prima": null,
+        "dopo": ""
+      },
+      "raccordoProfilo": {
+        "prima": null,
+        "dopo": [
+          {
+            "competenza": 2,
+            "testo": "Competenza in uscita n° 2: Partecipare e cooperare nei gruppi di lavoro e nelle équipe multi-professionali in diversi contesti organizzativi /lavorativi."
+          },
+          {
+            "competenza": 3,
+            "testo": "Competenza in uscita n° 3: Facilitare la comunicazione tra persone e gruppi, anche di culture e contesti diversi, adottando modalità comunicative e relazionali adeguate ai diversi ambiti professionali e alle diverse tipologie di utenza."
+          }
+        ]
+      },
+      "condizioniRealizzazione": {
+        "prima": null,
+        "dopo": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta."
+      },
+      "situazione": {
+        "prima": "Nel case management il coordinamento fra professionisti è la parte più difficile; e in un servizio frequentato da utenti stranieri o con difficoltà cognitive la comunicazione ordinaria esclude proprio chi avrebbe più bisogno di capire.",
+        "dopo": "Un caso simulato richiede il contributo di più figure professionali e modalità di comunicazione adatte alla persona. Gli studenti cooperano nei ruoli assegnati e predispongono materiali accessibili, motivando scelte linguistiche e relazionali."
+      },
+      "beneficiari": {
+        "prima": "Gli utenti del servizio, tramite i materiali in linguaggio accessibile; caso simulato in équipe multi-professionale.",
+        "dopo": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola."
+      }
+    }
+  },
+  {
+    "id": "U5.3",
+    "campi": {
+      "collocazione": {
+        "prima": null,
+        "dopo": ""
+      },
+      "raccordoProfilo": {
+        "prima": null,
+        "dopo": [
+          {
+            "competenza": 4,
+            "testo": "Competenza in uscita n° 4: Prendersi cura e collaborare al soddisfacimento dei bisogni di base di bambini, persone con disabilità, anziani nell’espletamento delle più comuni attività quotidiane."
+          },
+          {
+            "competenza": 6,
+            "testo": "Competenza in uscita n° 6: Curare l’allestimento dell’ambiente di vita della persona in difficoltà con riferimento alle misure per la salvaguardia della sua sicurezza e incolumità, anche provvedendo alla promozione e al mantenimento delle capacità residue e della autonomia nel proprio ambiente di vita."
+          }
+        ]
+      },
+      "condizioniRealizzazione": {
+        "prima": null,
+        "dopo": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta."
+      },
+      "situazione": {
+        "prima": "Un piano assistenziale scritto bene resta inutile finché non si traduce nelle attività concrete di ogni giornata; e restare nella propria casa, ciò che quasi tutti desiderano, senza adattamenti e ausili adeguati diventa impossibile.",
+        "dopo": "Un PAI didattico descrive bisogni, preferenze e capacità residue della persona. Gli studenti formulano proposte per le attività quotidiane e l’adattamento dell’abitazione, verificando la coerenza fra autonomia, sicurezza e ausili previsti."
+      },
+      "beneficiari": {
+        "prima": "Caso simulato riferito a un servizio realmente esistente sul territorio; il progetto di adattamento è valutato da un tecnico o da un terapista.",
+        "dopo": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola."
+      }
+    }
+  },
+  {
+    "id": "U5.4",
+    "campi": {
+      "collocazione": {
+        "prima": null,
+        "dopo": ""
+      },
+      "raccordoProfilo": {
+        "prima": null,
+        "dopo": [
+          {
+            "competenza": 5,
+            "testo": "Competenza in uscita n° 5: Partecipare alla presa in carico socio-assistenziale di soggetti le cui condizioni determinino uno stato di non autosufficienza parziale o totale, di terminalità, di compromissione delle capacità cognitive e motorie, applicando procedure e tecniche stabilite e facendo uso dei principali ausili e presidi."
+          },
+          {
+            "competenza": 9,
+            "testo": "Competenza in uscita n° 9: Realizzare, in collaborazione con altre figure professionali, azioni a sostegno e a tutela della persona con fragilità e/o disabilità e della sua famiglia, per favorire l’integrazione e migliorare o salvaguardare la qualità della vita."
+          }
+        ]
+      },
+      "condizioniRealizzazione": {
+        "prima": null,
+        "dopo": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta."
+      }
+    }
+  },
+  {
+    "id": "U5.5",
+    "campi": {
+      "collocazione": {
+        "prima": null,
+        "dopo": ""
+      },
+      "raccordoProfilo": {
+        "prima": null,
+        "dopo": [
+          {
+            "competenza": 7,
+            "testo": "Competenza in uscita n°7: Gestire azioni di informazione e di orientamento dell’utente per facilitare l’accessibilità e la fruizione autonoma dei servizi pubblici e privati presenti sul territorio."
+          },
+          {
+            "competenza": 8,
+            "testo": "Competenza in uscita n° 8: Realizzare in autonomia o in collaborazione con altre figure professionali, attività educative, di animazione sociale, ludiche e culturali adeguate ai diversi contesti e ai diversi bisogni."
+          }
+        ]
+      },
+      "condizioniRealizzazione": {
+        "prima": null,
+        "dopo": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta."
+      }
+    }
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "tools/genera_uda_unificate.py": "76947d6e0965bf10cd3cc478f98897119e4b818fbc44a61db51c022f87d00a22",
+  "tools/revisione_uda_unificate.json": "f27da7f57e6d23a195f22dd6a0747a8d7e566808edae7f1f824a8bbe9e7fbcb8",
+  "data-uda-unificate.json": "2c63c3a92d67d5ce7c748eda3ad4b695c16cebe3527f31b39a2ef19a167b7e2c",
+  "uda-unificate.html": "5a641704399454a7e93be86e86d12a505875fea575e9c8e85f59e79f7fa99a39",
+  "uda-unificate.js": "0bef853e185a1c06baf85b3e7f5dad3973ed92c962a0bbb7c6d63aee8cdac7a9",
+  "pfi.html": "c4656e3174ff6899355d80d49a1de59424b63d4d399708f3fb7f2c9a7569c8ec",
+  "README.md": "96bfd437dc7fff6cc01fe276ecfa7d2b252699aa97311e986c8cc710ca07d68c",
+  "tools/verifica_uda_unificate.py": "275553dd78b215cebbc646c8f2e281fc5ad5d523907aea3026c179113c1e2666",
+  "tools/verifica_uda_unificate.cjs": "ad973765344f30a95c55891e12c7c225f47685ca891ae6f73d63a38f4020b879",
+  "tools/verifica_correzioni_piano.cjs": "79972955e4bebfdcc62e7aef3f4e1777d3ebf01420ace503921cefec159105f4",
+  "tools/verifica_sezioni_docenti.cjs": "62a0cd9efd79ba76b1fa73345d8191a1d8c589525cd3d36f4f40321c90e5b192"
+}

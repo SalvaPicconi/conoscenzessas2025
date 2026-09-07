@@ -587,178 +587,178 @@ function svuota() {
 
 function esportaWord() {
     const d = raccogli().campi;
-    const stile = `<style>
-        body { font-family: "Times New Roman", serif; font-size: 11pt; color: #000; }
-        h1 { font-size: 14pt; text-align: center; margin: 0 0 4pt; }
-        .sub { text-align: center; font-size: 10pt; margin: 0 0 2pt; }
-        h2 { font-size: 12pt; border-bottom: 1pt solid #000; padding-bottom: 2pt; margin: 16pt 0 6pt; }
-        h3 { font-size: 11pt; margin: 10pt 0 4pt; }
-        table { width: 100%; border-collapse: collapse; margin-bottom: 8pt; }
-        td, th { border: 1px solid #808080; padding: 4pt 5pt; vertical-align: top; font-size: 10pt; }
-        th { background: #f0f0f0; text-align: left; font-weight: bold; }
-        .lab { width: 34%; font-weight: bold; background: #fafafa; }
-        .fonte { font-size: 8pt; color: #555; font-style: italic; margin: 0 0 6pt; }
-        .uda { border: 1px solid #666; padding: 6pt 8pt; margin-bottom: 8pt; page-break-inside: avoid; }
-        .uda-t { font-weight: bold; font-size: 11pt; margin: 0 0 4pt; }
-        .firme td { border: none; border-top: 1px solid #000; padding-top: 4pt; font-size: 9pt; height: 46pt; vertical-align: bottom; }
-    </style>`;
+    const D = window.DocumentoOffice;
+    const vuoto = '—';
+    const nodi = [];
 
-    const p = [];
-    p.push(stile);
-    p.push(`<p class="sub">${esc(d.istituto)}</p>`);
-    p.push('<h1>PROGETTO FORMATIVO INDIVIDUALE</h1>');
-    p.push(`<p class="sub">${esc(d.indirizzo)} — Anno scolastico ${esc(d.annoScolastico)}</p>`);
-    p.push('<p class="fonte">Redatto ai sensi del D.Lgs. 13 aprile 2017 n. 61, art. 5 c. 1 lett. a) e del D.M. 24 maggio 2018 n. 92, artt. 4 e 6.</p>');
+    nodi.push(D.paragrafo(d.istituto || '', 'istituto'));
+    nodi.push(D.linea());
+    nodi.push(D.titolo(1, 'PROGETTO FORMATIVO INDIVIDUALE'));
+    nodi.push(D.paragrafo(`${d.indirizzo || ''} — Anno scolastico ${d.annoScolastico || '________'}`, 'sottotitolo'));
+    nodi.push(D.paragrafo('Redatto ai sensi del D.Lgs. 13 aprile 2017 n. 61, art. 5 c. 1 lett. a) e del D.M. 24 maggio 2018 n. 92, artt. 4 e 6.', 'catenaccio'));
 
-    p.push('<h2>Quadro 1 — Dati generali e anagrafici</h2>');
-    p.push(tab([
-        ['Cognome e nome', `${esc(d.cognome)} ${esc(d.nome)}`],
-        ['Data e luogo di nascita', `${esc(d.dataNascita)} — ${esc(d.luogoNascita)}`],
-        ['Residenza', esc(d.residenza)],
-        ['Classe', esc(d.classe)],
-        ['Codice ATECO / NUP', `${esc(d.ateco)} / ${esc(d.nup)}`],
+    nodi.push(D.titolo(2, 'Quadro 1 — Dati generali e anagrafici'));
+    nodi.push(tab([
+        ['Cognome e nome', `${d.cognome || ''} ${d.nome || ''}`.trim()],
+        ['Data e luogo di nascita', `${d.dataNascita || ''} — ${d.luogoNascita || ''}`],
+        ['Residenza', d.residenza],
+        ['Classe', d.classe],
+        ['Codice ATECO / NUP', `${d.ateco || ''} / ${d.nup || ''}`],
         ['Bisogni educativi speciali', [
             d.bes_dsa && 'DSA', d.bes_cdc && 'BES rilevato dal CdC',
             d.bes_doc && 'con documentazione', d.bes_104 && 'L. 104/1992'
-        ].filter(Boolean).join('; ') || '—'],
-        ['Livello di lingua italiana', `scritto ${esc(d.italianoScritto) || '—'} · orale ${esc(d.italianoOrale) || '—'}`],
-        ['Docenti tutor', ANNI.map(a => d[`tutor_${a}`] ? `${ANNO_ETICHETTA[a]}: ${esc(d[`tutor_${a}`])}` : null).filter(Boolean).join(' · ') || '—']
+        ].filter(Boolean).join('; ')],
+        ['Livello di lingua italiana', `scritto ${d.italianoScritto || vuoto} · orale ${d.italianoOrale || vuoto}`],
+        ['Docenti tutor', ANNI.map(a => d[`tutor_${a}`] ? `${ANNO_ETICHETTA[a]}: ${d[`tutor_${a}`]}` : null).filter(Boolean).join(' · ')]
     ]));
 
-    p.push('<h2>Quadro 2 — Sintesi del bilancio personale iniziale</h2>');
-    p.push(`<p class="fonte">Rilevazione del ${esc(d.bilancioData) || '__________'}</p>`);
-    p.push('<h3>Profilo dell\'allievo</h3>');
-    p.push(par(d.profilo));
-    p.push('<h3>Competenze acquisite in contesti formali</h3>');
-    p.push(tab([
-        ['Precedenti esperienze di istruzione e formazione', esc(d.precedentiEsperienze)],
-        ['Eventuali ripetenze', esc(d.ripetenze)],
-        ['Titolo di studio e votazione', esc(d.titoloStudio)],
-        ['Certificazione del primo ciclo e INVALSI', esc(d.certificazionePrimoCiclo)],
-        ['Esiti delle prove di ingresso', esc(d.proveIngresso)],
-        ['Debiti in ingresso', esc(d.debitiIngresso)],
-        ['Crediti dimostrabili', esc(d.creditiIngresso)],
-        ['Precedenti esperienze di formazione scuola-lavoro (ex PCTO) o apprendistato', esc(d.esperienzePcto)]
+    nodi.push(D.titolo(2, 'Quadro 2 — Sintesi del bilancio personale iniziale'));
+    nodi.push(D.paragrafo(`Rilevazione del ${d.bilancioData || '__________'}`, 'fonte'));
+    nodi.push(D.titolo(3, 'Profilo dell’allievo'));
+    nodi.push(D.paragrafo(d.profilo || vuoto));
+    nodi.push(D.titolo(3, 'Competenze acquisite in contesti formali'));
+    nodi.push(tab([
+        ['Precedenti esperienze di istruzione e formazione', d.precedentiEsperienze],
+        ['Eventuali ripetenze', d.ripetenze],
+        ['Titolo di studio e votazione', d.titoloStudio],
+        ['Certificazione del primo ciclo e INVALSI', d.certificazionePrimoCiclo],
+        ['Esiti delle prove di ingresso', d.proveIngresso],
+        ['Debiti in ingresso', d.debitiIngresso],
+        ['Crediti dimostrabili', d.creditiIngresso],
+        ['Precedenti esperienze di formazione scuola-lavoro (ex PCTO) o apprendistato', d.esperienzePcto]
     ]));
-    p.push('<h3>Competenze acquisite in contesti non formali e informali</h3>');
-    p.push(tab([
-        ['Attitudini', esc(d.attitudini)],
-        ['Risorse e motivazione', esc(d.motivazione)],
-        ['Aspettative per il futuro', esc(d.aspettative)],
-        ['Capacità di studiare e lavorare con altri', esc(d.capacitaSociali)],
-        ['Problematiche sociali o personali', esc(d.problematiche)],
-        ['Altre attività significative', esc(d.altreAttivita)]
-    ]));
-
-    p.push('<h2>Quadro 3 — Obiettivi previsti in termini di personalizzazione</h2>');
-    p.push(par(d.obiettivi));
-    p.push(tab([
-        ['Apprendimento della lingua italiana', esc(d.obiettivoItaliano)],
-        ['Partecipazione alla vita scolastica', esc(d.obiettivoPartecipazione)],
-        ['Qualifiche e certificazioni', esc(d.obiettivoCertificazioni)],
-        ['Crediti per passaggi ad altri indirizzi o sistemi', esc(d.obiettivoCrediti)]
+    nodi.push(D.titolo(3, 'Competenze acquisite in contesti non formali e informali'));
+    nodi.push(tab([
+        ['Attitudini', d.attitudini],
+        ['Risorse e motivazione', d.motivazione],
+        ['Aspettative per il futuro', d.aspettative],
+        ['Capacità di studiare e lavorare con altri', d.capacitaSociali],
+        ['Problematiche sociali o personali', d.problematiche],
+        ['Altre attività significative', d.altreAttivita]
     ]));
 
-    p.push('<h2>Quadro 4 — Strumenti didattici particolari previsti</h2>');
+    nodi.push(D.titolo(2, 'Quadro 3 — Obiettivi previsti in termini di personalizzazione'));
+    nodi.push(D.paragrafo(d.obiettivi || vuoto));
+    nodi.push(tab([
+        ['Apprendimento della lingua italiana', d.obiettivoItaliano],
+        ['Partecipazione alla vita scolastica', d.obiettivoPartecipazione],
+        ['Qualifiche e certificazioni', d.obiettivoCertificazioni],
+        ['Crediti per passaggi ad altri indirizzi o sistemi', d.obiettivoCrediti]
+    ]));
+
+    nodi.push(D.titolo(2, 'Quadro 4 — Strumenti didattici particolari previsti'));
     const strumenti = [
         d.str_formulari && 'Formulari, schemi e mappe concettuali',
         d.str_tempi && 'Tempi aggiuntivi nelle verifiche',
         d.str_digitali && 'Strumenti compensativi digitali',
         d.str_orale && 'Prevalenza della verifica orale'
     ].filter(Boolean);
-    p.push(strumenti.length ? `<ul>${strumenti.map(s => `<li>${s}</li>`).join('')}</ul>` : '<p>—</p>');
-    if (d.strumentiAltro) p.push(par(d.strumentiAltro));
+    nodi.push(strumenti.length ? D.elenco(strumenti) : D.paragrafo(vuoto));
+    if (d.strumentiAltro) nodi.push(D.paragrafo(d.strumentiAltro));
 
-    p.push('<h2>Quadro 5 — Interventi di personalizzazione del percorso</h2>');
-    p.push('<p class="fonte">Quota di personalizzazione fino a 264 ore nel biennio — D.Lgs. 61/2017 art. 4 c. 2.</p>');
-    let righe = `<tr><th>Tipo di intervento</th><th>Attività</th>${ANNI.map(a => `<th>Ore ${ANNO_ETICHETTA[a]}</th>`).join('')}</tr>`;
+    nodi.push(D.titolo(2, 'Quadro 5 — Interventi di personalizzazione del percorso'));
+    nodi.push(D.paragrafo('Quota di personalizzazione fino a 264 ore nel biennio — D.Lgs. 61/2017 art. 4 c. 2.', 'fonte'));
+    const righeInterventi = [];
     INTERVENTI.forEach((voce, i) => {
         const att = d[`int_${i}_att`] || '';
         const ore = ANNI.map(a => d[`int_${i}_ore_${a}`] || '');
         if (!att && !ore.some(Boolean)) return;
-        righe += `<tr><td>${esc(voce)}</td><td>${esc(att)}</td>${ore.map(o => `<td>${esc(o)}</td>`).join('')}</tr>`;
+        righeInterventi.push([voce, att, ...ore.map(o => ({ frammenti: D.frammenti(o), allineamento: 'center' }))]);
     });
-    p.push(`<table>${righe}</table>`);
+    if (righeInterventi.length) {
+        nodi.push(D.tabella({
+            intestazioni: ['Tipo di intervento', 'Attività', ...ANNI.map(a => `Ore ${ANNO_ETICHETTA[a]}`)],
+            larghezze: [26, 34, 8, 8, 8, 8, 8],
+            righe: righeInterventi
+        }));
+    } else {
+        nodi.push(D.paragrafo('Nessun intervento di personalizzazione registrato.', 'nota'));
+    }
 
-    p.push('<h2>Quadro 6 — Verifica periodica e revisione</h2>');
-    p.push('<p class="fonte">La valutazione ha per oggetto «i risultati delle unità di apprendimento inserite nel P.F.I.» — D.M. 92/2018 art. 4 c. 7.</p>');
+    nodi.push(D.titolo(2, 'Quadro 6 — Verifica periodica e revisione'));
+    nodi.push(D.paragrafo('La valutazione ha per oggetto «i risultati delle unità di apprendimento inserite nel P.F.I.» — D.M. 92/2018 art. 4 c. 7.', 'fonte'));
     ANNI.forEach(a => {
-        const vuoto = !['as', 'freq', 'esito', 'carenze', 'revisione', 'data'].some(k => d[`an_${a}_${k}`]);
-        if (vuoto) return;
-        p.push(`<h3>${ANNO_ETICHETTA[a]} annualità — a.s. ${esc(d[`an_${a}_as`])}</h3>`);
-        p.push(tab([
-            ['Frequenza', esc(d[`an_${a}_freq`])],
-            ['Esito della valutazione delle UDA', esc(d[`an_${a}_esito`])],
-            ['Carenze e misure', esc(d[`an_${a}_carenze`])],
-            ['Revisione del PFI', esc(d[`an_${a}_revisione`])],
-            ['Data della verifica', esc(d[`an_${a}_data`])],
-            a === 2 ? ['Certificato di competenze', esc(d.an_2_certificato)] : null,
-            ['Docente tutor', esc(d[`an_${a}_tutorfirma`])]
-        ].filter(Boolean)));
+        const campi = ['as', 'freq', 'esito', 'carenze', 'revisione', 'data'];
+        if (!campi.some(k => d[`an_${a}_${k}`])) return;
+        nodi.push(D.titolo(3, `${ANNO_ETICHETTA[a]} annualità — a.s. ${d[`an_${a}_as`] || ''}`));
+        nodi.push(tab([
+            ['Frequenza', d[`an_${a}_freq`]],
+            ['Esito della valutazione delle UDA', d[`an_${a}_esito`]],
+            ['Carenze e misure', d[`an_${a}_carenze`]],
+            ['Revisione del PFI', d[`an_${a}_revisione`]],
+            ['Data della verifica', d[`an_${a}_data`]],
+            ...(a === 2 ? [['Certificato di competenze', d.an_2_certificato]] : []),
+            ['Docente tutor', d[`an_${a}_tutorfirma`]]
+        ]));
     });
 
-    p.push('<h2>Quadro 7 — Piano didattico delle unità di apprendimento</h2>');
-    p.push('<p class="fonte">Parte integrante del presente documento. Le UDA sono quelle «nelle quali è strutturato il Progetto formativo individuale» — D.M. 92/2018 art. 4 c. 6.</p>');
+    nodi.push(D.titolo(2, 'Quadro 7 — Piano didattico delle unità di apprendimento'));
+    nodi.push(D.paragrafo('Parte integrante del presente documento. Le UDA sono quelle «nelle quali è strutturato il Progetto formativo individuale» — D.M. 92/2018 art. 4 c. 6.', 'fonte'));
     if (!stato.uda.length) {
-        p.push('<p><em>Nessuna unità di apprendimento inserita.</em></p>');
+        nodi.push(D.paragrafo('Nessuna unità di apprendimento inserita.', 'nota'));
     } else {
         stato.uda.forEach((u, i) => {
-            p.push(`<div class="uda">
-                <p class="uda-t">UDA ${i + 1} — ${esc(u.titolo)}</p>
-                ${tab([
-                    ['Tipo e anno', `${esc(u.tipo)}${u.anno ? ' · ' + ANNO_ETICHETTA[u.anno] : ''}${u.periodo ? ' · ' + esc(u.periodo) : ''}`],
-                    ['Competenze target · C = SSAS, AG = area generale', esc(u.competenze)],
-                    ['Competenze chiave europee', esc(u.europee)],
-                    ['Insegnamenti coinvolti', esc(u.insegnamenti)],
-                    ['Saperi essenziali mobilitati', esc(u.saperi)],
-                    ['Situazione, problema o tema', esc(u.situazione || u.compito)],
-                    ['Prodotto da realizzare', esc(u.prodotto || u.compito)],
-                    ['Beneficiari', esc(u.beneficiari)],
-                    ['Ambito', esc(u.ambito)],
-                    ['Attività degli studenti', esc(u.attivita)],
-                    ['Monte ore', esc(u.ore)],
-                    ['Criteri ed evidenze di valutazione', esc(u.valutazione)],
-                    ['Livello di padronanza raggiunto', `${esc(u.livello) || '—'}${u.qnq ? ' · QNQ ' + esc(u.qnq) : ''}`]
-                ].filter(r => r[1]))}
-            </div>`);
+            nodi.push(D.titolo(3, `UDA ${i + 1} — ${u.titolo || ''}`));
+            nodi.push(tab([
+                ['Tipo e anno', `${u.tipo || ''}${u.anno ? ' · ' + ANNO_ETICHETTA[u.anno] : ''}${u.periodo ? ' · ' + u.periodo : ''}`],
+                ['Competenze target · C = SSAS, AG = area generale', u.competenze],
+                ['Competenze chiave europee', u.europee],
+                ['Insegnamenti coinvolti', u.insegnamenti],
+                ['Saperi essenziali mobilitati', u.saperi],
+                ['Situazione, problema o tema', u.situazione || u.compito],
+                ['Prodotto da realizzare', u.prodotto || u.compito],
+                ['Beneficiari', u.beneficiari],
+                ['Ambito', u.ambito],
+                ['Attività degli studenti', u.attivita],
+                ['Monte ore', u.ore],
+                ['Criteri ed evidenze di valutazione', u.valutazione],
+                ['Livello di padronanza raggiunto', `${u.livello || vuoto}${u.qnq ? ' · QNQ ' + u.qnq : ''}`]
+            ]));
         });
     }
 
-    p.push('<h2>Quadro 8 — Livelli di padronanza delle competenze</h2>');
-    p.push('<p class="fonte">Valutazione collegiale del consiglio di classe riferita alle UDA — Linee guida § 3.2.2 e Box n. 8 voce 8.</p>');
+    nodi.push(D.titolo(2, 'Quadro 8 — Livelli di padronanza delle competenze'));
+    nodi.push(D.paragrafo('Valutazione collegiale del consiglio di classe riferita alle UDA — Linee guida § 3.2.2 e Box n. 8 voce 8.', 'fonte'));
     if (stato.uda.length) {
-        p.push(`<table><tr><th>Competenza</th><th>UDA</th><th>Livello</th><th>QNQ</th></tr>${
-            stato.uda.flatMap(u => righeCompetenze(u).map(r => `<tr><td>${esc(r.testo)}</td><td>${esc(u.titolo)}</td><td>${esc(r.livello)}</td><td>${esc(u.qnq)}</td></tr>`)).join('')
-        }</table>`);
+        nodi.push(D.tabella({
+            intestazioni: ['Competenza', 'UDA', 'Livello', 'QNQ'],
+            larghezze: [34, 34, 20, 12],
+            righe: stato.uda.flatMap(u => righeCompetenze(u).map(r => [
+                r.testo, u.titolo || '', r.livello || '',
+                { frammenti: D.frammenti(u.qnq || ''), allineamento: 'center' }
+            ]))
+        }));
     }
 
-    p.push('<h2>Sottoscrizione</h2>');
-    p.push(tab([
-        ['Data di prima stesura', esc(d.dataStesura)],
-        ['Approvazione del consiglio di classe', esc(d.dataApprovazione)],
-        ['Coordinatore', esc(d.coordinatore)],
-        ['Dirigente scolastico', esc(d.dirigente)]
+    nodi.push(D.titolo(2, 'Sottoscrizione'));
+    nodi.push(tab([
+        ['Data di prima stesura', d.dataStesura],
+        ['Approvazione del consiglio di classe', d.dataApprovazione],
+        ['Coordinatore', d.coordinatore],
+        ['Dirigente scolastico', d.dirigente]
     ]));
-    p.push(`<table class="firme"><tr>
-        <td>Firma dello studente</td>
-        <td>Firma del genitore o di chi esercita la responsabilità genitoriale</td>
-        <td>Firma del docente tutor</td>
-    </tr></table>`);
+    nodi.push(D.firme([
+        'Firma dello studente',
+        'Firma del genitore o di chi esercita la responsabilità genitoriale',
+        'Firma del docente tutor'
+    ]));
 
-    const html = `<html xmlns:o="urn:schemas-microsoft-com:office:office"
-        xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
-        <head><meta charset="utf-8"><title>PFI</title></head><body>${p.join('\n')}</body></html>`;
-
-    scarica('﻿' + html, 'application/msword', nomeFile('doc'));
+    const titoloDocumento = `PFI — ${`${d.cognome || ''} ${d.nome || ''}`.trim() || 'senza nome'}`;
+    D.scaricaDocx(nomeFile('docx'), nodi, { titolo: titoloDocumento, istituto: d.istituto || '' });
 }
 
+// Etichetta a sinistra, valore a destra. Le righe senza valore restano, con un
+// trattino: nel PFI un campo vuoto è un'informazione, dice che non è stato
+// ancora compilato.
 function tab(righe) {
-    return `<table>${righe.map(([l, v]) =>
-        `<tr><td class="lab">${l}</td><td>${(v || '—').replace(/\n/g, '<br>')}</td></tr>`).join('')}</table>`;
-}
-
-function par(testo) {
-    return testo ? `<p>${esc(testo).replace(/\n/g, '<br>')}</p>` : '<p>—</p>';
+    const D = window.DocumentoOffice;
+    return D.tabella({
+        larghezze: [34, 66],
+        righe: righe.map(([etichetta, valore]) => [
+            { frammenti: D.frammenti(etichetta), grassetto: true, sfondo: 'FAFAFA' },
+            String(valore ?? '').trim() || '—'
+        ])
+    });
 }
 
 // ============================================================

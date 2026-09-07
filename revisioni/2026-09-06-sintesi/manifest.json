@@ -1,0 +1,26 @@
+{
+  "uda-unificate.js": {
+    "prima": "a846b0e5fed01f9a7856e59cde99ec7a6caed56176eadec2e63f6b8228349586",
+    "dopo": "8cc8fed52fd6a325c161a6c6f35888fb424c050676a2acc0cc610f23ea46b703"
+  },
+  "uda-unificate.html": {
+    "prima": "f384621cf0d546948028c53e0cd7b14d2017573b769ad29d5ff405a628a252c2",
+    "dopo": "89db5f780d91a8707697da1e2fba49e428c86a46d029ea200b54de7874eef4bc"
+  },
+  "data-uda-unificate.json": {
+    "prima": "a08a3c410d9763e733354529b2a84eab2351170f1ffa8387985cf8f22b1c58e8",
+    "dopo": "3a6b707e12ce28238ae490abfae4687ed6126df39ff09f6653c42af80bd4e1bb"
+  },
+  "tools/revisione_uda_unificate.json": {
+    "prima": "421ac2736f20293f13447801afbe47af73d281adb4193820b449449f3b6b9361",
+    "dopo": "bb16ec5b30392555553f29a4b9e2d5d24b58be45db62e5e2f2840f2a6c35b318"
+  },
+  "tools/genera_uda_unificate.py": {
+    "prima": "add955be9fdb938f1d5d306b146b957b0f6ebdcbb62c77c4c940f0206eb953b7",
+    "dopo": "d090bd3485854018210bd3e40aeb20641e0f54deb94d44e1f2e4d28ed1441fdf"
+  },
+  "tools/verifica_uda_unificate.cjs": {
+    "prima": "b55598265b3abcb57c8945c3ca2a60f7dfb68d409238b4f28c1fcda8a9620840",
+    "dopo": "a50874edfa88dcd515f2c13c1697459d6a8f186656f5d983d1e5b1f45bca70f2"
+  }
+}

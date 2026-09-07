@@ -1,0 +1,12 @@
+Scritte 25 schede unificate da 48 schede d'asse → generated.json
+  1° anno: 9 → 4 schede
+  2° anno: 9 → 6 schede
+  3° anno: 10 → 5 schede
+  4° anno: 10 → 5 schede
+  5° anno: 10 → 5 schede
+PASS: copertura 48/48; 25 schede; contenuti e provenienza; 48 dimensioni con 4 livelli; 5 riferimenti; ore non inventate; cataloghi/PFI/voto invariati; generazione riproducibile; hash coerenti.
+PASS handler reale con DB simulato: sessione obbligatoria; validazione; autore dalla sessione; creazione; modifica propria; rifiuto modifica altrui/versione obsoleta; lettura condivisa. SQL e trigger non eseguiti su Postgres.
+
+PASS browser sezioni: distribuzione 4/6; due idee; rilettura; modifica; errore senza perdita; escaping; consultazione altro docente; mobile; navigazione; annuale vuota. API simulata.
+PASS browser unificate: 25 schede, 48 rubriche, filtri, mobile, stampa campione, iframe.
+PASS sintassi JS/TS e git diff --check. Screenshot monografiche ispezionato; piccola correzione successiva del contatore singolare/plurale verificata sintatticamente.

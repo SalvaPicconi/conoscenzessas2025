@@ -1,0 +1,652 @@
+{
+  "stato": "Valutazione progettuale; non sperimentazione né deliberazione",
+  "criteri": [
+    "Problema comune",
+    "Attività condivisibili senza ripetizione",
+    "Evidenze distinte per competenza"
+  ],
+  "nota": "Il risparmio di tempo non è misurato. I docenti effettivi e le ore restano da concordare; le attribuzioni di origine non costituiscono un incarico.",
+  "fonti": {
+    "data-uda.json": "c5a040c7c4b75ad0ea45a836c18d04b210609123631149c8264a5921aeae9bc9",
+    "data-uda-unificate.json": "c839d0ab2469cedab1868cd638f3bde9531532627ebb371a65ff6a87d5bdccbe"
+  },
+  "schede": [
+    {
+      "id": "U1.1",
+      "esito": "mantenere",
+      "problema": "Informare una famiglia sulla stessa rete di servizi.",
+      "attivitaComuni": "Una ricerca delle fonti alimenta sia mappa sia scheda informativa.",
+      "evidenze": "Mappa corretta per C1; informazione comprensibile per C7.",
+      "azione": "Verificare distintamente la correttezza della mappa e l’uso delle informazioni da parte del destinatario.",
+      "prima": [
+        {
+          "id": "1.1",
+          "compito": "Prima mappa (cartacea o digitale) dei servizi: almeno 3 servizi con ente erogatore, utenza e prestazioni."
+        },
+        {
+          "id": "1.7",
+          "compito": "Volantino informativo su un servizio del territorio (destinatari, prestazioni, contatti) presentato alla classe."
+        }
+      ],
+      "dopo": "Creare una mappa dei servizi alla persona e una scheda informativa per le famiglie, con fonti e contatti verificati.",
+      "insegnamentiOrigine": [
+        "Diritto",
+        "Italiano",
+        "Metodologie Operative",
+        "Scienze Umane",
+        "Storia",
+        "TIC"
+      ]
+    },
+    {
+      "id": "U1.2",
+      "esito": "rivedere",
+      "problema": "Il patto di classe e la campagna non risolvono necessariamente lo stesso problema.",
+      "attivitaComuni": "Discussione e lavoro di gruppo possono essere comuni; due restituzioni restano possibili.",
+      "evidenze": "Cooperazione per C2; riconoscimento e contrasto dello stereotipo per C3.",
+      "azione": "Scegliere un episodio didattico di esclusione: dal confronto nasce una regola del patto e il messaggio che la spiega.",
+      "prima": [
+        {
+          "id": "1.2",
+          "compito": "Patto/regolamento di classe elaborato in gruppi con ruoli assegnati, presentato all'assemblea, con diario di gruppo."
+        },
+        {
+          "id": "1.3",
+          "compito": "Mini-campagna di sensibilizzazione (poster, reel o podcast) contro uno stereotipo, nel rispetto di privacy e sicurezza dei dati."
+        }
+      ],
+      "dopo": "Concordare un patto di classe e realizzare un messaggio contro gli stereotipi, lavorando con ruoli condivisi.",
+      "insegnamentiOrigine": [
+        "Diritto",
+        "Inglese",
+        "Italiano",
+        "Scienze Umane",
+        "Spagnolo",
+        "Storia",
+        "TIC"
+      ]
+    },
+    {
+      "id": "U1.3",
+      "esito": "mantenere",
+      "problema": "Comprendere i bisogni della stessa persona con una lettura multidimensionale.",
+      "attivitaComuni": "Le interviste possono fornire i casi su cui costruire la mappa della salute.",
+      "evidenze": "Rilevazione guidata per C4; scelte coerenti con il benessere per C5.",
+      "azione": "Aggiungere alla mappa una scelta di comportamento motivata, per osservare anche l’atteggiamento e non solo la definizione di salute.",
+      "prima": [
+        {
+          "id": "1.4",
+          "compito": "Interviste guidate a persone di età diverse con scheda di rilevazione di condizioni, stili di vita e bisogni; confronto in classe."
+        },
+        {
+          "id": "1.5",
+          "compito": "Mappa multidimensionale salute/malattia (biologico, psicologico, sociale) applicata a un caso semplice, con i soggetti della cura."
+        }
+      ],
+      "dopo": "Confrontare bisogni e stili di vita a età diverse e costruire una mappa della salute biologica, psicologica e sociale.",
+      "insegnamentiOrigine": [
+        "Metodologie Operative",
+        "Scienze Integrate",
+        "Scienze Motorie",
+        "Scienze Umane (II ANNO)"
+      ]
+    },
+    {
+      "id": "U1.4",
+      "esito": "mantenere",
+      "problema": "Individuare e prevenire i rischi della scuola.",
+      "attivitaComuni": "Un’unica rilevazione alimenta grafici e decalogo.",
+      "evidenze": "Condotta sicura per C6; organizzazione dei dati per C10.",
+      "azione": "Osservare una condotta nella simulazione: il decalogo da solo non dimostra il comportamento.",
+      "prima": [
+        {
+          "id": "1.6",
+          "compito": "Decalogo della sicurezza della classe con documentazione fotografica dei rischi rilevati nell'edificio scolastico."
+        },
+        {
+          "id": "1.9",
+          "compito": "Mini-indagine sulla classe con questionario digitale, grafici e verifica di pertinenza e attendibilità dei dati."
+        }
+      ],
+      "dopo": "Rilevare rischi a scuola, organizzare i dati in grafici e proporre un decalogo di comportamenti sicuri.",
+      "insegnamentiOrigine": [
+        "Diritto",
+        "Matematica",
+        "Metodologie Operative",
+        "Scienze Integrate",
+        "Storia",
+        "TIC"
+      ]
+    },
+    {
+      "id": "U1.5",
+      "esito": "autonoma",
+      "problema": "Scheda già autonoma.",
+      "attivitaComuni": "Nessun accorpamento da verificare.",
+      "evidenze": "Conduzione del gioco per C8.",
+      "azione": "Mantenere autonoma.",
+      "prima": [
+        {
+          "id": "1.8",
+          "compito": "Gioco di animazione progettato e condotto per il gruppo classe, con scheda attività (obiettivo, materiali, regole, tempi) e autovalutazione."
+        }
+      ],
+      "dopo": "Progettare e condurre un gioco inclusivo per la classe, con regole, tempi e autovalutazione.",
+      "insegnamentiOrigine": [
+        "Metodologie Operative",
+        "Scienze Motorie"
+      ]
+    },
+    {
+      "id": "U2.1",
+      "esito": "mantenere",
+      "problema": "Facilitare l’accesso degli adolescenti ai servizi pertinenti.",
+      "attivitaComuni": "Le stesse fonti alimentano mappa e guida.",
+      "evidenze": "Individuazione dei servizi per C1; guida per i coetanei per C7.",
+      "azione": "Tenere distinto il destinatario adolescente dalla rete generale di U1.1, anch’essa in seconda.",
+      "prima": [
+        {
+          "id": "2.1",
+          "compito": "Mappa digitale interattiva con almeno 5 servizi (descrizione, target, prestazioni, ente erogatore) presentata pubblicamente."
+        },
+        {
+          "id": "2.7",
+          "compito": "Mini-guida divulgativa ai servizi per adolescenti (consultorio, sportelli, spazi giovani) diffusa a scuola."
+        }
+      ],
+      "dopo": "Preparare una guida digitale ai servizi per adolescenti, verificando destinatari, prestazioni e modalità di accesso.",
+      "insegnamentiOrigine": [
+        "Diritto",
+        "Italiano",
+        "Metodologie Operative",
+        "Scienze Umane",
+        "Storia",
+        "TIC"
+      ]
+    },
+    {
+      "id": "U2.2",
+      "esito": "mantenere",
+      "problema": "Realizzare un’accoglienza scolastica accessibile alle differenze.",
+      "attivitaComuni": "Organizzazione e comunicazione possono condividere destinatari, materiali e restituzione.",
+      "evidenze": "Contributo organizzativo per C2; messaggio adeguato e rispettoso per C3.",
+      "azione": "Il contenuto multimediale deve servire all’accoglienza, non costituire un secondo tema indipendente.",
+      "prima": [
+        {
+          "id": "2.2",
+          "compito": "Iniziativa scolastica reale (giornata a tema, accoglienza classi prime) organizzata in gruppo con ruoli, riunioni verbalizzate e valutazione finale."
+        },
+        {
+          "id": "2.3",
+          "compito": "Contenuto multimediale (video/podcast) su culture e diversità pubblicato sul canale della scuola, con liberatorie e regole privacy applicate."
+        }
+      ],
+      "dopo": "Organizzare un’iniziativa di accoglienza e comunicarla con materiali multimediali rispettosi delle differenze.",
+      "insegnamentiOrigine": [
+        "Diritto",
+        "Italiano",
+        "Scienze Umane",
+        "TIC"
+      ]
+    },
+    {
+      "id": "U2.3",
+      "esito": "separare",
+      "problema": "Promozione degli stili di vita e rete della presa in carico partono da problemi differenti.",
+      "attivitaComuni": "La guida comune non dimostra una riduzione delle attività: indagine e analisi del caso restano distinte.",
+      "evidenze": "Indagine per C4; lettura della rete di cura per C5, con evidenze autonome.",
+      "azione": "Proporre due UDA collegate: stili di vita e rete di cura. Condividere eventualmente un caso, senza imporre un unico prodotto.",
+      "prima": [
+        {
+          "id": "2.4",
+          "compito": "Indagine sugli stili di vita per fasce d'età e guida illustrata ai sani stili di vita per età."
+        },
+        {
+          "id": "2.5",
+          "compito": "Su un caso simulato di malattia, elaborato grafico commentato della rete della presa in carico (famiglia, medico, servizi)."
+        }
+      ],
+      "dopo": "Preparare una guida agli stili di vita per età e ai soggetti della rete di cura.",
+      "insegnamentiOrigine": [
+        "Metodologie Operative",
+        "Scienze Integrate",
+        "Scienze Motorie",
+        "Scienze Umane"
+      ]
+    },
+    {
+      "id": "U2.4",
+      "esito": "rivedere",
+      "problema": "La prevenzione domestica diventa comune solo se i dati descrivono i rischi analizzati.",
+      "attivitaComuni": "La raccolta è condivisibile; disponibilità e pertinenza dei dati territoriali non sono dimostrate.",
+      "evidenze": "Condotta preventiva per C6; elaborazione documentata per C10.",
+      "azione": "Definire prima un insieme di dati utilizzabile, anche didattico e dichiarato come tale; non subordinare l’attività a statistiche locali non reperite.",
+      "prima": [
+        {
+          "id": "2.6",
+          "compito": "Checklist dei rischi domestici e opuscolo di prevenzione degli incidenti destinato alle famiglie."
+        },
+        {
+          "id": "2.9",
+          "compito": "Report con dati raccolti su una realtà sociale del territorio, elaborati con foglio di calcolo e presentati con grafici."
+        }
+      ],
+      "dopo": "Analizzare rischi domestici e dati disponibili e produrre una checklist e un opuscolo di prevenzione.",
+      "insegnamentiOrigine": [
+        "Diritto",
+        "Matematica",
+        "Metodologie Operative",
+        "Scienze Integrate",
+        "Storia",
+        "TIC"
+      ]
+    },
+    {
+      "id": "U2.5",
+      "esito": "autonoma",
+      "problema": "Scheda già autonoma.",
+      "attivitaComuni": "Nessun accorpamento da verificare.",
+      "evidenze": "Conduzione dell’animazione per C8.",
+      "azione": "Mantenere autonoma.",
+      "prima": [
+        {
+          "id": "2.8",
+          "compito": "Attività di animazione ludica per l'open day o la festa d'istituto, con scheda di progettazione e report fotografico."
+        }
+      ],
+      "dopo": "Progettare e condurre un’attività di animazione per un evento scolastico.",
+      "insegnamentiOrigine": [
+        "Metodologie Operative",
+        "Scienze Motorie",
+        "TIC"
+      ]
+    },
+    {
+      "id": "U3.1",
+      "esito": "rivedere",
+      "problema": "Il progetto individuale e il dossier su una realtà sociale non sono automaticamente lo stesso oggetto.",
+      "attivitaComuni": "Dossier e documentazione possono condividere dati solo se scala e finalità sono definite.",
+      "evidenze": "Documenti ordinati per C1; raccolta ed elaborazione per C10.",
+      "azione": "Usare un unico servizio simulato: dati di contesto per motivare il progetto e dati individuali distinti per documentare il caso.",
+      "prima": [
+        {
+          "id": "3.1",
+          "compito": "Progetto individualizzato (scheda tecnica) elaborato in gruppo con documentazione allegata: PAI simulato, modulistica di accesso, diario."
+        },
+        {
+          "id": "3.10",
+          "compito": "Dossier dati su una realtà sociale: raccolta, elaborazione, rappresentazione con strumenti di osservazione dei servizi e regole GDPR."
+        }
+      ],
+      "dopo": "Preparare il dossier di un progetto individualizzato simulato, ordinando documenti e dati pertinenti.",
+      "insegnamentiOrigine": [
+        "Diritto e T.A.",
+        "Igiene e Cultura M.S.",
+        "Matematica",
+        "Metodologie Operative",
+        "Psicologia",
+        "TIC"
+      ]
+    },
+    {
+      "id": "U3.2",
+      "esito": "mantenere",
+      "problema": "Accogliere una persona e condividere il caso nell’équipe.",
+      "attivitaComuni": "Il colloquio produce le informazioni utilizzate nella riunione.",
+      "evidenze": "Collaborazione e verbale per C2; adattamento comunicativo per C3.",
+      "azione": "Ruotare i ruoli affinché ogni studente produca evidenze per entrambe le competenze.",
+      "prima": [
+        {
+          "id": "3.2",
+          "compito": "Riunione di équipe simulata su un caso, con ruoli professionali assegnati; verbale e resoconto professionale prodotti."
+        },
+        {
+          "id": "3.3",
+          "compito": "Role-play di colloqui di accoglienza con tipologie diverse di utenti; scheda dei bisogni comunicativi e delle distorsioni osservate."
+        }
+      ],
+      "dopo": "Simulare un colloquio di accoglienza e una riunione d’équipe sullo stesso caso, con scheda e verbale.",
+      "insegnamentiOrigine": [
+        "Inglese",
+        "Italiano",
+        "Metodologie Operative",
+        "Psicologia",
+        "TIC"
+      ]
+    },
+    {
+      "id": "U3.3",
+      "esito": "mantenere",
+      "problema": "Organizzare l’accudimento in un ambiente educativo sicuro.",
+      "attivitaComuni": "L’analisi dello stesso ambiente e bambino sostiene entrambe le attività.",
+      "evidenze": "Programmazione per C4; rilevazione e segnalazione per C6.",
+      "azione": "Confermare calendario e accesso al laboratorio; l’integrazione è coerente ma non prova una riduzione delle 58–60 ore di origine.",
+      "prima": [
+        {
+          "id": "3.4",
+          "compito": "Piano di attività di osservazione e accudimento per la prima infanzia con schede operative e norme igieniche applicate."
+        },
+        {
+          "id": "3.6",
+          "compito": "Sopralluogo in ambiente scolastico o laboratoriale con schede di rilevazione dei rischi e report di segnalazione formale."
+        }
+      ],
+      "dopo": "Progettare attività di accudimento per la prima infanzia e rilevare i rischi dell’ambiente educativo.",
+      "insegnamentiOrigine": [
+        "Diritto e T.A.",
+        "Igiene e Cultura M.S.",
+        "Metodologie Operative",
+        "Psicologia",
+        "TIC"
+      ]
+    },
+    {
+      "id": "U3.4",
+      "esito": "mantenere",
+      "problema": "Attuare una stessa azione di prevenzione primaria.",
+      "attivitaComuni": "Una rilevazione dei bisogni, una scelta delle fonti e una restituzione possono sostituire due campagne.",
+      "evidenze": "Proposta preventiva per C5; contributo alla realizzazione per C9.",
+      "azione": "Scegliere un solo tema e osservare distintamente progettazione e attuazione.",
+      "prima": [
+        {
+          "id": "3.5",
+          "compito": "Mini-campagna di prevenzione (igiene, vaccinazioni, corretto uso dei farmaci) con materiali informativi e semplice protocollo d'intervento."
+        },
+        {
+          "id": "3.9",
+          "compito": "Azione di prevenzione primaria realizzata a scuola (dipendenze, benessere digitale, affettività) con scheda bisogni-risorse-vincoli."
+        }
+      ],
+      "dopo": "Realizzare una semplice azione di prevenzione primaria a scuola, partendo da bisogni rilevati e fonti affidabili.",
+      "insegnamentiOrigine": [
+        "Diritto e T.A.",
+        "Igiene e Cultura M.S.",
+        "Metodologie Operative",
+        "Psicologia"
+      ]
+    },
+    {
+      "id": "U3.5",
+      "esito": "rivedere",
+      "problema": "Informare sull’accesso e condurre il laboratorio sono collegabili nello stesso servizio.",
+      "attivitaComuni": "La scheda di un solo laboratorio non sostituisce necessariamente il repertorio dei servizi previsto all’origine.",
+      "evidenze": "Confronto degli accessi per C7; progettazione e conduzione per C8.",
+      "azione": "Confrontare più opportunità pertinenti prima di motivare il laboratorio scelto, senza ridurre C7 alla comunicazione di un solo evento.",
+      "prima": [
+        {
+          "id": "3.7",
+          "compito": "Repertorio dei servizi territoriali che collega ogni prestazione al servizio e alle modalità di accesso (requisiti, documenti, tempi)."
+        },
+        {
+          "id": "3.8",
+          "compito": "Attività di animazione per bambini (scuola infanzia/primaria partner o simulata) progettata, realizzata e valutata con scheda esiti."
+        }
+      ],
+      "dopo": "Progettare e condurre un laboratorio per minori, collegando l’attività alle informazioni di accesso per le famiglie.",
+      "insegnamentiOrigine": [
+        "Diritto e T.A.",
+        "Igiene e Cultura M.S.",
+        "Metodologie Operative",
+        "Psicologia"
+      ]
+    },
+    {
+      "id": "U4.1",
+      "esito": "rivedere",
+      "problema": "Gestione contabile e analisi delle condizioni sociali richiedono dati con funzioni diverse.",
+      "attivitaComuni": "Il contenitore progetto è comune, ma i due flussi informativi non si sovrappongono interamente.",
+      "evidenze": "Atti e contabilità per C1; elaborazione dei dati sociali per C10.",
+      "azione": "Definire nel medesimo progetto un registro amministrativo e un insieme di dati sugli utenti; distinguere gli esiti nel report.",
+      "prima": [
+        {
+          "id": "4.1",
+          "compito": "Gestione amministrativa simulata di un progetto: atti e documenti contabili su modelli, cassa simulata, report finale."
+        },
+        {
+          "id": "4.10",
+          "compito": "Report tecnico-professionale con dati raccolti ed elaborati sulle condizioni sociali/di salute di un gruppo, con linguaggio tecnico e statistica di base."
+        }
+      ],
+      "dopo": "Organizzare il fascicolo amministrativo di un progetto simulato e restituire i dati in un report.",
+      "insegnamentiOrigine": [
+        "Diritto e T.A.",
+        "Igiene e Cultura M.S.",
+        "Italiano",
+        "Matematica",
+        "Metodologie Operative",
+        "Storia",
+        "TIC"
+      ]
+    },
+    {
+      "id": "U4.2",
+      "esito": "mantenere",
+      "problema": "Proporre all’équipe una comunicazione adeguata allo stesso caso.",
+      "attivitaComuni": "L’osservazione del colloquio genera il contenuto della presentazione.",
+      "evidenze": "Esposizione all’équipe per C2; analisi e adattamento per C3.",
+      "azione": "Prevedere una breve presentazione individuale oltre alla griglia di gruppo.",
+      "prima": [
+        {
+          "id": "4.2",
+          "compito": "Presentazione professionale di dati e approfondimenti su un caso, esposta in équipe simulata con supporti documentali e multimediali."
+        },
+        {
+          "id": "4.3",
+          "compito": "Osservazione di colloqui simulati con griglie di rilevazione delle dinamiche comunicative e proposta comunicativa personalizzata per la presa in carico."
+        }
+      ],
+      "dopo": "Osservare colloqui simulati e presentare all’équipe una proposta comunicativa adatta alla persona.",
+      "insegnamentiOrigine": [
+        "Inglese",
+        "Italiano",
+        "Matematica",
+        "Metodologie Operative",
+        "Psicologia",
+        "Spagnolo",
+        "TIC"
+      ]
+    },
+    {
+      "id": "U4.3",
+      "esito": "rivedere",
+      "problema": "Bisogni quotidiani e ambiente riguardano la stessa persona.",
+      "attivitaComuni": "Analisi del caso condivisibile; la proposta attuale parte da un PAI fornito, l’origine chiedeva di elaborarlo.",
+      "evidenze": "Azioni quotidiane per C4; igiene e allestimento per C6.",
+      "azione": "Esplicitare quali parti del piano sono fornite e quali elaborate dagli studenti, e verificare che il cambiamento non impoverisca il lavoro già sviluppato.",
+      "prima": [
+        {
+          "id": "4.4",
+          "compito": "PAI per una persona con disabilità elaborato a partire dalla valutazione multidimensionale, con interventi sui bisogni di base."
+        },
+        {
+          "id": "4.6",
+          "compito": "Riprogettazione di un ambiente domestico per una persona fragile: checklist igiene/sicurezza, piano di sanificazione, layout adattato motivato."
+        }
+      ],
+      "dopo": "Partire da un PAI fornito per proporre routine quotidiane e adattamenti dell’ambiente che sostengano autonomia e sicurezza.",
+      "insegnamentiOrigine": [
+        "Igiene e Cultura M.S.",
+        "Metodologie Operative",
+        "Psicologia",
+        "Scienze Integrate",
+        "Storia"
+      ]
+    },
+    {
+      "id": "U4.4",
+      "esito": "mantenere",
+      "problema": "Assistenza e partecipazione concorrono al benessere della stessa persona.",
+      "attivitaComuni": "Una sola analisi di bisogni, capacità residue e risorse sostiene il piano.",
+      "evidenze": "Interventi di base per C5; azioni di integrazione e prevenzione per C9.",
+      "azione": "Dedicare evidenze distinte all’assistenza e alla partecipazione; non duplicare il progetto ambientale di U4.3.",
+      "prima": [
+        {
+          "id": "4.5",
+          "compito": "Piano operativo di assistenza per un caso di parziale non autosufficienza: bisogni di base, capacità residue, profilassi delle lesioni da decubito (raccordo Lab OSS)."
+        },
+        {
+          "id": "4.9",
+          "compito": "Analisi di un caso e ipotesi di progetto di integrazione sociale con azioni di prevenzione ai tre livelli e misure di profilassi pertinenti."
+        }
+      ],
+      "dopo": "Collegare assistenza di base, prevenzione e partecipazione sociale in un piano operativo sullo stesso caso.",
+      "insegnamentiOrigine": [
+        "Igiene e Cultura M.S.",
+        "Metodologie Operative",
+        "Psicologia"
+      ]
+    },
+    {
+      "id": "U4.5",
+      "esito": "rivedere",
+      "problema": "Orientamento e animazione hanno un destinatario comune nella nuova proposta.",
+      "attivitaComuni": "Il colloquio può alimentare il progetto; il contesto reale e il passaggio tra i due momenti restano da organizzare.",
+      "evidenze": "Orientamento motivato per C7; attività realizzata per C8.",
+      "azione": "Confermare prima il contesto e i ruoli. Se non è possibile collegare accesso e partecipazione, mantenere due attività autonome.",
+      "prima": [
+        {
+          "id": "4.7",
+          "compito": "Simulazione di sportello informativo: colloqui di orientamento con tecnica dell'intervista e instradamento corretto di casi-tipo verso i servizi."
+        },
+        {
+          "id": "4.8",
+          "compito": "Attività di animazione per adulti/anziani/persone con disabilità progettata e realizzata in PCTO o contesto simulato, con analisi bisogni e report esiti."
+        }
+      ],
+      "dopo": "Orientare un gruppo di anziani ai servizi e realizzare un’attività di animazione coerente con i bisogni. La prova reale richiede un contesto concordato.",
+      "insegnamentiOrigine": [
+        "Matematica",
+        "Metodologie Operative",
+        "Psicologia",
+        "TIC"
+      ]
+    },
+    {
+      "id": "U5.1",
+      "esito": "mantenere",
+      "problema": "Gestire e monitorare il medesimo progetto di servizio.",
+      "attivitaComuni": "Bisogni, obiettivi e dati sono condivisi fra progetto e monitoraggio.",
+      "evidenze": "Piano e raccordi di rete per C1; indicatori e analisi per C10.",
+      "azione": "Costruire gli indicatori durante la progettazione, non aggiungerli come report separato alla fine.",
+      "prima": [
+        {
+          "id": "5.1",
+          "compito": "Progetto di servizio gestito in simulazione (es. per anziani): analisi bisogni, piano, budget, partenariato di rete, rendicontazione, valutazione."
+        },
+        {
+          "id": "5.10",
+          "compito": "Dashboard di monitoraggio di un progetto/servizio con indicatori, analisi statistica di base (correlazione) e relazione valutativa con riferimenti all'accreditamento regionale."
+        }
+      ],
+      "dopo": "Collaborare a un progetto simulato di servizio, con budget, rete territoriale e indicatori di monitoraggio.",
+      "insegnamentiOrigine": [
+        "Diritto e T.A.",
+        "Matematica",
+        "Metodologie Operative",
+        "Psicologia"
+      ]
+    },
+    {
+      "id": "U5.2",
+      "esito": "mantenere",
+      "problema": "Cooperare sul caso rendendo accessibile la comunicazione all’utente.",
+      "attivitaComuni": "Analisi di ruoli e bisogni comunicativi già presenti nel primo compito sostengono i materiali.",
+      "evidenze": "Contributo all’équipe per C2; facilitazione per C3.",
+      "azione": "Usare lo stesso caso e verificare individualmente entrambe le prestazioni.",
+      "prima": [
+        {
+          "id": "5.2",
+          "compito": "Case management simulato in équipe multi-professionale con tecniche di mediazione comunicativa e analisi di ruoli e stili di leadership."
+        },
+        {
+          "id": "5.3",
+          "compito": "Piano di facilitazione comunicativa per un servizio multiculturale: materiali easy-to-read/L2 e azioni di mediazione interculturale."
+        }
+      ],
+      "dopo": "Cooperare in un’équipe simulata e preparare materiali accessibili per facilitare la comunicazione con l’utente.",
+      "insegnamentiOrigine": [
+        "Diritto e T.A.",
+        "Inglese",
+        "Italiano",
+        "Metodologie Operative",
+        "Psicologia",
+        "Spagnolo"
+      ]
+    },
+    {
+      "id": "U5.3",
+      "esito": "mantenere",
+      "problema": "Attuare il PAI nell’ambiente quotidiano della stessa persona.",
+      "attivitaComuni": "Bisogni, capacità residue e analisi delle routine alimentano anche l’adattamento dell’abitazione.",
+      "evidenze": "Proposte quotidiane per C4; scelte di ausili e ambiente per C6.",
+      "azione": "Verificare l’uso delle soluzioni nella simulazione, non soltanto la qualità del disegno.",
+      "prima": [
+        {
+          "id": "5.4",
+          "compito": "Proposte operative complete per l'attuazione di un PAI (bambino, persona con disabilità o anziano), dal bisogno all'organizzazione delle attività quotidiane."
+        },
+        {
+          "id": "5.6",
+          "compito": "Progetto di adattamento completo di un'abitazione per una persona con difficoltà motorie: ausili, layout spazi/arredi, valutazione delle difficoltà d'uso."
+        }
+      ],
+      "dopo": "Tradurre un PAI in proposte per le attività quotidiane e per l’adattamento dell’abitazione.",
+      "insegnamentiOrigine": [
+        "Diritto e T.A.",
+        "Igiene e Cultura M.S.",
+        "Metodologie Operative",
+        "Psicologia",
+        "TIC"
+      ]
+    },
+    {
+      "id": "U5.4",
+      "esito": "separare",
+      "problema": "Primo soccorso e dispositivi richiedono un laboratorio specifico; presa in carico e sostegno familiare richiedono un progetto di rete.",
+      "attivitaComuni": "Il dossier comune non elimina prove, tempi e supervisione distinti.",
+      "evidenze": "Prestazioni simulate per C5; progetto di sostegno per C9.",
+      "azione": "Proporre due UDA coordinate: laboratorio di emergenza e cura; presa in carico integrata. Usare eventualmente lo stesso caso senza forzare un unico compito.",
+      "prima": [
+        {
+          "id": "5.5",
+          "compito": "Prove pratiche di primo soccorso in ambiente simulato e scheda tecnica su dispositivi di supporto vitale, nutrizione artificiale e cure palliative per un caso."
+        },
+        {
+          "id": "5.9",
+          "compito": "Progetto integrato completo su un caso complesso (minore, anziano, disagio psichico, migrante): bisogni, rete, interventi, sostegno alla famiglia. Orientato all'Esame di Stato."
+        }
+      ],
+      "dopo": "Lavorare su un caso complesso in tre moduli: continuità assistenziale e famiglia; primo soccorso simulato e dispositivi; terminalità e cure palliative. Prove pratiche con supervisione competente.",
+      "insegnamentiOrigine": [
+        "Igiene e Cultura M.S.",
+        "Metodologie Operative",
+        "Psicologia"
+      ]
+    },
+    {
+      "id": "U5.5",
+      "esito": "rivedere",
+      "problema": "Carta dei servizi ed evento sono collegabili se i criteri di qualità guidano davvero la partecipazione.",
+      "attivitaComuni": "Fonti e destinatari condivisibili, ma organizzare l’evento rimane un lavoro specifico.",
+      "evidenze": "Orientamento informato per C7; organizzazione e valutazione dell’evento per C8.",
+      "azione": "Verificare che l’utente sappia scegliere e accedere al servizio: una locandina dell’evento non basta a osservare C7.",
+      "prima": [
+        {
+          "id": "5.7",
+          "compito": "Guida/carta dei servizi orientata all'utente con diritti e doveri, opportunità di fruizione e criteri di qualità per la scelta dei servizi."
+        },
+        {
+          "id": "5.8",
+          "compito": "Evento di animazione sociale progettato e realizzato con mini-piano di fundraising/crowdfunding e valutazione strutturata delle attività."
+        }
+      ],
+      "dopo": "Progettare un evento accessibile collegando carta dei servizi, informazione agli utenti, raccolta fondi simulata e valutazione degli esiti.",
+      "insegnamentiOrigine": [
+        "Diritto e T.A.",
+        "Matematica",
+        "Metodologie Operative",
+        "TIC"
+      ]
+    }
+  ]
+}

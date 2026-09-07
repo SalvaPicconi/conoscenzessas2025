@@ -6,3 +6,12 @@
 exclude:
   - supabase/      # copia di riferimento del codice del server PFI
   - tools/         # script usati una volta per generare i file dati
+  - RIPARTIZIONE-ORE-UDA.md   # documento di lavoro per i dipartimenti, non pagina del sito
+
+  - revisioni/
+  - normativa/
+  - interventi/
+  - materiali-uda-trasversali/
+  - README.md
+  - votazione-uda.js
+  - votazione-uda.css

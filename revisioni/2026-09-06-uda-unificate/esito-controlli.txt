@@ -1,0 +1,12 @@
+Scritte 25 schede unificate da 48 schede d'asse → generated.json
+  1° anno: 9 → 5 schede
+  2° anno: 9 → 5 schede
+  3° anno: 10 → 5 schede
+  4° anno: 10 → 5 schede
+  5° anno: 10 → 5 schede
+PASS: copertura 48/48; 25 schede; contenuti e provenienza; 48 dimensioni con 4 livelli; 5 riferimenti; ore non inventate; cataloghi/PFI/voto invariati; generazione riproducibile; hash coerenti.
+
+Browser locale: PASS — 25 schede, 48 rubriche, filtro seconda competenza, anno/ricerca/reset, mobile 390 px senza overflow, stampa singola U5.4 con details aperti e stato originale preservato, iframe. Nessun errore JavaScript.
+Sintassi Python e JavaScript: PASS. git diff --check: PASS.
+Screenshot mobile ispezionato. Artefatti browser: /tmp/ssas-unificate-verifica (temporanei).
+Ambiente: Playwright dal runtime Codex, Chrome installato; server locale e browser con profilo isolato. Nessuna verifica live.

@@ -26,3 +26,7 @@ interventi/
 
 # Materiali didattici e documenti di lavoro usati come fonti: restano locali.
 materiali-uda-trasversali/
+
+# Copie di lavoro ed evidenze restano locali; i registri sono versionati.
+revisioni/**/prima/
+revisioni/**/evidenze/

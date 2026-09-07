@@ -102,25 +102,25 @@ function etichettaSettimane(quantita) {
     return quantita === 1 ? '1 settimana' : `${quantita} settimane`;
 }
 
-// Riallinea tutto ciò che dipende dalle ore — durata, pillola e ore nei chip —
+// Riallinea ciò che dipende dalle ore — pillola della durata e ore nei chip —
 // mentre il docente le sta modificando, non solo dopo il salvataggio.
 // Alla prima chiamata il riquadro non è ancora nel documento: pillola e chip li
 // scrive disegnaTutte subito dopo.
+//
+// La scheda mostra solo il numero di settimane. Come lo si ricava — quale
+// insegnamento detta il tempo, quante ore deve ricavare dalle proprie
+// settimanali, che a dedizione dimezzata il tempo raddoppia — è ragionamento
+// di lavoro nostro: sta nel commento a durata() qui sopra, non davanti a chi
+// consulta il curricolo.
 function aggiornaDerivati(box, campi, righe) {
     const correnti = righe.map(riga => {
         const valore = Number(campi.get(riga.ins)?.value);
         return Number.isFinite(valore) && valore > 0 ? { ...riga, effettive: valore } : riga;
     });
-    const { settimane, insegnamento } = durata(correnti);
-    const riga = correnti.find(voce => voce.ins === insegnamento);
-    const testo = box.querySelector('.uda-ore-durata');
-    if (testo && riga) {
-        testo.textContent = `Durata: almeno ${etichettaSettimane(settimane)} di lezione. Il tempo è dettato da ${ETICHETTE[insegnamento] || insegnamento}, che deve ricavare ${ore(riga.effettive)} dalle sue ${riga.oreSett} settimanali. Se gli insegnamenti dedicano all'UDA metà delle proprie ore, il tempo raddoppia.`;
-    }
     const scheda = box.closest('[data-uda-revisione-key]');
     if (!scheda) return;
     const pillola = scheda.querySelector('[data-uda-ore-durata]');
-    if (pillola) pillola.textContent = `📅 min. ${etichettaSettimane(settimane)}`;
+    if (pillola) pillola.textContent = `📅 min. ${etichettaSettimane(durata(correnti).settimane)}`;
     if (campi.size) marcaChips(scheda, correnti);
 }
 
@@ -161,7 +161,7 @@ function marcaDurata(scheda, righe) {
     pillola.className = 'pill pill-durata';
     pillola.dataset.udaOreDurata = 'true';
     pillola.textContent = `📅 min. ${etichettaSettimane(settimane)}`;
-    pillola.title = 'Durata minima in settimane di lezione, se gli insegnamenti coinvolti dedicano all’UDA tutte le proprie ore.';
+    pillola.title = 'Durata minima in settimane di lezione.';
     contenitore.appendChild(pillola);
 }
 
@@ -239,13 +239,14 @@ function creaBlocco(chiave, ripartizione, righe) {
         chip.textContent = ETICHETTE[riga.ins] || riga.ins;
         nome.appendChild(chip);
         if (riga.proposte.length) nome.appendChild(creaFirma(riga));
-        const settimanali = celleNumero(String(riga.oreSett));
-        const proposta = celleNumero(riga.min === riga.max ? String(riga.max) : `${riga.min}–${riga.max}`);
+        const settimanali = celleNumero(String(riga.oreSett), intestazioni[1]);
+        const proposta = celleNumero(riga.min === riga.max ? String(riga.max) : `${riga.min}–${riga.max}`, intestazioni[2]);
         tr.append(nome, settimanali, proposta);
         if (modificabile) {
             const [minimo, massimo] = banda(riga.max);
             const cella = document.createElement('td');
             cella.className = 'uda-ore-num';
+            cella.dataset.etichetta = intestazioni[3];
             const input = document.createElement('input');
             input.type = 'number';
             input.min = String(minimo);
@@ -269,16 +270,21 @@ function creaBlocco(chiave, ripartizione, righe) {
     const rigaPiede = document.createElement('tr');
     const etichettaPiede = document.createElement('th');
     etichettaPiede.textContent = 'Totale';
+    // Nel piede le ore settimanali non si sommano: la cella resta vuota e sul
+    // telefono, dove ogni cella diventa una riga a sé, sparisce del tutto.
     const vuota = document.createElement('td');
-    const totaleProposta = celleNumero(etichettaTotale(ripartizione));
+    vuota.className = 'uda-ore-vuota';
+    const totaleProposta = celleNumero(etichettaTotale(ripartizione), intestazioni[2]);
     rigaPiede.append(etichettaPiede, vuota, totaleProposta);
     if (modificabile) {
         const totale = document.createElement('td');
         totale.className = 'uda-ore-num uda-ore-totale';
+        totale.dataset.etichetta = intestazioni[3];
         rigaPiede.appendChild(totale);
     }
     tfoot.appendChild(rigaPiede);
     tabella.append(thead, tbody, tfoot);
+    preservaRuoli(tabella);
     box.appendChild(tabella);
 
     if (ripartizione.senzaOre?.length) {
@@ -288,10 +294,6 @@ function creaBlocco(chiave, ripartizione, righe) {
         nota.textContent = `${elenco}: concorre ai contenuti dell'UDA ma non ha ore proprie, perché non è presente nel quadro orario di questo anno di corso. I relativi compiti restano agli insegnamenti sopra elencati.`;
         box.appendChild(nota);
     }
-
-    const tempo = document.createElement('p');
-    tempo.className = 'uda-ore-durata';
-    box.appendChild(tempo);
 
     const avviso = document.createElement('p');
     avviso.className = 'uda-ore-avviso';
@@ -329,6 +331,18 @@ function creaBlocco(chiave, ripartizione, righe) {
     return box;
 }
 
+// Sul telefono il CSS impila le celle con display:block e i browser perdono i
+// ruoli impliciti della tabella: dichiararli qui li conserva per chi legge con
+// uno screen reader. Su schermo largo sono ridondanti e innocui.
+function preservaRuoli(tabella) {
+    tabella.setAttribute('role', 'table');
+    tabella.querySelectorAll('thead, tbody, tfoot').forEach(gruppo => gruppo.setAttribute('role', 'rowgroup'));
+    tabella.querySelectorAll('tr').forEach(riga => riga.setAttribute('role', 'row'));
+    tabella.querySelectorAll('thead th').forEach(cella => cella.setAttribute('role', 'columnheader'));
+    tabella.querySelectorAll('tbody th, tfoot th').forEach(cella => cella.setAttribute('role', 'rowheader'));
+    tabella.querySelectorAll('td').forEach(cella => cella.setAttribute('role', 'cell'));
+}
+
 function creaFirma(riga) {
     const firma = document.createElement('small');
     firma.className = 'uda-ore-firma';
@@ -338,10 +352,14 @@ function creaFirma(riga) {
     return firma;
 }
 
-function celleNumero(testo) {
+// L'etichetta di colonna viaggia sulla cella: sul telefono il CSS impila la
+// tabella e la riscrive davanti al valore, perché l'intestazione non è più in
+// cima alla colonna.
+function celleNumero(testo, etichetta) {
     const td = document.createElement('td');
     td.className = 'uda-ore-num';
     td.textContent = testo;
+    if (etichetta) td.dataset.etichetta = etichetta;
     return td;
 }
 

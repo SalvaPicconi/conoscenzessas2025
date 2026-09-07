@@ -64,65 +64,15 @@ conosce e senza aggiornamento rifiuterebbe il salvataggio delle ore:
 
     supabase functions deploy curricolo-uda-revisioni --project-ref ruplzgcnheddmqqdephp
 
-### Votazione per la scelta delle UDA
+### Monografiche e sospensione voto — rilascio 7 settembre 2026
 
-La votazione è una sola e vive in `votazione-uda.html`, fuori dai cataloghi e
-dalla stanza di revisione. La rosa non si compone dal sito: contiene soltanto le
-UDA già decise collegialmente e viene configurata quando il committente comunica
-i riferimenti esatti. Non inserire UDA provvisorie o scelte automaticamente.
+Lo schema `uda-monografiche.sql` crea `curricolo_uda_idee` e `curricolo_uda_idee_storia`, con RLS e nessun accesso diretto per anon/authenticated. Il trigger registra ogni versione. La funzione include `idee.ts` e le azioni autenticate `ideas-list` / `ideas-save`; gli autori modificano soltanto le proprie idee, con confronto di versione.
 
-Ogni docente accede con le stesse credenziali della revisione, assegna da 1 a 5
-stelle a tutte le UDA della rosa e usa un unico pulsante di salvataggio. Finché la
-sessione è aperta può correggere le proprie valutazioni. I nomi dei votanti non
-sono restituiti al browser; le medie e il numero di valutazioni compaiono solo a
-votazione chiusa.
+La funzione versione 7 conserva le API di revisione e la lettura del voto precedente, ma risponde 423 alle scritture `vote`, `ballot`, `choice`, `rate`. Non riattivare la votazione senza nuova decisione. `votazione-uda.sql` e il client a rosa unica restano un progetto sospeso, non lo schema attivo. Le vecchie tabelle e i dati sono conservati.
 
-Le azioni della funzione sono `ratings` per leggere la sessione e `rate` per
-salvare in blocco tutte le valutazioni del docente.
-
-Qui servono entrambi i passaggi, nell'ordine. Prima le tabelle:
-
-    psql "$DATABASE_URL" -f supabase/votazione-uda.sql
-
-poi la funzione, che espone le azioni `ratings` e `rate`:
-
-    supabase functions deploy curricolo-uda-revisioni --project-ref ruplzgcnheddmqqdephp
-
-Finché manca una rosa concordata, non creare la riga con `id = 1`: l'area mostra
-che le UDA da votare non sono state ancora definite.
-
-L'elenco dei docenti è presente in `assets/uda-revisione.js` e
-`votazione-uda.js`. La stessa anagrafica deve restare allineata con
-`AUTHORS` nella funzione e con i vincoli `author_name` delle due tabelle SQL.
-Per aggiungere docenti a un database già esistente bisogna quindi applicare anche
-la parte dedicata ai docenti di `consenti-uda-trasversali.sql`, prima di distribuire
-la funzione aggiornata.
+Il salvataggio delle revisioni verifica il permesso di gestione anche quando lo stato è inviato nell'azione `upsert`, evitando l'approvazione da parte di un docente senza permesso.
 
 ## Non finisce sul sito
 
 `_config.yml` esclude questa cartella dalla pubblicazione: il codice sta nel
 repository, ma non viene servito da GitHub Pages.
-
-## Collaudo locale della votazione — 5 settembre 2026
-
-Il codice locale a stelle **non coincide ancora con la funzione remota v6**:
-la verifica in sola lettura ha trovato le due tabelle del voto precedente,
-ma non `curricolo_uda_votazione_stelle` e `curricolo_uda_valutazioni`.
-Nessun aggiornamento remoto è stato eseguito durante il collaudo.
-
-Sono disponibili due controlli senza scritture su Supabase:
-
-    node tools/verifica_votazione.cjs
-    node tools/verifica_votazione_server.cjs
-
-Il primo richiede Playwright/Chromium e il server statico locale sulla porta
-8765 (configurabile con `STAMPA_BASE_URL`); intercetta tutte le chiamate API.
-Il secondo richiede Node con `stripTypeScriptTypes` e testa il vero handler con
-un adattatore dati in memoria. Questi controlli non validano l'esecuzione dello
-schema SQL o le operazioni concorrenti su PostgreSQL.
-
-L'accesso attuale usa una password condivisa e un nome scelto dal menu: i voti
-sono separati per nominativo dichiarato, senza autenticazione personale.
-Inoltre lettura dello stato e salvataggio sono due operazioni distinte: prima
-dell'uso reale va garantito e collaudato il comportamento in caso di chiusura
-o modifica concorrente della rosa.

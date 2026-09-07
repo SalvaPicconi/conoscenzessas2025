@@ -1,0 +1,302 @@
+[
+  {
+    "file": "uda-trasversali.html",
+    "http": 200,
+    "local_equal": false,
+    "head_equal": false
+  },
+  {
+    "file": "area-indirizzo.html",
+    "http": 200,
+    "local_equal": false,
+    "head_equal": false
+  },
+  {
+    "file": "data-uda-trasversali.json",
+    "http": 200,
+    "local_equal": true,
+    "head_equal": false
+  },
+  {
+    "file": "idee-docenti.css",
+    "http": 404,
+    "local_equal": false,
+    "head_equal": false
+  },
+  {
+    "file": "index.html",
+    "http": 200,
+    "local_equal": false,
+    "head_equal": false
+  },
+  {
+    "file": "uda-unificate.js",
+    "http": 404,
+    "local_equal": false,
+    "head_equal": false
+  },
+  {
+    "file": "style-main.css",
+    "http": 200,
+    "local_equal": true,
+    "head_equal": true
+  },
+  {
+    "file": "rubrica_metodologie_3.html",
+    "http": 200,
+    "local_equal": false,
+    "head_equal": false
+  },
+  {
+    "file": "rubrica.html",
+    "http": 200,
+    "local_equal": false,
+    "head_equal": false
+  },
+  {
+    "file": "pfi.js",
+    "http": 200,
+    "local_equal": false,
+    "head_equal": false
+  },
+  {
+    "file": "uda.js",
+    "http": 200,
+    "local_equal": false,
+    "head_equal": false
+  },
+  {
+    "file": "data-ripartizione-ore.json",
+    "http": 200,
+    "local_equal": false,
+    "head_equal": true
+  },
+  {
+    "file": "progettazione-annuale.html",
+    "http": 404,
+    "local_equal": false,
+    "head_equal": false
+  },
+  {
+    "file": "uda-monografiche.js",
+    "http": 404,
+    "local_equal": false,
+    "head_equal": false
+  },
+  {
+    "file": "rubrica_metodologie_4_5.html",
+    "http": 200,
+    "local_equal": false,
+    "head_equal": false
+  },
+  {
+    "file": "data-uda.json",
+    "http": 200,
+    "local_equal": false,
+    "head_equal": true
+  },
+  {
+    "file": "uda-monografiche.html",
+    "http": 404,
+    "local_equal": false,
+    "head_equal": false
+  },
+  {
+    "file": "uda-fsl.js",
+    "http": 200,
+    "local_equal": true,
+    "head_equal": true
+  },
+  {
+    "file": "pfi.html",
+    "http": 200,
+    "local_equal": false,
+    "head_equal": false
+  },
+  {
+    "file": "data-quadro-orario.json",
+    "http": 200,
+    "local_equal": true,
+    "head_equal": true
+  },
+  {
+    "file": "script.js",
+    "http": 200,
+    "local_equal": false,
+    "head_equal": false
+  },
+  {
+    "file": "votazione-uda.css",
+    "http": 200,
+    "local_equal": false,
+    "head_equal": false
+  },
+  {
+    "file": "uda-unificate.html",
+    "http": 404,
+    "local_equal": false,
+    "head_equal": false
+  },
+  {
+    "file": "data-uda-unificate.json",
+    "http": 404,
+    "local_equal": false,
+    "head_equal": false
+  },
+  {
+    "file": "uda-fsl.html",
+    "http": 200,
+    "local_equal": false,
+    "head_equal": false
+  },
+  {
+    "file": "correzioni_competenze.json",
+    "http": 200,
+    "local_equal": true,
+    "head_equal": true
+  },
+  {
+    "file": "uda-trasversali.js",
+    "http": 200,
+    "local_equal": false,
+    "head_equal": false
+  },
+  {
+    "file": "pfi.css",
+    "http": 200,
+    "local_equal": true,
+    "head_equal": true
+  },
+  {
+    "file": "style.css",
+    "http": 200,
+    "local_equal": true,
+    "head_equal": true
+  },
+  {
+    "file": "data-area-indirizzo.json",
+    "http": 200,
+    "local_equal": true,
+    "head_equal": true
+  },
+  {
+    "file": "votazione-uda.html",
+    "http": 200,
+    "local_equal": false,
+    "head_equal": false
+  },
+  {
+    "file": "uda.css",
+    "http": 200,
+    "local_equal": false,
+    "head_equal": false
+  },
+  {
+    "file": "uda-unificate.css",
+    "http": 404,
+    "local_equal": false,
+    "head_equal": false
+  },
+  {
+    "file": "area-generale.html",
+    "http": 200,
+    "local_equal": false,
+    "head_equal": false
+  },
+  {
+    "file": "area-generale.css",
+    "http": 200,
+    "local_equal": true,
+    "head_equal": true
+  },
+  {
+    "file": "curricolo-illustrato.css",
+    "http": 200,
+    "local_equal": true,
+    "head_equal": true
+  },
+  {
+    "file": "didattica.css",
+    "http": 200,
+    "local_equal": true,
+    "head_equal": true
+  },
+  {
+    "file": "data-area-generale.json",
+    "http": 200,
+    "local_equal": true,
+    "head_equal": true
+  },
+  {
+    "file": "uda.html",
+    "http": 200,
+    "local_equal": false,
+    "head_equal": false
+  },
+  {
+    "file": "data-uda-fsl.json",
+    "http": 200,
+    "local_equal": true,
+    "head_equal": true
+  },
+  {
+    "file": "area-generale.js",
+    "http": 200,
+    "local_equal": true,
+    "head_equal": true
+  },
+  {
+    "file": "votazione-uda.js",
+    "http": 200,
+    "local_equal": false,
+    "head_equal": false
+  },
+  {
+    "file": "script-main.js",
+    "http": 200,
+    "local_equal": true,
+    "head_equal": true
+  },
+  {
+    "file": "assets/uda-revisione.js",
+    "http": 200,
+    "local_equal": true,
+    "head_equal": true
+  },
+  {
+    "file": "assets/stampa.css",
+    "http": 404,
+    "local_equal": false,
+    "head_equal": false
+  },
+  {
+    "file": "assets/navigazione.js",
+    "http": 200,
+    "local_equal": false,
+    "head_equal": false
+  },
+  {
+    "file": "assets/uda-ore.js",
+    "http": 200,
+    "local_equal": false,
+    "head_equal": false
+  },
+  {
+    "file": "assets/uda-revisione.css",
+    "http": 200,
+    "local_equal": false,
+    "head_equal": false
+  },
+  {
+    "file": "assets/stampa.js",
+    "http": 404,
+    "local_equal": false,
+    "head_equal": false
+  },
+  {
+    "file": "assets/navigazione.css",
+    "http": 200,
+    "local_equal": true,
+    "head_equal": true
+  }
+]
