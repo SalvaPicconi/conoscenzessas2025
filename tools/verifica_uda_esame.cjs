@@ -22,7 +22,8 @@ const base = (process.env.UDA_BASE_URL || 'http://127.0.0.1:8765/').replace(/\/$
         assert.equal(await page.locator('[data-tab="esame"][aria-selected="true"]').count(), 1);
         assert.equal(await page.locator('[data-tab="votazione"]').count(), 0);
 
-        const frame = page.frames().find(candidate => candidate.url().includes('uda-esame.html'));
+        const frameElement = await page.waitForSelector('#content-esame iframe');
+        const frame = await frameElement.contentFrame();
         assert.ok(frame, 'iframe UDA Esame non caricato');
         await frame.waitForSelector('.esame-type-card');
         assert.equal(await frame.locator('.esame-type-card').count(), 4);
