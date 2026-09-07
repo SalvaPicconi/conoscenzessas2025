@@ -11,8 +11,10 @@ src = read('data-uda.json')
 out = read('data-uda-unificate.json')
 by = {u['id']: u for u in src['uda']}
 refs = [f['id'] for u in out['uda'] for f in u['fonde']]
-assert len(refs) == len(set(refs)) == len(by) == 48
-assert set(refs) == set(by)
+supplementi = {'1.10', '1.11', '2.10', '2.11', '3.11', '4.11', '5.11', '5.12', '5.13'}
+assert len(refs) == len(set(refs)) == 48
+assert set(refs).issubset(by)
+assert set(by) - set(refs) == supplementi
 assert len(out['uda']) == 27
 assert [sum(u['anno'] == y for u in out['uda']) for y in range(1, 6)] == [4,7,5,5,6]
 materials = 0
@@ -46,4 +48,4 @@ with tempfile.TemporaryDirectory() as t:
     assert json.loads((Path(t)/'generated.json').read_text()) == out
 for key, path in [('sha256Fonte','data-uda.json'), ('sha256Revisione','tools/revisione_uda_unificate.json')]:
     assert out['meta']['tracciamento'][key] == hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
-print('PASS: copertura 48/48; 27 schede; contenuti e provenienza; 48 dimensioni con 4 livelli; 5 riferimenti; ore non inventate; FSL/voto invariati; generazione riproducibile; hash coerenti.')
+print('PASS: copertura 48/48 origini e 9 proposte autonome; 27 schede; contenuti e provenienza; 48 dimensioni con 4 livelli; 5 riferimenti; ore non inventate; FSL/voto invariati; generazione riproducibile; hash coerenti.')

@@ -16,6 +16,7 @@ const SEZIONI = [
     { id: 'unificate', etichetta: 'UDA d’asse unificate', pagina: 'uda-unificate.html' },
     { id: 'trasversali', etichetta: 'UDA trasversali', pagina: 'uda-trasversali.html' },
     { id: 'fsl', etichetta: 'UDA FSL', pagina: 'uda-fsl.html' },
+    { id: 'esame', etichetta: 'UDA Esame di Stato', pagina: 'uda-esame.html' },
     { id: 'monografiche', etichetta: 'UDA monografiche', pagina: 'uda-monografiche.html' },
     { id: 'annuale', etichetta: 'Progettazione annuale', pagina: 'progettazione-annuale.html' },
     { id: 'pfi', etichetta: 'PFI', pagina: 'pfi.html' },

@@ -163,7 +163,7 @@
           "max": 6
         },
         {
-          "ins": "Scienze Integrate",
+          "ins": "Scienze Umane",
           "oreSett": 4,
           "min": 3,
           "max": 4
@@ -276,86 +276,6 @@
         }
       ]
     },
-    "1.10": {
-      "genere": "asse",
-      "anno": 1,
-      "titolo": "Diventare parte della società: i percorsi della socializzazione",
-      "ore": "28",
-      "totaleMin": 28,
-      "totaleMax": 28,
-      "voci": [
-        {
-          "ins": "Italiano",
-          "oreSett": 4,
-          "min": 9,
-          "max": 9
-        },
-        {
-          "ins": "Scienze Umane",
-          "oreSett": 4,
-          "min": 9,
-          "max": 9
-        },
-        {
-          "ins": "Diritto",
-          "oreSett": 2,
-          "min": 4,
-          "max": 4
-        },
-        {
-          "ins": "TIC",
-          "oreSett": 2,
-          "min": 4,
-          "max": 4
-        },
-        {
-          "ins": "Storia",
-          "oreSett": 1,
-          "min": 2,
-          "max": 2
-        }
-      ]
-    },
-    "1.11": {
-      "genere": "asse",
-      "anno": 1,
-      "titolo": "Imparare a lavorare insieme: dinamiche di gruppo e comunicazione",
-      "ore": "32",
-      "totaleMin": 32,
-      "totaleMax": 32,
-      "voci": [
-        {
-          "ins": "Metodologie Operative",
-          "oreSett": 7,
-          "min": 11,
-          "max": 11
-        },
-        {
-          "ins": "Italiano",
-          "oreSett": 4,
-          "min": 7,
-          "max": 7
-        },
-        {
-          "ins": "Scienze Umane",
-          "oreSett": 4,
-          "min": 6,
-          "max": 6
-        },
-        {
-          "ins": "Inglese",
-          "oreSett": 3,
-          "min": 5,
-          "max": 5
-        },
-        {
-          "ins": "TIC",
-          "oreSett": 2,
-          "min": 3,
-          "max": 3
-        }
-      ]
-    },
     "2.1": {
       "genere": "asse",
       "anno": 2,
@@ -367,26 +287,32 @@
         {
           "ins": "Metodologie Operative",
           "oreSett": 6,
-          "min": 8,
-          "max": 10
+          "min": 6,
+          "max": 7
+        },
+        {
+          "ins": "Scienze Umane",
+          "oreSett": 4,
+          "min": 4,
+          "max": 5
         },
         {
           "ins": "Diritto",
           "oreSett": 2,
-          "min": 3,
+          "min": 2,
           "max": 3
         },
         {
           "ins": "TIC",
           "oreSett": 2,
-          "min": 3,
-          "max": 3
+          "min": 2,
+          "max": 2
         },
         {
           "ins": "Storia",
           "oreSett": 1,
           "min": 1,
-          "max": 2
+          "max": 1
         }
       ]
     },
@@ -401,8 +327,14 @@
         {
           "ins": "Italiano",
           "oreSett": 4,
-          "min": 12,
-          "max": 15
+          "min": 6,
+          "max": 8
+        },
+        {
+          "ins": "Scienze Umane",
+          "oreSett": 4,
+          "min": 6,
+          "max": 7
         }
       ]
     },
@@ -597,92 +529,6 @@
         {
           "ins": "TIC",
           "oreSett": 2,
-          "min": 2,
-          "max": 2
-        }
-      ]
-    },
-    "2.10": {
-      "genere": "asse",
-      "anno": 2,
-      "titolo": "La famiglia ieri e oggi: leggere le relazioni del contesto umano",
-      "ore": "28",
-      "totaleMin": 28,
-      "totaleMax": 28,
-      "voci": [
-        {
-          "ins": "Metodologie Operative",
-          "oreSett": 6,
-          "min": 9,
-          "max": 9
-        },
-        {
-          "ins": "Matematica",
-          "oreSett": 4,
-          "min": 6,
-          "max": 6
-        },
-        {
-          "ins": "Scienze Umane",
-          "oreSett": 4,
-          "min": 6,
-          "max": 6
-        },
-        {
-          "ins": "Diritto",
-          "oreSett": 2,
-          "min": 3,
-          "max": 3
-        },
-        {
-          "ins": "TIC",
-          "oreSett": 2,
-          "min": 3,
-          "max": 3
-        },
-        {
-          "ins": "Storia",
-          "oreSett": 1,
-          "min": 1,
-          "max": 1
-        }
-      ]
-    },
-    "2.11": {
-      "genere": "asse",
-      "anno": 2,
-      "titolo": "Le famiglie nei racconti: modelli familiari nei prodotti culturali",
-      "ore": "32",
-      "totaleMin": 32,
-      "totaleMax": 32,
-      "voci": [
-        {
-          "ins": "Italiano",
-          "oreSett": 4,
-          "min": 9,
-          "max": 9
-        },
-        {
-          "ins": "Scienze Umane",
-          "oreSett": 4,
-          "min": 9,
-          "max": 9
-        },
-        {
-          "ins": "Inglese",
-          "oreSett": 3,
-          "min": 7,
-          "max": 7
-        },
-        {
-          "ins": "TIC",
-          "oreSett": 2,
-          "min": 5,
-          "max": 5
-        },
-        {
-          "ins": "Storia",
-          "oreSett": 1,
           "min": 2,
           "max": 2
         }
@@ -975,40 +821,6 @@
       ],
       "senzaOre": [
         "TIC"
-      ]
-    },
-    "3.11": {
-      "genere": "asse",
-      "anno": 3,
-      "titolo": "Imparare giocando: il gioco come strumento di sviluppo",
-      "ore": "32",
-      "totaleMin": 32,
-      "totaleMax": 32,
-      "voci": [
-        {
-          "ins": "Igiene e Cultura M.S.",
-          "oreSett": 5,
-          "min": 10,
-          "max": 10
-        },
-        {
-          "ins": "Diritto e T.A.",
-          "oreSett": 4,
-          "min": 8,
-          "max": 8
-        },
-        {
-          "ins": "Psicologia",
-          "oreSett": 4,
-          "min": 8,
-          "max": 8
-        },
-        {
-          "ins": "Metodologie Operative",
-          "oreSett": 3,
-          "min": 6,
-          "max": 6
-        }
       ]
     },
     "4.1": {
@@ -1324,49 +1136,6 @@
         "TIC"
       ]
     },
-    "4.11": {
-      "genere": "asse",
-      "anno": 4,
-      "titolo": "Conoscere per orientare: bisogni e servizi per la disabilità",
-      "ore": "38",
-      "totaleMin": 38,
-      "totaleMax": 38,
-      "voci": [
-        {
-          "ins": "Igiene e Cultura M.S.",
-          "oreSett": 5,
-          "min": 10,
-          "max": 10
-        },
-        {
-          "ins": "Diritto e T.A.",
-          "oreSett": 4,
-          "min": 8,
-          "max": 8
-        },
-        {
-          "ins": "Psicologia",
-          "oreSett": 4,
-          "min": 8,
-          "max": 8
-        },
-        {
-          "ins": "Matematica",
-          "oreSett": 3,
-          "min": 6,
-          "max": 6
-        },
-        {
-          "ins": "Metodologie Operative",
-          "oreSett": 3,
-          "min": 6,
-          "max": 6
-        }
-      ],
-      "senzaOre": [
-        "TIC"
-      ]
-    },
     "5.1": {
       "genere": "asse",
       "anno": 5,
@@ -1647,108 +1416,6 @@
           "oreSett": 3,
           "min": 3,
           "max": 4
-        }
-      ]
-    },
-    "5.11": {
-      "genere": "asse",
-      "anno": 5,
-      "titolo": "L'anziano nella società: dalla percezione al ruolo attivo",
-      "ore": "38",
-      "totaleMin": 38,
-      "totaleMax": 38,
-      "voci": [
-        {
-          "ins": "Igiene e Cultura M.S.",
-          "oreSett": 5,
-          "min": 12,
-          "max": 12
-        },
-        {
-          "ins": "Diritto e T.A.",
-          "oreSett": 4,
-          "min": 10,
-          "max": 10
-        },
-        {
-          "ins": "Psicologia",
-          "oreSett": 4,
-          "min": 9,
-          "max": 9
-        },
-        {
-          "ins": "Metodologie Operative",
-          "oreSett": 3,
-          "min": 7,
-          "max": 7
-        }
-      ]
-    },
-    "5.12": {
-      "genere": "asse",
-      "anno": 5,
-      "titolo": "Parole che curano: raccontare la salute mentale, superare lo stigma",
-      "ore": "42",
-      "totaleMin": 42,
-      "totaleMax": 42,
-      "voci": [
-        {
-          "ins": "Diritto e T.A.",
-          "oreSett": 4,
-          "min": 11,
-          "max": 11
-        },
-        {
-          "ins": "Italiano",
-          "oreSett": 4,
-          "min": 11,
-          "max": 11
-        },
-        {
-          "ins": "Psicologia",
-          "oreSett": 4,
-          "min": 11,
-          "max": 11
-        },
-        {
-          "ins": "Metodologie Operative",
-          "oreSett": 3,
-          "min": 9,
-          "max": 9
-        }
-      ]
-    },
-    "5.13": {
-      "genere": "asse",
-      "anno": 5,
-      "titolo": "Ricerca quantitativa e ricerca qualitativa. Dai dati le informazioni, dalle informazioni al progetto",
-      "ore": "20–25",
-      "totaleMin": 20,
-      "totaleMax": 25,
-      "voci": [
-        {
-          "ins": "Diritto e T.A.",
-          "oreSett": 4,
-          "min": 6,
-          "max": 7
-        },
-        {
-          "ins": "Psicologia",
-          "oreSett": 4,
-          "min": 6,
-          "max": 7
-        },
-        {
-          "ins": "Matematica",
-          "oreSett": 3,
-          "min": 4,
-          "max": 6
-        },
-        {
-          "ins": "Metodologie Operative",
-          "oreSett": 3,
-          "min": 4,
-          "max": 5
         }
       ]
     },
@@ -2532,25 +2199,25 @@
       "convenzionale": true,
       "voci": [
         {
-          "ins": "Igiene e Cultura M.S.",
+          "ins": "IGIENE E CULTURA MEDICO SANITARIA",
           "oreSett": 5,
           "min": 9,
           "max": 9
         },
         {
-          "ins": "Diritto e T.A.",
+          "ins": "DIRITTO E TEC. AMM.",
           "oreSett": 4,
           "min": 8,
           "max": 8
         },
         {
-          "ins": "Psicologia",
+          "ins": "PSICOLOGIA GENERALE ED APPLICATA",
           "oreSett": 4,
           "min": 7,
           "max": 7
         },
         {
-          "ins": "Metodologie Operative",
+          "ins": "METODOLOGIE OPERATIVE",
           "oreSett": 3,
           "min": 6,
           "max": 6
@@ -2567,25 +2234,25 @@
       "convenzionale": true,
       "voci": [
         {
-          "ins": "Igiene e Cultura M.S.",
+          "ins": "IGIENE E CULTURA MEDICO SANITARIA",
           "oreSett": 5,
           "min": 9,
           "max": 9
         },
         {
-          "ins": "Diritto e T.A.",
+          "ins": "DIRITTO E TEC. AMM.",
           "oreSett": 4,
           "min": 8,
           "max": 8
         },
         {
-          "ins": "Psicologia",
+          "ins": "PSICOLOGIA GENERALE ED APPLICATA",
           "oreSett": 4,
           "min": 7,
           "max": 7
         },
         {
-          "ins": "Metodologie Operative",
+          "ins": "METODOLOGIE OPERATIVE",
           "oreSett": 3,
           "min": 6,
           "max": 6
@@ -2602,25 +2269,25 @@
       "convenzionale": true,
       "voci": [
         {
-          "ins": "Igiene e Cultura M.S.",
+          "ins": "IGIENE E CULTURA MEDICO SANITARIA",
           "oreSett": 5,
           "min": 9,
           "max": 9
         },
         {
-          "ins": "Diritto e T.A.",
+          "ins": "DIRITTO E TEC. AMM.",
           "oreSett": 4,
           "min": 8,
           "max": 8
         },
         {
-          "ins": "Psicologia",
+          "ins": "PSICOLOGIA GENERALE ED APPLICATA",
           "oreSett": 4,
           "min": 7,
           "max": 7
         },
         {
-          "ins": "Metodologie Operative",
+          "ins": "METODOLOGIE OPERATIVE",
           "oreSett": 3,
           "min": 6,
           "max": 6
@@ -2637,25 +2304,25 @@
       "convenzionale": true,
       "voci": [
         {
-          "ins": "Igiene e Cultura M.S.",
+          "ins": "IGIENE E CULTURA MEDICO SANITARIA",
           "oreSett": 5,
           "min": 9,
           "max": 9
         },
         {
-          "ins": "Diritto e T.A.",
+          "ins": "DIRITTO E TEC. AMM.",
           "oreSett": 4,
           "min": 8,
           "max": 8
         },
         {
-          "ins": "Psicologia",
+          "ins": "PSICOLOGIA GENERALE ED APPLICATA",
           "oreSett": 4,
           "min": 7,
           "max": 7
         },
         {
-          "ins": "Metodologie Operative",
+          "ins": "METODOLOGIE OPERATIVE",
           "oreSett": 3,
           "min": 6,
           "max": 6

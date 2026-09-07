@@ -1,0 +1,215 @@
+{
+  "meta": {
+    "titolo": "UDA — Preparazione progressiva alla prova professionale",
+    "sottotitolo": "Struttura di lavoro per il triennio SSAS · due UDA per anno",
+    "stato": "Struttura predisposta · contenuti da progettare e deliberare",
+    "scopo": "Costruire UDA curricolari che culminino in un compito atteso o prova esperta nella forma di una sola tipologia della seconda prova professionale dell'indirizzo IP19.",
+    "nota": "Questa sezione non modifica il catalogo delle UDA d'asse, non alimenta il PFI e non contiene ancora tracce complete. Argomento, tipologia, nuclei, competenze, saperi, abilità, discipline e ore saranno definiti nelle fasi successive."
+  },
+  "fonti": [
+    {
+      "livello": "Quadro d’esame",
+      "natura": "Contenuti del quadro richiamati in una sintesi archiviata",
+      "uso": "Definizioni delle quattro tipologie, nuclei tematici fondamentali e indicatori della prova. Prima dell’uso annuale devono essere verificati nelle fonti ministeriali vigenti.",
+      "documento": "Esame di maturità SSAS 2026",
+      "url": "archivio/esame-stato-ssas/materiali/Esame-maturita-SSAS-2026.pdf"
+    },
+    {
+      "livello": "Indicazione RE.NA.I.SAN.S.",
+      "natura": "Documento metodologico della Rete, non fonte ministeriale",
+      "uso": "Criteri per costruire una traccia autentica, coerente con tipologia, nuclei e percorso della classe.",
+      "documento": "Indicazioni per la redazione della prova professionale — 2024",
+      "url": "archivio/esame-stato-ssas/materiali/Indicazioni-redazione-prova-professionale-2024.pdf"
+    },
+    {
+      "livello": "Curricolo SSAS",
+      "natura": "Fonte interna per la progettazione didattica",
+      "uso": "Competenze, traguardi, abilità, saperi, insegnamenti e collocazione annuale da utilizzare nell’UDA.",
+      "documento": "Curricolo dell’area di indirizzo",
+      "url": "area-indirizzo.html"
+    },
+    {
+      "livello": "Scelta progettuale",
+      "natura": "Decisione da discutere e deliberare",
+      "uso": "Tipologia assegnata alla singola UDA, argomento, situazione, destinatario, dossier, attività e articolazione delle ore.",
+      "documento": "Da definire",
+      "url": ""
+    }
+  ],
+  "principiRete2024": [
+    "Rispettare in modo inequivocabile la tipologia e i nuclei indicati per la prova.",
+    "Declinare la consegna in relazione al percorso formativo effettivamente svolto dalla classe.",
+    "Porre lo studente davanti a una situazione-problema reale o realistica.",
+    "Formulare una consegna sotto-strutturata, aperta a differenti linee di sviluppo.",
+    "Indicare un destinatario professionale o chiedere allo studente di individuarlo.",
+    "Integrare saperi e abilità dell’asse professionale, con gli eventuali contributi degli altri assi.",
+    "Escludere la sola riproposizione di nozioni o procedure obbligate.",
+    "Mettere a disposizione un dossier proporzionato di documenti, dati e informazioni pertinenti."
+  ],
+  "principiCurricolari": [
+    "L’UDA è parte della programmazione didattica e non un modulo aggiuntivo di addestramento all’esame.",
+    "Saperi e abilità devono essere ricavati dal curricolo della classe interessata, senza anticipazioni o integrazioni non dichiarate.",
+    "Ogni insegnamento deve avere un contributo esplicito e riconoscibile alla prestazione finale.",
+    "La ripartizione delle ore deve essere motivata e proporzionata al quadro orario dell’istituto.",
+    "Le attività preparatorie possono essere collaborative; la prova esperta conclusiva è individuale.",
+    "L’argomento viene scelto dopo la mappatura di tipologia, nuclei, competenze, saperi e abilità."
+  ],
+  "tipologie": [
+    {
+      "id": "A",
+      "definizione": "Redazione di una relazione professionale sulla base dell’analisi di documenti, tabelle, dati.",
+      "prestazione": "Produrre una relazione di ambito professionale, destinata a un soggetto riconoscibile, selezionando e rielaborando le informazioni fornite.",
+      "attenzioni2024": [
+        "Individuare il destinatario della relazione o chiedere al candidato di individuarlo.",
+        "Precisare gli aspetti della realtà che devono essere analizzati.",
+        "Rendere ambito e richiesta coerenti con i nuclei indicati.",
+        "Fornire documenti, tabelle e dati realmente utilizzabili nell’elaborato."
+      ]
+    },
+    {
+      "id": "B",
+      "definizione": "Analisi e soluzione di problematiche in un contesto operativo riguardante l’area professionale (caso aziendale/caso professionale).",
+      "prestazione": "Analizzare una situazione problematica e proporre una soluzione professionale motivata e sostenibile.",
+      "attenzioni2024": [
+        "Stabilire se si tratta di un caso aziendale o professionale.",
+        "Individuare il soggetto al quale il candidato rivolge il proprio lavoro.",
+        "Descrivere il caso in modo sotto-strutturato.",
+        "Richiedere soluzioni compatibili con le esperienze e le competenze maturate nel percorso scolastico."
+      ]
+    },
+    {
+      "id": "C",
+      "definizione": "Individuazione, predisposizione o descrizione delle fasi per la realizzazione di un servizio.",
+      "prestazione": "Individuare un servizio appropriato oppure descriverne, in forma argomentata, le fasi di predisposizione, accesso o gestione.",
+      "attenzioni2024": [
+        "Precisare se si richiede di individuare un servizio o di descriverne le fasi di predisposizione o gestione.",
+        "Indicare il destinatario e lo scopo professionale del lavoro.",
+        "Collegare bisogni, utenza, accesso, operatori e organizzazione ai nuclei indicati.",
+        "Evitare una consegna risolvibile con un semplice elenco di azioni."
+      ]
+    },
+    {
+      "id": "D",
+      "definizione": "Elaborazione di un progetto finalizzato all’innovazione della filiera di produzione e/o alla promozione di servizi e prestazioni professionali del settore.",
+      "prestazione": "Elaborare un progetto coerente con un mandato, esplicitando bisogni, destinatari, finalità, azioni, risorse e verifica.",
+      "attenzioni2024": [
+        "Stabilire la finalità del progetto: risposta a bisogni, innovazione, promozione o nuova funzione professionale.",
+        "Individuare il soggetto che assegna il mandato.",
+        "Formulare un mandato di progetto adeguato al percorso della classe.",
+        "Rendere destinatari, bisogni e progetto coerenti con i nuclei indicati."
+      ]
+    }
+  ],
+  "strutturaScheda": [
+    {
+      "numero": 1,
+      "titolo": "Identità e collocazione",
+      "contenuto": "Classe, periodo, durata, codice e stato della proposta."
+    },
+    {
+      "numero": 2,
+      "titolo": "Tipologia della prova",
+      "contenuto": "Una sola tipologia A, B, C o D e relativa prestazione professionale attesa."
+    },
+    {
+      "numero": 3,
+      "titolo": "Compito atteso / prova esperta",
+      "contenuto": "Situazione-problema, ruolo dello studente, committente, destinatario, prodotto e margini di scelta."
+    },
+    {
+      "numero": 4,
+      "titolo": "Nuclei e competenze",
+      "contenuto": "Nuclei tematici, competenze correlate e comportamenti professionali osservabili."
+    },
+    {
+      "numero": 5,
+      "titolo": "Raccordo con il curricolo",
+      "contenuto": "Traguardi, saperi e abilità previsti per l’anno, riportati con la disciplina referente."
+    },
+    {
+      "numero": 6,
+      "titolo": "Contributi disciplinari e ore",
+      "contenuto": "Attività di ciascun insegnamento, risultato intermedio e ripartizione motivata delle ore."
+    },
+    {
+      "numero": 7,
+      "titolo": "Percorso didattico",
+      "contenuto": "Fasi preparatorie, esercitazioni, integrazione dei contributi e progressione dell’autonomia."
+    },
+    {
+      "numero": 8,
+      "titolo": "Dossier documentale",
+      "contenuto": "Documenti, dati, tabelle e informazioni, con fonte, data e funzione nella prova."
+    },
+    {
+      "numero": 9,
+      "titolo": "Traccia conclusiva individuale",
+      "contenuto": "Consegna completa coerente con una sola tipologia e con i nuclei selezionati."
+    },
+    {
+      "numero": 10,
+      "titolo": "Valutazione e documentazione",
+      "contenuto": "Indicatori, descrittori, evidenze disciplinari, prodotto individuale e autovalutazione."
+    },
+    {
+      "numero": 11,
+      "titolo": "Personalizzazione e accessibilità",
+      "contenuto": "Misure previste e, quando necessario, criteri per prove equipollenti coerenti con gli obiettivi."
+    },
+    {
+      "numero": 12,
+      "titolo": "Tracciabilità",
+      "contenuto": "Fonti utilizzate e distinzione tra quadro d’esame, indicazioni della Rete e scelte progettuali."
+    }
+  ],
+  "schede": [
+    {
+      "id": "E3.1",
+      "anno": 3,
+      "stato": "Da progettare",
+      "tipologia": "Da definire",
+      "argomento": "Da definire",
+      "nota": "Prima UDA di preparazione progressiva prevista per la classe terza."
+    },
+    {
+      "id": "E3.2",
+      "anno": 3,
+      "stato": "Da progettare",
+      "tipologia": "Da definire",
+      "argomento": "Da definire",
+      "nota": "Seconda UDA di preparazione progressiva prevista per la classe terza."
+    },
+    {
+      "id": "E4.1",
+      "anno": 4,
+      "stato": "Da progettare",
+      "tipologia": "Da definire",
+      "argomento": "Da definire",
+      "nota": "Prima UDA di preparazione progressiva prevista per la classe quarta."
+    },
+    {
+      "id": "E4.2",
+      "anno": 4,
+      "stato": "Da progettare",
+      "tipologia": "Da definire",
+      "argomento": "Da definire",
+      "nota": "Seconda UDA di preparazione progressiva prevista per la classe quarta."
+    },
+    {
+      "id": "E5.1",
+      "anno": 5,
+      "stato": "Da progettare",
+      "tipologia": "Da definire",
+      "argomento": "Da definire",
+      "nota": "Prima UDA di preparazione progressiva prevista per la classe quinta."
+    },
+    {
+      "id": "E5.2",
+      "anno": 5,
+      "stato": "Da progettare",
+      "tipologia": "Da definire",
+      "argomento": "Da definire",
+      "nota": "Seconda UDA di preparazione progressiva prevista per la classe quinta."
+    }
+  ]
+}

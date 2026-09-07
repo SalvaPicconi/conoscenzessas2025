@@ -410,8 +410,11 @@ def main():
     proposta += [v['struttura'] for v in revisione['schede'].values() if 'struttura' in v]
     proposta.sort(key=lambda v: list(revisione['schede']).index(v['id']))
     riferimenti = [i for v in proposta for i in v['fonde']]
-    if len(riferimenti) != len(set(riferimenti)) or set(riferimenti) != set(per_id):
-        raise ValueError('Ogni scheda di origine deve comparire esattamente una volta')
+    if len(riferimenti) != len(set(riferimenti)) or len(riferimenti) != 48:
+        raise ValueError('Le 48 schede di origine devono comparire esattamente una volta')
+    mancanti = set(riferimenti) - set(per_id)
+    if mancanti:
+        raise ValueError(f'Schede di origine non reperite: {sorted(mancanti)}')
     if set(revisione['schede']) != {v['id'] for v in proposta}:
         raise ValueError('Revisione incompleta o con schede non presenti')
 
@@ -535,7 +538,7 @@ def main():
     print(f"Scritte {len(schede)} schede unificate da {fuse_totali} schede d'asse → {DESTINAZIONE.name}")
     for anno in range(1, 6):
         del_anno = [s for s in schede if s["anno"] == anno]
-        origine_anno = [u for u in origine["uda"] if u["anno"] == anno]
+        origine_anno = [u for u in origine["uda"] if u["id"] in riferimenti and u["anno"] == anno]
         print(f"  {anno}° anno: {len(origine_anno)} → {len(del_anno)} schede")
 
 

@@ -1,5 +1,5 @@
 // Fascicolo UDA quinquennio — rendering e filtri
-// Dati: data-uda.json (48 schede sintetiche D.I. 92/2018 con attribuzione
+// Dati: data-uda.json (57 schede sintetiche D.I. 92/2018 con attribuzione
 // di saperi e abilità agli insegnamenti derivata dal curricolo di indirizzo)
 
 // Se la pagina vive in un iframe: niente scroll interno, altezza gestita dalla madre
@@ -104,9 +104,20 @@ function hasActiveUdaFilters() {
     return Boolean(udaFilters.anno || udaFilters.competenza || udaFilters.insegnamento || udaFilters.search);
 }
 
+function competenzeUda(u) {
+    return Array.isArray(u.competenze) && u.competenze.length ? u.competenze : [u.competenza];
+}
+
+function etichettaCompetenze(u, separatore = ' · ') {
+    return competenzeUda(u).map(numero => {
+        const titolo = udaData.meta.competenze[String(numero)] || '';
+        return `C${numero} — ${escapeHTML(titolo)}`;
+    }).join(separatore);
+}
+
 function udaMatches(u) {
     if (udaFilters.anno && String(u.anno) !== udaFilters.anno) return false;
-    if (udaFilters.competenza && String(u.competenza) !== udaFilters.competenza) return false;
+    if (udaFilters.competenza && !competenzeUda(u).map(String).includes(udaFilters.competenza)) return false;
     if (udaFilters.insegnamento) {
         const involved = [...u.abilita, ...u.saperi].some(x => x.ins.some(i => stessoIns(i, udaFilters.insegnamento)));
         if (!involved) return false;
@@ -162,7 +173,8 @@ function renderVoce(item) {
 
 function renderUdaCard(u, autoExpand) {
     const expanded = autoExpand || expandedUda.has(u.id);
-    const compTitolo = udaData.meta.competenze[String(u.competenza)] || '';
+    const compSintesi = competenzeUda(u).map(numero => `C${numero}`).join(' · ');
+    const compDettaglio = etichettaCompetenze(u, '<br>');
     const insTotali = insegnamentiOrdinati(u);
     const panelId = `uda-panel-${String(u.id).replace(/[^a-zA-Z0-9_-]/g, '-')}`;
     const svilHtml = u.sviluppata
@@ -176,7 +188,7 @@ function renderUdaCard(u, autoExpand) {
                 <span class="uda-num ${ANNO_CLASS[u.anno]}">${u.id}</span>
                 <span class="uda-acc-main">
                     <span class="uda-acc-title">${escapeHTML(u.titolo)}</span>
-                    <span class="uda-acc-sub">C${u.competenza} · ${escapeHTML(compTitolo)}</span>
+                    <span class="uda-acc-sub">${escapeHTML(compSintesi)}</span>
                 </span>
                 <span class="uda-acc-pills">
                     <span class="pill ${ANNO_CLASS[u.anno]}">${ANNO_LABEL[u.anno]}</span>
@@ -189,7 +201,7 @@ function renderUdaCard(u, autoExpand) {
                 <div class="uda-sintetica">
                     <div class="sin-row">
                         <div class="sin-label">Competenza in uscita</div>
-                        <div class="sin-value">C${u.competenza} — ${escapeHTML(compTitolo)} (Allegato 2-i, D.I. 92/2018)</div>
+                        <div class="sin-value">${compDettaglio} <span class="voce-nota">(Allegato 2-I, D.M. 92/2018)</span></div>
                     </div>
                     <div class="sin-row">
                         <div class="sin-label">Traguardo intermedio</div>

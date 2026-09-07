@@ -66,7 +66,7 @@
                 <span class="section-kicker">Scegli il tuo punto di partenza</span>
                 <h2>Da dove vuoi iniziare?</h2>
                 <p>Percorsi complementari: dal curricolo alle UDA d'asse — con la proposta di accorpamento —
-                    alle trasversali e a quelle di formazione scuola-lavoro, fino alle idee dei docenti, alla progettazione annuale, al PFI e al Piano delle UDA del coordinatore.</p>
+                    alle trasversali, alla formazione scuola-lavoro e alla preparazione alla prova professionale, fino alle idee dei docenti, alla progettazione annuale, al PFI e al Piano delle UDA del coordinatore.</p>
             </div>
             <div class="tab-buttons-wrapper" role="tablist" aria-label="Aree del curricolo">
                 <button type="button" class="tab-button active" data-tab="indirizzo" id="tab-indirizzo" role="tab" aria-selected="true" aria-controls="content-indirizzo">
@@ -89,13 +89,17 @@
                     <span class="tab-icon" aria-hidden="true">05</span>
                     <span class="tab-copy"><span class="tab-label">UDA FSL</span><span class="tab-description">Formazione scuola-lavoro</span></span>
                 </button>
-                <button type="button" class="tab-button" data-tab="pfi" id="tab-pfi" role="tab" aria-selected="false" aria-controls="content-pfi" tabindex="-1">
+                <button type="button" class="tab-button" data-tab="esame" id="tab-esame" role="tab" aria-selected="false" aria-controls="content-esame" tabindex="-1">
                     <span class="tab-icon" aria-hidden="true">06</span>
-                    <span class="tab-copy"><span class="tab-label">PFI</span><span class="tab-description">Progetto formativo individuale</span></span>
+                    <span class="tab-copy"><span class="tab-label">UDA Esame di Stato</span><span class="tab-description">Prova professionale</span></span>
                 </button>
                 <button type="button" class="tab-button" data-tab="monografiche" id="tab-monografiche" role="tab" aria-selected="false" aria-controls="content-monografiche" tabindex="-1"><span class="tab-icon" aria-hidden="true">07</span><span class="tab-copy"><span class="tab-label">UDA monografiche</span><span class="tab-description">Proposte dei docenti</span></span></button>
                 <button type="button" class="tab-button" data-tab="annuale" id="tab-annuale" role="tab" aria-selected="false" aria-controls="content-annuale" tabindex="-1"><span class="tab-icon" aria-hidden="true">08</span><span class="tab-copy"><span class="tab-label">Progettazione annuale</span><span class="tab-description">Spazio di progettazione</span></span></button>
-                <button type="button" class="tab-button" data-tab="piano" id="tab-piano" role="tab" aria-selected="false" aria-controls="content-piano" tabindex="-1"><span class="tab-icon" aria-hidden="true">09</span><span class="tab-copy"><span class="tab-label">Piano delle UDA</span><span class="tab-description">Stampa del coordinatore</span></span></button>
+                <button type="button" class="tab-button" data-tab="pfi" id="tab-pfi" role="tab" aria-selected="false" aria-controls="content-pfi" tabindex="-1">
+                    <span class="tab-icon" aria-hidden="true">09</span>
+                    <span class="tab-copy"><span class="tab-label">PFI</span><span class="tab-description">Progetto formativo individuale</span></span>
+                </button>
+                <button type="button" class="tab-button" data-tab="piano" id="tab-piano" role="tab" aria-selected="false" aria-controls="content-piano" tabindex="-1"><span class="tab-icon" aria-hidden="true">10</span><span class="tab-copy"><span class="tab-label">Piano delle UDA</span><span class="tab-description">Stampa del coordinatore</span></span></button>
             </div>
         </div>
 
@@ -124,6 +128,10 @@
             <iframe src="uda-fsl.html" title="UDA per la Formazione scuola-lavoro SSAS" class="content-iframe" loading="lazy"></iframe>
         </div>
 
+        <div class="tab-content" id="content-esame" role="tabpanel" aria-labelledby="tab-esame" aria-hidden="true" hidden>
+            <iframe src="uda-esame.html" title="UDA per la preparazione alla prova professionale dell'Esame di Stato" class="content-iframe" loading="lazy"></iframe>
+        </div>
+
         <div class="tab-content" id="content-pfi" role="tabpanel" aria-labelledby="tab-pfi" aria-hidden="true" hidden>
             <iframe src="pfi.html" title="Progetto Formativo Individuale compilabile" class="content-iframe" loading="lazy"></iframe>
         </div>
@@ -133,6 +141,6 @@
     </main>
 
     <script src="script-main.js?v=20260907dip1"></script>
-<script src="assets/navigazione.js?v=20260907dip1"></script>
+<script src="assets/navigazione.js?v=20260907esame1"></script>
 </body>
 </html>

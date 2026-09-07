@@ -4,7 +4,7 @@
 // richiesto dal D.M. 92/2018 art. 4 c. 6 («nelle quali è strutturato»)
 //
 // Cataloghi UDA pubblicati in questo sito:
-//   data-uda.json ............... 48 UDA d'asse, una per competenza intermedia
+//   data-uda.json ............... 57 UDA d'asse: una per competenza intermedia, più nove proposte
 //   data-uda-trasversali.json ... UDA trasversali fra i quattro assi culturali
 //   data-uda-fsl.json ............ 4 UDA per la Formazione scuola-lavoro
 // ============================================================
@@ -37,7 +37,7 @@ if (window.parent !== window) {
 }
 
 const stato = {
-    catalogoIndirizzo: [],      // 48 UDA d'asse — data-uda.json
+    catalogoIndirizzo: [],      // 57 UDA d'asse — data-uda.json
     metaIndirizzo: null,
     catalogoTrasversali: [],    // UDA trasversali — data-uda-trasversali.json
     metaTrasversali: null,
@@ -220,6 +220,10 @@ function tutteLeUda() {
     ];
 }
 
+function competenzeIndirizzo(u) {
+    return Array.isArray(u.competenze) && u.competenze.length ? u.competenze : [u.competenza];
+}
+
 function popolaScelta() {
     const tipo = document.getElementById('pfi-uda-tipo').value;
     const anno = document.getElementById('pfi-uda-anno').value;
@@ -234,7 +238,7 @@ function popolaScelta() {
         .sort((a, b) => a.anno - b.anno || a._fonte.localeCompare(b._fonte))
         .map(u => ({
             key: `${u._fonte}:${u.id}`,
-            testo: `${ANNO_ETICHETTA[u.anno]} · ${u._fonte === 'unificate' ? 'Unificata · proposta' : u._fonte === 'trasversale' ? 'Trasversale' : u._fonte === 'fsl' ? 'FSL · ' + u.areaTirocinio : 'C' + u.competenza} — ${u.titolo}`
+            testo: `${ANNO_ETICHETTA[u.anno]} · ${u._fonte === 'unificate' ? 'Unificata · proposta' : u._fonte === 'trasversale' ? 'Trasversale' : u._fonte === 'fsl' ? 'FSL · ' + u.areaTirocinio : competenzeIndirizzo(u).map(c => 'C' + c).join(' · ')} — ${u.titolo}`
         }));
 
     sel.innerHTML = voci.length
@@ -318,7 +322,7 @@ function datiDaCatalogo(key) {
         tipo: 'Indirizzo',
         anno: u.anno,
         periodo: '',
-        competenze: `C${u.competenza} — ${comp[u.competenza] || ''}\nTraguardo: ${u.traguardo || ''}`,
+        competenze: `${competenzeIndirizzo(u).map(c => `C${c} — ${comp[c] || ''}`).join('\n')}\nTraguardo: ${u.traguardo || ''}`,
         europee: '',
         insegnamenti: ins.join(', '),
         saperi: (u.saperi || []).map(s => `${s.t} (${(s.ins || []).join(', ')})`).join('\n'),

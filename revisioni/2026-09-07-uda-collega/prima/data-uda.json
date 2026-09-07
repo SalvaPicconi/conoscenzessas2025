@@ -10,7 +10,7 @@
       "Presentazione, valutazione con rubrica e autovalutazione"
     ],
     "valutazioneStandard": "Rubrica del compito di realtà a 4 livelli + osservazione di processo + autovalutazione, in coerenza con la certificazione delle competenze e i livelli QNQ.",
-    "notaPiano": "In sede di piano delle UDA di inizio anno il consiglio di classe può selezionare le schede da attivare, accorparle (2 per UDA), fissare il quadrimestre e ripartire il monte ore tra le discipline. Le voci di abilità e saperi contrassegnate con «attribuzione di dipartimento» assegnano il contenuto a un insegnamento che l'Allegato C non prevede per quella competenza: sono proposte dei docenti che hanno redatto l'UDA, da validare in dipartimento.",
+    "notaPiano": "In sede di piano delle UDA di inizio anno il consiglio di classe può selezionare le schede da attivare, accorparle (2 per UDA), fissare il quadrimestre e ripartire il monte ore tra le discipline.",
     "competenze": {
       "1": "Collaborare nella gestione di progetti e attività dei servizi",
       "2": "Partecipare e cooperare nei gruppi di lavoro e nelle équipe",
@@ -32,8 +32,8 @@
       "titolo": "Il mio paese che aiuta",
       "competenza": 1,
       "qnq": "2",
-      "traguardo": "Costruire mappe dei servizi principali e delle principali prestazioni erogate nell’ambito della Legge 328/2000 (avvio guidato)",
-      "compito": "Prima mappa (cartacea o digitale) dei servizi: almeno 3 servizi con ente erogatore, utenza e prestazioni.",
+      "traguardo": "Costruire mappe dei servizi del territorio e delle principali prestazioni erogate (avvio guidato)",
+      "compito": "Prima mappa (cartacea o digitale) dei servizi del proprio comune: almeno 3 servizi con ente erogatore, utenza e prestazioni.",
       "ore": "12–15",
       "abilita": [
         {
@@ -58,23 +58,13 @@
       ],
       "saperi": [
         {
-          "t": "Modelli di Welfare State.",
-          "ins": []
-        },
-        {
-          "t": "Il welfare in Italia",
+          "t": "Modelli di Welfare State in Italia",
           "ins": [
             "Metodologie Operative"
           ]
         },
         {
-          "t": "Tipologie di servizi",
-          "ins": [
-            "Metodologie Operative"
-          ]
-        },
-        {
-          "t": "Tipologie di utenza dei servizi",
+          "t": "Tipologie di servizi e di utenza",
           "ins": [
             "Metodologie Operative",
             "Scienze Umane"
@@ -96,7 +86,7 @@
         }
       ],
       "sviluppata": null,
-      "situazione": "Molti studenti non sanno quali servizi sociali e sanitari esistano, né a chi ci si rivolge quando una famiglia ha bisogno di aiuto.",
+      "situazione": "Molti studenti non sanno quali servizi sociali e sanitari esistano nel comune in cui vivono, né a chi ci si rivolge quando una famiglia ha bisogno di aiuto.",
       "prodotto": "Prima mappa (cartacea o digitale) dei servizi del proprio comune: almeno 3 servizi con ente erogatore, utenza e prestazioni.",
       "beneficiari": "La classe e le famiglie degli studenti, cui la mappa viene consegnata.",
       "ambito": "interna"
@@ -127,8 +117,7 @@
         {
           "t": "Esporre idee rispettando le regole dello scambio",
           "ins": [
-            "Italiano",
-            "Scienze Umane"
+            "Italiano"
           ]
         }
       ],
@@ -156,8 +145,7 @@
           "ins": [
             "Italiano",
             "Inglese",
-            "Spagnolo",
-            "Scienze Umane"
+            "Spagnolo"
           ]
         }
       ],
@@ -301,9 +289,8 @@
         {
           "t": "Distinguere stato di salute e di malattia",
           "ins": [
-            "Scienze integrate"
-          ],
-          "notaAttribuzione": "Scienze Umane sviluppa il nucleo nel 2° anno; nella presente UDA di 1° anno l'attribuzione è a Scienze integrate."
+            "Scienze Umane"
+          ]
         },
         {
           "t": "Descrivere i compiti dei soggetti della presa in carico",
@@ -316,9 +303,8 @@
         {
           "t": "Le condizioni di salute bio-psico-sociale e di malattia",
           "ins": [
-            "Scienze integrate"
-          ],
-          "notaAttribuzione": "Scienze Umane sviluppa il nucleo nel 2° anno; nella presente UDA di 1° anno l'attribuzione è a Scienze integrate."
+            "Scienze Umane"
+          ]
         },
         {
           "t": "I soggetti della presa in carico e i loro compiti",
@@ -546,165 +532,6 @@
       "ambito": "interna"
     },
     {
-      "id": "1.10",
-      "anno": 1,
-      "titolo": "Diventare parte della società: i percorsi della socializzazione",
-      "competenza": 3,
-      "competenze": [3],
-      "qnq": "2",
-      "traguardo": "Agire per favorire il superamento di stereotipi e pregiudizi in ambito scolastico e nei contesti di vita quotidiana",
-      "compito": "Dossier per il giornalino d'istituto che confronta la socializzazione di una generazione fa con quella di oggi: interviste ad adulti, mappa delle agenzie di socializzazione ieri e oggi, articolo divulgativo.",
-      "ore": "28",
-      "abilita": [
-        {
-          "t": "Riconoscere la dimensione socio-culturale individuale e della comunità di appartenenza",
-          "ins": [
-            "Scienze Umane"
-          ]
-        },
-        {
-          "t": "Individuare stereotipi e pregiudizi e modalità comportamentali volte al loro superamento",
-          "ins": [
-            "Scienze Umane",
-            "Storia"
-          ]
-        },
-        {
-          "t": "Condurre una breve intervista e restituirne per iscritto le testimonianze raccolte (attribuzione di dipartimento)",
-          "ins": [
-            "Italiano"
-          ]
-        },
-        {
-          "t": "Utilizzare gli strumenti della comunicazione multimediale e dei social per la divulgazione di contenuti",
-          "ins": [
-            "TIC"
-          ]
-        }
-      ],
-      "saperi": [
-        {
-          "t": "Il processo di socializzazione primaria e secondaria",
-          "ins": [
-            "Scienze Umane"
-          ]
-        },
-        {
-          "t": "Principali agenzie di educazione e socializzazione",
-          "ins": [
-            "Scienze Umane"
-          ]
-        },
-        {
-          "t": "Culture, contesti, gruppi sociali, pregiudizi e stereotipi",
-          "ins": [
-            "Scienze Umane",
-            "Storia"
-          ]
-        },
-        {
-          "t": "Tecniche di base dell'intervista e struttura del testo espositivo (attribuzione di dipartimento)",
-          "ins": [
-            "Italiano"
-          ]
-        },
-        {
-          "t": "Tecniche e strumenti per la comunicazione multimediale",
-          "ins": [
-            "TIC"
-          ]
-        },
-        {
-          "t": "Dati sensibili e dati pubblici; la normativa sulla privacy",
-          "ins": [
-            "Diritto",
-            "TIC"
-          ]
-        }
-      ],
-      "sviluppata": null,
-      "situazione": "Il giornalino d'istituto prepara un numero su come si diventa grandi: di come si socializzava una generazione fa, in classe, nessuno ha una testimonianza diretta.",
-      "prodotto": "Dossier per il giornalino d'istituto che confronta la socializzazione di una generazione fa con quella di oggi: interviste ad adulti, mappa delle agenzie di socializzazione ieri e oggi, articolo divulgativo.",
-      "beneficiari": "I lettori del giornalino o del blog d'istituto.",
-      "ambito": "interna"
-    },
-    {
-      "id": "1.11",
-      "anno": 1,
-      "titolo": "Imparare a lavorare insieme: dinamiche di gruppo e comunicazione",
-      "competenza": 2,
-      "competenze": [2],
-      "qnq": "2",
-      "traguardo": "Partecipare e cooperare nei gruppi di lavoro in ambito scolastico",
-      "compito": "Attività di accoglienza per le future classi prime, progettata e condotta in gruppo con ruoli assegnati, con verbale del lavoro svolto e scheda di autovalutazione individuale.",
-      "ore": "32",
-      "abilita": [
-        {
-          "t": "Individuare le dinamiche alla base del funzionamento dei gruppi",
-          "ins": [
-            "Scienze Umane"
-          ]
-        },
-        {
-          "t": "Ascoltare attivamente e comunicare in modo non conflittuale",
-          "ins": [
-            "Scienze Umane"
-          ]
-        },
-        {
-          "t": "Esporre le proprie idee all'interno di un gruppo di lavoro osservando le regole dello scambio comunicativo",
-          "ins": [
-            "Italiano",
-            "Scienze Umane"
-          ]
-        },
-        {
-          "t": "Condurre in simulazione l'attività progettata e osservarne l'andamento (attribuzione di dipartimento)",
-          "ins": [
-            "Metodologie Operative"
-          ]
-        }
-      ],
-      "saperi": [
-        {
-          "t": "Il gruppo e le sue dinamiche",
-          "ins": [
-            "Scienze Umane"
-          ]
-        },
-        {
-          "t": "Gli aspetti emotivo-motivazionali dell'essere umano",
-          "ins": [
-            "Scienze Umane"
-          ]
-        },
-        {
-          "t": "Il processo di socializzazione",
-          "ins": [
-            "Scienze Umane"
-          ]
-        },
-        {
-          "t": "Modi, forme e funzioni della comunicazione",
-          "ins": [
-            "Italiano",
-            "Inglese"
-          ]
-        },
-        {
-          "t": "Strumenti di presentazione multimediale dell'indirizzo di studio (attribuzione di dipartimento)",
-          "ins": [
-            "TIC"
-          ]
-        }
-      ],
-      "sviluppata": null,
-      "situazione": "All'open day gli studenti delle scuole medie arrivano senza sapere che cosa sia l'indirizzo socio-sanitario, e chi li accoglie non ha mai lavorato in gruppo con ruoli distinti.",
-      "prodotto": "Attività di accoglienza per le future classi prime, progettata e condotta in gruppo con ruoli assegnati, con verbale del lavoro svolto e scheda di autovalutazione individuale.",
-      "beneficiari": "Gli studenti delle scuole medie in visita all'istituto e le loro famiglie.",
-      "ambito": "interna"
-    },
-    {
       "id": "2.1",
       "anno": 2,
       "titolo": "Conosci il tuo territorio",
@@ -723,9 +550,9 @@
         {
           "t": "Individuare le opportunità del territorio",
           "ins": [
-            "Metodologie Operative"
-          ],
-          "notaAttribuzione": "Per Scienze Umane il nucleo è collocato nel 1° anno."
+            "Metodologie Operative",
+            "Scienze Umane"
+          ]
         },
         {
           "t": "Utilizzare supporti informatici applicati al lavoro sociale",
@@ -744,24 +571,18 @@
           ]
         },
         {
-          "t": "Tipologie di servizi",
+          "t": "Tipologie di servizi e utenza",
           "ins": [
-            "Metodologie Operative"
+            "Metodologie Operative",
+            "Scienze Umane"
           ]
-        },
-        {
-          "t": "Tipologie di utenza dei servizi",
-          "ins": [
-            "Metodologie Operative"
-          ],
-          "notaAttribuzione": "Per Scienze Umane il nucleo è collocato nel 1° anno."
         },
         {
           "t": "Reti territoriali formali e informali",
           "ins": [
+            "Scienze Umane",
             "Metodologie Operative"
-          ],
-          "notaAttribuzione": "Per Scienze Umane il nucleo è collocato nel 1° anno."
+          ]
         },
         {
           "t": "Strumenti digitali di mappatura",
@@ -787,11 +608,17 @@
       "ore": "12–15",
       "abilita": [
         {
+          "t": "Individuare le dinamiche dei gruppi",
+          "ins": [
+            "Scienze Umane"
+          ]
+        },
+        {
           "t": "Comunicare in modo non conflittuale",
           "ins": [
+            "Scienze Umane",
             "Italiano"
-          ],
-          "notaAttribuzione": "Per Scienze Umane il nucleo è collocato nel 1° anno."
+          ]
         },
         {
           "t": "Esporre le proprie idee nel gruppo di lavoro",
@@ -802,11 +629,23 @@
       ],
       "saperi": [
         {
+          "t": "Il gruppo e le sue dinamiche",
+          "ins": [
+            "Scienze Umane"
+          ]
+        },
+        {
+          "t": "Socializzazione",
+          "ins": [
+            "Scienze Umane"
+          ]
+        },
+        {
           "t": "Comunicazione e gestione delle riunioni",
           "ins": [
-            "Italiano"
-          ],
-          "notaAttribuzione": "Per Scienze Umane il nucleo è collocato nel 1° anno."
+            "Italiano",
+            "Scienze Umane"
+          ]
         }
       ],
       "sviluppata": null,
@@ -1187,186 +1026,6 @@
       "ambito": "mista"
     },
     {
-      "id": "2.10",
-      "anno": 2,
-      "titolo": "La famiglia ieri e oggi: leggere le relazioni del contesto umano",
-      "competenza": 3,
-      "competenze": [3],
-      "qnq": "2",
-      "traguardo": "Agire per favorire il superamento di stereotipi e pregiudizi in ambito scolastico e nei contesti di vita quotidiana",
-      "compito": "Indagine sulle tipologie familiari rappresentate nell'istituto: questionario anonimo somministrato ad altre classi, dati in tabella e grafico, confronto con l'evoluzione storica della famiglia e relazione finale.",
-      "ore": "28",
-      "abilita": [
-        {
-          "t": "Riconoscere la dimensione socio-culturale individuale e della comunità di appartenenza",
-          "ins": [
-            "Scienze Umane"
-          ]
-        },
-        {
-          "t": "Individuare stereotipi e pregiudizi legati ai modelli familiari e modalità per il loro superamento",
-          "ins": [
-            "Scienze Umane",
-            "Storia"
-          ]
-        },
-        {
-          "t": "Individuare modalità appropriate per la raccolta dei dati",
-          "ins": [
-            "Matematica",
-            "Metodologie Operative"
-          ]
-        },
-        {
-          "t": "Applicare tecniche statistiche per la rappresentazione grafica di dati",
-          "ins": [
-            "Matematica"
-          ]
-        },
-        {
-          "t": "Utilizzare i dati nel rispetto delle normative di sicurezza sulla trasmissione e delle normative della privacy",
-          "ins": [
-            "Diritto",
-            "TIC"
-          ]
-        }
-      ],
-      "saperi": [
-        {
-          "t": "Evoluzione storica della famiglia e tipologie familiari contemporanee",
-          "ins": [
-            "Scienze Umane",
-            "Storia"
-          ]
-        },
-        {
-          "t": "Le funzioni della famiglia: affettiva, educativa, economica, di socializzazione",
-          "ins": [
-            "Scienze Umane"
-          ]
-        },
-        {
-          "t": "Principali agenzie di educazione e socializzazione",
-          "ins": [
-            "Scienze Umane"
-          ]
-        },
-        {
-          "t": "Istituti giuridici della famiglia: matrimonio, unioni civili, filiazione (attribuzione di dipartimento)",
-          "ins": [
-            "Diritto"
-          ]
-        },
-        {
-          "t": "Elementi di statistica descrittiva",
-          "ins": [
-            "Matematica"
-          ]
-        },
-        {
-          "t": "Tecniche di rilevazioni dati",
-          "ins": [
-            "Matematica",
-            "Metodologie Operative"
-          ]
-        },
-        {
-          "t": "Dati sensibili e dati pubblici; la normativa sulla privacy",
-          "ins": [
-            "Diritto",
-            "TIC"
-          ]
-        }
-      ],
-      "sviluppata": null,
-      "situazione": "Il comune redige ogni anno un report sulla composizione delle famiglie del territorio. Delle famiglie rappresentate dentro la scuola, invece, non esiste alcun dato.",
-      "prodotto": "Indagine sulle tipologie familiari rappresentate nell'istituto: questionario anonimo somministrato ad altre classi, dati in tabella e grafico, confronto con l'evoluzione storica della famiglia e relazione finale.",
-      "beneficiari": "L'assessorato ai servizi sociali del comune, cui l'analisi viene consegnata.",
-      "ambito": "mista"
-    },
-    {
-      "id": "2.11",
-      "anno": 2,
-      "titolo": "Le famiglie nei racconti: modelli familiari nei prodotti culturali",
-      "competenza": 3,
-      "competenze": [3],
-      "qnq": "2",
-      "traguardo": "Agire per favorire il superamento di stereotipi e pregiudizi in ambito scolastico e nei contesti di vita quotidiana",
-      "compito": "Postazione per la rassegna della biblioteca comunale sui modelli familiari: analisi di un film, una serie, un libro o una canzone, confronto con un'opera che rappresenti un modello diverso, poster e presentazione al pubblico.",
-      "ore": "32",
-      "abilita": [
-        {
-          "t": "Individuare stereotipi e pregiudizi legati ai modelli familiari e modalità comportamentali volte al loro superamento",
-          "ins": [
-            "Scienze Umane",
-            "Storia"
-          ]
-        },
-        {
-          "t": "Riconoscere la dimensione socio-culturale individuale e della comunità di appartenenza",
-          "ins": [
-            "Scienze Umane"
-          ]
-        },
-        {
-          "t": "Analizzare un testo narrativo, filmico o musicale e ricavarne il modello familiare rappresentato (attribuzione di dipartimento)",
-          "ins": [
-            "Italiano"
-          ]
-        },
-        {
-          "t": "Confrontare in lingua straniera la rappresentazione della famiglia in due contesti culturali (attribuzione di dipartimento)",
-          "ins": [
-            "Inglese"
-          ]
-        },
-        {
-          "t": "Utilizzare gli strumenti della comunicazione multimediale e dei social per la divulgazione di contenuti",
-          "ins": [
-            "TIC"
-          ]
-        }
-      ],
-      "saperi": [
-        {
-          "t": "Tipologie familiari contemporanee e loro rappresentazione",
-          "ins": [
-            "Scienze Umane"
-          ]
-        },
-        {
-          "t": "Culture, contesti, gruppi sociali, pregiudizi e stereotipi",
-          "ins": [
-            "Scienze Umane",
-            "Storia"
-          ]
-        },
-        {
-          "t": "Analisi del testo narrativo e del linguaggio filmico (attribuzione di dipartimento)",
-          "ins": [
-            "Italiano"
-          ]
-        },
-        {
-          "t": "Lessico della famiglia e delle relazioni in lingua inglese (attribuzione di dipartimento)",
-          "ins": [
-            "Inglese"
-          ]
-        },
-        {
-          "t": "Tecniche e strumenti per la comunicazione multimediale",
-          "ins": [
-            "TIC"
-          ]
-        }
-      ],
-      "sviluppata": null,
-      "situazione": "La biblioteca comunale allestisce una rassegna sui modelli familiari raccontati dal cinema e dalla musica, e non ha chi curi le schede delle opere.",
-      "prodotto": "Postazione per la rassegna della biblioteca comunale sui modelli familiari: analisi di un film, una serie, un libro o una canzone, confronto con un'opera che rappresenti un modello diverso, poster e presentazione al pubblico.",
-      "beneficiari": "Il pubblico della rassegna della biblioteca comunale.",
-      "ambito": "esterna"
-    },
-    {
       "id": "3.1",
       "anno": 3,
       "titolo": "Dal bisogno al progetto",
@@ -1380,15 +1039,13 @@
           "t": "Decodificare i compiti dei soggetti di una procedura",
           "ins": [
             "Metodologie Operative",
-            "Igiene e Cultura M.S.",
-            "Psicologia"
+            "Igiene e Cultura M.S."
           ]
         },
         {
           "t": "Riconoscere le relazioni obiettivi-attività di un progetto",
           "ins": [
-            "Metodologie Operative",
-            "Psicologia"
+            "Metodologie Operative"
           ]
         },
         {
@@ -1417,10 +1074,8 @@
         {
           "t": "Tecniche di progettazione",
           "ins": [
-            "Metodologie Operative",
-            "Psicologia"
-          ],
-          "notaAttribuzione": "Scelta didattica dei docenti oltre le attribuzioni del curricolo verticale; da ratificare in dipartimento."
+            "Metodologie Operative"
+          ]
         },
         {
           "t": "Il PAI",
@@ -1493,11 +1148,8 @@
           "t": "Tipologie di resoconti (report, verbali, relazioni)",
           "ins": [
             "Italiano",
-            "TIC",
-            "Psicologia",
-            "Metodologie Operative"
-          ],
-          "notaAttribuzione": "Scelta didattica dei docenti oltre le attribuzioni del curricolo verticale; da ratificare in dipartimento."
+            "TIC"
+          ]
         },
         {
           "t": "Linguaggi settoriali",
@@ -1902,10 +1554,8 @@
         {
           "t": "Integrazione sociale, scolastica e lavorativa",
           "ins": [
-            "Metodologie Operative",
-            "Psicologia"
-          ],
-          "notaAttribuzione": "Scelta didattica dei docenti oltre le attribuzioni del curricolo verticale; da ratificare in dipartimento."
+            "Metodologie Operative"
+          ]
         }
       ],
       "sviluppata": null,
@@ -1960,89 +1610,6 @@
       "prodotto": "Dossier dati su una realtà sociale: raccolta, elaborazione, rappresentazione con strumenti di osservazione dei servizi e regole GDPR.",
       "beneficiari": "Il servizio o l'associazione osservata, cui si restituisce il dossier.",
       "ambito": "mista"
-    },
-    {
-      "id": "3.11",
-      "anno": 3,
-      "titolo": "Imparare giocando: il gioco come strumento di sviluppo",
-      "competenza": 4,
-      "competenze": [4],
-      "qnq": "3",
-      "traguardo": "Programmare azioni per soddisfare bisogni e favorire condizioni di benessere del bambino",
-      "compito": "Gioco o attività ludica progettata per un preciso obiettivo di sviluppo, condotta con i compagni o con i bambini in formazione scuola-lavoro, con scheda di osservazione dei comportamenti e relazione sugli esiti.",
-      "ore": "32",
-      "abilita": [
-        {
-          "t": "Adottare tecniche di osservazione e accudimento del bambino",
-          "ins": [
-            "Psicologia",
-            "Metodologie Operative"
-          ]
-        },
-        {
-          "t": "Predisporre semplici piani di lavoro",
-          "ins": [
-            "Metodologie Operative"
-          ]
-        },
-        {
-          "t": "Applicare le norme igieniche e di sicurezza sul lavoro",
-          "ins": [
-            "Igiene e Cultura M.S."
-          ]
-        },
-        {
-          "t": "Individuare gli istituti giuridici di tutela della persona",
-          "ins": [
-            "Diritto e T.A."
-          ]
-        }
-      ],
-      "saperi": [
-        {
-          "t": "Il gioco nello sviluppo cognitivo, affettivo, motorio e sociale del bambino (attribuzione di dipartimento)",
-          "ins": [
-            "Psicologia"
-          ]
-        },
-        {
-          "t": "Tipologie di gioco nelle diverse fasi evolutive (attribuzione di dipartimento)",
-          "ins": [
-            "Psicologia",
-            "Metodologie Operative"
-          ]
-        },
-        {
-          "t": "Tecniche di osservazione e accudimento in età evolutiva",
-          "ins": [
-            "Psicologia",
-            "Metodologie Operative"
-          ]
-        },
-        {
-          "t": "I piani di lavoro",
-          "ins": [
-            "Metodologie Operative"
-          ]
-        },
-        {
-          "t": "Elementi di puericultura e igiene del bambino",
-          "ins": [
-            "Igiene e Cultura M.S."
-          ]
-        },
-        {
-          "t": "I diritti della personalità e gli istituti giuridici a tutela della persona fisica",
-          "ins": [
-            "Diritto e T.A."
-          ]
-        }
-      ],
-      "sviluppata": null,
-      "situazione": "In formazione scuola-lavoro si propongono ai bambini giochi scelti sul momento, senza che nessuno sappia dire a quale obiettivo di sviluppo rispondano.",
-      "prodotto": "Gioco o attività ludica progettata per un preciso obiettivo di sviluppo, condotta con i compagni o con i bambini in formazione scuola-lavoro, con scheda di osservazione dei comportamenti e relazione sugli esiti.",
-      "beneficiari": "I bambini della struttura che ospita la formazione scuola-lavoro.",
-      "ambito": "esterna"
     },
     {
       "id": "4.1",
@@ -2628,88 +2195,6 @@
       "ambito": "mista"
     },
     {
-      "id": "4.11",
-      "anno": 4,
-      "titolo": "Conoscere per orientare: bisogni e servizi per la disabilità",
-      "competenza": 7,
-      "competenze": [4, 7],
-      "qnq": "3/4",
-      "traguardo": "Orientare l'utenza alla fruizione dei servizi in relazione ai bisogni e alle prestazioni",
-      "compito": "Mappa dei servizi per la disabilità del territorio confrontata con i bisogni di un profilo-utente letto con la classificazione ICF: scheda del divario fra bisogni e offerta, colloquio di orientamento simulato e scheda di orientamento personalizzata.",
-      "ore": "38",
-      "abilita": [
-        {
-          "t": "Utilizzare tecniche dell'intervista e del colloquio",
-          "ins": [
-            "Psicologia",
-            "Metodologie Operative"
-          ]
-        },
-        {
-          "t": "Individuare servizi e prestazioni che rispondono ai diversi bisogni",
-          "ins": [
-            "Metodologie Operative",
-            "Matematica"
-          ]
-        },
-        {
-          "t": "Veicolare informazioni sotto varie forme per instaurare una proficua relazione d'aiuto",
-          "ins": [
-            "Psicologia",
-            "TIC"
-          ]
-        },
-        {
-          "t": "Leggere i bisogni della persona con disabilità secondo la classificazione ICF (attribuzione di dipartimento)",
-          "ins": [
-            "Igiene e Cultura M.S.",
-            "Psicologia"
-          ]
-        }
-      ],
-      "saperi": [
-        {
-          "t": "Tecniche dell'intervista e del colloquio",
-          "ins": [
-            "Psicologia",
-            "Metodologie Operative"
-          ]
-        },
-        {
-          "t": "La distribuzione sul territorio e della fruizione dei servizi: rilevazioni statistiche",
-          "ins": [
-            "Matematica",
-            "Metodologie Operative"
-          ]
-        },
-        {
-          "t": "La gestione delle informazioni nella comunicazione esterna e interna ai servizi",
-          "ins": [
-            "TIC",
-            "Metodologie Operative"
-          ]
-        },
-        {
-          "t": "La classificazione ICF: funzionamento, disabilità e fattori contestuali (attribuzione di dipartimento)",
-          "ins": [
-            "Igiene e Cultura M.S.",
-            "Psicologia"
-          ]
-        },
-        {
-          "t": "Requisiti e modalità di accesso ai servizi per la disabilità (attribuzione di dipartimento)",
-          "ins": [
-            "Diritto e T.A."
-          ]
-        }
-      ],
-      "sviluppata": null,
-      "situazione": "Lo sportello comunale instrada le persone con disabilità verso i servizi, ma nessuno ha mai messo per iscritto quali bisogni restino senza risposta sul territorio.",
-      "prodotto": "Mappa dei servizi per la disabilità del territorio confrontata con i bisogni di un profilo-utente letto con la classificazione ICF: scheda del divario fra bisogni e offerta, colloquio di orientamento simulato e scheda di orientamento personalizzata.",
-      "beneficiari": "Lo sportello di orientamento del comune, cui la mappa e la scheda del divario vengono consegnate.",
-      "ambito": "esterna"
-    },
-    {
       "id": "5.1",
       "anno": 5,
       "titolo": "Il progetto completo",
@@ -3290,253 +2775,6 @@
       "situazione": "Un servizio che non misura i propri risultati non può migliorarli, né dimostrare di possedere i requisiti per l'accreditamento regionale.",
       "prodotto": "Dashboard di monitoraggio di un progetto/servizio con indicatori, analisi statistica di base (correlazione) e relazione valutativa con riferimenti all'accreditamento regionale.",
       "beneficiari": "Il servizio o l'ente osservato, cui si consegna la relazione valutativa.",
-      "ambito": "mista"
-    },
-    {
-      "id": "5.11",
-      "anno": 5,
-      "titolo": "L'anziano nella società: dalla percezione al ruolo attivo",
-      "competenza": 4,
-      "competenze": [4, 9],
-      "qnq": "4",
-      "traguardo": "Prendersi cura e collaborare al soddisfacimento dei bisogni di base di bambini, persone con disabilità, anziani nell'espletamento delle più comuni attività quotidiane (uscita piena)",
-      "compito": "Giornata intergenerazionale al centro anziani: indagine sulla percezione della vecchiaia con questionario e interviste, rilevazione simulata di parametri vitali e livello di autonomia, PAI sintetico orientato al mantenimento delle capacità e progetto dell'iniziativa.",
-      "ore": "38",
-      "abilita": [
-        {
-          "t": "Indicare proposte e iniziative per la predisposizione e attuazione del Piano Assistenziale Individualizzato",
-          "ins": [
-            "Metodologie Operative",
-            "Igiene e Cultura M.S."
-          ]
-        },
-        {
-          "t": "Individuare le attività finalizzate alla promozione, conservazione e mantenimento delle capacità della persona e di sostegno alla famiglia",
-          "ins": [
-            "Psicologia",
-            "Metodologie Operative"
-          ]
-        },
-        {
-          "t": "Rilevare e registrare i parametri vitali",
-          "ins": [
-            "Igiene e Cultura M.S."
-          ]
-        },
-        {
-          "t": "Rilevare le rappresentazioni sociali della vecchiaia e confrontarle con i dati raccolti (attribuzione di dipartimento)",
-          "ins": [
-            "Psicologia"
-          ]
-        }
-      ],
-      "saperi": [
-        {
-          "t": "Strumenti e tecniche per la rilevazione dello stato di salute e scale dei livelli di autonomia",
-          "ins": [
-            "Igiene e Cultura M.S.",
-            "Metodologie Operative"
-          ]
-        },
-        {
-          "t": "Modalità di rilevazione e tipologia dei parametri vitali",
-          "ins": [
-            "Igiene e Cultura M.S."
-          ]
-        },
-        {
-          "t": "Caratteristiche, fasi e tipologia delle relazioni di aiuto e di cura in rapporto ai bisogni della persona anziana e della sua famiglia",
-          "ins": [
-            "Psicologia",
-            "Metodologie Operative"
-          ]
-        },
-        {
-          "t": "Pregiudizio di età e invecchiamento attivo (attribuzione di dipartimento)",
-          "ins": [
-            "Psicologia"
-          ]
-        },
-        {
-          "t": "Elementi di etica e deontologia professionale nei servizi alla persona",
-          "ins": [
-            "Psicologia",
-            "Diritto e T.A."
-          ]
-        }
-      ],
-      "sviluppata": null,
-      "situazione": "Il centro anziani organizza una giornata intergenerazionale per contrastare i luoghi comuni sulla vecchiaia, e di quei luoghi comuni non esiste alcuna rilevazione.",
-      "prodotto": "Giornata intergenerazionale al centro anziani: indagine sulla percezione della vecchiaia con questionario e interviste, rilevazione simulata di parametri vitali e livello di autonomia, PAI sintetico orientato al mantenimento delle capacità e progetto dell'iniziativa.",
-      "beneficiari": "Il centro anziani comunale e le persone che vi partecipano.",
-      "ambito": "esterna"
-    },
-    {
-      "id": "5.12",
-      "anno": 5,
-      "titolo": "Parole che curano: raccontare la salute mentale, superare lo stigma",
-      "competenza": 9,
-      "competenze": [3, 9],
-      "qnq": "4",
-      "traguardo": "Realizzare, in collaborazione con altre figure professionali, azioni a sostegno e a tutela della persona con disagio psichico e della sua famiglia, per favorirne l'integrazione e migliorare o salvaguardare la qualità della vita",
-      "compito": "Campagna per la Giornata mondiale della salute mentale: analisi di come cinema, stampa e social raccontano il disagio psichico, glossario delle parole da evitare e di quelle corrette, prodotto di comunicazione con l'indicazione dei servizi del territorio.",
-      "ore": "42",
-      "abilita": [
-        {
-          "t": "Individuare i bisogni e le problematiche specifiche delle persone con disagio psichico e dei loro nuclei familiari",
-          "ins": [
-            "Psicologia",
-            "Metodologie Operative"
-          ]
-        },
-        {
-          "t": "Identificare gli elementi caratterizzanti i progetti d'integrazione sociale",
-          "ins": [
-            "Metodologie Operative",
-            "Psicologia"
-          ]
-        },
-        {
-          "t": "Distinguere nella comunicazione pubblica le espressioni stigmatizzanti da quelle corrette (attribuzione di dipartimento)",
-          "ins": [
-            "Italiano",
-            "Psicologia"
-          ]
-        }
-      ],
-      "saperi": [
-        {
-          "t": "Orientamenti psicologici e psicoterapeutici e modalità d'intervento socio-assistenziale nei confronti di persone con disagio psichico",
-          "ins": [
-            "Psicologia"
-          ]
-        },
-        {
-          "t": "Stigma e rappresentazione del disagio psichico nei prodotti culturali e nella comunicazione pubblica (attribuzione di dipartimento)",
-          "ins": [
-            "Psicologia",
-            "Italiano"
-          ]
-        },
-        {
-          "t": "I servizi per la salute mentale: dipartimento e centro di salute mentale (attribuzione di dipartimento)",
-          "ins": [
-            "Metodologie Operative",
-            "Diritto e T.A."
-          ]
-        },
-        {
-          "t": "Tecniche di redazione di testi divulgativi e di materiali di campagna (attribuzione di dipartimento)",
-          "ins": [
-            "Italiano"
-          ]
-        }
-      ],
-      "sviluppata": null,
-      "situazione": "Il dipartimento di salute mentale chiede alle scuole una campagna contro lo stigma, e le parole con cui a scuola si parla di disagio psichico non sono mai state esaminate.",
-      "prodotto": "Campagna per la Giornata mondiale della salute mentale: analisi di come cinema, stampa e social raccontano il disagio psichico, glossario delle parole da evitare e di quelle corrette, prodotto di comunicazione con l'indicazione dei servizi del territorio.",
-      "beneficiari": "Il dipartimento di salute mentale dell'azienda sanitaria, cui la campagna è destinata.",
-      "ambito": "esterna"
-    },
-    {
-      "id": "5.13",
-      "anno": 5,
-      "titolo": "Ricerca quantitativa e ricerca qualitativa. Dai dati le informazioni, dalle informazioni al progetto",
-      "competenza": 10,
-      "competenze": [10],
-      "qnq": "4",
-      "traguardo": "Raccogliere, elaborare e trasmettere dati con tecniche quantitative e qualitative ai fini della valutazione degli interventi e della progettazione dei servizi (uscita piena)",
-      "compito": "Ricerca su un bisogno del territorio condotta su due binari: un questionario campionario elaborato con indici statistici e grafici, e interviste o gruppi di discussione analizzati per temi. Le due letture si confrontano in un rapporto che si chiude con la proposta di un intervento.",
-      "ore": "20–25",
-      "abilita": [
-        {
-          "t": "Costruire il campione e il questionario ed elaborarne i dati con indici statistici (attribuzione di dipartimento)",
-          "ins": [
-            "Matematica",
-            "Psicologia"
-          ]
-        },
-        {
-          "t": "Condurre interviste e gruppi di discussione e analizzarne per temi il materiale raccolto",
-          "ins": [
-            "Metodologie Operative",
-            "Psicologia"
-          ]
-        },
-        {
-          "t": "Utilizzare tecniche per il monitoraggio dei progetti e dei servizi",
-          "ins": [
-            "Metodologie Operative",
-            "Matematica"
-          ]
-        },
-        {
-          "t": "Individuare l'apporto da fornire alla elaborazione di progetti in ambito sociale e piani individualizzati",
-          "ins": [
-            "Metodologie Operative",
-            "Psicologia"
-          ]
-        },
-        {
-          "t": "Reperire le norme sulla qualità del servizio e per l'accreditamento richieste in ambito regionale",
-          "ins": [
-            "Diritto e T.A.",
-            "Metodologie Operative"
-          ]
-        }
-      ],
-      "saperi": [
-        {
-          "t": "Tecniche di base per la rielaborazione quantitativa e qualitativa dei dati (ripresa del terzo anno)",
-          "ins": [
-            "Matematica"
-          ]
-        },
-        {
-          "t": "Elementi di statistica in contesti operativi (analisi di correlazione e regressione dati)",
-          "ins": [
-            "Matematica"
-          ]
-        },
-        {
-          "t": "Tecniche dell'intervista e del colloquio",
-          "ins": [
-            "Psicologia",
-            "Metodologie Operative"
-          ]
-        },
-        {
-          "t": "Il gruppo di discussione e l'analisi tematica del materiale raccolto (attribuzione di dipartimento)",
-          "ins": [
-            "Psicologia",
-            "Metodologie Operative"
-          ]
-        },
-        {
-          "t": "Modalità, tecniche e strumenti di monitoraggio di progetti e interventi",
-          "ins": [
-            "Metodologie Operative",
-            "Matematica"
-          ]
-        },
-        {
-          "t": "La progettazione nei servizi",
-          "ins": [
-            "Metodologie Operative"
-          ]
-        },
-        {
-          "t": "Etica della ricerca: consenso informato, anonimato e trattamento dei dati (attribuzione di dipartimento)",
-          "ins": [
-            "Psicologia",
-            "Diritto e T.A."
-          ]
-        }
-      ],
-      "sviluppata": null,
-      "situazione": "Di un bisogno del territorio i numeri dicono quante persone riguarda, le parole dicono come viene vissuto: un progetto costruito su una sola delle due letture nasce zoppo.",
-      "prodotto": "Ricerca su un bisogno del territorio condotta su due binari: un questionario campionario elaborato con indici statistici e grafici, e interviste o gruppi di discussione analizzati per temi. Le due letture si confrontano in un rapporto che si chiude con la proposta di un intervento.",
-      "beneficiari": "Il servizio o l'ente che ha posto la domanda di ricerca, cui il rapporto e la proposta vengono consegnati.",
       "ambito": "mista"
     }
   ]

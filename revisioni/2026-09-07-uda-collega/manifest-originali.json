@@ -1,0 +1,47 @@
+{
+  "data": "2026-09-07",
+  "scopo": "Impronte delle otto UDA ODT ricevute dalla collega e conservate senza modifiche.",
+  "algoritmo": "sha256",
+  "file": [
+    {
+      "nome": "UDA BIENNIO Socializzazione.odt",
+      "byte": 36050,
+      "sha256": "3929f3eeae28443fbbf697d2b78e654d6bcd97d22a6fae8dbe502ae094e0de69"
+    },
+    {
+      "nome": "UDA BIENNIO_Famiglia E Media.odt",
+      "byte": 34333,
+      "sha256": "f9285b7345434b17d73f702869f01d737e4e7c7299e315b7e74f7a89833c497f"
+    },
+    {
+      "nome": "UDA QUARTO ANNO_Disabilita_Quarto_Anno.odt",
+      "byte": 36149,
+      "sha256": "b1f810401d2f8d16b2bd8694b6219a3920b5868ab7bb9815b24978bea07aa2e5"
+    },
+    {
+      "nome": "UDA QUINTO ANNO_Anziani.odt",
+      "byte": 38245,
+      "sha256": "1613f459d8d12c1fa37df1a3a58b168fbc967b050a1326f2fce61df9d7af08bb"
+    },
+    {
+      "nome": "UDA QUINTO ANNO_Salute_Mentale.odt",
+      "byte": 36935,
+      "sha256": "a07db00ef72b27717938532ae08562d6dd68813fe9a75e2b2f197f96ec279665"
+    },
+    {
+      "nome": "UDA TERZO ANNO_Gioco_Sviluppo_Terzo_Anno.odt",
+      "byte": 35361,
+      "sha256": "a4518a365ae3fc7b08027f7e7e80d4c91b22f918dd2d40aefaf50e78f9616b0c"
+    },
+    {
+      "nome": "UDA_BIENNIO Collaborare in gruppo_equipe.odt",
+      "byte": 3243096,
+      "sha256": "636d6a217f2decaad66e5f7dfb18e6e3d62f32fef6586a4670165e1ca33f4113"
+    },
+    {
+      "nome": "UDA_BIENNIO_FAMIGLIA ricerca statistica.odt",
+      "byte": 35652,
+      "sha256": "eacde372f781e1411541d23ee47829831fdd78661b3172882212e108d04b77af"
+    }
+  ]
+}

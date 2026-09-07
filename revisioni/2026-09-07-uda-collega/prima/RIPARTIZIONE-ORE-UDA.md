@@ -74,12 +74,12 @@ Ore settimanali: Metodologie operative 7 · Lingua e letteratura italiana 4 · M
 
 ### 1.5 · Che cos'è la salute?
 
-*UDA d'asse — monte ore 8–10 — durata almeno 1 settimana, dettata da Scienze Integrate*
+*UDA d'asse — monte ore 8–10 — durata almeno 1 settimana, dettata da Scienze Umane*
 
 | Insegnamento | Ore settimanali | Ore nell'UDA |
 |---|---:|---:|
 | Metodologie Operative | 7 | **5–6** |
-| Scienze Integrate | 4 | **3–4** |
+| Scienze Umane | 4 | **3–4** |
 | **Totale** | | **8–10** |
 
 ### 1.6 · Sicuri a scuola
@@ -125,32 +125,6 @@ Ore settimanali: Metodologie operative 7 · Lingua e letteratura italiana 4 · M
 | TIC | 2 | **2** |
 | **Totale** | | **10–12** |
 
-### 1.10 · Diventare parte della società: i percorsi della socializzazione
-
-*UDA d'asse — monte ore 28 — durata almeno 3 settimane, dettata da Italiano*
-
-| Insegnamento | Ore settimanali | Ore nell'UDA |
-|---|---:|---:|
-| Italiano | 4 | **9** |
-| Scienze Umane | 4 | **9** |
-| Diritto | 2 | **4** |
-| TIC | 2 | **4** |
-| Storia | 1 | **2** |
-| **Totale** | | **28** |
-
-### 1.11 · Imparare a lavorare insieme: dinamiche di gruppo e comunicazione
-
-*UDA d'asse — monte ore 32 — durata almeno 2 settimane, dettata da Italiano*
-
-| Insegnamento | Ore settimanali | Ore nell'UDA |
-|---|---:|---:|
-| Metodologie Operative | 7 | **11** |
-| Italiano | 4 | **7** |
-| Scienze Umane | 4 | **6** |
-| Inglese | 3 | **5** |
-| TIC | 2 | **3** |
-| **Totale** | | **32** |
-
 ### T1.1 · Educazione alla pace e alla non violenza: dalle regole quotidiane al regolamento di classe
 
 *UDA trasversale — monte ore 12–15 — durata almeno 1 settimana, dettata da Storia*
@@ -186,23 +160,25 @@ Ore settimanali: Metodologie operative 6 · Lingua e letteratura italiana 4 · M
 
 ### 2.1 · Conosci il tuo territorio
 
-*UDA d'asse — monte ore 15–18 — durata almeno 2 settimane, dettata da Storia*
+*UDA d'asse — monte ore 15–18 — durata almeno 2 settimane, dettata da Diritto*
 
 | Insegnamento | Ore settimanali | Ore nell'UDA |
 |---|---:|---:|
-| Metodologie Operative | 6 | **8–10** |
-| Diritto | 2 | **3** |
-| TIC | 2 | **3** |
-| Storia | 1 | **1–2** |
+| Metodologie Operative | 6 | **6–7** |
+| Scienze Umane | 4 | **4–5** |
+| Diritto | 2 | **2–3** |
+| TIC | 2 | **2** |
+| Storia | 1 | **1** |
 | **Totale** | | **15–18** |
 
 ### 2.2 · Un'iniziativa per la scuola
 
-*UDA d'asse — monte ore 12–15 — durata almeno 4 settimane, dettata da Italiano*
+*UDA d'asse — monte ore 12–15 — durata almeno 2 settimane, dettata da Italiano*
 
 | Insegnamento | Ore settimanali | Ore nell'UDA |
 |---|---:|---:|
-| Italiano | 4 | **12–15** |
+| Italiano | 4 | **6–8** |
+| Scienze Umane | 4 | **6–7** |
 | **Totale** | | **12–15** |
 
 ### 2.3 · Comunicare senza barriere
@@ -281,33 +257,6 @@ Ore settimanali: Metodologie operative 6 · Lingua e letteratura italiana 4 · M
 | Matematica | 4 | **4–5** |
 | TIC | 2 | **2** |
 | **Totale** | | **12–15** |
-
-### 2.10 · La famiglia ieri e oggi: leggere le relazioni del contesto umano
-
-*UDA d'asse — monte ore 28 — durata almeno 2 settimane, dettata da Metodologie Operative*
-
-| Insegnamento | Ore settimanali | Ore nell'UDA |
-|---|---:|---:|
-| Metodologie Operative | 6 | **9** |
-| Matematica | 4 | **6** |
-| Scienze Umane | 4 | **6** |
-| Diritto | 2 | **3** |
-| TIC | 2 | **3** |
-| Storia | 1 | **1** |
-| **Totale** | | **28** |
-
-### 2.11 · Le famiglie nei racconti: modelli familiari nei prodotti culturali
-
-*UDA d'asse — monte ore 32 — durata almeno 3 settimane, dettata da TIC*
-
-| Insegnamento | Ore settimanali | Ore nell'UDA |
-|---|---:|---:|
-| Italiano | 4 | **9** |
-| Scienze Umane | 4 | **9** |
-| Inglese | 3 | **7** |
-| TIC | 2 | **5** |
-| Storia | 1 | **2** |
-| **Totale** | | **32** |
 
 ### T2.1 · Fiaba e racconto come strumento di crescita
 
@@ -464,18 +413,6 @@ Ore settimanali: Igiene e cultura medico-sanitaria 5 · Lingua e letteratura ita
 > TIC: concorre ai contenuti dell'UDA ma non ha ore proprie, perché non è
 > presente nel quadro orario di 3ª. I relativi compiti restano agli insegnamenti elencati sopra.
 
-### 3.11 · Imparare giocando: il gioco come strumento di sviluppo
-
-*UDA d'asse — monte ore 32 — durata almeno 2 settimane, dettata da Igiene e Cultura M.S.*
-
-| Insegnamento | Ore settimanali | Ore nell'UDA |
-|---|---:|---:|
-| Igiene e Cultura M.S. | 5 | **10** |
-| Diritto e T.A. | 4 | **8** |
-| Psicologia | 4 | **8** |
-| Metodologie Operative | 3 | **6** |
-| **Totale** | | **32** |
-
 ### T3.1 · Linguaggi, numeri e storie per capire la realtà
 
 *UDA trasversale — monte ore 18–20 — durata almeno 1 settimana, dettata da Diritto e T.A.*
@@ -530,14 +467,14 @@ Ore settimanali: Igiene e cultura medico-sanitaria 5 · Lingua e letteratura ita
 
 ### FSL3.1 · Area minori: osservare, accompagnare e documentare
 
-*UDA FSL — monte ore 30 — durata almeno 2 settimane, dettata da Diritto e T.A.*
+*UDA FSL — monte ore 30 — durata almeno 2 settimane, dettata da DIRITTO E TEC. AMM.*
 
 | Insegnamento | Ore settimanali | Ore nell'UDA |
 |---|---:|---:|
-| Igiene e Cultura M.S. | 5 | **9** |
-| Diritto e T.A. | 4 | **8** |
-| Psicologia | 4 | **7** |
-| Metodologie Operative | 3 | **6** |
+| IGIENE E CULTURA MEDICO SANITARIA | 5 | **9** |
+| DIRITTO E TEC. AMM. | 4 | **8** |
+| PSICOLOGIA GENERALE ED APPLICATA | 4 | **7** |
+| METODOLOGIE OPERATIVE | 3 | **6** |
 | **Totale** | | **30** |
 
 ## Classe 4ª
@@ -672,22 +609,6 @@ Ore settimanali: Igiene e cultura medico-sanitaria 5 · Lingua e letteratura ita
 > TIC: concorre ai contenuti dell'UDA ma non ha ore proprie, perché non è
 > presente nel quadro orario di 4ª. I relativi compiti restano agli insegnamenti elencati sopra.
 
-### 4.11 · Conoscere per orientare: bisogni e servizi per la disabilità
-
-*UDA d'asse — monte ore 38 — durata almeno 2 settimane, dettata da Igiene e Cultura M.S.*
-
-| Insegnamento | Ore settimanali | Ore nell'UDA |
-|---|---:|---:|
-| Igiene e Cultura M.S. | 5 | **10** |
-| Diritto e T.A. | 4 | **8** |
-| Psicologia | 4 | **8** |
-| Matematica | 3 | **6** |
-| Metodologie Operative | 3 | **6** |
-| **Totale** | | **38** |
-
-> TIC: concorre ai contenuti dell'UDA ma non ha ore proprie, perché non è
-> presente nel quadro orario di 4ª. I relativi compiti restano agli insegnamenti elencati sopra.
-
 ### T4.1 · Informarsi criticamente: media, dati e intelligenza artificiale
 
 *UDA trasversale — monte ore 20–25 — durata almeno 2 settimane, dettata da Matematica*
@@ -743,14 +664,14 @@ Ore settimanali: Igiene e cultura medico-sanitaria 5 · Lingua e letteratura ita
 
 ### FSL4.1 · Area disabilità: inclusione, autonomia e progetto individualizzato
 
-*UDA FSL — monte ore 30 — durata almeno 2 settimane, dettata da Diritto e T.A.*
+*UDA FSL — monte ore 30 — durata almeno 2 settimane, dettata da DIRITTO E TEC. AMM.*
 
 | Insegnamento | Ore settimanali | Ore nell'UDA |
 |---|---:|---:|
-| Igiene e Cultura M.S. | 5 | **9** |
-| Diritto e T.A. | 4 | **8** |
-| Psicologia | 4 | **7** |
-| Metodologie Operative | 3 | **6** |
+| IGIENE E CULTURA MEDICO SANITARIA | 5 | **9** |
+| DIRITTO E TEC. AMM. | 4 | **8** |
+| PSICOLOGIA GENERALE ED APPLICATA | 4 | **7** |
+| METODOLOGIE OPERATIVE | 3 | **6** |
 | **Totale** | | **30** |
 
 ## Classe 5ª
@@ -875,42 +796,6 @@ Ore settimanali: Igiene e cultura medico-sanitaria 5 · Lingua e letteratura ita
 | Metodologie Operative | 3 | **3–4** |
 | **Totale** | | **12–15** |
 
-### 5.11 · L'anziano nella società: dalla percezione al ruolo attivo
-
-*UDA d'asse — monte ore 38 — durata almeno 3 settimane, dettata da Diritto e T.A.*
-
-| Insegnamento | Ore settimanali | Ore nell'UDA |
-|---|---:|---:|
-| Igiene e Cultura M.S. | 5 | **12** |
-| Diritto e T.A. | 4 | **10** |
-| Psicologia | 4 | **9** |
-| Metodologie Operative | 3 | **7** |
-| **Totale** | | **38** |
-
-### 5.12 · Parole che curano: raccontare la salute mentale, superare lo stigma
-
-*UDA d'asse — monte ore 42 — durata almeno 3 settimane, dettata da Metodologie Operative*
-
-| Insegnamento | Ore settimanali | Ore nell'UDA |
-|---|---:|---:|
-| Diritto e T.A. | 4 | **11** |
-| Italiano | 4 | **11** |
-| Psicologia | 4 | **11** |
-| Metodologie Operative | 3 | **9** |
-| **Totale** | | **42** |
-
-### 5.13 · Ricerca quantitativa e ricerca qualitativa. Dai dati le informazioni, dalle informazioni al progetto
-
-*UDA d'asse — monte ore 20–25 — durata almeno 2 settimane, dettata da Matematica*
-
-| Insegnamento | Ore settimanali | Ore nell'UDA |
-|---|---:|---:|
-| Diritto e T.A. | 4 | **6–7** |
-| Psicologia | 4 | **6–7** |
-| Matematica | 3 | **4–6** |
-| Metodologie Operative | 3 | **4–5** |
-| **Totale** | | **20–25** |
-
 ### T5.1 · Diritti umani e cittadinanza globale: dalla Costituzione all'Agenda 2030
 
 *UDA trasversale — monte ore 22–25 — durata almeno 1 settimana, dettata da Matematica*
@@ -989,24 +874,24 @@ Ore settimanali: Igiene e cultura medico-sanitaria 5 · Lingua e letteratura ita
 
 ### FSL5.1 · Area anziani: assistenza, qualità di vita e lavoro in struttura residenziale
 
-*UDA FSL — monte ore 30 — durata almeno 2 settimane, dettata da Diritto e T.A.*
+*UDA FSL — monte ore 30 — durata almeno 2 settimane, dettata da DIRITTO E TEC. AMM.*
 
 | Insegnamento | Ore settimanali | Ore nell'UDA |
 |---|---:|---:|
-| Igiene e Cultura M.S. | 5 | **9** |
-| Diritto e T.A. | 4 | **8** |
-| Psicologia | 4 | **7** |
-| Metodologie Operative | 3 | **6** |
+| IGIENE E CULTURA MEDICO SANITARIA | 5 | **9** |
+| DIRITTO E TEC. AMM. | 4 | **8** |
+| PSICOLOGIA GENERALE ED APPLICATA | 4 | **7** |
+| METODOLOGIE OPERATIVE | 3 | **6** |
 | **Totale** | | **30** |
 
 ### FSL5.2 · Verso la qualifica OSS: procedure assistenziali e lavoro nell'équipe sanitaria
 
-*UDA FSL — monte ore 30 — durata almeno 2 settimane, dettata da Diritto e T.A.*
+*UDA FSL — monte ore 30 — durata almeno 2 settimane, dettata da DIRITTO E TEC. AMM.*
 
 | Insegnamento | Ore settimanali | Ore nell'UDA |
 |---|---:|---:|
-| Igiene e Cultura M.S. | 5 | **9** |
-| Diritto e T.A. | 4 | **8** |
-| Psicologia | 4 | **7** |
-| Metodologie Operative | 3 | **6** |
+| IGIENE E CULTURA MEDICO SANITARIA | 5 | **9** |
+| DIRITTO E TEC. AMM. | 4 | **8** |
+| PSICOLOGIA GENERALE ED APPLICATA | 4 | **7** |
+| METODOLOGIE OPERATIVE | 3 | **6** |
 | **Totale** | | **30** |
