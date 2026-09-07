@@ -16,6 +16,8 @@ const output = process.env.UDA_TEST_OUTPUT || '/tmp/ssas-unificate-verifica';
  assert.equal(await page.locator('.uda-acc').count(),36);
  assert.equal(await page.locator('.uda-nuova').count(),9);
  assert.equal(await page.locator('.pill-nuova').filter({hasText:'NUOVA'}).count(),9);
+ assert.equal(await page.getByText('proposta della collega',{exact:false}).count(),0);
+ assert.equal(await page.getByText('proposta concordata',{exact:false}).count(),0);
  assert.equal(await page.locator('.unif-rubrica').count(),48);
  await page.locator('#uda-competenza').selectOption('8');
  assert.equal(await page.locator('.uda-acc').count(),5); // include la seconda competenza delle coppie

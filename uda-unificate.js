@@ -230,7 +230,7 @@ function renderPianificazione(u) {
 
 function renderRubrica(u) {
     if (u.nuovaProposta) {
-        return '<p>Rubrica da integrare nel formato digitale; per le otto proposte della collega resta conservata negli originali ODT.</p>';
+        return '<p>Rubrica da integrare nel formato digitale.</p>';
     }
     return `<ul class="sin-list">${u.rubrica.map(d => `<li class="unif-rubrica"><strong>C${d.competenza}</strong> — ${escapeHTML(d.indicatore)}</li>`).join('')}</ul>`;
 }
@@ -246,11 +246,7 @@ function renderUdaCard(u, autoExpand) {
     const panelId = `uda-panel-${String(u.id).replace(/[^a-zA-Z0-9_-]/g, '-')}`;
     const accorpata = !u.nuovaProposta && u.fonde.length > 1;
     const revisione = u.nuovaProposta ? '' : ` data-uda-revisione-key="${escapeHTML(u.id)}"`;
-    const origine = u.nuovaProposta
-        ? (u.origineProposta === 'concordata'
-            ? '<p class="unif-fonde-nota">Nuova proposta concordata il 7 settembre 2026.</p>'
-            : '<p class="unif-fonde-nota">Nuova proposta ricavata dall’originale ODT della collega, conservato nell’archivio di revisione.</p>')
-        : renderFonde(u);
+    const origine = renderFonde(u);
 
     return `
         <div class="uda-acc ${u.nuovaProposta ? 'uda-nuova' : ''} ${expanded ? 'group-expanded' : ''}" data-id="${escapeHTML(u.id)}"${revisione}>
@@ -258,8 +254,7 @@ function renderUdaCard(u, autoExpand) {
                 <span class="uda-num ${ANNO_CLASS[u.anno]}">${escapeHTML(u.id)}</span>
                 <span class="uda-acc-main">
                     <span class="uda-acc-title">${escapeHTML(u.titolo)}</span>
-                    <span class="uda-acc-sub">${etichettaCompetenze(u)} ·
-                        ${u.nuovaProposta ? (u.origineProposta === 'concordata' ? 'proposta concordata' : 'proposta della collega') : accorpata ? `fonde le schede ${u.fonde.map(f => escapeHTML(f.id)).join(' e ')}` : 'scheda mantenuta autonoma'}</span>
+                    <span class="uda-acc-sub">${etichettaCompetenze(u)}${u.nuovaProposta ? '' : ` · ${accorpata ? `fonde le schede ${u.fonde.map(f => escapeHTML(f.id)).join(' e ')}` : 'scheda mantenuta autonoma'}`}</span>
                 </span>
                 <span class="uda-acc-pills">
                     ${u.nuovaProposta ? '<span class="pill pill-nuova">NUOVA</span>' : ''}
@@ -307,10 +302,10 @@ function renderUdaCard(u, autoExpand) {
                         <div class="sin-value">${renderRubrica(u)}</div>
                     </div>
 
-                    <div class="sin-row">
-                        <div class="sin-label">${u.nuovaProposta ? 'Provenienza' : "Schede d'asse di origine"}</div>
+                    ${u.nuovaProposta ? '' : `<div class="sin-row">
+                        <div class="sin-label">Schede d'asse di origine</div>
                         <div class="sin-value">${origine}</div>
-                    </div>
+                    </div>`}
                 </div>
                 ${u.nuovaProposta ? '' : `<div class="uda-revisione-slot" data-uda-revisione-slot="${escapeHTML(u.id)}"></div>`}
             </div>
