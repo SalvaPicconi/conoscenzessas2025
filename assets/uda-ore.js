@@ -5,10 +5,9 @@
 // ogni UDA sono divise fra gli insegnamenti coinvolti in proporzione alle loro
 // ore settimanali in quell'anno di corso.
 //
-// A docente autenticato la proposta diventa modificabile entro una banda di
-// tolleranza letta dal dato insieme alla proposta. Le modifiche di tutti i
-// docenti sono ricomposte qui e confrontate con il monte ore dell'UDA: se la
-// somma non lo copre, o lo supera, compare l'avviso di accordarsi.
+// A docente autenticato la proposta diventa liberamente modificabile. Le
+// modifiche di tutti i docenti sono ricomposte qui e confrontate con il monte
+// ore dell'UDA: l'eventuale differenza è informativa e non blocca il salvataggio.
 
 const FONTE_RIPARTIZIONE = 'data-ripartizione-ore.json';
 const CAMPO = 'oreRipartizione';
@@ -21,7 +20,6 @@ const nomeIns = ins => (RICONOSCITORE && RICONOSCITORE.canonico(ins)) || ins;
 const classeIns = ins => (RICONOSCITORE ? RICONOSCITORE.classe(ins) : '');
 
 let ripartizioni = null;
-let tolleranza = 0.4;
 // Il salvataggio provoca il ridisegno della scheda: l'esito va conservato qui,
 // altrimenti sparirebbe insieme al nodo che lo mostrava.
 const esitiInSospeso = new Map();
@@ -36,7 +34,6 @@ async function avvia() {
         if (!risposta.ok) throw new Error(`HTTP ${risposta.status}`);
         const dati = await risposta.json();
         ripartizioni = dati.uda || {};
-        if (typeof dati.meta?.tolleranzaDocente === 'number') tolleranza = dati.meta.tolleranzaDocente;
     } catch (errore) {
         console.error('Ripartizione oraria non disponibile:', errore);
         ripartizioni = {};
@@ -156,12 +153,6 @@ function marcaDurata(scheda, righe) {
     contenitore.appendChild(pillola);
 }
 
-// Banda entro cui il docente può spostare le ore del proprio insegnamento,
-// attorno alla proposta proporzionale e mai sotto un'ora.
-function banda(base) {
-    return [Math.max(1, Math.round(base * (1 - tolleranza))), Math.max(1, Math.round(base * (1 + tolleranza)))];
-}
-
 // Ore effettive per insegnamento: la proposta proporzionale, salvo che un
 // docente l'abbia modificata. Fra più proposte per lo stesso insegnamento vale
 // la più recente, ma le divergenze restano segnalate.
@@ -202,7 +193,9 @@ function creaBlocco(chiave, ripartizione, righe) {
     titolo.textContent = 'Ripartizione oraria per insegnamento';
     const metodo = document.createElement('p');
     metodo.className = 'uda-ore-metodo';
-    metodo.textContent = ripartizione.convenzionale
+    metodo.textContent = ripartizione.assegnazioneConcordata
+        ? `Ripartizione oraria concordata dal dipartimento. Monte complessivo indicato: ${etichettaTotale(ripartizione)}.`
+        : ripartizione.convenzionale
         ? `Le ore della Formazione scuola-lavoro sono deliberate dall'istituto: la ripartizione è calcolata su un monte convenzionale di ${ripartizione.totaleMax} ore, proporzionale alle ore settimanali di ciascun insegnamento.`
         : `Proposta proporzionale alle ore settimanali di ciascun insegnamento. Monte ore dell'UDA: ${etichettaTotale(ripartizione)}.`;
     box.append(titolo, metodo);
@@ -234,20 +227,18 @@ function creaBlocco(chiave, ripartizione, righe) {
         const proposta = celleNumero(riga.min === riga.max ? String(riga.max) : `${riga.min}–${riga.max}`, intestazioni[2]);
         tr.append(nome, settimanali, proposta);
         if (modificabile) {
-            const [minimo, massimo] = banda(riga.max);
             const cella = document.createElement('td');
             cella.className = 'uda-ore-num';
             cella.dataset.etichetta = intestazioni[3];
             const input = document.createElement('input');
             input.type = 'number';
-            input.min = String(minimo);
-            input.max = String(massimo);
+            input.min = '1';
             input.step = '1';
             input.value = String(riga.effettive);
             input.dataset.ins = riga.ins;
             input.dataset.base = String(riga.max);
             input.setAttribute('aria-label', `Ore concordate per ${nomeIns(riga.ins)}`);
-            input.title = `Consentito da ${minimo} a ${massimo} ore: ${Math.round(tolleranza * 100)}% attorno alla proposta di ${ore(riga.max)}.`;
+            input.title = 'Inserisci le ore concordate per questo insegnamento.';
             input.addEventListener('input', () => aggiornaTotale(box, ripartizione, campi, righe));
             campi.set(riga.ins, input);
             cella.appendChild(input);
@@ -295,7 +286,7 @@ function creaBlocco(chiave, ripartizione, righe) {
         const piede = document.createElement('div');
         piede.className = 'uda-ore-azioni';
         const spiegazione = document.createElement('small');
-        spiegazione.textContent = `${docente}: puoi modificare le ore entro il ${Math.round(tolleranza * 100)}% in più o in meno rispetto alla proposta. La modifica resta una proposta, non cambia il fascicolo pubblico.`;
+        spiegazione.textContent = `${docente}: puoi indicare liberamente le ore concordate. La modifica resta una proposta, non cambia il fascicolo pubblico finché non viene applicata.`;
         const esito = document.createElement('p');
         esito.className = 'uda-ore-messaggio';
         esito.setAttribute('role', 'status');
@@ -376,19 +367,18 @@ function aggiornaTotale(box, ripartizione, campi, righe) {
         return;
     }
     let totale = 0;
-    let fuoriBanda = [];
+    let valoriNonValidi = [];
     campi.forEach((input, ins) => {
         const valore = Number(input.value);
-        const [minimo, massimo] = banda(Number(input.dataset.base));
-        input.dataset.fuoriBanda = String(!Number.isInteger(valore) || valore < minimo || valore > massimo);
+        input.dataset.nonValido = String(!Number.isSafeInteger(valore) || valore < 1);
         if (Number.isFinite(valore)) totale += valore;
-        if (input.dataset.fuoriBanda === 'true') fuoriBanda.push(nomeIns(ins));
+        if (input.dataset.nonValido === 'true') valoriNonValidi.push(nomeIns(ins));
     });
     if (cella) cella.textContent = ore(totale);
     const { totaleMin, totaleMax } = ripartizione;
-    if (fuoriBanda.length) {
+    if (valoriNonValidi.length) {
         avviso.dataset.stato = 'errore';
-        avviso.textContent = `Fuori dalla banda consentita del ${Math.round(tolleranza * 100)}%: ${fuoriBanda.join(', ')}.`;
+        avviso.textContent = `Inserisci un numero intero di ore almeno pari a 1 per: ${valoriNonValidi.join(', ')}.`;
     } else if (totale < totaleMin) {
         const mancanti = totaleMin - totale;
         avviso.dataset.stato = 'attenzione';
@@ -410,20 +400,19 @@ function aggiornaTotale(box, ripartizione, campi, righe) {
 
 async function salvaOre(chiave, ripartizione, campi, esito, bottone) {
     const scelte = {};
-    const fuoriBanda = [];
+    const valoriNonValidi = [];
     campi.forEach((input, ins) => {
         const valore = Number(input.value);
         const base = Number(input.dataset.base);
-        const [minimo, massimo] = banda(base);
-        if (!Number.isInteger(valore) || valore < minimo || valore > massimo) {
-            fuoriBanda.push(`${nomeIns(ins)} (consentito ${minimo}–${massimo})`);
+        if (!Number.isSafeInteger(valore) || valore < 1) {
+            valoriNonValidi.push(nomeIns(ins));
             return;
         }
         // Si registrano solo gli scostamenti: chi conferma la proposta non occupa la scheda.
         if (valore !== base) scelte[ins] = valore;
     });
-    if (fuoriBanda.length) {
-        return messaggio(esito, `Valori fuori dalla banda del ${Math.round(tolleranza * 100)}%: ${fuoriBanda.join('; ')}.`, 'errore');
+    if (valoriNonValidi.length) {
+        return messaggio(esito, `Inserisci un numero intero di ore almeno pari a 1 per: ${valoriNonValidi.join('; ')}.`, 'errore');
     }
     bottone.disabled = true;
     messaggio(esito, 'Salvataggio…');

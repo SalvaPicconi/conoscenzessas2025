@@ -330,7 +330,7 @@
         }
 
         nodi.push(...sezione('7', 'Insegnamenti coinvolti e ripartizione oraria', tabellaOre(uda, contesto),
-            'Proposta proporzionale calcolata sul quadro orario d’istituto. La modifica entro il 40% è una regola operativa interna del sito, non una percentuale prevista dalla normativa; resta ferma la copertura del monte ore complessivo.'));
+            'La proposta iniziale è calcolata sul quadro orario d’istituto. La distribuzione può essere modificata liberamente in base alla progettazione collegiale; l’eventuale differenza rispetto al monte ore indicativo resta visibile.'));
 
         if (compatta) return nodi;
 

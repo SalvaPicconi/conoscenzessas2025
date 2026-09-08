@@ -94,7 +94,16 @@
         {"t": "Le problematiche psico-sociali connesse alle diverse categorie di utenza dei servizi", "ins": ["PSICOLOGIA GENERALE ED APPLICATA", "METODOLOGIE OPERATIVE"]},
         {"t": "L'organizzazione delle imprese e delle aziende", "ins": ["DIRITTO E TEC. AMM.", "METODOLOGIE OPERATIVE"]}
       ],
-      "integrazioniSaperi": [],
+      "integrazioniSaperi": [
+        {"t": "Normativa in materia di disabilità: Legge 104/1992 e D.Lgs. 62/2024, con particolare riferimento alla valutazione di base, alla valutazione multidimensionale e al progetto di vita individuale, personalizzato e partecipato", "ins": ["DIRITTO E TEC. AMM."]},
+        {"t": "Protezione dei dati personali e riservatezza nella documentazione socio-sanitaria: Regolamento (UE) 2016/679 e D.Lgs. 196/2003", "ins": ["DIRITTO E TEC. AMM."]}
+      ],
+      "oreRipartizione": {
+        "IGIENE E CULTURA MEDICO SANITARIA": 15,
+        "PSICOLOGIA GENERALE ED APPLICATA": 12,
+        "DIRITTO E TEC. AMM.": 12,
+        "METODOLOGIE OPERATIVE": 9
+      },
       "sviluppata": false
     },
     {
@@ -112,7 +121,7 @@
       ],
       "traguardo": "Collaborare, nei limiti del ruolo dello studente e sotto supervisione, alla presa in carico socio-assistenziale della persona anziana, applicando procedure stabilite e sostenendo sicurezza, capacità residue, autonomia e qualità della vita.",
       "situazione": "L'esperienza si svolge ordinariamente in strutture residenziali per anziani, comprese eventuali RSA. La scheda resta utilizzabile anche in altre strutture coerenti con l'area anziani definite dall'istituto.",
-      "compito": "Ricostruire, su un caso anonimizzato, il percorso dal bisogno alla presa in carico: osservazione, livelli di autonomia, obiettivi assistenziali, procedure, ausili, relazione con la persona e la famiglia, documentazione e verifica. Distinguere sempre attività osservabili, attività collaborabili e attività non consentite allo studente.",
+      "compito": "Ricostruire, su un caso anonimizzato, il percorso dal bisogno alla presa in carico: osservazione, livelli di autonomia, obiettivi assistenziali, procedure, ausili, relazione con la persona e la famiglia, documentazione e verifica.",
       "prodotto": "Caso professionale anonimizzato con mappa della presa in carico, scheda delle capacità residue, analisi di ambiente e ausili, procedura commentata e relazione finale.",
       "beneficiari": "Persone anziane accolte dalla struttura, nel rispetto del progetto formativo e sotto supervisione",
       "ambito": "Strutture residenziali per anziani, incluse RSA, o altre sedi coerenti definite nel progetto",
@@ -133,6 +142,12 @@
         {"t": "I sistemi di qualità: regole di gestione e procedure", "ins": ["DIRITTO E TEC. AMM.", "METODOLOGIE OPERATIVE"]}
       ],
       "integrazioniSaperi": [],
+      "oreRipartizione": {
+        "IGIENE E CULTURA MEDICO SANITARIA": 15,
+        "PSICOLOGIA GENERALE ED APPLICATA": 12,
+        "DIRITTO E TEC. AMM.": 12,
+        "METODOLOGIE OPERATIVE": 9
+      },
       "sviluppata": false
     },
     {

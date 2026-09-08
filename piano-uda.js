@@ -578,7 +578,7 @@ function costruisciPiano(scelte) {
         ...d.sezione('2', 'Prospetto delle unità di apprendimento selezionate nella bozza', prospetto(scelte),
             'Le unità di apprendimento costituiscono il riferimento per la valutazione, la certificazione e il riconoscimento dei crediti — D.I. 92/2018, art. 2, comma 1.'),
         ...d.sezione('3', 'Ripartizione del monte ore fra gli insegnamenti', ripartizioneStampata(scelte),
-            'Proposta proporzionale calcolata sul quadro orario d’istituto. La modifica entro il 40% è una regola operativa interna del sito, non una percentuale prevista dalla normativa; la somma deve coprire il monte ore dell’unità.'),
+            'La proposta iniziale è calcolata sul quadro orario d’istituto. La distribuzione può essere modificata liberamente in base alla progettazione collegiale; l’eventuale differenza rispetto al monte ore indicativo resta visibile.'),
         ...d.sezione('4', 'Impianto comune delle unità di apprendimento', impiantoComune()),
         ...((dati.note || '').trim()
             ? d.sezione('5', 'Note del consiglio di classe', [B.paragrafo(dati.note)])

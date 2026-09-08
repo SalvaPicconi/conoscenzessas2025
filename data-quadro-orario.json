@@ -8,8 +8,6 @@
     "regola": {
       "metodo": "Le ore di ciascuna UDA sono ripartite fra gli insegnamenti coinvolti in proporzione alle ore settimanali che ogni insegnamento ha in quell'anno di corso. Il calcolo è fatto su una UDA per volta, senza vincoli cumulativi sull'anno.",
       "arrotondamento": "Metodo dei resti maggiori: le ore intere avanzate vanno agli insegnamenti con il resto più alto, così la somma coincide sempre con il monte ore dell'UDA. A parità di resto ha la precedenza l'insegnamento con più ore settimanali.",
-      "tolleranzaDocente": 0.4,
-      "notaTolleranza": "La modifica delle ore entro il 40% in più o in meno rispetto alla proposta proporzionale, con un minimo di un'ora, è una regola operativa interna del sito e non una percentuale prevista dalla normativa. Se la somma delle ore concordate non copre esattamente il monte ore dell'UDA, il consiglio di classe deve accordarsi.",
       "monteConvenzionaleFSL": 30,
       "notaFSL": "Le UDA di Formazione scuola-lavoro non hanno un monte ore proprio: è deliberato nel piano FSL d'istituto e nel progetto formativo individuale. Per rendere calcolabile la ripartizione si usa un monte convenzionale di 30 ore, da sostituire con quello effettivo."
     }

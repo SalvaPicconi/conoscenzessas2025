@@ -735,7 +735,7 @@
           "dettaglio": "autonomia nell’articolazione modulare del percorso"
         }
       ],
-      "usoNelSito": "La ripartizione oraria è calcolata in proporzione al quadro orario d’istituto. La possibilità tecnica offerta dal sito di modificarla entro il 40%, purché il monte ore dell’UDA resti coperto, è una regola operativa interna e non coincide con gli spazi di flessibilità disciplinati dalla normativa."
+      "usoNelSito": "La ripartizione iniziale è calcolata in proporzione al quadro orario d’istituto, ma il sito non impone limiti percentuali alla distribuzione concordata per la singola UDA. L’eventuale differenza rispetto al monte ore indicativo resta visibile senza bloccare il salvataggio."
     },
     {
       "id": "consiglio-classe",

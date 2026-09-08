@@ -14,7 +14,7 @@ La durata indicata è il minimo: la impone l'insegnamento che deve ricavare più
 proprio orario settimanale, ipotizzando che vi dedichi tutte le sue ore. Se gli insegnamenti
 dedicano all'UDA metà delle proprie ore, il tempo raddoppia.
 
-Nell'applicativo ogni docente può modificare le proprie ore entro il 40% in più o in meno rispetto a questa proposta. È una regola operativa interna del sito, non una percentuale prevista dalla normativa.
+Nell'applicativo ogni docente può proporre liberamente la distribuzione delle ore. L'eventuale differenza rispetto al monte ore indicativo resta visibile e non blocca il salvataggio.
 
 > Documento generato da `tools/genera_ripartizione_ore.py`. Non modificarlo a mano: rigenerarlo.
 
@@ -743,15 +743,15 @@ Ore settimanali: Igiene e cultura medico-sanitaria 5 · Lingua e letteratura ita
 
 ### FSL4.1 · Area disabilità: inclusione, autonomia e progetto individualizzato
 
-*UDA FSL — monte ore 30 — durata almeno 2 settimane, dettata da Diritto e T.A.*
+*UDA FSL — monte ore 48 — durata almeno 3 settimane, dettata da Igiene e Cultura M.S.*
 
 | Insegnamento | Ore settimanali | Ore nell'UDA |
 |---|---:|---:|
-| Igiene e Cultura M.S. | 5 | **9** |
-| Diritto e T.A. | 4 | **8** |
-| Psicologia | 4 | **7** |
-| Metodologie Operative | 3 | **6** |
-| **Totale** | | **30** |
+| Igiene e Cultura M.S. | 5 | **15** |
+| Diritto e T.A. | 4 | **12** |
+| Psicologia | 4 | **12** |
+| Metodologie Operative | 3 | **9** |
+| **Totale** | | **48** |
 
 ## Classe 5ª
 
@@ -989,15 +989,15 @@ Ore settimanali: Igiene e cultura medico-sanitaria 5 · Lingua e letteratura ita
 
 ### FSL5.1 · Area anziani: assistenza, qualità di vita e lavoro in struttura residenziale
 
-*UDA FSL — monte ore 30 — durata almeno 2 settimane, dettata da Diritto e T.A.*
+*UDA FSL — monte ore 48 — durata almeno 3 settimane, dettata da Igiene e Cultura M.S.*
 
 | Insegnamento | Ore settimanali | Ore nell'UDA |
 |---|---:|---:|
-| Igiene e Cultura M.S. | 5 | **9** |
-| Diritto e T.A. | 4 | **8** |
-| Psicologia | 4 | **7** |
-| Metodologie Operative | 3 | **6** |
-| **Totale** | | **30** |
+| Igiene e Cultura M.S. | 5 | **15** |
+| Diritto e T.A. | 4 | **12** |
+| Psicologia | 4 | **12** |
+| Metodologie Operative | 3 | **9** |
+| **Totale** | | **48** |
 
 ### FSL5.2 · Verso la qualifica OSS: procedure assistenziali e lavoro nell'équipe sanitaria
 

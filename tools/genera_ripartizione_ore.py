@@ -173,9 +173,8 @@ def scrivi_documento(ripartizioni: dict[str, dict], quadro: dict, monte_fsl: int
         "proprio orario settimanale, ipotizzando che vi dedichi tutte le sue ore. Se gli insegnamenti",
         "dedicano all'UDA metà delle proprie ore, il tempo raddoppia.",
         "",
-        "Nell'applicativo ogni docente può modificare le proprie ore entro il "
-        f"{round(regola['tolleranzaDocente'] * 100)}% in più o in meno rispetto a questa proposta. "
-        "È una regola operativa interna del sito, non una percentuale prevista dalla normativa.",
+        "Nell'applicativo ogni docente può proporre liberamente la distribuzione delle ore. "
+        "L'eventuale differenza rispetto al monte ore indicativo resta visibile e non blocca il salvataggio.",
         "",
         "> Documento generato da `tools/genera_ripartizione_ore.py`. Non modificarlo a mano: rigenerarlo.",
         "",
@@ -246,8 +245,25 @@ def main() -> None:
             if not pesi:
                 saltate.append(str(uda["id"]))
                 continue
-            minimi = riparto(pesi, estremi[0])
-            massimi = riparto(pesi, estremi[1])
+            manuali_grezzi = uda.get("oreRipartizione") or {}
+            manuali = {
+                canonico(ins, indice) or str(ins): valore
+                for ins, valore in manuali_grezzi.items()
+            }
+            if manuali:
+                sconosciuti = set(manuali) - set(pesi)
+                if sconosciuti:
+                    raise ValueError(f"{uda['id']}: insegnamenti non presenti nella scheda: {', '.join(sorted(sconosciuti))}")
+                if set(manuali) != set(pesi):
+                    mancanti = set(pesi) - set(manuali)
+                    raise ValueError(f"{uda['id']}: ore non indicate per: {', '.join(sorted(mancanti))}")
+                if any(not isinstance(valore, int) or isinstance(valore, bool) or valore < 1 for valore in manuali.values()):
+                    raise ValueError(f"{uda['id']}: la ripartizione concordata richiede interi positivi")
+                minimi = massimi = manuali
+                estremi = (sum(manuali.values()), sum(manuali.values()))
+            else:
+                minimi = riparto(pesi, estremi[0])
+                massimi = riparto(pesi, estremi[1])
             voci = sorted(pesi, key=lambda ins: (-massimi[ins], -pesi[ins], ins))
             ripartizioni[str(uda["id"])] = {
                 "genere": genere,
@@ -256,7 +272,8 @@ def main() -> None:
                 "ore": uda.get("ore") or "",
                 "totaleMin": estremi[0],
                 "totaleMax": estremi[1],
-                **({"convenzionale": True} if convenzionale else {}),
+                **({"convenzionale": True} if convenzionale and not manuali else {}),
+                **({"assegnazioneConcordata": True} if manuali else {}),
                 "voci": [
                     {"ins": ins, "oreSett": pesi[ins], "min": minimi[ins], "max": massimi[ins]}
                     for ins in voci
@@ -271,8 +288,6 @@ def main() -> None:
             "fonte": "Generato da tools/genera_ripartizione_ore.py a partire da data-quadro-orario.json e dai tre cataloghi delle UDA. Non modificare a mano: rigenerare.",
             "metodo": regola["metodo"],
             "arrotondamento": regola["arrotondamento"],
-            "tolleranzaDocente": regola["tolleranzaDocente"],
-            "notaTolleranza": regola["notaTolleranza"],
             "monteConvenzionaleFSL": monte_fsl,
             "notaFSL": regola["notaFSL"],
             "settimaneAnno": quadro["meta"]["settimaneAnno"],

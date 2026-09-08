@@ -1,0 +1,23 @@
+{
+  "baseCommit": "0d9865d",
+  "algoritmo": "sha256",
+  "file": {
+    "README.md": "ed613325f452045a01081e06e607df57fc25921655c9ea54ab6797747aba0b6d",
+    "RIPARTIZIONE-ORE-UDA.md": "803fce28f3671e9bdd05380572a920ae99ee13a37ee1bc9a1aa4a68cecd86c05",
+    "assets/uda-documento.js": "a0e3172a84f395288e2ffc5981c3b83de1a76842ad739137fb8c71ba2edbceb5",
+    "assets/uda-ore.js": "a292c022c44011cfb85282cdede598c36d5af605db71600497af7f5bfa269b27",
+    "data-normativa.json": "915be1abe2c3c70e122cbe8bca1be204ce1251494d667562ff904ff5e3a2c55e",
+    "data-quadro-orario.json": "e5eab138a68111eafbe9889a05cd8437f4e4307b6254c6f4c86d854a181f2b2d",
+    "data-ripartizione-ore.json": "73e8a70b3d643f5b4df7abfc0785c1deb116ff6ec05f78dddebe957e52d2b1b6",
+    "data-uda-fsl.json": "c8a04974654b3fe49301bf8e5e64be54de90126fa985695d50073b2bc035584a",
+    "index.html": "b23b2006bb06b3f094f57c4638a0e8f923d5d836e64f894f1ad1255f1062da18",
+    "piano-uda.html": "7c342a7e44413b1f1287d90896c6d240d57d5b83c641180d03078ba4e3b2c1e8",
+    "piano-uda.js": "1a3259a46c98e789480395e5f8d3aa1819fb966e4bdcc380c0c7e048542a1f03",
+    "supabase/README.md": "9a8f7028f1a799c3c93e4641eff7722f2f0eb3051c92affbf030f0cedf63576d",
+    "supabase/functions/curricolo-uda-revisioni/index.ts": "f5ae27a3c35a084c611a75b8afe20d0c81fdb283906422486600b9acac70256f",
+    "tools/genera_ripartizione_ore.py": "64aa9a72c788e83900eb96d8a5c09ac740f416cf912316762e127a2d0898fcab",
+    "uda-fsl.html": "c647c72635a9fa00bd048c0e61409578044400c8e8cdfbf397a90261dc785edb",
+    "uda-trasversali.html": "0c35f1672477c55686420f1001c7b5ddf44f321b62198c463a0cde386c422d2e",
+    "uda.html": "74908fd22733187d47619c722fa075484b8e0438216c16280b8b2203be9130ca"
+  }
+}

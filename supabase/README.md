@@ -54,9 +54,10 @@ di un'autorizzazione esplicita la funzione nega i cambi di stato riservati.
 Le ore che ogni docente concorda per il proprio insegnamento viaggiano dentro lo
 stesso record di revisione, nel campo `modifiche.oreRipartizione`: una mappa da
 insegnamento a ore, che registra soltanto gli scostamenti dalla proposta
-proporzionale. La proposta di partenza arriva in `originale.oreRipartizione` e
-delimita la banda ammessa: la funzione rifiuta le ore che si allontanano più del
-40% da quella cifra, come fa l'interfaccia in `assets/uda-ore.js`.
+proporzionale. La proposta di partenza arriva in `originale.oreRipartizione`.
+Non esiste una banda percentuale: ogni valore intero positivo può essere
+proposto e l'eventuale scostamento dal monte ore complessivo viene mostrato come
+informazione, senza bloccare il salvataggio.
 
 Non serve applicare SQL: `modifiche` è già `jsonb` senza vincoli sulle chiavi. Va
 però ridistribuita la funzione, perché l'elenco `FIELDS` scarta i campi che non

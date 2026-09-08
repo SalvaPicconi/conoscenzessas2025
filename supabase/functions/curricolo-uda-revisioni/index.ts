@@ -22,9 +22,6 @@ const FIELDS = new Set([
   "beneficiari", "ambito", "areaTirocinio", "ore", "abilita", "saperi",
   "integrazioniSaperi", "segnalazioneSaperi", "sviluppata", "oreRipartizione",
 ]);
-// Scostamento massimo del docente dalla proposta proporzionale delle ore.
-const ORE_TOLLERANZA = 0.4;
-const ORE_MASSIME_UDA = 400;
 // Quante UDA si attivano per anno di corso e genere. Non è più un tetto di
 // voti: ogni docente esprime una preferenza su tutte le UDA della rosa che
 // vuole, e da qui si sa quante ne entrano in classifica.
@@ -96,8 +93,8 @@ function cleanObject(value: unknown) {
 }
 
 // Ripartizione oraria: mappa insegnamento → ore concordate dal docente.
-// Contiene solo gli scostamenti dalla proposta proporzionale, che arriva in
-// `originale` e delimita la banda entro cui lo scostamento è ammesso.
+// Contiene solo gli scostamenti dalla proposta di partenza. Non viene applicata
+// una banda percentuale: la distribuzione è rimessa all'accordo collegiale.
 function cleanHours(value: unknown, baseline: unknown) {
   if (!value || typeof value !== "object" || Array.isArray(value)) {
     throw new Error("Ripartizione oraria non valida.");
@@ -111,17 +108,11 @@ function cleanHours(value: unknown, baseline: unknown) {
   for (const [subject, amount] of entries) {
     if (!subject.trim() || subject.length > 80) throw new Error("Insegnamento non valido nella ripartizione oraria.");
     const numero = Number(amount);
-    if (!Number.isInteger(numero) || numero < 1 || numero > ORE_MASSIME_UDA) {
+    if (!Number.isSafeInteger(numero) || numero < 1) {
       throw new Error(`Ore non valide per ${subject}.`);
     }
-    const base = Number(proposal[subject]);
-    if (!Number.isFinite(base) || base <= 0) {
+    if (!(subject in proposal)) {
       throw new Error(`L'insegnamento ${subject} non è presente nella proposta oraria di base.`);
-    }
-    const minimo = Math.max(1, Math.round(base * (1 - ORE_TOLLERANZA)));
-    const massimo = Math.max(1, Math.round(base * (1 + ORE_TOLLERANZA)));
-    if (numero < minimo || numero > massimo) {
-      throw new Error(`Le ore di ${subject} devono restare fra ${minimo} e ${massimo}: la proposta proporzionale è di ${base} ore e lo scostamento consentito è del 40%.`);
     }
   }
   return hours;
