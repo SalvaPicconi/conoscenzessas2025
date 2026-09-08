@@ -1,7 +1,8 @@
 // ============================================================
 // PFI compilabile — Progetto Formativo Individuale
-// Struttura: modello ufficiale INDIRE (6 quadri) + allegato UDA
-// richiesto dal D.M. 92/2018 art. 4 c. 6 («nelle quali è strutturato»)
+// Struttura: modello di riferimento delle Linee guida (6 quadri) + allegato UDA.
+// Il PFI è articolato per unità di apprendimento ai sensi del D.I. 92/2018,
+// art. 2, comma 1.
 //
 // Cataloghi UDA pubblicati in questo sito:
 //   data-uda.json ............... 57 UDA d'asse: una per competenza intermedia, più nove proposte
@@ -680,7 +681,7 @@ function esportaWord() {
     }
 
     nodi.push(D.titolo(2, 'Quadro 6 — Verifica periodica e revisione'));
-    nodi.push(D.paragrafo('La valutazione ha per oggetto «i risultati delle unità di apprendimento inserite nel P.F.I.» — D.M. 92/2018 art. 4 c. 7.', 'fonte'));
+    nodi.push(D.paragrafo('La valutazione di competenze, abilità e conoscenze è effettuata in relazione alle unità di apprendimento nelle quali è strutturato il PFI — D.I. 92/2018 art. 4 c. 6.', 'fonte'));
     ANNI.forEach(a => {
         const campi = ['as', 'freq', 'esito', 'carenze', 'revisione', 'data'];
         if (!campi.some(k => d[`an_${a}_${k}`])) return;
@@ -697,7 +698,7 @@ function esportaWord() {
     });
 
     nodi.push(D.titolo(2, 'Quadro 7 — Piano didattico delle unità di apprendimento'));
-    nodi.push(D.paragrafo('Parte integrante del presente documento. Le UDA sono quelle «nelle quali è strutturato il Progetto formativo individuale» — D.M. 92/2018 art. 4 c. 6.', 'fonte'));
+    nodi.push(D.paragrafo('Parte integrante del presente documento. Il PFI è articolato per unità di apprendimento — D.I. 92/2018 art. 2 c. 1.', 'fonte'));
     if (!stato.uda.length) {
         nodi.push(D.paragrafo('Nessuna unità di apprendimento inserita.', 'nota'));
     } else {

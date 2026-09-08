@@ -10,7 +10,7 @@ Fonte osservata: [Curricolo Verticale SSAS — IIS Meucci-Mattei](https://salvap
 
 Evidenze osservate nel sito pubblico:
 
-- il curricolo è riferito ai **Servizi per la Sanità e l'Assistenza Sociale** e richiama il **D.M. 24 maggio 2018, n. 92, Allegato C**;
+- il curricolo è riferito ai **Servizi per la Sanità e l'Assistenza Sociale** e distingue il **profilo finale del D.I. 24 maggio 2018, n. 92, Allegato 2-I** dai **risultati intermedi delle Linee guida D.M. 766/2019, Allegato C, sezione I**;
 - il percorso è articolato in cinque annualità e collega area di indirizzo, area generale, UDA d'asse unificate, UDA trasversali, FSL, PFI e Piano delle UDA;
 - la sezione delle UDA d'asse mantiene **27 schede unificate** e, dal rilascio del 7 settembre, mostra nella stessa vista anche **9 nuove proposte** con etichetta dedicata;
 - la terza annualità è esposta come **5 schede da 10 del fascicolo d'asse**, tutte a **QNQ 3**;

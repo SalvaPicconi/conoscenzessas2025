@@ -381,6 +381,14 @@ button, input, select { font: inherit; }
 .tab-button-featured.active { background: var(--teal); }
 .tab-button-featured.active::before { color: rgba(255,255,255,.82); }
 
+.tab-button-reference {
+    border-color: rgba(11, 95, 90, 0.34);
+    background: linear-gradient(110deg, var(--surface) 0 72%, var(--teal-soft) 100%);
+}
+
+.tab-button-reference::before { content: "Mappa delle fonti"; color: var(--teal-dark); }
+.tab-button-reference.active::before { color: rgba(255,255,255,.82); }
+
 .tab-content { display: none; }
 .tab-content.active { display: block; animation: fadeIn 240ms ease both; }
 

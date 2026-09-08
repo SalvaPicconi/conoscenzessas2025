@@ -1,8 +1,8 @@
 {
   "meta": {
     "titolo": "Fascicolo delle UDA — Quinquennio SSAS",
-    "sottotitolo": "Schede sintetiche in formato D.I. 92/2018 · base per il Piano delle UDA di inizio anno",
-    "fonte": "Fascicolo UDA quinquennio - schede sintetiche D.I. 92/2018; attribuzione dei saperi e delle abilità agli insegnamenti derivata dalle griglie del curricolo di indirizzo (Allegato C, D.M. 92/2018)",
+    "sottotitolo": "Schede sintetiche secondo il format delle Linee guida D.M. 766/2019, Box n. 8 · base di lavoro per il Piano delle UDA",
+    "fonte": "Fascicolo UDA quinquennio - schede sintetiche secondo il format delle Linee guida D.M. 766/2019, Box n. 8; profilo finale SSAS dal D.I. 92/2018, Allegato 2-I; risultati intermedi dalle Linee guida D.M. 766/2019, Allegato C, sezione I.",
     "fasiStandard": [
       "Attivazione e consegna del compito",
       "Sviluppo dei saperi essenziali nelle discipline",
@@ -10,7 +10,7 @@
       "Presentazione, valutazione con rubrica e autovalutazione"
     ],
     "valutazioneStandard": "Rubrica del compito di realtà a 4 livelli + osservazione di processo + autovalutazione, in coerenza con la certificazione delle competenze e i livelli QNQ.",
-    "notaPiano": "In sede di piano delle UDA di inizio anno il consiglio di classe può selezionare le schede da attivare, accorparle (2 per UDA), fissare il quadrimestre e ripartire il monte ore tra le discipline. Le voci di abilità e saperi contrassegnate con «attribuzione di dipartimento» assegnano il contenuto a un insegnamento che l'Allegato C non prevede per quella competenza: sono proposte dei docenti che hanno redatto l'UDA, da validare in dipartimento.",
+    "notaPiano": "In sede di piano delle UDA di inizio anno il consiglio di classe può selezionare le schede da attivare, accorparle (2 per UDA), fissare il quadrimestre e ripartire il monte ore tra le discipline. Le voci di abilità e saperi contrassegnate con «attribuzione di dipartimento» assegnano il contenuto a un insegnamento non indicato, per quella competenza, nelle Linee guida D.M. 766/2019, Allegato C, sezione I: sono proposte redazionali da validare in dipartimento e nel consiglio di classe.",
     "competenze": {
       "1": "Collaborare nella gestione di progetti e attività dei servizi",
       "2": "Partecipare e cooperare nei gruppi di lavoro e nelle équipe",

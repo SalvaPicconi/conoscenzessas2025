@@ -14,7 +14,7 @@ La durata indicata è il minimo: la impone l'insegnamento che deve ricavare più
 proprio orario settimanale, ipotizzando che vi dedichi tutte le sue ore. Se gli insegnamenti
 dedicano all'UDA metà delle proprie ore, il tempo raddoppia.
 
-Nell'applicativo ogni docente può modificare le proprie ore entro il 40% in più o in meno rispetto a questa proposta.
+Nell'applicativo ogni docente può modificare le proprie ore entro il 40% in più o in meno rispetto a questa proposta. È una regola operativa interna del sito, non una percentuale prevista dalla normativa.
 
 > Documento generato da `tools/genera_ripartizione_ore.py`. Non modificarlo a mano: rigenerarlo.
 

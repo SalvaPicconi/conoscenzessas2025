@@ -7,7 +7,7 @@ in data-uda-trasversali.json. Per evitare di sovrascrivere le revisioni collegia
 questo script richiede ora l'opzione esplicita --legacy-write.
 
 ASSI CULTURALI: quelli della normativa per l'istruzione professionale.
-D.M. 92/2018, Allegato 3I (indirizzo «Servizi per la sanità e l'assistenza
+D.I. 92/2018, Allegato 3-I (indirizzo «Servizi per la sanità e l'assistenza
 sociale») assegna gli insegnamenti a quattro assi; si noti che nell'IP le
 materie di indirizzo NON stanno fuori dagli assi, ma costituiscono l'«asse
 scientifico, tecnologico e professionale».
@@ -23,7 +23,7 @@ scientifico, tecnologico e professionale».
                                   tecnica amministrativa del settore socio-sanitario
 
 Riferimenti: D.Lgs. 61/2017 art. 5 c. 1 lett. b) e c); D.M. 92/2018 art. 6 c. 4
-e Allegato 3I; Linee guida D.M. 766/2019, Box n. 7 e n. 8; Raccomandazione del
+e Allegato 3-I; Linee guida D.M. 766/2019, Allegati B e C, Box n. 7 e n. 8; Raccomandazione del
 Consiglio UE 22 maggio 2018 sulle competenze chiave.
 
 Ogni UDA attraversa almeno tre assi e mobilita sia le discipline dell'area
@@ -34,7 +34,7 @@ import json
 import sys
 from collections import Counter
 
-# --- Assi normativi e insegnamenti, da D.M. 92/2018 Allegato 3I -------------
+# --- Assi normativi e insegnamenti, da D.I. 92/2018 Allegato 3-I ------------
 ASSE_L = 'Asse dei linguaggi'
 ASSE_M = 'Asse matematico'
 ASSE_S = 'Asse storico sociale'
@@ -466,14 +466,15 @@ def main():
             'titolo': 'UDA trasversali — quinquennio SSAS',
             'sottotitolo': "Dieci unità interdisciplinari costruite sugli assi culturali dell'istruzione professionale",
             'fonte': "Prima stesura per i dipartimenti. Assi culturali e attribuzione degli insegnamenti "
-                     "da D.M. 92/2018, Allegato 3I (quadri orari dell'indirizzo SSAS); competenze "
-                     "dell'area generale da data-area-generale.json; competenze in uscita da Allegato C; "
+                     "dal D.I. 92/2018, Allegato 3-I (quadro orario SSAS); risultati intermedi "
+                     "dell'area generale dalle Linee guida D.M. 766/2019, Allegato B; profilo finale SSAS dal D.I. 92/2018, Allegato 2-I e risultati intermedi dall'Allegato C, sezione I, delle Linee guida; "
                      "competenze chiave da Raccomandazione del Consiglio UE 22 maggio 2018.",
             'riferimenti': [
                 "D.Lgs. 61/2017 art. 5 c. 1 lett. b) — aggregazione degli insegnamenti negli assi culturali",
                 "D.Lgs. 61/2017 art. 5 c. 1 lett. c) — progettazione interdisciplinare dei percorsi",
                 "D.M. 92/2018 art. 6 c. 4 — per tutta la durata del quinquennio, per unità di apprendimento",
-                "D.M. 92/2018 Allegato 3I — quadri orari SSAS e attribuzione degli insegnamenti agli assi",
+                "D.I. 92/2018 Allegato 3-I — quadro orario SSAS e attribuzione degli insegnamenti agli assi",
+                "Linee guida D.M. 766/2019, Allegati B e C, sezione I — risultati intermedi dell'area generale e dell'indirizzo SSAS",
                 "Linee guida D.M. 766/2019, Box n. 7 — carattere prioritariamente interdisciplinare delle UdA",
                 "Linee guida D.M. 766/2019, Box n. 8 — format di riferimento dell'UdA",
             ],

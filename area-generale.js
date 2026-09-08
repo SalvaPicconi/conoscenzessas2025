@@ -675,7 +675,7 @@ function buildWordDocument(data) {
 function buildWordHeading() {
     const lines = [
         'IIS Meucci - Mattei Cagliari, Sede Decimomannu',
-        'Competenze di Area Generale, ai sensi del Decreto del Ministro dell’istruzione, dell’università e della ricerca 24 maggio 2018, n. 92, Allegato C'
+        'Risultati di apprendimento intermedi dell’Area generale: Linee guida D.M. 23 agosto 2019, n. 766, Allegato B'
     ];
     return lines.map(line => `<p class="word-heading">${line}</p>`).join('');
 }

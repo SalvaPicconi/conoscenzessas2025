@@ -2,7 +2,7 @@
 
 Sito interattivo per la consultazione del curricolo verticale dell'indirizzo **Servizi per la Sanità e l'Assistenza Sociale** — IIS Meucci-Mattei Cagliari, sede di Decimomannu.
 
-Contenuti conformi al D.M. 24 maggio 2018, n. 92, Allegato C. I dati dell'area di indirizzo sono allineati al file ufficiale `definitivo_curricolo_ssas_area_indirizzo.xlsx`.
+Il sito distingue il profilo finale SSAS del D.I. 24 maggio 2018, n. 92, Allegato 2-I, dai risultati intermedi delle Linee guida D.M. 766/2019, Allegati B e C. I dati dell'area di indirizzo sono allineati al file di istituto `definitivo_curricolo_ssas_area_indirizzo.xlsx`; le singole UDA restano proposte da verificare e adottare collegialmente.
 
 Sito pubblicato: https://salvapicconi.github.io/conoscenzessas2025/
 
@@ -15,14 +15,15 @@ Sito pubblicato: https://salvapicconi.github.io/conoscenzessas2025/
 - **UDA monografiche · Proposte dei docenti** — idee libere, una o più per docente, con tema, profilo scientifico e culturale, descrizione, attualità e possibile sviluppo individuale o trasversale. Nessun vincolo di competenza, annualità o ore. Archivio condiviso con storico e servizio Supabase attivati nel rilascio del 7 settembre 2026. Gli autori modificano le proprie idee, gli altri docenti autenticati le consultano. Controllo di versione contro le sovrascritture e storico nel database.
 - **Progettazione didattica annuale** — nuova sezione inizialmente vuota, senza proposte o modelli precompilati.
 - **UDA trasversali · Tutte le materie** — catalogo autonomo e progressivo di UDA interdisciplinari, filtrabili per anno, asse e insegnamento, predisposto per modifica, revisione e creazione condivisa.
-- **Ripartizione oraria** — in ogni scheda UDA le ore sono divise fra gli insegnamenti coinvolti in proporzione al quadro orario dell'istituto e compaiono accanto a ciascuna materia; l'intestazione indica la durata minima in settimane. A docente autenticato la proposta è modificabile entro il 40% e il sito avvisa quando la somma non copre il monte ore dell'UDA.
+- **Ripartizione oraria** — in ogni scheda UDA le ore sono divise fra gli insegnamenti coinvolti in proporzione al quadro orario dell'istituto e compaiono accanto a ciascuna materia; l'intestazione indica la durata minima in settimane. A docente autenticato la proposta è modificabile entro il 40% e il sito avvisa quando la somma non copre il monte ore dell'UDA. Il 40% è una regola operativa interna dell'applicativo, non una percentuale prevista dalla normativa.
 - **Votazione UDA** — temporaneamente sospesa: nessun ingresso nei menu, URL diretto con avviso e scritture di voto bloccate sul server.
-- **Navigazione** — le pagine aperte da sole hanno in alto una barra fissa con il ritorno al curricolo e le sezioni disponibili; nella pagina principale, quando le linguette escono dallo schermo, compare in basso una barra rapida per cambiare sezione. Gli indirizzi `index.html#unificate`, `#trasversali`, `#fsl`, `#esame`, `#didattica` e simili aprono direttamente la sezione.
+- **Navigazione** — le pagine aperte da sole hanno in alto una barra fissa con il ritorno al curricolo e le sezioni disponibili; nella pagina principale, quando le linguette escono dallo schermo, compare in basso una barra rapida per cambiare sezione. Gli indirizzi `index.html#unificate`, `#trasversali`, `#fsl`, `#esame`, `#didattica`, `#normativa` e simili aprono direttamente la sezione.
 - **UDA FSL** — quattro UDA adattabili alle esperienze del triennio: area minori, disabilità, anziani e preparazione sanitaria/possibile raccordo OSS; coinvolgono solo le quattro discipline d'indirizzo definite dall'istituto.
 - **UDA Esame di Stato** — struttura di lavoro autonoma per due UDA in terza, due in quarta e due in quinta. Assume le indicazioni RE.NA.I.SAN.S. 2024 come base metodologica del compito atteso, mantiene separate le tipologie A-D e distingue quadro d'esame, curricolo e successive scelte progettuali. Le sei schede sono predisposte ma non ancora compilate e non alimentano il PFI o la votazione.
 - **Piano delle UDA** — pagina del coordinatore con cataloghi originari e 27 unificate come proposte, periodi, bozza nel browser, controllo del doppio conteggio ed esportazione Word/PDF. La compilazione non attesta una delibera.
 - **PFI** — progetto formativo individuale compilabile con scelta delle UDA dai cataloghi, incluse le unificate come proposte.
 - **Come fare didattica** — guida normativa e operativa al modello dei nuovi professionali: personalizzazione, PFI, assi culturali, UDA, apprendimento induttivo e laboratoriale, compiti autentici, evidenze e valutazione collegiale delle competenze; comprende il diagramma di flusso per l’adozione della programmazione del Consiglio di classe.
+- **Riferimenti normativi e glossario** — mappa di 29 termini e 12 fonti istituzionali che distingue definizioni di legge, termini normativi e pratiche professionali. Non certifica le singole UDA: rende verificabili i riferimenti usati e segnala le scelte interne del sito.
 - **Rubriche di Valutazione** — rubriche per competenze con pesi configurabili e calcolo del voto ponderato (disponibili: Metodologie Operative biennio, classe 3ª e classi 4ª-5ª; le altre discipline sono in preparazione).
 
 ## Esportazioni
@@ -85,10 +86,11 @@ Sono configurabili `STAMPA_BASE_URL`, `UDA_BASE_URL` e
 - `uda-esame.html` + `uda-esame.js` + `uda-esame.css` + `data-uda-esame.json` — struttura delle UDA per la preparazione progressiva alla prova professionale
 - `assets/uda-revisione.js` + `assets/uda-revisione.css` — modifica e revisione collegiale dei tre cataloghi; saperi documentali protetti e integrazioni libere
 - `assets/insegnamenti.js` — riconoscimento dei nomi degli insegnamenti: la stessa materia scritta in maiuscolo, per esteso, abbreviata o con un'annotazione fra parentesi resta una sola, per colori, filtri, stampe e ripartizione oraria; `tools/verifica_insegnamenti.cjs` controlla che nessun nome usato nei cataloghi resti fuori
-- `assets/uda-ore.js` — ripartizione oraria delle UDA per insegnamento: proposta proporzionale, modifica del docente entro il 40% e avviso quando il monte ore non torna
+- `assets/uda-ore.js` — ripartizione oraria delle UDA per insegnamento: proposta proporzionale, modifica entro il 40% come regola interna del sito e avviso quando il monte ore non torna
 - `votazione-uda.html` + `votazione-uda.js` + `votazione-uda.css` — area autonoma di voto: accesso docente condiviso, rosa collegiale unica, valutazione 1–5 stelle e un solo salvataggio
 - `assets/navigazione.js` + `assets/navigazione.css` — navigazione fra le sezioni: barra fissa nelle pagine autonome, barra rapida nella pagina principale, niente quando la pagina è dentro un iframe
 - `didattica-professionale.html` + `didattica-professionale.css` — dalla cornice normativa alla progettazione e conduzione concreta della didattica nel nuovo professionale
+- `normativa.html` + `assets/normativa.js` + `assets/normativa.css` + `data-normativa.json` — riferimenti normativi, glossario e distinzione fra norme e scelte redazionali
 - `data-quadro-orario.json` — quadro orario dell'istituto, sorgente unica dei pesi della ripartizione
 - `data-ripartizione-ore.json` + `RIPARTIZIONE-ORE-UDA.md` — ripartizione calcolata e sua versione stampabile, generate da `tools/genera_ripartizione_ore.py`
 - `data-area-indirizzo.json` — dati area di indirizzo (fonte: Excel definitivo)

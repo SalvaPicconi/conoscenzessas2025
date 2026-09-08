@@ -20,17 +20,17 @@
     const SEDE = 'Sede di Decimomannu';
     const INDIRIZZO = 'Servizi per la Sanità e l’Assistenza Sociale';
 
-    // Riferimenti normativi citati in calce a ogni documento. Sono le fonti su
-    // cui si regge il fatto stesso che il percorso sia organizzato in UDA: senza
-    // di esse il Piano non è allegabile alla programmazione di classe.
+    // Riferimenti normativi citati in calce a ogni documento. Distinguono le
+    // prescrizioni normative dalle scelte progettuali che il consiglio deve
+    // ancora verificare e adottare.
     const RIFERIMENTI = [
         {
             norma: 'D.Lgs. 13 aprile 2017, n. 61',
-            oggetto: 'Revisione dei percorsi dell’istruzione professionale. Art. 2, comma 1: l’unità di apprendimento è l’insieme autonomamente significativo di competenze, abilità e conoscenze in cui è organizzato il percorso formativo dello studente e costituisce il riferimento per la valutazione, la certificazione e il riconoscimento dei crediti. Art. 5, comma 1: lett. b) aggregazione delle discipline negli assi culturali; lett. c) progettazione interdisciplinare dei percorsi didattici; lett. d) metodologie di apprendimento di tipo induttivo, con esperienze laboratoriali e in contesti operativi; lett. f) organizzazione per unità di apprendimento.'
+            oggetto: 'Revisione dei percorsi dell’istruzione professionale. Art. 5, comma 1: lett. a) personalizzazione del percorso e PFI; lett. b) aggregazione delle discipline negli assi culturali; lett. c) progettazione interdisciplinare dei percorsi didattici; lett. d) metodologie di apprendimento di tipo induttivo, con esperienze laboratoriali e in contesti operativi; lett. f) organizzazione per unità di apprendimento.'
         },
         {
-            norma: 'D.M. 24 maggio 2018, n. 92',
-            oggetto: 'Regolamento sui profili di uscita degli indirizzi dell’istruzione professionale. Art. 4, comma 6: le unità di apprendimento sono quelle «nelle quali è strutturato il Progetto formativo individuale». Art. 4, comma 7: la valutazione ha per oggetto i risultati delle unità di apprendimento. Art. 6, comma 4: la progettazione per unità di apprendimento accompagna l’intero quinquennio. Allegati 2-I e 3-I: profilo di uscita, competenze e quadro orario dell’indirizzo SSAS.'
+            norma: 'D.I. 24 maggio 2018, n. 92',
+            oggetto: 'Regolamento sui profili di uscita degli indirizzi dell’istruzione professionale. Art. 2, comma 1: definizioni di unità di apprendimento e PFI, articolato per unità di apprendimento. Art. 4, comma 6: valutazione di competenze, abilità e conoscenze in relazione alle unità di apprendimento nelle quali è strutturato il PFI; comma 7: valutazione intermedia al termine del primo anno. Art. 6, comma 4: progettazione per unità di apprendimento lungo il quinquennio. Allegati 2-I e 3-I: profilo di uscita e quadro orario SSAS.'
         },
         {
             norma: 'D.M. 23 agosto 2019, n. 766',
@@ -181,7 +181,7 @@
             voci.push([
                 D.testo(`C${uda.competenza}`, { grassetto: true }),
                 D.testo(` — ${meta.competenze[String(uda.competenza)] || ''} `),
-                D.testo('(Allegato 2-I, D.M. 92/2018)', { piccolo: true })
+                D.testo('(profilo finale: Allegato 2-I, D.I. 92/2018; risultati intermedi: Linee guida D.M. 766/2019, Allegato C, sezione I)', { piccolo: true })
             ]);
         }
         (uda.competenzeSSAS || uda.competenze || []).forEach(numero => {
@@ -196,7 +196,7 @@
             voci.push([
                 D.testo(`G${numero}`, { grassetto: true }),
                 D.testo(` — ${(meta.competenzeGenerali || {})[String(numero)] || ''} `),
-                D.testo('(area generale, Allegato 1 al D.M. 92/2018)', { piccolo: true })
+                D.testo('(area generale: Linee guida D.M. 766/2019, Allegato B)', { piccolo: true })
             ]);
         });
         (uda.competenzeEuropee || []).forEach(nome => {
@@ -306,7 +306,7 @@
             : [];
         nodi.push(...sezione('2', 'Competenze di riferimento e traguardo intermedio',
             [...competenze, ...traguardo],
-            'Competenze del profilo di uscita — D.M. 92/2018, Allegato 2-I; traguardi intermedi — Linee guida D.M. 766/2019, Parte seconda.'));
+            'Competenze del profilo di uscita — D.I. 92/2018, Allegato 2-I; risultati intermedi — Linee guida D.M. 766/2019, Allegato C, sezione I.'));
 
         nodi.push(...sezione('3', 'Contestualizzazione — situazione-problema',
             uda.situazione ? [D.paragrafo(uda.situazione)] : []));
@@ -330,7 +330,7 @@
         }
 
         nodi.push(...sezione('7', 'Insegnamenti coinvolti e ripartizione oraria', tabellaOre(uda, contesto),
-            'Proposta proporzionale calcolata sul quadro orario d’istituto; ogni docente può modificarla entro il 40%, ferma restando la copertura del monte ore complessivo.'));
+            'Proposta proporzionale calcolata sul quadro orario d’istituto. La modifica entro il 40% è una regola operativa interna del sito, non una percentuale prevista dalla normativa; resta ferma la copertura del monte ore complessivo.'));
 
         if (compatta) return nodi;
 
@@ -347,7 +347,7 @@
                 larghezze: [28, 18, 18, 18, 18],
                 righe: [['', '', '', '', ''], ['', '', '', '', ''], ['', '', '', '', '']]
             })
-        ], 'Rubrica ad almeno quattro livelli — Linee guida D.M. 766/2019, Box n. 8, voce 8; la valutazione ha per oggetto i risultati delle UDA — D.M. 92/2018, art. 4, comma 7.'));
+        ], 'Rubrica ad almeno quattro livelli — Linee guida D.M. 766/2019, Box n. 8, voce 8; valutazione di competenze, abilità e conoscenze in relazione alle UDA e al PFI — D.I. 92/2018, art. 4, comma 6.'));
 
         nodi.push(...sezione('12', 'Note del consiglio di classe', righeDaCompilare(3)));
         return nodi;
@@ -365,7 +365,7 @@
             ...schedaUda(uda, contesto),
             ...bloccoRiferimenti(),
             D.firme(['Il/La docente referente dell’UDA', 'Il/La coordinatore/coordinatrice del consiglio di classe']),
-            D.paragrafo(`Documento generato dal Curricolo Verticale SSAS dell’${ISTITUTO} — ${SEDE}. I contenuti disciplinari derivano dal curricolo di indirizzo (D.M. 92/2018, Allegato C).`, 'piede')
+            D.paragrafo(`Documento generato dal Curricolo Verticale SSAS dell’${ISTITUTO} — ${SEDE}. Profilo finale SSAS: D.I. 92/2018, Allegato 2-I; risultati intermedi: Linee guida D.M. 766/2019, Allegato C, sezione I. La scheda è una proposta da verificare e adottare collegialmente.`, 'piede')
         ];
         return { nodi, meta: { titolo: nomeDocumento, istituto: ISTITUTO }, nomeDocumento };
     }

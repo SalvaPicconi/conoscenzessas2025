@@ -372,7 +372,7 @@ function exportWord() {
 
     const nodi = [
         D.paragrafo('IIS Meucci - Mattei Cagliari, Sede Decimomannu', 'istituto'),
-        D.paragrafo('Competenze di indirizzo ai sensi del D.M. 24 maggio 2018, n. 92, Allegato C', 'indirizzo'),
+        D.paragrafo('Profilo di uscita SSAS: D.I. 24 maggio 2018, n. 92, Allegato 2-I · risultati intermedi: Linee guida D.M. 766/2019, Allegato C, sezione I', 'indirizzo'),
         D.linea(),
         D.titolo(1, `PIANO DI LAVORO DI ${disciplina.toUpperCase()}`),
         D.titolo(2, 'Informazioni generali'),
