@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" data-uda-source="data-uda-esame.json" data-uda-kind="esame">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="style.css?v=20260721">
     <link rel="stylesheet" href="didattica.css?v=20260901">
     <link rel="stylesheet" href="uda-esame.css?v=20260908uda3">
+    <link rel="stylesheet" href="assets/uda-revisione.css?v=20260908esamerev1">
     <link rel="stylesheet" href="assets/navigazione.css?v=20260905l">
 </head>
 <body>
@@ -79,6 +80,68 @@
                 <h2 id="schede-title">Sei proposte di simulazione progressiva</h2>
                 <p>Due UDA per anno. Ogni scheda usa una sola tipologia e rende espliciti nuclei, competenze, compito atteso, discipline, ore, dossier, traccia e valutazione.</p>
             </div>
+
+            <section class="uda-revisione-accesso" aria-label="Revisione collegiale delle UDA Esame di Stato">
+                <div>
+                    <p class="uda-revisione-eyebrow">Lavoro collegiale</p>
+                    <h2>Modifica e revisione</h2>
+                    <p>Spazio riservato ai docenti. Le modifiche vengono salvate come proposte separate dalle schede pubbliche.</p>
+                </div>
+                <button type="button" id="uda-revisione-apri-accesso" class="uda-revisione-primary">Accedi per modificare</button>
+            </section>
+
+            <form id="uda-revisione-auth" class="uda-revisione-auth" aria-labelledby="uda-revisione-auth-titolo" hidden>
+                <h2 id="uda-revisione-auth-titolo">Accesso docenti</h2>
+                <p id="uda-revisione-auth-descrizione">Inserisci nome e password.</p>
+                <div class="uda-revisione-auth-grid">
+                    <label for="uda-revisione-docente">Docente
+                        <select id="uda-revisione-docente" required><option value="">Scegli il tuo nome</option></select>
+                    </label>
+                    <label for="uda-revisione-password">Password
+                        <input type="password" id="uda-revisione-password" autocomplete="current-password" required>
+                    </label>
+                </div>
+                <div class="uda-revisione-auth-actions">
+                    <p id="uda-revisione-auth-messaggio" class="uda-revisione-messaggio" role="status" aria-live="polite"></p>
+                    <button type="button" id="uda-revisione-annulla" class="uda-revisione-secondary">Annulla</button>
+                    <button type="submit" class="uda-revisione-primary">Accedi</button>
+                </div>
+            </form>
+
+            <section id="uda-revisione-toolbar" class="uda-revisione-toolbar" hidden aria-label="Strumenti di revisione UDA Esame di Stato">
+                <div>
+                    <p class="uda-revisione-eyebrow">Modalità revisione attiva</p>
+                    <p id="uda-revisione-identita"></p>
+                </div>
+                <div class="uda-revisione-toolbar-actions">
+                    <button type="button" id="uda-revisione-crea" class="uda-revisione-primary" hidden>＋ Crea nuova UDA Esame</button>
+                    <button type="button" id="uda-revisione-elenco" class="uda-revisione-secondary">Revisioni <span id="uda-revisione-contatore">0</span></button>
+                    <button type="button" id="uda-revisione-esci" class="uda-revisione-ghost">Esci</button>
+                </div>
+            </section>
+
+            <div id="uda-revisione-nuova-slot" class="uda-revisione-new-slot"></div>
+
+            <section id="uda-revisione-pannello" class="uda-revisione-pannello" hidden aria-labelledby="uda-revisione-pannello-titolo">
+                <div class="uda-revisione-pannello-head">
+                    <div>
+                        <p class="uda-revisione-eyebrow">Area condivisa</p>
+                        <h2 id="uda-revisione-pannello-titolo">Proposte sulle UDA Esame di Stato</h2>
+                    </div>
+                    <button type="button" id="uda-revisione-pannello-chiudi" class="uda-revisione-secondary">Chiudi</button>
+                </div>
+                <div class="uda-revisione-filters">
+                    <label>Anno
+                        <select id="uda-revisione-filtro-anno"><option value="">Tutti</option><option value="3">3° anno</option><option value="4">4° anno</option><option value="5">5° anno</option></select>
+                    </label>
+                    <label>Docente
+                        <select id="uda-revisione-filtro-docente"><option value="">Tutti</option></select>
+                    </label>
+                </div>
+                <p id="uda-revisione-elenco-messaggio" class="uda-revisione-messaggio" role="status" aria-live="polite"></p>
+                <div id="uda-revisione-elenco-contenuto"></div>
+            </section>
+
             <div class="esame-year-filter" role="group" aria-label="Filtra per anno">
                 <button type="button" class="esame-year-button active" data-anno="" aria-pressed="true">Tutte</button>
                 <button type="button" class="esame-year-button" data-anno="3" aria-pressed="false">Terza</button>
@@ -93,6 +156,7 @@
     </main>
 
     <script src="uda-esame.js?v=20260908uda3"></script>
+    <script type="module" src="assets/uda-revisione.js?v=20260908esamerev1"></script>
     <script src="assets/navigazione.js?v=20260908norm1"></script>
 </body>
 </html>

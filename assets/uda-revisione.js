@@ -8,8 +8,9 @@ const DATA_SOURCE = document.documentElement.dataset.udaSource || 'data-uda.json
 const UDA_KIND = document.documentElement.dataset.udaKind || 'asse';
 const IS_TRASVERSALE = UDA_KIND === 'trasversale';
 const IS_FSL = UDA_KIND === 'fsl';
+const IS_ESAME = UDA_KIND === 'esame';
 const IS_UNIFICATA = UDA_KIND === 'unificate';
-const IS_COLLEGIALE = IS_TRASVERSALE || IS_FSL;
+const IS_COLLEGIALE = IS_TRASVERSALE || IS_FSL || IS_ESAME;
 const NEW_KEY_PREFIX = IS_FSL ? 'nuova-f-' : IS_TRASVERSALE ? 'nuova-t-' : 'nuova-';
 const NEW_SOURCE_VERSION = IS_FSL ? 'nuova-uda-fsl' : IS_TRASVERSALE ? 'nuova-uda-trasversale' : 'nuova-uda';
 const DOCENTI = [
@@ -46,7 +47,20 @@ const CAMPI_FSL = [
     ['competenzeEuropee', 'Competenze chiave europee 2018', 'lista'],
     ...CAMPI_COMUNI
 ];
-const CAMPI = IS_FSL ? CAMPI_FSL : IS_TRASVERSALE ? CAMPI_TRASVERSALI : CAMPI_COMUNI;
+const CAMPI_ESAME = [
+    ['periodo', 'Periodo', 'testo'],
+    ['titolo', 'Titolo', 'testo'],
+    ['argomento', 'Argomento', 'testo-lungo'],
+    ['situazione', 'Situazione-problema', 'testo-lungo'],
+    ['ruolo', 'Ruolo dello studente', 'testo-lungo'],
+    ['committente', 'Committente', 'testo-lungo'],
+    ['destinatario', 'Destinatario', 'testo-lungo'],
+    ['prodotto', 'Prodotto atteso', 'testo-lungo'],
+    ['autonomiaOperativa', 'Autonomia nel compito', 'testo-lungo'],
+    ['traccia', 'Consegna conclusiva individuale', 'testo-lungo'],
+    ['personalizzazione', 'Personalizzazione e accessibilità', 'testo-lungo']
+];
+const CAMPI = IS_ESAME ? CAMPI_ESAME : IS_FSL ? CAMPI_FSL : IS_TRASVERSALE ? CAMPI_TRASVERSALI : CAMPI_COMUNI;
 const CAMPI_SAPERI_NUOVA = [['saperi', 'Saperi essenziali di riferimento (riportare senza riscrivere)', 'righe']];
 const CAMPI_NUOVA = [
     ['anno', 'Anno di corso', 'scelta-numero', IS_FSL
@@ -79,7 +93,10 @@ async function inizializzaRevisioni() {
         const risposta = await fetch(DATA_SOURCE, { cache: 'no-store' });
         if (!risposta.ok) throw new Error(`HTTP ${risposta.status}`);
         const dati = await risposta.json();
-        statoRev.uda = new Map(dati.uda.map(uda => [String(uda.id), uda]));
+        const catalogo = IS_ESAME ? dati.schede : dati.uda;
+        if (!Array.isArray(catalogo)) throw new Error('Catalogo UDA non valido');
+        const tipologie = new Map((dati.tipologie || []).map(tipo => [String(tipo.id), tipo.definizione]));
+        statoRev.uda = new Map(catalogo.map(uda => [String(uda.id), normalizzaUda(uda, tipologie)]));
         if (await ripristinaSessione()) await attivaArea();
     } catch (errore) {
         console.error('Area revisioni UDA non disponibile:', errore);
@@ -299,7 +316,8 @@ function apriEditor(chiave) {
     intro.textContent = nuova
         ? 'Scrivi la nuova unità da zero. Sarà salvata come bozza condivisa e non cambierà il fascicolo pubblico.'
         : 'Compila solo i campi da cambiare. Il testo pubblico resta invariato finché la proposta non viene applicata ai file sorgente.';
-    if (!nuova && Array.isArray(uda.saperi)) form.appendChild(creaSaperiProtetti(uda.saperi));
+    if (!nuova && IS_ESAME) form.appendChild(creaRiferimentiEsameProtetti(uda));
+    else if (!nuova && Array.isArray(uda.saperi)) form.appendChild(creaSaperiProtetti(uda.saperi));
     const campi = document.createElement('div');
     campi.className = 'uda-revisione-fields';
     definizioni.forEach(definizione => campi.appendChild(creaCampo(definizione, originale, salvata?.modifiche || {}, nuova)));
@@ -324,6 +342,36 @@ function apriEditor(chiave) {
     slot.appendChild(form);
     form.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     notificaAltezza();
+}
+
+function normalizzaUda(uda, tipologie = new Map()) {
+    if (!IS_ESAME) return uda;
+    return {
+        ...uda,
+        ...(uda.compitoAtteso || {}),
+        definizioneTipologia: tipologie.get(String(uda.tipologia)) || ''
+    };
+}
+
+function creaRiferimentiEsameProtetti(uda) {
+    const box = document.createElement('section');
+    box.className = 'uda-revisione-comparison uda-revisione-protected';
+    const titolo = document.createElement('h4');
+    titolo.textContent = 'Quadro della prova e raccordo curricolare · dati protetti';
+    const testo = document.createElement('pre');
+    const nuclei = (uda.nuclei || []).map(nucleo => `Nucleo ${nucleo.id} — ${nucleo.testo}`).join('\n');
+    const competenze = (uda.competenze || []).map(voce => `C${voce.numero} — ${voce.traguardo}`).join('\n');
+    const insegnamenti = (uda.contributi || []).map(voce => voce.insegnamento).join('\n');
+    testo.textContent = [
+        `Tipologia ${uda.tipologia} — ${uda.definizioneTipologia}`,
+        nuclei,
+        competenze,
+        `Insegnamenti dell’area di indirizzo sempre coinvolti:\n${insegnamenti}`
+    ].filter(Boolean).join('\n\n');
+    const nota = document.createElement('small');
+    nota.textContent = 'Tipologia, nuclei, competenze e insegnamenti di indirizzo restano riportati integralmente. Eventuali osservazioni si registrano nell’annotazione generale.';
+    box.append(titolo, testo, nota);
+    return box;
 }
 
 function creaSaperiProtetti(saperi) {
@@ -595,7 +643,17 @@ function apriDaElenco(chiave) {
         apriEditor(chiave);
         return;
     }
-    const card = document.querySelector(`[data-uda-revisione-key="${CSS.escape(String(chiave))}"]`);
+    let card = document.querySelector(`[data-uda-revisione-key="${CSS.escape(String(chiave))}"]`);
+    if (IS_ESAME) {
+        if (!card) {
+            document.querySelector('.esame-year-button[data-anno=""]')?.click();
+            card = document.querySelector(`[data-uda-revisione-key="${CSS.escape(String(chiave))}"]`);
+        }
+        const header = card?.querySelector('.esame-slot-header');
+        if (header?.getAttribute('aria-expanded') !== 'true') header?.click();
+        requestAnimationFrame(() => apriEditor(chiave));
+        return;
+    }
     card?.classList.add('group-expanded');
     card?.querySelector('.uda-acc-header')?.setAttribute('aria-expanded', 'true');
     const corpo = card?.querySelector('.uda-acc-body');

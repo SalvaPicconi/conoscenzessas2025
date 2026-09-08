@@ -32,7 +32,7 @@ Con la CLI di Supabase:
 
 ## `functions/curricolo-uda-revisioni/index.ts`
 
-L'API condivisa dalle sezioni **UDA d'asse**, **UDA trasversali** e **UDA FSL**. Gestisce accesso docente,
+L'API condivisa dalle sezioni **UDA d'asse**, **UDA trasversali**, **UDA FSL** e **UDA Esame di Stato**. Gestisce accesso docente,
 sessioni temporanee, elenco delle proposte, salvataggio e stato della revisione. Le proposte
 restano separate dai JSON pubblici finché non vengono approvate e applicate ai file sorgente.
 
@@ -43,6 +43,11 @@ la funzione aggiornata:
     supabase functions deploy curricolo-uda-revisioni --project-ref ruplzgcnheddmqqdephp
 
 Questi passaggi modificano il servizio remoto e non fanno parte della semplice anteprima locale.
+
+Per abilitare le schede `E3.1…E5.2` va applicato `consenti-uda-esame.sql` e poi va
+ridistribuita la funzione. Tipologia, nuclei, competenze e insegnamenti di indirizzo
+restano protetti nel modulo; le proposte possono intervenire sui campi progettuali
+del compito atteso e restano separate da `data-uda-esame.json`.
 I permessi di gestione degli stati sono applicati esclusivamente dalla funzione e non vengono
 associati pubblicamente a un nominativo. Sono conservati nella tabella privata
 `private.curricolo_uda_revision_permissions`, non accessibile ai client. L'assegnazione viene

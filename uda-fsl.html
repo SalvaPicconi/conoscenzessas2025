@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="style.css?v=20260907dip1">
     <link rel="stylesheet" href="uda.css?v=20260907dip1">
     <link rel="stylesheet" href="didattica.css?v=20260907dip1">
-    <link rel="stylesheet" href="assets/uda-revisione.css?v=20260907dip1">
+    <link rel="stylesheet" href="assets/uda-revisione.css?v=20260908esamerev1">
     <link rel="stylesheet" href="assets/navigazione.css?v=20260907dip1">
     <link rel="stylesheet" href="assets/stampa.css?v=20260907dip1">
     <script src="assets/stampa.js?v=20260907dip1" defer></script>
@@ -39,7 +39,9 @@
             <p>I saperi documentali restano nella scheda. I docenti autorizzati possono proporre integrazioni, modifiche o nuove UDA.</p></div>
         <button type="button" id="uda-revisione-apri-accesso" class="uda-revisione-primary">Accedi per modificare</button>
     </section>
-    <form id="uda-revisione-auth" class="uda-revisione-auth" hidden>
+    <form id="uda-revisione-auth" class="uda-revisione-auth" aria-labelledby="uda-revisione-auth-titolo" hidden>
+        <h2 id="uda-revisione-auth-titolo">Accesso docenti</h2>
+        <p id="uda-revisione-auth-descrizione">Inserisci nome e password.</p>
         <div class="uda-revisione-auth-grid">
             <label for="uda-revisione-docente">Docente<select id="uda-revisione-docente" required><option value="">Scegli il tuo nome</option></select></label>
             <label for="uda-revisione-password">Password<input type="password" id="uda-revisione-password" autocomplete="current-password" required></label>
@@ -79,7 +81,7 @@
 <script src="uda-fsl.js?v=20260907dip1"></script>
 <script src="assets/documento-office.js?v=20260907dip1"></script>
 <script src="assets/uda-documento.js?v=20260908ore1"></script>
-    <script type="module" src="assets/uda-revisione.js?v=20260907dip1"></script>
+    <script type="module" src="assets/uda-revisione.js?v=20260908esamerev1"></script>
     <script type="module" src="assets/uda-ore.js?v=20260908ore1"></script>
 <script type="module" src="assets/uda-stampa.js?v=20260907dip1"></script>
 <script src="assets/navigazione.js?v=20260908norm1"></script>

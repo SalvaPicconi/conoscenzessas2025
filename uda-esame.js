@@ -117,7 +117,7 @@ function renderSchede() {
         const aperta = schedeAperte.has(scheda.id);
         const panelId = `esame-panel-${scheda.id.replace(/[^a-zA-Z0-9_-]/g, '-')}`;
         return `
-            <article class="esame-slot ${aperta ? 'open' : ''}">
+            <article class="esame-slot ${aperta ? 'open' : ''}" data-uda-revisione-key="${escapeHTML(scheda.id)}">
                 <button type="button" class="esame-slot-header" data-id="${escapeHTML(scheda.id)}"
                     aria-expanded="${aperta}" aria-controls="${panelId}">
                     <span class="esame-slot-id">${escapeHTML(scheda.id)}</span>
@@ -130,10 +130,12 @@ function renderSchede() {
                 </button>
                 <div class="esame-slot-body" id="${panelId}" ${aperta ? '' : 'hidden'}>
                     ${renderSchedaCompleta(scheda)}
+                    <div class="uda-revisione-slot" data-uda-revisione-slot="${escapeHTML(scheda.id)}"></div>
                 </div>
             </article>
         `;
     }).join('');
+    document.dispatchEvent(new CustomEvent('curricolo:uda-rendered'));
     notifyParentHeight();
 }
 
