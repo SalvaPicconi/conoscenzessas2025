@@ -69,8 +69,8 @@ temporanea di sistema, senza scritture sul backend.
 
 Il primo controllo copre PFI e rubriche. Il secondo copre i 75 elementi dei
 cataloghi, stampa singola e selezione fra filtri, piani, pagina principale e
-aree del curricolo. Il terzo verifica la nuova sezione Esame, le quattro tipologie
-separate, i sei spazi di progettazione, la 5.13 e le UDA con più competenze.
+aree del curricolo. Il terzo verifica la sezione Esame, le quattro tipologie
+separate, le sei UDA complete, la quadratura di ore e griglia, la 5.13 e le UDA con più competenze.
 Sono configurabili `STAMPA_BASE_URL`, `UDA_BASE_URL` e
 `PLAYWRIGHT_CHROMIUM_EXECUTABLE`.
 
@@ -83,7 +83,7 @@ Sono configurabili `STAMPA_BASE_URL`, `UDA_BASE_URL` e
 - `uda.html` + `uda.js` + `data-uda.json` — UDA d'asse
 - `uda-trasversali.html` + `uda-trasversali.js` + `data-uda-trasversali.json` — UDA trasversali
 - `uda-fsl.html` + `uda-fsl.js` + `data-uda-fsl.json` — UDA per la Formazione scuola-lavoro
-- `uda-esame.html` + `uda-esame.js` + `uda-esame.css` + `data-uda-esame.json` — struttura delle UDA per la preparazione progressiva alla prova professionale
+- `uda-esame.html` + `uda-esame.js` + `uda-esame.css` + `data-uda-esame.json` — sei UDA (due per anno) per la preparazione progressiva alla prova professionale, con tipologie e nuclei integrali, quattro insegnamenti di indirizzo sempre coinvolti, altri insegnamenti opzionali, dossier, tracce e griglia su 20 punti
 - `assets/uda-revisione.js` + `assets/uda-revisione.css` — modifica e revisione collegiale dei tre cataloghi; saperi documentali protetti e integrazioni libere
 - `assets/insegnamenti.js` — riconoscimento dei nomi degli insegnamenti: la stessa materia scritta in maiuscolo, per esteso, abbreviata o con un'annotazione fra parentesi resta una sola, per colori, filtri, stampe e ripartizione oraria; `tools/verifica_insegnamenti.cjs` controlla che nessun nome usato nei cataloghi resti fuori
 - `assets/uda-ore.js` — ripartizione oraria delle UDA per insegnamento: proposta proporzionale, modifica libera e avviso non bloccante quando il monte ore non torna

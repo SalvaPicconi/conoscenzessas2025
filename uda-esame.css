@@ -328,32 +328,352 @@
     border-top: 1px solid var(--stroke-soft);
 }
 
-.esame-slot-body dl {
-    margin: 0;
-}
-
-.esame-slot-body dl > div {
+.esame-identity-grid {
     display: grid;
-    grid-template-columns: 150px 1fr;
-    border-bottom: 1px solid var(--stroke-soft);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 18px;
 }
 
-.esame-slot-body dl > div:last-child {
-    border-bottom: 0;
+.esame-identity-grid > div {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: rgba(240, 253, 250, 0.72);
 }
 
-.esame-slot-body dt,
-.esame-slot-body dd {
-    margin: 0;
-    padding: 10px;
-}
-
-.esame-slot-body dt {
-    color: var(--ink-soft);
-    font-size: 0.78rem;
+.esame-identity-grid span {
+    color: var(--ink-faint);
+    font-size: 0.72rem;
     font-weight: 800;
     letter-spacing: 0.04em;
     text-transform: uppercase;
+}
+
+.esame-identity-grid strong {
+    color: var(--ink);
+    font-size: 0.9rem;
+    line-height: 1.45;
+}
+
+.esame-detail-section {
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid var(--stroke-soft);
+}
+
+.esame-detail-section h3 {
+    margin: 0 0 10px;
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: 1.03rem;
+}
+
+.esame-detail-section > .esame-source-tag + h3 {
+    margin-top: 9px;
+}
+
+.esame-detail-section p {
+    color: var(--ink-soft);
+    line-height: 1.58;
+}
+
+.esame-topic,
+.esame-prompt {
+    padding: 16px;
+    border: 1px solid rgba(217, 119, 6, 0.2);
+    border-radius: 14px;
+    background: #fffbeb;
+}
+
+.esame-prompt {
+    border-color: rgba(15, 118, 110, 0.25);
+    background: rgba(240, 253, 250, 0.85);
+}
+
+.esame-topic p,
+.esame-prompt p {
+    margin-bottom: 0;
+}
+
+.esame-chip-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.esame-nucleus-chip {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 13px;
+    border: 1px solid #bae6fd;
+    border-radius: 12px;
+    background: #f0f9ff;
+}
+
+.esame-nucleus-chip strong {
+    color: #075985;
+}
+
+.esame-nucleus-chip span {
+    color: var(--ink-soft);
+    font-size: 0.88rem;
+    line-height: 1.45;
+}
+
+.esame-nucleus-chip small {
+    align-self: flex-start;
+    padding: 3px 7px;
+    border-radius: 999px;
+    background: #dbeafe;
+    color: #1e3a8a;
+    font-weight: 800;
+}
+
+.esame-competence-list {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.esame-competence-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 11px 13px;
+    border-radius: 12px;
+    background: rgba(204, 251, 241, 0.55);
+}
+
+.esame-competence-list strong {
+    flex: 0 0 auto;
+    color: #115e59;
+}
+
+.esame-competence-list span {
+    color: var(--ink-soft);
+    line-height: 1.48;
+}
+
+.esame-task-grid {
+    margin: 0;
+    border: 1px solid var(--stroke-soft);
+    border-radius: 13px;
+    overflow: hidden;
+}
+
+.esame-task-grid > div {
+    display: grid;
+    grid-template-columns: 155px 1fr;
+    border-bottom: 1px solid var(--stroke-soft);
+}
+
+.esame-task-grid > div:last-child {
+    border-bottom: 0;
+}
+
+.esame-task-grid dt,
+.esame-task-grid dd {
+    margin: 0;
+    padding: 10px 12px;
+}
+
+.esame-task-grid dt {
+    color: #115e59;
+    background: rgba(240, 253, 250, 0.7);
+    font-size: 0.77rem;
+    font-weight: 800;
+    letter-spacing: 0.035em;
+    text-transform: uppercase;
+}
+
+.esame-task-grid dd {
+    color: var(--ink-soft);
+    line-height: 1.5;
+}
+
+.esame-method-note,
+.esame-hours-check {
+    margin: -2px 0 12px;
+    font-size: 0.84rem;
+}
+
+.esame-optional-subjects {
+    margin-top: 12px;
+    padding: 13px 15px;
+    border: 1px dashed #94a3b8;
+    border-radius: 12px;
+    background: #f8fafc;
+}
+
+.esame-optional-subjects h4 {
+    margin: 0 0 5px;
+    color: var(--ink);
+    font-size: 0.9rem;
+}
+
+.esame-optional-subjects p {
+    margin: 0 0 8px;
+    font-size: 0.82rem;
+}
+
+.esame-optional-subjects ul {
+    margin: 0;
+    padding-left: 18px;
+    color: var(--ink-soft);
+    font-size: 0.83rem;
+    line-height: 1.5;
+}
+
+.esame-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--stroke-soft);
+    border-radius: 13px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.esame-contributions-table,
+.esame-rubric-table {
+    width: 100%;
+    min-width: 760px;
+    border-collapse: collapse;
+    background: var(--card-solid);
+    font-size: 0.82rem;
+}
+
+.esame-contributions-table th,
+.esame-contributions-table td,
+.esame-rubric-table th,
+.esame-rubric-table td {
+    padding: 10px;
+    border-right: 1px solid var(--stroke-soft);
+    border-bottom: 1px solid var(--stroke-soft);
+    color: var(--ink-soft);
+    line-height: 1.45;
+    text-align: left;
+    vertical-align: top;
+}
+
+.esame-contributions-table th:last-child,
+.esame-contributions-table td:last-child,
+.esame-rubric-table th:last-child,
+.esame-rubric-table td:last-child {
+    border-right: 0;
+}
+
+.esame-contributions-table thead th,
+.esame-rubric-table thead th,
+.esame-contributions-table tfoot th,
+.esame-contributions-table tfoot td {
+    background: #f0fdfa;
+    color: #115e59;
+    font-weight: 800;
+}
+
+.esame-contributions-table tbody th,
+.esame-rubric-table tbody th {
+    color: var(--ink);
+    font-weight: 800;
+}
+
+.esame-rubric-table summary {
+    color: #0f766e;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.esame-rubric-table ul {
+    margin: 8px 0 0;
+    padding-left: 18px;
+}
+
+.esame-phase-list {
+    display: grid;
+    gap: 8px;
+    margin: 0 0 10px;
+    padding: 0;
+    list-style: none;
+}
+
+.esame-phase-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.esame-phase-list li > span {
+    display: grid;
+    min-width: 46px;
+    min-height: 36px;
+    place-items: center;
+    border-radius: 10px;
+    background: #e0f2fe;
+    color: #075985;
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+.esame-phase-list li > div {
+    flex: 1;
+    padding: 7px 11px 10px;
+    border-bottom: 1px solid var(--stroke-soft);
+}
+
+.esame-phase-list p {
+    margin: 3px 0 0;
+    font-size: 0.86rem;
+}
+
+.esame-dossier-grid,
+.esame-final-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.esame-dossier-grid article {
+    padding: 13px;
+    border: 1px solid var(--stroke-soft);
+    border-radius: 12px;
+    background: var(--card-solid);
+}
+
+.esame-dossier-grid h4 {
+    margin: 0 0 8px;
+    color: var(--ink);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.esame-dossier-grid h4 a {
+    color: #0f766e;
+}
+
+.esame-dossier-grid p {
+    margin: 5px 0 0;
+    font-size: 0.82rem;
+}
+
+.esame-dossier-grid .esame-caution {
+    color: #92400e;
+}
+
+.esame-final-grid > .esame-detail-section {
+    padding: 15px;
+    border: 1px solid var(--stroke-soft);
+    border-radius: 13px;
+    background: rgba(248, 250, 252, 0.78);
+}
+
+.esame-final-grid p {
+    margin-bottom: 0;
 }
 
 .esame-slot-warning {
@@ -385,7 +705,11 @@
     .esame-source-grid,
     .esame-types-grid,
     .esame-principles-grid,
-    .esame-template-list {
+    .esame-template-list,
+    .esame-chip-list,
+    .esame-dossier-grid,
+    .esame-final-grid,
+    .esame-identity-grid {
         grid-template-columns: 1fr;
     }
 
@@ -402,12 +726,21 @@
         margin-left: 70px;
     }
 
-    .esame-slot-body dl > div {
+    .esame-task-grid > div {
         grid-template-columns: 1fr;
     }
 
-    .esame-slot-body dd {
-        padding-top: 0;
+    .esame-task-grid dd {
+        padding-top: 8px;
+    }
+
+    .esame-slot-body {
+        padding: 14px;
+    }
+
+    .esame-topic,
+    .esame-prompt {
+        padding: 13px;
     }
 }
 

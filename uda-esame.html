@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Struttura delle UDA per la preparazione progressiva alla prova professionale dell'Esame di Stato SSAS.">
+    <meta name="description" content="Sei proposte di UDA per la preparazione progressiva alla prova professionale dell'Esame di Stato SSAS.">
     <meta name="theme-color" content="#0b5f5a">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <title>UDA Esame di Stato - Curricolo SSAS</title>
@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css?v=20260721">
     <link rel="stylesheet" href="didattica.css?v=20260901">
-    <link rel="stylesheet" href="uda-esame.css?v=20260907a">
+    <link rel="stylesheet" href="uda-esame.css?v=20260908uda3">
     <link rel="stylesheet" href="assets/navigazione.css?v=20260905l">
 </head>
 <body>
@@ -26,34 +26,24 @@
             </div>
         </header>
 
-        <section class="esame-status" aria-labelledby="esame-status-title">
-            <div>
-                <p class="esame-eyebrow">Stato della sezione</p>
-                <h2 id="esame-status-title">Struttura predisposta, contenuti da progettare</h2>
-                <p id="esame-scopo"></p>
-                <p id="esame-nota"></p>
-            </div>
-            <span class="esame-status-pill" id="esame-stato"></span>
-        </section>
-
         <section class="esame-section" aria-labelledby="fonti-title">
             <div class="esame-section-head">
-                <p class="esame-eyebrow">Tracciabilità</p>
-                <h2 id="fonti-title">Che cosa viene dalle fonti e che cosa va deciso</h2>
-                <p>Ogni contenuto è accompagnato dal proprio livello: quadro d’esame, indicazione metodologica, curricolo o scelta progettuale.</p>
+                <p class="esame-eyebrow">Fonti</p>
+                <h2 id="fonti-title">Documenti di riferimento</h2>
+                <p>Quadro di riferimento della seconda prova, indicazioni per la redazione e curricolo dell’area di indirizzo.</p>
             </div>
             <div id="esame-fonti" class="esame-source-grid"></div>
         </section>
 
         <section class="esame-section" aria-labelledby="criteri-title">
             <div class="esame-section-head">
-                <p class="esame-eyebrow">Base metodologica</p>
+                <p class="esame-eyebrow">Prova esperta</p>
                 <h2 id="criteri-title">Criteri per costruire il compito atteso</h2>
                 <p>Le indicazioni RE.NA.I.SAN.S. del 2024 vengono assunte come base metodologica della prova esperta; il curricolo determina ciò che viene realmente insegnato.</p>
             </div>
             <div class="esame-principles-grid">
                 <article class="esame-principles-card">
-                    <span class="esame-source-tag rete">Indicazione RE.NA.I.SAN.S.</span>
+                    <span class="esame-source-tag rete">Indicazioni 2024</span>
                     <h3>Costruzione della traccia</h3>
                     <ul id="esame-principi-rete"></ul>
                 </article>
@@ -68,8 +58,8 @@
         <section class="esame-section" aria-labelledby="tipologie-title">
             <div class="esame-section-head">
                 <p class="esame-eyebrow">Prestazioni distinte</p>
-                <h2 id="tipologie-title">Le quattro strutture della prova professionale</h2>
-                <p>Ogni futura UDA sarà costruita intorno a una sola tipologia. Le tipologie non vengono fuse.</p>
+                <h2 id="tipologie-title">Le quattro tipologie della prova professionale</h2>
+                <p>Testo integrale delle tipologie A, B, C e D riportate nel Quadro di riferimento.</p>
             </div>
             <div id="esame-tipologie" class="esame-types-grid"></div>
         </section>
@@ -78,7 +68,7 @@
             <div class="esame-section-head">
                 <p class="esame-eyebrow">Modello comune</p>
                 <h2 id="modello-title">Struttura della scheda UDA</h2>
-                <p>Il modello organizza la progettazione; non assegna ancora argomenti, discipline o ore.</p>
+                <p>Il modello comune organizza le sei UDA del triennio.</p>
             </div>
             <ol id="esame-struttura" class="esame-template-list"></ol>
         </section>
@@ -86,8 +76,8 @@
         <section class="esame-section" aria-labelledby="schede-title">
             <div class="esame-section-head">
                 <p class="esame-eyebrow">Triennio</p>
-                <h2 id="schede-title">Sei spazi di progettazione</h2>
-                <p>Due UDA per anno. Tipologia e argomento saranno scelti dopo il raccordo con competenze, nuclei, saperi e abilità del curricolo.</p>
+                <h2 id="schede-title">Sei proposte di simulazione progressiva</h2>
+                <p>Due UDA per anno. Ogni scheda usa una sola tipologia e rende espliciti nuclei, competenze, compito atteso, discipline, ore, dossier, traccia e valutazione.</p>
             </div>
             <div class="esame-year-filter" role="group" aria-label="Filtra per anno">
                 <button type="button" class="esame-year-button active" data-anno="" aria-pressed="true">Tutte</button>
@@ -102,7 +92,7 @@
         <div id="esame-loading" class="loading" role="status">Caricamento della struttura…</div>
     </main>
 
-    <script src="uda-esame.js?v=20260907a"></script>
+    <script src="uda-esame.js?v=20260908uda3"></script>
     <script src="assets/navigazione.js?v=20260908norm1"></script>
 </body>
 </html>

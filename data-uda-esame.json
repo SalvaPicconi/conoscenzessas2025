@@ -2,38 +2,31 @@
   "meta": {
     "titolo": "UDA — Preparazione progressiva alla prova professionale",
     "sottotitolo": "Struttura di lavoro per il triennio SSAS · due UDA per anno",
-    "stato": "Struttura predisposta · contenuti da progettare e deliberare",
+    "stato": "Sei UDA per la preparazione progressiva",
     "scopo": "Costruire UDA curricolari che culminino in un compito atteso o prova esperta nella forma di una sola tipologia della seconda prova professionale dell'indirizzo IP19.",
-    "nota": "Questa sezione non modifica il catalogo delle UDA d'asse, non alimenta il PFI e non contiene ancora tracce complete. Argomento, tipologia, nuclei, competenze, saperi, abilità, discipline e ore saranno definiti nelle fasi successive."
+    "nota": "Due UDA per anno, dalla classe terza alla quinta, costruite sui saperi, sulle abilità e sulle competenze del curricolo dell’area di indirizzo."
   },
   "fonti": [
     {
-      "livello": "Quadro d’esame",
-      "natura": "Contenuti del quadro richiamati in una sintesi archiviata",
-      "uso": "Definizioni delle quattro tipologie, nuclei tematici fondamentali e indicatori della prova. Prima dell’uso annuale devono essere verificati nelle fonti ministeriali vigenti.",
-      "documento": "Esame di maturità SSAS 2026",
-      "url": "archivio/esame-stato-ssas/materiali/Esame-maturita-SSAS-2026.pdf"
+      "livello": "Quadro di riferimento",
+      "natura": "Quadro di riferimento per la redazione e lo svolgimento della seconda prova scritta",
+      "uso": "Tipologie, nuclei tematici fondamentali, obiettivi e griglia di valutazione.",
+      "documento": "Quadro di riferimento — Servizi per la sanità e l’assistenza sociale",
+      "url": "archivio/esame-stato-ssas/materiali/Seconde prove/I_QdR Servizi per la sanità.pdf"
     },
     {
-      "livello": "Indicazione RE.NA.I.SAN.S.",
-      "natura": "Documento metodologico della Rete, non fonte ministeriale",
-      "uso": "Criteri per costruire una traccia autentica, coerente con tipologia, nuclei e percorso della classe.",
+      "livello": "Redazione della prova",
+      "natura": "Indicazioni per la redazione della prova professionale — 2024",
+      "uso": "Criteri per costruire una traccia coerente con tipologia, nuclei e percorso della classe.",
       "documento": "Indicazioni per la redazione della prova professionale — 2024",
       "url": "archivio/esame-stato-ssas/materiali/Indicazioni-redazione-prova-professionale-2024.pdf"
     },
     {
       "livello": "Curricolo SSAS",
-      "natura": "Fonte interna per la progettazione didattica",
+      "natura": "Curricolo dell’area di indirizzo",
       "uso": "Competenze, traguardi, abilità, saperi, insegnamenti e collocazione annuale da utilizzare nell’UDA.",
       "documento": "Curricolo dell’area di indirizzo",
       "url": "area-indirizzo.html"
-    },
-    {
-      "livello": "Scelta progettuale",
-      "natura": "Decisione da discutere e deliberare",
-      "uso": "Tipologia assegnata alla singola UDA, argomento, situazione, destinatario, dossier, attività e articolazione delle ore.",
-      "documento": "Da definire",
-      "url": ""
     }
   ],
   "principiRete2024": [
@@ -52,52 +45,29 @@
     "Ogni insegnamento deve avere un contributo esplicito e riconoscibile alla prestazione finale.",
     "La ripartizione delle ore deve essere motivata e proporzionata al quadro orario dell’istituto.",
     "Le attività preparatorie possono essere collaborative; la prova esperta conclusiva è individuale.",
-    "L’argomento viene scelto dopo la mappatura di tipologia, nuclei, competenze, saperi e abilità."
+    "Tipologia e nuclei sono assegnati nella traccia; lo studente sviluppa la prestazione richiesta senza scegliere o sostituire i nuclei."
   ],
+  "regoleInsegnamenti": {
+    "indirizzo": ["Metodologie Operative", "Diritto e Tecnica Amministrativa", "Igiene e Cultura Medico-Sanitaria", "Psicologia Generale e Applicata"],
+    "criterio": "I quattro insegnamenti dell’area di indirizzo sono sempre coinvolti e concorrono alla prova attraverso i propri saperi e le proprie abilità.",
+    "altri": "È possibile coinvolgere anche altri insegnamenti, in relazione alla disponibilità dei docenti e alla progettazione del consiglio di classe."
+  },
   "tipologie": [
     {
       "id": "A",
-      "definizione": "Redazione di una relazione professionale sulla base dell’analisi di documenti, tabelle, dati.",
-      "prestazione": "Produrre una relazione di ambito professionale, destinata a un soggetto riconoscibile, selezionando e rielaborando le informazioni fornite.",
-      "attenzioni2024": [
-        "Individuare il destinatario della relazione o chiedere al candidato di individuarlo.",
-        "Precisare gli aspetti della realtà che devono essere analizzati.",
-        "Rendere ambito e richiesta coerenti con i nuclei indicati.",
-        "Fornire documenti, tabelle e dati realmente utilizzabili nell’elaborato."
-      ]
+      "definizione": "Redazione di una relazione professionale sulla base dell’analisi di documenti, tabelle, dati."
     },
     {
       "id": "B",
-      "definizione": "Analisi e soluzione di problematiche in un contesto operativo riguardante l’area professionale (caso aziendale/caso professionale).",
-      "prestazione": "Analizzare una situazione problematica e proporre una soluzione professionale motivata e sostenibile.",
-      "attenzioni2024": [
-        "Stabilire se si tratta di un caso aziendale o professionale.",
-        "Individuare il soggetto al quale il candidato rivolge il proprio lavoro.",
-        "Descrivere il caso in modo sotto-strutturato.",
-        "Richiedere soluzioni compatibili con le esperienze e le competenze maturate nel percorso scolastico."
-      ]
+      "definizione": "Analisi e soluzione di problematiche in un contesto operativo riguardante l’area professionale (caso aziendale/caso professionale)."
     },
     {
       "id": "C",
-      "definizione": "Individuazione, predisposizione o descrizione delle fasi per la realizzazione di un servizio.",
-      "prestazione": "Individuare un servizio appropriato oppure descriverne, in forma argomentata, le fasi di predisposizione, accesso o gestione.",
-      "attenzioni2024": [
-        "Precisare se si richiede di individuare un servizio o di descriverne le fasi di predisposizione o gestione.",
-        "Indicare il destinatario e lo scopo professionale del lavoro.",
-        "Collegare bisogni, utenza, accesso, operatori e organizzazione ai nuclei indicati.",
-        "Evitare una consegna risolvibile con un semplice elenco di azioni."
-      ]
+      "definizione": "Individuazione, predisposizione o descrizione delle fasi per la realizzazione di un servizio."
     },
     {
       "id": "D",
-      "definizione": "Elaborazione di un progetto finalizzato all’innovazione della filiera di produzione e/o alla promozione di servizi e prestazioni professionali del settore.",
-      "prestazione": "Elaborare un progetto coerente con un mandato, esplicitando bisogni, destinatari, finalità, azioni, risorse e verifica.",
-      "attenzioni2024": [
-        "Stabilire la finalità del progetto: risposta a bisogni, innovazione, promozione o nuova funzione professionale.",
-        "Individuare il soggetto che assegna il mandato.",
-        "Formulare un mandato di progetto adeguato al percorso della classe.",
-        "Rendere destinatari, bisogni e progetto coerenti con i nuclei indicati."
-      ]
+      "definizione": "Elaborazione di un progetto finalizzato all’innovazione della filiera di produzione e/o alla promozione di servizi e prestazioni professionali del settore."
     }
   ],
   "strutturaScheda": [
@@ -114,7 +84,7 @@
     {
       "numero": 3,
       "titolo": "Compito atteso / prova esperta",
-      "contenuto": "Situazione-problema, ruolo dello studente, committente, destinatario, prodotto e margini di scelta."
+      "contenuto": "Situazione-problema, ruolo dello studente, committente, destinatario, prodotto e autonomia operativa entro le indicazioni assegnate."
     },
     {
       "numero": 4,
@@ -129,7 +99,7 @@
     {
       "numero": 6,
       "titolo": "Contributi disciplinari e ore",
-      "contenuto": "Attività di ciascun insegnamento, risultato intermedio e ripartizione motivata delle ore."
+      "contenuto": "Contributo dei quattro insegnamenti dell’area di indirizzo e possibile apporto degli altri insegnamenti."
     },
     {
       "numero": 7,
@@ -144,7 +114,7 @@
     {
       "numero": 9,
       "titolo": "Traccia conclusiva individuale",
-      "contenuto": "Consegna completa coerente con una sola tipologia e con i nuclei selezionati."
+      "contenuto": "Consegna completa coerente con una sola tipologia e con i nuclei assegnati."
     },
     {
       "numero": 10,
@@ -155,61 +125,354 @@
       "numero": 11,
       "titolo": "Personalizzazione e accessibilità",
       "contenuto": "Misure previste e, quando necessario, criteri per prove equipollenti coerenti con gli obiettivi."
+    }
+  ],
+  "grigliaComune": [
+    {
+      "indicatore": "Uso del patrimonio lessicale ed espressivo della lingua italiana secondo le esigenze comunicative del contesto professionale",
+      "max": 4,
+      "livelli": ["4 — linguaggio preciso, pertinente e adeguato al destinatario", "3 — linguaggio generalmente corretto e appropriato", "2 — linguaggio semplice, con alcune imprecisioni", "1 — esposizione frammentaria o poco comprensibile", "0 — prestazione assente o non valutabile"]
     },
     {
-      "numero": 12,
-      "titolo": "Tracciabilità",
-      "contenuto": "Fonti utilizzate e distinzione tra quadro d’esame, indicazioni della Rete e scelte progettuali."
+      "indicatore": "Utilizzo della struttura logico-espositiva coerente con la tipologia di prova",
+      "max": 3,
+      "livelli": ["3 — struttura pienamente coerente con la tipologia assegnata", "2 — struttura riconoscibile e nel complesso coerente", "1 — struttura parziale o discontinua", "0 — struttura non riconducibile alla tipologia"]
+    },
+    {
+      "indicatore": "Padronanza delle conoscenze relative ai nuclei tematici fondamentali di riferimento della prova",
+      "max": 5,
+      "livelli": ["5 — conoscenze complete, pertinenti e integrate", "4 — conoscenze solide con lievi omissioni", "3 — conoscenze essenziali e generalmente corrette", "2 — conoscenze parziali o poco collegate", "1 — conoscenze frammentarie", "0 — conoscenze non rilevabili"]
+    },
+    {
+      "indicatore": "Ricorso agli aspetti delle competenze professionali specifiche utili a conseguire le finalità dell’elaborato",
+      "max": 8,
+      "livelli": ["8 — mobilita e integra le competenze motivando scelte efficaci e sostenibili", "6 — applica competenze pertinenti con motivazione generalmente adeguata", "4 — applica gli elementi essenziali con motivazione limitata", "2 — propone elementi frammentari o poco applicabili", "0 — competenza professionale non rilevabile"]
     }
   ],
   "schede": [
     {
       "id": "E3.1",
       "anno": 3,
-      "stato": "Da progettare",
-      "tipologia": "Da definire",
-      "argomento": "Da definire",
-      "nota": "Prima UDA di preparazione progressiva prevista per la classe terza."
+      "titolo": "Leggere la fragilità: dati e accesso ai servizi",
+      "stato": "Bozza progettuale da deliberare",
+      "qnq": "3",
+      "periodo": "Secondo quadrimestre",
+      "durata": 16,
+      "provaFinaleOre": 3,
+      "tipologia": "A",
+      "argomento": "Lettura guidata di dati sulla popolazione anziana e orientamento ai servizi, senza anticipare la presa in carico assistenziale del quarto anno.",
+      "nuclei": [
+        {"id": 2, "testo": "Raccolta e modalità di trattamento e trasmissione di dati e informazioni per mezzo di diversi canali e registri comunicativi; norme di sicurezza e privacy."},
+        {"id": 4, "testo": "Condizioni d’accesso e fruizione dei servizi educativi, sociali, sociosanitari e sanitari."}
+      ],
+      "competenze": [
+        {"numero": 10, "traguardo": "Attuare tecniche di raccolta ed elaborazione di dati relativi a realtà sociali, socio-sanitarie e attinenti la gestione dei servizi, utilizzando sistemi di protezione e trasmissione dati."},
+        {"numero": 7, "traguardo": "Rilevare i servizi sul territorio, distinguendo le diverse modalità di accesso e di erogazione delle prestazioni."}
+      ],
+      "compitoAtteso": {
+        "situazione": "Un servizio territoriale deve preparare una breve informativa interna sulla fragilità anziana e sulle principali porte di accesso ai servizi.",
+        "ruolo": "Studente in affiancamento all’operatore dei servizi alla persona.",
+        "committente": "Coordinatore di un servizio territoriale simulato.",
+        "destinatario": "Équipe del servizio e sportello di orientamento.",
+        "prodotto": "Relazione professionale individuale fondata su un dossier ristretto di dati e informazioni sui servizi.",
+        "autonomiaOperativa": "Lo studente seleziona i dati pertinenti, organizza la relazione e motiva quali informazioni sui servizi comunicare, nel rispetto della tipologia e dei nuclei assegnati."
+      },
+      "contributi": [
+        {"insegnamento": "Metodologie Operative", "ore": 3, "saperi": "Osservazione, documentazione e reti formali e informali.", "abilita": "Individuare informazioni utili e collegare bisogno, servizio e accesso.", "evidenza": "Mappa bisogno-servizio-prestazione."},
+        {"insegnamento": "Diritto e Tecnica Amministrativa", "ore": 4, "saperi": "SSN, servizi sociali, livelli essenziali e modalità di accesso.", "abilita": "Distinguere soggetti erogatori e procedure di accesso.", "evidenza": "Quadro sintetico dei servizi."},
+        {"insegnamento": "Igiene e Cultura Medico-Sanitaria", "ore": 5, "saperi": "Organizzazione sanitaria e lettura di indicatori riferiti alla popolazione anziana.", "abilita": "Interpretare dati descrittivi relativi ai bisogni di salute.", "evidenza": "Commento sanitario ai dati selezionati."},
+        {"insegnamento": "Psicologia Generale e Applicata", "ore": 4, "saperi": "Comportamenti dei soggetti e comunicazione nei contesti sociali.", "abilita": "Riconoscere comportamenti prevalenti e adeguare la comunicazione alla situazione.", "evidenza": "Lettura psicosociale dei dati e dei bisogni."}
+      ],
+      "coinvolgimentiOpzionali": [
+        {"insegnamento": "Italiano", "contributo": "Struttura, registro e revisione della relazione professionale."},
+        {"insegnamento": "Matematica", "contributo": "Lettura di tabelle, percentuali e confronti quantitativi."}
+      ],
+      "fasi": [
+        {"titolo": "Mandato e tipologia A", "ore": 3, "attivita": "Analisi di destinatario, scopo e struttura della relazione."},
+        {"titolo": "Laboratorio sui dati", "ore": 3, "attivita": "Selezione e lettura di poche tabelle con controllo di fonte, anno e unità di misura."},
+        {"titolo": "Mappa dei servizi", "ore": 4, "attivita": "Collegamento tra bisogni osservabili, prestazioni, enti e accesso."},
+        {"titolo": "Elaborazione guidata", "ore": 3, "attivita": "Integrazione dei saperi disciplinari nella struttura della relazione."},
+        {"titolo": "Prova esperta individuale", "ore": 3, "attivita": "Redazione autonoma della relazione professionale."}
+      ],
+      "dossier": [
+        {"titolo": "Report anziani 2019 — estratti selezionati", "url": "archivio/esame-stato-ssas/materiali/2^ SIMULAZIONE seconda prova/Report-anziani-2019.pdf", "uso": "Due grafici o tabelle per la lettura quantitativa."},
+        {"titolo": "Tavole statistiche — selezione del docente", "url": "archivio/esame-stato-ssas/materiali/2^ SIMULAZIONE seconda prova/Tavole.xlsx", "uso": "Massimo due o tre tabelle coerenti con la consegna."},
+        {"titolo": "Quadro di riferimento SSAS", "url": "archivio/esame-stato-ssas/materiali/Seconde prove/I_QdR Servizi per la sanità.pdf", "uso": "Controllo della tipologia e dei nuclei."}
+      ],
+      "traccia": "Sulla base dei documenti forniti, redigi per il coordinatore del servizio una relazione professionale che: descriva i principali dati rilevati; distingua fatti, confronti e limiti informativi; colleghi i bisogni osservabili alle possibili porte di accesso ai servizi; proponga quali informazioni essenziali lo sportello dovrebbe comunicare. Organizza autonomamente l’elaborato e motiva la selezione dei dati. Non sono richiesti diagnosi o piani assistenziali.",
+      "focusValutazione": ["Chiarezza e adeguatezza della relazione al coordinatore.", "Presenza di una struttura di relazione professionale, non di un elenco.", "Correttezza nella lettura dei dati e nella descrizione dell’accesso ai servizi.", "Capacità di selezionare dati pertinenti e tradurli in indicazioni informative professionali."],
+      "personalizzazione": "Dossier ridotto, tabelle ad alta leggibilità e consegna segmentata per chi ne ha diritto; restano invariati tipologia A, nuclei e prestazione professionale."
     },
     {
       "id": "E3.2",
       "anno": 3,
-      "stato": "Da progettare",
-      "tipologia": "Da definire",
-      "argomento": "Da definire",
-      "nota": "Seconda UDA di preparazione progressiva prevista per la classe terza."
+      "titolo": "Un servizio socio-educativo per minori",
+      "stato": "Bozza progettuale da deliberare",
+      "qnq": "3",
+      "periodo": "Secondo quadrimestre",
+      "durata": 16,
+      "provaFinaleOre": 3,
+      "tipologia": "C",
+      "argomento": "Individuazione e descrizione delle fasi essenziali di un servizio socio-educativo rivolto a minori, con attenzione ad accesso, bisogni e multiculturalità.",
+      "nuclei": [
+        {"id": 4, "testo": "Condizioni d’accesso e fruizione dei servizi educativi, sociali, sociosanitari e sanitari."},
+        {"id": 7, "testo": "Attività educative, di animazione, ludiche e culturali in rapporto alle diverse tipologie di utenza."}
+      ],
+      "competenze": [
+        {"numero": 7, "traguardo": "Rilevare i servizi sul territorio, distinguendo le diverse modalità di accesso e di erogazione delle prestazioni."},
+        {"numero": 8, "traguardo": "Programmare e realizzare semplici attività di animazione socio-educative rivolte a minori."}
+      ],
+      "compitoAtteso": {
+        "situazione": "Un centro socio-educativo vuole presentare alle famiglie un breve servizio pomeridiano inclusivo per minori.",
+        "ruolo": "Studente componente di un gruppo di progettazione; la consegna finale è individuale.",
+        "committente": "Responsabile del centro socio-educativo simulato.",
+        "destinatario": "Famiglie e operatori invianti.",
+        "prodotto": "Descrizione professionale delle fasi di predisposizione e accesso al servizio.",
+        "autonomiaOperativa": "Lo studente organizza e motiva le fasi del servizio nel rispetto della tipologia, dei nuclei e del contesto assegnati."
+      },
+      "contributi": [
+        {"insegnamento": "Metodologie Operative", "ore": 3, "saperi": "Strumenti per progettare attività di animazione e reti di accesso.", "abilita": "Descrivere in sequenza bisogno, accesso, attività, risorse e verifica.", "evidenza": "Diagramma delle fasi del servizio."},
+        {"insegnamento": "Diritto e Tecnica Amministrativa", "ore": 4, "saperi": "Enti erogatori, livelli essenziali e accesso ai servizi.", "abilita": "Distinguere responsabilità, soggetti e procedure informative.", "evidenza": "Scheda soggetti-accesso."},
+        {"insegnamento": "Igiene e Cultura Medico-Sanitaria", "ore": 5, "saperi": "Organizzazione dei servizi e condizioni di benessere e sicurezza dei minori.", "abilita": "Individuare attenzioni sanitarie e preventive proporzionate al servizio.", "evidenza": "Requisiti di benessere e sicurezza."},
+        {"insegnamento": "Psicologia Generale e Applicata", "ore": 4, "saperi": "Psicopedagogia dell’infanzia e adolescenza; finalità delle attività.", "abilita": "Collegare età, bisogni e tecniche di animazione.", "evidenza": "Profilo dei destinatari e motivazione delle attività."}
+      ],
+      "coinvolgimentiOpzionali": [
+        {"insegnamento": "Italiano", "contributo": "Organizzazione e revisione del testo professionale."},
+        {"insegnamento": "Inglese", "contributo": "Comunicazione essenziale rivolta a famiglie plurilingui."},
+        {"insegnamento": "Spagnolo", "contributo": "Riconoscimento delle barriere linguistiche e delle possibili mediazioni."}
+      ],
+      "fasi": [
+        {"titolo": "Mandato e tipologia C", "ore": 3, "attivita": "Distinzione tra individuare un servizio e descriverne le fasi."},
+        {"titolo": "Bisogni dei minori", "ore": 4, "attivita": "Analisi guidata di età, bisogni e contesto."},
+        {"titolo": "Accesso e soggetti", "ore": 3, "attivita": "Mappa di enti, invio, comunicazione alle famiglie e regole essenziali."},
+        {"titolo": "Fasi del servizio", "ore": 3, "attivita": "Costruzione collaborativa e motivata delle fasi del servizio."},
+        {"titolo": "Prova esperta individuale", "ore": 3, "attivita": "Descrizione autonoma e motivata del servizio."}
+      ],
+      "dossier": [
+        {"titolo": "Proposte di tracce — tipologia C", "url": "archivio/esame-stato-ssas/materiali/Proposte-di-tracce-tipologia-C.pdf", "uso": "Esempi per osservare la forma della consegna."},
+        {"titolo": "Schema di elaborazione — tipologia C", "url": "archivio/esame-stato-ssas/materiali/Seconde prove 2022/Tipologia-C-schema-elaborazione-esempio.pdf", "uso": "Schema iniziale sulle fasi."},
+        {"titolo": "Scheda locale di contesto", "url": "", "uso": "Dati essenziali su utenza, territorio e vincoli del servizio."}
+      ],
+      "traccia": "Il responsabile di un centro socio-educativo intende attivare un servizio pomeridiano inclusivo per minori. Sulla base del dossier, individua la fascia d’età e il bisogno prevalente; descrivi in modo argomentato le fasi necessarie per predisporre e rendere accessibile il servizio; precisa destinatari, modalità di accesso, figure coinvolte, attività socio-educative e semplici criteri di verifica. Le scelte devono essere coerenti con il contesto e non ridursi a un elenco.",
+      "focusValutazione": ["Chiarezza verso responsabile, famiglie e operatori.", "Coerenza con la tipologia C e consequenzialità delle fasi.", "Conoscenza di accesso ai servizi, bisogni dei minori e animazione socio-educativa.", "Capacità di costruire un servizio praticabile, inclusivo e motivato."],
+      "personalizzazione": "Glossario, mappa iniziale del dossier e modello grafico delle fasi per chi ne ha diritto; la produzione individuale conserva nuclei e obiettivi."
     },
     {
       "id": "E4.1",
       "anno": 4,
-      "stato": "Da progettare",
-      "tipologia": "Da definire",
-      "argomento": "Da definire",
-      "nota": "Prima UDA di preparazione progressiva prevista per la classe quarta."
+      "titolo": "Caso professionale: anziano fragile, autonomia e ambiente di vita",
+      "stato": "Bozza progettuale da deliberare",
+      "qnq": "3/4",
+      "periodo": "Primo quadrimestre",
+      "durata": 16,
+      "provaFinaleOre": 4,
+      "tipologia": "B",
+      "argomento": "Analisi di un caso di fragilità geriatrica con bisogni di autonomia, relazione d’aiuto e sicurezza nell’ambiente domestico.",
+      "nuclei": [
+        {"id": 5, "testo": "Metodi, strumenti e condizioni del prendere in cura persone con fragilità o in situazioni di svantaggio per cause sociali o patologie."},
+        {"id": 6, "testo": "Allestimento e cura dell’ambiente di vita delle persone in difficoltà e norme di sicurezza."}
+      ],
+      "competenze": [
+        {"numero": 4, "traguardo": "Partecipare al soddisfacimento dei bisogni di base di persone anziane e persone in condizioni di disabilità."},
+        {"numero": 5, "traguardo": "Predisporre interventi per il soddisfacimento dei bisogni di base socio-assistenziale e sanitari."},
+        {"numero": 6, "traguardo": "Nell’allestimento dell’ambiente di vita assicurare condizioni di igiene e sicurezza."}
+      ],
+      "compitoAtteso": {
+        "situazione": "Una persona anziana presenta riduzione dell’autonomia e la famiglia segnala difficoltà nella gestione quotidiana e nell’ambiente domestico.",
+        "ruolo": "Studente in affiancamento a un’équipe, entro i limiti del profilo SSAS.",
+        "committente": "Coordinatore del servizio domiciliare simulato.",
+        "destinatario": "Équipe multiprofessionale e famiglia.",
+        "prodotto": "Analisi scritta del caso con problemi prioritari e proposta motivata di interventi socio-assistenziali, relazionali e ambientali.",
+        "autonomiaOperativa": "Lo studente gerarchizza i bisogni e propone soluzioni motivate nel rispetto della tipologia e dei nuclei assegnati, dichiarando limiti del proprio ruolo e figure da coinvolgere."
+      },
+      "contributi": [
+        {"insegnamento": "Metodologie Operative", "ore": 3, "saperi": "PAI, valutazione multidimensionale, ausili e procedure quotidiane.", "abilita": "Individuare sezioni del PAI e interventi coerenti con capacità residue.", "evidenza": "Mappa del caso e proposta operativa."},
+        {"insegnamento": "Diritto e Tecnica Amministrativa", "ore": 4, "saperi": "Servizi, prestazioni e responsabilità degli operatori.", "abilita": "Individuare servizi e figure da coinvolgere nel rispetto dei ruoli.", "evidenza": "Quadro di servizi, figure e responsabilità."},
+        {"insegnamento": "Igiene e Cultura Medico-Sanitaria", "ore": 5, "saperi": "Invecchiamento, patologie geriatriche, autonomia, rischi dell’immobilizzazione, igiene e sicurezza.", "abilita": "Rilevare elementi di salute e rischio e proporre misure preventive entro il profilo.", "evidenza": "Quadro bisogni-rischi-misure."},
+        {"insegnamento": "Psicologia Generale e Applicata", "ore": 4, "saperi": "Bisogni dell’anziano, alleanza e relazione con la famiglia.", "abilita": "Adottare una comunicazione adeguata a eventuali compromissioni cognitive e motorie.", "evidenza": "Strategia relazionale motivata."}
+      ],
+      "coinvolgimentiOpzionali": [
+        {"insegnamento": "Italiano", "contributo": "Analisi e argomentazione scritta del caso professionale."},
+        {"insegnamento": "Storia", "contributo": "Evoluzione sociale dei concetti di disabilità, deficit e handicap."}
+      ],
+      "fasi": [
+        {"titolo": "Lettura del caso e tipologia B", "ore": 3, "attivita": "Separazione tra dati certi, problemi, informazioni mancanti e ipotesi."},
+        {"titolo": "Autonomia e bisogni", "ore": 3, "attivita": "Uso guidato di indicatori di autonomia e costruzione della gerarchia dei bisogni."},
+        {"titolo": "Relazione e famiglia", "ore": 3, "attivita": "Simulazioni comunicative e riconoscimento delle risorse familiari."},
+        {"titolo": "Interventi e ambiente", "ore": 3, "attivita": "Confronto tra misure assistenziali, ausili, igiene e prevenzione del rischio."},
+        {"titolo": "Prova esperta individuale", "ore": 4, "attivita": "Analisi e soluzione autonoma di un caso nuovo ma isomorfo."}
+      ],
+      "dossier": [
+        {"titolo": "Proposte di tracce — tipologia B", "url": "archivio/esame-stato-ssas/materiali/Proposte-di-tracce-tipologia-B.pdf", "uso": "Esempi per graduare caso e mandato."},
+        {"titolo": "Prove tipologia B", "url": "archivio/esame-stato-ssas/materiali/Documenti preparazione Esame di stato/Prove Tipologia B.docx", "uso": "Confronto tra casi e soluzioni possibili."},
+        {"titolo": "Indicazioni per la redazione 2024", "url": "archivio/esame-stato-ssas/materiali/Indicazioni-redazione-prova-professionale-2024.pdf", "uso": "Controllo della costruzione del caso e del destinatario."}
+      ],
+      "traccia": "Analizza il caso professionale descritto nel dossier. Individua e gerarchizza i bisogni della persona anziana, distinguendo elementi certi e informazioni da acquisire. Proponi al coordinatore del servizio interventi finalizzati alla sicurezza, al mantenimento delle capacità residue e al sostegno della famiglia; motiva priorità, modalità relazionali, figure da coinvolgere e limiti del ruolo dell’operatore SSAS. Sono ammesse soluzioni diverse purché coerenti e sostenibili.",
+      "focusValutazione": ["Linguaggio rispettoso, professionale e non diagnostico.", "Struttura caso-problemi-priorità-soluzioni-verifica coerente con la tipologia B.", "Conoscenza di invecchiamento, autonomia, relazione d’aiuto, igiene e sicurezza.", "Capacità di proporre interventi motivati, realistici e rispettosi dei ruoli."],
+      "personalizzazione": "Caso presentato anche in forma schematica e possibilità di usare una griglia dati-bisogni-risorse per chi ne ha diritto; invariata la soluzione individuale motivata."
     },
     {
       "id": "E4.2",
       "anno": 4,
-      "stato": "Da progettare",
-      "tipologia": "Da definire",
-      "argomento": "Da definire",
-      "nota": "Seconda UDA di preparazione progressiva prevista per la classe quarta."
+      "titolo": "Dalla solitudine al servizio: animazione e partecipazione",
+      "stato": "Bozza progettuale da deliberare",
+      "qnq": "3/4",
+      "periodo": "Secondo quadrimestre",
+      "durata": 16,
+      "provaFinaleOre": 4,
+      "tipologia": "C",
+      "argomento": "Descrizione delle fasi di un servizio leggero di socializzazione e animazione per anziani a rischio di isolamento.",
+      "nuclei": [
+        {"id": 4, "testo": "Condizioni d’accesso e fruizione dei servizi educativi, sociali, sociosanitari e sanitari."},
+        {"id": 7, "testo": "Attività educative, di animazione, ludiche e culturali in rapporto alle diverse tipologie di utenza."}
+      ],
+      "competenze": [
+        {"numero": 7, "traguardo": "Orientare l’utenza alla fruizione dei servizi in relazione ai bisogni e alle prestazioni."},
+        {"numero": 8, "traguardo": "Programmare e realizzare attività per l’animazione di adulti, anziani o persone con disabilità aventi carattere formativo o di animazione sociale in contesti reali di servizi."}
+      ],
+      "compitoAtteso": {
+        "situazione": "Un servizio di prossimità rileva anziani soli che partecipano poco alle opportunità territoriali.",
+        "ruolo": "Studente incaricato di predisporre una proposta operativa per l’équipe.",
+        "committente": "Responsabile di un centro di aggregazione simulato.",
+        "destinatario": "Équipe e anziani potenzialmente interessati.",
+        "prodotto": "Descrizione delle fasi di rilevazione, contatto, accesso, attività e verifica di un servizio di socializzazione.",
+        "autonomiaOperativa": "Lo studente organizza e motiva modalità di contatto e attività nel rispetto della tipologia, dei nuclei e del contesto assegnati."
+      },
+      "contributi": [
+        {"insegnamento": "Metodologie Operative", "ore": 3, "saperi": "Intervista, gestione delle informazioni e tecniche di animazione.", "abilita": "Descrivere fasi, strumenti e semplici verifiche del servizio.", "evidenza": "Flusso del servizio."},
+        {"insegnamento": "Diritto e Tecnica Amministrativa", "ore": 4, "saperi": "Organizzazione dei servizi e condizioni di accesso e fruizione.", "abilita": "Individuare soggetti, prestazioni e modalità di accesso pertinenti.", "evidenza": "Mappa dei soggetti e delle condizioni di accesso."},
+        {"insegnamento": "Igiene e Cultura Medico-Sanitaria", "ore": 5, "saperi": "Processo di invecchiamento, autonomia e benessere psico-fisico.", "abilita": "Riconoscere bisogni e condizioni che incidono sulla partecipazione dell’anziano.", "evidenza": "Profilo dei bisogni di salute e autonomia."},
+        {"insegnamento": "Psicologia Generale e Applicata", "ore": 4, "saperi": "Bisogni educativi e sociali dell’anziano; psicopedagogia dell’età anziana.", "abilita": "Individuare comunicazione e attività coerenti con bisogni e partecipazione.", "evidenza": "Motivazione psicopedagogica delle attività."}
+      ],
+      "coinvolgimentiOpzionali": [
+        {"insegnamento": "Italiano", "contributo": "Descrizione argomentata e revisione del servizio."},
+        {"insegnamento": "Matematica", "contributo": "Lettura dei dati di partecipazione e formulazione di indicatori."}
+      ],
+      "fasi": [
+        {"titolo": "Problema e tipologia C", "ore": 3, "attivita": "Lettura del fenomeno e distinzione tra servizio, attività e progetto."},
+        {"titolo": "Bisogni e barriere", "ore": 3, "attivita": "Analisi di solitudine, contatto, motivazione e accessibilità."},
+        {"titolo": "Fasi e attività", "ore": 3, "attivita": "Predisposizione di percorsi alternativi di aggancio e animazione."},
+        {"titolo": "Accesso e verifica", "ore": 3, "attivita": "Definizione delle condizioni di accesso e di pochi indicatori osservabili di partecipazione."},
+        {"titolo": "Prova esperta individuale", "ore": 4, "attivita": "Descrizione autonoma del servizio a partire da un dossier nuovo."}
+      ],
+      "dossier": [
+        {"titolo": "Solitudine abitativa negli anziani", "url": "archivio/esame-stato-ssas/materiali/2^ SIMULAZIONE seconda prova/Solitudine abitativa negli anziani.pdf", "uso": "Documento-stimolo sul bisogno sociale."},
+        {"titolo": "Politiche per l’invecchiamento attivo in Sardegna", "url": "archivio/esame-stato-ssas/materiali/Seconde prove/invecchiamento attivo/regione-sardegna-politiche-invecchiamento-attivo.pdf", "uso": "Contesto territoriale e lessico della partecipazione."},
+        {"titolo": "Schema di tipologia C", "url": "archivio/esame-stato-ssas/materiali/Seconde prove 2022/Tipologia-C-schema-elaborazione-esempio.pdf", "uso": "Supporto iniziale per riconoscere le fasi."}
+      ],
+      "traccia": "Un servizio di prossimità rileva una scarsa partecipazione degli anziani soli alle opportunità territoriali. Descrivi per il responsabile del centro le fasi di un servizio leggero di contatto, accesso e animazione: individua bisogni e barriere, modalità di aggancio, attività, figure coinvolte e semplici indicatori di partecipazione. Motiva le scelte in relazione al dossier e lascia spazio a soluzioni alternative coerenti.",
+      "focusValutazione": ["Linguaggio adeguato all’équipe e rispettoso delle persone anziane.", "Sequenza di servizio riconoscibile e coerente con la tipologia C.", "Conoscenza di accesso, intervista, bisogni dell’anziano e tecniche di animazione.", "Capacità di collegare bisogno, aggancio, attività e verifica in modo praticabile."],
+      "personalizzazione": "Documenti ridotti e possibilità di organizzare preliminarmente le fasi con un diagramma; la risposta conclusiva resta individuale e argomentata."
     },
     {
       "id": "E5.1",
       "anno": 5,
-      "stato": "Da progettare",
-      "tipologia": "Da definire",
-      "argomento": "Da definire",
-      "nota": "Prima UDA di preparazione progressiva prevista per la classe quinta."
+      "titolo": "Salute, autonomia e domanda di assistenza degli anziani",
+      "stato": "Bozza progettuale da deliberare",
+      "qnq": "4",
+      "periodo": "Primo quadrimestre",
+      "durata": 16,
+      "provaFinaleOre": 6,
+      "tipologia": "A",
+      "argomento": "Relazione professionale su dati di salute e autonomia, con orientamento ai servizi e sostegno alla famiglia.",
+      "nuclei": [
+        {"id": 2, "testo": "Raccolta e modalità di trattamento e trasmissione di dati e informazioni per mezzo di diversi canali e registri comunicativi; norme di sicurezza e privacy."},
+        {"id": 4, "testo": "Condizioni d’accesso e fruizione dei servizi educativi, sociali, sociosanitari e sanitari."}
+      ],
+      "competenze": [
+        {"numero": 10, "traguardo": "Raccogliere, conservare, elaborare e trasmettere dati relativi alle attività professionali svolte ai fini del monitoraggio e della valutazione degli interventi e dei servizi utilizzando adeguati strumenti informativi in condizioni di sicurezza e affidabilità delle fonti utilizzate."},
+        {"numero": 7, "traguardo": "Gestire azioni di informazione e di orientamento dell’utente per facilitare l’accessibilità e la fruizione autonoma dei servizi pubblici e privati presenti sul territorio."},
+        {"numero": 4, "traguardo": "Prendersi cura e collaborare al soddisfacimento dei bisogni di base di bambini, persone con disabilità, anziani nell’espletamento delle più comuni attività quotidiane."}
+      ],
+      "compitoAtteso": {
+        "situazione": "Un ambito territoriale deve interpretare dati su salute, autonomia e domanda di assistenza della popolazione anziana per orientare una priorità operativa.",
+        "ruolo": "Candidato incaricato di predisporre una relazione per il tavolo tecnico.",
+        "committente": "Responsabile dell’ambito territoriale simulato.",
+        "destinatario": "Tavolo tecnico dei servizi.",
+        "prodotto": "Relazione professionale individuale basata su documenti e dati.",
+        "autonomiaOperativa": "Lo studente seleziona e integra le informazioni pertinenti, organizza la relazione e motiva le proposte nel rispetto della tipologia e dei nuclei assegnati."
+      },
+      "contributi": [
+        {"insegnamento": "Metodologie Operative", "ore": 3, "saperi": "Monitoraggio, documentazione, PAI e relazione d’aiuto.", "abilita": "Tradurre dati aggregati in ipotesi operative verificabili.", "evidenza": "Matrice dato-bisogno-azione-indicatore."},
+        {"insegnamento": "Diritto e Tecnica Amministrativa", "ore": 4, "saperi": "Diritti di accesso, privacy, accreditamento e qualità dei servizi.", "abilita": "Inquadrare orientamento e uso dei dati nel rispetto di diritti e regole.", "evidenza": "Quadro giuridico essenziale."},
+        {"insegnamento": "Igiene e Cultura Medico-Sanitaria", "ore": 5, "saperi": "Scale di autonomia, stato di salute e bisogni dell’anziano.", "abilita": "Interpretare indicatori sanitari e funzionali e individuarne i limiti.", "evidenza": "Profilo epidemiologico-funzionale."},
+        {"insegnamento": "Psicologia Generale e Applicata", "ore": 4, "saperi": "Relazione di aiuto e sostegno alla persona anziana e alla famiglia.", "abilita": "Considerare vissuti, risorse e qualità della vita nelle proposte.", "evidenza": "Lettura psicosociale della domanda."}
+      ],
+      "coinvolgimentiOpzionali": [
+        {"insegnamento": "Italiano", "contributo": "Relazione professionale e argomentazione documentata."},
+        {"insegnamento": "Matematica", "contributo": "Lettura degli indicatori statistici e controllo dei confronti quantitativi."}
+      ],
+      "fasi": [
+        {"titolo": "Indicazioni assegnate alla prova", "ore": 3, "attivita": "Lettura della tipologia A e dei nuclei 2 e 4 assegnati alla simulazione."},
+        {"titolo": "Analisi integrata del dossier", "ore": 3, "attivita": "Controllo di attendibilità, date, indicatori, privacy e limiti dei dati."},
+        {"titolo": "Accesso e orientamento", "ore": 2, "attivita": "Collegamento tra dati, diritti, servizi e condizioni di fruizione."},
+        {"titolo": "Relazione professionale", "ore": 2, "attivita": "Pianificazione e revisione con la griglia 4+3+5+8."},
+        {"titolo": "Simulazione individuale", "ore": 6, "attivita": "Prova completa sui nuclei assegnati dalla commissione."}
+      ],
+      "dossier": [
+        {"titolo": "Report anziani 2019 — estratti", "url": "archivio/esame-stato-ssas/materiali/2^ SIMULAZIONE seconda prova/Report-anziani-2019.pdf", "uso": "Documento centrale per dati su salute e autonomia."},
+        {"titolo": "Tavole statistiche — selezione mirata", "url": "archivio/esame-stato-ssas/materiali/2^ SIMULAZIONE seconda prova/Tavole.xlsx", "uso": "Massimo tre tavole coerenti con la consegna."},
+        {"titolo": "Proposte di tracce — tipologia A", "url": "archivio/esame-stato-ssas/materiali/Proposte-di-tracce-tipologia-A.pdf", "uso": "Esempi per calibrare il mandato."},
+        {"titolo": "Relazione professionale su anziani", "url": "archivio/esame-stato-ssas/materiali/2^ SIMULAZIONE seconda prova/Relazione Professionale su Anziani.pptx", "uso": "Lezione preparatoria sulla forma del testo."}
+      ],
+      "traccia": "Il responsabile dell’ambito territoriale chiede una relazione sulla salute, l’autonomia e la domanda di assistenza della popolazione anziana. Analizza i documenti e i dati, esplicitandone anno e limiti; descrivi le evidenze principali; collega i bisogni rilevati alle condizioni di accesso e fruizione dei servizi; formula una priorità operativa e motiva le proposte con indicatori verificabili.",
+      "focusValutazione": ["Registro adeguato a un tavolo tecnico e uso rigoroso del lessico.", "Struttura completa di relazione professionale coerente con la tipologia A.", "Padronanza dei nuclei 2 e 4 assegnati alla prova.", "Capacità di interpretare dati, rispettarne i limiti e ricavarne priorità professionali motivate."],
+      "personalizzazione": "Dossier accessibile e strumenti compensativi previsti dal piano individuale; eventuale prova equipollente conserva tipologia A, nuclei assegnati e competenze osservate."
     },
     {
       "id": "E5.2",
       "anno": 5,
-      "stato": "Da progettare",
-      "tipologia": "Da definire",
-      "argomento": "Da definire",
-      "nota": "Seconda UDA di preparazione progressiva prevista per la classe quinta."
+      "titolo": "Invecchiamento attivo in Sardegna: progetto di rete",
+      "stato": "Bozza progettuale da deliberare",
+      "qnq": "4",
+      "periodo": "Secondo quadrimestre",
+      "durata": 16,
+      "provaFinaleOre": 6,
+      "tipologia": "D",
+      "argomento": "Elaborazione di un progetto territoriale innovativo per partecipazione, inclusione e qualità della vita delle persone anziane.",
+      "nuclei": [
+        {"id": 1, "testo": "Metodi di progettazione e relative azioni di pianificazione, gestione, valutazione dei progetti per rispondere ai bisogni delle persone; reti formali e informali come elementi di contesto operativo."},
+        {"id": 8, "testo": "Inclusione socio-culturale di singoli o gruppi, prevenzione e contrasto all’emarginazione e alla discriminazione sociale."}
+      ],
+      "competenze": [
+        {"numero": 1, "traguardo": "Collaborare nella gestione di progetti e attività dei servizi sociali, socio-sanitari e socio-educativi, rivolti bambini e adolescenti, persone con disabilità, anziani, minori a rischio, soggetti con disagio psico-sociale e altri soggetti in situazione di svantaggio, anche attraverso lo sviluppo di reti territoriali formali e informali."},
+        {"numero": 8, "traguardo": "Realizzare in autonomia o in collaborazione con altre figure professionali, attività educative, di animazione sociale, ludiche e culturali adeguate ai diversi contesti e ai diversi bisogni."},
+        {"numero": 9, "traguardo": "Realizzare, in collaborazione con altre figure professionali, azioni a sostegno e a tutela della persona con fragilità e/o disabilità e della sua famiglia, per favorire l’integrazione e migliorare o salvaguardare la qualità della vita."}
+      ],
+      "compitoAtteso": {
+        "situazione": "Un ente locale intende promuovere un’azione innovativa di invecchiamento attivo attraverso una rete territoriale.",
+        "ruolo": "Candidato incaricato di elaborare una proposta progettuale.",
+        "committente": "Assessore o responsabile dei servizi sociali di un Comune simulato.",
+        "destinatario": "Tavolo di coprogettazione con servizi, associazioni e comunità.",
+        "prodotto": "Progetto individuale con analisi del bisogno, destinatari, obiettivi, rete, azioni, risorse, comunicazione, rischi e valutazione.",
+        "autonomiaOperativa": "Lo studente definisce e motiva forma dell’innovazione, partenariato, azioni e criteri di valutazione nel rispetto della tipologia e dei nuclei assegnati."
+      },
+      "contributi": [
+        {"insegnamento": "Metodologie Operative", "ore": 3, "saperi": "Progettazione nei servizi, reti e gestione delle risorse.", "abilita": "Costruire obiettivi, azioni, cronologia, ruoli e verifica.", "evidenza": "Canvas di progetto e rete."},
+        {"insegnamento": "Diritto e Tecnica Amministrativa", "ore": 4, "saperi": "Responsabilità, gestione delle risorse, fundraising e collaborazione tra enti.", "abilita": "Distinguere ruoli, responsabilità e fonti di sostenibilità.", "evidenza": "Quadro soggetti-risorse-responsabilità."},
+        {"insegnamento": "Igiene e Cultura Medico-Sanitaria", "ore": 5, "saperi": "Stato di salute, autonomia e bisogni della persona anziana.", "abilita": "Collegare bisogni di salute, capacità residue e condizioni di partecipazione.", "evidenza": "Analisi dei bisogni di salute e autonomia."},
+        {"insegnamento": "Psicologia Generale e Applicata", "ore": 4, "saperi": "Bisogni dell’anziano, integrazione sociale e modalità di sostegno.", "abilita": "Motivare destinatari, coinvolgimento e prevenzione dell’isolamento.", "evidenza": "Analisi psicosociale e strategia di partecipazione."}
+      ],
+      "coinvolgimentiOpzionali": [
+        {"insegnamento": "Italiano", "contributo": "Scrittura progettuale e argomentazione per decisori e partner."},
+        {"insegnamento": "Matematica", "contributo": "Definizione di indicatori osservabili e piano di monitoraggio."}
+      ],
+      "fasi": [
+        {"titolo": "Mandato e tipologia D", "ore": 2, "attivita": "Analisi del committente, del bisogno e del significato di innovazione nel servizio."},
+        {"titolo": "Rete e risorse", "ore": 3, "attivita": "Mappatura di partner, ruoli, responsabilità e sostenibilità."},
+        {"titolo": "Progettazione sui nuclei assegnati", "ore": 3, "attivita": "Elaborazione delle azioni di rete per l’inclusione socio-culturale e il contrasto all’emarginazione."},
+        {"titolo": "Monitoraggio e revisione", "ore": 2, "attivita": "Indicatori, rischi, revisione tra pari e controllo con la griglia."},
+        {"titolo": "Simulazione individuale", "ore": 6, "attivita": "Elaborazione completa di un progetto su dossier nuovo."}
+      ],
+      "dossier": [
+        {"titolo": "Politiche per l’invecchiamento attivo in Sardegna", "url": "archivio/esame-stato-ssas/materiali/Seconde prove/invecchiamento attivo/regione-sardegna-politiche-invecchiamento-attivo.pdf", "uso": "Contesto regionale e bisogni da trasformare in mandato."},
+        {"titolo": "Modello scheda di progetto", "url": "archivio/esame-stato-ssas/materiali/Seconde prove/invecchiamento attivo/MODELLO SCHEDA DI PROGETTO.docx", "uso": "Esempio compilato per l’analisi della struttura progettuale."},
+        {"titolo": "Progetto VEGA — Il filo d’argento", "url": "archivio/esame-stato-ssas/materiali/Seconde prove/progetto_VEGA_IL_FILO_D_ARGENTO.docx", "uso": "Estratti su rete, azioni e risorse."},
+        {"titolo": "Proposte di tracce — tipologia D", "url": "archivio/esame-stato-ssas/materiali/Proposte-di-tracce-tipologia-D.pdf", "uso": "Esempi per calibrare mandato e apertura."}
+      ],
+      "traccia": "Un Comune della Sardegna intende promuovere un intervento innovativo di invecchiamento attivo attraverso una rete di servizi e realtà comunitarie. Elabora per il tavolo di coprogettazione un progetto che definisca bisogno, destinatari, obiettivi, partner, azioni, risorse, tempi, comunicazione, rischi e indicatori di valutazione. Il progetto deve sviluppare azioni di inclusione socio-culturale e di prevenzione e contrasto dell’emarginazione e della discriminazione sociale. Motiva in che cosa consiste l’innovazione proposta.",
+      "focusValutazione": ["Lessico progettuale adatto al committente e alla rete.", "Struttura completa e coerente con la tipologia D.", "Padronanza dei nuclei 1 e 8 assegnati alla prova.", "Capacità di integrare bisogno, rete, azioni, risorse, rischi e valutazione in un progetto sostenibile."],
+      "personalizzazione": "Dossier ridotto, schema visivo delle sezioni e strumenti compensativi previsti; la prova equipollente mantiene mandato progettuale, nuclei e autonomia decisionale."
     }
   ]
 }
