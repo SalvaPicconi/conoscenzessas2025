@@ -173,12 +173,12 @@ Ogni esercitazione dovrebbe lasciare una traccia osservabile: consegna, fonti fo
 
 ## 6. Limiti della ricognizione
 
-- Le pagine HTML della Rete sono state consultate direttamente; gli otto PDF elencati sopra sono ora copie locali dell'archivio, mentre i DOC/DOCX restano da acquisire.
-- I PDF 2026 e 2024/2022 sono stati sottoposti a controllo di apertura, numero di pagine ed estrazione testuale locale. I PDF A–D 2026 restano da analizzare con una griglia comparativa traccia per traccia.
+- Le pagine HTML della Rete sono state consultate direttamente; gli otto PDF elencati sopra sono copie locali con URL di provenienza registrati. I file aggiunti successivamente l'8 settembre non vengono attribuiti automaticamente alla Rete, perché la loro provenienza non è sempre dichiarata.
+- I materiali 2026 e 2024/2022 sono stati sottoposti a controllo di apertura ed estrazione testuale locale. Il nuovo lotto di 77 file è inventariato e classificato nel rapporto [`VERIFICA-MATERIALI-2026-09-08.md`](VERIFICA-MATERIALI-2026-09-08.md); la valutazione delle singole tracce 2026 resta distinta dalla semplice verifica tecnica.
 - La durata di 6 ore è riportata nelle indicazioni 2024 indicizzate dalla Rete e non viene assunta come dato definitivo per il 2026 senza verifica del materiale aggiornato.
 - Le fonti della Rete sono materiali di riferimento professionale; per ogni vincolo normativo definitivo occorrerà verificare anche l'atto ministeriale vigente.
 
-## 7. Sezione predisposta il 7 settembre 2026
+## 7. Prima struttura predisposta il 7 settembre 2026
 
 È stata integrata nel sito la sezione autonoma **“UDA — Preparazione progressiva alla prova professionale”**, composta da:
 
@@ -196,3 +196,13 @@ La nuova sezione non è collegata al PFI, alla revisione condivisa o alla votazi
 Nello stesso rilascio, ma come intervento distinto dalla sezione Esame, il catalogo storico `data-uda.json` passa da 48 a 57 schede: otto UDA provengono dagli originali ODT della collega e la 5.13 «Ricerca quantitativa e ricerca qualitativa» è stata autorizzata espressamente il 7 settembre 2026. La tracciabilità di questo intervento è conservata in `revisioni/2026-09-07-uda-collega/`.
 
 Per renderle immediatamente reperibili, le nove proposte compaiono anche nella pagina delle UDA unificate con il badge **NUOVA**. Questa collocazione è soltanto espositiva: i dati restano separati e le nove schede non vengono conteggiate come accorpamenti già deliberati.
+
+## 8. Criteri registrati per le UDA Esame — 8 settembre 2026
+
+- Il testo delle tipologie A, B, C e D e degli otto nuclei tematici fondamentali deve essere riportato integralmente dal Quadro di riferimento, senza abbreviazioni o parafrasi presentate come testo originale.
+- La parte nazionale indica la tipologia e il/i nucleo/i tematico/i; la commissione declina tali indicazioni e redige la prova in relazione allo specifico percorso formativo. L’alunno non sceglie i nuclei tematici.
+- In ogni UDA Esame sono sempre coinvolti i quattro insegnamenti dell’area di indirizzo: Metodologie Operative, Diritto e Tecnica Amministrativa, Igiene e Cultura Medico-Sanitaria, Psicologia Generale e Applicata.
+- La ripartizione di base segue il loro peso nel quadro orario settimanale: 3 + 4 + 5 + 4 ore, per un totale di 16 ore per UDA.
+- Gli altri insegnamenti possono concorrere in via eventuale, sulla base della progettazione del consiglio di classe e della disponibilità dei docenti interessati; non sono inseriti nel monte ore obbligatorio dell’UDA.
+- Le tracce sono costruite sui saperi, sulle abilità e sulle competenze del curricolo, con riferimento prioritario ai saperi delle discipline dell’area di indirizzo.
+- La pagina destinata alla consultazione pubblica presenta direttamente UDA, documenti, tipologie, nuclei e attività; le note di verifica delle fonti e le motivazioni redazionali restano in questo archivio di lavoro.

@@ -1,0 +1,528 @@
+{
+  "dataVerifica": "2026-09-08",
+  "algoritmo": "sha256",
+  "radice": "archivio/esame-stato-ssas/materiali",
+  "totaleFile": 77,
+  "file": [
+    {
+      "path": ".DS_Store",
+      "size": 10244,
+      "sha256": "3d7151d96ca0ae76033e4e90f1dedc3ed2ac63a7e2c00f349bba8f5f543d8624",
+      "extension": ""
+    },
+    {
+      "path": "2^ SIMULAZIONE seconda prova/2° Prova scritta_ redazioine di una relazione professionale.docx",
+      "size": 1106261,
+      "sha256": "561ecaffcbe88b839c3dfdea684877f072b9b39b6470a82f28408e3385004032",
+      "extension": ".docx"
+    },
+    {
+      "path": "2^ SIMULAZIONE seconda prova/2° Prova scritta_ redazioine di una relazione professionale.pdf",
+      "size": 912945,
+      "sha256": "c0eb02a74301018ab8f3be645d98928b75fcc1ea3a0cc85e5fc3c916f306c66b",
+      "extension": ".pdf"
+    },
+    {
+      "path": "2^ SIMULAZIONE seconda prova/Documento1.pdf",
+      "size": 74527,
+      "sha256": "f57cf005b25294c8307302b5ac5445a19b7402c5fd318adcc4d52ce07361848e",
+      "extension": ".pdf"
+    },
+    {
+      "path": "2^ SIMULAZIONE seconda prova/PDF_Relazione Professionale su Anziani.pdf",
+      "size": 3745995,
+      "sha256": "28dc123853f5a55f14357adcef71831291d8758cea1040b4decb713fc2d76767",
+      "extension": ".pdf"
+    },
+    {
+      "path": "2^ SIMULAZIONE seconda prova/Redazione di una relazione professionale sulla base dell.docx",
+      "size": 19600,
+      "sha256": "b6dfb83c382b145aee6d9d7ee213552e210395203d12c9dd72b20a42993946ae",
+      "extension": ".docx"
+    },
+    {
+      "path": "2^ SIMULAZIONE seconda prova/Redazione di una relazione professionale sulla base dell.pdf",
+      "size": 171478,
+      "sha256": "fe2b98d1603ae9d6431f9ed570a4e53a23522858fa2396c8d2cf2abb6c31a6c8",
+      "extension": ".pdf"
+    },
+    {
+      "path": "2^ SIMULAZIONE seconda prova/Relazione Professionale su Anziani.pptx",
+      "size": 1647172,
+      "sha256": "e5dc33c1a8351d2c2b6ebabfbddf243db3cfa11634febe7e425839e32829d207",
+      "extension": ".pptx"
+    },
+    {
+      "path": "2^ SIMULAZIONE seconda prova/Report-anziani-2019.pdf",
+      "size": 556631,
+      "sha256": "c5ee9241bf4584c013f43b2a1384e25351ab99986e7b12b51e099ceaaad73c29",
+      "extension": ".pdf"
+    },
+    {
+      "path": "2^ SIMULAZIONE seconda prova/Solitudine abitativa negli anziani.docx",
+      "size": 537788,
+      "sha256": "8e427d3bf40df100d6504600d2a0e342074dc5e5fa97332585d4142345e7b253",
+      "extension": ".docx"
+    },
+    {
+      "path": "2^ SIMULAZIONE seconda prova/Solitudine abitativa negli anziani.pdf",
+      "size": 385784,
+      "sha256": "47b10f71361362deae3c98d031ec5d426a636970971074ab40db59d2f606054b",
+      "extension": ".pdf"
+    },
+    {
+      "path": "2^ SIMULAZIONE seconda prova/Tavole.xlsx",
+      "size": 391487,
+      "sha256": "42ea36621e28fb4328a4f0d6eb6ef228b4098cd4f1d6f768d6379b9788647f10",
+      "extension": ".xlsx"
+    },
+    {
+      "path": "Documenti preparazione Esame di stato/GRIGLIA DI VALUTAZIONE.xlsx",
+      "size": 12241,
+      "sha256": "b806dcb447e498fd31ed28b6261976af9daafa14694401a92a7e38f19e279aad",
+      "extension": ".xlsx"
+    },
+    {
+      "path": "Documenti preparazione Esame di stato/PROVE TIPOLOGIA D.docx",
+      "size": 28673,
+      "sha256": "22fa31c8948f67feade49d7681cd3514edd8a0578528dd41b8d9aaa761baa9f5",
+      "extension": ".docx"
+    },
+    {
+      "path": "Documenti preparazione Esame di stato/Premesse 5SA.docx",
+      "size": 12503,
+      "sha256": "1be3177557cb084ff50a288869dca4d7c8ce9b26a56ab29672687ec007b040fe",
+      "extension": ".docx"
+    },
+    {
+      "path": "Documenti preparazione Esame di stato/Proposta di griglia di valutazione TIPOLOGIE.docx",
+      "size": 28344,
+      "sha256": "81a83cbbb084d41c76e0fa81e1c455dd5b8aeed2ab22cac65219b14bd0c39290",
+      "extension": ".docx"
+    },
+    {
+      "path": "Documenti preparazione Esame di stato/Prove Tipologia B.docx",
+      "size": 38384,
+      "sha256": "4b636dee97e75a0bbb525f4cdc03bc94cbf70128456468091eab79a57203fd9d",
+      "extension": ".docx"
+    },
+    {
+      "path": "Documenti preparazione Esame di stato/Tipologia C  realizzazione servizio.docx",
+      "size": 23025,
+      "sha256": "c9c96d876c44d1fad3ec046431d1eb152b5990f8c7928a4622ad0cbdf529480b",
+      "extension": ".docx"
+    },
+    {
+      "path": "Documenti preparazione Esame di stato/criteri di valutazione 2° prova.docx",
+      "size": 141887,
+      "sha256": "7be7c65af1a6fce10e4fdda5f358cf04e0a70516d296b1a37bacfdeb5c662ca2",
+      "extension": ".docx"
+    },
+    {
+      "path": "Esame-maturita-SSAS-2026.pdf",
+      "size": 1063349,
+      "sha256": "994e6d3aa23602a0dc5d43493349680cde86e426137b3358685cee717d6aa7d8",
+      "extension": ".pdf"
+    },
+    {
+      "path": "Esame-nuovi-professionali-SSAS-2022.pdf",
+      "size": 232134,
+      "sha256": "a31e265316bec8389238b9ce91f18f54bdfa5e2604ede2b6273724887c1767d8",
+      "extension": ".pdf"
+    },
+    {
+      "path": "Indicazioni-redazione-prova-professionale-2024.pdf",
+      "size": 257442,
+      "sha256": "712314ed5c3ba0ecb019907463a52026ab93190a93839cfeba896c50919bc188",
+      "extension": ".pdf"
+    },
+    {
+      "path": "La-seconda-prova-SSAS-2022.pdf",
+      "size": 1186459,
+      "sha256": "628f8438a0bcffd9d3c3d9d81ece63053db9649eda5d89178ab2009b912f962a",
+      "extension": ".pdf"
+    },
+    {
+      "path": "Proposte-di-tracce-tipologia-A.pdf",
+      "size": 376703,
+      "sha256": "3dfa110d93b915e64d0d6a59507926dc2e382f6a7d08e735220644d30f85aca2",
+      "extension": ".pdf"
+    },
+    {
+      "path": "Proposte-di-tracce-tipologia-B.pdf",
+      "size": 466116,
+      "sha256": "58d1b5fc887df5acc53bb574ea6469876c30fbf1389c3c93c69a5439c3592222",
+      "extension": ".pdf"
+    },
+    {
+      "path": "Proposte-di-tracce-tipologia-C.pdf",
+      "size": 402494,
+      "sha256": "82920b89262588c9695fb34d53fc479f5c780640cb10e164c964b2b148472c60",
+      "extension": ".pdf"
+    },
+    {
+      "path": "Proposte-di-tracce-tipologia-D.pdf",
+      "size": 484052,
+      "sha256": "61d6541dcf6ccfcabdd903a4a9e27114ba811b1068206af042f797d04ac6aea4",
+      "extension": ".pdf"
+    },
+    {
+      "path": "Seconde prove/.DS_Store",
+      "size": 10244,
+      "sha256": "d913ecdc5da36380353992a26bf0279d9f02cd99a493098d576940dbdf52569f",
+      "extension": ""
+    },
+    {
+      "path": "Seconde prove/1-indicazioni-formulazione-2°-prova-2.docx",
+      "size": 31100,
+      "sha256": "4f9f7fc523ba727e56c0014494b5eaed87e67cb7b4a3893d46c78f7307def4fb",
+      "extension": ".docx"
+    },
+    {
+      "path": "Seconde prove/1-indicazioni-formulazione-2°-prova.docx",
+      "size": 38935,
+      "sha256": "4be50311354e10f26dac902b0617d4535e0c955d24e8ccab960a5f269a5722d9",
+      "extension": ".docx"
+    },
+    {
+      "path": "Seconde prove/2° Prova scritta_ non autosufficienza.docx",
+      "size": 31336,
+      "sha256": "f933384227739a975f1ae489848d253df45e6071f29b7a494411cfe7f74afb15",
+      "extension": ".docx"
+    },
+    {
+      "path": "Seconde prove/2° Prova scritta_ non autosufficienza.pdf",
+      "size": 136289,
+      "sha256": "e7644d6b7bcb572b630bda714d0f2007ee05252c8509622034d5a6dd911600d4",
+      "extension": ".pdf"
+    },
+    {
+      "path": "Seconde prove/2° Prova scritta_non vedenti.docx",
+      "size": 31278,
+      "sha256": "f4c1fd8e51ba7c8112231a3f5f8e6969bd79ff170f346562314d6d3e028b8380",
+      "extension": ".docx"
+    },
+    {
+      "path": "Seconde prove/Allegato A.pdf",
+      "size": 442350,
+      "sha256": "e8924e3f97978f23b59b684a613a4e252396fb1fad3f7a66d51d324e67e4695d",
+      "extension": ".pdf"
+    },
+    {
+      "path": "Seconde prove/Allegato B.pdf",
+      "size": 414647,
+      "sha256": "1c223b0f20ddb2e8cea98aa2246d60d7cc5b13175747df6f50c8d3dff12a9bb1",
+      "extension": ".pdf"
+    },
+    {
+      "path": "Seconde prove/Competenze SERVIZI PER LA SANITA' E L'ASSISTENZA SOCIALE.pdf",
+      "size": 194153,
+      "sha256": "fab3f1f60d27ac697379ae3d369fd6ca5066ee2d65eadde1a08cdcd53addb31d",
+      "extension": ".pdf"
+    },
+    {
+      "path": "Seconde prove/I_QdR Servizi per la sanità.pdf",
+      "size": 179154,
+      "sha256": "6e00abd623b7bed9e3436f0dc7af5d41e7c8b9ca36827ccd4a1c85f319f28487",
+      "extension": ".pdf"
+    },
+    {
+      "path": "Seconde prove/Linee guida_PARTE PRIMA e SECONDA.pdf",
+      "size": 2073465,
+      "sha256": "71133b4d99e8443422297449c7c9d020fb099f27940195254d102219537414b8",
+      "extension": ".pdf"
+    },
+    {
+      "path": "Seconde prove/Presentazione standard1.pptx",
+      "size": 42664,
+      "sha256": "bca4da9531e6ddd0e89594cfb33c248d4f63bbbc1940371efa3ae18fd524ffd2",
+      "extension": ".pptx"
+    },
+    {
+      "path": "Seconde prove/Prova svolta_realizzazione di un servizio.pdf",
+      "size": 435636,
+      "sha256": "1d9fe14047fe66b850b809bd3998a38623ee4385244bbc8173e192f0bfdecc6c",
+      "extension": ".pdf"
+    },
+    {
+      "path": "Seconde prove/Raccomandazione UE 2018 8 competenze.pdf",
+      "size": 879928,
+      "sha256": "2f206cb83e8e39344e680b5dc5747499c16d4e3fea7c11182ef26e82b5c6158f",
+      "extension": ".pdf"
+    },
+    {
+      "path": "Seconde prove/Ricorda.docx",
+      "size": 13843,
+      "sha256": "2e1332c3c940807568c99a2cdb0d2a2a53242fc52345000a2a796a2d4397bfb9",
+      "extension": ".docx"
+    },
+    {
+      "path": "Seconde prove/Seconda Prova Tipologia A_Picconi_Asoni_Ruggeri.docx",
+      "size": 1996499,
+      "sha256": "001b312e001da2f6577b7042760f3e2cad2e72537b61818b8c822eb9891c5334",
+      "extension": ".docx"
+    },
+    {
+      "path": "Seconde prove/Tipologia-A-schema-elaborazione-esempio.pdf",
+      "size": 307282,
+      "sha256": "0c690d5cf028d3c29b13095ea4f30b73689e1fe2cf9eeab57c5faba14bdb2164",
+      "extension": ".pdf"
+    },
+    {
+      "path": "Seconde prove/Tipologia-B-schema-per-elaborazione-esempio.pdf",
+      "size": 133856,
+      "sha256": "f34f34def233b8c6c14eab39fc9121de93324b8274fa9de4d97e6bcab867b38e",
+      "extension": ".pdf"
+    },
+    {
+      "path": "Seconde prove/Tipologia-C-schema-elaborazione-esempio.pdf",
+      "size": 132043,
+      "sha256": "f429494a65bf131b897fab8c861d60669247fb2439179b4ecd76c0d1e352e86d",
+      "extension": ".pdf"
+    },
+    {
+      "path": "Seconde prove/Tipologia-D-schema-elaborazione-esempio.pdf",
+      "size": 131874,
+      "sha256": "ee2cb9dc597f03abd2bb6fd3498a3a8cdba7b43267c35f195194102663ff3c08",
+      "extension": ".pdf"
+    },
+    {
+      "path": "Seconde prove/esercitazione/1 Guida per Sviluppare una Relazione per il Responsabile d.docx",
+      "size": 18443,
+      "sha256": "2dbce87153667045d8226f055f01084b112610501579adfdb0a956c188ca4fe8",
+      "extension": ".docx"
+    },
+    {
+      "path": "Seconde prove/esercitazione/1 Protesi e ausili.docx",
+      "size": 38524,
+      "sha256": "06d694739ebd5f27b75fc42a3f50d905ecb2ce297e6e921ffdd1d7cfb7bb5c99",
+      "extension": ".docx"
+    },
+    {
+      "path": "Seconde prove/esercitazione/2 Anzianità e welfare.docx",
+      "size": 248353,
+      "sha256": "5ad8bce4edaaf713e81fdba680c426a9f747b7b3719a1ca47bd70a631b67eb4d",
+      "extension": ".docx"
+    },
+    {
+      "path": "Seconde prove/esercitazione/2 Esercitazione anzianità e welfare.docx",
+      "size": 26193,
+      "sha256": "5dd6f78163b16e12d8ec903c019cae657222272075ed5e6a3c1d184946bb8e60",
+      "extension": ".docx"
+    },
+    {
+      "path": "Seconde prove/esercitazione/Guida all'allestimento dell'ambiente di vita per persone anziane o in condizioni di fragilità.docx",
+      "size": 38426,
+      "sha256": "c7e4aa8adcce8608a7e8a33e2cd9e0b709c14a7a690f9a564bd70fc82a317d0f",
+      "extension": ".docx"
+    },
+    {
+      "path": "Seconde prove/esercitazione/Guida per Sviluppare una Relazione per il Responsabile d Copia.docx",
+      "size": 18373,
+      "sha256": "749b24f7b952544b0a8b67cc6427683eb1ee9f544b3e36be26df2257203cdf9b",
+      "extension": ".docx"
+    },
+    {
+      "path": "Seconde prove/esercitazione/Guida per Sviluppare una Relazione per il Responsabile d.docx",
+      "size": 17950,
+      "sha256": "52730cd7c2294b73201ba3658c4f0340bbbec625138e66250128d7ccaecc7964",
+      "extension": ".docx"
+    },
+    {
+      "path": "Seconde prove/esercitazione/Protesi e ausili con risposte.docx",
+      "size": 18997,
+      "sha256": "87f8b6402e00d5c2e17ad6d9e4af54f2a61d12d4375adb9436ff06d9974ec080",
+      "extension": ".docx"
+    },
+    {
+      "path": "Seconde prove/esercitazione/Prova redazione di una relazione professionale Copia.docx",
+      "size": 4427635,
+      "sha256": "eafc6088270df3a81f3f5b99697de3d68077d18ebb0cc989be98ac17dfd803be",
+      "extension": ".docx"
+    },
+    {
+      "path": "Seconde prove/esercitazione/Scheda di Apprendimento Realizzazione servizio.docx",
+      "size": 19795,
+      "sha256": "86cfd6dd7617607b22941b94354be47b739c2529f887da1afc2c077a1c55c656",
+      "extension": ".docx"
+    },
+    {
+      "path": "Seconde prove/esercitazione/seconda verssione_Prova redazione di una relazione professionale Copia.docx",
+      "size": 3627046,
+      "sha256": "ed91cd7825165c973005f725487a1be8245b64e31045030f6e0e8675413a66a8",
+      "extension": ".docx"
+    },
+    {
+      "path": "Seconde prove/esercitazione/~$Protesi e ausili.tmp",
+      "size": 38529,
+      "sha256": "13828b94649773efc526b835785051f494f714cea1a6785d092f05da414b7dbb",
+      "extension": ".tmp"
+    },
+    {
+      "path": "Seconde prove/invecchiamento attivo/MODELLO SCHEDA DI PROGETTO.docx",
+      "size": 188590,
+      "sha256": "247b8c3d9dc9224f83ca8a16b96e4f4f0a358e6a21b940efff0be9b2406dfb2b",
+      "extension": ".docx"
+    },
+    {
+      "path": "Seconde prove/invecchiamento attivo/regione-sardegna-politiche-invecchiamento-attivo.pdf",
+      "size": 562140,
+      "sha256": "6c4e8d2ae36481d651f9f9fcbc792c7300e5cfcbea243c066cc6b06dfe47ce83",
+      "extension": ".pdf"
+    },
+    {
+      "path": "Seconde prove/progetto_VEGA_IL_FILO_D_ARGENTO.docx",
+      "size": 10208409,
+      "sha256": "e4010c9448b532b9f0515bcbeb476d1cada71be009d377fcc097d1a2fba2408d",
+      "extension": ".docx"
+    },
+    {
+      "path": "Seconde prove/realizzazione di un servizio.docx",
+      "size": 2130153,
+      "sha256": "9df76e7463381752985239817c12b714ad3c3d8738b3074b69c02522c69c4cca",
+      "extension": ".docx"
+    },
+    {
+      "path": "Seconde prove 2022/.DS_Store",
+      "size": 10244,
+      "sha256": "d913ecdc5da36380353992a26bf0279d9f02cd99a493098d576940dbdf52569f",
+      "extension": ""
+    },
+    {
+      "path": "Seconde prove 2022/1-indicazioni-formulazione-2°-prova-2.docx",
+      "size": 31100,
+      "sha256": "4f9f7fc523ba727e56c0014494b5eaed87e67cb7b4a3893d46c78f7307def4fb",
+      "extension": ".docx"
+    },
+    {
+      "path": "Seconde prove 2022/2° Prova scritta_ non autosufficienza.docx",
+      "size": 31336,
+      "sha256": "f933384227739a975f1ae489848d253df45e6071f29b7a494411cfe7f74afb15",
+      "extension": ".docx"
+    },
+    {
+      "path": "Seconde prove 2022/2° Prova scritta_ non autosufficienza.pdf",
+      "size": 136289,
+      "sha256": "e7644d6b7bcb572b630bda714d0f2007ee05252c8509622034d5a6dd911600d4",
+      "extension": ".pdf"
+    },
+    {
+      "path": "Seconde prove 2022/2° Prova scritta_non vedenti.docx",
+      "size": 31278,
+      "sha256": "f4c1fd8e51ba7c8112231a3f5f8e6969bd79ff170f346562314d6d3e028b8380",
+      "extension": ".docx"
+    },
+    {
+      "path": "Seconde prove 2022/Presentazione standard1.pptx",
+      "size": 42664,
+      "sha256": "bca4da9531e6ddd0e89594cfb33c248d4f63bbbc1940371efa3ae18fd524ffd2",
+      "extension": ".pptx"
+    },
+    {
+      "path": "Seconde prove 2022/Prova svolta_realizzazione di un servizio.pdf",
+      "size": 435636,
+      "sha256": "1d9fe14047fe66b850b809bd3998a38623ee4385244bbc8173e192f0bfdecc6c",
+      "extension": ".pdf"
+    },
+    {
+      "path": "Seconde prove 2022/Ricorda.docx",
+      "size": 13843,
+      "sha256": "2e1332c3c940807568c99a2cdb0d2a2a53242fc52345000a2a796a2d4397bfb9",
+      "extension": ".docx"
+    },
+    {
+      "path": "Seconde prove 2022/Tipologia-A-schema-elaborazione-esempio.pdf",
+      "size": 307282,
+      "sha256": "0c690d5cf028d3c29b13095ea4f30b73689e1fe2cf9eeab57c5faba14bdb2164",
+      "extension": ".pdf"
+    },
+    {
+      "path": "Seconde prove 2022/Tipologia-B-schema-per-elaborazione-esempio.pdf",
+      "size": 133856,
+      "sha256": "f34f34def233b8c6c14eab39fc9121de93324b8274fa9de4d97e6bcab867b38e",
+      "extension": ".pdf"
+    },
+    {
+      "path": "Seconde prove 2022/Tipologia-C-schema-elaborazione-esempio.pdf",
+      "size": 132043,
+      "sha256": "f429494a65bf131b897fab8c861d60669247fb2439179b4ecd76c0d1e352e86d",
+      "extension": ".pdf"
+    },
+    {
+      "path": "Seconde prove 2022/Tipologia-D-schema-elaborazione-esempio.pdf",
+      "size": 131874,
+      "sha256": "ee2cb9dc597f03abd2bb6fd3498a3a8cdba7b43267c35f195194102663ff3c08",
+      "extension": ".pdf"
+    },
+    {
+      "path": "Seconde prove 2022/progetto_VEGA_IL_FILO_D_ARGENTO.docx",
+      "size": 10208409,
+      "sha256": "e4010c9448b532b9f0515bcbeb476d1cada71be009d377fcc097d1a2fba2408d",
+      "extension": ".docx"
+    },
+    {
+      "path": "Seconde prove 2022/realizzazione di un servizio.docx",
+      "size": 2130153,
+      "sha256": "9df76e7463381752985239817c12b714ad3c3d8738b3074b69c02522c69c4cca",
+      "extension": ".docx"
+    }
+  ],
+  "duplicatiEsatti": [
+    [
+      "Seconde prove/.DS_Store",
+      "Seconde prove 2022/.DS_Store"
+    ],
+    [
+      "Seconde prove/1-indicazioni-formulazione-2°-prova-2.docx",
+      "Seconde prove 2022/1-indicazioni-formulazione-2°-prova-2.docx"
+    ],
+    [
+      "Seconde prove/2° Prova scritta_ non autosufficienza.docx",
+      "Seconde prove 2022/2° Prova scritta_ non autosufficienza.docx"
+    ],
+    [
+      "Seconde prove/2° Prova scritta_ non autosufficienza.pdf",
+      "Seconde prove 2022/2° Prova scritta_ non autosufficienza.pdf"
+    ],
+    [
+      "Seconde prove/2° Prova scritta_non vedenti.docx",
+      "Seconde prove 2022/2° Prova scritta_non vedenti.docx"
+    ],
+    [
+      "Seconde prove/Presentazione standard1.pptx",
+      "Seconde prove 2022/Presentazione standard1.pptx"
+    ],
+    [
+      "Seconde prove/Prova svolta_realizzazione di un servizio.pdf",
+      "Seconde prove 2022/Prova svolta_realizzazione di un servizio.pdf"
+    ],
+    [
+      "Seconde prove/Ricorda.docx",
+      "Seconde prove 2022/Ricorda.docx"
+    ],
+    [
+      "Seconde prove/Tipologia-A-schema-elaborazione-esempio.pdf",
+      "Seconde prove 2022/Tipologia-A-schema-elaborazione-esempio.pdf"
+    ],
+    [
+      "Seconde prove/Tipologia-B-schema-per-elaborazione-esempio.pdf",
+      "Seconde prove 2022/Tipologia-B-schema-per-elaborazione-esempio.pdf"
+    ],
+    [
+      "Seconde prove/Tipologia-C-schema-elaborazione-esempio.pdf",
+      "Seconde prove 2022/Tipologia-C-schema-elaborazione-esempio.pdf"
+    ],
+    [
+      "Seconde prove/Tipologia-D-schema-elaborazione-esempio.pdf",
+      "Seconde prove 2022/Tipologia-D-schema-elaborazione-esempio.pdf"
+    ],
+    [
+      "Seconde prove/progetto_VEGA_IL_FILO_D_ARGENTO.docx",
+      "Seconde prove 2022/progetto_VEGA_IL_FILO_D_ARGENTO.docx"
+    ],
+    [
+      "Seconde prove/realizzazione di un servizio.docx",
+      "Seconde prove 2022/realizzazione di un servizio.docx"
+    ]
+  ]
+}
