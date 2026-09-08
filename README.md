@@ -17,11 +17,12 @@ Sito pubblicato: https://salvapicconi.github.io/conoscenzessas2025/
 - **UDA trasversali · Tutte le materie** — catalogo autonomo e progressivo di UDA interdisciplinari, filtrabili per anno, asse e insegnamento, predisposto per modifica, revisione e creazione condivisa.
 - **Ripartizione oraria** — in ogni scheda UDA le ore sono divise fra gli insegnamenti coinvolti in proporzione al quadro orario dell'istituto e compaiono accanto a ciascuna materia; l'intestazione indica la durata minima in settimane. A docente autenticato la proposta è modificabile entro il 40% e il sito avvisa quando la somma non copre il monte ore dell'UDA.
 - **Votazione UDA** — temporaneamente sospesa: nessun ingresso nei menu, URL diretto con avviso e scritture di voto bloccate sul server.
-- **Navigazione** — le pagine aperte da sole hanno in alto una barra fissa con il ritorno al curricolo e le sezioni disponibili; nella pagina principale, quando le linguette escono dallo schermo, compare in basso una barra rapida per cambiare sezione. Gli indirizzi `index.html#unificate`, `#trasversali`, `#fsl`, `#esame` e simili aprono direttamente la sezione.
+- **Navigazione** — le pagine aperte da sole hanno in alto una barra fissa con il ritorno al curricolo e le sezioni disponibili; nella pagina principale, quando le linguette escono dallo schermo, compare in basso una barra rapida per cambiare sezione. Gli indirizzi `index.html#unificate`, `#trasversali`, `#fsl`, `#esame`, `#didattica` e simili aprono direttamente la sezione.
 - **UDA FSL** — quattro UDA adattabili alle esperienze del triennio: area minori, disabilità, anziani e preparazione sanitaria/possibile raccordo OSS; coinvolgono solo le quattro discipline d'indirizzo definite dall'istituto.
 - **UDA Esame di Stato** — struttura di lavoro autonoma per due UDA in terza, due in quarta e due in quinta. Assume le indicazioni RE.NA.I.SAN.S. 2024 come base metodologica del compito atteso, mantiene separate le tipologie A-D e distingue quadro d'esame, curricolo e successive scelte progettuali. Le sei schede sono predisposte ma non ancora compilate e non alimentano il PFI o la votazione.
 - **Piano delle UDA** — pagina del coordinatore con cataloghi originari e 27 unificate come proposte, periodi, bozza nel browser, controllo del doppio conteggio ed esportazione Word/PDF. La compilazione non attesta una delibera.
 - **PFI** — progetto formativo individuale compilabile con scelta delle UDA dai cataloghi, incluse le unificate come proposte.
+- **Come fare didattica** — guida normativa e operativa al modello dei nuovi professionali: personalizzazione, PFI, assi culturali, UDA, apprendimento induttivo e laboratoriale, compiti autentici, evidenze e valutazione collegiale delle competenze; comprende il diagramma di flusso per l’adozione della programmazione del Consiglio di classe.
 - **Rubriche di Valutazione** — rubriche per competenze con pesi configurabili e calcolo del voto ponderato (disponibili: Metodologie Operative biennio, classe 3ª e classi 4ª-5ª; le altre discipline sono in preparazione).
 
 ## Esportazioni
@@ -87,6 +88,7 @@ Sono configurabili `STAMPA_BASE_URL`, `UDA_BASE_URL` e
 - `assets/uda-ore.js` — ripartizione oraria delle UDA per insegnamento: proposta proporzionale, modifica del docente entro il 40% e avviso quando il monte ore non torna
 - `votazione-uda.html` + `votazione-uda.js` + `votazione-uda.css` — area autonoma di voto: accesso docente condiviso, rosa collegiale unica, valutazione 1–5 stelle e un solo salvataggio
 - `assets/navigazione.js` + `assets/navigazione.css` — navigazione fra le sezioni: barra fissa nelle pagine autonome, barra rapida nella pagina principale, niente quando la pagina è dentro un iframe
+- `didattica-professionale.html` + `didattica-professionale.css` — dalla cornice normativa alla progettazione e conduzione concreta della didattica nel nuovo professionale
 - `data-quadro-orario.json` — quadro orario dell'istituto, sorgente unica dei pesi della ripartizione
 - `data-ripartizione-ore.json` + `RIPARTIZIONE-ORE-UDA.md` — ripartizione calcolata e sua versione stampabile, generate da `tools/genera_ripartizione_ore.py`
 - `data-area-indirizzo.json` — dati area di indirizzo (fonte: Excel definitivo)

@@ -359,6 +359,28 @@ button, input, select { font: inherit; }
 .tab-description { color: var(--ink-soft); font-size: 0.78rem; line-height: 1.2; }
 .tab-button.active .tab-description { color: rgba(255,255,255,.78); }
 
+.tab-button-featured {
+    grid-column: 1 / -1;
+    grid-template-columns: 38px minmax(0, 1fr) auto;
+    min-height: 62px;
+    border-color: rgba(223, 107, 79, 0.42);
+    background: linear-gradient(110deg, var(--surface) 0 72%, var(--coral-soft) 100%);
+}
+
+.tab-button-featured::before {
+    content: "Guida normativa";
+    margin-right: 4px;
+    color: var(--coral);
+    font-family: var(--font-display);
+    font-size: .75rem;
+    font-weight: 800;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+
+.tab-button-featured.active { background: var(--teal); }
+.tab-button-featured.active::before { color: rgba(255,255,255,.82); }
+
 .tab-content { display: none; }
 .tab-content.active { display: block; animation: fadeIn 240ms ease both; }
 
@@ -404,6 +426,8 @@ button, input, select { font: inherit; }
     .tab-buttons-wrapper { grid-template-columns: 1fr; }
     .tab-button { min-height: 62px; }
     .tab-button.active::after { display: none; }
+    .tab-button-featured { grid-column: auto; grid-template-columns: 38px minmax(0, 1fr); }
+    .tab-button-featured::before { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

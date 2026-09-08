@@ -20,7 +20,8 @@ const SEZIONI = [
     { id: 'monografiche', etichetta: 'UDA monografiche', pagina: 'uda-monografiche.html' },
     { id: 'annuale', etichetta: 'Progettazione annuale', pagina: 'progettazione-annuale.html' },
     { id: 'pfi', etichetta: 'PFI', pagina: 'pfi.html' },
-    { id: 'piano', etichetta: 'Piano delle UDA', pagina: 'piano-uda.html' }
+    { id: 'piano', etichetta: 'Piano delle UDA', pagina: 'piano-uda.html' },
+    { id: 'didattica', etichetta: 'Come fare didattica', pagina: 'didattica-professionale.html' }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
