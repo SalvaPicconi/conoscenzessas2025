@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "titolo": "UDA di Educazione civica — quinquennio SSAS",
+    "sottotitolo": "Unità interdisciplinari collegate ai traguardi nazionali dell'Educazione civica",
+    "fonte": "Legge 20 agosto 2019, n. 92, art. 2, comma 3; D.M. 7 settembre 2024, n. 183 e Linee guida allegate.",
+    "notaOre": "Le 33 ore sono il monte orario minimo annuale dell'insegnamento trasversale di Educazione civica, non un obbligo riferito a ciascuna UDA. In questa prima proposta l'unica UDA della classe prima copre l'intero monte annuale; distribuzione e adozione restano da deliberare.",
+    "riferimenti": [
+      {
+        "titolo": "Legge 20 agosto 2019, n. 92, art. 2, comma 3",
+        "url": "https://www.normattiva.it/eli/stato/LEGGE/2019/08/20/92/CONSOLIDATED",
+        "oggetto": "Insegnamento trasversale di Educazione civica per almeno 33 ore annue nel curricolo d'istituto"
+      },
+      {
+        "titolo": "D.M. 7 settembre 2024, n. 183 e Linee guida",
+        "url": "https://www.mim.gov.it/documents/20182/0/Linee%2Bguida%2BEducazione%2Bcivica.pdf/9ffd1e06-db57-1596-c742-216b3f42b995",
+        "oggetto": "Traguardi e obiettivi nazionali vigenti dall'anno scolastico 2024/2025"
+      }
+    ],
+    "assi": [
+      "Asse dei linguaggi",
+      "Asse storico sociale",
+      "Asse scientifico, tecnologico e professionale"
+    ],
+    "competenzeGenerali": {
+      "1": "Agire in riferimento ad un sistema di valori, coerenti con i principi della Costituzione, in base ai quali essere in grado di valutare fatti e orientare i propri comportamenti personali, sociali e professionali",
+      "2": "Utilizzare il patrimonio lessicale ed espressivo della lingua italiana secondo le esigenze comunicative nei vari contesti",
+      "9": "Riconoscere i principali aspetti comunicativi, culturali e relazionali dell'espressività corporea"
+    },
+    "competenzeSSAS": {
+      "2": "Partecipare e cooperare nei gruppi di lavoro e nelle équipe",
+      "3": "Facilitare la comunicazione tra persone e gruppi"
+    },
+    "competenzeEducazioneCivica": {
+      "3": "Rispettare le regole e le norme che governano lo stato di diritto, la convivenza sociale e la vita quotidiana in famiglia, a scuola, nella comunità e nel mondo del lavoro, per rapportarsi correttamente con gli altri, esercitare consapevolmente diritti e doveri e contribuire al bene comune e al rispetto dei diritti delle persone."
+    }
+  },
+  "uda": [
+    {
+      "id": "T1.1",
+      "anno": 1,
+      "periodo": "Intero anno scolastico",
+      "titolo": "Conoscersi e collaborare: dalle regole quotidiane al regolamento di classe",
+      "nucleoEducazioneCivica": "Costituzione",
+      "competenzaEducazioneCivica": 3,
+      "obiettivoEducazioneCivica": "Conoscere e osservare le disposizioni dei regolamenti scolastici, partecipare attraverso le proprie rappresentanze alla loro eventuale revisione; rispettare sé stessi, gli altri e i beni pubblici, a iniziare da quelli scolastici; collegare il rispetto delle regole nei contesti di vita ai comportamenti di legalità nella comunità più ampia.",
+      "assi": [
+        "Asse storico sociale",
+        "Asse dei linguaggi",
+        "Asse scientifico, tecnologico e professionale"
+      ],
+      "competenzeGenerali": [1, 2, 9],
+      "competenzeSSAS": [3, 2],
+      "competenzeEuropee": [
+        "Competenza in materia di cittadinanza",
+        "Competenza personale, sociale e capacità di imparare a imparare"
+      ],
+      "traguardo": "Rispettare le regole che governano la convivenza scolastica, comunicare e rapportarsi correttamente con gli altri, esercitare consapevolmente diritti e doveri e contribuire al bene comune e al rispetto dei diritti delle persone.",
+      "compito": "Regolamento di convivenza della classe elaborato dagli studenti: analisi di casi di conflitto realmente accaduti, individuazione delle regole necessarie, confronto con il regolamento d'istituto, stesura del testo e discussione in assemblea con votazione finale.",
+      "ore": "33",
+      "oreRipartizione": {
+        "Metodologie Operative": 11,
+        "Italiano": 6,
+        "Scienze Umane": 6,
+        "Diritto": 3,
+        "TIC": 3,
+        "Scienze Motorie": 3,
+        "Storia": 1
+      },
+      "abilita": [
+        { "t": "Ricondurre comportamenti quotidiani ai principi della Costituzione e alle disposizioni del regolamento scolastico", "ins": ["Diritto", "Storia"] },
+        { "t": "Produrre un testo regolativo chiaro, coeso e adeguato al destinatario", "ins": ["Italiano"] },
+        { "t": "Individuare stereotipi, pregiudizi e modalità comportamentali volte al loro superamento", "ins": ["Scienze Umane", "Storia"] },
+        { "t": "Ascoltare attivamente, esporre le proprie idee e comunicare in modo non conflittuale nel gruppo", "ins": ["Scienze Umane", "Italiano"] },
+        { "t": "Osservare le dinamiche del gruppo classe e annotarle con strumenti strutturati", "ins": ["Scienze Umane", "Metodologie Operative"] },
+        { "t": "Riconoscere nella gestualità e nella prossemica segnali di aggressività e di apertura", "ins": ["Scienze Motorie"] },
+        { "t": "Redigere e condividere il documento in formato digitale", "ins": ["TIC"] }
+      ],
+      "saperi": [
+        { "t": "Principi fondamentali della Costituzione: artt. 2, 3, 11", "ins": ["Diritto", "Storia"] },
+        { "t": "Regolamento scolastico: funzione, disposizioni e forme di partecipazione degli studenti", "ins": ["Diritto", "Metodologie Operative"] },
+        { "t": "Il testo regolativo: struttura, lessico, funzione", "ins": ["Italiano"] },
+        { "t": "Culture, contesti, gruppi sociali, pregiudizi e stereotipi", "ins": ["Scienze Umane", "Storia"] },
+        { "t": "Il gruppo, le sue dinamiche e la comunicazione non conflittuale", "ins": ["Scienze Umane", "Italiano"] },
+        { "t": "Conflitto, aggressività, mediazione: nozioni di base", "ins": ["Scienze Umane"] },
+        { "t": "Tecniche elementari di osservazione del gruppo", "ins": ["Metodologie Operative"] },
+        { "t": "Comunicazione non verbale e linguaggio del corpo", "ins": ["Scienze Motorie"] },
+        { "t": "Videoscrittura e condivisione di documenti", "ins": ["TIC"] }
+      ],
+      "situazione": "In una classe appena formata i conflitti nascono ogni giorno e vengono affrontati d'istinto: alzando la voce, escludendo o lasciando perdere. La classe deve conoscere le regole dell'istituto, discuterne il significato e tradurle in un patto di convivenza motivato.",
+      "prodotto": "Regolamento di convivenza della classe, coerente con il regolamento d'istituto, discusso e votato dagli studenti.",
+      "beneficiari": "Il gruppo classe, che adotta il regolamento e lo applica per tutto l'anno.",
+      "ambito": "interna",
+      "tipo": "Educazione civica",
+      "qnq": "2",
+      "competenza": 3,
+      "sviluppata": true
+    }
+  ]
+}

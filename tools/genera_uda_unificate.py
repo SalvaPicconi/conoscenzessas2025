@@ -505,7 +505,7 @@ def main():
             "sottotitolo": "48 UDA d’asse in 21 accorpamenti e 6 schede autonome · proposta da validare collegialmente",
             "stato": "proposta",
             "fonte": (
-                "Elaborazione delle 48 schede del fascicolo UDA d'asse. Criteri: D.M. 24 maggio 2018, "
+                "Elaborazione delle 48 schede del fascicolo UDA d'asse. Criteri: D.I. 24 maggio 2018, "
                 "n. 92, art. 6, comma 4 (progettazione interdisciplinare per unità di apprendimento per "
                 "tutta la durata del quinquennio); Linee guida D.M. 23 agosto 2019, n. 766, Box n. 7 "
                 "(carattere prioritariamente interdisciplinare delle UdA, numero contenuto) e Box n. 8 "

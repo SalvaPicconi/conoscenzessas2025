@@ -1,4 +1,4 @@
-// Stampa della singola UDA dalle tre pagine del fascicolo.
+// Stampa della singola UDA dalle pagine del fascicolo.
 //
 // Ogni scheda aperta porta due comandi: il file Word, che il docente completa
 // nelle sezioni lasciate in bianco, e la stampa, da cui esce il PDF. Il

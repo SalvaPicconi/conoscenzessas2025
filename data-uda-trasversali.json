@@ -1,7 +1,7 @@
 {
   "meta": {
     "titolo": "UDA trasversali — quinquennio SSAS",
-    "sottotitolo": "Quattordici unità interdisciplinari costruite sugli assi culturali dell'istruzione professionale",
+    "sottotitolo": "Tredici unità interdisciplinari costruite sugli assi culturali dell'istruzione professionale",
     "fonte": "Prima stesura per i dipartimenti. Assi culturali e attribuzione degli insegnamenti dal D.I. 92/2018, Allegato 3-I (quadro orario SSAS); risultati intermedi dell'area generale dalle Linee guida D.M. 766/2019, Allegato B; profilo finale SSAS dal D.I. 92/2018, Allegato 2-I e risultati intermedi dall'Allegato C, sezione I, delle Linee guida; competenze chiave dalla Raccomandazione del Consiglio UE 22 maggio 2018.",
     "riferimenti": [
       "D.Lgs. 61/2017 art. 5 c. 1 lett. b) — aggregazione degli insegnamenti negli assi culturali",
@@ -12,7 +12,7 @@
       "Linee guida D.M. 766/2019, Box n. 7 — carattere prioritariamente interdisciplinare delle UdA",
       "Linee guida D.M. 766/2019, Box n. 8 — format di riferimento dell'UdA"
     ],
-    "nota": "Una rosa progressiva di UDA per il quinquennio, ognuna a cavallo di almeno tre assi culturali. Nell'istruzione professionale le materie di indirizzo costituiscono l'asse scientifico, tecnologico e professionale: per questo compaiono anche nelle UDA trasversali. Titoli, compiti di realtà e monte ore sono proposte da discutere, modificare e validare collegialmente.",
+    "nota": "Una rosa progressiva di 13 UDA per il quinquennio, ognuna a cavallo di almeno tre assi culturali. Nell'istruzione professionale le materie di indirizzo costituiscono l'asse scientifico, tecnologico e professionale: per questo compaiono anche nelle UDA trasversali. Titoli, compiti di realtà e monte ore sono proposte da discutere, modificare e validare collegialmente.",
     "assi": [
       "Asse dei linguaggi",
       "Asse matematico",
@@ -73,142 +73,6 @@
     }
   },
   "uda": [
-    {
-      "id": "T1.1",
-      "anno": 1,
-      "periodo": "1° quadrimestre",
-      "titolo": "Educazione alla pace e alla non violenza: dalle regole quotidiane al regolamento di classe",
-      "assi": [
-        "Asse storico sociale",
-        "Asse dei linguaggi",
-        "Asse scientifico, tecnologico e professionale"
-      ],
-      "competenzeGenerali": [
-        1,
-        2,
-        9
-      ],
-      "competenzeSSAS": [
-        3,
-        2
-      ],
-      "competenzeEuropee": [
-        "Competenza in materia di cittadinanza",
-        "Competenza personale, sociale e capacità di imparare a imparare"
-      ],
-      "traguardo": "Agire per favorire il superamento di stereotipi e pregiudizi in ambito scolastico e nei contesti di vita quotidiana, partecipando e cooperando nel gruppo di lavoro scolastico attraverso l'ascolto attivo e la comunicazione non conflittuale.",
-      "compito": "Regolamento di convivenza della classe elaborato dagli studenti: analisi di casi di conflitto realmente accaduti, individuazione delle regole necessarie, stesura del testo normativo e discussione in assemblea con votazione finale.",
-      "ore": "12–15",
-      "abilita": [
-        {
-          "t": "Ricondurre comportamenti quotidiani ai principi della Costituzione",
-          "ins": [
-            "Diritto",
-            "Storia"
-          ]
-        },
-        {
-          "t": "Produrre un testo regolativo chiaro, coeso e adeguato al destinatario",
-          "ins": [
-            "Italiano"
-          ]
-        },
-        {
-          "t": "Individuare stereotipi, pregiudizi e modalità comportamentali volte al loro superamento",
-          "ins": [
-            "Scienze Umane",
-            "Storia"
-          ]
-        },
-        {
-          "t": "Ascoltare attivamente, esporre le proprie idee e comunicare in modo non conflittuale nel gruppo",
-          "ins": [
-            "Scienze Umane",
-            "Italiano"
-          ]
-        },
-        {
-          "t": "Osservare le dinamiche del gruppo classe e annotarle con strumenti strutturati",
-          "ins": [
-            "Scienze Umane",
-            "Metodologie Operative"
-          ]
-        },
-        {
-          "t": "Riconoscere nella gestualità e nella prossemica segnali di aggressività e di apertura",
-          "ins": [
-            "Scienze Motorie"
-          ]
-        },
-        {
-          "t": "Redigere e condividere il documento in formato digitale",
-          "ins": [
-            "TIC"
-          ]
-        }
-      ],
-      "saperi": [
-        {
-          "t": "Principi fondamentali della Costituzione: artt. 2, 3, 11",
-          "ins": [
-            "Diritto",
-            "Storia"
-          ]
-        },
-        {
-          "t": "Il testo regolativo: struttura, lessico, funzione",
-          "ins": [
-            "Italiano"
-          ]
-        },
-        {
-          "t": "Culture, contesti, gruppi sociali, pregiudizi e stereotipi",
-          "ins": [
-            "Scienze Umane",
-            "Storia"
-          ]
-        },
-        {
-          "t": "Il gruppo, le sue dinamiche e la comunicazione non conflittuale",
-          "ins": [
-            "Scienze Umane",
-            "Italiano"
-          ]
-        },
-        {
-          "t": "Conflitto, aggressività, mediazione: nozioni di base",
-          "ins": [
-            "Scienze Umane"
-          ]
-        },
-        {
-          "t": "Tecniche elementari di osservazione del gruppo",
-          "ins": [
-            "Metodologie Operative"
-          ]
-        },
-        {
-          "t": "Comunicazione non verbale e linguaggio del corpo",
-          "ins": [
-            "Scienze Motorie"
-          ]
-        },
-        {
-          "t": "Videoscrittura e condivisione di documenti",
-          "ins": [
-            "TIC"
-          ]
-        }
-      ],
-      "situazione": "In una classe appena formata i conflitti nascono ogni giorno e vengono affrontati d'istinto: alzando la voce, escludendo, lasciando perdere. Nessuno ha mai messo per iscritto quali regole ci si dà e perché.",
-      "prodotto": "Regolamento di convivenza della classe elaborato dagli studenti: analisi di casi di conflitto realmente accaduti, individuazione delle regole necessarie, stesura del testo normativo e discussione in assemblea con votazione finale.",
-      "beneficiari": "Il gruppo classe, che adotta il regolamento e lo applica per tutto l'anno.",
-      "ambito": "interna",
-      "tipo": "Trasversale",
-      "qnq": "2",
-      "competenza": 3,
-      "sviluppata": true
-    },
     {
       "id": "T1.2",
       "anno": 1,

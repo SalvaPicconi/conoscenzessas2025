@@ -3,7 +3,7 @@
     "revisione": "2026-09-06.4",
     "tracciamento": {
       "fonte": "data-uda.json",
-      "sha256Fonte": "694b9c0c334db331c8a5e803dda2d47511d193e13d8f78dd926f64fd1c1e1162",
+      "sha256Fonte": "b9205d31c9c1ff68a47d4c497360ba64df00880718050cfa43b205401339d417",
       "revisione": "tools/revisione_uda_unificate.json",
       "sha256Revisione": "f27da7f57e6d23a195f22dd6a0747a8d7e566808edae7f1f824a8bbe9e7fbcb8",
       "registro": "revisioni/2026-09-06-riordino-applicato/REGISTRO.md",
@@ -5618,8 +5618,7 @@
         {
           "t": "Detergenti, disinfettanti e antisettici",
           "ins": [
-            "Igiene e Cultura M.S.",
-            "Scienze Integrate"
+            "Igiene e Cultura M.S."
           ]
         },
         {
@@ -5824,8 +5823,7 @@
             {
               "t": "Detergenti, disinfettanti e antisettici",
               "ins": [
-                "Igiene e Cultura M.S.",
-                "Scienze Integrate"
+                "Igiene e Cultura M.S."
               ]
             },
             {

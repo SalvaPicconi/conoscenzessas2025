@@ -4,7 +4,7 @@
     let copia = null;
     const selezionate = new Map();
     const periodiPiano = new Map();
-    const listaUda = '#uda-list, #trasversali-list, #fsl-list';
+    const listaUda = '#uda-list, #trasversali-list, #civica-list, #fsl-list';
     const testate = '.uda-acc-header, .gen-acc-header, .group-header';
     const pannelli = '.uda-acc-body, .gen-acc-body, .group-content';
 

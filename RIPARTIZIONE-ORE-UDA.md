@@ -151,21 +151,6 @@ Ore settimanali: Metodologie operative 7 · Lingua e letteratura italiana 4 · M
 | TIC | 2 | **3** |
 | **Totale** | | **32** |
 
-### T1.1 · Educazione alla pace e alla non violenza: dalle regole quotidiane al regolamento di classe
-
-*UDA trasversale — monte ore 12–15 — durata almeno 1 settimana, dettata da Storia*
-
-| Insegnamento | Ore settimanali | Ore nell'UDA |
-|---|---:|---:|
-| Metodologie Operative | 7 | **4–5** |
-| Italiano | 4 | **2–3** |
-| Scienze Umane | 4 | **2–3** |
-| Diritto | 2 | **1** |
-| Scienze Motorie | 2 | **1** |
-| TIC | 2 | **1** |
-| Storia | 1 | **1** |
-| **Totale** | | **12–15** |
-
 ### T1.2 · Io cittadino digitale: dallo smartphone all'intelligenza artificiale
 
 *UDA trasversale — monte ore 12–15 — durata almeno 1 settimana, dettata da Italiano*
@@ -179,6 +164,21 @@ Ore settimanali: Metodologie operative 7 · Lingua e letteratura italiana 4 · M
 | Inglese | 3 | **2** |
 | TIC | 2 | **1** |
 | **Totale** | | **12–15** |
+
+### T1.1 · Conoscersi e collaborare: dalle regole quotidiane al regolamento di classe
+
+*UDA di Educazione civica — monte ore 33 — durata almeno 2 settimane, dettata da Metodologie Operative*
+
+| Insegnamento | Ore settimanali | Ore nell'UDA |
+|---|---:|---:|
+| Metodologie Operative | 7 | **11** |
+| Italiano | 4 | **6** |
+| Scienze Umane | 4 | **6** |
+| Diritto | 2 | **3** |
+| Scienze Motorie | 2 | **3** |
+| TIC | 2 | **3** |
+| Storia | 1 | **1** |
+| **Totale** | | **33** |
 
 ## Classe 2ª
 
@@ -618,9 +618,6 @@ Ore settimanali: Igiene e cultura medico-sanitaria 5 · Lingua e letteratura ita
 | Igiene e Cultura M.S. | 5 | **8–9** |
 | Metodologie Operative | 3 | **4–6** |
 | **Totale** | | **12–15** |
-
-> Scienze Integrate: concorre ai contenuti dell'UDA ma non ha ore proprie, perché non è
-> presente nel quadro orario di 4ª. I relativi compiti restano agli insegnamenti elencati sopra.
 
 ### 4.7 · Sportello orienta-servizi
 

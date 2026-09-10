@@ -13,8 +13,10 @@
 const SEZIONI = [
     { id: 'indirizzo', etichetta: 'Area di indirizzo', pagina: 'area-indirizzo.html' },
     { id: 'generale', etichetta: 'Area generale', pagina: 'area-generale.html' },
+    { id: 'dipartimento', etichetta: 'UDA scelte dal Dipartimento', pagina: 'uda-dipartimento.html' },
     { id: 'unificate', etichetta: 'UDA d’asse unificate', pagina: 'uda-unificate.html' },
     { id: 'trasversali', etichetta: 'UDA trasversali', pagina: 'uda-trasversali.html' },
+    { id: 'civica', etichetta: 'UDA Educazione civica', pagina: 'uda-civica.html' },
     { id: 'fsl', etichetta: 'UDA FSL', pagina: 'uda-fsl.html' },
     { id: 'esame', etichetta: 'UDA Esame di Stato', pagina: 'uda-esame.html' },
     { id: 'monografiche', etichetta: 'UDA monografiche', pagina: 'uda-monografiche.html' },

@@ -60,7 +60,7 @@
 
     const ANNO_ETICHETTA = { 1: '1° anno', 2: '2° anno', 3: '3° anno', 4: '4° anno', 5: '5° anno' };
 
-    // I tre cataloghi nominano le stesse discipline in modi diversi: le UDA di
+    // I cataloghi nominano le stesse discipline in modi diversi: le UDA di
     // formazione scuola-lavoro usano le denominazioni in maiuscolo del quadro
     // orario, le altre quelle brevi delle schede. Nel documento vale una sola
     // forma, altrimenti nel riepilogo di terza la stessa materia comparirebbe
@@ -177,6 +177,14 @@
     function competenzeUda(uda, contesto) {
         const meta = contesto.meta || {};
         const voci = [];
+        if (uda.competenzaEducazioneCivica) {
+            const numero = uda.competenzaEducazioneCivica;
+            voci.push([
+                D.testo(`EC${numero}`, { grassetto: true }),
+                D.testo(` — ${(meta.competenzeEducazioneCivica || {})[String(numero)] || ''} `),
+                D.testo('(Educazione civica: Linee guida allegate al D.M. 183/2024)', { piccolo: true })
+            ]);
+        }
         if (uda.competenza && meta.competenze && !uda.competenze?.length) {
             voci.push([
                 D.testo(`C${uda.competenza}`, { grassetto: true }),
@@ -261,7 +269,7 @@
         })];
     }
 
-    // Il campo dice cose diverse nei tre cataloghi: nelle UDA d'asse è la
+    // Il campo dice cose diverse nei cataloghi: nelle UDA d'asse è la
     // descrizione del materiale già prodotto, nelle altre solo un sì o un no.
     function materialiSviluppati(uda) {
         if (uda.sviluppata === true) return 'Materiali già disponibili';
@@ -272,6 +280,7 @@
     function nomeGenere(genere) {
         return genere === 'unificate' ? 'UDA unificata · Proposta'
             : genere === 'trasversale' ? 'UDA trasversale'
+            : genere === 'civica' ? 'UDA di Educazione civica'
             : genere === 'fsl' ? 'UDA di formazione scuola-lavoro'
             : 'UDA d’asse';
     }

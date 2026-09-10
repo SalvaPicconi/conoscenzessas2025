@@ -30,9 +30,15 @@ DOCUMENTO = RADICE / "RIPARTIZIONE-ORE-UDA.md"
 CATALOGHI = (
     ("data-uda.json", "asse"),
     ("data-uda-trasversali.json", "trasversale"),
+    ("data-uda-civica.json", "civica"),
     ("data-uda-fsl.json", "fsl"),
 )
-NOMI_GENERE = {"asse": "UDA d'asse", "trasversale": "UDA trasversale", "fsl": "UDA FSL"}
+NOMI_GENERE = {
+    "asse": "UDA d'asse",
+    "trasversale": "UDA trasversale",
+    "civica": "UDA di Educazione civica",
+    "fsl": "UDA FSL",
+}
 
 
 def estremi_monte_ore(valore) -> tuple[int, int] | None:
@@ -285,7 +291,7 @@ def main() -> None:
         "meta": {
             "titolo": "Ripartizione oraria delle UDA per insegnamento",
             "sottotitolo": "Proposta proporzionale calcolata sul quadro orario dell'istituto",
-            "fonte": "Generato da tools/genera_ripartizione_ore.py a partire da data-quadro-orario.json e dai tre cataloghi delle UDA. Non modificare a mano: rigenerare.",
+            "fonte": "Generato da tools/genera_ripartizione_ore.py a partire da data-quadro-orario.json e dai quattro cataloghi delle UDA. Non modificare a mano: rigenerare.",
             "metodo": regola["metodo"],
             "arrotondamento": regola["arrotondamento"],
             "monteConvenzionaleFSL": monte_fsl,

@@ -62,7 +62,7 @@ Object.entries(quadro.alias).forEach(([variante, nome]) => {
 });
 
 // 4 — ogni nome usato nei quattro cataloghi è riconosciuto
-const CATALOGHI = ['data-uda.json', 'data-uda-trasversali.json', 'data-uda-fsl.json', 'data-uda-unificate.json'];
+const CATALOGHI = ['data-uda.json', 'data-uda-trasversali.json', 'data-uda-civica.json', 'data-uda-fsl.json', 'data-uda-unificate.json'];
 const usati = new Map();
 CATALOGHI.forEach(file => {
     leggi(file).uda.forEach(u => ['abilita', 'saperi'].forEach(campo => (u[campo] || []).forEach(voce => {

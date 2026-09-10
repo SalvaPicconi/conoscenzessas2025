@@ -1,0 +1,37 @@
+{
+  "data": "2026-09-09",
+  "baselineCommit": "3bd74374a59aca7aded43f9b7c7d402bcde9333f",
+  "algoritmo": "git-blob-sha1",
+  "fileDati": [
+    {
+      "path": "data-uda.json",
+      "prima": "9f1e8e472a2854176dc6de6f47d807b1b85de7a1",
+      "dopo": "512d8e524a2cd1384c3c58caeae4a3efd5712c6b"
+    },
+    {
+      "path": "data-uda-unificate.json",
+      "prima": "92df0e0ae485818fc825814f4e64ec58835dfaec",
+      "dopo": "fe45eece5312f48b4ee8ecd6428bf802013b3dcf"
+    },
+    {
+      "path": "data-uda-trasversali.json",
+      "prima": "073cd05d013c3f07ceff6169c64d396ba2646cd0",
+      "dopo": "09b2bcc6c160b80b3aae2fa9c690d2d325a98b6a"
+    },
+    {
+      "path": "data-uda-civica.json",
+      "prima": null,
+      "dopo": "015ab3b03a3140d5677f8e3205c3b33e9e573faf"
+    },
+    {
+      "path": "data-ripartizione-ore.json",
+      "prima": "ab9e5c7e377f319fde06b4b5e8a9d80a328e3bb2",
+      "dopo": "5d6ab1a9b7e2da3caa003b7555e4db54ecc7de74"
+    }
+  ],
+  "nuoviFileVerifica": [
+    { "path": "uda-civica.html", "blob": "6b836c4603974dfdc8dcf04e7a7409eeb8714e2f" },
+    { "path": "uda-civica.js", "blob": "420671c4b10e758ba1404611cb17699c5f3cb8a0" },
+    { "path": "tools/verifica_modifiche_dipartimento_20260909.cjs", "blob": "9ef9c7783f71dc2c4952540bf23215fef8176ad2" }
+  ]
+}

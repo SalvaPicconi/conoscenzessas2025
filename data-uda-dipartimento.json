@@ -1,0 +1,149 @@
+{
+  "meta": {
+    "titolo": "UDA scelte dal Dipartimento",
+    "dataRiunione": "9 settembre 2026",
+    "fonte": "Verbale del Dipartimento e trascrizione della prima riunione",
+    "stato": "Quadro delle decisioni assunte",
+    "nota": "La sezione distingue le scelte confermate, i titoli ancora da definire e i punti che devono essere esplicitati nel verbale. Comprende le UDA adottate del biennio e del triennio e non modifica i cataloghi completi delle UDA."
+  },
+  "classi": [
+    {
+      "anno": 1,
+      "sintesi": "Convivenza · regole e collaborazione",
+      "decisioni": [
+        {
+          "id": "DIP1-CIVICA",
+          "categoria": "Educazione civica",
+          "stato": "Adottata · titolo modificato",
+          "titolo": "Conoscersi e collaborare: dalle regole quotidiane al regolamento di classe",
+          "descrizione": "Percorso sulla convivenza scolastica, sul rispetto delle regole, sulla comunicazione non conflittuale e sulla costruzione condivisa del regolamento di classe.",
+          "riferimenti": ["T1.1"],
+          "catalogo": "uda-civica.html",
+          "catalogoEtichetta": "Apri il catalogo di Educazione civica"
+        }
+      ]
+    },
+    {
+      "anno": 2,
+      "sintesi": "Gioco · fiaba e racconto",
+      "decisioni": [
+        {
+          "id": "DIP2-TRASVERSALE",
+          "categoria": "UDA trasversale",
+          "stato": "Adottata",
+          "titolo": "Fiaba e racconto come strumento di crescita",
+          "descrizione": "Laboratorio interdisciplinare su fiaba, racconto, lettura animata e gioco come strumenti educativi e di crescita per i bambini.",
+          "riferimenti": ["T2.1"],
+          "catalogo": "uda-trasversali.html",
+          "catalogoEtichetta": "Apri il catalogo UDA trasversali"
+        }
+      ]
+    },
+    {
+      "anno": 3,
+      "sintesi": "Minori · prevenzione e tutela",
+      "decisioni": [
+        {
+          "id": "DIP3-FSL",
+          "categoria": "FSL",
+          "stato": "Confermata nei due incontri",
+          "titolo": "Area minori: osservare, accompagnare e documentare",
+          "descrizione": "Secondo quadrimestre: osservazione del contesto FSL, bisogni, servizi e figure professionali, con restituzione finale.",
+          "riferimenti": ["FSL3.1"],
+          "catalogo": "uda-fsl.html",
+          "catalogoEtichetta": "Apri il catalogo UDA FSL"
+        },
+        {
+          "id": "DIP3-ASSE",
+          "categoria": "UDA d’asse",
+          "stato": "Fusione deliberata",
+          "titolo": "Prevenzione, tutela, diritti dei minori e servizi",
+          "descrizione": "Un’unica UDA ottenuta dalla fusione di “Crescere insieme · Caccia al rischio” e “Prevenire è curare · Progetto benessere a scuola”.",
+          "riferimenti": ["U3.3", "U3.4"],
+          "catalogo": "uda-unificate.html",
+          "catalogoEtichetta": "Apri le UDA d’asse unificate"
+        }
+      ]
+    },
+    {
+      "anno": 4,
+      "sintesi": "Disabilità · autonomia e ambiente di vita",
+      "decisioni": [
+        {
+          "id": "DIP4-FSL",
+          "categoria": "FSL",
+          "stato": "Confermata",
+          "titolo": "Area disabilità: inclusione, autonomia e progetto individualizzato",
+          "descrizione": "Osservazione sul campo di bisogni, servizi, figure professionali, autonomie, persona e famiglia.",
+          "riferimenti": ["FSL4.1"],
+          "catalogo": "uda-fsl.html",
+          "catalogoEtichetta": "Apri il catalogo UDA FSL"
+        },
+        {
+          "id": "DIP4-ASSE",
+          "categoria": "UDA d’asse",
+          "stato": "Tema deliberato · titolo da definire",
+          "titolo": "Disabilità e ambiente di vita",
+          "descrizione": "Percorso distinto dall’FSL per evitare sovrapposizioni. “Vivere con la disabilità” e “Abitare sicuro” sono i riferimenti emersi; il titolo definitivo non è stato cristallizzato.",
+          "riferimenti": ["U4.3"],
+          "catalogo": "uda-unificate.html",
+          "catalogoEtichetta": "Apri le UDA d’asse unificate"
+        }
+      ]
+    },
+    {
+      "anno": 5,
+      "sintesi": "Anziani · salute mentale · prova professionale",
+      "decisioni": [
+        {
+          "id": "DIP5-FSL",
+          "categoria": "FSL",
+          "stato": "Scelta del triennio",
+          "titolo": "Area anziani: assistenza, qualità di vita e lavoro in struttura residenziale",
+          "descrizione": "Assistenza, qualità della vita, autonomie, persona e famiglia nel contesto di esperienza FSL.",
+          "riferimenti": ["FSL5.1"],
+          "catalogo": "uda-fsl.html",
+          "catalogoEtichetta": "Apri il catalogo UDA FSL"
+        },
+        {
+          "id": "DIP5-ASSE",
+          "categoria": "UDA d’asse",
+          "stato": "Scelta emersa dalla trascrizione",
+          "titolo": "Parole che curano · Salute mentale",
+          "descrizione": "UDA sulla salute mentale e sul superamento dello stigma. La decisione deve essere riportata in modo esplicito nel verbale finale.",
+          "riferimenti": ["5.12"],
+          "catalogo": "uda.html",
+          "catalogoEtichetta": "Apri il catalogo UDA d’asse"
+        }
+      ]
+    }
+  ],
+  "simulazioni": {
+    "titolo": "Due simulazioni della seconda prova",
+    "calendario": "Indicativamente all’inizio di marzo e all’inizio di maggio",
+    "voci": [
+      {
+        "id": "SIM5-1",
+        "periodo": "Inizio marzo · indicativo",
+        "stato": "Tema individuato con chiarezza",
+        "titolo": "Salute, autonomia e domanda di assistenza degli anziani",
+        "descrizione": "Analisi di dati e documenti, bisogno, servizi, livelli di autonomia, relazione d’aiuto, PAI e reti.",
+        "riferimenti": ["E5.1"],
+        "catalogo": "uda-esame.html",
+        "catalogoEtichetta": "Apri le UDA Esame di Stato"
+      },
+      {
+        "id": "SIM5-2",
+        "periodo": "Inizio maggio · indicativo",
+        "stato": "Tema confermato",
+        "titolo": "Invecchiamento attivo in Sardegna: progetto di rete",
+        "descrizione": "Elaborazione di un progetto di rete territoriale per promuovere l’invecchiamento attivo, con analisi del bisogno, destinatari, obiettivi, partner, azioni, risorse e valutazione.",
+        "riferimenti": ["E5.2"],
+        "catalogo": "uda-esame.html",
+        "catalogoEtichetta": "Consulta le UDA Esame di Stato"
+      }
+    ]
+  },
+  "nonAdottate": [],
+  "correzioneVerbale": "Inserire esplicitamente “Parole che curano · Salute mentale” tra le UDA scelte per la classe quinta."
+}

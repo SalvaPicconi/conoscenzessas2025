@@ -65,8 +65,8 @@
             <div class="tab-intro">
                 <span class="section-kicker">Scegli il tuo punto di partenza</span>
                 <h2>Da dove vuoi iniziare?</h2>
-                <p>Percorsi complementari: dal curricolo alle UDA d'asse — con la proposta di accorpamento —
-                    alle trasversali, alla formazione scuola-lavoro e alla preparazione alla prova professionale, fino alle idee dei docenti, alla progettazione annuale, al PFI, al Piano delle UDA, al modello didattico dei nuovi professionali e ai riferimenti normativi verificati.</p>
+                <p>Percorsi complementari: dal curricolo alle UDA scelte dal Dipartimento, ai cataloghi d'asse — con la proposta di accorpamento —
+                    alle trasversali, all'Educazione civica, alla formazione scuola-lavoro e alla preparazione alla prova professionale, fino alle idee dei docenti, alla progettazione annuale, al PFI, al Piano delle UDA, al modello didattico dei nuovi professionali e ai riferimenti normativi verificati.</p>
             </div>
             <div class="tab-buttons-wrapper" role="tablist" aria-label="Aree del curricolo">
                 <button type="button" class="tab-button active" data-tab="indirizzo" id="tab-indirizzo" role="tab" aria-selected="true" aria-controls="content-indirizzo">
@@ -77,35 +77,43 @@
                     <span class="tab-icon" aria-hidden="true">02</span>
                     <span class="tab-copy"><span class="tab-label">Area Generale</span><span class="tab-description">Competenze comuni</span></span>
                 </button>
-                <button type="button" class="tab-button" data-tab="unificate" id="tab-unificate" role="tab" aria-selected="false" aria-controls="content-unificate" tabindex="-1">
+                <button type="button" class="tab-button tab-button-featured" data-tab="dipartimento" id="tab-dipartimento" role="tab" aria-selected="false" aria-controls="content-dipartimento" tabindex="-1">
                     <span class="tab-icon" aria-hidden="true">03</span>
+                    <span class="tab-copy"><span class="tab-label">UDA scelte dal Dipartimento</span><span class="tab-description">Decisioni del 9 settembre</span></span>
+                </button>
+                <button type="button" class="tab-button" data-tab="unificate" id="tab-unificate" role="tab" aria-selected="false" aria-controls="content-unificate" tabindex="-1">
+                    <span class="tab-icon" aria-hidden="true">04</span>
                     <span class="tab-copy"><span class="tab-label">UDA d’asse unificate</span><span class="tab-description">Proposta per il dipartimento</span></span>
                 </button>
                 <button type="button" class="tab-button" data-tab="trasversali" id="tab-trasversali" role="tab" aria-selected="false" aria-controls="content-trasversali" tabindex="-1">
-                    <span class="tab-icon" aria-hidden="true">04</span>
+                    <span class="tab-icon" aria-hidden="true">05</span>
                     <span class="tab-copy"><span class="tab-label">UDA trasversali</span><span class="tab-description">Tutte le materie</span></span>
                 </button>
+                <button type="button" class="tab-button" data-tab="civica" id="tab-civica" role="tab" aria-selected="false" aria-controls="content-civica" tabindex="-1">
+                    <span class="tab-icon" aria-hidden="true">06</span>
+                    <span class="tab-copy"><span class="tab-label">UDA Educazione civica</span><span class="tab-description">Curricolo nazionale</span></span>
+                </button>
                 <button type="button" class="tab-button" data-tab="fsl" id="tab-fsl" role="tab" aria-selected="false" aria-controls="content-fsl" tabindex="-1">
-                    <span class="tab-icon" aria-hidden="true">05</span>
+                    <span class="tab-icon" aria-hidden="true">07</span>
                     <span class="tab-copy"><span class="tab-label">UDA FSL</span><span class="tab-description">Formazione scuola-lavoro</span></span>
                 </button>
                 <button type="button" class="tab-button" data-tab="esame" id="tab-esame" role="tab" aria-selected="false" aria-controls="content-esame" tabindex="-1">
-                    <span class="tab-icon" aria-hidden="true">06</span>
+                    <span class="tab-icon" aria-hidden="true">08</span>
                     <span class="tab-copy"><span class="tab-label">UDA Esame di Stato</span><span class="tab-description">Prova professionale</span></span>
                 </button>
-                <button type="button" class="tab-button" data-tab="monografiche" id="tab-monografiche" role="tab" aria-selected="false" aria-controls="content-monografiche" tabindex="-1"><span class="tab-icon" aria-hidden="true">07</span><span class="tab-copy"><span class="tab-label">UDA monografiche</span><span class="tab-description">Proposte dei docenti</span></span></button>
-                <button type="button" class="tab-button" data-tab="annuale" id="tab-annuale" role="tab" aria-selected="false" aria-controls="content-annuale" tabindex="-1"><span class="tab-icon" aria-hidden="true">08</span><span class="tab-copy"><span class="tab-label">Progettazione annuale</span><span class="tab-description">Spazio di progettazione</span></span></button>
+                <button type="button" class="tab-button" data-tab="monografiche" id="tab-monografiche" role="tab" aria-selected="false" aria-controls="content-monografiche" tabindex="-1"><span class="tab-icon" aria-hidden="true">09</span><span class="tab-copy"><span class="tab-label">UDA monografiche</span><span class="tab-description">Proposte dei docenti</span></span></button>
+                <button type="button" class="tab-button" data-tab="annuale" id="tab-annuale" role="tab" aria-selected="false" aria-controls="content-annuale" tabindex="-1"><span class="tab-icon" aria-hidden="true">10</span><span class="tab-copy"><span class="tab-label">Progettazione annuale</span><span class="tab-description">Spazio di progettazione</span></span></button>
                 <button type="button" class="tab-button" data-tab="pfi" id="tab-pfi" role="tab" aria-selected="false" aria-controls="content-pfi" tabindex="-1">
-                    <span class="tab-icon" aria-hidden="true">09</span>
+                    <span class="tab-icon" aria-hidden="true">11</span>
                     <span class="tab-copy"><span class="tab-label">PFI</span><span class="tab-description">Progetto formativo individuale</span></span>
                 </button>
-                <button type="button" class="tab-button" data-tab="piano" id="tab-piano" role="tab" aria-selected="false" aria-controls="content-piano" tabindex="-1"><span class="tab-icon" aria-hidden="true">10</span><span class="tab-copy"><span class="tab-label">Piano delle UDA</span><span class="tab-description">Stampa del coordinatore</span></span></button>
+                <button type="button" class="tab-button" data-tab="piano" id="tab-piano" role="tab" aria-selected="false" aria-controls="content-piano" tabindex="-1"><span class="tab-icon" aria-hidden="true">12</span><span class="tab-copy"><span class="tab-label">Piano delle UDA</span><span class="tab-description">Stampa del coordinatore</span></span></button>
                 <button type="button" class="tab-button tab-button-featured" data-tab="didattica" id="tab-didattica" role="tab" aria-selected="false" aria-controls="content-didattica" tabindex="-1">
-                    <span class="tab-icon" aria-hidden="true">11</span>
+                    <span class="tab-icon" aria-hidden="true">13</span>
                     <span class="tab-copy"><span class="tab-label">Come fare didattica</span><span class="tab-description">Dalla norma al lavoro in classe</span></span>
                 </button>
                 <button type="button" class="tab-button tab-button-featured tab-button-reference" data-tab="normativa" id="tab-normativa" role="tab" aria-selected="false" aria-controls="content-normativa" tabindex="-1">
-                    <span class="tab-icon" aria-hidden="true">12</span>
+                    <span class="tab-icon" aria-hidden="true">14</span>
                     <span class="tab-copy"><span class="tab-label">Riferimenti normativi</span><span class="tab-description">Fonti, termini e limiti della verifica</span></span>
                 </button>
             </div>
@@ -120,6 +128,10 @@
             <iframe src="area-generale.html" title="Curricolo dell'area generale" class="content-iframe" loading="lazy"></iframe>
         </div>
 
+        <div class="tab-content" id="content-dipartimento" role="tabpanel" aria-labelledby="tab-dipartimento" aria-hidden="true" hidden>
+            <iframe src="uda-dipartimento.html?v=20260910scelte1" title="UDA scelte dal Dipartimento SSAS" class="content-iframe" loading="lazy"></iframe>
+        </div>
+
         <div class="tab-content" id="content-uda" role="tabpanel" aria-labelledby="tab-uda" aria-hidden="true" hidden>
             <iframe src="uda.html?v=20260908ore1" title="Fascicolo delle UDA d'asse SSAS" class="content-iframe" loading="lazy"></iframe>
         </div>
@@ -130,6 +142,10 @@
 
         <div class="tab-content" id="content-trasversali" role="tabpanel" aria-labelledby="tab-trasversali" aria-hidden="true" hidden>
             <iframe src="uda-trasversali.html?v=20260908ore1" title="UDA trasversali di tutte le materie SSAS" class="content-iframe" loading="lazy"></iframe>
+        </div>
+
+        <div class="tab-content" id="content-civica" role="tabpanel" aria-labelledby="tab-civica" aria-hidden="true" hidden>
+            <iframe src="uda-civica.html?v=20260909dip1" title="UDA di Educazione civica SSAS" class="content-iframe" loading="lazy"></iframe>
         </div>
 
         <div class="tab-content" id="content-fsl" role="tabpanel" aria-labelledby="tab-fsl" aria-hidden="true" hidden>
@@ -155,6 +171,6 @@
     </main>
 
     <script src="script-main.js?v=20260907dip1"></script>
-<script src="assets/navigazione.js?v=20260908norm1"></script>
+<script src="assets/navigazione.js?v=20260910scelte1"></script>
 </body>
 </html>

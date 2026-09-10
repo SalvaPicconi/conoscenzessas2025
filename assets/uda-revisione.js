@@ -7,12 +7,14 @@ const MODE_KEY = 'curricolo:uda-accesso-modalita';
 const DATA_SOURCE = document.documentElement.dataset.udaSource || 'data-uda.json';
 const UDA_KIND = document.documentElement.dataset.udaKind || 'asse';
 const IS_TRASVERSALE = UDA_KIND === 'trasversale';
+const IS_CIVICA = UDA_KIND === 'civica';
 const IS_FSL = UDA_KIND === 'fsl';
 const IS_ESAME = UDA_KIND === 'esame';
 const IS_UNIFICATA = UDA_KIND === 'unificate';
-const IS_COLLEGIALE = IS_TRASVERSALE || IS_FSL || IS_ESAME;
-const NEW_KEY_PREFIX = IS_FSL ? 'nuova-f-' : IS_TRASVERSALE ? 'nuova-t-' : 'nuova-';
-const NEW_SOURCE_VERSION = IS_FSL ? 'nuova-uda-fsl' : IS_TRASVERSALE ? 'nuova-uda-trasversale' : 'nuova-uda';
+const IS_DIPARTIMENTO = UDA_KIND === 'dipartimento';
+const IS_COLLEGIALE = IS_TRASVERSALE || IS_CIVICA || IS_FSL || IS_ESAME || IS_DIPARTIMENTO;
+const NEW_KEY_PREFIX = IS_FSL ? 'nuova-f-' : (IS_TRASVERSALE || IS_CIVICA) ? 'nuova-t-' : 'nuova-';
+const NEW_SOURCE_VERSION = IS_FSL ? 'nuova-uda-fsl' : IS_CIVICA ? 'nuova-uda-civica' : IS_TRASVERSALE ? 'nuova-uda-trasversale' : 'nuova-uda';
 const DOCENTI = [
     'Prof. Picconi', 'Prof. Pinna', 'Prof.ssa Manca', 'Prof.ssa Cossu',
     'Prof.ssa Preite', 'Prof.ssa Sanna', 'Prof.ssa Onnis', 'Prof. Carlo Cossu',
@@ -60,7 +62,13 @@ const CAMPI_ESAME = [
     ['traccia', 'Consegna conclusiva individuale', 'testo-lungo'],
     ['personalizzazione', 'Personalizzazione e accessibilità', 'testo-lungo']
 ];
-const CAMPI = IS_ESAME ? CAMPI_ESAME : IS_FSL ? CAMPI_FSL : IS_TRASVERSALE ? CAMPI_TRASVERSALI : CAMPI_COMUNI;
+const CAMPI_DIPARTIMENTO = [
+    ['periodo', 'Periodo o collocazione', 'testo'],
+    ['titolo', 'Titolo nella sintesi dipartimentale', 'testo'],
+    ['descrizione', 'Descrizione della decisione', 'testo-lungo'],
+    ['statoDecisione', 'Stato documentale della decisione', 'testo']
+];
+const CAMPI = IS_DIPARTIMENTO ? CAMPI_DIPARTIMENTO : IS_ESAME ? CAMPI_ESAME : IS_FSL ? CAMPI_FSL : IS_TRASVERSALE ? CAMPI_TRASVERSALI : CAMPI_COMUNI;
 const CAMPI_SAPERI_NUOVA = [['saperi', 'Saperi essenziali di riferimento (riportare senza riscrivere)', 'righe']];
 const CAMPI_NUOVA = [
     ['anno', 'Anno di corso', 'scelta-numero', IS_FSL
@@ -93,7 +101,7 @@ async function inizializzaRevisioni() {
         const risposta = await fetch(DATA_SOURCE, { cache: 'no-store' });
         if (!risposta.ok) throw new Error(`HTTP ${risposta.status}`);
         const dati = await risposta.json();
-        const catalogo = IS_ESAME ? dati.schede : dati.uda;
+        const catalogo = IS_DIPARTIMENTO ? estraiScelteDipartimento(dati) : IS_ESAME ? dati.schede : dati.uda;
         if (!Array.isArray(catalogo)) throw new Error('Catalogo UDA non valido');
         const tipologie = new Map((dati.tipologie || []).map(tipo => [String(tipo.id), tipo.definizione]));
         statoRev.uda = new Map(catalogo.map(uda => [String(uda.id), normalizzaUda(uda, tipologie)]));
@@ -128,7 +136,7 @@ function collegaEventi() {
     uiRev.annulla.addEventListener('click', () => mostraAccesso(false));
     uiRev.auth.addEventListener('submit', accedi);
     uiRev.esci.addEventListener('click', esci);
-    uiRev.crea.addEventListener('click', () => apriEditor('nuova'));
+    uiRev.crea?.addEventListener('click', () => apriEditor('nuova'));
     uiRev.elencoApri.addEventListener('click', apriElenco);
     uiRev.pannelloChiudi.addEventListener('click', () => { uiRev.pannello.hidden = true; notificaAltezza(); });
     uiRev.filtroAnno.addEventListener('change', disegnaElenco);
@@ -215,7 +223,9 @@ async function attivaArea() {
     uiRev.pannello.hidden = true;
     document.querySelectorAll('.uda-revisione-editor').forEach(nodo => nodo.remove());
     if (revisione) {
-        uiRev.identita.textContent = `${statoRev.docente} · proposte personali, confronto condiviso`;
+        uiRev.identita.textContent = IS_DIPARTIMENTO
+            ? `${statoRev.docente} · modifiche della sola sintesi, originali invariati`
+            : `${statoRev.docente} · proposte personali, confronto condiviso`;
         await caricaRevisioni();
     } else {
         statoRev.revisioni = new Map();
@@ -306,7 +316,7 @@ function apriEditor(chiave) {
     testata.className = 'uda-revisione-editor-head';
     const titolo = document.createElement('h3');
     titolo.textContent = nuova
-        ? `Nuova ${IS_FSL ? 'UDA FSL' : IS_TRASVERSALE ? 'UDA trasversale' : 'UDA'} · proposta di ${statoRev.docente}`
+        ? `Nuova ${IS_FSL ? 'UDA FSL' : IS_CIVICA ? 'UDA di Educazione civica' : IS_TRASVERSALE ? 'UDA trasversale' : 'UDA'} · proposta di ${statoRev.docente}`
         : `Proposta di ${statoRev.docente} · UDA ${uda.id}`;
     const chiudi = creaBottone('Chiudi', 'uda-revisione-secondary');
     chiudi.addEventListener('click', () => { form.remove(); notificaAltezza(); });
@@ -315,6 +325,8 @@ function apriEditor(chiave) {
     intro.className = 'uda-revisione-editor-intro';
     intro.textContent = nuova
         ? 'Scrivi la nuova unità da zero. Sarà salvata come bozza condivisa e non cambierà il fascicolo pubblico.'
+        : IS_DIPARTIMENTO
+        ? 'Compila solo i campi della sintesi da cambiare. La revisione resta associata a questa sezione e non modifica automaticamente le UDA originali richiamate.'
         : 'Compila solo i campi da cambiare. Il testo pubblico resta invariato finché la proposta non viene applicata ai file sorgente.';
     if (!nuova && IS_ESAME) form.appendChild(creaRiferimentiEsameProtetti(uda));
     else if (!nuova && Array.isArray(uda.saperi)) form.appendChild(creaSaperiProtetti(uda.saperi));
@@ -351,6 +363,21 @@ function normalizzaUda(uda, tipologie = new Map()) {
         ...(uda.compitoAtteso || {}),
         definizioneTipologia: tipologie.get(String(uda.tipologia)) || ''
     };
+}
+
+function estraiScelteDipartimento(dati) {
+    const decisioni = (dati.classi || []).flatMap(classe => (classe.decisioni || []).map(voce => ({
+        ...voce,
+        anno: classe.anno,
+        periodo: voce.periodo || '',
+        statoDecisione: voce.stato || ''
+    })));
+    const simulazioni = (dati.simulazioni?.voci || []).map(voce => ({
+        ...voce,
+        anno: 5,
+        statoDecisione: voce.stato || ''
+    }));
+    return [...decisioni, ...simulazioni];
 }
 
 function creaRiferimentiEsameProtetti(uda) {
@@ -586,7 +613,7 @@ function creaSchedaRevisione(voce) {
     const puoValidare = statoRev.puoGestireStati;
     const puoGestireBozza = voce.author_name === statoRev.docente && ['bozza', 'archiviata'].includes(voce.stato);
     select.disabled = !puoValidare && !puoGestireBozza;
-    [['bozza', 'Da valutare'], ['approvata', 'Approvata'], ['applicata', 'Applicata ai sorgenti'], ['archiviata', 'Archiviata']]
+    [['bozza', 'Da valutare'], ['approvata', 'Approvata'], ['applicata', IS_DIPARTIMENTO ? 'Recepita nella sezione' : 'Applicata ai sorgenti'], ['archiviata', 'Archiviata']]
         .forEach(([valore, etichetta]) => aggiungiOpzione(select, valore, etichetta, voce.stato === valore));
     select.addEventListener('change', () => aggiornaStato(voce, select, scheda));
     testata.append(titoloBox, select);

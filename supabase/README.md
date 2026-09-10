@@ -32,7 +32,7 @@ Con la CLI di Supabase:
 
 ## `functions/curricolo-uda-revisioni/index.ts`
 
-L'API condivisa dalle sezioni **UDA d'asse**, **UDA trasversali**, **UDA FSL** e **UDA Esame di Stato**. Gestisce accesso docente,
+L'API condivisa dalle sezioni **UDA d'asse**, **UDA trasversali**, **UDA FSL**, **UDA Esame di Stato** e **UDA scelte dal Dipartimento**. Gestisce accesso docente,
 sessioni temporanee, elenco delle proposte, salvataggio e stato della revisione. Le proposte
 restano separate dai JSON pubblici finché non vengono approvate e applicate ai file sorgente.
 
@@ -48,6 +48,12 @@ Per abilitare le schede `E3.1…E5.2` va applicato `consenti-uda-esame.sql` e po
 ridistribuita la funzione. Tipologia, nuclei, competenze e insegnamenti di indirizzo
 restano protetti nel modulo; le proposte possono intervenire sui campi progettuali
 del compito atteso e restano separate da `data-uda-esame.json`.
+
+Per rendere modificabile la sintesi delle scelte dipartimentali va applicato
+`consenti-uda-dipartimento.sql` e poi va ridistribuita la funzione. Le chiavi
+`DIP1-CIVICA`, `DIP2-TRASVERSALE`, `DIP3-FSL…DIP5-ASSE` e `SIM5-1…SIM5-2` appartengono soltanto alla sintesi:
+non coincidono con i codici dei cataloghi FSL, d'asse o Esame e non possono
+sovrascriverne automaticamente i record.
 I permessi di gestione degli stati sono applicati esclusivamente dalla funzione e non vengono
 associati pubblicamente a un nominativo. Sono conservati nella tabella privata
 `private.curricolo_uda_revision_permissions`, non accessibile ai client. L'assegnazione viene

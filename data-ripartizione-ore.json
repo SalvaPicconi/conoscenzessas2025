@@ -2,7 +2,7 @@
   "meta": {
     "titolo": "Ripartizione oraria delle UDA per insegnamento",
     "sottotitolo": "Proposta proporzionale calcolata sul quadro orario dell'istituto",
-    "fonte": "Generato da tools/genera_ripartizione_ore.py a partire da data-quadro-orario.json e dai tre cataloghi delle UDA. Non modificare a mano: rigenerare.",
+    "fonte": "Generato da tools/genera_ripartizione_ore.py a partire da data-quadro-orario.json e dai quattro cataloghi delle UDA. Non modificare a mano: rigenerare.",
     "metodo": "Le ore di ciascuna UDA sono ripartite fra gli insegnamenti coinvolti in proporzione alle ore settimanali che ogni insegnamento ha in quell'anno di corso. Il calcolo è fatto su una UDA per volta, senza vincoli cumulativi sull'anno.",
     "arrotondamento": "Metodo dei resti maggiori: le ore intere avanzate vanno agli insegnamenti con il resto più alto, così la somma coincide sempre con il monte ore dell'UDA. A parità di resto ha la precedenza l'insegnamento con più ore settimanali.",
     "monteConvenzionaleFSL": 30,
@@ -1199,9 +1199,6 @@
           "min": 4,
           "max": 6
         }
-      ],
-      "senzaOre": [
-        "Scienze Integrate"
       ]
     },
     "4.7": {
@@ -1747,58 +1744,6 @@
           "oreSett": 3,
           "min": 4,
           "max": 5
-        }
-      ]
-    },
-    "T1.1": {
-      "genere": "trasversale",
-      "anno": 1,
-      "titolo": "Educazione alla pace e alla non violenza: dalle regole quotidiane al regolamento di classe",
-      "ore": "12–15",
-      "totaleMin": 12,
-      "totaleMax": 15,
-      "voci": [
-        {
-          "ins": "Metodologie Operative",
-          "oreSett": 7,
-          "min": 4,
-          "max": 5
-        },
-        {
-          "ins": "Italiano",
-          "oreSett": 4,
-          "min": 2,
-          "max": 3
-        },
-        {
-          "ins": "Scienze Umane",
-          "oreSett": 4,
-          "min": 2,
-          "max": 3
-        },
-        {
-          "ins": "Diritto",
-          "oreSett": 2,
-          "min": 1,
-          "max": 1
-        },
-        {
-          "ins": "Scienze Motorie",
-          "oreSett": 2,
-          "min": 1,
-          "max": 1
-        },
-        {
-          "ins": "TIC",
-          "oreSett": 2,
-          "min": 1,
-          "max": 1
-        },
-        {
-          "ins": "Storia",
-          "oreSett": 1,
-          "min": 1,
-          "max": 1
         }
       ]
     },
@@ -2518,6 +2463,59 @@
       ],
       "senzaOre": [
         "TIC"
+      ]
+    },
+    "T1.1": {
+      "genere": "civica",
+      "anno": 1,
+      "titolo": "Conoscersi e collaborare: dalle regole quotidiane al regolamento di classe",
+      "ore": "33",
+      "totaleMin": 33,
+      "totaleMax": 33,
+      "assegnazioneConcordata": true,
+      "voci": [
+        {
+          "ins": "Metodologie Operative",
+          "oreSett": 7,
+          "min": 11,
+          "max": 11
+        },
+        {
+          "ins": "Italiano",
+          "oreSett": 4,
+          "min": 6,
+          "max": 6
+        },
+        {
+          "ins": "Scienze Umane",
+          "oreSett": 4,
+          "min": 6,
+          "max": 6
+        },
+        {
+          "ins": "Diritto",
+          "oreSett": 2,
+          "min": 3,
+          "max": 3
+        },
+        {
+          "ins": "Scienze Motorie",
+          "oreSett": 2,
+          "min": 3,
+          "max": 3
+        },
+        {
+          "ins": "TIC",
+          "oreSett": 2,
+          "min": 3,
+          "max": 3
+        },
+        {
+          "ins": "Storia",
+          "oreSett": 1,
+          "min": 1,
+          "max": 1
+        }
       ]
     },
     "FSL3.1": {

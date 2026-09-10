@@ -7,6 +7,7 @@
 // Cataloghi UDA pubblicati in questo sito:
 //   data-uda.json ............... 57 UDA d'asse: una per competenza intermedia, più nove proposte
 //   data-uda-trasversali.json ... UDA trasversali fra i quattro assi culturali
+//   data-uda-civica.json ......... UDA collegate al curricolo di Educazione civica
 //   data-uda-fsl.json ............ 4 UDA per la Formazione scuola-lavoro
 // ============================================================
 
@@ -42,6 +43,8 @@ const stato = {
     metaIndirizzo: null,
     catalogoTrasversali: [],    // UDA trasversali — data-uda-trasversali.json
     metaTrasversali: null,
+    catalogoCivica: [],         // UDA di Educazione civica — data-uda-civica.json
+    metaCivica: null,
     catalogoFsl: [],            // 4 UDA FSL — data-uda-fsl.json
     metaFsl: null,
     uda: [],            // UDA inserite nel PFI
@@ -168,10 +171,11 @@ function costruisciAnnualita() {
 // ============================================================
 
 async function caricaCataloghi() {
-    // Tre cataloghi pubblicati nel sito: UDA d'asse + trasversali + FSL
-    const [asse, trasv, fsl, unificate, generale] = await Promise.allSettled([
+    // Cataloghi pubblicati nel sito: UDA d'asse + trasversali + Educazione civica + FSL
+    const [asse, trasv, civica, fsl, unificate, generale] = await Promise.allSettled([
         fetch('data-uda.json', { cache: 'no-store' }).then(r => r.json()),
         fetch('data-uda-trasversali.json', { cache: 'no-store' }).then(r => r.json()),
+        fetch('data-uda-civica.json', { cache: 'no-store' }).then(r => r.json()),
         fetch('data-uda-fsl.json', { cache: 'no-store' }).then(r => r.json()),
         fetch('data-uda-unificate.json', { cache: 'no-store' }).then(r => r.json()),
         fetch('data-area-generale.json', { cache: 'no-store' }).then(r => r.json())
@@ -189,6 +193,13 @@ async function caricaCataloghi() {
         stato.metaTrasversali = trasv.value.meta || null;
     } else {
         console.error('Impossibile caricare il catalogo delle UDA trasversali:', trasv.reason);
+    }
+
+    if (civica.status === 'fulfilled') {
+        stato.catalogoCivica = civica.value.uda || [];
+        stato.metaCivica = civica.value.meta || null;
+    } else {
+        console.error('Impossibile caricare il catalogo delle UDA di Educazione civica:', civica.reason);
     }
 
     if (fsl.status === 'fulfilled') {
@@ -217,6 +228,7 @@ function tutteLeUda() {
         ...stato.catalogoIndirizzo.map(u => ({ ...u, _fonte: 'asse' })),
         ...(stato.catalogoUnificate || []).map(u => ({ ...u, _fonte: 'unificate' })),
         ...stato.catalogoTrasversali.map(u => ({ ...u, _fonte: 'trasversale' })),
+        ...stato.catalogoCivica.map(u => ({ ...u, _fonte: 'civica' })),
         ...stato.catalogoFsl.map(u => ({ ...u, _fonte: 'fsl' }))
     ];
 }
@@ -239,7 +251,7 @@ function popolaScelta() {
         .sort((a, b) => a.anno - b.anno || a._fonte.localeCompare(b._fonte))
         .map(u => ({
             key: `${u._fonte}:${u.id}`,
-            testo: `${ANNO_ETICHETTA[u.anno]} · ${u._fonte === 'unificate' ? 'Unificata · proposta' : u._fonte === 'trasversale' ? 'Trasversale' : u._fonte === 'fsl' ? 'FSL · ' + u.areaTirocinio : competenzeIndirizzo(u).map(c => 'C' + c).join(' · ')} — ${u.titolo}`
+            testo: `${ANNO_ETICHETTA[u.anno]} · ${u._fonte === 'unificate' ? 'Unificata · proposta' : u._fonte === 'trasversale' ? 'Trasversale' : u._fonte === 'civica' ? 'Educazione civica' : u._fonte === 'fsl' ? 'FSL · ' + u.areaTirocinio : competenzeIndirizzo(u).map(c => 'C' + c).join(' · ')} — ${u.titolo}`
         }));
 
     sel.innerHTML = voci.length
@@ -285,17 +297,19 @@ function datiDaCatalogo(key) {
         };
     }
 
-    if (fonte === 'trasversale') {
-        const u = stato.catalogoTrasversali.find(x => x.id === id);
+    if (fonte === 'trasversale' || fonte === 'civica') {
+        const civica = fonte === 'civica';
+        const u = (civica ? stato.catalogoCivica : stato.catalogoTrasversali).find(x => x.id === id);
         if (!u) return null;
-        const tit = stato.metaTrasversali?.competenzeSSAS || {};
+        const meta = civica ? stato.metaCivica : stato.metaTrasversali;
+        const tit = meta?.competenzeSSAS || {};
         const ins = [...new Set([...(u.abilita || []), ...(u.saperi || [])].flatMap(x => x.ins || []))];
         return {
             titolo: u.titolo,
-            tipo: 'Trasversale',
+            tipo: civica ? 'Educazione civica' : 'Trasversale',
             anno: u.anno,
             periodo: u.periodo || '',
-            competenze: [...(u.competenzeSSAS || []).map(c => `C${c} — ${tit[c] || ''}`), ...(u.competenzeGenerali || []).map(c => `AG${c} — ${stato.titoliGenerali?.[c] || 'Competenza area generale '+c}`)].join('\n') + `\nTraguardo: ${u.traguardo || ''}`,
+            competenze: [...(u.competenzeSSAS || []).map(c => `C${c} — ${tit[c] || ''}`), ...(u.competenzeGenerali || []).map(c => `AG${c} — ${stato.titoliGenerali?.[c] || 'Competenza area generale '+c}`), ...(civica && u.competenzaEducazioneCivica ? [`EC${u.competenzaEducazioneCivica} — ${(meta?.competenzeEducazioneCivica || {})[u.competenzaEducazioneCivica] || ''}`] : [])].join('\n') + `\nTraguardo: ${u.traguardo || ''}`,
             europee: (u.competenzeEuropee || []).join('\n'),
             insegnamenti: ins.join(', '),
             saperi: (u.saperi || []).map(s => `${s.t} (${(s.ins || []).join(', ')})`).join('\n'),
@@ -310,7 +324,7 @@ function datiDaCatalogo(key) {
                          + 'processo e autovalutazione, in coerenza con i livelli QNQ.',
             livello: '',
             qnq: u.qnq || '',
-            origine: `UDA trasversale — scheda ${u.id} · assi: ${(u.assi || []).join(' · ')}`
+            origine: `${civica ? 'UDA di Educazione civica' : 'UDA trasversale'} — scheda ${u.id} · assi: ${(u.assi || []).join(' · ')}`
         };
     }
 
@@ -349,7 +363,7 @@ function riferimentiOrigine(u) {
     if(!u)return [];
     if(u.origineRefs?.length)return u.origineRefs;
     const id=(u.origine || '').match(/scheda ([\w.]+)/)?.[1];
-    return id ? [(u.tipo==='Trasversale'?'trasversale:':u.tipo==='FSL'?'fsl:':'asse:')+id] : [];
+    return id ? [(u.tipo==='Trasversale'?'trasversale:':u.tipo==='Educazione civica'?'civica:':u.tipo==='FSL'?'fsl:':'asse:')+id] : [];
 }
 function aggiungiUda(dati) {
     const refs = riferimentiOrigine(dati);
@@ -383,7 +397,7 @@ function aggiornaUda() {
                 <label class="pfi-col-2">Titolo dell'UDA <input type="text" data-campo="titolo" value="${escapeAttr(u.titolo)}"></label>
                 <label>Tipo
                     <select data-campo="tipo">
-                        ${['Indirizzo', 'Trasversale', 'FSL', 'Unificata · proposta', 'Asse culturale', 'PCTO (storico)'].map(t =>
+                        ${['Indirizzo', 'Trasversale', 'Educazione civica', 'FSL', 'Unificata · proposta', 'Asse culturale', 'PCTO (storico)'].map(t =>
                             `<option${t === u.tipo ? ' selected' : ''}>${t}</option>`).join('')}
                     </select>
                 </label>
