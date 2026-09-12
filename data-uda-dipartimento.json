@@ -2,148 +2,2177 @@
   "meta": {
     "titolo": "UDA scelte dal Dipartimento",
     "dataRiunione": "9 settembre 2026",
-    "fonte": "Verbale del Dipartimento e trascrizione della prima riunione",
-    "stato": "Quadro delle decisioni assunte",
-    "nota": "La sezione distingue le scelte confermate, i titoli ancora da definire e i punti che devono essere esplicitati nel verbale. Comprende le UDA adottate del biennio e del triennio e non modifica i cataloghi completi delle UDA."
+    "nota": "Dieci UDA adottate dal Dipartimento, organizzate per classe."
+  },
+  "riferimentiCurricolari": {
+    "competenzeGenerali": {
+      "1": "Agire in riferimento ad un sistema di valori, coerenti con i principi della Costituzione, in base ai quali essere in grado di valutare fatti e orientare i propri comportamenti personali, sociali e professionali",
+      "2": "Utilizzare il patrimonio lessicale ed espressivo della lingua italiana secondo le esigenze comunicative nei vari contesti",
+      "9": "Riconoscere i principali aspetti comunicativi, culturali e relazionali dell'espressività corporea"
+    },
+    "competenzeSSAS": {
+      "2": "Partecipare e cooperare nei gruppi di lavoro e nelle équipe",
+      "3": "Facilitare la comunicazione tra persone e gruppi"
+    },
+    "competenzeEducazioneCivica": {
+      "3": "Rispettare le regole e le norme che governano lo stato di diritto, la convivenza sociale e la vita quotidiana in famiglia, a scuola, nella comunità e nel mondo del lavoro, per rapportarsi correttamente con gli altri, esercitare consapevolmente diritti e doveri e contribuire al bene comune e al rispetto dei diritti delle persone."
+    },
+    "tipologieEsame": [
+      {
+        "id": "A",
+        "definizione": "Redazione di una relazione professionale sulla base dell’analisi di documenti, tabelle, dati."
+      },
+      {
+        "id": "B",
+        "definizione": "Analisi e soluzione di problematiche in un contesto operativo riguardante l’area professionale (caso aziendale/caso professionale)."
+      },
+      {
+        "id": "C",
+        "definizione": "Individuazione, predisposizione o descrizione delle fasi per la realizzazione di un servizio."
+      },
+      {
+        "id": "D",
+        "definizione": "Elaborazione di un progetto finalizzato all’innovazione della filiera di produzione e/o alla promozione di servizi e prestazioni professionali del settore."
+      }
+    ],
+    "grigliaEsame": [
+      {
+        "indicatore": "Uso del patrimonio lessicale ed espressivo della lingua italiana secondo le esigenze comunicative del contesto professionale",
+        "max": 4,
+        "livelli": [
+          "4 — linguaggio preciso, pertinente e adeguato al destinatario",
+          "3 — linguaggio generalmente corretto e appropriato",
+          "2 — linguaggio semplice, con alcune imprecisioni",
+          "1 — esposizione frammentaria o poco comprensibile",
+          "0 — prestazione assente o non valutabile"
+        ]
+      },
+      {
+        "indicatore": "Utilizzo della struttura logico-espositiva coerente con la tipologia di prova",
+        "max": 3,
+        "livelli": [
+          "3 — struttura pienamente coerente con la tipologia assegnata",
+          "2 — struttura riconoscibile e nel complesso coerente",
+          "1 — struttura parziale o discontinua",
+          "0 — struttura non riconducibile alla tipologia"
+        ]
+      },
+      {
+        "indicatore": "Padronanza delle conoscenze relative ai nuclei tematici fondamentali di riferimento della prova",
+        "max": 5,
+        "livelli": [
+          "5 — conoscenze complete, pertinenti e integrate",
+          "4 — conoscenze solide con lievi omissioni",
+          "3 — conoscenze essenziali e generalmente corrette",
+          "2 — conoscenze parziali o poco collegate",
+          "1 — conoscenze frammentarie",
+          "0 — conoscenze non rilevabili"
+        ]
+      },
+      {
+        "indicatore": "Ricorso agli aspetti delle competenze professionali specifiche utili a conseguire le finalità dell’elaborato",
+        "max": 8,
+        "livelli": [
+          "8 — mobilita e integra le competenze motivando scelte efficaci e sostenibili",
+          "6 — applica competenze pertinenti con motivazione generalmente adeguata",
+          "4 — applica gli elementi essenziali con motivazione limitata",
+          "2 — propone elementi frammentari o poco applicabili",
+          "0 — competenza professionale non rilevabile"
+        ]
+      }
+    ]
   },
   "classi": [
     {
       "anno": 1,
-      "sintesi": "Convivenza · regole e collaborazione",
+      "sintesi": "Convivenza, regole e collaborazione",
       "decisioni": [
         {
           "id": "DIP1-CIVICA",
           "categoria": "Educazione civica",
-          "stato": "Adottata · titolo modificato",
-          "titolo": "Conoscersi e collaborare: dalle regole quotidiane al regolamento di classe",
-          "descrizione": "Percorso sulla convivenza scolastica, sul rispetto delle regole, sulla comunicazione non conflittuale e sulla costruzione condivisa del regolamento di classe.",
-          "riferimenti": ["T1.1"],
-          "catalogo": "uda-civica.html",
-          "catalogoEtichetta": "Apri il catalogo di Educazione civica"
+          "stato": "Adottata",
+          "unita": [
+            {
+              "id": "DIP1-CIVICA",
+              "anno": 1,
+              "periodo": "Intero anno scolastico",
+              "titolo": "Conoscersi e collaborare: dalle regole quotidiane al regolamento di classe",
+              "nucleoEducazioneCivica": "Costituzione",
+              "competenzaEducazioneCivica": 3,
+              "obiettivoEducazioneCivica": "Conoscere e osservare le disposizioni dei regolamenti scolastici, partecipare attraverso le proprie rappresentanze alla loro eventuale revisione; rispettare sé stessi, gli altri e i beni pubblici, a iniziare da quelli scolastici; collegare il rispetto delle regole nei contesti di vita ai comportamenti di legalità nella comunità più ampia.",
+              "assi": [
+                "Asse storico sociale",
+                "Asse dei linguaggi",
+                "Asse scientifico, tecnologico e professionale"
+              ],
+              "competenzeGenerali": [
+                1,
+                2,
+                9
+              ],
+              "competenzeSSAS": [
+                3,
+                2
+              ],
+              "competenzeEuropee": [
+                "Competenza in materia di cittadinanza",
+                "Competenza personale, sociale e capacità di imparare a imparare"
+              ],
+              "traguardo": "Rispettare le regole che governano la convivenza scolastica, comunicare e rapportarsi correttamente con gli altri, esercitare consapevolmente diritti e doveri e contribuire al bene comune e al rispetto dei diritti delle persone.",
+              "compito": "Regolamento di convivenza della classe elaborato dagli studenti: analisi di casi di conflitto realmente accaduti, individuazione delle regole necessarie, confronto con il regolamento d'istituto, stesura del testo e discussione in assemblea con votazione finale.",
+              "ore": "33",
+              "oreRipartizione": {
+                "Metodologie Operative": 11,
+                "Italiano": 6,
+                "Scienze Umane": 6,
+                "Diritto": 3,
+                "TIC": 3,
+                "Scienze Motorie": 3,
+                "Storia": 1
+              },
+              "abilita": [
+                {
+                  "t": "Ricondurre comportamenti quotidiani ai principi della Costituzione e alle disposizioni del regolamento scolastico",
+                  "ins": [
+                    "Diritto",
+                    "Storia"
+                  ]
+                },
+                {
+                  "t": "Produrre un testo regolativo chiaro, coeso e adeguato al destinatario",
+                  "ins": [
+                    "Italiano"
+                  ]
+                },
+                {
+                  "t": "Individuare stereotipi, pregiudizi e modalità comportamentali volte al loro superamento",
+                  "ins": [
+                    "Scienze Umane",
+                    "Storia"
+                  ]
+                },
+                {
+                  "t": "Ascoltare attivamente, esporre le proprie idee e comunicare in modo non conflittuale nel gruppo",
+                  "ins": [
+                    "Scienze Umane",
+                    "Italiano"
+                  ]
+                },
+                {
+                  "t": "Osservare le dinamiche del gruppo classe e annotarle con strumenti strutturati",
+                  "ins": [
+                    "Scienze Umane",
+                    "Metodologie Operative"
+                  ]
+                },
+                {
+                  "t": "Riconoscere nella gestualità e nella prossemica segnali di aggressività e di apertura",
+                  "ins": [
+                    "Scienze Motorie"
+                  ]
+                },
+                {
+                  "t": "Redigere e condividere il documento in formato digitale",
+                  "ins": [
+                    "TIC"
+                  ]
+                }
+              ],
+              "saperi": [
+                {
+                  "t": "Principi fondamentali della Costituzione: artt. 2, 3, 11",
+                  "ins": [
+                    "Diritto",
+                    "Storia"
+                  ]
+                },
+                {
+                  "t": "Regolamento scolastico: funzione, disposizioni e forme di partecipazione degli studenti",
+                  "ins": [
+                    "Diritto",
+                    "Metodologie Operative"
+                  ]
+                },
+                {
+                  "t": "Il testo regolativo: struttura, lessico, funzione",
+                  "ins": [
+                    "Italiano"
+                  ]
+                },
+                {
+                  "t": "Culture, contesti, gruppi sociali, pregiudizi e stereotipi",
+                  "ins": [
+                    "Scienze Umane",
+                    "Storia"
+                  ]
+                },
+                {
+                  "t": "Il gruppo, le sue dinamiche e la comunicazione non conflittuale",
+                  "ins": [
+                    "Scienze Umane",
+                    "Italiano"
+                  ]
+                },
+                {
+                  "t": "Conflitto, aggressività, mediazione: nozioni di base",
+                  "ins": [
+                    "Scienze Umane"
+                  ]
+                },
+                {
+                  "t": "Tecniche elementari di osservazione del gruppo",
+                  "ins": [
+                    "Metodologie Operative"
+                  ]
+                },
+                {
+                  "t": "Comunicazione non verbale e linguaggio del corpo",
+                  "ins": [
+                    "Scienze Motorie"
+                  ]
+                },
+                {
+                  "t": "Videoscrittura e condivisione di documenti",
+                  "ins": [
+                    "TIC"
+                  ]
+                }
+              ],
+              "situazione": "In una classe appena formata i conflitti nascono ogni giorno e vengono affrontati d'istinto: alzando la voce, escludendo o lasciando perdere. La classe deve conoscere le regole dell'istituto, discuterne il significato e tradurle in un patto di convivenza motivato.",
+              "prodotto": "Regolamento di convivenza della classe, coerente con il regolamento d'istituto, discusso e votato dagli studenti.",
+              "beneficiari": "Il gruppo classe, che adotta il regolamento e lo applica per tutto l'anno.",
+              "ambito": "interna",
+              "tipo": "Educazione civica",
+              "qnq": "2",
+              "competenza": 3,
+              "sviluppata": true
+            }
+          ]
         }
       ]
     },
     {
       "anno": 2,
-      "sintesi": "Gioco · fiaba e racconto",
+      "sintesi": "Fiaba, racconto e gioco",
       "decisioni": [
         {
           "id": "DIP2-TRASVERSALE",
           "categoria": "UDA trasversale",
           "stato": "Adottata",
-          "titolo": "Fiaba e racconto come strumento di crescita",
-          "descrizione": "Laboratorio interdisciplinare su fiaba, racconto, lettura animata e gioco come strumenti educativi e di crescita per i bambini.",
-          "riferimenti": ["T2.1"],
-          "catalogo": "uda-trasversali.html",
-          "catalogoEtichetta": "Apri il catalogo UDA trasversali"
+          "unita": [
+            {
+              "id": "DIP2-TRASVERSALE",
+              "anno": 2,
+              "periodo": "1° quadrimestre",
+              "titolo": "Fiaba e racconto come strumento di crescita",
+              "assi": [
+                "Asse dei linguaggi",
+                "Asse scientifico, tecnologico e professionale",
+                "Asse storico sociale"
+              ],
+              "competenzeGenerali": [
+                2,
+                4,
+                6
+              ],
+              "competenzeSSAS": [
+                8,
+                4
+              ],
+              "competenzeEuropee": [
+                "Competenza alfabetica funzionale",
+                "Competenza in materia di consapevolezza ed espressione culturali"
+              ],
+              "traguardo": "Realizzare una semplice attività di animazione ludica e sociale in un contesto noto, riconoscendo e adattando materiali e modalità ai bisogni legati all'età dei bambini.",
+              "compito": "Laboratorio di lettura animata per una sezione della scuola dell'infanzia: scelta motivata di tre testi, adattamento per la lettura ad alta voce, realizzazione dell'attività e osservazione documentata delle reazioni dei bambini.",
+              "ore": "15–18",
+              "abilita": [
+                {
+                  "t": "Analizzare la struttura narrativa di una fiaba e le sue funzioni",
+                  "ins": [
+                    "Italiano"
+                  ]
+                },
+                {
+                  "t": "Adattare un testo alla fascia d'età e leggerlo ad alta voce con efficacia",
+                  "ins": [
+                    "Italiano"
+                  ]
+                },
+                {
+                  "t": "Identificare e applicare semplici tecniche di animazione alla lettura",
+                  "ins": [
+                    "Metodologie Operative"
+                  ]
+                },
+                {
+                  "t": "Riconoscere i bisogni del bambino legati all'età e adattare testo, tempi e materiali",
+                  "ins": [
+                    "Scienze Umane",
+                    "Metodologie Operative"
+                  ]
+                },
+                {
+                  "t": "Usare voce, gesto e movimento come strumenti educativi e di animazione",
+                  "ins": [
+                    "Scienze Motorie",
+                    "Metodologie Operative"
+                  ]
+                },
+                {
+                  "t": "Osservare e registrare le reazioni del gruppo con una griglia strutturata",
+                  "ins": [
+                    "Scienze Umane",
+                    "Metodologie Operative"
+                  ]
+                },
+                {
+                  "t": "Confrontare varianti della stessa fiaba in tradizioni culturali diverse",
+                  "ins": [
+                    "Storia",
+                    "Inglese",
+                    "Spagnolo"
+                  ]
+                },
+                {
+                  "t": "Realizzare supporti illustrati o sonori per la narrazione",
+                  "ins": [
+                    "TIC"
+                  ]
+                }
+              ],
+              "saperi": [
+                {
+                  "t": "Struttura della fiaba e funzioni narrative",
+                  "ins": [
+                    "Italiano"
+                  ]
+                },
+                {
+                  "t": "Sviluppo del linguaggio, dell'immaginazione e principali bisogni legati all'età del bambino",
+                  "ins": [
+                    "Scienze Umane",
+                    "Metodologie Operative"
+                  ]
+                },
+                {
+                  "t": "Tecniche di animazione alla lettura",
+                  "ins": [
+                    "Metodologie Operative"
+                  ]
+                },
+                {
+                  "t": "Tecniche ludico-motorie per l'animazione e la socializzazione",
+                  "ins": [
+                    "Scienze Motorie",
+                    "Metodologie Operative"
+                  ]
+                },
+                {
+                  "t": "Tradizioni narrative locali, nazionali e internazionali",
+                  "ins": [
+                    "Storia",
+                    "Inglese",
+                    "Spagnolo"
+                  ]
+                },
+                {
+                  "t": "Produzione di materiali multimediali semplici",
+                  "ins": [
+                    "TIC"
+                  ]
+                }
+              ],
+              "situazione": "Nei servizi per l'infanzia si legge ai bambini, ma spesso senza sapere perché quel testo e non un altro, e senza osservare che effetto produce.",
+              "prodotto": "Laboratorio di lettura animata per una sezione della scuola dell'infanzia: scelta motivata di tre testi, adattamento per la lettura ad alta voce, realizzazione dell'attività e osservazione documentata delle reazioni dei bambini.",
+              "beneficiari": "I bambini della sezione della scuola dell'infanzia e le loro insegnanti.",
+              "ambito": "esterna",
+              "tipo": "Trasversale",
+              "qnq": "2",
+              "competenza": 8,
+              "sviluppata": true
+            }
+          ]
         }
       ]
     },
     {
       "anno": 3,
-      "sintesi": "Minori · prevenzione e tutela",
+      "sintesi": "Minori, prevenzione e tutela",
       "decisioni": [
         {
           "id": "DIP3-FSL",
           "categoria": "FSL",
-          "stato": "Confermata nei due incontri",
-          "titolo": "Area minori: osservare, accompagnare e documentare",
-          "descrizione": "Secondo quadrimestre: osservazione del contesto FSL, bisogni, servizi e figure professionali, con restituzione finale.",
-          "riferimenti": ["FSL3.1"],
-          "catalogo": "uda-fsl.html",
-          "catalogoEtichetta": "Apri il catalogo UDA FSL"
+          "stato": "Adottata",
+          "unita": [
+            {
+              "id": "DIP3-FSL",
+              "tipo": "FSL",
+              "anno": 3,
+              "periodo": "Preparazione · esperienza in struttura · rielaborazione",
+              "areaTirocinio": "Area minori",
+              "qnq": "3",
+              "titolo": "Area minori: osservare, accompagnare e documentare",
+              "competenzeSSAS": [
+                4,
+                1,
+                5
+              ],
+              "competenzeEuropee": [
+                "Competenza personale, sociale e capacità di imparare a imparare",
+                "Competenza in materia di cittadinanza"
+              ],
+              "traguardo": "Programmare e realizzare, sotto la guida dei tutor, semplici azioni rivolte al benessere del minore, riconoscendo compiti, protocolli, bisogni e modalità di documentazione del servizio.",
+              "situazione": "La classe si prepara a un'esperienza nell'area minori. La scuola dell'infanzia è una possibile sede, ma il percorso resta adattabile ad altri servizi socio-educativi definiti nel progetto formativo.",
+              "compito": "Prima dell'inserimento, costruire una scheda adattabile per osservazione, sicurezza, regole del servizio e proposta di una semplice attività. Durante l'esperienza, osservare e collaborare esclusivamente nelle attività autorizzate dai tutor. Al termine, produrre una rielaborazione professionale anonima che colleghi bisogni, attività, protocolli e apprendimenti.",
+              "prodotto": "Dossier FSL individuale: profilo del servizio, griglia di osservazione, piano di una semplice attività, diario riflessivo e relazione finale anonimizzata.",
+              "beneficiari": "Minori accolti dal servizio, nel rispetto del progetto formativo e sotto supervisione",
+              "ambito": "Struttura ospitante dell'area minori; scuola dell'infanzia come esempio non vincolante",
+              "ore": "Da definire nel piano FSL d'istituto e nel progetto formativo individuale",
+              "abilita": [
+                {
+                  "t": "Riconoscere bisogni, routine, risorse e fattori di benessere del minore nel contesto osservato",
+                  "ins": [
+                    "PSICOLOGIA GENERALE ED APPLICATA",
+                    "METODOLOGIE OPERATIVE"
+                  ]
+                },
+                {
+                  "t": "Decodificare compiti, procedure e responsabilità delle figure presenti nel servizio",
+                  "ins": [
+                    "METODOLOGIE OPERATIVE",
+                    "DIRITTO E TEC. AMM."
+                  ]
+                },
+                {
+                  "t": "Applicare indicazioni di igiene e sicurezza pertinenti alle attività autorizzate",
+                  "ins": [
+                    "IGIENE E CULTURA MEDICO SANITARIA",
+                    "METODOLOGIE OPERATIVE"
+                  ]
+                },
+                {
+                  "t": "Compilare strumenti di osservazione e documentazione tutelando riservatezza e identità",
+                  "ins": [
+                    "METODOLOGIE OPERATIVE",
+                    "DIRITTO E TEC. AMM."
+                  ]
+                }
+              ],
+              "saperi": [
+                {
+                  "t": "Tecniche di osservazione e accudimento in età evolutiva",
+                  "ins": [
+                    "PSICOLOGIA GENERALE ED APPLICATA",
+                    "METODOLOGIE OPERATIVE"
+                  ]
+                },
+                {
+                  "t": "Elementi di puericultura e igiene del bambino",
+                  "ins": [
+                    "IGIENE E CULTURA MEDICO SANITARIA"
+                  ]
+                },
+                {
+                  "t": "Norme igieniche e di sicurezza sul lavoro",
+                  "ins": [
+                    "IGIENE E CULTURA MEDICO SANITARIA"
+                  ]
+                },
+                {
+                  "t": "Linee guida, protocolli e procedure",
+                  "ins": [
+                    "METODOLOGIE OPERATIVE",
+                    "IGIENE E CULTURA MEDICO SANITARIA"
+                  ]
+                },
+                {
+                  "t": "Metodologia del lavoro sociale, socio-sanitario socio-educativo",
+                  "ins": [
+                    "METODOLOGIE OPERATIVE",
+                    "PSICOLOGIA GENERALE ED APPLICATA"
+                  ]
+                },
+                {
+                  "t": "I soggetti giuridici del settore profit, no profit del settore pubblico",
+                  "ins": [
+                    "DIRITTO E TEC. AMM.",
+                    "METODOLOGIE OPERATIVE"
+                  ]
+                }
+              ],
+              "integrazioniSaperi": [],
+              "sviluppata": false
+            }
+          ]
         },
         {
           "id": "DIP3-ASSE",
           "categoria": "UDA d’asse",
-          "stato": "Fusione deliberata",
-          "titolo": "Prevenzione, tutela, diritti dei minori e servizi",
-          "descrizione": "Un’unica UDA ottenuta dalla fusione di “Crescere insieme · Caccia al rischio” e “Prevenire è curare · Progetto benessere a scuola”.",
-          "riferimenti": ["U3.3", "U3.4"],
-          "catalogo": "uda-unificate.html",
-          "catalogoEtichetta": "Apri le UDA d’asse unificate"
+          "stato": "Adottata",
+          "unita": [
+            {
+              "id": "DIP3-ASSE",
+              "anno": 3,
+              "collegataA": "",
+              "derivaDa": "",
+              "collocazione": "",
+              "raccordoProfilo": [
+                {
+                  "competenza": 4,
+                  "testo": "Competenza in uscita n° 4: Prendersi cura e collaborare al soddisfacimento dei bisogni di base di bambini, persone con disabilità, anziani nell’espletamento delle più comuni attività quotidiane."
+                },
+                {
+                  "competenza": 6,
+                  "testo": "Competenza in uscita n° 6: Curare l’allestimento dell’ambiente di vita della persona in difficoltà con riferimento alle misure per la salvaguardia della sua sicurezza e incolumità, anche provvedendo alla promozione e al mantenimento delle capacità residue e della autonomia nel proprio ambiente di vita."
+                },
+                {
+                  "competenza": 5,
+                  "testo": "Competenza in uscita n° 5: Partecipare alla presa in carico socio-assistenziale di soggetti le cui condizioni determinino uno stato di non autosufficienza parziale o totale, di terminalità, di compromissione delle capacità cognitive e motorie, applicando procedure e tecniche stabilite e facendo uso dei principali ausili e presidi."
+                },
+                {
+                  "competenza": 9,
+                  "testo": "Competenza in uscita n° 9: Realizzare, in collaborazione con altre figure professionali, azioni a sostegno e a tutela della persona con fragilità e/o disabilità e della sua famiglia, per favorire l’integrazione e migliorare o salvaguardare la qualità della vita."
+                }
+              ],
+              "condizioniRealizzazione": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta.",
+              "titolo": "Prevenzione, tutela, diritti dei minori e servizi",
+              "titoliOrigine": [
+                "Crescere insieme · Caccia al rischio",
+                "Prevenire è curare · Progetto benessere a scuola"
+              ],
+              "competenze": [
+                4,
+                6,
+                5,
+                9
+              ],
+              "qnq": "3",
+              "traguardo": "Programmare azioni guidate di osservazione e accudimento del bambino e rilevare le condizioni di sicurezza dell’ambiente\n\nProgettare e realizzare azioni di prevenzione primaria su bisogni socio-sanitari rilevati nel proprio contesto di vita",
+              "traguardiOrigine": [
+                {
+                  "competenza": 4,
+                  "testo": "Programmare azioni per soddisfare bisogni e favorire il benessere del bambino",
+                  "scheda": "3.4"
+                },
+                {
+                  "competenza": 6,
+                  "testo": "Rilevare e segnalare situazioni di rischio e pericolo negli ambienti di vita e di lavoro",
+                  "scheda": "3.6"
+                },
+                {
+                  "competenza": 5,
+                  "testo": "Programmare semplici azioni per bisogni socio-assistenziali e sanitari in ottica di prevenzione",
+                  "scheda": "3.5"
+                },
+                {
+                  "competenza": 9,
+                  "testo": "Collaborare all'attuazione di programmi di prevenzione primaria nei propri ambiti di vita",
+                  "scheda": "3.9"
+                }
+              ],
+              "compito": "Piano di attività di osservazione e accudimento per la prima infanzia con schede operative e norme igieniche applicate, preceduto dal sopralluogo dell'ambiente educativo con schede di rilevazione dei rischi e report di segnalazione formale.\n\nAzione di prevenzione primaria realizzata a scuola su un tema rilevato con scheda bisogni-risorse-vincoli — dipendenze, benessere digitale, affettività, igiene, vaccinazioni, uso corretto dei farmaci — con materiali informativi e protocollo d'intervento.",
+              "sintesi": "Progettare attività di accudimento per la prima infanzia e rilevare i rischi dell’ambiente educativo.\n\nRealizzare una semplice azione di prevenzione primaria a scuola, partendo da bisogni rilevati e fonti affidabili.",
+              "ore": "58–60 + 30–35",
+              "abilita": [
+                {
+                  "t": "Adottare tecniche di osservazione e accudimento del bambino",
+                  "ins": [
+                    "Psicologia",
+                    "Metodologie Operative"
+                  ]
+                },
+                {
+                  "t": "Applicare norme igieniche e di sicurezza",
+                  "ins": [
+                    "Igiene e Cultura M.S."
+                  ]
+                },
+                {
+                  "t": "Individuare gli istituti di tutela",
+                  "ins": [
+                    "Diritto e T.A."
+                  ]
+                },
+                {
+                  "t": "Predisporre semplici piani di lavoro",
+                  "ins": [
+                    "Metodologie Operative"
+                  ]
+                },
+                {
+                  "t": "Utilizzare schede di rilevazione dei rischi e pericoli negli ambienti di vita e di lavoro",
+                  "ins": [
+                    "Metodologie Operative",
+                    "TIC"
+                  ]
+                },
+                {
+                  "t": "Distinguere i principali stati patologici",
+                  "ins": [
+                    "Igiene e Cultura M.S.",
+                    "Psicologia"
+                  ]
+                },
+                {
+                  "t": "Individuare interventi di prevenzione e sanità pubblica",
+                  "ins": [
+                    "Igiene e Cultura M.S."
+                  ]
+                },
+                {
+                  "t": "Riconoscere i meccanismi d'azione dei farmaci",
+                  "ins": [
+                    "Igiene e Cultura M.S."
+                  ]
+                },
+                {
+                  "t": "Riconoscere i servizi di primo intervento",
+                  "ins": [
+                    "Igiene e Cultura M.S.",
+                    "Metodologie Operative"
+                  ]
+                },
+                {
+                  "t": "Identificare le caratteristiche multifattoriali del benessere psico-fisico-sociale",
+                  "ins": [
+                    "Igiene e Cultura M.S.",
+                    "Psicologia"
+                  ]
+                },
+                {
+                  "t": "Individuare bisogni, risorse, vincoli e limiti",
+                  "ins": [
+                    "Metodologie Operative"
+                  ]
+                },
+                {
+                  "t": "Riconoscere la prevenzione sociale",
+                  "ins": [
+                    "Igiene e Cultura M.S.",
+                    "Metodologie Operative"
+                  ]
+                }
+              ],
+              "saperi": [
+                {
+                  "t": "Elementi di puericultura e igiene del bambino",
+                  "ins": [
+                    "Igiene e Cultura M.S."
+                  ]
+                },
+                {
+                  "t": "Tecniche di osservazione in età evolutiva",
+                  "ins": [
+                    "Psicologia",
+                    "Metodologie Operative"
+                  ]
+                },
+                {
+                  "t": "Diritti della personalità",
+                  "ins": [
+                    "Diritto e T.A."
+                  ]
+                },
+                {
+                  "t": "I piani di lavoro",
+                  "ins": [
+                    "Metodologie Operative"
+                  ]
+                },
+                {
+                  "t": "Norme di sicurezza negli ambienti di vita e di lavoro",
+                  "ins": [
+                    "Igiene e Cultura M.S.",
+                    "Metodologie Operative"
+                  ]
+                },
+                {
+                  "t": "Prevenzione dei rischi e degli incidenti",
+                  "ins": [
+                    "Igiene e Cultura M.S.",
+                    "Metodologie Operative"
+                  ]
+                },
+                {
+                  "t": "Le schede di rilevazione",
+                  "ins": [
+                    "Metodologie Operative",
+                    "TIC"
+                  ]
+                },
+                {
+                  "t": "Principi di sanità pubblica e livelli di prevenzione",
+                  "ins": [
+                    "Igiene e Cultura M.S."
+                  ]
+                },
+                {
+                  "t": "Elementi di farmacologia",
+                  "ins": [
+                    "Igiene e Cultura M.S."
+                  ]
+                },
+                {
+                  "t": "Legislazione socio-assistenziale e sanitaria",
+                  "ins": [
+                    "Diritto e T.A.",
+                    "Metodologie Operative"
+                  ]
+                },
+                {
+                  "t": "Strumenti di rilevazione dei bisogni",
+                  "ins": [
+                    "Metodologie Operative"
+                  ]
+                },
+                {
+                  "t": "La salute come benessere bio-psico-sociale",
+                  "ins": [
+                    "Igiene e Cultura M.S.",
+                    "Psicologia"
+                  ]
+                },
+                {
+                  "t": "Tipi, finalità e metodi della prevenzione sociale",
+                  "ins": [
+                    "Igiene e Cultura M.S.",
+                    "Metodologie Operative"
+                  ]
+                },
+                {
+                  "t": "Integrazione sociale, scolastica e lavorativa",
+                  "ins": [
+                    "Metodologie Operative",
+                    "Psicologia"
+                  ],
+                  "notaAttribuzione": "Scelta didattica dei docenti oltre le attribuzioni del curricolo verticale; da ratificare in dipartimento."
+                }
+              ],
+              "sviluppata": null,
+              "materialiOrigine": [
+                {
+                  "scheda": "3.4",
+                  "riferimento": "UDA formale già sviluppata: UDA_III_Anno_SSAS",
+                  "stato": "Riferimento ereditato dal catalogo; adattamento alla proposta da verificare"
+                }
+              ],
+              "rubrica": [
+                {
+                  "competenza": 4,
+                  "indicatore": "Programma attività di accudimento coerenti con età e bisogni del bambino",
+                  "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+                  "livelli": [
+                    {
+                      "livello": "1 · In via di acquisizione",
+                      "descrittore": "Rispetto a «Programma attività di accudimento coerenti con età e bisogni del bambino», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+                    },
+                    {
+                      "livello": "2 · Base",
+                      "descrittore": "Rispetto a «Programma attività di accudimento coerenti con età e bisogni del bambino», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+                    },
+                    {
+                      "livello": "3 · Intermedio",
+                      "descrittore": "Rispetto a «Programma attività di accudimento coerenti con età e bisogni del bambino», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+                    },
+                    {
+                      "livello": "4 · Avanzato",
+                      "descrittore": "Rispetto a «Programma attività di accudimento coerenti con età e bisogni del bambino», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+                    }
+                  ]
+                },
+                {
+                  "competenza": 6,
+                  "indicatore": "Rileva rischi nell’ambiente e redige una segnalazione con priorità e destinatario appropriati",
+                  "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+                  "livelli": [
+                    {
+                      "livello": "1 · In via di acquisizione",
+                      "descrittore": "Rispetto a «Rileva rischi nell’ambiente e redige una segnalazione con priorità e destinatario appropriati», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+                    },
+                    {
+                      "livello": "2 · Base",
+                      "descrittore": "Rispetto a «Rileva rischi nell’ambiente e redige una segnalazione con priorità e destinatario appropriati», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+                    },
+                    {
+                      "livello": "3 · Intermedio",
+                      "descrittore": "Rispetto a «Rileva rischi nell’ambiente e redige una segnalazione con priorità e destinatario appropriati», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+                    },
+                    {
+                      "livello": "4 · Avanzato",
+                      "descrittore": "Rispetto a «Rileva rischi nell’ambiente e redige una segnalazione con priorità e destinatario appropriati», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+                    }
+                  ]
+                },
+                {
+                  "competenza": 5,
+                  "indicatore": "Formula semplici azioni preventive coerenti con bisogni, risorse e vincoli rilevati",
+                  "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+                  "livelli": [
+                    {
+                      "livello": "1 · In via di acquisizione",
+                      "descrittore": "Rispetto a «Formula semplici azioni preventive coerenti con bisogni, risorse e vincoli rilevati», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+                    },
+                    {
+                      "livello": "2 · Base",
+                      "descrittore": "Rispetto a «Formula semplici azioni preventive coerenti con bisogni, risorse e vincoli rilevati», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+                    },
+                    {
+                      "livello": "3 · Intermedio",
+                      "descrittore": "Rispetto a «Formula semplici azioni preventive coerenti con bisogni, risorse e vincoli rilevati», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+                    },
+                    {
+                      "livello": "4 · Avanzato",
+                      "descrittore": "Rispetto a «Formula semplici azioni preventive coerenti con bisogni, risorse e vincoli rilevati», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+                    }
+                  ]
+                },
+                {
+                  "competenza": 9,
+                  "indicatore": "Contribuisce all’attuazione della prevenzione primaria a scuola e ne documenta gli esiti",
+                  "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+                  "livelli": [
+                    {
+                      "livello": "1 · In via di acquisizione",
+                      "descrittore": "Rispetto a «Contribuisce all’attuazione della prevenzione primaria a scuola e ne documenta gli esiti», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+                    },
+                    {
+                      "livello": "2 · Base",
+                      "descrittore": "Rispetto a «Contribuisce all’attuazione della prevenzione primaria a scuola e ne documenta gli esiti», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+                    },
+                    {
+                      "livello": "3 · Intermedio",
+                      "descrittore": "Rispetto a «Contribuisce all’attuazione della prevenzione primaria a scuola e ne documenta gli esiti», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+                    },
+                    {
+                      "livello": "4 · Avanzato",
+                      "descrittore": "Rispetto a «Contribuisce all’attuazione della prevenzione primaria a scuola e ne documenta gli esiti», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+                    }
+                  ]
+                }
+              ],
+              "criterioValutazione": "Livelli descrittivi proposti, senza conversione automatica in voto o certificazione. Strumenti compensativi e supporti previsti non penalizzano il livello. Se l’evidenza manca, registrare «Non osservato», senza assegnare automaticamente il livello 1. Valutare separatamente ciascuna competenza.",
+              "pianificazione": {
+                "stato": "Da deliberare dal consiglio di classe",
+                "oreOrigine": [
+                  {
+                    "scheda": "3.4",
+                    "ore": "48"
+                  },
+                  {
+                    "scheda": "3.6",
+                    "ore": "10–12"
+                  },
+                  {
+                    "scheda": "3.5",
+                    "ore": "18–20"
+                  },
+                  {
+                    "scheda": "3.9",
+                    "ore": "12–15"
+                  }
+                ],
+                "oreProgettate": null,
+                "nota": "Il totale esposto è la somma delle ore di origine, non un nuovo monte ore validato. Le fasi seguenti non hanno ancora ore assegnate. Contare una sola volta le attività comuni; non sommare questa proposta e le sue schede di origine nel piano annuale.",
+                "fasi": [
+                  {
+                    "attivita": "Analisi del caso del bambino e dei bisogni",
+                    "ore": null,
+                    "insegnamenti": [],
+                    "periodo": null
+                  },
+                  {
+                    "attivita": "Rilevazione dei rischi dell’ambiente e segnalazione",
+                    "ore": null,
+                    "insegnamenti": [],
+                    "periodo": null
+                  },
+                  {
+                    "attivita": "Progettazione e simulazione delle attività di accudimento",
+                    "ore": null,
+                    "insegnamenti": [],
+                    "periodo": null
+                  },
+                  {
+                    "attivita": "Verifica individuale di accudimento e sicurezza",
+                    "ore": null,
+                    "insegnamenti": [],
+                    "periodo": null
+                  },
+                  {
+                    "attivita": "Analisi della consegna, dei destinatari e delle fonti del caso",
+                    "ore": null,
+                    "insegnamenti": [],
+                    "periodo": null
+                  },
+                  {
+                    "attivita": "Progettazione delle azioni collegate nel compito di realtà",
+                    "ore": null,
+                    "insegnamenti": [],
+                    "periodo": null
+                  },
+                  {
+                    "attivita": "Realizzazione e documentazione del compito nelle condizioni concordate",
+                    "ore": null,
+                    "insegnamenti": [],
+                    "periodo": null
+                  },
+                  {
+                    "attivita": "Verifica individuale per competenza, restituzione e autovalutazione",
+                    "ore": null,
+                    "insegnamenti": [],
+                    "periodo": null
+                  }
+                ],
+                "decisioniNecessarie": [
+                  "Confermare contesto, destinatari e disponibilità di eventuali partner o laboratori",
+                  "Attribuire attività, ore e periodo a ciascun insegnamento effettivamente presente nell’annualità",
+                  "Identificare attività condivise e raccordi con altre UDA senza doppio conteggio",
+                  "Validare rubriche, prove individuali e supporti previsti per gli studenti"
+                ]
+              },
+              "provenienzaContenuti": [
+                {
+                  "scheda": "3.4",
+                  "competenza": 4,
+                  "abilita": [
+                    {
+                      "t": "Adottare tecniche di osservazione e accudimento del bambino",
+                      "ins": [
+                        "Psicologia",
+                        "Metodologie Operative"
+                      ]
+                    },
+                    {
+                      "t": "Applicare norme igieniche e di sicurezza",
+                      "ins": [
+                        "Igiene e Cultura M.S."
+                      ]
+                    },
+                    {
+                      "t": "Individuare gli istituti di tutela",
+                      "ins": [
+                        "Diritto e T.A."
+                      ]
+                    },
+                    {
+                      "t": "Predisporre semplici piani di lavoro",
+                      "ins": [
+                        "Metodologie Operative"
+                      ]
+                    }
+                  ],
+                  "saperi": [
+                    {
+                      "t": "Elementi di puericultura e igiene del bambino",
+                      "ins": [
+                        "Igiene e Cultura M.S."
+                      ]
+                    },
+                    {
+                      "t": "Tecniche di osservazione in età evolutiva",
+                      "ins": [
+                        "Psicologia",
+                        "Metodologie Operative"
+                      ]
+                    },
+                    {
+                      "t": "Diritti della personalità",
+                      "ins": [
+                        "Diritto e T.A."
+                      ]
+                    },
+                    {
+                      "t": "I piani di lavoro",
+                      "ins": [
+                        "Metodologie Operative"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "scheda": "3.6",
+                  "competenza": 6,
+                  "abilita": [
+                    {
+                      "t": "Utilizzare schede di rilevazione dei rischi e pericoli negli ambienti di vita e di lavoro",
+                      "ins": [
+                        "Metodologie Operative",
+                        "TIC"
+                      ]
+                    }
+                  ],
+                  "saperi": [
+                    {
+                      "t": "Norme di sicurezza negli ambienti di vita e di lavoro",
+                      "ins": [
+                        "Igiene e Cultura M.S.",
+                        "Metodologie Operative"
+                      ]
+                    },
+                    {
+                      "t": "Prevenzione dei rischi e degli incidenti",
+                      "ins": [
+                        "Igiene e Cultura M.S.",
+                        "Metodologie Operative"
+                      ]
+                    },
+                    {
+                      "t": "Le schede di rilevazione",
+                      "ins": [
+                        "Metodologie Operative",
+                        "TIC"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "scheda": "3.5",
+                  "competenza": 5,
+                  "abilita": [
+                    {
+                      "t": "Distinguere i principali stati patologici",
+                      "ins": [
+                        "Igiene e Cultura M.S.",
+                        "Psicologia"
+                      ]
+                    },
+                    {
+                      "t": "Individuare interventi di prevenzione e sanità pubblica",
+                      "ins": [
+                        "Igiene e Cultura M.S."
+                      ]
+                    },
+                    {
+                      "t": "Riconoscere i meccanismi d'azione dei farmaci",
+                      "ins": [
+                        "Igiene e Cultura M.S."
+                      ]
+                    },
+                    {
+                      "t": "Riconoscere i servizi di primo intervento",
+                      "ins": [
+                        "Igiene e Cultura M.S.",
+                        "Metodologie Operative"
+                      ]
+                    }
+                  ],
+                  "saperi": [
+                    {
+                      "t": "Principi di sanità pubblica e livelli di prevenzione",
+                      "ins": [
+                        "Igiene e Cultura M.S."
+                      ]
+                    },
+                    {
+                      "t": "Elementi di farmacologia",
+                      "ins": [
+                        "Igiene e Cultura M.S."
+                      ]
+                    },
+                    {
+                      "t": "Legislazione socio-assistenziale e sanitaria",
+                      "ins": [
+                        "Diritto e T.A.",
+                        "Metodologie Operative"
+                      ]
+                    },
+                    {
+                      "t": "Strumenti di rilevazione dei bisogni",
+                      "ins": [
+                        "Metodologie Operative"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "scheda": "3.9",
+                  "competenza": 9,
+                  "abilita": [
+                    {
+                      "t": "Identificare le caratteristiche multifattoriali del benessere psico-fisico-sociale",
+                      "ins": [
+                        "Igiene e Cultura M.S.",
+                        "Psicologia"
+                      ]
+                    },
+                    {
+                      "t": "Individuare bisogni, risorse, vincoli e limiti",
+                      "ins": [
+                        "Metodologie Operative"
+                      ]
+                    },
+                    {
+                      "t": "Riconoscere la prevenzione sociale",
+                      "ins": [
+                        "Igiene e Cultura M.S.",
+                        "Metodologie Operative"
+                      ]
+                    }
+                  ],
+                  "saperi": [
+                    {
+                      "t": "La salute come benessere bio-psico-sociale",
+                      "ins": [
+                        "Igiene e Cultura M.S.",
+                        "Psicologia"
+                      ]
+                    },
+                    {
+                      "t": "Tipi, finalità e metodi della prevenzione sociale",
+                      "ins": [
+                        "Igiene e Cultura M.S.",
+                        "Metodologie Operative"
+                      ]
+                    },
+                    {
+                      "t": "Integrazione sociale, scolastica e lavorativa",
+                      "ins": [
+                        "Metodologie Operative",
+                        "Psicologia"
+                      ],
+                      "notaAttribuzione": "Scelta didattica dei docenti oltre le attribuzioni del curricolo verticale; da ratificare in dipartimento."
+                    }
+                  ]
+                }
+              ],
+              "situazione": "Un caso educativo descrive bisogni e attività quotidiane di un bambino. Gli studenti programmano azioni di osservazione e accudimento e verificano le condizioni di igiene e sicurezza dell’ambiente prima della simulazione.\n\nLa scuola propone di lavorare su un tema di prevenzione primaria scelto dopo una rilevazione guidata. Il gruppo deve distinguere bisogni documentati, risorse e vincoli, selezionare fonti affidabili e organizzare una semplice azione educativa.",
+              "prodotto": "Piano di attività per la prima infanzia con schede operative, e report di rilevazione dei rischi dell'ambiente.\n\nCampagna di prevenzione con materiali informativi, protocollo d'intervento e scheda bisogni-risorse-vincoli.",
+              "beneficiari": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola.",
+              "ambito": "esterna e interna",
+              "fonde": [
+                {
+                  "id": "3.4",
+                  "titolo": "Crescere insieme",
+                  "competenza": 4
+                },
+                {
+                  "id": "3.6",
+                  "titolo": "Caccia al rischio",
+                  "competenza": 6
+                },
+                {
+                  "id": "3.5",
+                  "titolo": "Prevenire è curare",
+                  "competenza": 5
+                },
+                {
+                  "id": "3.9",
+                  "titolo": "Progetto benessere a scuola",
+                  "competenza": 9
+                }
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "anno": 4,
-      "sintesi": "Disabilità · autonomia e ambiente di vita",
+      "sintesi": "Disabilità, autonomia e ambiente di vita",
       "decisioni": [
         {
           "id": "DIP4-FSL",
           "categoria": "FSL",
-          "stato": "Confermata",
-          "titolo": "Area disabilità: inclusione, autonomia e progetto individualizzato",
-          "descrizione": "Osservazione sul campo di bisogni, servizi, figure professionali, autonomie, persona e famiglia.",
-          "riferimenti": ["FSL4.1"],
-          "catalogo": "uda-fsl.html",
-          "catalogoEtichetta": "Apri il catalogo UDA FSL"
+          "stato": "Adottata",
+          "unita": [
+            {
+              "id": "DIP4-FSL",
+              "tipo": "FSL",
+              "anno": 4,
+              "periodo": "Preparazione · esperienza in struttura · rielaborazione",
+              "areaTirocinio": "Area disabilità",
+              "qnq": "3/4",
+              "titolo": "Area disabilità: inclusione, autonomia e progetto individualizzato",
+              "competenzeSSAS": [
+                4,
+                6,
+                9
+              ],
+              "competenzeEuropee": [
+                "Competenza personale, sociale e capacità di imparare a imparare",
+                "Competenza in materia di cittadinanza",
+                "Competenza imprenditoriale"
+              ],
+              "traguardo": "Partecipare, sotto supervisione, ad attività rivolte ai bisogni di base, all'inclusione e all'autonomia della persona con disabilità, collegando osservazione, progetto individualizzato, ambiente, sicurezza e lavoro multiprofessionale.",
+              "situazione": "La sede può essere una struttura di accoglienza, semiresidenziale, residenziale, socio-educativa o socio-sanitaria. Obiettivi e attività vengono precisati solo dopo aver conosciuto utenza, organizzazione e mandato della struttura.",
+              "compito": "Analizzare in forma anonima una situazione osservata, individuare bisogni e capacità residue, ricostruire il contributo delle figure professionali e progettare una micro-azione realistica per inclusione, autonomia o qualità della vita, coerente con regole e procedure della sede.",
+              "prodotto": "Dossier di esperienza con profilo organizzativo, osservazione multidimensionale, schema di progetto individualizzato, analisi di accessibilità e sicurezza, micro-intervento e relazione riflessiva.",
+              "beneficiari": "Persone con disabilità accolte dal servizio, nel rispetto del progetto formativo e sotto supervisione",
+              "ambito": "Servizi di accoglienza, semiresidenziali, residenziali, socio-educativi o socio-sanitari",
+              "ore": "Da definire nel piano FSL d'istituto e nel progetto formativo individuale",
+              "abilita": [
+                {
+                  "t": "Rilevare bisogni, risorse, capacità residue e barriere senza formulare diagnosi",
+                  "ins": [
+                    "PSICOLOGIA GENERALE ED APPLICATA",
+                    "IGIENE E CULTURA MEDICO SANITARIA",
+                    "METODOLOGIE OPERATIVE"
+                  ]
+                },
+                {
+                  "t": "Collegare osservazioni, obiettivi, attività e verifica in un semplice progetto individualizzato",
+                  "ins": [
+                    "METODOLOGIE OPERATIVE",
+                    "PSICOLOGIA GENERALE ED APPLICATA"
+                  ]
+                },
+                {
+                  "t": "Valutare elementi di accessibilità, igiene, sicurezza e sostegno all'autonomia",
+                  "ins": [
+                    "IGIENE E CULTURA MEDICO SANITARIA",
+                    "METODOLOGIE OPERATIVE"
+                  ]
+                },
+                {
+                  "t": "Riconoscere organizzazione, responsabilità e tutele proprie della struttura ospitante",
+                  "ins": [
+                    "DIRITTO E TEC. AMM.",
+                    "METODOLOGIE OPERATIVE"
+                  ]
+                }
+              ],
+              "saperi": [
+                {
+                  "t": "Tipi e cause di disabilità, sue classificazioni e misurazioni",
+                  "ins": [
+                    "IGIENE E CULTURA MEDICO SANITARIA",
+                    "PSICOLOGIA GENERALE ED APPLICATA"
+                  ]
+                },
+                {
+                  "t": "Bisogni specifici dell'anziano e della persona con disabilità",
+                  "ins": [
+                    "PSICOLOGIA GENERALE ED APPLICATA",
+                    "METODOLOGIE OPERATIVE"
+                  ]
+                },
+                {
+                  "t": "Il Piano Assistenziale Individualizzato e le Unità di Valutazione Multidimensionale",
+                  "ins": [
+                    "METODOLOGIE OPERATIVE",
+                    "IGIENE E CULTURA MEDICO SANITARIA"
+                  ]
+                },
+                {
+                  "t": "Diagnosi funzionale, capacità residue, supporto all'autonomia",
+                  "ins": [
+                    "IGIENE E CULTURA MEDICO SANITARIA",
+                    "METODOLOGIE OPERATIVE"
+                  ]
+                },
+                {
+                  "t": "Norme di igiene e di sanità pubblica",
+                  "ins": [
+                    "IGIENE E CULTURA MEDICO SANITARIA"
+                  ]
+                },
+                {
+                  "t": "Le problematiche psico-sociali connesse alle diverse categorie di utenza dei servizi",
+                  "ins": [
+                    "PSICOLOGIA GENERALE ED APPLICATA",
+                    "METODOLOGIE OPERATIVE"
+                  ]
+                },
+                {
+                  "t": "L'organizzazione delle imprese e delle aziende",
+                  "ins": [
+                    "DIRITTO E TEC. AMM.",
+                    "METODOLOGIE OPERATIVE"
+                  ]
+                }
+              ],
+              "integrazioniSaperi": [
+                {
+                  "t": "Normativa in materia di disabilità: Legge 104/1992 e D.Lgs. 62/2024, con particolare riferimento alla valutazione di base, alla valutazione multidimensionale e al progetto di vita individuale, personalizzato e partecipato",
+                  "ins": [
+                    "DIRITTO E TEC. AMM."
+                  ]
+                },
+                {
+                  "t": "Protezione dei dati personali e riservatezza nella documentazione socio-sanitaria: Regolamento (UE) 2016/679 e D.Lgs. 196/2003",
+                  "ins": [
+                    "DIRITTO E TEC. AMM."
+                  ]
+                }
+              ],
+              "oreRipartizione": {
+                "IGIENE E CULTURA MEDICO SANITARIA": 15,
+                "PSICOLOGIA GENERALE ED APPLICATA": 12,
+                "DIRITTO E TEC. AMM.": 12,
+                "METODOLOGIE OPERATIVE": 9
+              },
+              "sviluppata": false
+            }
+          ]
         },
         {
           "id": "DIP4-ASSE",
           "categoria": "UDA d’asse",
-          "stato": "Tema deliberato · titolo da definire",
-          "titolo": "Disabilità e ambiente di vita",
-          "descrizione": "Percorso distinto dall’FSL per evitare sovrapposizioni. “Vivere con la disabilità” e “Abitare sicuro” sono i riferimenti emersi; il titolo definitivo non è stato cristallizzato.",
-          "riferimenti": ["U4.3"],
-          "catalogo": "uda-unificate.html",
-          "catalogoEtichetta": "Apri le UDA d’asse unificate"
+          "stato": "Adottata",
+          "unita": [
+            {
+              "id": "DIP4-ASSE",
+              "anno": 4,
+              "collegataA": "",
+              "derivaDa": "",
+              "collocazione": "",
+              "raccordoProfilo": [
+                {
+                  "competenza": 4,
+                  "testo": "Competenza in uscita n° 4: Prendersi cura e collaborare al soddisfacimento dei bisogni di base di bambini, persone con disabilità, anziani nell’espletamento delle più comuni attività quotidiane."
+                },
+                {
+                  "competenza": 6,
+                  "testo": "Competenza in uscita n° 6: Curare l’allestimento dell’ambiente di vita della persona in difficoltà con riferimento alle misure per la salvaguardia della sua sicurezza e incolumità, anche provvedendo alla promozione e al mantenimento delle capacità residue e della autonomia nel proprio ambiente di vita."
+                }
+              ],
+              "condizioniRealizzazione": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta.",
+              "titolo": "Vivere con la disabilità · Abitare sicuro",
+              "competenza": 4,
+              "competenze": [
+                4,
+                6
+              ],
+              "qnq": "3/4",
+              "traguardo": "Contribuire all’elaborazione di un PAI e proporre azioni quotidiane e adattamenti che sostengano autonomia, igiene e sicurezza",
+              "traguardiOrigine": [
+                {
+                  "competenza": 4,
+                  "testo": "Partecipare al soddisfacimento dei bisogni di base di persone anziane e con disabilità",
+                  "scheda": "4.4"
+                },
+                {
+                  "competenza": 6,
+                  "testo": "Nell'allestimento dell'ambiente di vita assicurare condizioni di igiene e sicurezza",
+                  "scheda": "4.6"
+                }
+              ],
+              "compito": "Il docente fornisce la valutazione multidimensionale e uno schema di PAI, indicando le parti già definite e quelle da elaborare. Gli studenti progettano interventi sui bisogni quotidiani e adattamenti dell’ambiente: layout, igiene, sicurezza e sanificazione. La simulazione verifica la coerenza fra capacità residue, azioni e ambiente. L’assistenza e la partecipazione sociale restano approfondite nella distinta U4.4.",
+              "sintesi": "Elaborare parti motivate di un PAI e verificarne le proposte nelle routine quotidiane e nell’ambiente domestico.",
+              "ore": "63–66",
+              "abilita": [
+                {
+                  "t": "Riconoscere i concetti di disabilità, deficit e handicap",
+                  "ins": [
+                    "Psicologia",
+                    "Igiene e Cultura M.S."
+                  ]
+                },
+                {
+                  "t": "Rilevare lo stato di salute e il grado di autonomia",
+                  "ins": [
+                    "Igiene e Cultura M.S."
+                  ]
+                },
+                {
+                  "t": "Partecipare al soddisfacimento dei bisogni di base",
+                  "ins": [
+                    "Metodologie Operative",
+                    "Igiene e Cultura M.S."
+                  ]
+                },
+                {
+                  "t": "Adottare procedure di sicurezza e prevenzione negli ambienti domestici",
+                  "ins": [
+                    "Igiene e Cultura M.S."
+                  ]
+                },
+                {
+                  "t": "Individuare procedure di sanificazione",
+                  "ins": [
+                    "Igiene e Cultura M.S."
+                  ]
+                },
+                {
+                  "t": "Applicare i protocolli di raccolta e smaltimento rifiuti",
+                  "ins": [
+                    "Igiene e Cultura M.S.",
+                    "Metodologie Operative"
+                  ]
+                }
+              ],
+              "saperi": [
+                {
+                  "t": "Evoluzione dei concetti di disabilità",
+                  "ins": [
+                    "Storia",
+                    "Psicologia"
+                  ]
+                },
+                {
+                  "t": "Strumenti di valutazione multidimensionale",
+                  "ins": [
+                    "Metodologie Operative",
+                    "Igiene e Cultura M.S."
+                  ]
+                },
+                {
+                  "t": "Il PAI",
+                  "ins": [
+                    "Metodologie Operative",
+                    "Igiene e Cultura M.S."
+                  ]
+                },
+                {
+                  "t": "Pedagogia speciale",
+                  "ins": [
+                    "Psicologia"
+                  ]
+                },
+                {
+                  "t": "Norme di igiene e sanità pubblica",
+                  "ins": [
+                    "Igiene e Cultura M.S."
+                  ]
+                },
+                {
+                  "t": "Detergenti, disinfettanti e antisettici",
+                  "ins": [
+                    "Igiene e Cultura M.S."
+                  ]
+                },
+                {
+                  "t": "Igiene di vestiario, biancheria e ambienti",
+                  "ins": [
+                    "Igiene e Cultura M.S.",
+                    "Metodologie Operative"
+                  ]
+                }
+              ],
+              "sviluppata": null,
+              "materialiOrigine": [
+                {
+                  "scheda": "4.4",
+                  "riferimento": "UDA formale già sviluppata: UDA_Disabilita",
+                  "stato": "Riferimento ereditato dal catalogo; adattamento alla proposta da verificare"
+                }
+              ],
+              "rubrica": [
+                {
+                  "competenza": 4,
+                  "indicatore": "Propone e dimostra nella simulazione azioni quotidiane coerenti con bisogni e capacità residue",
+                  "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+                  "livelli": [
+                    {
+                      "livello": "1 · In via di acquisizione",
+                      "descrittore": "Rispetto a «Propone e dimostra nella simulazione azioni quotidiane coerenti con bisogni e capacità residue», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+                    },
+                    {
+                      "livello": "2 · Base",
+                      "descrittore": "Rispetto a «Propone e dimostra nella simulazione azioni quotidiane coerenti con bisogni e capacità residue», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+                    },
+                    {
+                      "livello": "3 · Intermedio",
+                      "descrittore": "Rispetto a «Propone e dimostra nella simulazione azioni quotidiane coerenti con bisogni e capacità residue», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+                    },
+                    {
+                      "livello": "4 · Avanzato",
+                      "descrittore": "Rispetto a «Propone e dimostra nella simulazione azioni quotidiane coerenti con bisogni e capacità residue», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+                    }
+                  ]
+                },
+                {
+                  "competenza": 6,
+                  "indicatore": "Motiva e verifica scelte di allestimento, igiene e sicurezza dell’ambiente",
+                  "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+                  "livelli": [
+                    {
+                      "livello": "1 · In via di acquisizione",
+                      "descrittore": "Rispetto a «Motiva e verifica scelte di allestimento, igiene e sicurezza dell’ambiente», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+                    },
+                    {
+                      "livello": "2 · Base",
+                      "descrittore": "Rispetto a «Motiva e verifica scelte di allestimento, igiene e sicurezza dell’ambiente», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+                    },
+                    {
+                      "livello": "3 · Intermedio",
+                      "descrittore": "Rispetto a «Motiva e verifica scelte di allestimento, igiene e sicurezza dell’ambiente», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+                    },
+                    {
+                      "livello": "4 · Avanzato",
+                      "descrittore": "Rispetto a «Motiva e verifica scelte di allestimento, igiene e sicurezza dell’ambiente», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+                    }
+                  ]
+                }
+              ],
+              "criterioValutazione": "Livelli descrittivi proposti, senza conversione automatica in voto o certificazione. Strumenti compensativi e supporti previsti non penalizzano il livello. Se l’evidenza manca, registrare «Non osservato», senza assegnare automaticamente il livello 1. Valutare separatamente ciascuna competenza.",
+              "pianificazione": {
+                "stato": "Da deliberare dal consiglio di classe",
+                "oreOrigine": [
+                  {
+                    "scheda": "4.4",
+                    "ore": "51"
+                  },
+                  {
+                    "scheda": "4.6",
+                    "ore": "12–15"
+                  }
+                ],
+                "oreProgettate": null,
+                "nota": "Il totale esposto è la somma delle ore di origine, non un nuovo monte ore validato. Le fasi seguenti non hanno ancora ore assegnate. Contare una sola volta le attività comuni; non sommare questa proposta e le sue schede di origine nel piano annuale.",
+                "fasi": [
+                  {
+                    "attivita": "Lettura del caso, della valutazione multidimensionale e dello schema di PAI con parti da elaborare",
+                    "ore": null,
+                    "insegnamenti": [],
+                    "periodo": null
+                  },
+                  {
+                    "attivita": "Analisi delle routine, delle capacità residue e degli ostacoli ambientali",
+                    "ore": null,
+                    "insegnamenti": [],
+                    "periodo": null
+                  },
+                  {
+                    "attivita": "Proposte per bisogni quotidiani, layout, igiene e sicurezza",
+                    "ore": null,
+                    "insegnamenti": [],
+                    "periodo": null
+                  },
+                  {
+                    "attivita": "Simulazione della routine e verifica individuale delle scelte",
+                    "ore": null,
+                    "insegnamenti": [],
+                    "periodo": null
+                  }
+                ],
+                "decisioniNecessarie": [
+                  "Confermare contesto, destinatari e disponibilità di eventuali partner o laboratori",
+                  "Attribuire attività, ore e periodo a ciascun insegnamento effettivamente presente nell’annualità",
+                  "Identificare attività condivise e raccordi con altre UDA senza doppio conteggio",
+                  "Validare rubriche, prove individuali e supporti previsti per gli studenti"
+                ]
+              },
+              "provenienzaContenuti": [
+                {
+                  "scheda": "4.4",
+                  "competenza": 4,
+                  "abilita": [
+                    {
+                      "t": "Riconoscere i concetti di disabilità, deficit e handicap",
+                      "ins": [
+                        "Psicologia",
+                        "Igiene e Cultura M.S."
+                      ]
+                    },
+                    {
+                      "t": "Rilevare lo stato di salute e il grado di autonomia",
+                      "ins": [
+                        "Igiene e Cultura M.S."
+                      ]
+                    },
+                    {
+                      "t": "Partecipare al soddisfacimento dei bisogni di base",
+                      "ins": [
+                        "Metodologie Operative",
+                        "Igiene e Cultura M.S."
+                      ]
+                    }
+                  ],
+                  "saperi": [
+                    {
+                      "t": "Evoluzione dei concetti di disabilità",
+                      "ins": [
+                        "Storia",
+                        "Psicologia"
+                      ]
+                    },
+                    {
+                      "t": "Strumenti di valutazione multidimensionale",
+                      "ins": [
+                        "Metodologie Operative",
+                        "Igiene e Cultura M.S."
+                      ]
+                    },
+                    {
+                      "t": "Il PAI",
+                      "ins": [
+                        "Metodologie Operative",
+                        "Igiene e Cultura M.S."
+                      ]
+                    },
+                    {
+                      "t": "Pedagogia speciale",
+                      "ins": [
+                        "Psicologia"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "scheda": "4.6",
+                  "competenza": 6,
+                  "abilita": [
+                    {
+                      "t": "Adottare procedure di sicurezza e prevenzione negli ambienti domestici",
+                      "ins": [
+                        "Igiene e Cultura M.S."
+                      ]
+                    },
+                    {
+                      "t": "Individuare procedure di sanificazione",
+                      "ins": [
+                        "Igiene e Cultura M.S."
+                      ]
+                    },
+                    {
+                      "t": "Applicare i protocolli di raccolta e smaltimento rifiuti",
+                      "ins": [
+                        "Igiene e Cultura M.S.",
+                        "Metodologie Operative"
+                      ]
+                    }
+                  ],
+                  "saperi": [
+                    {
+                      "t": "Norme di igiene e sanità pubblica",
+                      "ins": [
+                        "Igiene e Cultura M.S."
+                      ]
+                    },
+                    {
+                      "t": "Detergenti, disinfettanti e antisettici",
+                      "ins": [
+                        "Igiene e Cultura M.S."
+                      ]
+                    },
+                    {
+                      "t": "Igiene di vestiario, biancheria e ambienti",
+                      "ins": [
+                        "Igiene e Cultura M.S.",
+                        "Metodologie Operative"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "situazione": "Scenario didattico: una persona con disabilità incontra ostacoli nelle attività quotidiane in casa. Il caso fornito dal docente descrive bisogni, capacità residue, preferenze e caratteristiche dell’abitazione.",
+              "prodotto": "PAI con contributi degli studenti identificati, piano delle routine e adattamenti ambientali verificati in simulazione.",
+              "beneficiari": "Persona descritta nel caso didattico e caregiver simulato; eventuale confronto con un servizio da concordare.",
+              "ambito": "mista",
+              "fonde": [
+                {
+                  "id": "4.4",
+                  "titolo": "Vivere con la disabilità",
+                  "competenza": 4
+                },
+                {
+                  "id": "4.6",
+                  "titolo": "Abitare sicuro",
+                  "competenza": 6
+                }
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "anno": 5,
-      "sintesi": "Anziani · salute mentale · prova professionale",
+      "sintesi": "Anziani e salute mentale",
       "decisioni": [
         {
           "id": "DIP5-FSL",
           "categoria": "FSL",
-          "stato": "Scelta del triennio",
-          "titolo": "Area anziani: assistenza, qualità di vita e lavoro in struttura residenziale",
-          "descrizione": "Assistenza, qualità della vita, autonomie, persona e famiglia nel contesto di esperienza FSL.",
-          "riferimenti": ["FSL5.1"],
-          "catalogo": "uda-fsl.html",
-          "catalogoEtichetta": "Apri il catalogo UDA FSL"
+          "stato": "Adottata",
+          "unita": [
+            {
+              "id": "DIP5-FSL",
+              "tipo": "FSL",
+              "anno": 5,
+              "periodo": "Preparazione · esperienza in struttura · rielaborazione",
+              "areaTirocinio": "Area anziani",
+              "qnq": "4",
+              "titolo": "Area anziani: assistenza, qualità di vita e lavoro in struttura residenziale",
+              "competenzeSSAS": [
+                5,
+                4,
+                6
+              ],
+              "competenzeEuropee": [
+                "Competenza personale, sociale e capacità di imparare a imparare",
+                "Competenza in materia di cittadinanza"
+              ],
+              "traguardo": "Collaborare, nei limiti del ruolo dello studente e sotto supervisione, alla presa in carico socio-assistenziale della persona anziana, applicando procedure stabilite e sostenendo sicurezza, capacità residue, autonomia e qualità della vita.",
+              "situazione": "L'esperienza si svolge ordinariamente in strutture residenziali per anziani, comprese eventuali RSA. La scheda resta utilizzabile anche in altre strutture coerenti con l'area anziani definite dall'istituto.",
+              "compito": "Ricostruire, su un caso anonimizzato, il percorso dal bisogno alla presa in carico: osservazione, livelli di autonomia, obiettivi assistenziali, procedure, ausili, relazione con la persona e la famiglia, documentazione e verifica.",
+              "prodotto": "Caso professionale anonimizzato con mappa della presa in carico, scheda delle capacità residue, analisi di ambiente e ausili, procedura commentata e relazione finale.",
+              "beneficiari": "Persone anziane accolte dalla struttura, nel rispetto del progetto formativo e sotto supervisione",
+              "ambito": "Strutture residenziali per anziani, incluse RSA, o altre sedi coerenti definite nel progetto",
+              "ore": "Da definire nel piano FSL d'istituto e nel progetto formativo individuale",
+              "abilita": [
+                {
+                  "t": "Rilevare bisogni di base, stato di benessere e livelli di autonomia con strumenti assegnati",
+                  "ins": [
+                    "IGIENE E CULTURA MEDICO SANITARIA",
+                    "METODOLOGIE OPERATIVE"
+                  ]
+                },
+                {
+                  "t": "Riconoscere procedure, ausili e misure di sicurezza pertinenti alla situazione osservata",
+                  "ins": [
+                    "IGIENE E CULTURA MEDICO SANITARIA",
+                    "METODOLOGIE OPERATIVE"
+                  ]
+                },
+                {
+                  "t": "Adottare modalità relazionali rispettose della persona anziana e della famiglia",
+                  "ins": [
+                    "PSICOLOGIA GENERALE ED APPLICATA",
+                    "METODOLOGIE OPERATIVE"
+                  ]
+                },
+                {
+                  "t": "Interpretare organizzazione, accreditamento, responsabilità e sistemi di qualità della struttura",
+                  "ins": [
+                    "DIRITTO E TEC. AMM.",
+                    "METODOLOGIE OPERATIVE"
+                  ]
+                }
+              ],
+              "saperi": [
+                {
+                  "t": "Strumenti e tecniche per la rilevazione dello stato di salute e scale dei livelli di autonomia",
+                  "ins": [
+                    "IGIENE E CULTURA MEDICO SANITARIA",
+                    "METODOLOGIE OPERATIVE"
+                  ]
+                },
+                {
+                  "t": "Caratteristiche, fasi e tipologia delle relazioni di aiuto e di cura in rapporto ai bisogni della persona anziana, della persona con disabilità e della sua famiglia",
+                  "ins": [
+                    "PSICOLOGIA GENERALE ED APPLICATA",
+                    "METODOLOGIE OPERATIVE"
+                  ]
+                },
+                {
+                  "t": "Elementi di etica e deontologia professionale nei servizi alla persona",
+                  "ins": [
+                    "PSICOLOGIA GENERALE ED APPLICATA",
+                    "DIRITTO E TEC. AMM."
+                  ]
+                },
+                {
+                  "t": "Ausili e strumenti per il mantenimento delle capacità residue e l'autonomia delle persone negli ambienti di vita",
+                  "ins": [
+                    "METODOLOGIE OPERATIVE",
+                    "IGIENE E CULTURA MEDICO SANITARIA"
+                  ]
+                },
+                {
+                  "t": "Criteri e uso degli spazi e degli arredi in condizioni di comfort e di sicurezza negli ambienti di vita",
+                  "ins": [
+                    "METODOLOGIE OPERATIVE"
+                  ]
+                },
+                {
+                  "t": "Normative regionali e accreditamento dei servizi e delle strutture",
+                  "ins": [
+                    "DIRITTO E TEC. AMM.",
+                    "METODOLOGIE OPERATIVE"
+                  ]
+                },
+                {
+                  "t": "I sistemi di qualità: regole di gestione e procedure",
+                  "ins": [
+                    "DIRITTO E TEC. AMM.",
+                    "METODOLOGIE OPERATIVE"
+                  ]
+                }
+              ],
+              "integrazioniSaperi": [],
+              "oreRipartizione": {
+                "IGIENE E CULTURA MEDICO SANITARIA": 15,
+                "PSICOLOGIA GENERALE ED APPLICATA": 12,
+                "DIRITTO E TEC. AMM.": 12,
+                "METODOLOGIE OPERATIVE": 9
+              },
+              "sviluppata": false
+            }
+          ]
         },
         {
           "id": "DIP5-ASSE",
           "categoria": "UDA d’asse",
-          "stato": "Scelta emersa dalla trascrizione",
-          "titolo": "Parole che curano · Salute mentale",
-          "descrizione": "UDA sulla salute mentale e sul superamento dello stigma. La decisione deve essere riportata in modo esplicito nel verbale finale.",
-          "riferimenti": ["5.12"],
-          "catalogo": "uda.html",
-          "catalogoEtichetta": "Apri il catalogo UDA d’asse"
+          "stato": "Adottata",
+          "unita": [
+            {
+              "id": "DIP5-ASSE",
+              "anno": 5,
+              "titolo": "Parole che curano: raccontare la salute mentale, superare lo stigma",
+              "competenza": 9,
+              "competenze": [
+                3,
+                9
+              ],
+              "origineProposta": "collega",
+              "qnq": "4",
+              "traguardo": "Realizzare, in collaborazione con altre figure professionali, azioni a sostegno e a tutela della persona con disagio psichico e della sua famiglia, per favorirne l'integrazione e migliorare o salvaguardare la qualità della vita",
+              "compito": "Campagna per la Giornata mondiale della salute mentale: analisi di come cinema, stampa e social raccontano il disagio psichico, glossario delle parole da evitare e di quelle corrette, prodotto di comunicazione con l'indicazione dei servizi del territorio.",
+              "ore": "42",
+              "abilita": [
+                {
+                  "t": "Individuare i bisogni e le problematiche specifiche delle persone con disagio psichico e dei loro nuclei familiari",
+                  "ins": [
+                    "Psicologia",
+                    "Metodologie Operative"
+                  ]
+                },
+                {
+                  "t": "Identificare gli elementi caratterizzanti i progetti d'integrazione sociale",
+                  "ins": [
+                    "Metodologie Operative",
+                    "Psicologia"
+                  ]
+                },
+                {
+                  "t": "Distinguere nella comunicazione pubblica le espressioni stigmatizzanti da quelle corrette (attribuzione di dipartimento)",
+                  "ins": [
+                    "Italiano",
+                    "Psicologia"
+                  ]
+                }
+              ],
+              "saperi": [
+                {
+                  "t": "Orientamenti psicologici e psicoterapeutici e modalità d'intervento socio-assistenziale nei confronti di persone con disagio psichico",
+                  "ins": [
+                    "Psicologia"
+                  ]
+                },
+                {
+                  "t": "Stigma e rappresentazione del disagio psichico nei prodotti culturali e nella comunicazione pubblica (attribuzione di dipartimento)",
+                  "ins": [
+                    "Psicologia",
+                    "Italiano"
+                  ]
+                },
+                {
+                  "t": "I servizi per la salute mentale: dipartimento e centro di salute mentale (attribuzione di dipartimento)",
+                  "ins": [
+                    "Metodologie Operative",
+                    "Diritto e T.A."
+                  ]
+                },
+                {
+                  "t": "Tecniche di redazione di testi divulgativi e di materiali di campagna (attribuzione di dipartimento)",
+                  "ins": [
+                    "Italiano"
+                  ]
+                }
+              ],
+              "sviluppata": null,
+              "situazione": "Il dipartimento di salute mentale chiede alle scuole una campagna contro lo stigma, e le parole con cui a scuola si parla di disagio psichico non sono mai state esaminate.",
+              "prodotto": "Campagna per la Giornata mondiale della salute mentale: analisi di come cinema, stampa e social raccontano il disagio psichico, glossario delle parole da evitare e di quelle corrette, prodotto di comunicazione con l'indicazione dei servizi del territorio.",
+              "beneficiari": "Il dipartimento di salute mentale dell'azienda sanitaria, cui la campagna è destinata.",
+              "ambito": "esterna"
+            }
+          ]
         }
       ]
     }
   ],
   "simulazioni": {
-    "titolo": "Due simulazioni della seconda prova",
-    "calendario": "Indicativamente all’inizio di marzo e all’inizio di maggio",
+    "titolo": "Simulazioni della seconda prova",
+    "calendario": "Prima simulazione all’inizio di marzo; seconda simulazione all’inizio di maggio.",
     "voci": [
       {
         "id": "SIM5-1",
-        "periodo": "Inizio marzo · indicativo",
-        "stato": "Tema individuato con chiarezza",
-        "titolo": "Salute, autonomia e domanda di assistenza degli anziani",
-        "descrizione": "Analisi di dati e documenti, bisogno, servizi, livelli di autonomia, relazione d’aiuto, PAI e reti.",
-        "riferimenti": ["E5.1"],
-        "catalogo": "uda-esame.html",
-        "catalogoEtichetta": "Apri le UDA Esame di Stato"
+        "categoria": "Prima simulazione",
+        "stato": "Adottata",
+        "unita": [
+          {
+            "id": "SIM5-1",
+            "anno": 5,
+            "titolo": "Salute, autonomia e domanda di assistenza degli anziani",
+            "stato": "Bozza progettuale da deliberare",
+            "qnq": "4",
+            "periodo": "Primo quadrimestre",
+            "durata": 16,
+            "provaFinaleOre": 6,
+            "tipologia": "A",
+            "argomento": "Relazione professionale su dati di salute e autonomia, con orientamento ai servizi e sostegno alla famiglia.",
+            "nuclei": [
+              {
+                "id": 2,
+                "testo": "Raccolta e modalità di trattamento e trasmissione di dati e informazioni per mezzo di diversi canali e registri comunicativi; norme di sicurezza e privacy."
+              },
+              {
+                "id": 4,
+                "testo": "Condizioni d’accesso e fruizione dei servizi educativi, sociali, sociosanitari e sanitari."
+              }
+            ],
+            "competenze": [
+              {
+                "numero": 10,
+                "traguardo": "Raccogliere, conservare, elaborare e trasmettere dati relativi alle attività professionali svolte ai fini del monitoraggio e della valutazione degli interventi e dei servizi utilizzando adeguati strumenti informativi in condizioni di sicurezza e affidabilità delle fonti utilizzate."
+              },
+              {
+                "numero": 7,
+                "traguardo": "Gestire azioni di informazione e di orientamento dell’utente per facilitare l’accessibilità e la fruizione autonoma dei servizi pubblici e privati presenti sul territorio."
+              },
+              {
+                "numero": 4,
+                "traguardo": "Prendersi cura e collaborare al soddisfacimento dei bisogni di base di bambini, persone con disabilità, anziani nell’espletamento delle più comuni attività quotidiane."
+              }
+            ],
+            "compitoAtteso": {
+              "situazione": "Un ambito territoriale deve interpretare dati su salute, autonomia e domanda di assistenza della popolazione anziana per orientare una priorità operativa.",
+              "ruolo": "Candidato incaricato di predisporre una relazione per il tavolo tecnico.",
+              "committente": "Responsabile dell’ambito territoriale simulato.",
+              "destinatario": "Tavolo tecnico dei servizi.",
+              "prodotto": "Relazione professionale individuale basata su documenti e dati.",
+              "autonomiaOperativa": "Lo studente seleziona e integra le informazioni pertinenti, organizza la relazione e motiva le proposte nel rispetto della tipologia e dei nuclei assegnati."
+            },
+            "contributi": [
+              {
+                "insegnamento": "Metodologie Operative",
+                "ore": 3,
+                "saperi": "Monitoraggio, documentazione, PAI e relazione d’aiuto.",
+                "abilita": "Tradurre dati aggregati in ipotesi operative verificabili.",
+                "evidenza": "Matrice dato-bisogno-azione-indicatore."
+              },
+              {
+                "insegnamento": "Diritto e Tecnica Amministrativa",
+                "ore": 4,
+                "saperi": "Diritti di accesso, privacy, accreditamento e qualità dei servizi.",
+                "abilita": "Inquadrare orientamento e uso dei dati nel rispetto di diritti e regole.",
+                "evidenza": "Quadro giuridico essenziale."
+              },
+              {
+                "insegnamento": "Igiene e Cultura Medico-Sanitaria",
+                "ore": 5,
+                "saperi": "Scale di autonomia, stato di salute e bisogni dell’anziano.",
+                "abilita": "Interpretare indicatori sanitari e funzionali e individuarne i limiti.",
+                "evidenza": "Profilo epidemiologico-funzionale."
+              },
+              {
+                "insegnamento": "Psicologia Generale e Applicata",
+                "ore": 4,
+                "saperi": "Relazione di aiuto e sostegno alla persona anziana e alla famiglia.",
+                "abilita": "Considerare vissuti, risorse e qualità della vita nelle proposte.",
+                "evidenza": "Lettura psicosociale della domanda."
+              }
+            ],
+            "coinvolgimentiOpzionali": [
+              {
+                "insegnamento": "Italiano",
+                "contributo": "Relazione professionale e argomentazione documentata."
+              },
+              {
+                "insegnamento": "Matematica",
+                "contributo": "Lettura degli indicatori statistici e controllo dei confronti quantitativi."
+              }
+            ],
+            "fasi": [
+              {
+                "titolo": "Indicazioni assegnate alla prova",
+                "ore": 3,
+                "attivita": "Lettura della tipologia A e dei nuclei 2 e 4 assegnati alla simulazione."
+              },
+              {
+                "titolo": "Analisi integrata del dossier",
+                "ore": 3,
+                "attivita": "Controllo di attendibilità, date, indicatori, privacy e limiti dei dati."
+              },
+              {
+                "titolo": "Accesso e orientamento",
+                "ore": 2,
+                "attivita": "Collegamento tra dati, diritti, servizi e condizioni di fruizione."
+              },
+              {
+                "titolo": "Relazione professionale",
+                "ore": 2,
+                "attivita": "Pianificazione e revisione con la griglia 4+3+5+8."
+              },
+              {
+                "titolo": "Simulazione individuale",
+                "ore": 6,
+                "attivita": "Prova completa sui nuclei assegnati dalla commissione."
+              }
+            ],
+            "dossier": [
+              {
+                "titolo": "Report anziani 2019 — estratti",
+                "url": "archivio/esame-stato-ssas/materiali/2^ SIMULAZIONE seconda prova/Report-anziani-2019.pdf",
+                "uso": "Documento centrale per dati su salute e autonomia."
+              },
+              {
+                "titolo": "Tavole statistiche — selezione mirata",
+                "url": "archivio/esame-stato-ssas/materiali/2^ SIMULAZIONE seconda prova/Tavole.xlsx",
+                "uso": "Massimo tre tavole coerenti con la consegna."
+              },
+              {
+                "titolo": "Proposte di tracce — tipologia A",
+                "url": "archivio/esame-stato-ssas/materiali/Proposte-di-tracce-tipologia-A.pdf",
+                "uso": "Esempi per calibrare il mandato."
+              },
+              {
+                "titolo": "Relazione professionale su anziani",
+                "url": "archivio/esame-stato-ssas/materiali/2^ SIMULAZIONE seconda prova/Relazione Professionale su Anziani.pptx",
+                "uso": "Lezione preparatoria sulla forma del testo."
+              }
+            ],
+            "traccia": "Il responsabile dell’ambito territoriale chiede una relazione sulla salute, l’autonomia e la domanda di assistenza della popolazione anziana. Analizza i documenti e i dati, esplicitandone anno e limiti; descrivi le evidenze principali; collega i bisogni rilevati alle condizioni di accesso e fruizione dei servizi; formula una priorità operativa e motiva le proposte con indicatori verificabili.",
+            "focusValutazione": [
+              "Registro adeguato a un tavolo tecnico e uso rigoroso del lessico.",
+              "Struttura completa di relazione professionale coerente con la tipologia A.",
+              "Padronanza dei nuclei 2 e 4 assegnati alla prova.",
+              "Capacità di interpretare dati, rispettarne i limiti e ricavarne priorità professionali motivate."
+            ],
+            "personalizzazione": "Dossier accessibile e strumenti compensativi previsti dal piano individuale; eventuale prova equipollente conserva tipologia A, nuclei assegnati e competenze osservate."
+          }
+        ]
       },
       {
         "id": "SIM5-2",
-        "periodo": "Inizio maggio · indicativo",
-        "stato": "Tema confermato",
-        "titolo": "Invecchiamento attivo in Sardegna: progetto di rete",
-        "descrizione": "Elaborazione di un progetto di rete territoriale per promuovere l’invecchiamento attivo, con analisi del bisogno, destinatari, obiettivi, partner, azioni, risorse e valutazione.",
-        "riferimenti": ["E5.2"],
-        "catalogo": "uda-esame.html",
-        "catalogoEtichetta": "Consulta le UDA Esame di Stato"
+        "categoria": "Seconda simulazione",
+        "stato": "Adottata",
+        "unita": [
+          {
+            "id": "SIM5-2",
+            "anno": 5,
+            "titolo": "Invecchiamento attivo in Sardegna: progetto di rete",
+            "stato": "Bozza progettuale da deliberare",
+            "qnq": "4",
+            "periodo": "Secondo quadrimestre",
+            "durata": 16,
+            "provaFinaleOre": 6,
+            "tipologia": "D",
+            "argomento": "Elaborazione di un progetto territoriale innovativo per partecipazione, inclusione e qualità della vita delle persone anziane.",
+            "nuclei": [
+              {
+                "id": 1,
+                "testo": "Metodi di progettazione e relative azioni di pianificazione, gestione, valutazione dei progetti per rispondere ai bisogni delle persone; reti formali e informali come elementi di contesto operativo."
+              },
+              {
+                "id": 8,
+                "testo": "Inclusione socio-culturale di singoli o gruppi, prevenzione e contrasto all’emarginazione e alla discriminazione sociale."
+              }
+            ],
+            "competenze": [
+              {
+                "numero": 1,
+                "traguardo": "Collaborare nella gestione di progetti e attività dei servizi sociali, socio-sanitari e socio-educativi, rivolti bambini e adolescenti, persone con disabilità, anziani, minori a rischio, soggetti con disagio psico-sociale e altri soggetti in situazione di svantaggio, anche attraverso lo sviluppo di reti territoriali formali e informali."
+              },
+              {
+                "numero": 8,
+                "traguardo": "Realizzare in autonomia o in collaborazione con altre figure professionali, attività educative, di animazione sociale, ludiche e culturali adeguate ai diversi contesti e ai diversi bisogni."
+              },
+              {
+                "numero": 9,
+                "traguardo": "Realizzare, in collaborazione con altre figure professionali, azioni a sostegno e a tutela della persona con fragilità e/o disabilità e della sua famiglia, per favorire l’integrazione e migliorare o salvaguardare la qualità della vita."
+              }
+            ],
+            "compitoAtteso": {
+              "situazione": "Un ente locale intende promuovere un’azione innovativa di invecchiamento attivo attraverso una rete territoriale.",
+              "ruolo": "Candidato incaricato di elaborare una proposta progettuale.",
+              "committente": "Assessore o responsabile dei servizi sociali di un Comune simulato.",
+              "destinatario": "Tavolo di coprogettazione con servizi, associazioni e comunità.",
+              "prodotto": "Progetto individuale con analisi del bisogno, destinatari, obiettivi, rete, azioni, risorse, comunicazione, rischi e valutazione.",
+              "autonomiaOperativa": "Lo studente definisce e motiva forma dell’innovazione, partenariato, azioni e criteri di valutazione nel rispetto della tipologia e dei nuclei assegnati."
+            },
+            "contributi": [
+              {
+                "insegnamento": "Metodologie Operative",
+                "ore": 3,
+                "saperi": "Progettazione nei servizi, reti e gestione delle risorse.",
+                "abilita": "Costruire obiettivi, azioni, cronologia, ruoli e verifica.",
+                "evidenza": "Canvas di progetto e rete."
+              },
+              {
+                "insegnamento": "Diritto e Tecnica Amministrativa",
+                "ore": 4,
+                "saperi": "Responsabilità, gestione delle risorse, fundraising e collaborazione tra enti.",
+                "abilita": "Distinguere ruoli, responsabilità e fonti di sostenibilità.",
+                "evidenza": "Quadro soggetti-risorse-responsabilità."
+              },
+              {
+                "insegnamento": "Igiene e Cultura Medico-Sanitaria",
+                "ore": 5,
+                "saperi": "Stato di salute, autonomia e bisogni della persona anziana.",
+                "abilita": "Collegare bisogni di salute, capacità residue e condizioni di partecipazione.",
+                "evidenza": "Analisi dei bisogni di salute e autonomia."
+              },
+              {
+                "insegnamento": "Psicologia Generale e Applicata",
+                "ore": 4,
+                "saperi": "Bisogni dell’anziano, integrazione sociale e modalità di sostegno.",
+                "abilita": "Motivare destinatari, coinvolgimento e prevenzione dell’isolamento.",
+                "evidenza": "Analisi psicosociale e strategia di partecipazione."
+              }
+            ],
+            "coinvolgimentiOpzionali": [
+              {
+                "insegnamento": "Italiano",
+                "contributo": "Scrittura progettuale e argomentazione per decisori e partner."
+              },
+              {
+                "insegnamento": "Matematica",
+                "contributo": "Definizione di indicatori osservabili e piano di monitoraggio."
+              }
+            ],
+            "fasi": [
+              {
+                "titolo": "Mandato e tipologia D",
+                "ore": 2,
+                "attivita": "Analisi del committente, del bisogno e del significato di innovazione nel servizio."
+              },
+              {
+                "titolo": "Rete e risorse",
+                "ore": 3,
+                "attivita": "Mappatura di partner, ruoli, responsabilità e sostenibilità."
+              },
+              {
+                "titolo": "Progettazione sui nuclei assegnati",
+                "ore": 3,
+                "attivita": "Elaborazione delle azioni di rete per l’inclusione socio-culturale e il contrasto all’emarginazione."
+              },
+              {
+                "titolo": "Monitoraggio e revisione",
+                "ore": 2,
+                "attivita": "Indicatori, rischi, revisione tra pari e controllo con la griglia."
+              },
+              {
+                "titolo": "Simulazione individuale",
+                "ore": 6,
+                "attivita": "Elaborazione completa di un progetto su dossier nuovo."
+              }
+            ],
+            "dossier": [
+              {
+                "titolo": "Politiche per l’invecchiamento attivo in Sardegna",
+                "url": "archivio/esame-stato-ssas/materiali/Seconde prove/invecchiamento attivo/regione-sardegna-politiche-invecchiamento-attivo.pdf",
+                "uso": "Contesto regionale e bisogni da trasformare in mandato."
+              },
+              {
+                "titolo": "Modello scheda di progetto",
+                "url": "archivio/esame-stato-ssas/materiali/Seconde prove/invecchiamento attivo/MODELLO SCHEDA DI PROGETTO.docx",
+                "uso": "Esempio compilato per l’analisi della struttura progettuale."
+              },
+              {
+                "titolo": "Progetto VEGA — Il filo d’argento",
+                "url": "archivio/esame-stato-ssas/materiali/Seconde prove/progetto_VEGA_IL_FILO_D_ARGENTO.docx",
+                "uso": "Estratti su rete, azioni e risorse."
+              },
+              {
+                "titolo": "Proposte di tracce — tipologia D",
+                "url": "archivio/esame-stato-ssas/materiali/Proposte-di-tracce-tipologia-D.pdf",
+                "uso": "Esempi per calibrare mandato e apertura."
+              }
+            ],
+            "traccia": "Un Comune della Sardegna intende promuovere un intervento innovativo di invecchiamento attivo attraverso una rete di servizi e realtà comunitarie. Elabora per il tavolo di coprogettazione un progetto che definisca bisogno, destinatari, obiettivi, partner, azioni, risorse, tempi, comunicazione, rischi e indicatori di valutazione. Il progetto deve sviluppare azioni di inclusione socio-culturale e di prevenzione e contrasto dell’emarginazione e della discriminazione sociale. Motiva in che cosa consiste l’innovazione proposta.",
+            "focusValutazione": [
+              "Lessico progettuale adatto al committente e alla rete.",
+              "Struttura completa e coerente con la tipologia D.",
+              "Padronanza dei nuclei 1 e 8 assegnati alla prova.",
+              "Capacità di integrare bisogno, rete, azioni, risorse, rischi e valutazione in un progetto sostenibile."
+            ],
+            "personalizzazione": "Dossier ridotto, schema visivo delle sezioni e strumenti compensativi previsti; la prova equipollente mantiene mandato progettuale, nuclei e autonomia decisionale."
+          }
+        ]
       }
     ]
-  },
-  "nonAdottate": [],
-  "correzioneVerbale": "Inserire esplicitamente “Parole che curano · Salute mentale” tra le UDA scelte per la classe quinta."
+  }
 }

@@ -1,4 +1,4 @@
--- Consente revisioni autonome della sola sintesi delle UDA scelte dal Dipartimento.
+-- Consente revisioni autonome delle UDA scelte dal Dipartimento.
 -- Le chiavi DIP... e SIM... non coincidono con quelle dei cataloghi originali,
 -- comprese le scelte del biennio DIP1-CIVICA e DIP2-TRASVERSALE:
 -- una revisione salvata qui non può sovrascrivere una UDA FSL, d'asse o Esame.

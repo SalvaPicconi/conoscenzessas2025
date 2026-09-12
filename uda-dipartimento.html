@@ -12,24 +12,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css?v=20260907dip1">
     <link rel="stylesheet" href="uda.css?v=20260907dip1">
-    <link rel="stylesheet" href="assets/uda-revisione.css?v=20260910dipmod1">
-    <link rel="stylesheet" href="assets/navigazione.css?v=20260910scelte1">
-    <link rel="stylesheet" href="uda-dipartimento.css?v=20260910scelte1">
+    <link rel="stylesheet" href="assets/uda-revisione.css?v=20260910dipmod2">
+    <link rel="stylesheet" href="assets/navigazione.css?v=20260910scelte2">
+    <link rel="stylesheet" href="uda-dipartimento.css?v=20260910scelte2">
 </head>
 <body>
 <main class="container dip-page">
     <header class="header page-hero"><div class="hero-card">
-        <p class="dip-hero-kicker">Verbale e trascrizione · 9 settembre 2026</p>
+        <p class="dip-hero-kicker">Dipartimento SSAS · 9 settembre 2026</p>
         <h1>UDA scelte dal Dipartimento</h1>
         <div class="subline">IIS Meucci - Mattei Cagliari, Sede Decimomannu</div>
-        <p class="subtitle">La sintesi operativa delle decisioni dal primo al quinto anno</p>
+        <p class="subtitle">Le unità adottate dal primo al quinto anno</p>
     </div></header>
 
     <section class="uda-revisione-accesso" aria-label="Revisione delle UDA scelte dal Dipartimento">
         <div>
-            <p class="uda-revisione-eyebrow">Spazio autonomo</p>
-            <h2>Modifica e revisione</h2>
-            <p>Le modifiche riguardano soltanto questa sintesi. Le UDA originali richiamate dai codici non vengono modificate automaticamente.</p>
+            <p class="uda-revisione-eyebrow">Area docenti</p>
+            <h2>Revisione delle UDA adottate</h2>
         </div>
         <button type="button" id="uda-revisione-apri-accesso" class="uda-revisione-primary">Accedi per modificare</button>
     </section>
@@ -47,7 +46,7 @@
         </div>
     </form>
     <section id="uda-revisione-toolbar" class="uda-revisione-toolbar" hidden aria-label="Strumenti di revisione delle scelte del Dipartimento">
-        <div><p class="uda-revisione-eyebrow">Modifiche isolate attive</p><p id="uda-revisione-identita"></p></div>
+        <div><p class="uda-revisione-eyebrow">Area docenti</p><p id="uda-revisione-identita"></p></div>
         <div class="uda-revisione-toolbar-actions">
             <button type="button" id="uda-revisione-crea" class="uda-revisione-primary" hidden>Aggiungi decisione</button>
             <button type="button" id="uda-revisione-elenco" class="uda-revisione-secondary">Revisioni <span id="uda-revisione-contatore">0</span></button>
@@ -57,7 +56,7 @@
     <div id="uda-revisione-nuova-slot" class="uda-revisione-new-slot"></div>
     <section id="uda-revisione-pannello" class="uda-revisione-pannello" hidden aria-labelledby="uda-revisione-pannello-titolo">
         <div class="uda-revisione-pannello-head">
-            <div><p class="uda-revisione-eyebrow">Area condivisa separata</p><h2 id="uda-revisione-pannello-titolo">Revisioni della sintesi dipartimentale</h2></div>
+            <div><p class="uda-revisione-eyebrow">Area docenti</p><h2 id="uda-revisione-pannello-titolo">Revisioni delle UDA adottate</h2></div>
             <button type="button" id="uda-revisione-pannello-chiudi" class="uda-revisione-secondary">Chiudi</button>
         </div>
         <div class="uda-revisione-filters">
@@ -70,8 +69,8 @@
 
     <section class="dip-summary" aria-labelledby="dip-summary-title">
         <div>
-            <p class="dip-eyebrow">Quadro deliberato</p>
-            <h2 id="dip-summary-title">Una lettura immediata delle scelte</h2>
+            <p class="dip-eyebrow">Quadro adottato</p>
+            <h2 id="dip-summary-title">UDA del biennio, del triennio e simulazioni</h2>
             <p id="dip-summary-note">Caricamento del quadro delle decisioni…</p>
         </div>
         <dl class="dip-totals" aria-label="Totali delle scelte">
@@ -93,12 +92,10 @@
 
     <div id="dip-classi" class="dip-class-list"></div>
     <section id="simulazioni" class="dip-section" aria-labelledby="dip-sim-title"></section>
-    <section id="dip-verbale" class="dip-correction" aria-labelledby="dip-correction-title"></section>
-    <section id="dip-non-adottate" class="dip-not-adopted" aria-labelledby="dip-not-adopted-title"></section>
     <p id="dip-loading" class="loading" role="status">Caricamento delle decisioni…</p>
 </main>
-<script src="uda-dipartimento.js?v=20260910scelte1"></script>
-<script src="assets/navigazione.js?v=20260910scelte1"></script>
-<script type="module" src="assets/uda-revisione.js?v=20260910dipmod1"></script>
+<script src="uda-dipartimento.js?v=20260910scelte2"></script>
+<script src="assets/navigazione.js?v=20260910scelte2"></script>
+<script type="module" src="assets/uda-revisione.js?v=20260910dipmod2"></script>
 </body>
 </html>

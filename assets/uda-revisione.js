@@ -64,9 +64,30 @@ const CAMPI_ESAME = [
 ];
 const CAMPI_DIPARTIMENTO = [
     ['periodo', 'Periodo o collocazione', 'testo'],
-    ['titolo', 'Titolo nella sintesi dipartimentale', 'testo'],
-    ['descrizione', 'Descrizione della decisione', 'testo-lungo'],
-    ['statoDecisione', 'Stato documentale della decisione', 'testo']
+    ['titolo', 'Titolo', 'testo'],
+    ['traguardo', 'Traguardo formativo', 'testo-lungo'],
+    ['situazione', 'Situazione-problema', 'testo-lungo'],
+    ['compito', 'Compito di realtà', 'testo-lungo'],
+    ['prodotto', 'Prodotto atteso', 'testo-lungo'],
+    ['beneficiari', 'Beneficiari', 'testo-lungo'],
+    ['ambito', 'Ambito', 'testo'],
+    ['areaTirocinio', 'Area di tirocinio', 'testo'],
+    ['ore', 'Monte ore', 'testo'],
+    ['oreRipartizione', 'Ripartizione oraria per insegnamento', 'ore'],
+    ['assi', 'Assi culturali coinvolti', 'lista'],
+    ['competenzeGenerali', 'Competenze dell’area generale', 'numeri'],
+    ['competenzeSSAS', 'Competenze SSAS', 'numeri'],
+    ['competenzeEuropee', 'Competenze chiave europee 2018', 'lista'],
+    ['abilita', 'Abilità', 'righe'],
+    ['saperi', 'Saperi', 'righe'],
+    ['integrazioniSaperi', 'Saperi integrativi', 'righe'],
+    ['argomento', 'Argomento della prova', 'testo-lungo'],
+    ['ruolo', 'Ruolo dello studente', 'testo-lungo'],
+    ['committente', 'Committente', 'testo-lungo'],
+    ['destinatario', 'Destinatario', 'testo-lungo'],
+    ['autonomiaOperativa', 'Autonomia nel compito', 'testo-lungo'],
+    ['traccia', 'Consegna conclusiva individuale', 'testo-lungo'],
+    ['personalizzazione', 'Personalizzazione e accessibilità', 'testo-lungo']
 ];
 const CAMPI = IS_DIPARTIMENTO ? CAMPI_DIPARTIMENTO : IS_ESAME ? CAMPI_ESAME : IS_FSL ? CAMPI_FSL : IS_TRASVERSALE ? CAMPI_TRASVERSALI : CAMPI_COMUNI;
 const CAMPI_SAPERI_NUOVA = [['saperi', 'Saperi essenziali di riferimento (riportare senza riscrivere)', 'righe']];
@@ -224,7 +245,7 @@ async function attivaArea() {
     document.querySelectorAll('.uda-revisione-editor').forEach(nodo => nodo.remove());
     if (revisione) {
         uiRev.identita.textContent = IS_DIPARTIMENTO
-            ? `${statoRev.docente} · modifiche della sola sintesi, originali invariati`
+            ? `${statoRev.docente} · UDA adottate`
             : `${statoRev.docente} · proposte personali, confronto condiviso`;
         await caricaRevisioni();
     } else {
@@ -308,7 +329,7 @@ function apriEditor(chiave) {
     if (!uda || !slot || !statoRev.autorizzato) return;
     document.querySelectorAll('.uda-revisione-editor').forEach(nodo => nodo.remove());
     const salvata = revisionePersonale(chiaveEffettiva);
-    const definizioni = nuova ? CAMPI_NUOVA : CAMPI;
+    const definizioni = nuova ? CAMPI_NUOVA : (IS_DIPARTIMENTO ? CAMPI.filter(([chiave]) => chiave in uda) : CAMPI);
     const originale = nuova ? creaSnapshot(creaUdaVuota(chiaveEffettiva), definizioni) : creaSnapshot(uda, definizioni);
     const form = document.createElement('form');
     form.className = 'uda-revisione-editor';
@@ -326,7 +347,7 @@ function apriEditor(chiave) {
     intro.textContent = nuova
         ? 'Scrivi la nuova unità da zero. Sarà salvata come bozza condivisa e non cambierà il fascicolo pubblico.'
         : IS_DIPARTIMENTO
-        ? 'Compila solo i campi della sintesi da cambiare. La revisione resta associata a questa sezione e non modifica automaticamente le UDA originali richiamate.'
+        ? 'Compila i campi dell’unità da aggiornare nella sezione delle UDA adottate.'
         : 'Compila solo i campi da cambiare. Il testo pubblico resta invariato finché la proposta non viene applicata ai file sorgente.';
     if (!nuova && IS_ESAME) form.appendChild(creaRiferimentiEsameProtetti(uda));
     else if (!nuova && Array.isArray(uda.saperi)) form.appendChild(creaSaperiProtetti(uda.saperi));
@@ -366,17 +387,11 @@ function normalizzaUda(uda, tipologie = new Map()) {
 }
 
 function estraiScelteDipartimento(dati) {
-    const decisioni = (dati.classi || []).flatMap(classe => (classe.decisioni || []).map(voce => ({
-        ...voce,
-        anno: classe.anno,
-        periodo: voce.periodo || '',
-        statoDecisione: voce.stato || ''
-    })));
-    const simulazioni = (dati.simulazioni?.voci || []).map(voce => ({
-        ...voce,
-        anno: 5,
-        statoDecisione: voce.stato || ''
-    }));
+    const normalizza = (uda, anno) => ({ ...uda, anno, ...(uda.compitoAtteso || {}) });
+    const decisioni = (dati.classi || []).flatMap(classe => (classe.decisioni || [])
+        .flatMap(voce => (voce.unita || []).map(uda => normalizza(uda, classe.anno))));
+    const simulazioni = (dati.simulazioni?.voci || [])
+        .flatMap(voce => (voce.unita || []).map(uda => normalizza(uda, 5)));
     return [...decisioni, ...simulazioni];
 }
 
@@ -556,6 +571,12 @@ function formattaValore(valore, tipo) {
 
 function leggiValore(valore, tipo) {
     if (tipo === 'scelta-numero') return valore ? Number(valore) : '';
+    if (tipo === 'ore') return Object.fromEntries(valore.split('\n').map(riga => riga.trim()).filter(riga => riga.includes(':')).map(riga => {
+        const separatore = riga.lastIndexOf(':');
+        const insegnamento = riga.slice(0, separatore).trim();
+        const ore = Number(riga.slice(separatore + 1).replace(/\s*ore\s*$/i, '').trim());
+        return [insegnamento, ore];
+    }).filter(([insegnamento, ore]) => insegnamento && Number.isSafeInteger(ore) && ore > 0));
     if (tipo === 'lista') return valore.split('\n').map(voce => voce.trim()).filter(Boolean);
     if (tipo === 'numeri') return [...new Set(valore.split(/[\s,;]+/).map(Number).filter(numero => Number.isInteger(numero) && numero > 0))];
     if (tipo !== 'righe') return valore.trim();
@@ -613,7 +634,7 @@ function creaSchedaRevisione(voce) {
     const puoValidare = statoRev.puoGestireStati;
     const puoGestireBozza = voce.author_name === statoRev.docente && ['bozza', 'archiviata'].includes(voce.stato);
     select.disabled = !puoValidare && !puoGestireBozza;
-    [['bozza', 'Da valutare'], ['approvata', 'Approvata'], ['applicata', IS_DIPARTIMENTO ? 'Recepita nella sezione' : 'Applicata ai sorgenti'], ['archiviata', 'Archiviata']]
+    [['bozza', 'Da valutare'], ['approvata', 'Approvata'], ['applicata', IS_DIPARTIMENTO ? 'Applicata alla sezione' : 'Applicata ai sorgenti'], ['archiviata', 'Archiviata']]
         .forEach(([valore, etichetta]) => aggiungiOpzione(select, valore, etichetta, voce.stato === valore));
     select.addEventListener('change', () => aggiornaStato(voce, select, scheda));
     testata.append(titoloBox, select);
@@ -649,7 +670,7 @@ function creaConfronto(chiave, voce) {
     titolo.textContent = definizione?.[1] || chiave;
     const nuova = String(voce.uda_key).startsWith('nuova-');
     const tipo = definizione?.[2] || 'testo';
-    box.append(titolo, testoConfronto(nuova ? 'Da compilare' : 'Testo pubblico', voce.originale?.[chiave], tipo),
+    box.append(titolo, testoConfronto(nuova ? 'Da compilare' : (IS_DIPARTIMENTO ? 'Testo della sezione' : 'Testo pubblico'), voce.originale?.[chiave], tipo),
         testoConfronto(`Proposta di ${voce.author_name}`, voce.modifiche?.[chiave], tipo));
     return box;
 }

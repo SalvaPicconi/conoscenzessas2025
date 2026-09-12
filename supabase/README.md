@@ -49,11 +49,11 @@ ridistribuita la funzione. Tipologia, nuclei, competenze e insegnamenti di indir
 restano protetti nel modulo; le proposte possono intervenire sui campi progettuali
 del compito atteso e restano separate da `data-uda-esame.json`.
 
-Per rendere modificabile la sintesi delle scelte dipartimentali va applicato
+Per rendere modificabile il catalogo autonomo delle scelte dipartimentali va applicato
 `consenti-uda-dipartimento.sql` e poi va ridistribuita la funzione. Le chiavi
-`DIP1-CIVICA`, `DIP2-TRASVERSALE`, `DIP3-FSL…DIP5-ASSE` e `SIM5-1…SIM5-2` appartengono soltanto alla sintesi:
-non coincidono con i codici dei cataloghi FSL, d'asse o Esame e non possono
-sovrascriverne automaticamente i record.
+`DIP1-CIVICA`, `DIP2-TRASVERSALE`, `DIP3-FSL…DIP5-ASSE` e
+`SIM5-1…SIM5-2` appartengono soltanto al nuovo catalogo. `DIP3-ASSE`
+identifica l’unica UDA risultante dalla fusione deliberata per la classe terza.
 I permessi di gestione degli stati sono applicati esclusivamente dalla funzione e non vengono
 associati pubblicamente a un nominativo. Sono conservati nella tabella privata
 `private.curricolo_uda_revision_permissions`, non accessibile ai client. L'assegnazione viene
