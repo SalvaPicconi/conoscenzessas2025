@@ -39,6 +39,20 @@ I tre punti della proposta — monte ore dell'unità di terza, campagna sulla sa
 
 I prerequisiti sono per anno di corso e stanno in testa a ciascuna classe, non dentro l'UDA: sono ciò che la programmazione di materia deve aver svolto prima. In quarta il termine «entro gennaio» è annotato con l'anticipo a ottobre richiesto dalla collocazione novembre – gennaio della formazione scuola-lavoro.
 
+### Documento per il consiglio
+
+Il diagramma è anche il documento che si porta in seduta: il pulsante «Stampa il calendario per il consiglio» produce un foglio A4 orizzontale con il titolo del piano, l'anno scolastico, la scuola e la data della seduta in testa, il diagramma a colori con la legenda, la tabella di periodi, fasi, insegnamenti e ore, e i punti da deliberare. Tre pagine: la prima porta il diagramma per intero.
+
+La stampa di una sola sezione è una capacità nuova di `assets/stampa.js` (`opzioni.sezione`), non un foglio scritto a mano: vale per qualsiasi sezione di qualsiasi pagina del curricolo.
+
+### Anno scolastico e titolo del piano
+
+Il piano vale per il solo anno scolastico **2026/2027**: `meta.annoScolastico` lo registra, la testata e il calendario lo mostrano e `meta.validita` dice che le scelte degli anni successivi si registrano in un piano nuovo, senza sovrascrivere questo.
+
+Il piano ha un titolo proprio, **«Dieci unità per imparare a prendersi cura»**, con il sottotitolo «Piano delle UDA interdisciplinari del corso SSAS». Il titolo richiama la competenza 4 del profilo — prendersi cura e collaborare al soddisfacimento dei bisogni di base — e il numero delle unità adottate. Si cambia da `meta.titoloPiano`.
+
+La riga della testata era scritta in bianco all'84% su fondo chiaro e risultava illeggibile: ora usa lo stesso verde delle altre soprattitoli.
+
 ## Rilievi non risolti
 
 1. **Formazione scuola-lavoro di quarta.** La proposta indica due collocazioni incompatibili per la stessa unità: novembre – gennaio nella colonna del periodo e nel diagramma, aula da febbraio a marzo ed esperienza fra marzo e aprile nel dettaglio delle fasi. È riportata la prima, perché la seconda si sovrappone per intero all'unità d'asse di febbraio – aprile, con gli stessi quattro insegnamenti di indirizzo. La scelta resta da deliberare: novembre – gennaio obbliga ad anticipare i prerequisiti a ottobre e mette le due settimane in struttura a ridosso delle vacanze di Natale.
@@ -68,6 +82,7 @@ Esiti del 20 settembre 2026:
 - catalogo autonomo con dieci UDA integrali e scelta d'asse di terza fusa: `PASS`;
 - calendario: dieci voci, cinque da confermare, prerequisiti su cinque anni, barre nei mesi dichiarati, nessun overflow orizzontale su mobile: `PASS`;
 - pagina delle UDA adottate, revisione per singola unità e layout mobile: `PASS`;
+- foglio di stampa per il consiglio: tre pagine A4 orizzontali, diagramma completo nella prima, nessun comando trascinato nella copia: `PASS`;
 - ventisette UDA unificate, stampa e iframe: `PASS`;
 - riconoscimento degli insegnamenti e somme orarie: `PASS`.
 

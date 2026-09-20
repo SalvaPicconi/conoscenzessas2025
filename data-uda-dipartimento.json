@@ -1,8 +1,12 @@
 {
   "meta": {
     "titolo": "UDA scelte dal Dipartimento",
+    "titoloPiano": "Dieci unità per imparare a prendersi cura",
+    "sottotitoloPiano": "Piano delle UDA interdisciplinari del corso SSAS",
+    "annoScolastico": "2026/2027",
     "dataRiunione": "9 settembre 2026",
-    "nota": "Dieci UDA adottate dal Dipartimento, organizzate per classe, con il calendario di massima dello svolgimento."
+    "nota": "Dieci UDA adottate dal Dipartimento, organizzate per classe, con il calendario di massima dello svolgimento.",
+    "validita": "Il piano e il calendario valgono per l’anno scolastico 2026/2027. Le scelte degli anni successivi si registrano in un piano nuovo: questo resta la fotografia di quanto deliberato per il 2026/2027."
   },
   "riferimentiCurricolari": {
     "competenzeGenerali": {
@@ -84,8 +88,9 @@
   },
   "calendario": {
     "titolo": "Calendario di massima",
+    "annoScolastico": "2026/2027",
     "sottotitolo": "Periodo di svolgimento delle unità adottate, mese per mese",
-    "nota": "La suddivisione in quadrimestri è indicativa e le fasi contigue di una stessa unità possono sovrapporsi entro il mese. Il periodo di ciascuna unità resta modificabile dall’area docenti, nella scheda dell’unità.",
+    "nota": "La suddivisione in quadrimestri è indicativa e le fasi contigue di una stessa unità possono sovrapporsi entro il mese. Il calendario riguarda il solo anno scolastico 2026/2027; il periodo di ciascuna unità resta modificabile dall’area docenti, nella scheda dell’unità.",
     "mesi": [
       {
         "sigla": "Set",

@@ -6,7 +6,7 @@
     {
       "path": "data-uda-dipartimento.json",
       "prima": "ec5e6c773d85e7fc82d434317c1efa053422e655",
-      "dopo": "62dc9c2f6eca9f8ac93040574f75bde93ad65ef5"
+      "dopo": "719ad9b9fefc00498f5ef979ac7569c27e2957ae"
     },
     {
       "path": "data-uda.json",
@@ -22,7 +22,7 @@
   "nuoviFileVerifica": [
     {
       "path": "tools/verifica_calendario_dipartimento.cjs",
-      "blob": "9f1c91bad386bc674fef7e8e6e99d3a62bb884e9"
+      "blob": "08c4f635432617a008b1f44b7de617475968d3ae"
     }
   ]
 }

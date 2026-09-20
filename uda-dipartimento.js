@@ -49,11 +49,45 @@ function disegna() {
     document.getElementById('dip-total-asse').textContent = decisioni.filter(voce => voce.categoria === 'UDA d’asse').length;
     document.getElementById('dip-total-sim').textContent = datiDipartimento.simulazioni.voci.length;
     document.getElementById('dip-summary-note').textContent = datiDipartimento.meta.nota;
+    intestazionePiano(datiDipartimento.meta);
     document.getElementById('calendario').innerHTML = disegnaCalendario(datiDipartimento.calendario);
+    collegaStampaCalendario();
     document.getElementById('dip-classi').innerHTML = datiDipartimento.classi.map(disegnaClasse).join('');
     document.getElementById('simulazioni').innerHTML = disegnaSimulazioni(datiDipartimento.simulazioni);
     document.dispatchEvent(new CustomEvent('curricolo:uda-rendered'));
     notificaAltezza();
+}
+
+// Il piano ha un titolo e un anno scolastico: valgono per questa annualità e
+// vanno letti prima delle singole unità.
+function intestazionePiano(meta) {
+    const titolo = document.getElementById('dip-hero-piano');
+    if (titolo) titolo.textContent = meta.titoloPiano ? `«${meta.titoloPiano}»` : '';
+    const sottotitolo = document.getElementById('dip-hero-piano-sub');
+    if (sottotitolo) sottotitolo.textContent = [meta.sottotitoloPiano, meta.annoScolastico ? `anno scolastico ${meta.annoScolastico}` : '']
+        .filter(Boolean).join(' · ');
+    const validita = document.getElementById('dip-validita');
+    if (validita) validita.textContent = meta.validita || '';
+}
+
+// Il calendario è il documento che si porta in consiglio: si stampa da solo,
+// con il titolo del piano e l'anno scolastico in testa al foglio.
+function collegaStampaCalendario() {
+    const bottone = document.getElementById('dip-stampa-calendario');
+    if (!bottone || bottone.dataset.collegato) return;
+    bottone.dataset.collegato = 'true';
+    bottone.addEventListener('click', () => {
+        const meta = datiDipartimento.meta;
+        window.CurricoloStampa?.stampa(window, {
+            sezione: '#calendario',
+            titolo: meta.titoloPiano || datiDipartimento.calendario.titolo,
+            righe: [
+                [meta.sottotitoloPiano, meta.annoScolastico ? `anno scolastico ${meta.annoScolastico}` : ''].filter(Boolean).join(' · '),
+                `IIS Meucci - Mattei Cagliari, sede di Decimomannu · Dipartimento SSAS del ${meta.dataRiunione}`,
+                meta.validita
+            ]
+        });
+    });
 }
 
 function disegnaClasse(classe) {
@@ -89,7 +123,13 @@ function disegnaCalendario(calendario) {
     }).join('');
     return `<div class="dip-section-head dip-section-head-wide">
         <div class="dip-year dip-year-cal" aria-hidden="true">⏱</div>
-        <div><p class="dip-eyebrow">Proposta del Dipartimento</p><h2 id="dip-cal-title">${esc(calendario.titolo)}</h2><p>${esc(calendario.sottotitolo)}</p><p>${esc(calendario.nota)}</p></div>
+        <div>
+            <p class="dip-eyebrow">Proposta del Dipartimento</p>
+            <h2 id="dip-cal-title">${esc(calendario.titolo)}${calendario.annoScolastico ? ` <span class="dip-anno-badge">a.s. ${esc(calendario.annoScolastico)}</span>` : ''}</h2>
+            <p>${esc(calendario.sottotitolo)}</p>
+            <p>${esc(calendario.nota)}</p>
+            <p class="stampa-comandi no-print dip-stampa-barra"><button type="button" id="dip-stampa-calendario" class="stampa-bottone">Stampa il calendario per il consiglio</button></p>
+        </div>
     </div>
     <div class="dip-table-wrap dip-gantt-wrap">
         <table class="dip-gantt">
@@ -107,7 +147,28 @@ function disegnaCalendario(calendario) {
         <span class="dip-gantt-chiave" data-genere="Simulazione">Simulazione della seconda prova</span>
         <span class="dip-gantt-chiave" data-conferma="true">Collocazione da confermare</span>
     </p>
+    ${dettaglioCalendario(calendario.voci)}
     ${puntiDaDeliberare(calendario.puntiDaDeliberare)}`;
+}
+
+// Il diagramma dice quando; la tabella dice con quali fasi, con quali
+// insegnamenti e con quante ore. In stampa si apre da sola.
+function dettaglioCalendario(voci) {
+    return `<details class="dip-calendario-dettaglio">
+        <summary>Periodi, fasi e insegnamenti coinvolti</summary>
+        <div class="dip-table-wrap">
+            <table>
+                <thead><tr><th scope="col">Classe · unità</th><th scope="col">Periodo</th><th scope="col">Fasi</th><th scope="col">Insegnamenti e ore</th><th scope="col">Monte ore</th></tr></thead>
+                <tbody>${voci.map(voce => `<tr>
+                    <th scope="row">${esc(voce.anno)}ª · ${esc(voce.etichetta)}</th>
+                    <td>${esc(voce.periodo)}</td>
+                    <td>${esc(voce.dettaglio)}${voce.daConfermare ? `<p class="dip-da-confermare"><strong>Da confermare.</strong> ${esc(voce.nota)}</p>` : ''}</td>
+                    <td>${esc(voce.materie)}</td>
+                    <td>${esc(voce.ore)}</td>
+                </tr>`).join('')}</tbody>
+            </table>
+        </div>
+    </details>`;
 }
 
 function rigaGantt(voce, mesi) {

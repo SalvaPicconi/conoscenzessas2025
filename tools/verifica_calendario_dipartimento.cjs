@@ -78,6 +78,13 @@ for (const classe of dati.classi) {
 }
 assert.ok(calendario.puntiDaDeliberare.length >= 3, 'I punti da deliberare devono essere riportati');
 
+// Il piano vale per una sola annualità e si presenta con un titolo proprio.
+assert.equal(dati.meta.annoScolastico, '2026/2027');
+assert.equal(calendario.annoScolastico, dati.meta.annoScolastico);
+assert.ok(String(dati.meta.titoloPiano || '').trim(), 'Il piano deve avere un titolo');
+assert.match(dati.meta.validita, /2026\/2027/);
+assert.match(calendario.nota, /2026\/2027/);
+
 console.log(`PASS dati: ${calendario.voci.length} voci di calendario, ${calendario.voci.filter(voce => voce.daConfermare).length} da confermare, prerequisiti su cinque anni.`);
 
 let chromium;
@@ -139,10 +146,28 @@ const base = 'https://salvapicconi.github.io/conoscenzessas2025/';
         assert.match(testoScheda, /Novembre – gennaio/);
         assert.match(testoScheda, /Da confermare/);
 
+        // Foglio per il consiglio: il calendario si stampa da solo, con il
+        // titolo del piano e l'anno scolastico in testa.
+        assert.equal(await pagina.locator('.dip-calendario-dettaglio tbody tr').count(), calendario.voci.length);
+        assert.match(await pagina.locator('#dip-hero-piano').innerText(), new RegExp(dati.meta.titoloPiano.slice(0, 20)));
+        assert.match(await pagina.locator('#dip-hero-piano-sub').innerText(), /2026\/2027/);
+        assert.match(await pagina.locator('.dip-anno-badge').innerText(), /2026\/2027/);
+        await pagina.evaluate(() => { window.print = () => {}; });
+        await pagina.locator('#dip-stampa-calendario').click();
+        const foglio = pagina.locator('.stampa-documento.stampa-foglio');
+        await foglio.waitFor({ state: 'attached' });
+        assert.equal(await foglio.locator('.dip-gantt-bar').count(), calendario.voci.length);
+        assert.equal(await foglio.locator('.dip-calendario-dettaglio tbody tr').count(), calendario.voci.length);
+        assert.equal(await foglio.locator('button').count(), 0, 'Il foglio non deve portarsi dietro i comandi');
+        assert.equal(await foglio.locator('h1').innerText(), dati.meta.titoloPiano);
+        assert.match(await foglio.innerText(), /2026\/2027/);
+        await pagina.evaluate(() => window.dispatchEvent(new Event('afterprint')));
+        assert.equal(await pagina.locator('.stampa-documento').count(), 0, 'Dopo la stampa la copia va rimossa');
+
         await pagina.setViewportSize({ width: 390, height: 844 });
         assert.equal(await pagina.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth), false,
             'Il diagramma non deve produrre overflow orizzontale su mobile');
         assert.deepEqual(errori, []);
-        console.log('PASS browser: diagramma completo, barre nei mesi dichiarati, punti da deliberare, prerequisiti e mobile senza overflow.');
+        console.log('PASS browser: diagramma completo, barre nei mesi dichiarati, tabella dei periodi, foglio di stampa per il consiglio, prerequisiti e mobile senza overflow.');
     } finally { await browser.close(); }
 })().catch(errore => { console.error(errore); process.exit(1); });
