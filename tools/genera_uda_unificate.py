@@ -248,6 +248,7 @@ PROPOSTA = [
     {
         "id": "U4.3",
         "anno": 4,
+        "periodo": "2° quadrimestre",
         "competenze": [4, 6],
         "traguardo": "Elaborare il piano assistenziale individualizzato per una persona con disabilità e adattare l'ambiente in cui si realizza",
         "compito": "PAI per una persona con disabilità elaborato a partire dalla valutazione multidimensionale, con gli interventi sui bisogni di base e la riprogettazione dell'ambiente domestico: checklist di igiene e sicurezza, piano di sanificazione, layout adattato e motivato.",
@@ -439,6 +440,9 @@ def main():
             "collegataA": voce.get("collegataA", ""),
             "derivaDa": voce.get("derivaDa", ""),
             "collocazione": voce.get('collocazione', ''),
+            # Periodo deliberato, nel vocabolario del piano UDA del consiglio
+            # di classe: vuoto finché una delibera non lo fissa.
+            "periodo": voce.get('periodo', ''),
             "raccordoProfilo": [{'competenza': n, 'testo': profilo[n]} for n in voce['competenze']],
             "condizioniRealizzazione": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta.",
             # I titoli restano quelli del fascicolo d'asse, affiancati.

@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="uda.css?v=20260907dip1">
     <link rel="stylesheet" href="assets/uda-revisione.css?v=20260910dipmod2">
     <link rel="stylesheet" href="assets/navigazione.css?v=20260910scelte2">
-    <link rel="stylesheet" href="uda-dipartimento.css?v=20260910scelte2">
+    <link rel="stylesheet" href="uda-dipartimento.css?v=20260920calendario1">
 </head>
 <body>
 <main class="container dip-page">
@@ -82,6 +82,7 @@
     </section>
 
     <nav class="dip-year-nav" aria-label="Vai alla classe">
+        <a href="#calendario">Calendario</a>
         <a href="#classe-1">Classe prima</a>
         <a href="#classe-2">Classe seconda</a>
         <a href="#classe-3">Classe terza</a>
@@ -90,11 +91,13 @@
         <a href="#simulazioni">Simulazioni</a>
     </nav>
 
+    <section id="calendario" class="dip-section dip-calendario" aria-labelledby="dip-cal-title"></section>
+
     <div id="dip-classi" class="dip-class-list"></div>
     <section id="simulazioni" class="dip-section" aria-labelledby="dip-sim-title"></section>
     <p id="dip-loading" class="loading" role="status">Caricamento delle decisioni…</p>
 </main>
-<script src="uda-dipartimento.js?v=20260910scelte2"></script>
+<script src="uda-dipartimento.js?v=20260920calendario1"></script>
 <script src="assets/navigazione.js?v=20260910scelte2"></script>
 <script type="module" src="assets/uda-revisione.js?v=20260910dipmod2"></script>
 </body>

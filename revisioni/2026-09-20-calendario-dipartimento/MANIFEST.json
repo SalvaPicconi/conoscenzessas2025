@@ -1,0 +1,28 @@
+{
+  "data": "2026-09-20",
+  "baselineCommit": "6f6aeb70869d732f0724fccd9863078cdda4cea9",
+  "algoritmo": "git-blob-sha1",
+  "fileDati": [
+    {
+      "path": "data-uda-dipartimento.json",
+      "prima": "ec5e6c773d85e7fc82d434317c1efa053422e655",
+      "dopo": "62dc9c2f6eca9f8ac93040574f75bde93ad65ef5"
+    },
+    {
+      "path": "data-uda.json",
+      "prima": "512d8e524a2cd1384c3c58caeae4a3efd5712c6b",
+      "dopo": "cc374cc72caf45e94da642aa4f48b570955a3d44"
+    },
+    {
+      "path": "data-uda-unificate.json",
+      "prima": "fe45eece5312f48b4ee8ecd6428bf802013b3dcf",
+      "dopo": "9b53cae9d814059290d7c212bd5e0b17faf34c1c"
+    }
+  ],
+  "nuoviFileVerifica": [
+    {
+      "path": "tools/verifica_calendario_dipartimento.cjs",
+      "blob": "9f1c91bad386bc674fef7e8e6e99d3a62bb884e9"
+    }
+  ]
+}

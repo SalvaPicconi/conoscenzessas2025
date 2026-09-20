@@ -112,6 +112,53 @@
 .dip-full-uda .uda-revisione-card-actions { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--stroke-soft); }
 .dip-full-uda .uda-revisione-editor { width: 100%; }
 
+/* Calendario di massima: diagramma mese per mese delle unità adottate. */
+.dip-year-cal { background: linear-gradient(135deg, #1d4ed8, #0e7490); font-size: 1.6rem; }
+
+.dip-gantt-wrap { margin-top: 4px; }
+.dip-gantt { min-width: 820px; table-layout: fixed; }
+.dip-gantt thead th { text-align: center; font-size: .8rem; }
+.dip-gantt thead th[scope="col"][rowspan] { width: 260px; text-align: left; }
+.dip-gantt tbody th { width: 260px; background: #f8fafc; font-size: .86rem; font-weight: 700; line-height: 1.35; }
+.dip-gantt tbody td { padding: 6px 4px; vertical-align: middle; }
+.dip-gantt-anno { display: inline-grid; place-items: center; width: 26px; height: 26px; margin-right: 6px; border-radius: 9px; background: #0f766e; color: #fff; font-size: .75rem; font-weight: 800; vertical-align: middle; }
+.dip-gantt-cell { padding: 6px 4px; }
+.dip-gantt-bar {
+    display: block;
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #0f766e, #0e7490);
+    color: #fff;
+    font-size: .78rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+}
+.dip-gantt-bar[data-genere="FSL"] { background: linear-gradient(135deg, #b45309, #d97706); }
+.dip-gantt-bar[data-genere="Simulazione"] { background: linear-gradient(135deg, #6d28d9, #4f46e5); }
+.dip-gantt-bar[data-conferma="true"] { border: 2px dashed #fff; box-shadow: 0 0 0 2px #1e293b; }
+
+.dip-gantt-legenda { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0 0; }
+.dip-gantt-chiave { display: inline-flex; align-items: center; gap: 7px; color: var(--ink-soft); font-size: .82rem; font-weight: 700; }
+.dip-gantt-chiave::before { content: ""; width: 26px; height: 12px; border-radius: 999px; background: linear-gradient(135deg, #0f766e, #0e7490); }
+.dip-gantt-chiave[data-genere="FSL"]::before { background: linear-gradient(135deg, #b45309, #d97706); }
+.dip-gantt-chiave[data-genere="Simulazione"]::before { background: linear-gradient(135deg, #6d28d9, #4f46e5); }
+.dip-gantt-chiave[data-conferma="true"]::before { background: #fff; border: 2px dashed #1e293b; }
+
+.dip-decisioni { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--stroke-soft); }
+.dip-decisioni h3 { margin: 0 0 12px; color: #0f5f5a; font-family: var(--font-display); font-size: 1.05rem; }
+.dip-decisioni-griglia { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+.dip-decisioni-griglia article { padding: 14px; border: 1px solid var(--stroke-soft); border-radius: 13px; background: rgba(248, 250, 252, .82); }
+.dip-decisioni-griglia h4 { margin: 0 0 6px; color: #155e75; font-size: .95rem; }
+.dip-decisioni-griglia p { margin: 0; color: var(--ink); font-size: .9rem; line-height: 1.5; }
+
+.dip-prerequisiti { margin-top: 10px; }
+.dip-prerequisiti summary { color: #0f766e; font-size: .85rem; font-weight: 800; cursor: pointer; }
+.dip-prerequisiti ul { margin: 8px 0 0; padding-left: 1.2rem; }
+.dip-prerequisiti li { margin: 0 0 6px; color: var(--ink-soft); font-size: .9rem; line-height: 1.45; }
+
+.dip-calendario-nota { margin: 12px 0 0; padding: 11px 13px; border-left: 4px solid #b45309; border-radius: 0 11px 11px 0; background: #fffbeb; color: #7c2d12; font-size: .88rem; line-height: 1.5; }
+
 @media (max-width: 860px) {
     .dip-summary { grid-template-columns: 1fr; }
     .dip-totals { width: 100%; }
@@ -134,6 +181,8 @@
     .dip-detail-section { padding: 14px; }
     .dip-definition-list div { grid-template-columns: 1fr; gap: 3px; }
     .dip-decision-head { flex-direction: column; }
+    .dip-gantt tbody th,
+    .dip-gantt thead th[scope="col"][rowspan] { width: 190px; }
 }
 
 @media print {
@@ -143,6 +192,9 @@
     .uda-revisione-pannello { display: none !important; }
     .dip-full-uda .uda-acc-body { display: block !important; }
     .dip-detail-grid { grid-template-columns: 1fr 1fr; }
+    .dip-gantt-wrap { overflow: visible; }
+    .dip-gantt { min-width: 0; font-size: .72rem; }
+    .dip-calendario { break-inside: avoid; }
     .dip-full-uda,
     .dip-detail-section { box-shadow: none; break-inside: avoid; }
 }
