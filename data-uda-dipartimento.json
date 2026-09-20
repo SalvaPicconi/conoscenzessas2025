@@ -1,8 +1,12 @@
 {
   "meta": {
     "titolo": "UDA scelte dal Dipartimento",
+    "titoloPiano": "Dieci unità per imparare a prendersi cura",
+    "sottotitoloPiano": "Piano delle UDA interdisciplinari del corso SSAS",
+    "annoScolastico": "2026/2027",
     "dataRiunione": "9 settembre 2026",
-    "nota": "Dieci UDA adottate dal Dipartimento, organizzate per classe."
+    "nota": "Dieci UDA adottate dal Dipartimento, organizzate per classe, con il calendario di massima dello svolgimento.",
+    "validita": "Il piano e il calendario valgono per l’anno scolastico 2026/2027. Le scelte degli anni successivi si registrano in un piano nuovo: questo resta la fotografia di quanto deliberato per il 2026/2027."
   },
   "riferimentiCurricolari": {
     "competenzeGenerali": {
@@ -82,10 +86,231 @@
       }
     ]
   },
+  "calendario": {
+    "titolo": "Calendario di massima",
+    "annoScolastico": "2026/2027",
+    "sottotitolo": "Periodo di svolgimento delle unità adottate, mese per mese",
+    "nota": "La suddivisione in quadrimestri è indicativa e le fasi contigue di una stessa unità possono sovrapporsi entro il mese. Il calendario riguarda il solo anno scolastico 2026/2027; il periodo di ciascuna unità resta modificabile dall’area docenti, nella scheda dell’unità.",
+    "mesi": [
+      {
+        "sigla": "Set",
+        "nome": "Settembre",
+        "quadrimestre": 1
+      },
+      {
+        "sigla": "Ott",
+        "nome": "Ottobre",
+        "quadrimestre": 1
+      },
+      {
+        "sigla": "Nov",
+        "nome": "Novembre",
+        "quadrimestre": 1
+      },
+      {
+        "sigla": "Dic",
+        "nome": "Dicembre",
+        "quadrimestre": 1
+      },
+      {
+        "sigla": "Gen",
+        "nome": "Gennaio",
+        "quadrimestre": 1
+      },
+      {
+        "sigla": "Feb",
+        "nome": "Febbraio",
+        "quadrimestre": 2
+      },
+      {
+        "sigla": "Mar",
+        "nome": "Marzo",
+        "quadrimestre": 2
+      },
+      {
+        "sigla": "Apr",
+        "nome": "Aprile",
+        "quadrimestre": 2
+      },
+      {
+        "sigla": "Mag",
+        "nome": "Maggio",
+        "quadrimestre": 2
+      },
+      {
+        "sigla": "Giu",
+        "nome": "Giugno",
+        "quadrimestre": 2
+      }
+    ],
+    "voci": [
+      {
+        "id": "DIP1-CIVICA",
+        "anno": 1,
+        "genere": "UDA",
+        "etichetta": "Regolamento di convivenza · Educazione civica",
+        "da": "Set",
+        "a": "Mag",
+        "periodo": "Settembre – maggio",
+        "dettaglio": "Intero anno scolastico, con fase intensiva da settembre a dicembre.",
+        "materie": "Metodologie Operative 11 h · Italiano 6 h · Scienze Umane 6 h · Diritto 3 h · Scienze Motorie 3 h · TIC 3 h · Storia 1 h",
+        "ore": "33 ore"
+      },
+      {
+        "id": "DIP2-TRASVERSALE",
+        "anno": 2,
+        "genere": "UDA",
+        "etichetta": "Fiaba e racconto come strumento di crescita",
+        "da": "Ott",
+        "a": "Gen",
+        "periodo": "Ottobre – gennaio",
+        "dettaglio": "Primo quadrimestre; realizzazione del laboratorio fra dicembre e gennaio.",
+        "materie": "Metodologie Operative 4–5 h · Italiano 3 h · Scienze Umane 2–3 h · Inglese 2 h · Scienze Motorie 1–2 h · Spagnolo 1 h · TIC 1 h · Storia 1 h",
+        "ore": "15–18 ore"
+      },
+      {
+        "id": "DIP3-ASSE",
+        "anno": 3,
+        "genere": "UDA",
+        "etichetta": "Minori: accudimento, sicurezza e prevenzione a scuola",
+        "da": "Ott",
+        "a": "Gen",
+        "periodo": "Ottobre – gennaio",
+        "dettaglio": "Fase 1, accudimento e sicurezza, da ottobre a dicembre; fase 2, prevenzione primaria a scuola, a gennaio.",
+        "materie": "Metodologie Operative · Igiene e Cultura M.S. · Diritto e T.A. · Psicologia · TIC",
+        "ore": "Ore da deliberare",
+        "daConfermare": true,
+        "nota": "Nella proposta la fase 1 andava da settembre a dicembre e la fase 2 da gennaio a febbraio, mentre il periodo complessivo era indicato da ottobre a gennaio. Qui le due fasi rientrano nell’intervallo ottobre – gennaio, così la fase 2 non si sovrappone all’avvio della formazione scuola-lavoro di febbraio. Il Dipartimento conferma o sposta le fasi."
+      },
+      {
+        "id": "DIP3-FSL",
+        "anno": 3,
+        "genere": "FSL",
+        "etichetta": "Area minori: osservare, accompagnare e documentare",
+        "da": "Feb",
+        "a": "Apr",
+        "periodo": "Febbraio – aprile",
+        "dettaglio": "Preparazione in aula fra febbraio e marzo; esperienza in struttura entro aprile, minimo due settimane; relazione entro aprile.",
+        "materie": "Igiene e Cultura M.S. 9 h · Diritto e T.A. 8 h · Psicologia 7 h · Metodologie Operative 6 h",
+        "ore": "30 ore convenzionali",
+        "daConfermare": true,
+        "nota": "Nella proposta la preparazione era collocata a marzo, con periodo complessivo da febbraio: qui la preparazione in aula parte a febbraio, altrimenti il primo mese resta vuoto e preparazione, esperienza e relazione si concentrano in due mesi. Le date dell’esperienza dipendono dal piano di formazione scuola-lavoro d’istituto e dalla disponibilità delle sedi ospitanti."
+      },
+      {
+        "id": "DIP4-FSL",
+        "anno": 4,
+        "genere": "FSL",
+        "etichetta": "Area disabilità: inclusione, autonomia e progetto individualizzato",
+        "da": "Nov",
+        "a": "Gen",
+        "periodo": "Novembre – gennaio",
+        "dettaglio": "Preparazione in aula a novembre; esperienza in struttura fra dicembre e gennaio, minimo due settimane; dossier entro gennaio.",
+        "materie": "Igiene e Cultura M.S. 15 h · Diritto e T.A. 12 h · Psicologia 12 h · Metodologie Operative 9 h",
+        "ore": "48 ore",
+        "daConfermare": true,
+        "nota": "La proposta indica due collocazioni diverse per la stessa unità: novembre – gennaio nel calendario e nel diagramma, aula da febbraio a marzo ed esperienza fra marzo e aprile nel dettaglio delle fasi. Qui è riportata novembre – gennaio, perché la seconda si sovrapporrebbe per intero all’unità d’asse di febbraio – aprile. Con questa scelta i prerequisiti di quarta — disabilità, deficit e handicap, PAI e valutazione multidimensionale — vanno però anticipati a ottobre invece che entro gennaio, e le due settimane in struttura non possono cadere nelle vacanze di Natale."
+      },
+      {
+        "id": "DIP4-ASSE",
+        "anno": 4,
+        "genere": "UDA",
+        "etichetta": "Vivere con la disabilità · Abitare sicuro",
+        "da": "Feb",
+        "a": "Apr",
+        "periodo": "Febbraio – aprile",
+        "dettaglio": "Secondo quadrimestre, dopo il rientro dall’esperienza in struttura.",
+        "materie": "Igiene e Cultura M.S. · Metodologie Operative · Psicologia · Storia",
+        "ore": "Ore da deliberare"
+      },
+      {
+        "id": "DIP5-FSL",
+        "anno": 5,
+        "genere": "FSL",
+        "etichetta": "Area anziani: assistenza, qualità di vita e lavoro in struttura residenziale",
+        "da": "Nov",
+        "a": "Mag",
+        "periodo": "Novembre – prima settimana di maggio",
+        "dettaglio": "Preparazione a novembre; esperienza in struttura in finestra flessibile fra dicembre e aprile, minimo due settimane; relazione finale entro la prima metà di aprile.",
+        "materie": "Igiene e Cultura M.S. 15 h · Diritto e T.A. 12 h · Psicologia 12 h · Metodologie Operative 9 h",
+        "ore": "48 ore",
+        "daConfermare": true,
+        "nota": "Il periodo si chiude con la prima settimana di maggio, ma tutte le consegne sono attese entro la prima metà di aprile: la coda di maggio vale solo come margine se l’esperienza in struttura slitta, e in quella settimana cade la seconda simulazione della seconda prova."
+      },
+      {
+        "id": "DIP5-ASSE",
+        "anno": 5,
+        "genere": "UDA",
+        "etichetta": "Parole che curano: salute mentale e stigma",
+        "da": "Ott",
+        "a": "Apr",
+        "periodo": "Ottobre – aprile",
+        "dettaglio": "Lancio del prodotto intorno al 10 ottobre, Giornata mondiale della salute mentale; consegna definitiva entro aprile.",
+        "materie": "Psicologia · Italiano · Metodologie Operative · Diritto e T.A.",
+        "ore": "42 ore"
+      },
+      {
+        "id": "SIM5-1",
+        "anno": 5,
+        "genere": "Simulazione",
+        "etichetta": "Prima simulazione della seconda prova",
+        "da": "Mar",
+        "a": "Mar",
+        "periodo": "Inizio marzo",
+        "dettaglio": "Percorso di 16 ore, di cui 6 per la prova individuale.",
+        "materie": "Igiene e Cultura Medico-Sanitaria 5 h · Diritto e Tecnica Amministrativa 4 h · Psicologia Generale e Applicata 4 h · Metodologie Operative 3 h",
+        "ore": "16 ore",
+        "daConfermare": true,
+        "nota": "La scheda della simulazione colloca il percorso nel primo quadrimestre, mentre il calendario delle simulazioni fissa la prova all’inizio di marzo: va chiarito se le 16 ore si svolgono entro gennaio con la sola prova a marzo, oppure se l’intero percorso si sposta nel secondo quadrimestre."
+      },
+      {
+        "id": "SIM5-2",
+        "anno": 5,
+        "genere": "Simulazione",
+        "etichetta": "Seconda simulazione della seconda prova",
+        "da": "Mag",
+        "a": "Mag",
+        "periodo": "Inizio maggio",
+        "dettaglio": "Percorso di 16 ore, di cui 6 per la prova individuale.",
+        "materie": "Igiene e Cultura Medico-Sanitaria 5 h · Diritto e Tecnica Amministrativa 4 h · Psicologia Generale e Applicata 4 h · Metodologie Operative 3 h",
+        "ore": "16 ore"
+      }
+    ],
+    "puntiDaDeliberare": [
+      {
+        "titolo": "Ore dell’unità di terza",
+        "testo": "La somma delle ore di origine è 88–95, un monte molto elevato per una sola unità: il monte ore va ridefinito in Dipartimento. Le schede U3.3, U3.4, U4.3 e 5.12 restano proposte da deliberare. Nella fase 2 il tema dell’integrazione sociale, scolastica e lavorativa è una scelta didattica da ratificare."
+      },
+      {
+        "titolo": "Salute mentale e Giornata mondiale del 10 ottobre",
+        "testo": "Il compito di realtà è una campagna legata al 10 ottobre: la ricorrenza può essere il lancio di una versione preliminare, con consegna definitiva ad aprile, oppure la campagna si svincola dalla ricorrenza."
+      },
+      {
+        "titolo": "Date dell’esperienza in struttura",
+        "testo": "Le date dell’esperienza di formazione scuola-lavoro in terza, quarta e quinta dipendono dal piano d’istituto e dalla disponibilità delle sedi ospitanti; le finestre indicate qui restano indicative finché il piano non è approvato."
+      },
+      {
+        "titolo": "Collocazione della formazione scuola-lavoro di quarta",
+        "testo": "Novembre – gennaio oppure febbraio – aprile: la seconda ipotesi si sovrappone per intero all’unità d’asse di quarta e obbliga a spostarne il periodo; la prima obbliga ad anticipare i prerequisiti di psicologia, igiene e metodologie entro ottobre."
+      },
+      {
+        "titolo": "Carico della classe quinta",
+        "testo": "Fra novembre e maggio la quinta ha l’unità sulla salute mentale, l’esperienza in struttura e le due simulazioni della seconda prova, con gli stessi quattro insegnamenti di indirizzo. Vanno fissate le settimane di ciascun impegno per evitare che si sommino a marzo e ad aprile."
+      },
+      {
+        "titolo": "Educazione civica oltre la classe prima",
+        "testo": "Il calendario prevede l’unità di Educazione civica solo in prima. Le 33 ore annuali sono dovute in ogni anno di corso: per le classi dalla seconda alla quinta va indicato quale unità le copre."
+      }
+    ]
+  },
   "classi": [
     {
       "anno": 1,
       "sintesi": "Convivenza, regole e collaborazione",
+      "prerequisiti": [
+        "Artt. 2, 3 e 11 della Costituzione (Diritto) entro ottobre.",
+        "Gruppo, stereotipi e comunicazione non conflittuale (Scienze Umane).",
+        "Tecniche di osservazione del gruppo (Metodologie Operative)."
+      ],
       "decisioni": [
         {
           "id": "DIP1-CIVICA",
@@ -254,6 +479,10 @@
     {
       "anno": 2,
       "sintesi": "Fiaba, racconto e gioco",
+      "prerequisiti": [
+        "Struttura della fiaba (Italiano) prima della fase di adattamento del testo, indicativamente entro novembre.",
+        "Sviluppo del bambino e bisogni legati all’età (Scienze Umane), stesso termine."
+      ],
       "decisioni": [
         {
           "id": "DIP2-TRASVERSALE",
@@ -399,6 +628,12 @@
     {
       "anno": 3,
       "sintesi": "Minori, prevenzione e tutela",
+      "prerequisiti": [
+        "Puericultura, igiene del bambino e norme di sicurezza (Igiene e Cultura M.S.).",
+        "Tecniche di osservazione in età evolutiva (Psicologia e Metodologie Operative).",
+        "Diritti della personalità (Diritto e T.A.).",
+        "Prima dell’esperienza in struttura: soggetti giuridici del settore profit, no profit e pubblico (Diritto e T.A.)."
+      ],
       "decisioni": [
         {
           "id": "DIP3-FSL",
@@ -514,6 +749,7 @@
             {
               "id": "DIP3-ASSE",
               "anno": 3,
+              "periodo": "1° quadrimestre",
               "collegataA": "",
               "derivaDa": "",
               "collocazione": "",
@@ -1170,6 +1406,10 @@
     {
       "anno": 4,
       "sintesi": "Disabilità, autonomia e ambiente di vita",
+      "prerequisiti": [
+        "Disabilità, deficit e handicap (Psicologia) entro gennaio, da anticipare a ottobre se l’esperienza in struttura resta a novembre – gennaio.",
+        "PAI e valutazione multidimensionale (Metodologie Operative e Igiene e Cultura M.S.), stesso termine."
+      ],
       "decisioni": [
         {
           "id": "DIP4-FSL",
@@ -1317,6 +1557,7 @@
               "collegataA": "",
               "derivaDa": "",
               "collocazione": "",
+              "periodo": "2° quadrimestre",
               "raccordoProfilo": [
                 {
                   "competenza": 4,
@@ -1671,6 +1912,11 @@
     {
       "anno": 5,
       "sintesi": "Anziani e salute mentale",
+      "prerequisiti": [
+        "Orientamenti psicologici e stigma (Psicologia) entro ottobre.",
+        "Servizi di salute mentale e CSM (Diritto e T.A. e Metodologie Operative) entro ottobre.",
+        "Prima dell’esperienza in RSA: accreditamento e sistemi di qualità (Diritto e T.A.)."
+      ],
       "decisioni": [
         {
           "id": "DIP5-FSL",
@@ -1800,6 +2046,7 @@
             {
               "id": "DIP5-ASSE",
               "anno": 5,
+              "periodo": "Intero anno scolastico",
               "titolo": "Parole che curano: raccontare la salute mentale, superare lo stigma",
               "competenza": 9,
               "competenze": [

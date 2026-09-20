@@ -3,7 +3,7 @@
     "revisione": "2026-09-06.4",
     "tracciamento": {
       "fonte": "data-uda.json",
-      "sha256Fonte": "b9205d31c9c1ff68a47d4c497360ba64df00880718050cfa43b205401339d417",
+      "sha256Fonte": "72b6f9bfe2226c959a923e363042d47d116ad434ccbc41201426fc7b22287d71",
       "revisione": "tools/revisione_uda_unificate.json",
       "sha256Revisione": "f27da7f57e6d23a195f22dd6a0747a8d7e566808edae7f1f824a8bbe9e7fbcb8",
       "registro": "revisioni/2026-09-06-riordino-applicato/REGISTRO.md",
@@ -42,6 +42,7 @@
       "collegataA": "",
       "derivaDa": "",
       "collocazione": "Spostata in seconda su indicazione del docente. Identificativo U1.1 conservato per la tracciabilità; schede di origine 1.1 e 1.7 del biennio, mantenute senza modifiche.",
+      "periodo": "",
       "raccordoProfilo": [
         {
           "competenza": 1,
@@ -397,6 +398,7 @@
       "collegataA": "",
       "derivaDa": "",
       "collocazione": "",
+      "periodo": "",
       "raccordoProfilo": [
         {
           "competenza": 2,
@@ -758,6 +760,7 @@
       "collegataA": "",
       "derivaDa": "",
       "collocazione": "",
+      "periodo": "",
       "raccordoProfilo": [
         {
           "competenza": 4,
@@ -1063,6 +1066,7 @@
       "collegataA": "",
       "derivaDa": "",
       "collocazione": "",
+      "periodo": "",
       "raccordoProfilo": [
         {
           "competenza": 6,
@@ -1382,6 +1386,7 @@
       "collegataA": "",
       "derivaDa": "",
       "collocazione": "",
+      "periodo": "",
       "raccordoProfilo": [
         {
           "competenza": 8,
@@ -1573,6 +1578,7 @@
       "collegataA": "",
       "derivaDa": "",
       "collocazione": "",
+      "periodo": "",
       "raccordoProfilo": [
         {
           "competenza": 1,
@@ -1928,6 +1934,7 @@
       "collegataA": "",
       "derivaDa": "",
       "collocazione": "",
+      "periodo": "",
       "raccordoProfilo": [
         {
           "competenza": 2,
@@ -2223,6 +2230,7 @@
       "collegataA": "U2.3b",
       "derivaDa": "U2.3",
       "collocazione": "",
+      "periodo": "",
       "raccordoProfilo": [
         {
           "competenza": 4,
@@ -2414,6 +2422,7 @@
       "collegataA": "U2.3a",
       "derivaDa": "U2.3",
       "collocazione": "",
+      "periodo": "",
       "raccordoProfilo": [
         {
           "competenza": 5,
@@ -2589,6 +2598,7 @@
       "collegataA": "",
       "derivaDa": "",
       "collocazione": "",
+      "periodo": "",
       "raccordoProfilo": [
         {
           "competenza": 6,
@@ -2920,6 +2930,7 @@
       "collegataA": "",
       "derivaDa": "",
       "collocazione": "",
+      "periodo": "",
       "raccordoProfilo": [
         {
           "competenza": 8,
@@ -3113,6 +3124,7 @@
       "collegataA": "",
       "derivaDa": "",
       "collocazione": "",
+      "periodo": "",
       "raccordoProfilo": [
         {
           "competenza": 1,
@@ -3468,6 +3480,7 @@
       "collegataA": "",
       "derivaDa": "",
       "collocazione": "",
+      "periodo": "",
       "raccordoProfilo": [
         {
           "competenza": 2,
@@ -3799,6 +3812,7 @@
       "collegataA": "",
       "derivaDa": "",
       "collocazione": "",
+      "periodo": "",
       "raccordoProfilo": [
         {
           "competenza": 4,
@@ -4138,6 +4152,7 @@
       "collegataA": "",
       "derivaDa": "",
       "collocazione": "",
+      "periodo": "",
       "raccordoProfilo": [
         {
           "competenza": 5,
@@ -4501,6 +4516,7 @@
       "collegataA": "",
       "derivaDa": "",
       "collocazione": "",
+      "periodo": "",
       "raccordoProfilo": [
         {
           "competenza": 7,
@@ -4820,6 +4836,7 @@
       "collegataA": "",
       "derivaDa": "",
       "collocazione": "",
+      "periodo": "",
       "raccordoProfilo": [
         {
           "competenza": 1,
@@ -5205,6 +5222,7 @@
       "collegataA": "",
       "derivaDa": "",
       "collocazione": "",
+      "periodo": "",
       "raccordoProfilo": [
         {
           "competenza": 2,
@@ -5506,6 +5524,7 @@
       "collegataA": "",
       "derivaDa": "",
       "collocazione": "",
+      "periodo": "2° quadrimestre",
       "raccordoProfilo": [
         {
           "competenza": 4,
@@ -5859,6 +5878,7 @@
       "collegataA": "",
       "derivaDa": "",
       "collocazione": "",
+      "periodo": "",
       "raccordoProfilo": [
         {
           "competenza": 5,
@@ -6190,6 +6210,7 @@
       "collegataA": "",
       "derivaDa": "",
       "collocazione": "",
+      "periodo": "",
       "raccordoProfilo": [
         {
           "competenza": 7,
@@ -6501,6 +6522,7 @@
       "collegataA": "",
       "derivaDa": "",
       "collocazione": "",
+      "periodo": "",
       "raccordoProfilo": [
         {
           "competenza": 1,
@@ -6854,6 +6876,7 @@
       "collegataA": "",
       "derivaDa": "",
       "collocazione": "",
+      "periodo": "",
       "raccordoProfilo": [
         {
           "competenza": 2,
@@ -7179,6 +7202,7 @@
       "collegataA": "",
       "derivaDa": "",
       "collocazione": "",
+      "periodo": "",
       "raccordoProfilo": [
         {
           "competenza": 4,
@@ -7490,6 +7514,7 @@
       "collegataA": "U5.4b",
       "derivaDa": "U5.4",
       "collocazione": "",
+      "periodo": "",
       "raccordoProfilo": [
         {
           "competenza": 5,
@@ -7717,6 +7742,7 @@
       "collegataA": "U5.4a",
       "derivaDa": "U5.4",
       "collocazione": "",
+      "periodo": "",
       "raccordoProfilo": [
         {
           "competenza": 9,
@@ -7896,6 +7922,7 @@
       "collegataA": "",
       "derivaDa": "",
       "collocazione": "",
+      "periodo": "",
       "raccordoProfilo": [
         {
           "competenza": 7,

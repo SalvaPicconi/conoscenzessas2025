@@ -49,20 +49,167 @@ function disegna() {
     document.getElementById('dip-total-asse').textContent = decisioni.filter(voce => voce.categoria === 'UDA d’asse').length;
     document.getElementById('dip-total-sim').textContent = datiDipartimento.simulazioni.voci.length;
     document.getElementById('dip-summary-note').textContent = datiDipartimento.meta.nota;
+    intestazionePiano(datiDipartimento.meta);
+    document.getElementById('calendario').innerHTML = disegnaCalendario(datiDipartimento.calendario);
+    collegaStampaCalendario();
     document.getElementById('dip-classi').innerHTML = datiDipartimento.classi.map(disegnaClasse).join('');
     document.getElementById('simulazioni').innerHTML = disegnaSimulazioni(datiDipartimento.simulazioni);
     document.dispatchEvent(new CustomEvent('curricolo:uda-rendered'));
     notificaAltezza();
 }
 
+// Il piano ha un titolo e un anno scolastico: valgono per questa annualità e
+// vanno letti prima delle singole unità.
+function intestazionePiano(meta) {
+    const titolo = document.getElementById('dip-hero-piano');
+    if (titolo) titolo.textContent = meta.titoloPiano ? `«${meta.titoloPiano}»` : '';
+    const sottotitolo = document.getElementById('dip-hero-piano-sub');
+    if (sottotitolo) sottotitolo.textContent = [meta.sottotitoloPiano, meta.annoScolastico ? `anno scolastico ${meta.annoScolastico}` : '']
+        .filter(Boolean).join(' · ');
+    const validita = document.getElementById('dip-validita');
+    if (validita) validita.textContent = meta.validita || '';
+}
+
+// Il calendario è il documento che si porta in consiglio: si stampa da solo,
+// con il titolo del piano e l'anno scolastico in testa al foglio.
+function collegaStampaCalendario() {
+    const bottone = document.getElementById('dip-stampa-calendario');
+    if (!bottone || bottone.dataset.collegato) return;
+    bottone.dataset.collegato = 'true';
+    bottone.addEventListener('click', () => {
+        const meta = datiDipartimento.meta;
+        window.CurricoloStampa?.stampa(window, {
+            sezione: '#calendario',
+            titolo: meta.titoloPiano || datiDipartimento.calendario.titolo,
+            righe: [
+                [meta.sottotitoloPiano, meta.annoScolastico ? `anno scolastico ${meta.annoScolastico}` : ''].filter(Boolean).join(' · '),
+                `IIS Meucci - Mattei Cagliari, sede di Decimomannu · Dipartimento SSAS del ${meta.dataRiunione}`,
+                meta.validita
+            ]
+        });
+    });
+}
+
 function disegnaClasse(classe) {
     return `<section id="classe-${classe.anno}" class="dip-section dip-class" aria-labelledby="dip-class-${classe.anno}">
-        <div class="dip-section-head">
+        <div class="dip-section-head dip-section-head-wide">
             <div class="dip-year">${classe.anno}ª</div>
-            <div><p class="dip-eyebrow">Classe ${nomeAnno(classe.anno)}</p><h2 id="dip-class-${classe.anno}">${esc(classe.sintesi)}</h2></div>
+            <div><p class="dip-eyebrow">Classe ${nomeAnno(classe.anno)}</p><h2 id="dip-class-${classe.anno}">${esc(classe.sintesi)}</h2>${prerequisiti(classe)}</div>
         </div>
         <div class="dip-catalogue">${classe.decisioni.map(disegnaDecisione).join('')}</div>
     </section>`;
+}
+
+// I prerequisiti non sono contenuto dell'UDA: sono ciò che la programmazione di
+// materia deve aver svolto prima, e per questo stanno in testa alla classe.
+function prerequisiti(classe) {
+    if (!classe.prerequisiti?.length) return '';
+    return `<details class="dip-prerequisiti">
+        <summary>Prerequisiti da verificare nella programmazione di materia</summary>
+        <ul>${classe.prerequisiti.map(voce => `<li>${esc(voce)}</li>`).join('')}</ul>
+    </details>`;
+}
+
+// Calendario di massima: il diagramma mostra mese per mese quando si svolge
+// ciascuna unità adottata. Le date restano quelle deliberate in Dipartimento;
+// il periodo della singola unità si cambia dall'area docenti.
+function disegnaCalendario(calendario) {
+    if (!calendario?.voci?.length) return '';
+    const mesi = calendario.mesi || [];
+    const quadrimestri = [...new Set(mesi.map(mese => mese.quadrimestre))];
+    const intestazioneQuadrimestri = quadrimestri.map(numero => {
+        const ampiezza = mesi.filter(mese => mese.quadrimestre === numero).length;
+        return `<th scope="colgroup" colspan="${ampiezza}">${numero}° quadrimestre (indicativo)</th>`;
+    }).join('');
+    return `<div class="dip-section-head dip-section-head-wide">
+        <div class="dip-year dip-year-cal" aria-hidden="true">⏱</div>
+        <div>
+            <p class="dip-eyebrow">Proposta del Dipartimento</p>
+            <h2 id="dip-cal-title">${esc(calendario.titolo)}${calendario.annoScolastico ? ` <span class="dip-anno-badge">a.s. ${esc(calendario.annoScolastico)}</span>` : ''}</h2>
+            <p>${esc(calendario.sottotitolo)}</p>
+            <p>${esc(calendario.nota)}</p>
+            <p class="stampa-comandi no-print dip-stampa-barra"><button type="button" id="dip-stampa-calendario" class="stampa-bottone">Stampa il calendario per il consiglio</button></p>
+        </div>
+    </div>
+    <div class="dip-table-wrap dip-gantt-wrap">
+        <table class="dip-gantt">
+            <caption class="sr-only">${esc(calendario.titolo)}: periodo di svolgimento di ogni unità, mese per mese</caption>
+            <thead>
+                <tr><th scope="col" rowspan="2">Classe · unità</th>${intestazioneQuadrimestri}</tr>
+                <tr>${mesi.map(mese => `<th scope="col" abbr="${esc(mese.nome)}">${esc(mese.sigla)}</th>`).join('')}</tr>
+            </thead>
+            <tbody>${calendario.voci.map(voce => rigaGantt(voce, mesi)).join('')}</tbody>
+        </table>
+    </div>
+    <p class="dip-gantt-legenda">
+        <span class="dip-gantt-chiave" data-genere="UDA">UDA</span>
+        <span class="dip-gantt-chiave" data-genere="FSL">Formazione scuola-lavoro</span>
+        <span class="dip-gantt-chiave" data-genere="Simulazione">Simulazione della seconda prova</span>
+        <span class="dip-gantt-chiave" data-conferma="true">Collocazione da confermare</span>
+    </p>
+    ${dettaglioCalendario(calendario.voci)}
+    ${puntiDaDeliberare(calendario.puntiDaDeliberare)}`;
+}
+
+// Il diagramma dice quando; la tabella dice con quali fasi, con quali
+// insegnamenti e con quante ore. In stampa si apre da sola.
+function dettaglioCalendario(voci) {
+    return `<details class="dip-calendario-dettaglio">
+        <summary>Periodi, fasi e insegnamenti coinvolti</summary>
+        <div class="dip-table-wrap">
+            <table>
+                <thead><tr><th scope="col">Classe · unità</th><th scope="col">Periodo</th><th scope="col">Fasi</th><th scope="col">Insegnamenti e ore</th><th scope="col">Monte ore</th></tr></thead>
+                <tbody>${voci.map(voce => `<tr>
+                    <th scope="row">${esc(voce.anno)}ª · ${esc(voce.etichetta)}</th>
+                    <td>${esc(voce.periodo)}</td>
+                    <td>${esc(voce.dettaglio)}${voce.daConfermare ? `<p class="dip-da-confermare"><strong>Da confermare.</strong> ${esc(voce.nota)}</p>` : ''}</td>
+                    <td>${esc(voce.materie)}</td>
+                    <td>${esc(voce.ore)}</td>
+                </tr>`).join('')}</tbody>
+            </table>
+        </div>
+    </details>`;
+}
+
+function rigaGantt(voce, mesi) {
+    const primo = Math.max(0, mesi.findIndex(mese => mese.sigla === voce.da));
+    const ultimo = Math.max(primo, mesi.findIndex(mese => mese.sigla === voce.a));
+    const nome = sigla => mesi.find(mese => mese.sigla === sigla)?.nome || sigla;
+    const descrizione = primo === ultimo ? nome(voce.da) : `da ${nome(voce.da).toLowerCase()} a ${nome(voce.a).toLowerCase()}`;
+    const celle = mesi.map((mese, indice) => {
+        if (indice < primo || indice > ultimo) return '<td></td>';
+        if (indice > primo) return '';
+        return `<td class="dip-gantt-cell" colspan="${ultimo - primo + 1}">
+            <span class="dip-gantt-bar" data-genere="${esc(voce.genere)}" ${voce.daConfermare ? 'data-conferma="true"' : ''}>${esc(voce.periodo)}</span>
+        </td>`;
+    }).join('');
+    return `<tr><th scope="row"><span class="dip-gantt-anno">${esc(voce.anno)}ª</span> ${esc(voce.etichetta)}<span class="sr-only"> · ${esc(descrizione)}</span></th>${celle}</tr>`;
+}
+
+function puntiDaDeliberare(voci = []) {
+    if (!voci.length) return '';
+    return `<section class="dip-decisioni" aria-labelledby="dip-decisioni-title">
+        <h3 id="dip-decisioni-title">Punti da deliberare</h3>
+        <div class="dip-decisioni-griglia">${voci.map(voce => `<article><h4>${esc(voce.titolo)}</h4><p>${esc(voce.testo)}</p></article>`).join('')}</div>
+    </section>`;
+}
+
+// Scheda dell'unità: il calendario è ripreso dalla delibera e affiancato al
+// campo «periodo», che i docenti possono cambiare nella revisione.
+function calendarioUda(uda) {
+    const voce = (datiDipartimento.calendario?.voci || []).find(riga => riga.id === uda.id);
+    if (!voce && !uda.periodo) return '';
+    const righe = [
+        rigaDefinizione('Periodo o collocazione', uda.periodo),
+        rigaDefinizione('Periodo di svolgimento', voce?.periodo),
+        rigaDefinizione('Fasi nel calendario', voce?.dettaglio),
+        rigaDefinizione('Insegnamenti coinvolti', voce?.materie),
+        rigaDefinizione('Monte ore del calendario', voce?.ore)
+    ].join('');
+    const nota = voce?.daConfermare
+        ? `<p class="dip-calendario-nota"><strong>Da confermare.</strong> ${esc(voce.nota)}</p>`
+        : '';
+    return sezione('Calendario di svolgimento', `<dl class="dip-definition-list">${righe}</dl>${nota}`);
 }
 
 function disegnaDecisione(decisione) {
@@ -106,6 +253,7 @@ function metadatiUda(uda) {
 function dettaglioUda(uda) {
     const competenze = disegnaCompetenze(uda);
     return `<div class="dip-detail-grid">
+        ${calendarioUda(uda)}
         ${dettaglioCivica(uda)}
         ${competenze ? sezione('Competenze', competenze) : ''}
         ${testo('Traguardo formativo', uda.traguardo)}
@@ -158,6 +306,7 @@ function dettaglioEsame(uda) {
     const oreContributi = (uda.contributi || []).reduce((totale, voce) => totale + Number(voce.ore || 0), 0);
     const oreFasi = (uda.fasi || []).reduce((totale, voce) => totale + Number(voce.ore || 0), 0);
     return `<div class="dip-detail-grid dip-exam-detail">
+        ${calendarioUda(uda)}
         ${sezione('Quadro della prova', `<dl class="dip-definition-list">
             ${rigaDefinizione('Tipologia', `${uda.tipologia}${tipo?.definizione ? ` · ${tipo.definizione}` : ''}`)}
             ${rigaDefinizione('Periodo', uda.periodo)}

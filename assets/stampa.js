@@ -88,10 +88,26 @@
         return table;
     }
 
+    // Foglio di una sola sezione: serve per portare in consiglio un documento
+    // solo, per esempio il calendario delle UDA, senza il resto della pagina.
+    function preparaSezione(doc, opzioni) {
+        const sezione = doc.querySelector(opzioni.sezione);
+        if (!sezione) return false;
+        copia = document.createElement('article');
+        copia.className = 'stampa-documento stampa-foglio';
+        copia.append(testo('h1', opzioni.titolo || doc.querySelector('header h1')?.textContent || doc.title));
+        (opzioni.righe || []).filter(Boolean).forEach(riga => copia.append(testo('p', riga, 'stampa-foglio-riga')));
+        copia.append(clona(sezione));
+        document.body.append(copia);
+        document.body.classList.add('stampa-in-corso');
+        return true;
+    }
+
     function prepara(orig = sorgente(), opzioni = {}) {
         if (copia) return;
         let doc;
         try { doc = orig.document; } catch { return; }
+        if (opzioni.sezione && preparaSezione(doc, opzioni)) return;
         const form = doc.getElementById('pfi-form');
         const risultato = doc.getElementById('step3');
         const catalogo = doc.querySelector(listaUda);
