@@ -178,9 +178,7 @@
         "periodo": "Ottobre – gennaio",
         "dettaglio": "Fase 1, prevenzione fra pari e rilevazione dei rischi, da ottobre a dicembre; fase 2, servizi per i minorenni, giustizia minorile e misure, a gennaio.",
         "materie": "Metodologie Operative · Igiene e Cultura M.S. · Diritto e T.A. · Psicologia · TIC",
-        "ore": "Ore da deliberare",
-        "daConfermare": true,
-        "nota": "Nella proposta la fase 1 andava da settembre a dicembre e la fase 2 da gennaio a febbraio, mentre il periodo complessivo era indicato da ottobre a gennaio. Qui le due fasi rientrano nell’intervallo ottobre – gennaio, così la fase 2 non si sovrappone all’avvio della formazione scuola-lavoro di febbraio. Il Dipartimento conferma o sposta le fasi."
+        "ore": "Ore da deliberare"
       },
       {
         "id": "DIP3-FSL",
@@ -192,9 +190,7 @@
         "periodo": "Febbraio – aprile",
         "dettaglio": "Preparazione in aula fra febbraio e marzo; esperienza in struttura entro aprile, minimo due settimane; relazione entro aprile.",
         "materie": "Igiene e Cultura M.S. 9 h · Diritto e T.A. 8 h · Psicologia 7 h · Metodologie Operative 6 h",
-        "ore": "30 ore convenzionali",
-        "daConfermare": true,
-        "nota": "Nella proposta la preparazione era collocata a marzo, con periodo complessivo da febbraio: qui la preparazione in aula parte a febbraio, altrimenti il primo mese resta vuoto e preparazione, esperienza e relazione si concentrano in due mesi. Le date dell’esperienza dipendono dal piano di formazione scuola-lavoro d’istituto e dalla disponibilità delle sedi ospitanti."
+        "ore": "30 ore convenzionali"
       },
       {
         "id": "DIP4-FSL",
@@ -206,9 +202,7 @@
         "periodo": "Novembre – gennaio",
         "dettaglio": "Preparazione in aula a novembre; esperienza in struttura fra dicembre e gennaio, minimo due settimane; dossier entro gennaio.",
         "materie": "Igiene e Cultura M.S. 15 h · Diritto e T.A. 12 h · Psicologia 12 h · Metodologie Operative 9 h",
-        "ore": "48 ore",
-        "daConfermare": true,
-        "nota": "La proposta indica due collocazioni diverse per la stessa unità: novembre – gennaio nel calendario e nel diagramma, aula da febbraio a marzo ed esperienza fra marzo e aprile nel dettaglio delle fasi. Qui è riportata novembre – gennaio, perché la seconda si sovrapporrebbe per intero all’unità d’asse di febbraio – aprile. Con questa scelta i prerequisiti di quarta — disabilità, deficit e handicap, PAI e valutazione multidimensionale — vanno però anticipati a ottobre invece che entro gennaio, e le due settimane in struttura non possono cadere nelle vacanze di Natale."
+        "ore": "48 ore"
       },
       {
         "id": "DIP4-ASSE",
@@ -232,9 +226,7 @@
         "periodo": "Novembre – prima settimana di maggio",
         "dettaglio": "Preparazione a novembre; esperienza in struttura in finestra flessibile fra dicembre e aprile, minimo due settimane; relazione finale entro la prima metà di aprile.",
         "materie": "Igiene e Cultura M.S. 15 h · Diritto e T.A. 12 h · Psicologia 12 h · Metodologie Operative 9 h",
-        "ore": "48 ore",
-        "daConfermare": true,
-        "nota": "Il periodo si chiude con la prima settimana di maggio, ma tutte le consegne sono attese entro la prima metà di aprile: la coda di maggio vale solo come margine se l’esperienza in struttura slitta, e in quella settimana cade la seconda simulazione della seconda prova."
+        "ore": "48 ore"
       },
       {
         "id": "DIP5-ASSE",
@@ -258,9 +250,7 @@
         "periodo": "Inizio marzo",
         "dettaglio": "Percorso di 16 ore, di cui 6 per la prova individuale.",
         "materie": "Igiene e Cultura Medico-Sanitaria 5 h · Diritto e Tecnica Amministrativa 4 h · Psicologia Generale e Applicata 4 h · Metodologie Operative 3 h",
-        "ore": "16 ore",
-        "daConfermare": true,
-        "nota": "La scheda della simulazione colloca il percorso nel primo quadrimestre, mentre il calendario delle simulazioni fissa la prova all’inizio di marzo: va chiarito se le 16 ore si svolgono entro gennaio con la sola prova a marzo, oppure se l’intero percorso si sposta nel secondo quadrimestre."
+        "ore": "16 ore"
       },
       {
         "id": "SIM5-2",
