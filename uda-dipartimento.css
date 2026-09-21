@@ -123,7 +123,6 @@
 .dip-calendario-dettaglio .dip-table-wrap { margin-top: 12px; }
 .dip-calendario-dettaglio table { min-width: 880px; }
 .dip-calendario-dettaglio tbody th { background: #f8fafc; font-weight: 700; }
-.dip-da-confermare { margin: 8px 0 0; color: #7c2d12; font-size: .85rem; line-height: 1.45; }
 
 /* Calendario di massima: diagramma mese per mese delle unità adottate. */
 .dip-year-cal { background: linear-gradient(135deg, #1d4ed8, #0e7490); font-size: 1.6rem; }
@@ -159,14 +158,12 @@
 }
 .dip-gantt-bar[data-genere="FSL"] { background: linear-gradient(135deg, #b45309, #d97706); }
 .dip-gantt-bar[data-genere="Simulazione"] { background: linear-gradient(135deg, #6d28d9, #4f46e5); }
-.dip-gantt-bar[data-conferma="true"] { border: 2px dashed #fff; box-shadow: 0 0 0 2px #1e293b; }
 
 .dip-gantt-legenda { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0 0; }
 .dip-gantt-chiave { display: inline-flex; align-items: center; gap: 7px; color: var(--ink-soft); font-size: .82rem; font-weight: 700; }
 .dip-gantt-chiave::before { content: ""; width: 26px; height: 12px; border-radius: 999px; background: linear-gradient(135deg, #0f766e, #0e7490); }
 .dip-gantt-chiave[data-genere="FSL"]::before { background: linear-gradient(135deg, #b45309, #d97706); }
 .dip-gantt-chiave[data-genere="Simulazione"]::before { background: linear-gradient(135deg, #6d28d9, #4f46e5); }
-.dip-gantt-chiave[data-conferma="true"]::before { background: #fff; border: 2px dashed #1e293b; }
 
 .dip-decisioni { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--stroke-soft); }
 .dip-decisioni h3 { margin: 0 0 12px; color: #0f5f5a; font-family: var(--font-display); font-size: 1.05rem; }
@@ -180,7 +177,6 @@
 .dip-prerequisiti ul { margin: 8px 0 0; padding-left: 1.2rem; }
 .dip-prerequisiti li { margin: 0 0 6px; color: var(--ink-soft); font-size: .9rem; line-height: 1.45; }
 
-.dip-calendario-nota { margin: 12px 0 0; padding: 11px 13px; border-left: 4px solid #b45309; border-radius: 0 11px 11px 0; background: #fffbeb; color: #7c2d12; font-size: .88rem; line-height: 1.5; }
 
 @media (max-width: 860px) {
     .dip-summary { grid-template-columns: 1fr; }
@@ -237,8 +233,6 @@
     .stampa-documento .dip-gantt-chiave[data-genere="FSL"]::before { background: #b45309 !important; }
     .stampa-documento .dip-gantt-bar[data-genere="Simulazione"],
     .stampa-documento .dip-gantt-chiave[data-genere="Simulazione"]::before { background: #4f46e5 !important; }
-    .stampa-documento .dip-gantt-bar[data-conferma="true"] { border: 1pt dashed #fff !important; outline: 1pt solid #000; }
-    .stampa-documento .dip-gantt-chiave[data-conferma="true"]::before { background: #fff !important; border: 1pt dashed #000; }
     .stampa-documento .dip-gantt-legenda { display: flex; gap: 10pt; margin: 6pt 0 0; font-size: 8pt; }
     .stampa-documento .dip-gantt-chiave::before { content: ""; display: inline-block; width: 18pt; height: 7pt; border-radius: 4pt; margin-right: 4pt; }
     .stampa-documento .dip-decisioni-griglia { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6pt; }
@@ -250,7 +244,6 @@
     .stampa-documento .dip-calendario-dettaglio th:nth-child(2) { width: 13%; }
     .stampa-documento .dip-calendario-dettaglio th:nth-child(3) { width: 34%; }
     .stampa-documento .dip-calendario-dettaglio th:nth-child(4) { width: 26%; }
-    .stampa-documento .dip-da-confermare { margin-top: 3pt; font-size: 6.5pt; line-height: 1.35; }
     .dip-year-nav,
     .uda-revisione-accesso,
     .uda-revisione-toolbar,

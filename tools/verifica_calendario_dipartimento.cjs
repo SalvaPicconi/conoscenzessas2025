@@ -48,7 +48,10 @@ for (const voce of calendario.voci) {
         assert.ok(String(voce[campo] || '').trim(), `Campo ${campo} mancante nel calendario di ${voce.id}`);
     }
     assert.ok(['UDA', 'FSL', 'Simulazione'].includes(voce.genere), `Genere non previsto in ${voce.id}`);
-    if (voce.daConfermare) assert.ok(String(voce.nota || '').trim(), `La voce ${voce.id} è da confermare senza motivazione`);
+    // Le collocazioni sono state deliberate: nessuna voce porta più la riserva
+    // che il calendario usava quando era una proposta.
+    assert.equal('daConfermare' in voce, false, `Riserva rimasta nel calendario di ${voce.id}`);
+    assert.equal('nota' in voce, false, `Motivazione della riserva rimasta in ${voce.id}`);
 }
 
 // Il periodo della singola unità resta un campo modificabile: l'editor delle
@@ -85,7 +88,7 @@ assert.ok(String(dati.meta.titoloPiano || '').trim(), 'Il piano deve avere un ti
 assert.match(dati.meta.validita, /2026\/2027/);
 assert.match(calendario.nota, /2026\/2027/);
 
-console.log(`PASS dati: ${calendario.voci.length} voci di calendario, ${calendario.voci.filter(voce => voce.daConfermare).length} da confermare, prerequisiti su cinque anni.`);
+console.log(`PASS dati: ${calendario.voci.length} voci di calendario deliberate, prerequisiti su cinque anni.`);
 
 let chromium;
 try { ({ chromium } = require('playwright')); }
@@ -116,8 +119,8 @@ const base = 'https://salvapicconi.github.io/conoscenzessas2025/';
 
         assert.equal(await pagina.locator('.dip-gantt tbody tr').count(), calendario.voci.length);
         assert.equal(await pagina.locator('.dip-gantt-bar').count(), calendario.voci.length);
-        assert.equal(await pagina.locator('.dip-gantt-bar[data-conferma="true"]').count(),
-            calendario.voci.filter(voce => voce.daConfermare).length);
+        assert.equal(await pagina.locator('.dip-gantt-bar[data-conferma="true"]').count(), 0);
+        assert.doesNotMatch(await pagina.locator('#calendario').innerText(), /da confermare/i, 'Il calendario deliberato non deve più portare riserve');
         // Il colore del diagramma non sopravvive alla stampa in bianco e nero:
         // ogni riga deve dire a parole se è una UDA d'asse, una FSL o altro,
         // con le stesse parole della scheda.
@@ -159,7 +162,7 @@ const base = 'https://salvapicconi.github.io/conoscenzessas2025/';
         const testoScheda = await scheda.innerText();
         assert.match(testoScheda, /Calendario di svolgimento/);
         assert.match(testoScheda, /Novembre – gennaio/);
-        assert.match(testoScheda, /Da confermare/);
+        assert.doesNotMatch(testoScheda, /Da confermare/);
 
         // Foglio per il consiglio: il calendario si stampa da solo, con il
         // titolo del piano e l'anno scolastico in testa.

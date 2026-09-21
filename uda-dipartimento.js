@@ -145,7 +145,6 @@ function disegnaCalendario(calendario) {
         <span class="dip-gantt-chiave" data-genere="UDA">UDA</span>
         <span class="dip-gantt-chiave" data-genere="FSL">Formazione scuola-lavoro</span>
         <span class="dip-gantt-chiave" data-genere="Simulazione">Simulazione della seconda prova</span>
-        <span class="dip-gantt-chiave" data-conferma="true">Collocazione da confermare</span>
     </p>
     ${dettaglioCalendario(calendario.voci)}
     ${puntiDaDeliberare(calendario.puntiDaDeliberare)}`;
@@ -162,7 +161,7 @@ function dettaglioCalendario(voci) {
                 <tbody>${voci.map(voce => `<tr>
                     <th scope="row">${esc(voce.anno)}ª · ${esc(voce.etichetta)}${categoriaVoce(voce.id) ? `<span class="dip-gantt-categoria">${esc(categoriaVoce(voce.id))}</span>` : ''}</th>
                     <td>${esc(voce.periodo)}</td>
-                    <td>${esc(voce.dettaglio)}${voce.daConfermare ? `<p class="dip-da-confermare"><strong>Da confermare.</strong> ${esc(voce.nota)}</p>` : ''}</td>
+                    <td>${esc(voce.dettaglio)}</td>
                     <td>${esc(voce.materie)}</td>
                     <td>${esc(voce.ore)}</td>
                 </tr>`).join('')}</tbody>
@@ -190,7 +189,7 @@ function rigaGantt(voce, mesi) {
         if (indice < primo || indice > ultimo) return '<td></td>';
         if (indice > primo) return '';
         return `<td class="dip-gantt-cell" colspan="${ultimo - primo + 1}">
-            <span class="dip-gantt-bar" data-genere="${esc(voce.genere)}" ${voce.daConfermare ? 'data-conferma="true"' : ''}>${esc(voce.periodo)}</span>
+            <span class="dip-gantt-bar" data-genere="${esc(voce.genere)}">${esc(voce.periodo)}</span>
         </td>`;
     }).join('');
     const categoria = categoriaVoce(voce.id);
@@ -217,10 +216,7 @@ function calendarioUda(uda) {
         rigaDefinizione('Insegnamenti coinvolti', voce?.materie),
         rigaDefinizione('Monte ore del calendario', voce?.ore)
     ].join('');
-    const nota = voce?.daConfermare
-        ? `<p class="dip-calendario-nota"><strong>Da confermare.</strong> ${esc(voce.nota)}</p>`
-        : '';
-    return sezione('Calendario di svolgimento', `<dl class="dip-definition-list">${righe}</dl>${nota}`);
+    return sezione('Calendario di svolgimento', `<dl class="dip-definition-list">${righe}</dl>`);
 }
 
 function disegnaDecisione(decisione) {
