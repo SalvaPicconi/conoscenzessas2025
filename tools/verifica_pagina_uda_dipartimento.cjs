@@ -42,7 +42,7 @@ const base = 'https://salvapicconi.github.io/conoscenzessas2025/';
             'Conoscersi e collaborare: dalle regole quotidiane al regolamento di classe',
             'Fiaba e racconto come strumento di crescita',
             'Area minori: osservare, accompagnare e documentare',
-            'Prevenzione, tutela, diritti dei minori e servizi',
+            'Adolescenti: prevenzione, tutela, diritti e servizi',
             'Area disabilità: inclusione, autonomia e progetto individualizzato',
             'Area anziani: assistenza, qualità di vita e lavoro in struttura residenziale',
             'Parole che curano: raccontare la salute mentale, superare lo stigma',
@@ -54,9 +54,10 @@ const base = 'https://salvapicconi.github.io/conoscenzessas2025/';
         assert.equal(await pagina.locator('.dip-full-uda[data-id="DIP3-ASSE-U33"], .dip-full-uda[data-id="DIP3-ASSE-U34"]').count(), 0);
         const asseTerza = pagina.locator('.dip-full-uda[data-id="DIP3-ASSE"]');
         await asseTerza.locator('.uda-acc-header').click();
-        assert.match(await asseTerza.innerText(), /C4[\s\S]*C6[\s\S]*C5[\s\S]*C9/);
-        assert.match(await asseTerza.innerText(), /Programma attività di accudimento/);
-        assert.match(await asseTerza.innerText(), /prevenzione primaria/i);
+        assert.match(await asseTerza.innerText(), /C9[\s\S]*C5[\s\S]*C7[\s\S]*C6/);
+        assert.match(await asseTerza.innerText(), /life skills/i);
+        assert.match(await asseTerza.innerText(), /tribunale per i minorenni/i);
+        assert.match(await asseTerza.innerText(), /prevenzione/i);
 
         await pagina.locator('.dip-full-uda').first().locator('.uda-acc-header').click();
         assert.ok(await pagina.locator('.dip-full-uda').first().locator('.uda-acc-body').isVisible());

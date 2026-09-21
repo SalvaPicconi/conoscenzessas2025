@@ -37,29 +37,51 @@ for (const [chiave, file, raccolta, originaleId] of corrispondenze) {
     assert.deepEqual(copia, originale, `${chiave} deve essere una copia integrale con il solo identificativo autonomo`);
 }
 
+// La scelta d’asse di terza non è la copia di un catalogo: il Dipartimento la
+// riscrive sugli adolescenti (revisione del 21 settembre 2026), perché la
+// versione precedente, centrata sulla prima infanzia, ripeteva la scelta FSL
+// della stessa classe. Resta vincolata alle schede d’asse che fonde: ogni
+// abilità e ogni sapere o viene da una di quelle schede, o porta la nota di
+// attribuzione che il dipartimento deve ratificare.
 const fusa = copie.find(voce => voce.id === 'DIP3-ASSE');
-const fontiFusione = [trova('data-uda-unificate.json', 'uda', 'U3.3'), trova('data-uda-unificate.json', 'uda', 'U3.4')];
+const schedeFuse = ['3.9', '3.5', '3.7', '3.6'];
+const fontiFusione = schedeFuse.map(id => trova('data-uda.json', 'uda', id));
 assert.ok(fusa, 'La scelta d’asse di terza deve avere un’unica chiave autonoma');
-assert.equal(fusa.titolo, 'Prevenzione, tutela, diritti dei minori e servizi');
+assert.equal(fusa.titolo, 'Adolescenti: prevenzione, tutela, diritti e servizi');
+assert.deepEqual(fusa.fonde.map(voce => voce.id), schedeFuse);
 assert.deepEqual(fusa.titoliOrigine, fontiFusione.map(voce => voce.titolo));
-assert.deepEqual(new Set(fusa.competenze), new Set([4, 5, 6, 9]));
+assert.deepEqual(fusa.competenze, fontiFusione.map(voce => voce.competenza));
+assert.deepEqual(new Set(fusa.competenze), new Set([5, 6, 7, 9]));
+assert.equal(fusa.competenze.includes(4), false, 'La competenza 4 resta alla scelta FSL: qui parlerebbe di bambini');
+assert.doesNotMatch(JSON.stringify(fusa), /puericultura|accudimento del bambino|prima infanzia/i, 'La scheda non deve tornare sulla prima infanzia');
 
-function verificaContenutoIntegrato(destinazione, origine, percorso = '') {
-    for (const [chiave, valore] of Object.entries(origine)) {
-        if (['id', 'titolo', 'competenza'].includes(chiave)) continue;
-        const attuale = destinazione?.[chiave];
-        const posizione = `${percorso}.${chiave}`;
-        if (Array.isArray(valore)) {
-            assert.ok(Array.isArray(attuale), `Campo integrato mancante: ${posizione}`);
-            for (const elemento of valore) assert.ok(attuale.some(voce => JSON.stringify(voce) === JSON.stringify(elemento)), `Contenuto perso in ${posizione}`);
-        } else if (valore && typeof valore === 'object') {
-            verificaContenutoIntegrato(attuale, valore, posizione);
-        } else if (valore !== null && valore !== '') {
-            assert.ok(String(attuale).includes(String(valore)), `Contenuto perso in ${posizione}`);
+for (const fonte of fontiFusione) {
+    const provenienza = fusa.provenienzaContenuti.find(voce => voce.scheda === fonte.id);
+    assert.ok(provenienza, `Provenienza mancante per la scheda ${fonte.id}`);
+    assert.equal(provenienza.competenza, fonte.competenza);
+    assert.equal(fusa.traguardo.includes(fonte.traguardo), true, `Traguardo perso: ${fonte.id}`);
+    for (const campo of ['abilita', 'saperi']) {
+        for (const voce of fonte[campo]) {
+            assert.ok(provenienza[campo].some(altra => JSON.stringify(altra) === JSON.stringify(voce)), `Contenuto perso in ${fonte.id}.${campo}`);
+            assert.ok(fusa[campo].some(altra => JSON.stringify(altra) === JSON.stringify(voce)), `Contenuto non riportato nella scheda: ${fonte.id}.${campo}`);
         }
     }
 }
-for (const fonte of fontiFusione) verificaContenutoIntegrato(fusa, fonte, fonte.id);
+
+// Quello che non viene dalle schede d’asse è una proposta del dipartimento e
+// come tale va dichiarata, altrimenti entra nel curricolo senza che nessuno
+// l’abbia deliberata.
+for (const campo of ['abilita', 'saperi']) {
+    const dalleSchede = fontiFusione.flatMap(fonte => fonte[campo].map(voce => JSON.stringify(voce)));
+    for (const voce of fusa[campo]) {
+        if (dalleSchede.includes(JSON.stringify(voce))) continue;
+        assert.ok(voce.notaAttribuzione, `Voce senza attribuzione dichiarata in ${campo}: ${voce.t}`);
+    }
+}
+
+assert.deepEqual(fusa.rubrica.map(voce => voce.competenza), fusa.competenze, 'La rubrica deve seguire le competenze della scheda');
+assert.deepEqual(fusa.raccordoProfilo.map(voce => voce.competenza), fusa.competenze);
+assert.deepEqual(fusa.pianificazione.oreOrigine.map(voce => voce.scheda), schedeFuse);
 
 assert.equal(new Set(copie.map(voce => voce.id)).size, 10, 'Ogni UDA deve avere una chiave autonoma');
 assert.equal(copie.some(voce => /DIP3-ASSE-U3[34]/.test(voce.id)), false, 'La scelta d’asse di terza non deve essere divisa in due schede');

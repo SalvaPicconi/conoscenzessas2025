@@ -172,11 +172,11 @@
         "id": "DIP3-ASSE",
         "anno": 3,
         "genere": "UDA",
-        "etichetta": "Minori: accudimento, sicurezza e prevenzione a scuola",
+        "etichetta": "Adolescenti: prevenzione, tutela, diritti e servizi",
         "da": "Ott",
         "a": "Gen",
         "periodo": "Ottobre – gennaio",
-        "dettaglio": "Fase 1, accudimento e sicurezza, da ottobre a dicembre; fase 2, prevenzione primaria a scuola, a gennaio.",
+        "dettaglio": "Fase 1, prevenzione fra pari e rilevazione dei rischi, da ottobre a dicembre; fase 2, servizi per i minorenni, giustizia minorile e misure, a gennaio.",
         "materie": "Metodologie Operative · Igiene e Cultura M.S. · Diritto e T.A. · Psicologia · TIC",
         "ore": "Ore da deliberare",
         "daConfermare": true,
@@ -659,8 +659,8 @@
               ],
               "traguardo": "Programmare e realizzare, sotto la guida dei tutor, semplici azioni rivolte al benessere del minore, riconoscendo compiti, protocolli, bisogni e modalità di documentazione del servizio.",
               "situazione": "La classe si prepara a un'esperienza nell'area minori. La scuola dell'infanzia è una possibile sede, ma il percorso resta adattabile ad altri servizi socio-educativi definiti nel progetto formativo.",
-              "compito": "Prima dell'inserimento, costruire una scheda adattabile per osservazione, sicurezza, regole del servizio e proposta di una semplice attività. Durante l'esperienza, osservare e collaborare esclusivamente nelle attività autorizzate dai tutor. Al termine, produrre una rielaborazione professionale anonima che colleghi bisogni, attività, protocolli e apprendimenti.",
-              "prodotto": "Dossier FSL individuale: profilo del servizio, griglia di osservazione, piano di una semplice attività, diario riflessivo e relazione finale anonimizzata.",
+              "compito": "Prima dell'inserimento, costruire una scheda adattabile per osservazione, sicurezza, regole del servizio e proposta di una semplice attività. Durante l'esperienza, osservare e collaborare esclusivamente nelle attività autorizzate dai tutor. Al termine, nella settimana successiva all'ultimo giorno di tirocinio, si svolge a scuola la prova esperta: una rielaborazione scritta su form predisposto dai docenti, che colleghi bisogni, attività, protocolli e apprendimenti secondo i nuclei fondanti dell'indirizzo Servizi per la Sanità e l'Assistenza Sociale.",
+              "prodotto": "Dossier FSL individuale: profilo del servizio, griglia di osservazione, piano di una semplice attività, diario riflessivo e relazione finale anonimizzata; form della prova esperta predisposto dai docenti, che colleghi bisogni, attività, protocolli e apprendimenti secondo i nuclei fondanti dell'indirizzo Servizi per la Sanità e l'Assistenza Sociale.",
               "beneficiari": "Minori accolti dal servizio, nel rispetto del progetto formativo e sotto supervisione",
               "ambito": "Struttura ospitante dell'area minori; scuola dell'infanzia come esempio non vincolante",
               "ore": "Da definire nel piano FSL d'istituto e nel progetto formativo individuale",
@@ -755,46 +755,43 @@
               "collocazione": "",
               "raccordoProfilo": [
                 {
-                  "competenza": 4,
-                  "testo": "Competenza in uscita n° 4: Prendersi cura e collaborare al soddisfacimento dei bisogni di base di bambini, persone con disabilità, anziani nell’espletamento delle più comuni attività quotidiane."
-                },
-                {
-                  "competenza": 6,
-                  "testo": "Competenza in uscita n° 6: Curare l’allestimento dell’ambiente di vita della persona in difficoltà con riferimento alle misure per la salvaguardia della sua sicurezza e incolumità, anche provvedendo alla promozione e al mantenimento delle capacità residue e della autonomia nel proprio ambiente di vita."
+                  "competenza": 9,
+                  "testo": "Competenza in uscita n° 9: Realizzare, in collaborazione con altre figure professionali, azioni a sostegno e a tutela della persona con fragilità e/o disabilità e della sua famiglia, per favorire l’integrazione e migliorare o salvaguardare la qualità della vita."
                 },
                 {
                   "competenza": 5,
                   "testo": "Competenza in uscita n° 5: Partecipare alla presa in carico socio-assistenziale di soggetti le cui condizioni determinino uno stato di non autosufficienza parziale o totale, di terminalità, di compromissione delle capacità cognitive e motorie, applicando procedure e tecniche stabilite e facendo uso dei principali ausili e presidi."
                 },
                 {
-                  "competenza": 9,
-                  "testo": "Competenza in uscita n° 9: Realizzare, in collaborazione con altre figure professionali, azioni a sostegno e a tutela della persona con fragilità e/o disabilità e della sua famiglia, per favorire l’integrazione e migliorare o salvaguardare la qualità della vita."
-                }
-              ],
-              "condizioniRealizzazione": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta.",
-              "titolo": "Prevenzione, tutela, diritti dei minori e servizi",
-              "titoliOrigine": [
-                "Crescere insieme · Caccia al rischio",
-                "Prevenire è curare · Progetto benessere a scuola"
-              ],
-              "competenze": [
-                4,
-                6,
-                5,
-                9
-              ],
-              "qnq": "3",
-              "traguardo": "Programmare azioni guidate di osservazione e accudimento del bambino e rilevare le condizioni di sicurezza dell’ambiente\n\nProgettare e realizzare azioni di prevenzione primaria su bisogni socio-sanitari rilevati nel proprio contesto di vita",
-              "traguardiOrigine": [
-                {
-                  "competenza": 4,
-                  "testo": "Programmare azioni per soddisfare bisogni e favorire il benessere del bambino",
-                  "scheda": "3.4"
+                  "competenza": 7,
+                  "testo": "Competenza in uscita n°7: Gestire azioni di informazione e di orientamento dell’utente per facilitare l’accessibilità e la fruizione autonoma dei servizi pubblici e privati presenti sul territorio."
                 },
                 {
                   "competenza": 6,
-                  "testo": "Rilevare e segnalare situazioni di rischio e pericolo negli ambienti di vita e di lavoro",
-                  "scheda": "3.6"
+                  "testo": "Competenza in uscita n° 6: Curare l’allestimento dell’ambiente di vita della persona in difficoltà con riferimento alle misure per la salvaguardia della sua sicurezza e incolumità, anche provvedendo alla promozione e al mantenimento delle capacità residue e della autonomia nel proprio ambiente di vita."
+                }
+              ],
+              "condizioniRealizzazione": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta.",
+              "titolo": "Adolescenti: prevenzione, tutela, diritti e servizi",
+              "titoliOrigine": [
+                "Progetto benessere a scuola",
+                "Prevenire è curare",
+                "La mappa degli accessi",
+                "Caccia al rischio"
+              ],
+              "competenze": [
+                9,
+                5,
+                7,
+                6
+              ],
+              "qnq": "3",
+              "traguardo": "Collaborare all'attuazione di programmi di prevenzione primaria nei propri ambiti di vita\n\nProgrammare semplici azioni per bisogni socio-assistenziali e sanitari in ottica di prevenzione\n\nRilevare i servizi sul territorio distinguendo modalità di accesso e di erogazione delle prestazioni\n\nRilevare e segnalare situazioni di rischio e pericolo negli ambienti di vita e di lavoro",
+              "traguardiOrigine": [
+                {
+                  "competenza": 9,
+                  "testo": "Collaborare all'attuazione di programmi di prevenzione primaria nei propri ambiti di vita",
+                  "scheda": "3.9"
                 },
                 {
                   "competenza": 5,
@@ -802,45 +799,38 @@
                   "scheda": "3.5"
                 },
                 {
-                  "competenza": 9,
-                  "testo": "Collaborare all'attuazione di programmi di prevenzione primaria nei propri ambiti di vita",
-                  "scheda": "3.9"
+                  "competenza": 7,
+                  "testo": "Rilevare i servizi sul territorio distinguendo modalità di accesso e di erogazione delle prestazioni",
+                  "scheda": "3.7"
+                },
+                {
+                  "competenza": 6,
+                  "testo": "Rilevare e segnalare situazioni di rischio e pericolo negli ambienti di vita e di lavoro",
+                  "scheda": "3.6"
                 }
               ],
-              "compito": "Piano di attività di osservazione e accudimento per la prima infanzia con schede operative e norme igieniche applicate, preceduto dal sopralluogo dell'ambiente educativo con schede di rilevazione dei rischi e report di segnalazione formale.\n\nAzione di prevenzione primaria realizzata a scuola su un tema rilevato con scheda bisogni-risorse-vincoli — dipendenze, benessere digitale, affettività, igiene, vaccinazioni, uso corretto dei farmaci — con materiali informativi e protocollo d'intervento.",
-              "sintesi": "Progettare attività di accudimento per la prima infanzia e rilevare i rischi dell’ambiente educativo.\n\nRealizzare una semplice azione di prevenzione primaria a scuola, partendo da bisogni rilevati e fonti affidabili.",
-              "ore": "58–60 + 30–35",
+              "compito": "Azione di prevenzione rivolta ai coetanei, progettata sul modello delle life skills a partire da una rilevazione con scheda bisogni-risorse-vincoli su un tema dell’adolescenza — dipendenze, alcol, benessere digitale, affettività, uso corretto dei farmaci — con materiali informativi, fonti verificate e protocollo d’intervento.\n\nRepertorio dei servizi e delle misure per i minorenni: chi interviene, a quali condizioni e con quali modalità di accesso, dal consultorio familiare e dai servizi per le dipendenze fino al tribunale per i minorenni, ai servizi della giustizia minorile e alle misure alternative alla detenzione.\n\nSopralluogo negli ambienti di vita e di lavoro frequentati dagli studenti, con schede di rilevazione dei rischi e report di segnalazione formale.",
+              "sintesi": "Progettare con i coetanei una azione di prevenzione fondata sulle life skills e ricostruire la rete dei servizi, della tutela e della giustizia minorile che interviene quando un adolescente ne ha bisogno.",
+              "ore": "52–62",
               "abilita": [
                 {
-                  "t": "Adottare tecniche di osservazione e accudimento del bambino",
+                  "t": "Identificare le caratteristiche multifattoriali del benessere psico-fisico-sociale",
                   "ins": [
-                    "Psicologia",
-                    "Metodologie Operative"
+                    "Igiene e Cultura M.S.",
+                    "Psicologia"
                   ]
                 },
                 {
-                  "t": "Applicare norme igieniche e di sicurezza",
-                  "ins": [
-                    "Igiene e Cultura M.S."
-                  ]
-                },
-                {
-                  "t": "Individuare gli istituti di tutela",
-                  "ins": [
-                    "Diritto e T.A."
-                  ]
-                },
-                {
-                  "t": "Predisporre semplici piani di lavoro",
+                  "t": "Individuare bisogni, risorse, vincoli e limiti",
                   "ins": [
                     "Metodologie Operative"
                   ]
                 },
                 {
-                  "t": "Utilizzare schede di rilevazione dei rischi e pericoli negli ambienti di vita e di lavoro",
+                  "t": "Riconoscere la prevenzione sociale",
                   "ins": [
-                    "Metodologie Operative",
-                    "TIC"
+                    "Igiene e Cultura M.S.",
+                    "Metodologie Operative"
                   ]
                 },
                 {
@@ -870,72 +860,72 @@
                   ]
                 },
                 {
-                  "t": "Identificare le caratteristiche multifattoriali del benessere psico-fisico-sociale",
+                  "t": "Collegare le tipologie di prestazioni ai servizi",
+                  "ins": [
+                    "Metodologie Operative",
+                    "Diritto e T.A."
+                  ]
+                },
+                {
+                  "t": "Individuare le modalità di accesso alle prestazioni",
+                  "ins": [
+                    "Diritto e T.A.",
+                    "Metodologie Operative"
+                  ]
+                },
+                {
+                  "t": "Utilizzare schede di rilevazione dei rischi e pericoli negli ambienti di vita e di lavoro",
+                  "ins": [
+                    "Metodologie Operative",
+                    "TIC"
+                  ]
+                },
+                {
+                  "t": "Progettare una azione di prevenzione fra pari fondata sulle life skills, verificandone le fonti",
+                  "ins": [
+                    "Psicologia",
+                    "Metodologie Operative"
+                  ],
+                  "notaAttribuzione": "Scelta didattica dei docenti oltre le attribuzioni del curricolo verticale; da ratificare in dipartimento."
+                },
+                {
+                  "t": "Ricostruire il percorso di un minore fra autorità giudiziaria, servizi e comunità",
+                  "ins": [
+                    "Diritto e T.A.",
+                    "Metodologie Operative"
+                  ],
+                  "notaAttribuzione": "Scelta didattica dei docenti oltre le attribuzioni del curricolo verticale; da ratificare in dipartimento."
+                },
+                {
+                  "t": "Distinguere provvedimenti civili, misure penali e misure alternative per i minorenni",
+                  "ins": [
+                    "Diritto e T.A."
+                  ],
+                  "notaAttribuzione": "Scelta didattica dei docenti oltre le attribuzioni del curricolo verticale; da ratificare in dipartimento."
+                }
+              ],
+              "saperi": [
+                {
+                  "t": "La salute come benessere bio-psico-sociale",
                   "ins": [
                     "Igiene e Cultura M.S.",
                     "Psicologia"
                   ]
                 },
                 {
-                  "t": "Individuare bisogni, risorse, vincoli e limiti",
-                  "ins": [
-                    "Metodologie Operative"
-                  ]
-                },
-                {
-                  "t": "Riconoscere la prevenzione sociale",
-                  "ins": [
-                    "Igiene e Cultura M.S.",
-                    "Metodologie Operative"
-                  ]
-                }
-              ],
-              "saperi": [
-                {
-                  "t": "Elementi di puericultura e igiene del bambino",
-                  "ins": [
-                    "Igiene e Cultura M.S."
-                  ]
-                },
-                {
-                  "t": "Tecniche di osservazione in età evolutiva",
-                  "ins": [
-                    "Psicologia",
-                    "Metodologie Operative"
-                  ]
-                },
-                {
-                  "t": "Diritti della personalità",
-                  "ins": [
-                    "Diritto e T.A."
-                  ]
-                },
-                {
-                  "t": "I piani di lavoro",
-                  "ins": [
-                    "Metodologie Operative"
-                  ]
-                },
-                {
-                  "t": "Norme di sicurezza negli ambienti di vita e di lavoro",
+                  "t": "Tipi, finalità e metodi della prevenzione sociale",
                   "ins": [
                     "Igiene e Cultura M.S.",
                     "Metodologie Operative"
                   ]
                 },
                 {
-                  "t": "Prevenzione dei rischi e degli incidenti",
-                  "ins": [
-                    "Igiene e Cultura M.S.",
-                    "Metodologie Operative"
-                  ]
-                },
-                {
-                  "t": "Le schede di rilevazione",
+                  "t": "Integrazione sociale, scolastica e lavorativa",
                   "ins": [
                     "Metodologie Operative",
-                    "TIC"
-                  ]
+                    "Psicologia"
+                  ],
+                  "notaAttribuzione": "Scelta didattica dei docenti oltre le attribuzioni del curricolo verticale; da ratificare in dipartimento."
                 },
                 {
                   "t": "Principi di sanità pubblica e livelli di prevenzione",
@@ -963,80 +953,131 @@
                   ]
                 },
                 {
-                  "t": "La salute come benessere bio-psico-sociale",
+                  "t": "Reti formali e informali per l'accesso",
                   "ins": [
-                    "Igiene e Cultura M.S.",
-                    "Psicologia"
+                    "Metodologie Operative"
                   ]
                 },
                 {
-                  "t": "Tipi, finalità e metodi della prevenzione sociale",
+                  "t": "Organizzazione del SSN e dei servizi sociali",
+                  "ins": [
+                    "Diritto e T.A.",
+                    "Igiene e Cultura M.S."
+                  ]
+                },
+                {
+                  "t": "Livelli essenziali delle prestazioni",
+                  "ins": [
+                    "Diritto e T.A."
+                  ]
+                },
+                {
+                  "t": "Procedure di accesso",
+                  "ins": [
+                    "Diritto e T.A.",
+                    "Metodologie Operative"
+                  ]
+                },
+                {
+                  "t": "Norme di sicurezza negli ambienti di vita e di lavoro",
                   "ins": [
                     "Igiene e Cultura M.S.",
                     "Metodologie Operative"
                   ]
                 },
                 {
-                  "t": "Integrazione sociale, scolastica e lavorativa",
+                  "t": "Prevenzione dei rischi e degli incidenti",
+                  "ins": [
+                    "Igiene e Cultura M.S.",
+                    "Metodologie Operative"
+                  ]
+                },
+                {
+                  "t": "Le schede di rilevazione",
                   "ins": [
                     "Metodologie Operative",
+                    "TIC"
+                  ]
+                },
+                {
+                  "t": "Psicopedagogia dell'adolescenza: compiti di sviluppo e comportamenti a rischio",
+                  "ins": [
                     "Psicologia"
+                  ],
+                  "notaAttribuzione": "Scelta didattica dei docenti oltre le attribuzioni del curricolo verticale; da ratificare in dipartimento."
+                },
+                {
+                  "t": "Life skills secondo l'Organizzazione mondiale della sanità: le dieci competenze psicosociali",
+                  "ins": [
+                    "Psicologia",
+                    "Metodologie Operative"
+                  ],
+                  "notaAttribuzione": "Scelta didattica dei docenti oltre le attribuzioni del curricolo verticale; da ratificare in dipartimento."
+                },
+                {
+                  "t": "Programmi scolastici di prevenzione con prove di efficacia: modello dell'influenza sociale e life skills",
+                  "ins": [
+                    "Igiene e Cultura M.S.",
+                    "Metodologie Operative"
+                  ],
+                  "notaAttribuzione": "Scelta didattica dei docenti oltre le attribuzioni del curricolo verticale; da ratificare in dipartimento."
+                },
+                {
+                  "t": "Servizi e interventi di prevenzione, riabilitazione e cura per minori e adolescenti: consultori familiari, neuropsichiatria infantile, servizi per le dipendenze, spazi per i giovani",
+                  "ins": [
+                    "Igiene e Cultura M.S.",
+                    "Metodologie Operative",
+                    "Diritto e T.A."
+                  ],
+                  "notaAttribuzione": "Scelta didattica dei docenti oltre le attribuzioni del curricolo verticale; da ratificare in dipartimento."
+                },
+                {
+                  "t": "Diritti dell'infanzia e dell'adolescenza e istituti di tutela del minore",
+                  "ins": [
+                    "Diritto e T.A."
+                  ],
+                  "notaAttribuzione": "Scelta didattica dei docenti oltre le attribuzioni del curricolo verticale; da ratificare in dipartimento."
+                },
+                {
+                  "t": "Tribunale per i minorenni e servizi della giustizia minorile: funzioni, provvedimenti civili e penali, passaggio al tribunale per le persone, per i minorenni e per le famiglie",
+                  "ins": [
+                    "Diritto e T.A.",
+                    "Metodologie Operative"
+                  ],
+                  "notaAttribuzione": "Scelta didattica dei docenti oltre le attribuzioni del curricolo verticale; da ratificare in dipartimento."
+                },
+                {
+                  "t": "Misure penali e alternative per i minorenni: messa alla prova, misure di comunità, ufficio di servizio sociale per i minorenni",
+                  "ins": [
+                    "Diritto e T.A.",
+                    "Metodologie Operative"
                   ],
                   "notaAttribuzione": "Scelta didattica dei docenti oltre le attribuzioni del curricolo verticale; da ratificare in dipartimento."
                 }
               ],
               "sviluppata": null,
-              "materialiOrigine": [
-                {
-                  "scheda": "3.4",
-                  "riferimento": "UDA formale già sviluppata: UDA_III_Anno_SSAS",
-                  "stato": "Riferimento ereditato dal catalogo; adattamento alla proposta da verificare"
-                }
-              ],
+              "materialiOrigine": [],
               "rubrica": [
                 {
-                  "competenza": 4,
-                  "indicatore": "Programma attività di accudimento coerenti con età e bisogni del bambino",
+                  "competenza": 9,
+                  "indicatore": "Contribuisce a una azione di prevenzione fra pari fondata sulle life skills e ne documenta gli esiti",
                   "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
                   "livelli": [
                     {
                       "livello": "1 · In via di acquisizione",
-                      "descrittore": "Rispetto a «Programma attività di accudimento coerenti con età e bisogni del bambino», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+                      "descrittore": "Rispetto a «Contribuisce a una azione di prevenzione fra pari fondata sulle life skills e ne documenta gli esiti», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
                     },
                     {
                       "livello": "2 · Base",
-                      "descrittore": "Rispetto a «Programma attività di accudimento coerenti con età e bisogni del bambino», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+                      "descrittore": "Rispetto a «Contribuisce a una azione di prevenzione fra pari fondata sulle life skills e ne documenta gli esiti», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
                     },
                     {
                       "livello": "3 · Intermedio",
-                      "descrittore": "Rispetto a «Programma attività di accudimento coerenti con età e bisogni del bambino», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+                      "descrittore": "Rispetto a «Contribuisce a una azione di prevenzione fra pari fondata sulle life skills e ne documenta gli esiti», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
                     },
                     {
                       "livello": "4 · Avanzato",
-                      "descrittore": "Rispetto a «Programma attività di accudimento coerenti con età e bisogni del bambino», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
-                    }
-                  ]
-                },
-                {
-                  "competenza": 6,
-                  "indicatore": "Rileva rischi nell’ambiente e redige una segnalazione con priorità e destinatario appropriati",
-                  "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
-                  "livelli": [
-                    {
-                      "livello": "1 · In via di acquisizione",
-                      "descrittore": "Rispetto a «Rileva rischi nell’ambiente e redige una segnalazione con priorità e destinatario appropriati», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
-                    },
-                    {
-                      "livello": "2 · Base",
-                      "descrittore": "Rispetto a «Rileva rischi nell’ambiente e redige una segnalazione con priorità e destinatario appropriati», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
-                    },
-                    {
-                      "livello": "3 · Intermedio",
-                      "descrittore": "Rispetto a «Rileva rischi nell’ambiente e redige una segnalazione con priorità e destinatario appropriati», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
-                    },
-                    {
-                      "livello": "4 · Avanzato",
-                      "descrittore": "Rispetto a «Rileva rischi nell’ambiente e redige una segnalazione con priorità e destinatario appropriati», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+                      "descrittore": "Rispetto a «Contribuisce a una azione di prevenzione fra pari fondata sulle life skills e ne documenta gli esiti», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
                     }
                   ]
                 },
@@ -1064,25 +1105,48 @@
                   ]
                 },
                 {
-                  "competenza": 9,
-                  "indicatore": "Contribuisce all’attuazione della prevenzione primaria a scuola e ne documenta gli esiti",
+                  "competenza": 7,
+                  "indicatore": "Collega servizi, misure e modalità di accesso per un minore, con requisiti e documenti verificabili",
                   "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
                   "livelli": [
                     {
                       "livello": "1 · In via di acquisizione",
-                      "descrittore": "Rispetto a «Contribuisce all’attuazione della prevenzione primaria a scuola e ne documenta gli esiti», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+                      "descrittore": "Rispetto a «Collega servizi, misure e modalità di accesso per un minore, con requisiti e documenti verificabili», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
                     },
                     {
                       "livello": "2 · Base",
-                      "descrittore": "Rispetto a «Contribuisce all’attuazione della prevenzione primaria a scuola e ne documenta gli esiti», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+                      "descrittore": "Rispetto a «Collega servizi, misure e modalità di accesso per un minore, con requisiti e documenti verificabili», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
                     },
                     {
                       "livello": "3 · Intermedio",
-                      "descrittore": "Rispetto a «Contribuisce all’attuazione della prevenzione primaria a scuola e ne documenta gli esiti», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+                      "descrittore": "Rispetto a «Collega servizi, misure e modalità di accesso per un minore, con requisiti e documenti verificabili», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
                     },
                     {
                       "livello": "4 · Avanzato",
-                      "descrittore": "Rispetto a «Contribuisce all’attuazione della prevenzione primaria a scuola e ne documenta gli esiti», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+                      "descrittore": "Rispetto a «Collega servizi, misure e modalità di accesso per un minore, con requisiti e documenti verificabili», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
+                    }
+                  ]
+                },
+                {
+                  "competenza": 6,
+                  "indicatore": "Rileva rischi nell'ambiente e redige una segnalazione con priorità e destinatario appropriati",
+                  "evidenzaIndividuale": "Prestazione individuale riferita all’indicatore, osservata dal docente; contributo identificabile nel dossier e breve motivazione delle scelte. Il prodotto di gruppo da solo non basta.",
+                  "livelli": [
+                    {
+                      "livello": "1 · In via di acquisizione",
+                      "descrittore": "Rispetto a «Rileva rischi nell'ambiente e redige una segnalazione con priorità e destinatario appropriati», produce evidenze parziali o incoerenti anche con la guida prevista; necessita di ulteriore esercizio."
+                    },
+                    {
+                      "livello": "2 · Base",
+                      "descrittore": "Rispetto a «Rileva rischi nell'ambiente e redige una segnalazione con priorità e destinatario appropriati», realizza gli elementi essenziali nel caso noto con gli strumenti e la guida previsti per l’annualità; corregge gli errori segnalati."
+                    },
+                    {
+                      "livello": "3 · Intermedio",
+                      "descrittore": "Rispetto a «Rileva rischi nell'ambiente e redige una segnalazione con priorità e destinatario appropriati», realizza una prestazione corretta e coerente nel caso assegnato, motiva le scelte e verifica il risultato con l’autonomia attesa per l’annualità."
+                    },
+                    {
+                      "livello": "4 · Avanzato",
+                      "descrittore": "Rispetto a «Rileva rischi nell'ambiente e redige una segnalazione con priorità e destinatario appropriati», mantiene correttezza e coerenza anche in una variante del caso, giustifica gli adattamenti e individua limiti o miglioramenti, entro il ruolo e l’autonomia previsti."
                     }
                   ]
                 }
@@ -1092,63 +1156,63 @@
                 "stato": "Da deliberare dal consiglio di classe",
                 "oreOrigine": [
                   {
-                    "scheda": "3.4",
-                    "ore": "48"
-                  },
-                  {
-                    "scheda": "3.6",
-                    "ore": "10–12"
+                    "scheda": "3.9",
+                    "ore": "12–15"
                   },
                   {
                     "scheda": "3.5",
                     "ore": "18–20"
                   },
                   {
-                    "scheda": "3.9",
+                    "scheda": "3.7",
                     "ore": "12–15"
+                  },
+                  {
+                    "scheda": "3.6",
+                    "ore": "10–12"
                   }
                 ],
                 "oreProgettate": null,
                 "nota": "Il totale esposto è la somma delle ore di origine, non un nuovo monte ore validato. Le fasi seguenti non hanno ancora ore assegnate. Contare una sola volta le attività comuni; non sommare questa proposta e le sue schede di origine nel piano annuale.",
                 "fasi": [
                   {
-                    "attivita": "Analisi del caso del bambino e dei bisogni",
+                    "attivita": "Rilevazione del bisogno fra i coetanei con scheda bisogni-risorse-vincoli e verifica delle fonti",
                     "ore": null,
                     "insegnamenti": [],
                     "periodo": null
                   },
                   {
-                    "attivita": "Rilevazione dei rischi dell’ambiente e segnalazione",
+                    "attivita": "Studio delle life skills e dei programmi di prevenzione con prove di efficacia",
                     "ore": null,
                     "insegnamenti": [],
                     "periodo": null
                   },
                   {
-                    "attivita": "Progettazione e simulazione delle attività di accudimento",
+                    "attivita": "Ricostruzione della rete dei servizi per minori e adolescenti e delle modalità di accesso",
                     "ore": null,
                     "insegnamenti": [],
                     "periodo": null
                   },
                   {
-                    "attivita": "Verifica individuale di accudimento e sicurezza",
+                    "attivita": "Analisi del tribunale per i minorenni, dei servizi della giustizia minorile e delle misure alternative",
                     "ore": null,
                     "insegnamenti": [],
                     "periodo": null
                   },
                   {
-                    "attivita": "Analisi della consegna, dei destinatari e delle fonti del caso",
+                    "attivita": "Rilevazione dei rischi negli ambienti di vita e di lavoro e segnalazione formale",
                     "ore": null,
                     "insegnamenti": [],
                     "periodo": null
                   },
                   {
-                    "attivita": "Progettazione delle azioni collegate nel compito di realtà",
+                    "attivita": "Progettazione e realizzazione dell’azione di prevenzione fra pari",
                     "ore": null,
                     "insegnamenti": [],
                     "periodo": null
                   },
                   {
-                    "attivita": "Realizzazione e documentazione del compito nelle condizioni concordate",
+                    "attivita": "Documentazione del repertorio dei servizi e delle misure",
                     "ore": null,
                     "insegnamenti": [],
                     "periodo": null
@@ -1169,96 +1233,52 @@
               },
               "provenienzaContenuti": [
                 {
-                  "scheda": "3.4",
-                  "competenza": 4,
+                  "scheda": "3.9",
+                  "competenza": 9,
                   "abilita": [
                     {
-                      "t": "Adottare tecniche di osservazione e accudimento del bambino",
+                      "t": "Identificare le caratteristiche multifattoriali del benessere psico-fisico-sociale",
                       "ins": [
-                        "Psicologia",
+                        "Igiene e Cultura M.S.",
+                        "Psicologia"
+                      ]
+                    },
+                    {
+                      "t": "Individuare bisogni, risorse, vincoli e limiti",
+                      "ins": [
                         "Metodologie Operative"
                       ]
                     },
                     {
-                      "t": "Applicare norme igieniche e di sicurezza",
+                      "t": "Riconoscere la prevenzione sociale",
                       "ins": [
-                        "Igiene e Cultura M.S."
-                      ]
-                    },
-                    {
-                      "t": "Individuare gli istituti di tutela",
-                      "ins": [
-                        "Diritto e T.A."
-                      ]
-                    },
-                    {
-                      "t": "Predisporre semplici piani di lavoro",
-                      "ins": [
+                        "Igiene e Cultura M.S.",
                         "Metodologie Operative"
                       ]
                     }
                   ],
                   "saperi": [
                     {
-                      "t": "Elementi di puericultura e igiene del bambino",
+                      "t": "La salute come benessere bio-psico-sociale",
                       "ins": [
-                        "Igiene e Cultura M.S."
+                        "Igiene e Cultura M.S.",
+                        "Psicologia"
                       ]
                     },
                     {
-                      "t": "Tecniche di osservazione in età evolutiva",
-                      "ins": [
-                        "Psicologia",
-                        "Metodologie Operative"
-                      ]
-                    },
-                    {
-                      "t": "Diritti della personalità",
-                      "ins": [
-                        "Diritto e T.A."
-                      ]
-                    },
-                    {
-                      "t": "I piani di lavoro",
-                      "ins": [
-                        "Metodologie Operative"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "scheda": "3.6",
-                  "competenza": 6,
-                  "abilita": [
-                    {
-                      "t": "Utilizzare schede di rilevazione dei rischi e pericoli negli ambienti di vita e di lavoro",
-                      "ins": [
-                        "Metodologie Operative",
-                        "TIC"
-                      ]
-                    }
-                  ],
-                  "saperi": [
-                    {
-                      "t": "Norme di sicurezza negli ambienti di vita e di lavoro",
+                      "t": "Tipi, finalità e metodi della prevenzione sociale",
                       "ins": [
                         "Igiene e Cultura M.S.",
                         "Metodologie Operative"
                       ]
                     },
                     {
-                      "t": "Prevenzione dei rischi e degli incidenti",
-                      "ins": [
-                        "Igiene e Cultura M.S.",
-                        "Metodologie Operative"
-                      ]
-                    },
-                    {
-                      "t": "Le schede di rilevazione",
+                      "t": "Integrazione sociale, scolastica e lavorativa",
                       "ins": [
                         "Metodologie Operative",
-                        "TIC"
-                      ]
+                        "Psicologia"
+                      ],
+                      "notaAttribuzione": "Scelta didattica dei docenti oltre le attribuzioni del curricolo verticale; da ratificare in dipartimento."
                     }
                   ]
                 },
@@ -1322,70 +1342,99 @@
                   ]
                 },
                 {
-                  "scheda": "3.9",
-                  "competenza": 9,
+                  "scheda": "3.7",
+                  "competenza": 7,
                   "abilita": [
                     {
-                      "t": "Identificare le caratteristiche multifattoriali del benessere psico-fisico-sociale",
+                      "t": "Collegare le tipologie di prestazioni ai servizi",
                       "ins": [
-                        "Igiene e Cultura M.S.",
-                        "Psicologia"
+                        "Metodologie Operative",
+                        "Diritto e T.A."
                       ]
                     },
                     {
-                      "t": "Individuare bisogni, risorse, vincoli e limiti",
+                      "t": "Individuare le modalità di accesso alle prestazioni",
                       "ins": [
-                        "Metodologie Operative"
-                      ]
-                    },
-                    {
-                      "t": "Riconoscere la prevenzione sociale",
-                      "ins": [
-                        "Igiene e Cultura M.S.",
+                        "Diritto e T.A.",
                         "Metodologie Operative"
                       ]
                     }
                   ],
                   "saperi": [
                     {
-                      "t": "La salute come benessere bio-psico-sociale",
+                      "t": "Reti formali e informali per l'accesso",
                       "ins": [
-                        "Igiene e Cultura M.S.",
-                        "Psicologia"
+                        "Metodologie Operative"
                       ]
                     },
                     {
-                      "t": "Tipi, finalità e metodi della prevenzione sociale",
+                      "t": "Organizzazione del SSN e dei servizi sociali",
+                      "ins": [
+                        "Diritto e T.A.",
+                        "Igiene e Cultura M.S."
+                      ]
+                    },
+                    {
+                      "t": "Livelli essenziali delle prestazioni",
+                      "ins": [
+                        "Diritto e T.A."
+                      ]
+                    },
+                    {
+                      "t": "Procedure di accesso",
+                      "ins": [
+                        "Diritto e T.A.",
+                        "Metodologie Operative"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "scheda": "3.6",
+                  "competenza": 6,
+                  "abilita": [
+                    {
+                      "t": "Utilizzare schede di rilevazione dei rischi e pericoli negli ambienti di vita e di lavoro",
+                      "ins": [
+                        "Metodologie Operative",
+                        "TIC"
+                      ]
+                    }
+                  ],
+                  "saperi": [
+                    {
+                      "t": "Norme di sicurezza negli ambienti di vita e di lavoro",
                       "ins": [
                         "Igiene e Cultura M.S.",
                         "Metodologie Operative"
                       ]
                     },
                     {
-                      "t": "Integrazione sociale, scolastica e lavorativa",
+                      "t": "Prevenzione dei rischi e degli incidenti",
+                      "ins": [
+                        "Igiene e Cultura M.S.",
+                        "Metodologie Operative"
+                      ]
+                    },
+                    {
+                      "t": "Le schede di rilevazione",
                       "ins": [
                         "Metodologie Operative",
-                        "Psicologia"
-                      ],
-                      "notaAttribuzione": "Scelta didattica dei docenti oltre le attribuzioni del curricolo verticale; da ratificare in dipartimento."
+                        "TIC"
+                      ]
                     }
                   ]
                 }
               ],
-              "situazione": "Un caso educativo descrive bisogni e attività quotidiane di un bambino. Gli studenti programmano azioni di osservazione e accudimento e verificano le condizioni di igiene e sicurezza dell’ambiente prima della simulazione.\n\nLa scuola propone di lavorare su un tema di prevenzione primaria scelto dopo una rilevazione guidata. Il gruppo deve distinguere bisogni documentati, risorse e vincoli, selezionare fonti affidabili e organizzare una semplice azione educativa.",
-              "prodotto": "Piano di attività per la prima infanzia con schede operative, e report di rilevazione dei rischi dell'ambiente.\n\nCampagna di prevenzione con materiali informativi, protocollo d'intervento e scheda bisogni-risorse-vincoli.",
-              "beneficiari": "Destinatari descritti nella consegna didattica. Eventuali attività con persone, famiglie o servizi del territorio e contributi di professionisti sono da concordare con la scuola.",
+              "situazione": "I comportamenti a rischio si formano in adolescenza e sui temi della prevenzione circolano in rete informazioni contraddittorie: fra i coetanei se ne parla per impressioni, senza fonti e senza dati.\n\nQuando la famiglia non basta, o quando un reato entra nella storia di un ragazzo, intervengono l’autorità giudiziaria minorile e i servizi. Gli studenti conoscono questi percorsi per luoghi comuni, mentre nei servizi si lavora su misure, tempi e responsabilità definite.",
+              "prodotto": "Azione di prevenzione fra pari con materiali informativi, scheda bisogni-risorse-vincoli, protocollo d’intervento e fonti dichiarate.\n\nRepertorio dei servizi e delle misure per i minorenni, con requisiti, documenti, tempi e soggetti che intervengono.\n\nReport di rilevazione dei rischi degli ambienti di vita e di lavoro con segnalazione formale.",
+              "beneficiari": "Gli studenti dell’istituto destinatari dell’azione di prevenzione e il referente per la salute; il responsabile del servizio di prevenzione, cui va il report formale. Eventuali incontri con i servizi del territorio e contributi di professionisti sono da concordare con la scuola.",
               "ambito": "esterna e interna",
               "fonde": [
                 {
-                  "id": "3.4",
-                  "titolo": "Crescere insieme",
-                  "competenza": 4
-                },
-                {
-                  "id": "3.6",
-                  "titolo": "Caccia al rischio",
-                  "competenza": 6
+                  "id": "3.9",
+                  "titolo": "Progetto benessere a scuola",
+                  "competenza": 9
                 },
                 {
                   "id": "3.5",
@@ -1393,9 +1442,14 @@
                   "competenza": 5
                 },
                 {
-                  "id": "3.9",
-                  "titolo": "Progetto benessere a scuola",
-                  "competenza": 9
+                  "id": "3.7",
+                  "titolo": "La mappa degli accessi",
+                  "competenza": 7
+                },
+                {
+                  "id": "3.6",
+                  "titolo": "Caccia al rischio",
+                  "competenza": 6
                 }
               ]
             }
@@ -1436,7 +1490,7 @@
               ],
               "traguardo": "Partecipare, sotto supervisione, ad attività rivolte ai bisogni di base, all'inclusione e all'autonomia della persona con disabilità, collegando osservazione, progetto individualizzato, ambiente, sicurezza e lavoro multiprofessionale.",
               "situazione": "La sede può essere una struttura di accoglienza, semiresidenziale, residenziale, socio-educativa o socio-sanitaria. Obiettivi e attività vengono precisati solo dopo aver conosciuto utenza, organizzazione e mandato della struttura.",
-              "compito": "Analizzare in forma anonima una situazione osservata, individuare bisogni e capacità residue, ricostruire il contributo delle figure professionali e progettare una micro-azione realistica per inclusione, autonomia o qualità della vita, coerente con regole e procedure della sede.",
+              "compito": "Nella settimana successiva all'ultimo giorno di tirocinio si svolge la prova esperta, con i seguenti criteri: analizzare in forma anonima una situazione osservata, individuare bisogni e capacità residue, ricostruire il contributo delle figure professionali e progettare una micro-azione realistica per inclusione, autonomia o qualità della vita, coerente con regole e procedure della sede.",
               "prodotto": "Dossier di esperienza con profilo organizzativo, osservazione multidimensionale, schema di progetto individualizzato, analisi di accessibilità e sicurezza, micro-intervento e relazione riflessiva.",
               "beneficiari": "Persone con disabilità accolte dal servizio, nel rispetto del progetto formativo e sotto supervisione",
               "ambito": "Servizi di accoglienza, semiresidenziali, residenziali, socio-educativi o socio-sanitari",
@@ -1888,8 +1942,8 @@
                   ]
                 }
               ],
-              "situazione": "Scenario didattico: una persona con disabilità incontra ostacoli nelle attività quotidiane in casa. Il caso fornito dal docente descrive bisogni, capacità residue, preferenze e caratteristiche dell’abitazione.",
-              "prodotto": "PAI con contributi degli studenti identificati, piano delle routine e adattamenti ambientali verificati in simulazione.",
+              "situazione": "Scenario didattico: una persona con disabilità incontra ostacoli nelle attività quotidiane in casa. Il caso fornito dal docente descrive bisogni, capacità residue, preferenze e caratteristiche dell’abitazione, e altri elementi ritenuti necessari.",
+              "prodotto": "PAI con contributi di tutti i saperi e gli insegnamenti coinvolti (ambito sanitario, sociale, metodologico, giuridico).",
               "beneficiari": "Persona descritta nel caso didattico e caregiver simulato; eventuale confronto con un servizio da concordare.",
               "ambito": "mista",
               "fonde": [
