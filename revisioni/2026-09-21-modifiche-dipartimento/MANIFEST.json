@@ -1,0 +1,39 @@
+{
+  "data": "2026-09-21",
+  "baselineCommit": "a8f4ea435a93099fca2a1f6b147d80ac9c0d597f",
+  "algoritmo": "git-blob-sha1",
+  "fileDati": [
+    {
+      "path": "data-uda-dipartimento.json",
+      "prima": "719ad9b9fefc00498f5ef979ac7569c27e2957ae",
+      "dopo": "f832aca3807ec67ffc43db6961686170d48521a1"
+    },
+    {
+      "path": "data-uda-fsl.json",
+      "prima": "6ed53537bb3bcc6b02686e96c1840cf41f4a89ff",
+      "dopo": "52474b1b724d2fa5346c0e80e7e4f63f03d6865d"
+    },
+    {
+      "path": "data-uda-unificate.json",
+      "prima": "9b53cae9d814059290d7c212bd5e0b17faf34c1c",
+      "dopo": "fd3bb427228df660f6ab89745a8bceddd2e262b0"
+    },
+    {
+      "path": "tools/revisione_uda_unificate.json",
+      "prima": "f5dbc8ccd98f52b1808be5a64a7b0f113bc7dcd4",
+      "dopo": "46517115f6de21460c643681f118fdaa16f14199"
+    }
+  ],
+  "fileVerifica": [
+    {
+      "path": "tools/verifica_uda_scelte_dipartimento.cjs",
+      "prima": "c187b853a77afd10a20d90356ae934104e218803",
+      "dopo": "aafe4e9b6bc51ab6bdc3a290d9a1509fc9ea40cf"
+    },
+    {
+      "path": "tools/verifica_pagina_uda_dipartimento.cjs",
+      "prima": "aa9dc9c8d0ddca9d1f23453a2455579c0064d834",
+      "dopo": "a466d8304c060d8499f9d3d5fb62c39eaf363758"
+    }
+  ]
+}

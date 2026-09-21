@@ -5,7 +5,7 @@
       "fonte": "data-uda.json",
       "sha256Fonte": "72b6f9bfe2226c959a923e363042d47d116ad434ccbc41201426fc7b22287d71",
       "revisione": "tools/revisione_uda_unificate.json",
-      "sha256Revisione": "f27da7f57e6d23a195f22dd6a0747a8d7e566808edae7f1f824a8bbe9e7fbcb8",
+      "sha256Revisione": "c4d5e7a5ca3410857339b86783ed7cd2b145f082fe6f5571b0752a2aafed3458",
       "registro": "revisioni/2026-09-06-riordino-applicato/REGISTRO.md",
       "profilo": "data-area-indirizzo.json",
       "sha256Profilo": "bc925f2fd6b50f9f95799e224caa194197a4551a296ec4d308a1299edfdb8a9c"
@@ -5855,8 +5855,8 @@
           ]
         }
       ],
-      "situazione": "Scenario didattico: una persona con disabilità incontra ostacoli nelle attività quotidiane in casa. Il caso fornito dal docente descrive bisogni, capacità residue, preferenze e caratteristiche dell’abitazione.",
-      "prodotto": "PAI con contributi degli studenti identificati, piano delle routine e adattamenti ambientali verificati in simulazione.",
+      "situazione": "Scenario didattico: una persona con disabilità incontra ostacoli nelle attività quotidiane in casa. Il caso fornito dal docente descrive bisogni, capacità residue, preferenze e caratteristiche dell’abitazione, e altri elementi ritenuti necessari.",
+      "prodotto": "PAI con contributi di tutti i saperi e gli insegnamenti coinvolti (ambito sanitario, sociale, metodologico, giuridico).",
       "beneficiari": "Persona descritta nel caso didattico e caregiver simulato; eventuale confronto con un servizio da concordare.",
       "ambito": "mista",
       "fonde": [
