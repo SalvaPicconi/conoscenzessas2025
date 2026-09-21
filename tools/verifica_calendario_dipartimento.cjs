@@ -118,6 +118,21 @@ const base = 'https://salvapicconi.github.io/conoscenzessas2025/';
         assert.equal(await pagina.locator('.dip-gantt-bar').count(), calendario.voci.length);
         assert.equal(await pagina.locator('.dip-gantt-bar[data-conferma="true"]').count(),
             calendario.voci.filter(voce => voce.daConfermare).length);
+        // Il colore del diagramma non sopravvive alla stampa in bianco e nero:
+        // ogni riga deve dire a parole se è una UDA d'asse, una FSL o altro,
+        // con le stesse parole della scheda.
+        const categorie = new Map([
+            ...dati.classi.flatMap(classe => classe.decisioni).map(voce => [voce.id, voce.categoria]),
+            ...dati.simulazioni.voci.map(voce => [voce.id, 'Simulazione']),
+        ]);
+        const righe = await pagina.locator('.dip-gantt tbody tr th').allInnerTexts();
+        calendario.voci.forEach((voce, indice) => {
+            const attesa = categorie.get(voce.id);
+            assert.ok(attesa, `Categoria non deliberata: ${voce.id}`);
+            assert.match(righe[indice], new RegExp(attesa.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i'), `Genere non scritto nel diagramma: ${voce.id}`);
+        });
+        assert.equal(await pagina.locator('.dip-gantt-categoria').count() >= calendario.voci.length, true);
+
         assert.equal(await pagina.locator('.dip-decisioni-griglia article').count(), calendario.puntiDaDeliberare.length);
         assert.equal(await pagina.locator('.dip-prerequisiti').count(), 5);
 

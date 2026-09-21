@@ -135,6 +135,16 @@
 .dip-gantt tbody th { width: 260px; background: #f8fafc; font-size: .86rem; font-weight: 700; line-height: 1.35; }
 .dip-gantt tbody td { padding: 6px 4px; vertical-align: middle; }
 .dip-gantt-anno { display: inline-grid; place-items: center; width: 26px; height: 26px; margin-right: 6px; border-radius: 9px; background: #0f766e; color: #fff; font-size: .75rem; font-weight: 800; vertical-align: middle; }
+.dip-gantt-categoria {
+    display: block;
+    margin-top: 4px;
+    font-size: .72rem;
+    font-weight: 700;
+    color: #115e59;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+}
+.dip-calendario-dettaglio .dip-gantt-categoria { margin-top: 3px; }
 .dip-gantt-cell { padding: 6px 4px; }
 .dip-gantt-bar {
     display: block;
@@ -214,6 +224,7 @@
     .stampa-documento .dip-gantt-cell { padding: 2pt; }
     .stampa-documento .dip-gantt-bar { padding: 3pt 4pt; font-size: 6.5pt; }
     .stampa-documento .dip-gantt-anno { width: 13pt; height: 13pt; margin-right: 3pt; border-radius: 4pt; font-size: 6pt; }
+    .stampa-documento .dip-gantt-categoria { margin-top: 1pt; font-size: 6pt; letter-spacing: 0; }
     .stampa-documento .dip-gantt-bar,
     .stampa-documento .dip-gantt-anno,
     .stampa-documento .dip-gantt-chiave::before {

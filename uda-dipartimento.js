@@ -160,7 +160,7 @@ function dettaglioCalendario(voci) {
             <table>
                 <thead><tr><th scope="col">Classe · unità</th><th scope="col">Periodo</th><th scope="col">Fasi</th><th scope="col">Insegnamenti e ore</th><th scope="col">Monte ore</th></tr></thead>
                 <tbody>${voci.map(voce => `<tr>
-                    <th scope="row">${esc(voce.anno)}ª · ${esc(voce.etichetta)}</th>
+                    <th scope="row">${esc(voce.anno)}ª · ${esc(voce.etichetta)}${categoriaVoce(voce.id) ? `<span class="dip-gantt-categoria">${esc(categoriaVoce(voce.id))}</span>` : ''}</th>
                     <td>${esc(voce.periodo)}</td>
                     <td>${esc(voce.dettaglio)}${voce.daConfermare ? `<p class="dip-da-confermare"><strong>Da confermare.</strong> ${esc(voce.nota)}</p>` : ''}</td>
                     <td>${esc(voce.materie)}</td>
@@ -169,6 +169,16 @@ function dettaglioCalendario(voci) {
             </table>
         </div>
     </details>`;
+}
+
+// Nel diagramma il colore distingue i generi, ma in stampa in bianco e nero, e
+// per chi legge una riga sola, il colore non dice niente. La categoria è già
+// decisa nella delibera: il calendario la ripete con le stesse parole delle
+// schede, invece di tenersi una copia che può divergere.
+function categoriaVoce(id) {
+    const decisione = (datiDipartimento?.classi || []).flatMap(classe => classe.decisioni).find(voce => voce.id === id);
+    if (decisione) return decisione.categoria;
+    return (datiDipartimento?.simulazioni?.voci || []).some(voce => voce.id === id) ? 'Simulazione' : '';
 }
 
 function rigaGantt(voce, mesi) {
@@ -183,7 +193,8 @@ function rigaGantt(voce, mesi) {
             <span class="dip-gantt-bar" data-genere="${esc(voce.genere)}" ${voce.daConfermare ? 'data-conferma="true"' : ''}>${esc(voce.periodo)}</span>
         </td>`;
     }).join('');
-    return `<tr><th scope="row"><span class="dip-gantt-anno">${esc(voce.anno)}ª</span> ${esc(voce.etichetta)}<span class="sr-only"> · ${esc(descrizione)}</span></th>${celle}</tr>`;
+    const categoria = categoriaVoce(voce.id);
+    return `<tr><th scope="row"><span class="dip-gantt-anno">${esc(voce.anno)}ª</span> ${esc(voce.etichetta)}${categoria ? `<span class="dip-gantt-categoria">${esc(categoria)}</span>` : ''}<span class="sr-only"> · ${esc(descrizione)}</span></th>${celle}</tr>`;
 }
 
 function puntiDaDeliberare(voci = []) {
