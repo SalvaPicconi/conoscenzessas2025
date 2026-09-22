@@ -217,7 +217,15 @@
     }
 
     function tabellaOre(uda, contesto) {
-        const ripartizione = (contesto.ripartizione || {})[String(uda.id)];
+        let ripartizione = (contesto.ripartizione || {})[String(uda.id)];
+        // Le UDA scelte dal Dipartimento portano la ripartizione dentro la
+        // scheda, come mappa insegnamento → ore: senza questo innesto la
+        // tabella uscirebbe vuota proprio dove le ore sono già deliberate.
+        if ((!ripartizione || !(ripartizione.voci || []).length) && uda.oreRipartizione) {
+            const voci = Object.entries(uda.oreRipartizione)
+                .map(([ins, ore]) => ({ ins, oreSett: '—', min: Number(ore) || 0, max: Number(ore) || 0 }));
+            if (voci.length) ripartizione = { voci };
+        }
         if (!ripartizione || !ripartizione.voci || !ripartizione.voci.length) {
             const insegnamenti = insegnamentiOrdinati(uda).map(etichettaInsegnamento);
             return insegnamenti.length ? [D.paragrafo(insegnamenti.join(' · '))] : [];
@@ -362,16 +370,106 @@
         return nodi;
     }
 
+    // Le schede per la prova professionale dell'Esame non hanno abilità e
+    // saperi per insegnamento: hanno una tipologia, i nuclei assegnati, il
+    // compito atteso e una griglia su 20 punti. Stampate con il format delle
+    // altre uscirebbero mezze vuote, quindi hanno una scheda loro.
+    function eScheda(uda) {
+        return Array.isArray(uda.nuclei) && Boolean(uda.compitoAtteso);
+    }
+
+    function schedaEsame(uda, contesto = {}) {
+        const nodi = [];
+        const atteso = uda.compitoAtteso || {};
+
+        nodi.push(...sezione('1', 'Quadro della prova', tabellaVoci([
+            ['Codice e denominazione', [D.testo(`${uda.id} — ${uda.titolo}`, { grassetto: true })]],
+            ['Tipologia', uda.tipologia || ''],
+            ['Anno di corso', ANNO_ETICHETTA[uda.anno] || String(uda.anno || '')],
+            ['Periodo', uda.periodo || ''],
+            ['Durata', uda.durata ? `${uda.durata} ore, di cui ${uda.provaFinaleOre || 0} per la prova individuale` : ''],
+            ['Livello QNQ di riferimento', uda.qnq || ''],
+            ['Argomento', uda.argomento || ''],
+            ['Stato', uda.stato || ''],
+            ['Fonte del curricolo', (contesto.meta && contesto.meta.titolo) || '']
+        ])));
+
+        nodi.push(...sezione('2', 'Nuclei tematici assegnati',
+            elencoPuntato((uda.nuclei || []).map(voce => `Nucleo ${voce.id} — ${voce.testo}`)),
+            'Nuclei tematici fondamentali del quadro di riferimento della seconda prova.'));
+
+        nodi.push(...sezione('3', 'Competenze e traguardi',
+            elencoPuntato((uda.competenze || []).map(voce => `C${voce.numero} — ${voce.traguardo}`)),
+            'Profilo di uscita SSAS — D.I. 92/2018, Allegato 2-I.'));
+
+        nodi.push(...sezione('4', 'Compito atteso', tabellaVoci([
+            ['Situazione-problema', atteso.situazione || ''],
+            ['Ruolo dello studente', atteso.ruolo || ''],
+            ['Committente', atteso.committente || ''],
+            ['Destinatario', atteso.destinatario || ''],
+            ['Prodotto', atteso.prodotto || ''],
+            ['Autonomia nel compito', atteso.autonomiaOperativa || '']
+        ])));
+
+        const contributi = (uda.contributi || []).map(voce => [
+            etichettaInsegnamento(voce.insegnamento),
+            { frammenti: D.frammenti(String(voce.ore ?? '')), allineamento: 'center' },
+            voce.saperi || '',
+            voce.abilita || ''
+        ]);
+        nodi.push(...sezione('5', 'Contributi degli insegnamenti', contributi.length ? [D.tabella({
+            intestazioni: ['Insegnamento', 'Ore', 'Saperi', 'Abilità'],
+            larghezze: [22, 8, 35, 35],
+            righe: contributi
+        })] : []));
+
+        if ((uda.coinvolgimentiOpzionali || []).length) {
+            nodi.push(...sezione('5 bis', 'Coinvolgimenti opzionali',
+                elencoPuntato(uda.coinvolgimentiOpzionali.map(voce => `${etichettaInsegnamento(voce.insegnamento)} — ${voce.contributo}`))));
+        }
+
+        const fasi = (uda.fasi || []).map((voce, indice) => [
+            { frammenti: D.frammenti(String(indice + 1)), allineamento: 'center' },
+            voce.titolo || '',
+            { frammenti: D.frammenti(String(voce.ore ?? '')), allineamento: 'center' },
+            voce.attivita || ''
+        ]);
+        nodi.push(...sezione('6', 'Percorso didattico', fasi.length ? [D.tabella({
+            intestazioni: ['#', 'Fase', 'Ore', 'Attività'],
+            larghezze: [5, 27, 8, 60],
+            righe: fasi
+        })] : []));
+
+        nodi.push(...sezione('7', 'Dossier documentale',
+            elencoPuntato((uda.dossier || []).map(voce => `${voce.titolo}${voce.uso ? ` — ${voce.uso}` : ''}`))));
+
+        nodi.push(...sezione('8', 'Consegna conclusiva individuale',
+            uda.traccia ? [D.paragrafo(uda.traccia)] : []));
+
+        nodi.push(...sezione('9', 'Criteri di valutazione',
+            elencoPuntato(uda.focusValutazione || []),
+            'Griglia nazionale della seconda prova, su 20 punti.'));
+
+        nodi.push(...sezione('10', 'Personalizzazione e accessibilità',
+            uda.personalizzazione ? [D.paragrafo(uda.personalizzazione)] : []));
+
+        nodi.push(...sezione('11', 'Note del consiglio di classe', righeDaCompilare(3)));
+        return nodi;
+    }
+
     // Documento pronto per una sola UDA.
     function documentoUda(uda, contesto = {}) {
         const nomeDocumento = `UDA ${uda.id} — ${uda.titolo}`;
+        const esame = eScheda(uda);
         const nodi = [
             ...testata(),
-            D.paragrafo('Unità di apprendimento', 'occhiello'),
+            D.paragrafo(esame ? 'Simulazione della prova professionale' : 'Unità di apprendimento', 'occhiello'),
             D.titolo(1, uda.titolo),
             D.paragrafo(`${uda.id} · ${ANNO_ETICHETTA[uda.anno] || ''}${uda.qnq ? ` · Livello QNQ ${uda.qnq}` : ''}`, 'sottotitolo'),
-            D.paragrafo('Scheda redatta secondo il format delle Linee guida dell’istruzione professionale (D.M. 766/2019, Box n. 8)', 'catenaccio'),
-            ...schedaUda(uda, contesto),
+            D.paragrafo(esame
+                ? 'Scheda redatta sul quadro di riferimento della seconda prova dell’Esame di Stato'
+                : 'Scheda redatta secondo il format delle Linee guida dell’istruzione professionale (D.M. 766/2019, Box n. 8)', 'catenaccio'),
+            ...(esame ? schedaEsame(uda, contesto) : schedaUda(uda, contesto)),
             ...bloccoRiferimenti(),
             D.firme(['Il/La docente referente dell’UDA', 'Il/La coordinatore/coordinatrice del consiglio di classe']),
             D.paragrafo(`Documento generato dal Curricolo Verticale SSAS dell’${ISTITUTO} — ${SEDE}. Profilo finale SSAS: D.I. 92/2018, Allegato 2-I; risultati intermedi: Linee guida D.M. 766/2019, Allegato C, sezione I. La scheda è una proposta da verificare e adottare collegialmente.`, 'piede')
@@ -400,6 +498,8 @@
         etichettaInsegnamento,
         nomeGenere,
         schedaUda,
+        schedaEsame,
+        eScheda,
         documentoUda,
         scaricaDocx: D.scaricaDocx,
         stampa: D.stampa

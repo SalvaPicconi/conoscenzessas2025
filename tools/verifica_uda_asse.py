@@ -1,4 +1,4 @@
-"""Controlli della proposta; genera solo un file temporaneo, non modifica i cataloghi."""
+"""Controlli del catalogo d'asse; genera solo un file temporaneo, non modifica i cataloghi."""
 import hashlib
 import json
 from pathlib import Path
@@ -10,15 +10,32 @@ read = lambda p: json.loads((ROOT / p).read_text())
 src = read('data-uda.json')
 out = read('data-uda-asse.json')
 by = {u['id']: u for u in src['uda']}
-refs = [f['id'] for u in out['uda'] for f in u['fonde']]
+# Il catalogo tiene insieme due nature: le unità nate dall'accorpamento delle
+# schede di origine e quelle autonome, proposte dai docenti, che si portano
+# dentro se stesse come unica fonte.
+accorpate = [u for u in out['uda'] if [f['id'] for f in u['fonde']] != [u['id']]]
+proposte = [u for u in out['uda'] if [f['id'] for f in u['fonde']] == [u['id']]]
+refs = [f['id'] for u in accorpate for f in u['fonde']]
 supplementi = {'1.10', '1.11', '2.10', '2.11', '3.11', '4.11', '5.11', '5.12', '5.13'}
 assert len(refs) == len(set(refs)) == 48
 assert set(refs).issubset(by)
 assert set(by) - set(refs) == supplementi
-assert len(out['uda']) == 27
-assert [sum(u['anno'] == y for u in out['uda']) for y in range(1, 6)] == [4,7,5,5,6]
+assert {u['id'] for u in proposte} == supplementi
+assert len(accorpate) == 27
+assert len(out['uda']) == 36
+assert [sum(u['anno'] == y for u in out['uda']) for y in range(1, 6)] == [6,9,6,6,9]
+# Le proposte autonome entrano nel catalogo senza essere riscritte: titolo,
+# ore, periodo deliberato e competenza portante restano quelli della scheda.
+for u in proposte:
+    o = by[u['id']]
+    for campo in ['anno', 'titolo', 'qnq', 'traguardo', 'compito', 'ore', 'abilita', 'saperi',
+                  'situazione', 'prodotto', 'beneficiari', 'ambito', 'competenza']:
+        assert u[campo] == o[campo], (u['id'], campo)
+    assert u['periodo'] == o.get('periodo', '')
+    assert u['competenze'] == (o.get('competenze') or [o['competenza']])
+    assert u['rubrica'] == [] and u['materialiOrigine'] == [] and u['provenienzaContenuti'] == []
 materials = 0
-for u in out['uda']:
+for u in accorpate:
     originals = [by[f['id']] for f in u['fonde']]
     assert all(o['anno'] == u['anno'] for o in originals) or (u['id'] == 'U1.1' and u['anno'] == 2 and [o['id'] for o in originals] == ['1.1','1.7'])
     assert u['competenze'] == [o['competenza'] for o in originals]
@@ -39,8 +56,12 @@ for u in out['uda']:
 assert materials == 5
 assert next(u for u in out['uda'] if u['id']=='U2.1')['anno'] == 2
 snapshot = read('revisioni/2026-09-06-uda-unificate/manifest-prima.json')
-for p in ['data-uda-fsl.json', 'votazione-uda.js']:
-    assert hashlib.sha256((ROOT/p).read_bytes()).hexdigest() == snapshot[p], p
+assert hashlib.sha256((ROOT/'votazione-uda.js').read_bytes()).hexdigest() == snapshot['votazione-uda.js']
+# Le UDA FSL sono cambiate il 21 settembre 2026, dopo lo snapshot del 6: il
+# controllo resta, ma sul valore attuale, cosi' una modifica non voluta si vede
+# lo stesso. Registro: revisioni/2026-09-21-modifiche-dipartimento/REGISTRO.md
+assert hashlib.sha256((ROOT/'data-uda-fsl.json').read_bytes()).hexdigest() == \
+    'c8b90bdfa03a1413f36090d534ab3534a79f239b78ab75f5f91a777ede2c89b8', 'data-uda-fsl.json'
 m = runpy.run_path(str(ROOT/'tools/genera_uda_asse.py'))
 with tempfile.TemporaryDirectory() as t:
     m['main'].__globals__['DESTINAZIONE'] = Path(t)/'generated.json'
@@ -48,4 +69,4 @@ with tempfile.TemporaryDirectory() as t:
     assert json.loads((Path(t)/'generated.json').read_text()) == out
 for key, path in [('sha256Fonte','data-uda.json'), ('sha256Revisione','tools/revisione_uda_asse.json')]:
     assert out['meta']['tracciamento'][key] == hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
-print('PASS: copertura 48/48 origini e 9 proposte autonome; 27 schede; contenuti e provenienza; 48 dimensioni con 4 livelli; 5 riferimenti; ore non inventate; FSL/voto invariati; generazione riproducibile; hash coerenti.')
+print('PASS: 36 UDA d\'asse — 27 da accorpamento con copertura 48/48 origini e 9 proposte autonome riprese senza riscritture; contenuti e provenienza; 48 dimensioni con 4 livelli; 5 riferimenti; ore non inventate; FSL/voto invariati; generazione riproducibile; hash coerenti.')

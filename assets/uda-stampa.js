@@ -22,12 +22,48 @@ async function avvia() {
         carica(FONTE_RIPARTIZIONE)
     ]);
     if (dati) {
-        stato.uda = new Map((dati.uda || []).map(uda => [String(uda.id), uda]));
+        stato.uda = new Map(elencoUda(dati).map(uda => [String(uda.id), uda]));
         stato.meta = dati.meta || {};
     }
     stato.ripartizione = (ore && ore.uda) || {};
+    sommaOreDelleOrigini();
     stato.pronto = Boolean(dati);
     disegnaComandi();
+}
+
+// I cataloghi non hanno tutti la stessa forma: quello d'asse e i trasversali
+// espongono un elenco piatto, l'Esame lo chiama "schede" e le scelte del
+// Dipartimento stanno annidate per classe e per decisione. La stampa della
+// singola scheda vale per tutti, quindi la forma si appiattisce qui.
+function elencoUda(dati) {
+    if (Array.isArray(dati.uda)) return dati.uda;
+    if (Array.isArray(dati.schede)) return dati.schede;
+    const unita = [];
+    (dati.classi || []).forEach(classe =>
+        (classe.decisioni || []).forEach(decisione => unita.push(...(decisione.unita || []))));
+    ((dati.simulazioni && dati.simulazioni.voci) || []).forEach(voce => unita.push(...(voce.unita || [])));
+    return unita;
+}
+
+// La ripartizione oraria è calcolata sulle schede di origine. Un'unità che ne
+// accorpa più d'una non ha una voce propria: si somma, come fa il Piano delle
+// UDA, altrimenti la tabella delle ore esce vuota proprio nelle unità adottate.
+function sommaOreDelleOrigini() {
+    for (const [id, uda] of stato.uda) {
+        if (stato.ripartizione[id]) continue;
+        const origini = (uda.fonde || []).map(voce => stato.ripartizione[voce.id]);
+        if (!origini.length || origini.some(voce => !voce)) continue;
+        const materie = new Map();
+        for (const origine of origini) {
+            for (const voce of origine.voci) {
+                const somma = materie.get(voce.ins) || { ins: voce.ins, oreSett: voce.oreSett, min: 0, max: 0 };
+                somma.min += voce.min;
+                somma.max += voce.max;
+                materie.set(voce.ins, somma);
+            }
+        }
+        stato.ripartizione[id] = { voci: [...materie.values()] };
+    }
 }
 
 async function carica(percorso) {
@@ -46,7 +82,8 @@ function disegnaComandi() {
     document.querySelectorAll('[data-uda-revisione-key]').forEach(scheda => {
         const chiave = scheda.dataset.udaRevisioneKey;
         const uda = stato.uda.get(String(chiave));
-        const corpo = scheda.querySelector('.uda-acc-body');
+        // Il corpo della scheda si chiama diversamente da pagina a pagina.
+        const corpo = scheda.querySelector('.uda-acc-body, .esame-slot-body');
         // Le UDA nate in revisione non stanno nel file dati: non c'è ancora
         // una scheda da stampare e i comandi non compaiono.
         if (!uda || !corpo || corpo.querySelector('.uda-stampa')) return;

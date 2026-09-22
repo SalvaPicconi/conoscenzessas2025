@@ -17,24 +17,19 @@ assert.equal(decisioni.filter(voce => voce.categoria === 'UDA d’asse').length,
 assert.equal(dati.simulazioni.voci.length, 2, 'Devono esserci due simulazioni');
 assert.equal(copie.length, 10, 'Devono esserci dieci UDA autonome, una per ogni scelta');
 
-const corrispondenze = [
-    ['DIP1-CIVICA', 'data-uda-civica.json', 'uda', 'T1.1'],
-    ['DIP2-TRASVERSALE', 'data-uda-trasversali.json', 'uda', 'T2.1'],
-    ['DIP3-FSL', 'data-uda-fsl.json', 'uda', 'FSL3.1'],
-    ['DIP4-FSL', 'data-uda-fsl.json', 'uda', 'FSL4.1'],
-    ['DIP4-ASSE', 'data-uda-asse.json', 'uda', 'U4.3'],
-    ['DIP5-FSL', 'data-uda-fsl.json', 'uda', 'FSL5.1'],
-    ['DIP5-ASSE', 'data-uda.json', 'uda', '5.12'],
-    ['SIM5-1', 'data-uda-esame.json', 'schede', 'E5.1'],
-    ['SIM5-2', 'data-uda-esame.json', 'schede', 'E5.2'],
-];
+// Da dove viene ogni scelta sta scritto in un posto solo, che lo strumento di
+// riallineamento e questa verifica leggono entrambi: tools/derivazione_dipartimento.json.
+const derivazione = leggi('tools/derivazione_dipartimento.json').scelte;
+assert.deepEqual(new Set(Object.keys(derivazione)), new Set(copie.map(voce => voce.id)),
+    'Ogni UDA del Dipartimento deve dichiarare la propria derivazione, e viceversa');
 
-for (const [chiave, file, raccolta, originaleId] of corrispondenze) {
+for (const [chiave, regola] of Object.entries(derivazione)) {
+    if (!regola.copia) continue;
     const copia = copie.find(voce => voce.id === chiave);
     assert.ok(copia, `Copia autonoma mancante: ${chiave}`);
-    const originale = structuredClone(trova(file, raccolta, originaleId));
+    const originale = structuredClone(trova(regola.copia.file, regola.copia.raccolta, regola.copia.id));
     originale.id = chiave;
-    assert.deepEqual(copia, originale, `${chiave} deve essere una copia integrale con il solo identificativo autonomo`);
+    assert.deepEqual(copia, originale, `${chiave} deve essere una copia integrale con il solo identificativo autonomo: esegui tools/allinea_uda_dipartimento.py`);
 }
 
 // La scelta d’asse di terza non è la copia di un catalogo: il Dipartimento la
@@ -44,8 +39,10 @@ for (const [chiave, file, raccolta, originaleId] of corrispondenze) {
 // abilità e ogni sapere o viene da una di quelle schede, o porta la nota di
 // attribuzione che il dipartimento deve ratificare.
 const fusa = copie.find(voce => voce.id === 'DIP3-ASSE');
-const schedeFuse = ['3.9', '3.5', '3.7', '3.6'];
-const fontiFusione = schedeFuse.map(id => trova('data-uda.json', 'uda', id));
+const riscritta = derivazione['DIP3-ASSE'].riscritta;
+assert.ok(riscritta, 'La scelta d’asse di terza deve essere dichiarata come riscritta dal Dipartimento');
+const schedeFuse = riscritta.fonde;
+const fontiFusione = schedeFuse.map(id => trova(riscritta.fascicolo, 'uda', id));
 assert.ok(fusa, 'La scelta d’asse di terza deve avere un’unica chiave autonoma');
 assert.equal(fusa.titolo, 'Adolescenti: prevenzione, tutela, diritti e servizi');
 assert.deepEqual(fusa.fonde.map(voce => voce.id), schedeFuse);

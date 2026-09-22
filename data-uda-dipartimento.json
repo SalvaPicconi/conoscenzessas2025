@@ -1612,7 +1612,7 @@
                   "testo": "Competenza in uscita n° 6: Curare l’allestimento dell’ambiente di vita della persona in difficoltà con riferimento alle misure per la salvaguardia della sua sicurezza e incolumità, anche provvedendo alla promozione e al mantenimento delle capacità residue e della autonomia nel proprio ambiente di vita."
                 }
               ],
-              "condizioniRealizzazione": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta.",
+              "condizioniRealizzazione": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa scheda.",
               "titolo": "Vivere con la disabilità · Abitare sicuro",
               "competenza": 4,
               "competenze": [
@@ -2090,17 +2090,32 @@
             {
               "id": "DIP5-ASSE",
               "anno": 5,
+              "collegataA": "",
+              "derivaDa": "",
+              "collocazione": "",
               "periodo": "Intero anno scolastico",
+              "raccordoProfilo": [
+                {
+                  "competenza": 3,
+                  "testo": "Competenza in uscita n° 3: Facilitare la comunicazione tra persone e gruppi, anche di culture e contesti diversi, adottando modalità comunicative e relazionali adeguate ai diversi ambiti professionali e alle diverse tipologie di utenza."
+                },
+                {
+                  "competenza": 9,
+                  "testo": "Competenza in uscita n° 9: Realizzare, in collaborazione con altre figure professionali, azioni a sostegno e a tutela della persona con fragilità e/o disabilità e della sua famiglia, per favorire l’integrazione e migliorare o salvaguardare la qualità della vita."
+                }
+              ],
+              "condizioniRealizzazione": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa scheda.",
               "titolo": "Parole che curano: raccontare la salute mentale, superare lo stigma",
               "competenza": 9,
               "competenze": [
                 3,
                 9
               ],
-              "origineProposta": "collega",
               "qnq": "4",
               "traguardo": "Realizzare, in collaborazione con altre figure professionali, azioni a sostegno e a tutela della persona con disagio psichico e della sua famiglia, per favorirne l'integrazione e migliorare o salvaguardare la qualità della vita",
+              "traguardiOrigine": [],
               "compito": "Campagna per la Giornata mondiale della salute mentale: analisi di come cinema, stampa e social raccontano il disagio psichico, glossario delle parole da evitare e di quelle corrette, prodotto di comunicazione con l'indicazione dei servizi del territorio.",
+              "sintesi": "Campagna per la Giornata mondiale della salute mentale: analisi di come cinema, stampa e social raccontano il disagio psichico, glossario delle parole da evitare e di quelle corrette, prodotto di comunicazione con l'indicazione dei servizi del territorio.",
               "ore": "42",
               "abilita": [
                 {
@@ -2154,10 +2169,60 @@
                 }
               ],
               "sviluppata": null,
+              "materialiOrigine": [],
+              "rubrica": [],
+              "criterioValutazione": "Livelli descrittivi proposti, senza conversione automatica in voto o certificazione. Strumenti compensativi e supporti previsti non penalizzano il livello. Se l’evidenza manca, registrare «Non osservato», senza assegnare automaticamente il livello 1. Valutare separatamente ciascuna competenza.",
+              "pianificazione": {
+                "stato": "Da deliberare dal consiglio di classe",
+                "oreOrigine": [],
+                "oreProgettate": null,
+                "nota": "Scheda autonoma: le ore indicate sono quelle della proposta, da confermare in sede di progettazione.",
+                "fasi": [
+                  {
+                    "attivita": "Analisi della consegna, dei destinatari e delle fonti del caso",
+                    "ore": null,
+                    "insegnamenti": [],
+                    "periodo": null
+                  },
+                  {
+                    "attivita": "Progettazione delle azioni collegate nel compito di realtà",
+                    "ore": null,
+                    "insegnamenti": [],
+                    "periodo": null
+                  },
+                  {
+                    "attivita": "Realizzazione e documentazione del compito nelle condizioni concordate",
+                    "ore": null,
+                    "insegnamenti": [],
+                    "periodo": null
+                  },
+                  {
+                    "attivita": "Verifica individuale per competenza, restituzione e autovalutazione",
+                    "ore": null,
+                    "insegnamenti": [],
+                    "periodo": null
+                  }
+                ],
+                "decisioniNecessarie": [
+                  "Confermare contesto, destinatari e disponibilità di eventuali partner o laboratori",
+                  "Attribuire attività, ore e periodo a ciascun insegnamento effettivamente presente nell’annualità",
+                  "Identificare attività condivise e raccordi con altre UDA senza doppio conteggio",
+                  "Validare rubriche, prove individuali e supporti previsti per gli studenti"
+                ]
+              },
+              "provenienzaContenuti": [],
               "situazione": "Il dipartimento di salute mentale chiede alle scuole una campagna contro lo stigma, e le parole con cui a scuola si parla di disagio psichico non sono mai state esaminate.",
               "prodotto": "Campagna per la Giornata mondiale della salute mentale: analisi di come cinema, stampa e social raccontano il disagio psichico, glossario delle parole da evitare e di quelle corrette, prodotto di comunicazione con l'indicazione dei servizi del territorio.",
               "beneficiari": "Il dipartimento di salute mentale dell'azienda sanitaria, cui la campagna è destinata.",
-              "ambito": "esterna"
+              "ambito": "esterna",
+              "origineProposta": "collega",
+              "fonde": [
+                {
+                  "id": "5.12",
+                  "titolo": "Parole che curano: raccontare la salute mentale, superare lo stigma",
+                  "competenza": 9
+                }
+              ]
             }
           ]
         }

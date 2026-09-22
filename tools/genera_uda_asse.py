@@ -525,11 +525,14 @@ def main():
             "collegataA": "",
             "derivaDa": "",
             "collocazione": "",
-            "periodo": "",
+            # Periodo e competenza portante vengono dalla scheda di origine:
+            # il periodo è quello deliberato nel calendario del Dipartimento e
+            # la competenza portante non è sempre la prima dell'elenco.
+            "periodo": u.get("periodo", ""),
             "raccordoProfilo": [{'competenza': n, 'testo': profilo[n]} for n in competenze if n in profilo],
             "condizioniRealizzazione": CONDIZIONI,
             "titolo": u["titolo"],
-            "competenza": competenze[0],
+            "competenza": u["competenza"],
             "competenze": competenze,
             "qnq": u["qnq"],
             "traguardo": u["traguardo"],
