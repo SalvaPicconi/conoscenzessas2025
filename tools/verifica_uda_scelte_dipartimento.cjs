@@ -18,8 +18,8 @@ assert.equal(dati.simulazioni.voci.length, 2, 'Devono esserci due simulazioni');
 assert.equal(copie.length, 10, 'Devono esserci dieci UDA autonome, una per ogni scelta');
 
 // Da dove viene ogni scelta sta scritto in un posto solo, che lo strumento di
-// riallineamento e questa verifica leggono entrambi: tools/derivazione_dipartimento.json.
-const derivazione = leggi('tools/derivazione_dipartimento.json').scelte;
+// riallineamento e questa verifica leggono entrambi: data-derivazione-dipartimento.json.
+const derivazione = leggi('data-derivazione-dipartimento.json').scelte;
 assert.deepEqual(new Set(Object.keys(derivazione)), new Set(copie.map(voce => voce.id)),
     'Ogni UDA del Dipartimento deve dichiarare la propria derivazione, e viceversa');
 

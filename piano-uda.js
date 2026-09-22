@@ -24,8 +24,9 @@ const CATALOGHI = [
 const FONTE_RIPARTIZIONE = 'data-ripartizione-ore.json';
 // Le scelte del Dipartimento sono copie autonome dei cataloghi: senza sapere
 // da dove vengono, il piano non si accorgerebbe che l'unità adottata e quella
-// del catalogo sono la stessa cosa contata due volte.
-const FONTE_DERIVAZIONE = 'tools/derivazione_dipartimento.json';
+// del catalogo sono la stessa cosa contata due volte. Il file sta fra i dati
+// e non fra gli strumenti perché _config.yml tiene tools/ fuori dal sito.
+const FONTE_DERIVAZIONE = 'data-derivazione-dipartimento.json';
 const ARCHIVIO = 'curricolo:piano-uda';
 const PERIODI = ['1° quadrimestre', '2° quadrimestre', 'Intero anno scolastico'];
 const CAMPI_LIBERI = ['anno', 'classe', 'annoScolastico', 'coordinatore', 'dirigente', 'dataSeduta', 'verbale', 'docenti', 'note', 'formato'];

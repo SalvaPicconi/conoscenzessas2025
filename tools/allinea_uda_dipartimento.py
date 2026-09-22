@@ -9,7 +9,7 @@ piedi — ma senza uno strumento la copia si scollava dall'originale a ogni
 correzione del catalogo, e ce ne si accorgeva solo quando la verifica falliva.
 
 Questo script rifà le copie dalle sorgenti dichiarate in
-tools/derivazione_dipartimento.json. La scelta d'asse di terza non si tocca:
+data-derivazione-dipartimento.json. La scelta d'asse di terza non si tocca:
 il Dipartimento l'ha riscritta e non è la copia di nessuna scheda.
 
     python3 tools/allinea_uda_dipartimento.py            # riallinea
@@ -22,7 +22,7 @@ from pathlib import Path
 
 RADICE = Path(__file__).resolve().parent.parent
 DESTINAZIONE = RADICE / "data-uda-dipartimento.json"
-DERIVAZIONE = RADICE / "tools/derivazione_dipartimento.json"
+DERIVAZIONE = RADICE / "data-derivazione-dipartimento.json"
 
 
 def leggi(percorso):
@@ -43,7 +43,7 @@ def unita_del_file(dati):
 def main():
     solo_controllo = "--controlla" in sys.argv
     dati = json.loads(DESTINAZIONE.read_text(encoding="utf-8"))
-    scelte = leggi("tools/derivazione_dipartimento.json")["scelte"]
+    scelte = leggi("data-derivazione-dipartimento.json")["scelte"]
 
     cataloghi = {}
     def originale(rif):
