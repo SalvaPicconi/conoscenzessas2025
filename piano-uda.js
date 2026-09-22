@@ -768,7 +768,7 @@ function bloccoDelibera(scelte, docenti) {
                 B.testo(` per l’anno scolastico ${annoScolastico}, che costituisce parte integrante della programmazione di classe.`)
             ]),
             B.paragrafo(`${quante} in forma interdisciplinare, con l’aggregazione degli insegnamenti negli assi culturali e il ricorso a metodologie di apprendimento di tipo induttivo, in attuazione dell’art. 5, comma 1, lettere b), c), d) ed f) del D.Lgs. 13 aprile 2017, n. 61, e dell’art. 6, comma 4, del D.M. 24 maggio 2018, n. 92.`),
-            B.paragrafo('Per gli studenti la cui progettazione è personalizzata, le unità qui deliberate possono concorrere a strutturare il PFI, articolato per unità di apprendimento (D.I. 92/2018, art. 2, comma 1). La valutazione di competenze, abilità e conoscenze è effettuata in relazione alle UDA e al PFI (art. 4, comma 6).')
+            B.paragrafo('Il percorso di ogni studentessa e di ogni studente è personalizzato attraverso il Progetto formativo individuale, che il consiglio di classe redige entro il 31 gennaio del primo anno e aggiorna per l’intero quinquennio. Le unità qui deliberate ne costituiscono l’ossatura, perché il PFI è articolato per unità di apprendimento (D.Lgs. 61/2017, art. 5, comma 1, lettera a; D.I. 92/2018, art. 2, comma 1). La valutazione di competenze, abilità e conoscenze è effettuata in relazione alle UDA e al PFI (D.I. 92/2018, art. 4, comma 6).')
         ])
     ]);
 }
