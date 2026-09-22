@@ -57,11 +57,11 @@ assert materials == 5
 assert next(u for u in out['uda'] if u['id']=='U2.1')['anno'] == 2
 snapshot = read('revisioni/2026-09-06-uda-unificate/manifest-prima.json')
 assert hashlib.sha256((ROOT/'votazione-uda.js').read_bytes()).hexdigest() == snapshot['votazione-uda.js']
-# Le UDA FSL sono cambiate il 21 settembre 2026, dopo lo snapshot del 6: il
-# controllo resta, ma sul valore attuale, cosi' una modifica non voluta si vede
-# lo stesso. Registro: revisioni/2026-09-21-modifiche-dipartimento/REGISTRO.md
+# Le UDA FSL sono cambiate dopo lo snapshot del 6 settembre: il 21 settembre e
+# poi il 22, quando il monte ore e' entrato nelle schede. Il controllo resta,
+# ma sul valore attuale, cosi' una modifica non voluta si vede lo stesso.
 assert hashlib.sha256((ROOT/'data-uda-fsl.json').read_bytes()).hexdigest() == \
-    'c8b90bdfa03a1413f36090d534ab3534a79f239b78ab75f5f91a777ede2c89b8', 'data-uda-fsl.json'
+    '809a513e0489889f3e41508913609ee5881f9014aad6022c5c3811b1374cc051', 'data-uda-fsl.json'
 m = runpy.run_path(str(ROOT/'tools/genera_uda_asse.py'))
 with tempfile.TemporaryDirectory() as t:
     m['main'].__globals__['DESTINAZIONE'] = Path(t)/'generated.json'

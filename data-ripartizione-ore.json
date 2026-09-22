@@ -5,8 +5,7 @@
     "fonte": "Generato da tools/genera_ripartizione_ore.py a partire da data-quadro-orario.json e dai quattro cataloghi delle UDA. Non modificare a mano: rigenerare.",
     "metodo": "Le ore di ciascuna UDA sono ripartite fra gli insegnamenti coinvolti in proporzione alle ore settimanali che ogni insegnamento ha in quell'anno di corso. Il calcolo è fatto su una UDA per volta, senza vincoli cumulativi sull'anno.",
     "arrotondamento": "Metodo dei resti maggiori: le ore intere avanzate vanno agli insegnamenti con il resto più alto, così la somma coincide sempre con il monte ore dell'UDA. A parità di resto ha la precedenza l'insegnamento con più ore settimanali.",
-    "monteConvenzionaleFSL": 30,
-    "notaFSL": "Le UDA di Formazione scuola-lavoro non hanno un monte ore proprio: è deliberato nel piano FSL d'istituto e nel progetto formativo individuale. Per rendere calcolabile la ripartizione si usa un monte convenzionale di 30 ore, da sostituire con quello effettivo.",
+    "notaFSL": "Il monte ore di ogni UDA, comprese quelle di Formazione scuola-lavoro, è quello definito nella scheda dell'UDA e si propaga da lì alla ripartizione e ai documenti stampati. Le UDA che non hanno ancora un monte ore restano fuori dalla ripartizione.",
     "settimaneAnno": 33
   },
   "uda": {
@@ -2522,10 +2521,10 @@
       "genere": "fsl",
       "anno": 3,
       "titolo": "Area minori: osservare, accompagnare e documentare",
-      "ore": "Da definire nel piano FSL d'istituto e nel progetto formativo individuale",
+      "ore": "30",
       "totaleMin": 30,
       "totaleMax": 30,
-      "convenzionale": true,
+      "assegnazioneConcordata": true,
       "voci": [
         {
           "ins": "Igiene e Cultura M.S.",
@@ -2557,7 +2556,7 @@
       "genere": "fsl",
       "anno": 4,
       "titolo": "Area disabilità: inclusione, autonomia e progetto individualizzato",
-      "ore": "Da definire nel piano FSL d'istituto e nel progetto formativo individuale",
+      "ore": "48",
       "totaleMin": 48,
       "totaleMax": 48,
       "assegnazioneConcordata": true,
@@ -2592,7 +2591,7 @@
       "genere": "fsl",
       "anno": 5,
       "titolo": "Area anziani: assistenza, qualità di vita e lavoro in struttura residenziale",
-      "ore": "Da definire nel piano FSL d'istituto e nel progetto formativo individuale",
+      "ore": "48",
       "totaleMin": 48,
       "totaleMax": 48,
       "assegnazioneConcordata": true,
@@ -2620,41 +2619,6 @@
           "oreSett": 3,
           "min": 9,
           "max": 9
-        }
-      ]
-    },
-    "FSL5.2": {
-      "genere": "fsl",
-      "anno": 5,
-      "titolo": "Verso la qualifica OSS: procedure assistenziali e lavoro nell'équipe sanitaria",
-      "ore": "Da definire nel piano FSL d'istituto, nel progetto formativo e negli eventuali accordi per il raccordo OSS",
-      "totaleMin": 30,
-      "totaleMax": 30,
-      "convenzionale": true,
-      "voci": [
-        {
-          "ins": "Igiene e Cultura M.S.",
-          "oreSett": 5,
-          "min": 9,
-          "max": 9
-        },
-        {
-          "ins": "Diritto e T.A.",
-          "oreSett": 4,
-          "min": 8,
-          "max": 8
-        },
-        {
-          "ins": "Psicologia",
-          "oreSett": 4,
-          "min": 7,
-          "max": 7
-        },
-        {
-          "ins": "Metodologie Operative",
-          "oreSett": 3,
-          "min": 6,
-          "max": 6
         }
       ]
     }

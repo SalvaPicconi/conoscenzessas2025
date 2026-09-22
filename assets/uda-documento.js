@@ -249,11 +249,6 @@
             larghezze: [54, 23, 23],
             righe
         })];
-        // Le UDA di formazione scuola-lavoro non hanno un monte ore proprio: il
-        // totale qui sopra è convenzionale e va detto, o sembra deliberato.
-        if (ripartizione.convenzionale) {
-            nodi.push(D.paragrafo('Monte ore convenzionale, usato solo per rendere calcolabile la ripartizione: quello effettivo è deliberato nel piano di formazione scuola-lavoro d’istituto e nel progetto formativo individuale.', 'nota'));
-        }
         return nodi;
     }
 

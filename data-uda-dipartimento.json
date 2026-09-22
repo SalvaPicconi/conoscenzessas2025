@@ -190,7 +190,7 @@
         "periodo": "Febbraio – aprile",
         "dettaglio": "Preparazione in aula fra febbraio e marzo; esperienza in struttura entro aprile, minimo due settimane; relazione entro aprile.",
         "materie": "Igiene e Cultura M.S. 9 h · Diritto e T.A. 8 h · Psicologia 7 h · Metodologie Operative 6 h",
-        "ore": "30 ore convenzionali"
+        "ore": "30 ore"
       },
       {
         "id": "DIP4-FSL",
@@ -653,7 +653,7 @@
               "prodotto": "Dossier FSL individuale: profilo del servizio, griglia di osservazione, piano di una semplice attività, diario riflessivo e relazione finale anonimizzata; form della prova esperta predisposto dai docenti, che colleghi bisogni, attività, protocolli e apprendimenti secondo i nuclei fondanti dell'indirizzo Servizi per la Sanità e l'Assistenza Sociale.",
               "beneficiari": "Minori accolti dal servizio, nel rispetto del progetto formativo e sotto supervisione",
               "ambito": "Struttura ospitante dell'area minori; scuola dell'infanzia come esempio non vincolante",
-              "ore": "Da definire nel piano FSL d'istituto e nel progetto formativo individuale",
+              "ore": "30",
               "abilita": [
                 {
                   "t": "Riconoscere bisogni, routine, risorse e fattori di benessere del minore nel contesto osservato",
@@ -727,7 +727,13 @@
                 }
               ],
               "integrazioniSaperi": [],
-              "sviluppata": false
+              "sviluppata": false,
+              "oreRipartizione": {
+                "IGIENE E CULTURA MEDICO SANITARIA": 9,
+                "DIRITTO E TEC. AMM.": 8,
+                "PSICOLOGIA GENERALE ED APPLICATA": 7,
+                "METODOLOGIE OPERATIVE": 6
+              }
             }
           ]
         },
@@ -1484,7 +1490,7 @@
               "prodotto": "Dossier di esperienza con profilo organizzativo, osservazione multidimensionale, schema di progetto individualizzato, analisi di accessibilità e sicurezza, micro-intervento e relazione riflessiva.",
               "beneficiari": "Persone con disabilità accolte dal servizio, nel rispetto del progetto formativo e sotto supervisione",
               "ambito": "Servizi di accoglienza, semiresidenziali, residenziali, socio-educativi o socio-sanitari",
-              "ore": "Da definire nel piano FSL d'istituto e nel progetto formativo individuale",
+              "ore": "48",
               "abilita": [
                 {
                   "t": "Rilevare bisogni, risorse, capacità residue e barriere senza formulare diagnosi",
@@ -1990,7 +1996,7 @@
               "prodotto": "Caso professionale anonimizzato con mappa della presa in carico, scheda delle capacità residue, analisi di ambiente e ausili, procedura commentata e relazione finale.",
               "beneficiari": "Persone anziane accolte dalla struttura, nel rispetto del progetto formativo e sotto supervisione",
               "ambito": "Strutture residenziali per anziani, incluse RSA, o altre sedi coerenti definite nel progetto",
-              "ore": "Da definire nel piano FSL d'istituto e nel progetto formativo individuale",
+              "ore": "48",
               "abilita": [
                 {
                   "t": "Rilevare bisogni di base, stato di benessere e livelli di autonomia con strumenti assegnati",

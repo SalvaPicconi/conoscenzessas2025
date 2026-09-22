@@ -226,7 +226,14 @@ function disegnaCatalogo() {
     // un'unità di un'altra annualità finisca nel documento senza avvisare.
     const altroAnno = scelteDiAltroAnno();
     if (altroAnno.length) {
-        contenitore.appendChild(avviso(`Nella bozza ci ${altroAnno.length === 1 ? 'è' : 'sono'} ${altroAnno.length} ${altroAnno.length === 1 ? 'unità' : 'unità'} di un altro anno di corso (${altroAnno.map(voce => voce.uda.id).join(', ')}): ${altroAnno.length === 1 ? 'toglila' : 'toglile'} o cambia l’anno indicato al punto 1, altrimenti ${altroAnno.length === 1 ? 'entra' : 'entrano'} nel documento.`));
+        const nota = avviso(`Nella bozza ${altroAnno.length === 1 ? 'resta un’unità' : `restano ${altroAnno.length} unità`} di altri anni di corso (${altroAnno.map(voce => `${voce.uda.id}, ${voce.uda.anno}ª`).join('; ')}). Non ${altroAnno.length === 1 ? 'entra' : 'entrano'} nel documento: il piano riguarda solo la classe indicata al punto 1.`);
+        const togli = document.createElement('button');
+        togli.type = 'button';
+        togli.className = 'piano-btn piano-btn-ghost';
+        togli.textContent = altroAnno.length === 1 ? 'Togli l’unità dalla bozza' : 'Togli quelle unità dalla bozza';
+        togli.addEventListener('click', dimenticaAltriAnni);
+        nota.appendChild(togli);
+        contenitore.appendChild(nota);
     }
 
     // Prima ciò che il Dipartimento ha deliberato, aperto. Il resto del
@@ -291,12 +298,6 @@ function creaGruppo(catalogo) {
 // ma va detto nel documento, perché chi lo legge non deve dedurlo.
 function fuoriDelibera(chiave) {
     return stato.catalogo.get(chiave)?.genere !== 'dipartimento';
-}
-
-function scelteDiAltroAnno() {
-    const anno = annoScelto();
-    if (!anno) return [];
-    return scelteOrdinate().filter(voce => Number(voce.uda.anno) !== anno);
 }
 
 // Una stessa unità arriva al piano da più strade: adottata dal Dipartimento,
@@ -403,13 +404,14 @@ function periodoPredefinito(uda) {
 }
 
 function oreTesto(uda) {
+    // Il monte ore viene dalla scheda dell'UDA: se non c'è ancora, si dice,
+    // invece di mostrare un numero che nessuno ha deliberato.
     const ripartizione = stato.ripartizione[String(uda.id)];
-    if (ripartizione && ripartizione.convenzionale) {
-        return `${ripartizione.totaleMin} ore (monte convenzionale)`;
-    }
+    if (ripartizione) return `${intervallo(ripartizione.totaleMin, ripartizione.totaleMax)} ore`;
     // Le simulazioni della prova d'esame dichiarano una durata, non un monte ore.
     const ore = uda.ore || uda.durata;
-    return ore ? `${ore} ore` : '';
+    if (!ore) return 'monte ore da definire nella scheda dell’UDA';
+    return /^[\d\s–\-]+$/.test(String(ore)) ? `${ore} ore` : String(ore);
 }
 
 function insegnamentiDi(chiave) {
@@ -443,10 +445,28 @@ function riepilogoOre() {
 }
 
 function scelteOrdinate() {
+    const anno = annoScelto();
     return stato.ordine
         .filter(chiave => stato.scelte.has(chiave))
         .map(chiave => ({ chiave, ...stato.catalogo.get(chiave), scelta: stato.scelte.get(chiave) }))
-        .filter(voce => voce.uda);
+        .filter(voce => voce.uda && (!anno || Number(voce.uda.anno) === anno));
+}
+
+// Quello che resta nella bozza ma non appartiene alla classe scelta: non entra
+// nel documento, e il coordinatore deve poterlo togliere con un gesto.
+function scelteDiAltroAnno() {
+    const anno = annoScelto();
+    if (!anno) return [];
+    return stato.ordine
+        .filter(chiave => stato.scelte.has(chiave))
+        .map(chiave => ({ chiave, ...stato.catalogo.get(chiave) }))
+        .filter(voce => voce.uda && Number(voce.uda.anno) !== anno);
+}
+
+function dimenticaAltriAnni() {
+    scelteDiAltroAnno().forEach(voce => stato.scelte.delete(voce.chiave));
+    salva();
+    disegnaTutto();
 }
 
 function intervallo(min, max) {
@@ -491,14 +511,6 @@ function disegnaRiepilogo() {
 
     contenitore.appendChild(tabella);
 
-    const convenzionali = scelte.filter(voce => stato.ripartizione[voce.chiave]?.convenzionale);
-    if (convenzionali.length) {
-        const nota = document.createElement('p');
-        nota.className = 'piano-nota';
-        nota.textContent = stato.metaRipartizione.notaFSL
-            || 'Le UDA di formazione scuola-lavoro non hanno un monte ore proprio: quello indicato è convenzionale e va sostituito con quello deliberato.';
-        contenitore.appendChild(nota);
-    }
 }
 
 function messaggioStato(testo) {
@@ -701,7 +713,6 @@ function costruisciPiano(scelte) {
         ], { tieniVuote: true }),
         B.paragrafo('Bozza da verificare e approvare nel consiglio di classe. La compilazione non attesta una deliberazione. Le ore delle unità nate da accorpamento sono somme delle schede di origine, da deliberare.', 'nota'),
         ...notaFuoriDelibera(scelte),
-        ...notaAltroAnno(),
         ...bloccoDelibera(scelte, docenti),
         ...d.sezione('2', 'Prospetto delle unità di apprendimento selezionate nella bozza', prospetto(scelte),
             'Le unità di apprendimento costituiscono il riferimento per la valutazione, la certificazione e il riconoscimento dei crediti — D.I. 92/2018, art. 2, comma 1.'),
@@ -730,13 +741,6 @@ function notaFuoriDelibera(scelte) {
     return [B.paragrafo(fuori.length === 1
         ? `Un’unità del piano non rientra fra quelle adottate dal Dipartimento per questo anno di corso: ${elenco}. La sua attivazione è una scelta del consiglio di classe.`
         : `${fuori.length} unità del piano non rientrano fra quelle adottate dal Dipartimento per questo anno di corso: ${elenco}. La loro attivazione è una scelta del consiglio di classe.`, 'nota')];
-}
-
-function notaAltroAnno() {
-    const B = window.CurricoloDocumento.blocchi;
-    const altre = scelteDiAltroAnno();
-    if (!altre.length) return [];
-    return [B.paragrafo(`Attenzione: ${altre.length === 1 ? 'un’unità del piano è prevista' : `${altre.length} unità del piano sono previste`} per un altro anno di corso (${altre.map(voce => `${voce.uda.id}, ${voce.uda.anno}ª`).join('; ')}). Verifica la selezione prima di allegare il documento.`, 'nota')];
 }
 
 function bloccoDelibera(scelte, docenti) {
@@ -809,7 +813,7 @@ function oreDocumento(voce) {
     const ripartizione = stato.ripartizione[voce.chiave];
     if (!ripartizione) return String(voce.uda.ore || voce.uda.durata || '');
     const testoOre = intervallo(ripartizione.totaleMin, ripartizione.totaleMax);
-    return ripartizione.convenzionale ? `${testoOre}*` : testoOre;
+    return testoOre;
 }
 
 // Matrice insegnamenti × UDA finché le colonne stanno in pagina; oltre, il
@@ -821,10 +825,7 @@ function ripartizioneStampata(scelte) {
     if (!righe.length) return [];
     const totaleMin = scelte.reduce((somma, voce) => somma + (stato.ripartizione[voce.chiave]?.totaleMin || 0), 0);
     const totaleMax = scelte.reduce((somma, voce) => somma + (stato.ripartizione[voce.chiave]?.totaleMax || 0), 0);
-    const convenzionali = scelte.some(voce => stato.ripartizione[voce.chiave]?.convenzionale);
-    const nota = convenzionali
-        ? [B.paragrafo(`* ${stato.metaRipartizione.notaFSL || 'Le UDA di formazione scuola-lavoro non hanno un monte ore proprio: quello indicato è convenzionale e va sostituito con quello deliberato nel piano FSL d’istituto.'}`, 'nota')]
-        : [];
+    const nota = [];
 
     if (scelte.length <= 8) {
         const larghezzaCodice = Math.floor(62 / (scelte.length + 1));
