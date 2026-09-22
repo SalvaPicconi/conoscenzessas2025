@@ -69,7 +69,7 @@ for (const chiave of ['DIP1-CIVICA', 'DIP2-TRASVERSALE', 'DIP3-ASSE', 'DIP4-ASSE
 }
 
 // La copia autonoma e la scheda di origine devono restare allineate.
-const unificate = leggi('data-uda-unificate.json').uda.find(voce => voce.id === 'U4.3');
+const unificate = leggi('data-uda-asse.json').uda.find(voce => voce.id === 'U4.3');
 assert.equal(unificate.periodo, unita.find(voce => voce.id === 'DIP4-ASSE').periodo);
 const asse = leggi('data-uda.json').uda.find(voce => voce.id === '5.12');
 assert.equal(asse.periodo, unita.find(voce => voce.id === 'DIP5-ASSE').periodo);

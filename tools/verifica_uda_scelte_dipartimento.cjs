@@ -22,7 +22,7 @@ const corrispondenze = [
     ['DIP2-TRASVERSALE', 'data-uda-trasversali.json', 'uda', 'T2.1'],
     ['DIP3-FSL', 'data-uda-fsl.json', 'uda', 'FSL3.1'],
     ['DIP4-FSL', 'data-uda-fsl.json', 'uda', 'FSL4.1'],
-    ['DIP4-ASSE', 'data-uda-unificate.json', 'uda', 'U4.3'],
+    ['DIP4-ASSE', 'data-uda-asse.json', 'uda', 'U4.3'],
     ['DIP5-FSL', 'data-uda-fsl.json', 'uda', 'FSL5.1'],
     ['DIP5-ASSE', 'data-uda.json', 'uda', '5.12'],
     ['SIM5-1', 'data-uda-esame.json', 'schede', 'E5.1'],

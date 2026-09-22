@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-"""Genera data-uda-unificate.json: la proposta di UDA d'asse unificate.
+"""Genera data-uda-asse.json: il catalogo delle UDA d'asse del curricolo.
 
-Il fascicolo d'asse conta 48 schede, una per ogni competenza intermedia del
+Il fascicolo di origine conta 48 schede, una per ogni competenza intermedia del
 curricolo. Il riordino ne accorpa 42 in 21 schede a due competenze e lascia
-6 schede autonome, per un totale di 27. La struttura iniziale è storicizzata
+6 schede autonome. A queste 27 si aggiungono le 9 schede proposte dai docenti,
+anch'esse tracciate nel fascicolo di origine: in tutto 36 UDA d'asse, il
+catalogo unico da cui il Dipartimento sceglie. La struttura iniziale è storicizzata
 in PROPOSTA; la revisione applica le separazioni U2.3 e U5.4.
 
 Regole seguite:
@@ -23,7 +25,7 @@ Regole seguite:
 Le UDA trasversali non entrano in questa proposta: coinvolgono insegnamenti che
 non sono d'indirizzo e restano un catalogo autonomo.
 
-    python3 tools/genera_uda_unificate.py
+    python3 tools/genera_uda_asse.py
 """
 
 import json
@@ -33,8 +35,8 @@ from pathlib import Path
 
 RADICE = Path(__file__).resolve().parent.parent
 SORGENTE = RADICE / "data-uda.json"
-DESTINAZIONE = RADICE / "data-uda-unificate.json"
-REVISIONE = RADICE / "tools/revisione_uda_unificate.json"
+DESTINAZIONE = RADICE / "data-uda-asse.json"
+REVISIONE = RADICE / "tools/revisione_uda_asse.json"
 
 
 # id nuovo, anno, competenze, traguardo, compito, situazione, prodotto,
@@ -400,6 +402,21 @@ def fasi_progettazione(uid):
     return [{'attivita': a, 'ore': None, 'insegnamenti': [], 'periodo': None} for a in attivita]
 
 
+CONDIZIONI = (
+    "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. "
+    "Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti "
+    "citati nella consegna richiedono organizzazione e accordi della scuola; non sono "
+    "attestati da questa scheda."
+)
+
+
+# "U4.3" e "4.11" vanno ordinati per numero, non per stringa: senza questo
+# 4.11 finirebbe prima di 4.2.
+def chiave_ordinamento(uid):
+    numeri = re.findall(r"\d+", uid)
+    return (0 if uid.startswith("U") else 1, [int(n) for n in numeri])
+
+
 def main():
     origine = json.loads(SORGENTE.read_text(encoding="utf-8"))
     revisione = json.loads(REVISIONE.read_text(encoding="utf-8"))
@@ -444,7 +461,7 @@ def main():
             # di classe: vuoto finché una delibera non lo fissa.
             "periodo": voce.get('periodo', ''),
             "raccordoProfilo": [{'competenza': n, 'testo': profilo[n]} for n in voce['competenze']],
-            "condizioniRealizzazione": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta.",
+            "condizioniRealizzazione": CONDIZIONI,
             # I titoli restano quelli del fascicolo d'asse, affiancati.
             "titolo": " · ".join(u["titolo"] for u in fuse),
             "competenza": voce["competenze"][0],
@@ -493,23 +510,80 @@ def main():
             "fonde": [{"id": u["id"], "titolo": u["titolo"], "competenza": u["competenza"]} for u in fuse],
         })
 
+    # Le schede proposte dai colleghi e quelle concordate non nascono da un
+    # accorpamento: entrano nel catalogo così come sono, autonome. Restavano
+    # fuori dal file e la pagina le ripescava a parte da data-uda.json, con
+    # l'etichetta "NUOVA": un innesto che teneva il catalogo d'asse diviso in
+    # due e impediva alle scelte del Dipartimento di derivare da una fonte sola.
+    for u in origine["uda"]:
+        if not u.get("origineProposta"):
+            continue
+        competenze = u.get("competenze") or [u["competenza"]]
+        schede.append({
+            "id": u["id"],
+            "anno": u["anno"],
+            "collegataA": "",
+            "derivaDa": "",
+            "collocazione": "",
+            "periodo": "",
+            "raccordoProfilo": [{'competenza': n, 'testo': profilo[n]} for n in competenze if n in profilo],
+            "condizioniRealizzazione": CONDIZIONI,
+            "titolo": u["titolo"],
+            "competenza": competenze[0],
+            "competenze": competenze,
+            "qnq": u["qnq"],
+            "traguardo": u["traguardo"],
+            "traguardiOrigine": [],
+            "compito": u["compito"],
+            "sintesi": u["compito"],
+            "ore": u["ore"],
+            "abilita": u["abilita"],
+            "saperi": u["saperi"],
+            "sviluppata": u.get("sviluppata"),
+            "materialiOrigine": [],
+            "rubrica": [],
+            "criterioValutazione": revisione['criterioValutazione'],
+            "pianificazione": {
+                "stato": "Da deliberare dal consiglio di classe",
+                "oreOrigine": [],
+                "oreProgettate": None,
+                "nota": "Scheda autonoma: le ore indicate sono quelle della proposta, da confermare in sede di progettazione.",
+                "fasi": fasi_progettazione(u['id']),
+                "decisioniNecessarie": [
+                    "Confermare contesto, destinatari e disponibilità di eventuali partner o laboratori",
+                    "Attribuire attività, ore e periodo a ciascun insegnamento effettivamente presente nell’annualità",
+                    "Identificare attività condivise e raccordi con altre UDA senza doppio conteggio",
+                    "Validare rubriche, prove individuali e supporti previsti per gli studenti",
+                ],
+            },
+            "provenienzaContenuti": [],
+            "situazione": u["situazione"],
+            "prodotto": u["prodotto"],
+            "beneficiari": u["beneficiari"],
+            "ambito": u["ambito"],
+            "origineProposta": u["origineProposta"],
+            "fonde": [{"id": u["id"], "titolo": u["titolo"], "competenza": u["competenza"]}],
+        })
+
+    schede.sort(key=lambda s: (s["anno"], chiave_ordinamento(s["id"])))
+
     dati = {
         "meta": {
             "revisione": revisione['versione'],
             "tracciamento": {
                 "fonte": SORGENTE.name,
                 "sha256Fonte": hashlib.sha256(SORGENTE.read_bytes()).hexdigest(),
-                "revisione": "tools/revisione_uda_unificate.json",
+                "revisione": "tools/revisione_uda_asse.json",
                 "sha256Revisione": hashlib.sha256(REVISIONE.read_bytes()).hexdigest(),
                 "registro": "revisioni/2026-09-06-riordino-applicato/REGISTRO.md",
                 "profilo": "data-area-indirizzo.json",
                 "sha256Profilo": hashlib.sha256((RADICE / 'data-area-indirizzo.json').read_bytes()).hexdigest(),
             },
-            "titolo": "Proposta di UDA unificate — Quinquennio SSAS",
-            "sottotitolo": "48 UDA d’asse in 21 accorpamenti e 6 schede autonome · proposta da validare collegialmente",
-            "stato": "proposta",
+            "titolo": "UDA d’asse — Quinquennio SSAS",
+            "sottotitolo": "36 unità: 21 nate dall’accorpamento delle schede di origine, 6 autonome e 9 proposte dai docenti · catalogo di riferimento del curricolo",
+            "stato": "definitivo",
             "fonte": (
-                "Elaborazione delle 48 schede del fascicolo UDA d'asse. Criteri: D.I. 24 maggio 2018, "
+                "Elaborazione delle 48 schede del fascicolo di origine. Criteri: D.I. 24 maggio 2018, "
                 "n. 92, art. 6, comma 4 (progettazione interdisciplinare per unità di apprendimento per "
                 "tutta la durata del quinquennio); Linee guida D.M. 23 agosto 2019, n. 766, Box n. 7 "
                 "(carattere prioritariamente interdisciplinare delle UdA, numero contenuto) e Box n. 8 "
@@ -520,14 +594,14 @@ def main():
             "valutazioneStandard": (
                 "Rubrica del compito di realtà a 4 livelli con una dimensione distinta per ciascuna "
                 "competenza in uscita coinvolta, più osservazione di processo e autovalutazione. "
-                "Le rubriche sono proposte redazionali: le competenze restano distinte. "
-                "Le unificate sono disponibili nel PFI come proposte; non sono inserite automaticamente nella votazione."
+                "Le rubriche sono proposte redazionali: le competenze restano distinte."
             ),
             "notaPiano": (
-                "Documento di lavoro. La proposta riduce le schede d'asse da 48 a 27 accorpando le UDA "
-                "che un unico compito di realtà mobilita insieme. U1.1 è collocata in seconda su indicazione del docente, mantenendo le origini del biennio. Il consiglio di classe "
-                "può accogliere l'accorpamento scheda per scheda: dove non lo accoglie, restano in vigore "
-                "le schede di origine, che qui sono sempre indicate."
+                "Catalogo d'asse di riferimento del curricolo: 27 unità nate dalle 48 schede del "
+                "fascicolo di origine, accorpando quelle che un unico compito di realtà mobilita "
+                "insieme, più le 9 schede proposte dai docenti e quelle concordate, autonome. U1.1 è collocata in seconda su indicazione del docente, mantenendo le "
+                "origini del biennio. Da qui il Dipartimento sceglie le unità da adottare; le schede "
+                "di origine restano indicate in ciascuna unità come documentazione della provenienza."
             ),
             "competenze": origine["meta"]["competenze"],
         },
@@ -539,7 +613,7 @@ def main():
     )
 
     fuse_totali = sum(len(v["fonde"]) for v in proposta)
-    print(f"Scritte {len(schede)} schede unificate da {fuse_totali} schede d'asse → {DESTINAZIONE.name}")
+    print(f"Scritte {len(schede)} UDA d'asse da {fuse_totali} schede di origine → {DESTINAZIONE.name}")
     for anno in range(1, 6):
         del_anno = [s for s in schede if s["anno"] == anno]
         origine_anno = [u for u in origine["uda"] if u["id"] in riferimenti and u["anno"] == anno]

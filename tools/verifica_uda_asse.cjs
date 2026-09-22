@@ -11,7 +11,7 @@ const output = process.env.UDA_TEST_OUTPUT || '/tmp/ssas-unificate-verifica';
  const context = await browser.newContext({viewport:{width:1280,height:900}});
  await context.route('https://**/*', r=>r.abort());
  const page=await context.newPage(); const errors=[]; page.on('pageerror',e=>errors.push(e.message));
- await page.goto(base+'uda-unificate.html',{waitUntil:'domcontentloaded'});
+ await page.goto(base+'uda-asse.html',{waitUntil:'domcontentloaded'});
  await page.waitForSelector('.uda-acc');
  assert.equal(await page.locator('.uda-acc').count(),36);
  assert.equal(await page.locator('.uda-nuova').count(),9);

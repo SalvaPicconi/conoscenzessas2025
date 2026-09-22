@@ -8,7 +8,7 @@ import tempfile
 ROOT = Path(__file__).resolve().parent.parent
 read = lambda p: json.loads((ROOT / p).read_text())
 src = read('data-uda.json')
-out = read('data-uda-unificate.json')
+out = read('data-uda-asse.json')
 by = {u['id']: u for u in src['uda']}
 refs = [f['id'] for u in out['uda'] for f in u['fonde']]
 supplementi = {'1.10', '1.11', '2.10', '2.11', '3.11', '4.11', '5.11', '5.12', '5.13'}
@@ -41,11 +41,11 @@ assert next(u for u in out['uda'] if u['id']=='U2.1')['anno'] == 2
 snapshot = read('revisioni/2026-09-06-uda-unificate/manifest-prima.json')
 for p in ['data-uda-fsl.json', 'votazione-uda.js']:
     assert hashlib.sha256((ROOT/p).read_bytes()).hexdigest() == snapshot[p], p
-m = runpy.run_path(str(ROOT/'tools/genera_uda_unificate.py'))
+m = runpy.run_path(str(ROOT/'tools/genera_uda_asse.py'))
 with tempfile.TemporaryDirectory() as t:
     m['main'].__globals__['DESTINAZIONE'] = Path(t)/'generated.json'
     m['main']()
     assert json.loads((Path(t)/'generated.json').read_text()) == out
-for key, path in [('sha256Fonte','data-uda.json'), ('sha256Revisione','tools/revisione_uda_unificate.json')]:
+for key, path in [('sha256Fonte','data-uda.json'), ('sha256Revisione','tools/revisione_uda_asse.json')]:
     assert out['meta']['tracciamento'][key] == hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
 print('PASS: copertura 48/48 origini e 9 proposte autonome; 27 schede; contenuti e provenienza; 48 dimensioni con 4 livelli; 5 riferimenti; ore non inventate; FSL/voto invariati; generazione riproducibile; hash coerenti.')

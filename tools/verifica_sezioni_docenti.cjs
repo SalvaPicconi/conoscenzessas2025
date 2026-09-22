@@ -14,7 +14,7 @@ const base=process.env.UDA_BASE_URL||'http://127.0.0.1:8765/';const out='/tmp/ss
  await route.fulfill({status,contentType:'application/json',body:JSON.stringify(data)});
  });
  const p=await c.newPage();p.on('pageerror',e=>errors.push(e.message));
- await p.goto(base+'uda-unificate.html',{waitUntil:'domcontentloaded'});await p.waitForSelector('.uda-acc');
+ await p.goto(base+'uda-asse.html',{waitUntil:'domcontentloaded'});await p.waitForSelector('.uda-acc');
  await p.locator('.anno-pill[data-anno="1"]').click();assert.equal(await p.locator('.uda-acc').count(),4);assert.equal(await p.locator('[data-id="U1.1"]').count(),0);
  await p.locator('.anno-pill[data-anno="2"]').click();assert.equal(await p.locator('.uda-acc').count(),7);assert.equal(await p.locator('[data-id="U1.1"]').count(),1);assert.equal(await p.locator('[data-id="U2.1"]').count(),1);
  assert.ok(!(await p.locator('body').textContent()).includes('parziale e su carta'));

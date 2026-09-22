@@ -15,7 +15,7 @@
 // stampa, ma non riguarda nessun altro.
 
 const CATALOGHI = [
-    { genere: 'unificate', fonte: 'data-uda-unificate.json', nome: 'UDA unificate · Proposte', descrizione: 'Accorpamenti da concordare. Le ore sono la somma delle origini, da deliberare.' },
+    { genere: 'unificate', fonte: 'data-uda-asse.json', nome: 'UDA unificate · Proposte', descrizione: 'Accorpamenti da concordare. Le ore sono la somma delle origini, da deliberare.' },
     { genere: 'asse', fonte: 'data-uda.json', nome: 'UDA d’asse', descrizione: 'Una per competenza intermedia del curricolo di indirizzo.' },
     { genere: 'trasversale', fonte: 'data-uda-trasversali.json', nome: 'UDA trasversali', descrizione: 'Interdisciplinari, a cavallo di più assi culturali.' },
     { genere: 'civica', fonte: 'data-uda-civica.json', nome: 'UDA di Educazione civica', descrizione: 'Collegate alle competenze nazionali del D.M. 183/2024; il curricolo annuale deve prevedere almeno 33 ore complessive.' },

@@ -35,7 +35,7 @@ const base = 'https://salvapicconi.github.io/conoscenzessas2025/';
 
         assert.equal(await pagina.locator('.dip-full-uda').count(), 10, 'Devono essere presenti dieci UDA complete');
         assert.equal(await pagina.locator('.dip-full-uda [data-uda-revisione-slot]').count(), 10, 'Ogni UDA deve avere la propria revisione');
-        assert.equal(await pagina.locator('a[href$="uda.html"], a[href$="uda-fsl.html"], a[href$="uda-unificate.html"], a[href$="uda-esame.html"], a[href$="uda-civica.html"], a[href$="uda-trasversali.html"]').count(), 0, 'Non devono esserci rimandi ai cataloghi originali');
+        assert.equal(await pagina.locator('a[href$="uda.html"], a[href$="uda-fsl.html"], a[href$="uda-asse.html"], a[href$="uda-esame.html"], a[href$="uda-civica.html"], a[href$="uda-trasversali.html"]').count(), 0, 'Non devono esserci rimandi ai cataloghi originali');
 
         const titoli = await pagina.locator('.dip-full-uda .uda-acc-title').allTextContents();
         for (const atteso of [

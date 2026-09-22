@@ -278,7 +278,7 @@
     }
 
     function nomeGenere(genere) {
-        return genere === 'unificate' ? 'UDA unificata · Proposta'
+        return genere === 'dipartimento' ? 'UDA adottata dal Dipartimento'
             : genere === 'trasversale' ? 'UDA trasversale'
             : genere === 'civica' ? 'UDA di Educazione civica'
             : genere === 'fsl' ? 'UDA di formazione scuola-lavoro'
