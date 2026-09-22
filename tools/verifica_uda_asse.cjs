@@ -51,9 +51,11 @@ const output = process.env.UDA_TEST_OUTPUT || '/tmp/ssas-uda-asse-verifica';
  const frame=await(await page.waitForSelector('#content-asse iframe')).contentFrame();
  await frame.waitForSelector('.uda-acc');
  assert.equal(await frame.locator('.uda-acc').count(),36);
- // La barra formale di stampa della singola scheda, che a questa pagina mancava.
+ // La barra formale di stampa della singola scheda, che a questa pagina mancava:
+ // una per scheda, dentro il corpo, con il Word e la stampa.
  await frame.locator('.uda-acc-header').first().click();
- assert.equal(await frame.locator('.uda-stampa button').count(),2);
+ assert.equal(await frame.locator('.uda-acc').first().locator('.uda-stampa button').count(),2);
+ assert.equal(await frame.locator('.uda-stampa').count(),36);
  assert.deepEqual(errors,[]);
  console.log('PASS browser: 36 UDA d\'asse in un catalogo solo; 48 rubriche; filtro seconda competenza; anno/ricerca/reset; mobile senza overflow; stampa singola con soli indicatori essenziali e ore da deliberare; originale preservato; iframe e barra Word/PDF. Output: '+output);
  } finally {await browser.close();}

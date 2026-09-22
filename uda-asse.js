@@ -227,6 +227,11 @@ function renderUdaCard(u, autoExpand) {
     const insTotali = insegnamentiOrdinati(u);
     const panelId = `uda-panel-${String(u.id).replace(/[^a-zA-Z0-9_-]/g, '-')}`;
     const accorpata = u.fonde.length > 1;
+    // Una scheda è "propria" quando non viene dal fascicolo di origine ma è
+    // stata proposta da un docente: allora le ore sono quelle che ha dichiarato.
+    // Le altre, accorpate o tenute autonome dal riordino, portano ore ereditate
+    // dalle schede di origine e restano da deliberare.
+    const propria = u.fonde.length === 1 && u.fonde[0].id === u.id;
     const revisione = ` data-uda-revisione-key="${escapeHTML(u.id)}"`;
     const origine = renderFonde(u);
 
@@ -236,12 +241,12 @@ function renderUdaCard(u, autoExpand) {
                 <span class="uda-num ${ANNO_CLASS[u.anno]}">${escapeHTML(u.id)}</span>
                 <span class="uda-acc-main">
                     <span class="uda-acc-title">${escapeHTML(u.titolo)}</span>
-                    <span class="uda-acc-sub">${etichettaCompetenze(u)} · ${accorpata ? `fonde le schede ${u.fonde.map(f => escapeHTML(f.id)).join(' e ')}` : 'scheda autonoma'}</span>
+                    <span class="uda-acc-sub">${etichettaCompetenze(u)} · ${accorpata ? `fonde le schede ${u.fonde.map(f => escapeHTML(f.id)).join(' e ')}` : propria ? 'scheda autonoma' : 'scheda mantenuta autonoma'}</span>
                 </span>
                 <span class="uda-acc-pills">
                     <span class="pill ${ANNO_CLASS[u.anno]}">${ANNO_LABEL[u.anno]}</span>
                     <span class="pill pill-qnq">QNQ ${escapeHTML(u.qnq)}</span>
-                    <span class="pill pill-comp">${accorpata ? 'Ore da definire' : `${escapeHTML(u.ore)} ore`}</span>
+                    <span class="pill pill-comp">${propria ? `${escapeHTML(u.ore)} ore` : 'Ore da definire'}</span>
                 </span>
                 <span class="group-chevron" aria-hidden="true">▸</span>
             </button>
@@ -275,7 +280,7 @@ function renderUdaCard(u, autoExpand) {
                     <div class="sin-row">
                         <div class="sin-label">Insegnamenti · Ore</div>
                         <div class="sin-value">${renderInsChips(insTotali)}
-                            <span class="sin-ore">${accorpata ? `· Somma ore di origine: ${escapeHTML(u.ore)}. Ore da deliberare in consiglio.` : `· Monte ore indicato: ${escapeHTML(u.ore)}.`}</span></div>
+                            <span class="sin-ore">${propria ? `· Monte ore indicato: ${escapeHTML(u.ore)}.` : `· Somma ore di origine: ${escapeHTML(u.ore)}. Ore da deliberare in consiglio.`}</span></div>
                     </div>
 
                     <div class="sin-row">
@@ -283,10 +288,10 @@ function renderUdaCard(u, autoExpand) {
                         <div class="sin-value">${renderRubrica(u)}</div>
                     </div>
 
-                    ${accorpata ? `<div class="sin-row">
+                    ${propria ? '' : `<div class="sin-row">
                         <div class="sin-label">Schede di origine</div>
                         <div class="sin-value">${origine}</div>
-                    </div>` : ''}
+                    </div>`}
                 </div>
                 <div class="uda-revisione-slot" data-uda-revisione-slot="${escapeHTML(u.id)}"></div>
             </div>
@@ -319,14 +324,14 @@ function render() {
     [1, 2, 3, 4, 5].forEach(anno => {
         const inAnno = visible.filter(u => u.anno === anno);
         if (!inAnno.length) return;
-        const accorpate = inAnno.filter(u => u.fonde.length > 1);
-        const autonome = inAnno.filter(u => u.fonde.length <= 1);
-        const origine = accorpate.reduce((n, u) => n + u.fonde.length, 0);
+        const dalFascicolo = inAnno.filter(u => !(u.fonde.length === 1 && u.fonde[0].id === u.id));
+        const proprie = inAnno.filter(u => u.fonde.length === 1 && u.fonde[0].id === u.id);
+        const origine = dalFascicolo.reduce((n, u) => n + u.fonde.length, 0);
         sections.push(`
             <div class="uda-section">
                 <div class="uda-section-header">
                     <span class="uda-icon anno-badge ${ANNO_CLASS[anno]}">${anno}°</span>
-                    <h2>${ANNO_LABEL[anno].toUpperCase()} — ${inAnno.length} UDA d'asse${accorpate.length ? ` · ${accorpate.length} da ${origine} schede di origine` : ''}${autonome.length ? ` · ${autonome.length} autonome` : ''}</h2>
+                    <h2>${ANNO_LABEL[anno].toUpperCase()} — ${inAnno.length} UDA d'asse${dalFascicolo.length ? ` · ${dalFascicolo.length} da ${origine} schede di origine` : ''}${proprie.length ? ` · ${proprie.length} proposte dai docenti` : ''}</h2>
                     <span class="uda-rule"></span>
                 </div>
                 ${inAnno.map(u => renderUdaCard(u, autoExpand)).join('')}
