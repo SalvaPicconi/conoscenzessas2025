@@ -159,7 +159,7 @@ def etichetta_totale(voce: dict) -> str:
     return f"{voce['totaleMin']}–{voce['totaleMax']}"
 
 
-def scrivi_documento(ripartizioni: dict[str, dict], quadro: dict, monte_fsl: int) -> None:
+def scrivi_documento(ripartizioni: dict[str, dict], quadro: dict) -> None:
     """Versione stampabile per i dipartimenti, dalla stessa sorgente dell'applicativo."""
     regola = quadro["meta"]["regola"]
     righe = [
@@ -172,8 +172,9 @@ def scrivi_documento(ripartizioni: dict[str, dict], quadro: dict, monte_fsl: int
         f"Dove il monte ore dell'UDA è un intervallo, lo è anche la ripartizione: la cifra a",
         "sinistra somma al minimo, quella a destra al massimo. " + regola["arrotondamento"],
         "",
-        f"Le UDA di Formazione scuola-lavoro sono calcolate su un monte convenzionale di {monte_fsl} ore,",
-        "da sostituire con quello deliberato nel piano FSL d'istituto.",
+        "Il monte ore di ogni UDA, comprese quelle di Formazione scuola-lavoro, è quello",
+        "definito nella scheda dell'UDA: se cambia lì, cambia qui e nei documenti stampati.",
+        "Le UDA che non hanno ancora un monte ore non compaiono in questa ripartizione.",
         "",
         "La durata indicata è il minimo: la impone l'insegnamento che deve ricavare più ore dal",
         "proprio orario settimanale, ipotizzando che vi dedichi tutte le sue ore. Se gli insegnamenti",
@@ -227,7 +228,6 @@ def main() -> None:
     regola = quadro["meta"]["regola"]
     alias = quadro["alias"]
     ore_settimanali = quadro["insegnamenti"]
-    monte_fsl = regola["monteConvenzionaleFSL"]
 
     indice = indice_insegnamenti(quadro)
 
@@ -237,14 +237,12 @@ def main() -> None:
 
     ripartizioni: dict[str, dict] = {}
     saltate: list[str] = []
+    senza_monte: list[str] = []
     for nome_file, genere in CATALOGHI:
         catalogo = json.loads((RADICE / nome_file).read_text(encoding="utf-8"))
         for uda in catalogo["uda"]:
             anno = int(uda["anno"])
             estremi = estremi_monte_ore(uda.get("ore"))
-            convenzionale = estremi is None
-            if convenzionale:
-                estremi = (monte_fsl, monte_fsl)
             citati = insegnamenti_citati(uda, indice)
             pesi = {ins: peso(ins, anno) for ins in citati if peso(ins, anno) > 0}
             senza_ore = [ins for ins in citati if peso(ins, anno) == 0]
@@ -252,6 +250,13 @@ def main() -> None:
                 saltate.append(str(uda["id"]))
                 continue
             manuali_grezzi = uda.get("oreRipartizione") or {}
+            # Il monte ore di un'UDA lo decide l'UDA. Se non c'e' ne' come
+            # numero ne' come ripartizione concordata, non se ne inventa uno:
+            # la scheda resta senza ore finche' qualcuno non le scrive, e chi
+            # legge il piano lo vede.
+            if estremi is None and not manuali_grezzi:
+                senza_monte.append(str(uda["id"]))
+                continue
             manuali = {
                 canonico(ins, indice) or str(ins): valore
                 for ins, valore in manuali_grezzi.items()
@@ -278,7 +283,6 @@ def main() -> None:
                 "ore": uda.get("ore") or "",
                 "totaleMin": estremi[0],
                 "totaleMax": estremi[1],
-                **({"convenzionale": True} if convenzionale and not manuali else {}),
                 **({"assegnazioneConcordata": True} if manuali else {}),
                 "voci": [
                     {"ins": ins, "oreSett": pesi[ins], "min": minimi[ins], "max": massimi[ins]}
@@ -294,18 +298,19 @@ def main() -> None:
             "fonte": "Generato da tools/genera_ripartizione_ore.py a partire da data-quadro-orario.json e dai quattro cataloghi delle UDA. Non modificare a mano: rigenerare.",
             "metodo": regola["metodo"],
             "arrotondamento": regola["arrotondamento"],
-            "monteConvenzionaleFSL": monte_fsl,
             "notaFSL": regola["notaFSL"],
             "settimaneAnno": quadro["meta"]["settimaneAnno"],
         },
         "uda": ripartizioni,
     }
     USCITA.write_text(json.dumps(uscita, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    scrivi_documento(ripartizioni, quadro, monte_fsl)
+    scrivi_documento(ripartizioni, quadro)
 
     print(f"{USCITA.name} e {DOCUMENTO.name}: {len(ripartizioni)} UDA ripartite")
     if saltate:
         print("senza insegnamenti in orario, escluse:", ", ".join(saltate))
+    if senza_monte:
+        print("senza monte ore nella scheda, escluse:", ", ".join(senza_monte))
     for chiave, voce in ripartizioni.items():
         assert sum(v["min"] for v in voce["voci"]) == voce["totaleMin"], chiave
         assert sum(v["max"] for v in voce["voci"]) == voce["totaleMax"], chiave

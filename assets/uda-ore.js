@@ -195,8 +195,6 @@ function creaBlocco(chiave, ripartizione, righe) {
     metodo.className = 'uda-ore-metodo';
     metodo.textContent = ripartizione.assegnazioneConcordata
         ? `Ripartizione oraria concordata dal dipartimento. Monte complessivo indicato: ${etichettaTotale(ripartizione)}.`
-        : ripartizione.convenzionale
-        ? `Le ore della Formazione scuola-lavoro sono deliberate dall'istituto: la ripartizione è calcolata su un monte convenzionale di ${ripartizione.totaleMax} ore, proporzionale alle ore settimanali di ciascun insegnamento.`
         : `Proposta proporzionale alle ore settimanali di ciascun insegnamento. Monte ore dell'UDA: ${etichettaTotale(ripartizione)}.`;
     box.append(titolo, metodo);
 

@@ -190,7 +190,7 @@
         "periodo": "Febbraio – aprile",
         "dettaglio": "Preparazione in aula fra febbraio e marzo; esperienza in struttura entro aprile, minimo due settimane; relazione entro aprile.",
         "materie": "Igiene e Cultura M.S. 9 h · Diritto e T.A. 8 h · Psicologia 7 h · Metodologie Operative 6 h",
-        "ore": "30 ore convenzionali"
+        "ore": "30 ore"
       },
       {
         "id": "DIP4-FSL",
@@ -653,7 +653,7 @@
               "prodotto": "Dossier FSL individuale: profilo del servizio, griglia di osservazione, piano di una semplice attività, diario riflessivo e relazione finale anonimizzata; form della prova esperta predisposto dai docenti, che colleghi bisogni, attività, protocolli e apprendimenti secondo i nuclei fondanti dell'indirizzo Servizi per la Sanità e l'Assistenza Sociale.",
               "beneficiari": "Minori accolti dal servizio, nel rispetto del progetto formativo e sotto supervisione",
               "ambito": "Struttura ospitante dell'area minori; scuola dell'infanzia come esempio non vincolante",
-              "ore": "Da definire nel piano FSL d'istituto e nel progetto formativo individuale",
+              "ore": "30",
               "abilita": [
                 {
                   "t": "Riconoscere bisogni, routine, risorse e fattori di benessere del minore nel contesto osservato",
@@ -727,7 +727,13 @@
                 }
               ],
               "integrazioniSaperi": [],
-              "sviluppata": false
+              "sviluppata": false,
+              "oreRipartizione": {
+                "IGIENE E CULTURA MEDICO SANITARIA": 9,
+                "DIRITTO E TEC. AMM.": 8,
+                "PSICOLOGIA GENERALE ED APPLICATA": 7,
+                "METODOLOGIE OPERATIVE": 6
+              }
             }
           ]
         },
@@ -1484,7 +1490,7 @@
               "prodotto": "Dossier di esperienza con profilo organizzativo, osservazione multidimensionale, schema di progetto individualizzato, analisi di accessibilità e sicurezza, micro-intervento e relazione riflessiva.",
               "beneficiari": "Persone con disabilità accolte dal servizio, nel rispetto del progetto formativo e sotto supervisione",
               "ambito": "Servizi di accoglienza, semiresidenziali, residenziali, socio-educativi o socio-sanitari",
-              "ore": "Da definire nel piano FSL d'istituto e nel progetto formativo individuale",
+              "ore": "48",
               "abilita": [
                 {
                   "t": "Rilevare bisogni, risorse, capacità residue e barriere senza formulare diagnosi",
@@ -1612,7 +1618,7 @@
                   "testo": "Competenza in uscita n° 6: Curare l’allestimento dell’ambiente di vita della persona in difficoltà con riferimento alle misure per la salvaguardia della sua sicurezza e incolumità, anche provvedendo alla promozione e al mantenimento delle capacità residue e della autonomia nel proprio ambiente di vita."
                 }
               ],
-              "condizioniRealizzazione": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa proposta.",
+              "condizioniRealizzazione": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa scheda.",
               "titolo": "Vivere con la disabilità · Abitare sicuro",
               "competenza": 4,
               "competenze": [
@@ -1990,7 +1996,7 @@
               "prodotto": "Caso professionale anonimizzato con mappa della presa in carico, scheda delle capacità residue, analisi di ambiente e ausili, procedura commentata e relazione finale.",
               "beneficiari": "Persone anziane accolte dalla struttura, nel rispetto del progetto formativo e sotto supervisione",
               "ambito": "Strutture residenziali per anziani, incluse RSA, o altre sedi coerenti definite nel progetto",
-              "ore": "Da definire nel piano FSL d'istituto e nel progetto formativo individuale",
+              "ore": "48",
               "abilita": [
                 {
                   "t": "Rilevare bisogni di base, stato di benessere e livelli di autonomia con strumenti assegnati",
@@ -2090,17 +2096,32 @@
             {
               "id": "DIP5-ASSE",
               "anno": 5,
+              "collegataA": "",
+              "derivaDa": "",
+              "collocazione": "",
               "periodo": "Intero anno scolastico",
+              "raccordoProfilo": [
+                {
+                  "competenza": 3,
+                  "testo": "Competenza in uscita n° 3: Facilitare la comunicazione tra persone e gruppi, anche di culture e contesti diversi, adottando modalità comunicative e relazionali adeguate ai diversi ambiti professionali e alle diverse tipologie di utenza."
+                },
+                {
+                  "competenza": 9,
+                  "testo": "Competenza in uscita n° 9: Realizzare, in collaborazione con altre figure professionali, azioni a sostegno e a tutela della persona con fragilità e/o disabilità e della sua famiglia, per favorire l’integrazione e migliorare o salvaguardare la qualità della vita."
+                }
+              ],
+              "condizioniRealizzazione": "Attività didattiche graduate rispetto all’annualità e svolte nei ruoli assegnati. Gli eventuali contesti reali, partner, pubblicazioni e contributi di professionisti citati nella consegna richiedono organizzazione e accordi della scuola; non sono attestati da questa scheda.",
               "titolo": "Parole che curano: raccontare la salute mentale, superare lo stigma",
               "competenza": 9,
               "competenze": [
                 3,
                 9
               ],
-              "origineProposta": "collega",
               "qnq": "4",
               "traguardo": "Realizzare, in collaborazione con altre figure professionali, azioni a sostegno e a tutela della persona con disagio psichico e della sua famiglia, per favorirne l'integrazione e migliorare o salvaguardare la qualità della vita",
+              "traguardiOrigine": [],
               "compito": "Campagna per la Giornata mondiale della salute mentale: analisi di come cinema, stampa e social raccontano il disagio psichico, glossario delle parole da evitare e di quelle corrette, prodotto di comunicazione con l'indicazione dei servizi del territorio.",
+              "sintesi": "Campagna per la Giornata mondiale della salute mentale: analisi di come cinema, stampa e social raccontano il disagio psichico, glossario delle parole da evitare e di quelle corrette, prodotto di comunicazione con l'indicazione dei servizi del territorio.",
               "ore": "42",
               "abilita": [
                 {
@@ -2154,10 +2175,60 @@
                 }
               ],
               "sviluppata": null,
+              "materialiOrigine": [],
+              "rubrica": [],
+              "criterioValutazione": "Livelli descrittivi proposti, senza conversione automatica in voto o certificazione. Strumenti compensativi e supporti previsti non penalizzano il livello. Se l’evidenza manca, registrare «Non osservato», senza assegnare automaticamente il livello 1. Valutare separatamente ciascuna competenza.",
+              "pianificazione": {
+                "stato": "Da deliberare dal consiglio di classe",
+                "oreOrigine": [],
+                "oreProgettate": null,
+                "nota": "Scheda autonoma: le ore indicate sono quelle della proposta, da confermare in sede di progettazione.",
+                "fasi": [
+                  {
+                    "attivita": "Analisi della consegna, dei destinatari e delle fonti del caso",
+                    "ore": null,
+                    "insegnamenti": [],
+                    "periodo": null
+                  },
+                  {
+                    "attivita": "Progettazione delle azioni collegate nel compito di realtà",
+                    "ore": null,
+                    "insegnamenti": [],
+                    "periodo": null
+                  },
+                  {
+                    "attivita": "Realizzazione e documentazione del compito nelle condizioni concordate",
+                    "ore": null,
+                    "insegnamenti": [],
+                    "periodo": null
+                  },
+                  {
+                    "attivita": "Verifica individuale per competenza, restituzione e autovalutazione",
+                    "ore": null,
+                    "insegnamenti": [],
+                    "periodo": null
+                  }
+                ],
+                "decisioniNecessarie": [
+                  "Confermare contesto, destinatari e disponibilità di eventuali partner o laboratori",
+                  "Attribuire attività, ore e periodo a ciascun insegnamento effettivamente presente nell’annualità",
+                  "Identificare attività condivise e raccordi con altre UDA senza doppio conteggio",
+                  "Validare rubriche, prove individuali e supporti previsti per gli studenti"
+                ]
+              },
+              "provenienzaContenuti": [],
               "situazione": "Il dipartimento di salute mentale chiede alle scuole una campagna contro lo stigma, e le parole con cui a scuola si parla di disagio psichico non sono mai state esaminate.",
               "prodotto": "Campagna per la Giornata mondiale della salute mentale: analisi di come cinema, stampa e social raccontano il disagio psichico, glossario delle parole da evitare e di quelle corrette, prodotto di comunicazione con l'indicazione dei servizi del territorio.",
               "beneficiari": "Il dipartimento di salute mentale dell'azienda sanitaria, cui la campagna è destinata.",
-              "ambito": "esterna"
+              "ambito": "esterna",
+              "origineProposta": "collega",
+              "fonde": [
+                {
+                  "id": "5.12",
+                  "titolo": "Parole che curano: raccontare la salute mentale, superare lo stigma",
+                  "competenza": 9
+                }
+              ]
             }
           ]
         }

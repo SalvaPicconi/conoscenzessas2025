@@ -82,7 +82,9 @@ for (const scheda of dati.schede) {
 
         await page.goto(base + 'index.html#esame', { waitUntil: 'domcontentloaded' });
         await page.locator('#content-esame.active iframe').waitFor();
-        assert.equal(await page.locator('.tab-button').count(), 12);
+        // Le linguette sono 14 da quando sono entrate monografiche e progettazione
+        // annuale: l'attesa era rimasta a 12 e falliva da prima di questo lavoro.
+        assert.equal(await page.locator('.tab-button').count(), 14);
         assert.equal(await page.locator('[data-tab="didattica"]').count(), 1);
         assert.equal(await page.locator('[data-tab="normativa"]').count(), 1);
         assert.equal(await page.locator('[data-tab="esame"][aria-selected="true"]').count(), 1);

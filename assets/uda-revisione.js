@@ -10,7 +10,12 @@ const IS_TRASVERSALE = UDA_KIND === 'trasversale';
 const IS_CIVICA = UDA_KIND === 'civica';
 const IS_FSL = UDA_KIND === 'fsl';
 const IS_ESAME = UDA_KIND === 'esame';
-const IS_UNIFICATA = UDA_KIND === 'unificate';
+// Il catalogo d'asse si chiamava data-uda-unificate.json: le revisioni già
+// salvate in cloud portano quel nome e vanno continuate a riconoscere.
+const FONTI_EQUIVALENTI = DATA_SOURCE === 'data-uda-asse.json'
+    ? [DATA_SOURCE, 'data-uda-unificate.json']
+    : [DATA_SOURCE];
+const IS_CATALOGO_ASSE = DATA_SOURCE === 'data-uda-asse.json';
 const IS_DIPARTIMENTO = UDA_KIND === 'dipartimento';
 const IS_COLLEGIALE = IS_TRASVERSALE || IS_CIVICA || IS_FSL || IS_ESAME || IS_DIPARTIMENTO;
 const NEW_KEY_PREFIX = IS_FSL ? 'nuova-f-' : (IS_TRASVERSALE || IS_CIVICA) ? 'nuova-t-' : 'nuova-';
@@ -280,10 +285,10 @@ async function caricaRevisioni() {
     const dati = await chiamaApi('list');
     const revisioniPagina = (dati.revisions || []).filter(voce => {
         const source = voce.source_version || '';
-        if (IS_COLLEGIALE || IS_UNIFICATA) {
-            return source === DATA_SOURCE || source === NEW_SOURCE_VERSION;
+        if (IS_COLLEGIALE || IS_CATALOGO_ASSE) {
+            return FONTI_EQUIVALENTI.includes(source) || source === NEW_SOURCE_VERSION;
         }
-        return source === '' || source === DATA_SOURCE || source === NEW_SOURCE_VERSION;
+        return source === '' || FONTI_EQUIVALENTI.includes(source) || source === NEW_SOURCE_VERSION;
     });
     statoRev.revisioni = new Map(revisioniPagina.map(voce => [chiaveRevisione(voce.uda_key, voce.author_name), voce]));
     aggiornaContatore();

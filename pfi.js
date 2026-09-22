@@ -172,12 +172,11 @@ function costruisciAnnualita() {
 
 async function caricaCataloghi() {
     // Cataloghi pubblicati nel sito: UDA d'asse + trasversali + Educazione civica + FSL
-    const [asse, trasv, civica, fsl, unificate, generale] = await Promise.allSettled([
-        fetch('data-uda.json', { cache: 'no-store' }).then(r => r.json()),
+    const [asse, trasv, civica, fsl, generale] = await Promise.allSettled([
+        fetch('data-uda-asse.json', { cache: 'no-store' }).then(r => r.json()),
         fetch('data-uda-trasversali.json', { cache: 'no-store' }).then(r => r.json()),
         fetch('data-uda-civica.json', { cache: 'no-store' }).then(r => r.json()),
         fetch('data-uda-fsl.json', { cache: 'no-store' }).then(r => r.json()),
-        fetch('data-uda-unificate.json', { cache: 'no-store' }).then(r => r.json()),
         fetch('data-area-generale.json', { cache: 'no-store' }).then(r => r.json())
     ]);
 
@@ -185,7 +184,7 @@ async function caricaCataloghi() {
         stato.catalogoIndirizzo = asse.value.uda || [];
         stato.metaIndirizzo = asse.value.meta || null;
     } else {
-        console.error('Impossibile caricare il fascicolo delle UDA d\'asse:', asse.reason);
+        console.error('Impossibile caricare il catalogo delle UDA d\'asse:', asse.reason);
     }
 
     if (trasv.status === 'fulfilled') {
@@ -209,7 +208,6 @@ async function caricaCataloghi() {
         console.error('Impossibile caricare il catalogo delle UDA FSL:', fsl.reason);
     }
 
-    stato.catalogoUnificate = unificate.status === 'fulfilled' ? unificate.value.uda : [];
     stato.titoliGenerali = generale.status === 'fulfilled' ? Object.fromEntries(generale.value.area_generale_istruzione_professionale.competenze.map(c => [c.numero,c.titolo])) : {};
     const selComp = document.getElementById('pfi-uda-competenza');
     Object.entries(stato.metaIndirizzo?.competenze || {}).forEach(([num, titolo]) => {
@@ -222,11 +220,10 @@ async function caricaCataloghi() {
     popolaScelta();
 }
 
-/** Elenco unificato dei tre cataloghi, con marcatore di provenienza. */
+/** Elenco unico dei quattro cataloghi, con marcatore di provenienza. */
 function tutteLeUda() {
     return [
         ...stato.catalogoIndirizzo.map(u => ({ ...u, _fonte: 'asse' })),
-        ...(stato.catalogoUnificate || []).map(u => ({ ...u, _fonte: 'unificate' })),
         ...stato.catalogoTrasversali.map(u => ({ ...u, _fonte: 'trasversale' })),
         ...stato.catalogoCivica.map(u => ({ ...u, _fonte: 'civica' })),
         ...stato.catalogoFsl.map(u => ({ ...u, _fonte: 'fsl' }))
@@ -251,7 +248,7 @@ function popolaScelta() {
         .sort((a, b) => a.anno - b.anno || a._fonte.localeCompare(b._fonte))
         .map(u => ({
             key: `${u._fonte}:${u.id}`,
-            testo: `${ANNO_ETICHETTA[u.anno]} · ${u._fonte === 'unificate' ? 'Unificata · proposta' : u._fonte === 'trasversale' ? 'Trasversale' : u._fonte === 'civica' ? 'Educazione civica' : u._fonte === 'fsl' ? 'FSL · ' + u.areaTirocinio : competenzeIndirizzo(u).map(c => 'C' + c).join(' · ')} — ${u.titolo}`
+            testo: `${ANNO_ETICHETTA[u.anno]} · ${u._fonte === 'trasversale' ? 'Trasversale' : u._fonte === 'civica' ? 'Educazione civica' : u._fonte === 'fsl' ? 'FSL · ' + u.areaTirocinio : competenzeIndirizzo(u).map(c => 'C' + c).join(' · ')} — ${u.titolo}`
         }));
 
     sel.innerHTML = voci.length
@@ -267,18 +264,6 @@ function daCatalogo(key) {
 function datiDaCatalogo(key) {
     const [fonte, id] = key.split(':');
 
-    if (fonte === 'unificate') {
-        const u = (stato.catalogoUnificate || []).find(x => x.id === id);
-        if (!u) return null;
-        return { titolo: u.titolo, tipo: 'Unificata · proposta', anno: u.anno, periodo: '',
-            competenze: u.competenze.map(c => `C${c} — ${stato.metaIndirizzo?.competenze[c] || ''}`).join('\n'),
-            saperi: u.saperi.map(x => `${x.t} (${x.ins.join(', ')})`).join('\n'),
-            insegnamenti: [...new Set([...u.abilita,...u.saperi].flatMap(x=>x.ins))].join(', '),
-            attivita: u.abilita.map(x=>x.t).join('\n'), compito:u.sintesi, prodotto:u.sintesi,
-            valutazione:u.rubrica.map(r=>`C${r.competenza}: ${r.indicatore}`).join('\n'),
-            ore:'Da deliberare', qnq:u.qnq, origine:`Proposta unificata ${u.id}; ore originarie ${u.ore}; adozione da concordare`,
-            origineRefs:u.fonde.map(f=>'asse:'+f.id), catalogoKey:key };
-    }
     if (fonte === 'fsl') {
         const u = stato.catalogoFsl.find(x => x.id === id);
         if (!u) return null;
@@ -348,10 +333,17 @@ function datiDaCatalogo(key) {
         compito: u.compito || '',
         ore: u.ore || '',
         attivita: (u.abilita || []).map(a => `${a.t} (${(a.ins || []).join(', ')})`).join('\n'),
-        valutazione: stato.metaIndirizzo?.valutazioneStandard || '',
+        valutazione: (u.rubrica || []).length
+            ? u.rubrica.map(r => `C${r.competenza}: ${r.indicatore}`).join('\n')
+            : stato.metaIndirizzo?.valutazioneStandard || '',
         livello: '',
         qnq: u.qnq || '',
-        origine: `Fascicolo UDA del quinquennio — scheda ${u.id}`
+        // Le unità nate da accorpamento portano dentro più schede di origine:
+        // vanno dichiarate, perché il controllo del doppio conteggio si regge su queste.
+        origineRefs: (u.fonde || []).length > 1 ? u.fonde.map(f => 'asse:' + f.id) : undefined,
+        origine: (u.fonde || []).length > 1
+            ? `UDA d'asse ${u.id} — dalle schede di origine ${u.fonde.map(f => f.id).join(' e ')}`
+            : `UDA d'asse — scheda ${u.id}`
     };
 }
 
@@ -397,7 +389,7 @@ function aggiornaUda() {
                 <label class="pfi-col-2">Titolo dell'UDA <input type="text" data-campo="titolo" value="${escapeAttr(u.titolo)}"></label>
                 <label>Tipo
                     <select data-campo="tipo">
-                        ${['Indirizzo', 'Trasversale', 'Educazione civica', 'FSL', 'Unificata · proposta', 'Asse culturale', 'PCTO (storico)'].map(t =>
+                        ${['Indirizzo', 'Trasversale', 'Educazione civica', 'FSL', 'Asse culturale', 'PCTO (storico)'].map(t =>
                             `<option${t === u.tipo ? ' selected' : ''}>${t}</option>`).join('')}
                     </select>
                 </label>

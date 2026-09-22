@@ -6,7 +6,7 @@ const root = path.resolve(__dirname, '..');
 const leggi = file => JSON.parse(fs.readFileSync(path.join(root, file), 'utf8'));
 
 const asse = leggi('data-uda.json');
-const unificate = leggi('data-uda-unificate.json');
+const unificate = leggi('data-uda-asse.json');
 const trasversali = leggi('data-uda-trasversali.json');
 const civica = leggi('data-uda-civica.json');
 const ripartizione = leggi('data-ripartizione-ore.json');
@@ -33,7 +33,7 @@ assert.equal(ripT11.assegnazioneConcordata, true);
 assert.equal(ripT11.totaleMin, 33);
 assert.equal(ripT11.totaleMax, 33);
 
-for (const [nome, catalogo] of [['data-uda.json', asse], ['data-uda-unificate.json', unificate]]) {
+for (const [nome, catalogo] of [['data-uda.json', asse], ['data-uda-asse.json', unificate]]) {
     const nonConformi = catalogo.uda.filter(uda => uda.anno >= 3 && JSON.stringify(uda).includes('Scienze Integrate'));
     assert.deepEqual(nonConformi.map(uda => uda.id), [], `${nome}: Scienze Integrate non deve ricorrere nel triennio`);
 }
