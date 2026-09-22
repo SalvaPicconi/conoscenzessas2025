@@ -15,8 +15,8 @@ const base=process.env.UDA_BASE_URL||'http://127.0.0.1:8765/';const out='/tmp/ss
  });
  const p=await c.newPage();p.on('pageerror',e=>errors.push(e.message));
  await p.goto(base+'uda-asse.html',{waitUntil:'domcontentloaded'});await p.waitForSelector('.uda-acc');
- await p.locator('.anno-pill[data-anno="1"]').click();assert.equal(await p.locator('.uda-acc').count(),4);assert.equal(await p.locator('[data-id="U1.1"]').count(),0);
- await p.locator('.anno-pill[data-anno="2"]').click();assert.equal(await p.locator('.uda-acc').count(),7);assert.equal(await p.locator('[data-id="U1.1"]').count(),1);assert.equal(await p.locator('[data-id="U2.1"]').count(),1);
+ await p.locator('.anno-pill[data-anno="1"]').click();assert.equal(await p.locator('.uda-acc').count(),6);assert.equal(await p.locator('[data-id="U1.1"]').count(),0);
+ await p.locator('.anno-pill[data-anno="2"]').click();assert.equal(await p.locator('.uda-acc').count(),9);assert.equal(await p.locator('[data-id="U1.1"]').count(),1);assert.equal(await p.locator('[data-id="U2.1"]').count(),1);
  assert.ok(!(await p.locator('body').textContent()).includes('parziale e su carta'));
  await p.goto(base+'uda-monografiche.html',{waitUntil:'domcontentloaded'});await p.locator('#docente').selectOption('Prof. Picconi');await p.locator('#password').fill('test-non-reale');await p.getByRole('button',{name:'Accedi',exact:true}).click();await p.waitForSelector('#lavoro:not([hidden])');
  await p.locator('#nuova').click();await p.locator('[name="titolo"]').fill('Un tema attuale');await p.locator('[name="descrizione"]').fill('<img src=x onerror=alert(1)> descrizione di prova');await p.locator('#salva').click();await p.waitForFunction(()=>document.querySelector('#esito-salvataggio').textContent.includes('versione 1'));

@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="uda.css?v=20260907dip1">
     <link rel="stylesheet" href="didattica.css?v=20260907dip1">
     <link rel="stylesheet" href="assets/uda-revisione.css?v=20260907dip1">
-    <link rel="stylesheet" href="piano-uda.css?v=20260907dip1">
+    <link rel="stylesheet" href="piano-uda.css?v=20260922asse1">
     <link rel="stylesheet" href="assets/navigazione.css?v=20260907dip1">
 </head>
 <body>
@@ -45,6 +45,12 @@
     <!-- Barra dei comandi -->
     <section class="piano-toolbar" aria-label="Azioni sul piano">
         <div class="piano-toolbar-group">
+            <label class="piano-formato" for="piano-formato">Formato
+                <select id="piano-formato" data-campo="formato">
+                    <option value="sintetico">Allegato sintetico — schede essenziali</option>
+                    <option value="integrale">UDA integrali — schede complete</option>
+                </select>
+            </label>
             <button type="button" data-azione="word" class="piano-btn piano-btn-primary">📄 Scarica il Piano in Word</button>
             <button type="button" data-azione="stampa" class="piano-btn">🖨 Stampa / PDF</button>
         </div>
@@ -95,8 +101,10 @@
     <!-- 2 · scelta delle UDA -->
     <section class="piano-blocco" aria-labelledby="piano-scelta-titolo">
         <h2 id="piano-scelta-titolo"><span class="piano-num">2</span> Unità di apprendimento selezionate nella bozza</h2>
-        <p class="piano-nota">Spunta le UDA che il consiglio ha scelto di attivare e indica per ciascuna il periodo di
-            svolgimento. Sono disponibili UDA d’asse, unificate come proposte, trasversali e di formazione scuola-lavoro.
+        <p class="piano-nota">In cima ci sono le UDA che il Dipartimento ha adottato per questo anno di corso: sono
+            quelle su cui il consiglio lavora. Sotto, chiusi, restano gli altri cataloghi del curricolo, per i casi in cui
+            il consiglio abbia bisogno di un’unità che il Dipartimento non ha scelto: quelle unità escono nel documento
+            segnalate come fuori delibera dipartimentale. Spunta le UDA e indica per ciascuna il periodo di svolgimento.
             La selezione non attesta una delibera: verifica e approva il piano nel consiglio di classe.</p>
 
         <div class="piano-import" hidden>
@@ -148,11 +156,21 @@
             <textarea id="piano-note" data-campo="note" rows="5" placeholder="Accorpamenti decisi, adattamenti per studenti con PFI personalizzato, vincoli di calendario, raccordi con la formazione scuola-lavoro…"></textarea>
         </label>
         <p class="piano-nota">La formula di approvazione, i riferimenti normativi e lo spazio per le firme del
-            coordinatore, dei docenti e del dirigente sono già inclusi nel documento stampato.</p>
+            coordinatore, dei docenti e del dirigente sono già inclusi nel documento stampato. Il formato
+            <strong>sintetico</strong> porta di ogni unità le sezioni essenziali — denominazione, competenze e traguardo,
+            situazione-problema, compito e prodotto, abilità, saperi e ripartizione oraria — ed è quello da allegare alla
+            programmazione di classe; il formato <strong>integrale</strong> aggiunge fasi, accompagnamento,
+            documentazione, rubrica e note, secondo il format completo del Box n. 8.</p>
     </section>
 
     <section class="piano-toolbar" aria-label="Stampa del piano">
         <div class="piano-toolbar-group">
+            <label class="piano-formato" for="piano-formato-basso">Formato
+                <select id="piano-formato-basso" data-campo="formato">
+                    <option value="sintetico">Allegato sintetico — schede essenziali</option>
+                    <option value="integrale">UDA integrali — schede complete</option>
+                </select>
+            </label>
             <button type="button" data-azione="word" class="piano-btn piano-btn-primary">📄 Scarica il Piano in Word</button>
             <button type="button" data-azione="stampa" class="piano-btn">🖨 Stampa / PDF</button>
         </div>
@@ -188,7 +206,7 @@
 <script src="assets/insegnamenti.js?v=20260907dip1"></script>
 <script src="assets/documento-office.js?v=20260907dip1"></script>
 <script src="assets/uda-documento.js?v=20260908ore1"></script>
-<script src="piano-uda.js?v=20260908ore1"></script>
+<script src="piano-uda.js?v=20260922asse1"></script>
 <script type="module" src="assets/uda-revisione.js?v=20260908esamerev1"></script>
 <script src="assets/navigazione.js?v=20260910scelte1"></script>
 </body>

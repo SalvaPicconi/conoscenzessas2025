@@ -3,7 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const {chromium} = require('playwright');
 const base = process.env.UDA_BASE_URL || 'http://127.0.0.1:8766/';
-const output = process.env.UDA_TEST_OUTPUT || '/tmp/ssas-unificate-verifica';
+const output = process.env.UDA_TEST_OUTPUT || '/tmp/ssas-uda-asse-verifica';
 (async () => {
  fs.mkdirSync(output, {recursive:true});
  const browser = await chromium.launch({headless:true, executablePath:process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE});
@@ -14,8 +14,12 @@ const output = process.env.UDA_TEST_OUTPUT || '/tmp/ssas-unificate-verifica';
  await page.goto(base+'uda-asse.html',{waitUntil:'domcontentloaded'});
  await page.waitForSelector('.uda-acc');
  assert.equal(await page.locator('.uda-acc').count(),36);
- assert.equal(await page.locator('.uda-nuova').count(),9);
- assert.equal(await page.locator('.pill-nuova').filter({hasText:'NUOVA'}).count(),9);
+ // Le proposte dei docenti non sono piu' un innesto etichettato a parte:
+ // stanno nel catalogo come tutte le altre, con la barra di stampa e lo slot
+ // di revisione che prima non avevano.
+ assert.equal(await page.locator('.uda-nuova, .pill-nuova').count(),0);
+ assert.equal(await page.locator('[data-uda-revisione-key]').count(),36);
+ assert.equal(await page.locator('[data-uda-revisione-slot]').count(),36);
  assert.equal(await page.getByText('proposta della collega',{exact:false}).count(),0);
  assert.equal(await page.getByText('proposta concordata',{exact:false}).count(),0);
  assert.equal(await page.locator('.unif-rubrica').count(),48);
@@ -40,15 +44,17 @@ const output = process.env.UDA_TEST_OUTPUT || '/tmp/ssas-unificate-verifica';
  assert.equal(await page.locator('.stampa-documento .uda-acc').count(),1);
  assert.equal(await page.locator('.stampa-documento .unif-rubrica').count(),1);
  assert.equal(await page.locator('.stampa-documento details, .stampa-documento dl').count(),0);
- assert.ok((await page.locator('.stampa-documento').textContent()).includes('Ore della proposta da deliberare'));
+ assert.ok((await page.locator('.stampa-documento').textContent()).includes('Ore da deliberare in consiglio'));
  await page.pdf({path:path.join(output,'U5.4a.pdf'),preferCSSPageSize:true});
  assert.equal(await page.locator('#uda-list .unif-rubrica[open]').count(),0,'la stampa non aggiunge rubriche estese');
- await page.goto(base+'index.html#unificate',{waitUntil:'domcontentloaded'});
- const frame=await(await page.waitForSelector('#content-unificate iframe')).contentFrame();
+ await page.goto(base+'index.html#asse',{waitUntil:'domcontentloaded'});
+ const frame=await(await page.waitForSelector('#content-asse iframe')).contentFrame();
  await frame.waitForSelector('.uda-acc');
  assert.equal(await frame.locator('.uda-acc').count(),36);
- assert.equal(await frame.locator('.uda-nuova').count(),9);
+ // La barra formale di stampa della singola scheda, che a questa pagina mancava.
+ await frame.locator('.uda-acc-header').first().click();
+ assert.equal(await frame.locator('.uda-stampa button').count(),2);
  assert.deepEqual(errors,[]);
- console.log('PASS browser: 27 unificate + 9 nuove etichettate; 48 rubriche; filtro seconda competenza; anno/ricerca/reset; mobile senza overflow; stampa singola con soli indicatori essenziali e ore da deliberare; originale preservato; iframe. Output: '+output);
+ console.log('PASS browser: 36 UDA d\'asse in un catalogo solo; 48 rubriche; filtro seconda competenza; anno/ricerca/reset; mobile senza overflow; stampa singola con soli indicatori essenziali e ore da deliberare; originale preservato; iframe e barra Word/PDF. Output: '+output);
  } finally {await browser.close();}
 })().catch(e=>{console.error(e);process.exit(1)});
