@@ -196,7 +196,9 @@ async function ripristinaSessione() {
     if (!token || !DOCENTI.includes(docente)) return false;
     statoRev.token = token;
     statoRev.docente = docente;
-    statoRev.modalita = sessionStorage.getItem(MODE_KEY) === 'voto' ? 'voto' : 'revisione';
+    // Le UDA adottate hanno solo la revisione: una sessione aperta per il
+    // voto in un altro catalogo deve riusare l'accesso, mostrando le modifiche.
+    statoRev.modalita = !IS_DIPARTIMENTO && sessionStorage.getItem(MODE_KEY) === 'voto' ? 'voto' : 'revisione';
     try {
         const dati = await chiamaApi('session');
         if (dati.author_name !== docente) throw new Error('Sessione non valida');

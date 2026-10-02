@@ -17,13 +17,16 @@ const base = 'https://salvapicconi.github.io/conoscenzessas2025/';
             catch { await route.fulfill({ status: 404, body: 'not found' }); }
         });
         await context.route('**/functions/v1/curricolo-uda-revisioni', async route => {
-            const azione = route.request().postDataJSON()?.action;
+            const richiesta = route.request().postDataJSON();
+            const azione = richiesta?.action;
             const corpo = azione === 'login'
                 ? { ok: true, token: 'x'.repeat(40), author_name: 'Prof. Picconi', permissions: { manage_status: true } }
                 : azione === 'session'
-                ? { ok: true, author_name: 'Prof. Picconi', permissions: { manage_status: true } }
+                ? { ok: true, author_name: 'Prof. Picconi', permissions: { manage_status: false } }
                 : azione === 'list'
                 ? { revisions: [] }
+                : azione === 'upsert'
+                ? { ok: true, revision: { ...richiesta.revision, id: 'test-revisione', updated_at: new Date().toISOString() } }
                 : { ok: true };
             await route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(corpo) });
         });
@@ -84,6 +87,28 @@ const base = 'https://salvapicconi.github.io/conoscenzessas2025/';
 
         await pagina.setViewportSize({ width: 390, height: 844 });
         assert.equal(await pagina.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth), false, 'La pagina non deve avere overflow orizzontale su mobile');
+        assert.deepEqual(errori, []);
+        // Ingresso dalla home con una sessione valida nata nel voto: anche un
+        // docente senza gestione degli stati deve trovare le dieci modifiche.
+        await pagina.evaluate(() => sessionStorage.setItem('curricolo:uda-accesso-modalita', 'voto'));
+        await pagina.goto(`${base}#dipartimento`, { waitUntil: 'domcontentloaded' });
+        const dipartimento = pagina.frameLocator('#content-dipartimento iframe');
+        await dipartimento.locator('.uda-revisione-edit').first().waitFor({ state: 'attached' });
+        assert.equal(await dipartimento.locator('.uda-revisione-edit').count(), 10);
+        assert.ok(await dipartimento.locator('#uda-revisione-toolbar').isVisible());
+        const prima = dipartimento.locator('.dip-full-uda').first();
+        await prima.locator('.uda-acc-header').click();
+        await prima.locator('.uda-revisione-edit').click();
+        const proposta = dipartimento.locator('.uda-revisione-editor');
+        await proposta.locator('[name="titolo"]').fill('Titolo di prova');
+        const salvataggio = pagina.waitForRequest(richiesta => richiesta.url().includes('/functions/v1/curricolo-uda-revisioni') && richiesta.postDataJSON()?.action === 'upsert');
+        await proposta.locator('button[type="submit"]').click();
+        const inviata = (await salvataggio).postDataJSON().revision;
+        assert.equal(inviata.uda_key, 'DIP1-CIVICA');
+        assert.equal(inviata.source_version, 'data-uda-dipartimento.json');
+        assert.equal(inviata.modifiche.titolo, 'Titolo di prova');
+        assert.notEqual(inviata.originale.titolo, 'Titolo di prova');
+        await proposta.locator('[data-tipo="successo"]').waitFor();
         assert.deepEqual(errori, []);
         console.log('PASS: pagina autonoma, 10 UDA complete, fusione corretta, nessun rimando ai cataloghi e layout mobile valido.');
     } finally {
