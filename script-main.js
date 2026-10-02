@@ -33,11 +33,15 @@ document.addEventListener('DOMContentLoaded', () => {
         : tabButtons[0].dataset.tab;
 
     setActiveTab(initialTab, { tabButtons, tabPanels, persist: false, focusButton: false });
+    if (esiste(tabDaAncora)) {
+        scrollToSection(initialTab, true);
+        window.addEventListener('load', () => scrollToSection(initialTab, true), { once: true });
+    }
 
     tabButtons.forEach(button => {
         button.addEventListener('click', () => {
             setActiveTab(button.dataset.tab, { tabButtons, tabPanels, focusButton: false });
-            scrollToTabs(tabNavigation);
+            scrollToSection(button.dataset.tab);
         });
     });
 
@@ -45,7 +49,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // tasto indietro del telefono torna alla sezione precedente.
     window.addEventListener('hashchange', () => {
         const id = decodeURIComponent(window.location.hash.replace('#', ''));
-        if (esiste(id)) setActiveTab(id, { tabButtons, tabPanels });
+        if (esiste(id)) {
+            setActiveTab(id, { tabButtons, tabPanels });
+            scrollToSection(id);
+        }
     });
 
     tabNavigation.addEventListener('keydown', event => {
@@ -186,11 +193,16 @@ function observeIframeContent(iframe) {
     }
 }
 
-function scrollToTabs(tabNavigation) {
+function scrollToSection(targetId, immediate = false) {
+    const panel = document.getElementById(`content-${targetId}`);
+    if (!panel) return;
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    tabNavigation.scrollIntoView({
-        behavior: reduceMotion ? 'auto' : 'smooth',
-        block: 'start'
+    requestAnimationFrame(() => {
+        panel.focus({ preventScroll: true });
+        panel.scrollIntoView({
+            behavior: immediate || reduceMotion ? 'instant' : 'smooth',
+            block: 'start'
+        });
     });
 }
 
