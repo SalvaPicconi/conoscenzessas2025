@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="it" data-uda-source="data-uda-unificate.json" data-uda-kind="unificate">
+<html lang="it" data-uda-source="data-uda-asse.json" data-uda-kind="asse">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Proposta di revisione delle UDA d’asse SSAS: 27 UDA unificate e 9 nuove proposte, rubriche e pianificazione da validare collegialmente.">
+    <meta name="description" content="Le UDA d’asse del curricolo SSAS: 36 unità per il quinquennio, con competenze, traguardi, abilità, saperi e schede di origine. Da qui il Dipartimento sceglie le unità da adottare.">
     <meta name="theme-color" content="#0b5f5a">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <title>Proposta di UDA unificate - Quinquennio SSAS</title>
+    <title>UDA d’asse — Quinquennio SSAS</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css?v=20260907dip1">
     <link rel="stylesheet" href="uda.css?v=20260907dip1">
+    <link rel="stylesheet" href="assets/uda-stampa.css?v=20260922asse1">
     <link rel="stylesheet" href="didattica.css?v=20260907dip1">
-    <link rel="stylesheet" href="uda-unificate.css?v=20260907nuove1">
+    <link rel="stylesheet" href="uda-asse.css?v=20260922asse1">
     <link rel="stylesheet" href="assets/uda-revisione.css?v=20260907mod1">
     <link rel="stylesheet" href="assets/navigazione.css?v=20260907dip1">
     <link rel="stylesheet" href="assets/stampa.css?v=20260907dip1">
@@ -23,18 +24,17 @@
     <main class="container">
         <header class="header page-hero">
             <div class="hero-card">
-                <h1>Proposta di UDA unificate — Quinquennio</h1>
+                <h1>UDA d’asse — Quinquennio</h1>
                 <div class="subline">IIS Meucci - Mattei Cagliari, Sede Decimomannu</div>
-                <p class="subtitle">Le 48 schede d'asse riordinate in 27 · più 9 nuove proposte chiaramente etichettate</p>
-                <p><strong>Proposta per la discussione del dipartimento — non ancora deliberata.</strong></p>
-                <p><strong>In questa pagina: 27 UDA unificate + 9 nuove.</strong> L'etichetta “NUOVA” le distingue dalle unificate. Le schede di origine restano nel <a href="uda.html">catalogo storico di consultazione</a> e non vanno sommate automaticamente nel Piano.</p>
+                <p class="subtitle">36 unità di apprendimento d’asse, dal primo al quinto anno</p>
+                <p>È il catalogo d’asse del curricolo: da qui il Dipartimento sceglie le unità da adottare e da qui arrivano al Piano delle UDA del consiglio di classe. Ventuno unità nascono dall’accorpamento delle schede del fascicolo di origine e ne portano due competenze in uscita; le altre quindici sono autonome. Ogni scheda dichiara la propria provenienza.</p>
             </div>
         </header>
 
-        <section class="uda-revisione-accesso" aria-label="Revisione collegiale delle UDA unificate">
+        <section class="uda-revisione-accesso" aria-label="Revisione collegiale delle UDA d’asse">
             <div>
                 <p class="uda-revisione-eyebrow">Lavoro collegiale</p>
-                <h2>Revisione delle UDA unificate</h2>
+                <h2>Revisione delle UDA d’asse</h2>
                 <p>Spazio riservato ai docenti. Le modifiche sono salvate come proposte e non cambiano automaticamente le schede pubbliche.</p>
             </div>
             <button type="button" id="uda-revisione-apri-accesso" class="uda-revisione-primary">Accedi per modificare</button>
@@ -78,7 +78,7 @@
             <div class="uda-revisione-pannello-head">
                 <div>
                     <p class="uda-revisione-eyebrow">Area condivisa</p>
-                    <h2 id="uda-revisione-pannello-titolo">Annotazioni e proposte sulle UDA unificate</h2>
+                    <h2 id="uda-revisione-pannello-titolo">Annotazioni e proposte sulle UDA d’asse</h2>
                 </div>
                 <button type="button" id="uda-revisione-pannello-chiudi" class="uda-revisione-secondary">Chiudi</button>
             </div>
@@ -102,7 +102,7 @@
         </section>
 
 
-        <section class="filter-panel uda-toolbar" aria-label="Filtri della proposta">
+        <section class="filter-panel uda-toolbar" aria-label="Filtri del catalogo d’asse">
             <div class="uda-anni">
                 <span class="uda-anni-label">Anno:</span>
                 <button type="button" class="anno-pill" data-anno="1" aria-pressed="false">1°</button>
@@ -127,7 +127,7 @@
             </div>
             <div class="search-row">
                 <div class="search-container">
-                    <label class="sr-only" for="uda-search">Cerca nella proposta</label>
+                    <label class="sr-only" for="uda-search">Cerca nel catalogo d’asse</label>
                     <input id="uda-search" type="text" placeholder="Cerca in titoli, compiti, saperi e abilità…" autocomplete="off">
                     <span class="search-icon" aria-hidden="true">🔍</span>
                 </div>
@@ -141,11 +141,14 @@
 
         <div id="uda-list"></div>
 
-        <div id="uda-loading" class="loading" role="status">Caricamento della proposta...</div>
+        <div id="uda-loading" class="loading" role="status">Caricamento delle UDA d’asse…</div>
     </main>
 
     <script src="assets/insegnamenti.js?v=20260907dip1"></script>
-    <script src="uda-unificate.js?v=20260907nuove2"></script>
+    <script src="assets/documento-office.js?v=20260922asse1"></script>
+    <script src="assets/uda-documento.js?v=20260922asse1"></script>
+    <script type="module" src="assets/uda-stampa.js?v=20260922asse1"></script>
+    <script src="uda-asse.js?v=20260922asse1"></script>
     <script type="module" src="assets/uda-revisione.js?v=20260908esamerev1"></script>
 <script src="assets/navigazione.js?v=20260910scelte1"></script>
 </body>

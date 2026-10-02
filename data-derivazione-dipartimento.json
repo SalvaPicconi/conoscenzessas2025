@@ -1,0 +1,22 @@
+{
+  "nota": "Da dove viene ogni UDA scelta dal Dipartimento. Le voci con \"copia\" sono riprese integralmente dal catalogo indicato, con il solo identificativo autonomo: le allinea tools/allinea_uda_dipartimento.py e le controlla tools/verifica_uda_scelte_dipartimento.cjs. Le voci con \"riscritta\" sono state redatte dal Dipartimento e non si toccano.",
+  "scelte": {
+    "DIP1-CIVICA": { "copia": { "file": "data-uda-civica.json", "raccolta": "uda", "id": "T1.1" } },
+    "DIP2-TRASVERSALE": { "copia": { "file": "data-uda-trasversali.json", "raccolta": "uda", "id": "T2.1" } },
+    "DIP3-FSL": { "copia": { "file": "data-uda-fsl.json", "raccolta": "uda", "id": "FSL3.1" } },
+    "DIP3-ASSE": {
+      "riscritta": {
+        "motivo": "Riscritta dal Dipartimento il 21 settembre 2026 sugli adolescenti: la versione centrata sulla prima infanzia ripeteva la scelta FSL della stessa classe.",
+        "registro": "revisioni/2026-09-21-modifiche-dipartimento/REGISTRO.md",
+        "fascicolo": "data-uda.json",
+        "fonde": ["3.9", "3.5", "3.7", "3.6"]
+      }
+    },
+    "DIP4-FSL": { "copia": { "file": "data-uda-fsl.json", "raccolta": "uda", "id": "FSL4.1" } },
+    "DIP4-ASSE": { "copia": { "file": "data-uda-asse.json", "raccolta": "uda", "id": "U4.3" } },
+    "DIP5-FSL": { "copia": { "file": "data-uda-fsl.json", "raccolta": "uda", "id": "FSL5.1" } },
+    "DIP5-ASSE": { "copia": { "file": "data-uda-asse.json", "raccolta": "uda", "id": "5.12" } },
+    "SIM5-1": { "copia": { "file": "data-uda-esame.json", "raccolta": "schede", "id": "E5.1" } },
+    "SIM5-2": { "copia": { "file": "data-uda-esame.json", "raccolta": "schede", "id": "E5.2" } }
+  }
+}

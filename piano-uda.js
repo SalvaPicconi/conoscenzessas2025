@@ -15,22 +15,29 @@
 // stampa, ma non riguarda nessun altro.
 
 const CATALOGHI = [
-    { genere: 'unificate', fonte: 'data-uda-unificate.json', nome: 'UDA unificate · Proposte', descrizione: 'Accorpamenti da concordare. Le ore sono la somma delle origini, da deliberare.' },
-    { genere: 'asse', fonte: 'data-uda.json', nome: 'UDA d’asse', descrizione: 'Una per competenza intermedia del curricolo di indirizzo.' },
+    { genere: 'dipartimento', fonte: 'data-uda-dipartimento.json', evidenza: true, nome: 'Scelte dal Dipartimento', descrizione: 'Le unità adottate dal Dipartimento SSAS: sono queste il riferimento del consiglio di classe.' },
+    { genere: 'asse', fonte: 'data-uda-asse.json', nome: 'UDA d’asse', descrizione: 'Il catalogo d’asse del curricolo. Le ore delle unità nate da accorpamento sono la somma delle origini, da deliberare.' },
     { genere: 'trasversale', fonte: 'data-uda-trasversali.json', nome: 'UDA trasversali', descrizione: 'Interdisciplinari, a cavallo di più assi culturali.' },
     { genere: 'civica', fonte: 'data-uda-civica.json', nome: 'UDA di Educazione civica', descrizione: 'Collegate alle competenze nazionali del D.M. 183/2024; il curricolo annuale deve prevedere almeno 33 ore complessive.' },
     { genere: 'fsl', fonte: 'data-uda-fsl.json', nome: 'UDA di formazione scuola-lavoro', descrizione: 'Percorsi collegati all’area di tirocinio (già PCTO).' }
 ];
 const FONTE_RIPARTIZIONE = 'data-ripartizione-ore.json';
+// Le scelte del Dipartimento sono copie autonome dei cataloghi: senza sapere
+// da dove vengono, il piano non si accorgerebbe che l'unità adottata e quella
+// del catalogo sono la stessa cosa contata due volte. Il file sta fra i dati
+// e non fra gli strumenti perché _config.yml tiene tools/ fuori dal sito.
+const FONTE_DERIVAZIONE = 'data-derivazione-dipartimento.json';
 const ARCHIVIO = 'curricolo:piano-uda';
 const PERIODI = ['1° quadrimestre', '2° quadrimestre', 'Intero anno scolastico'];
-const CAMPI_LIBERI = ['anno', 'classe', 'annoScolastico', 'coordinatore', 'dirigente', 'dataSeduta', 'verbale', 'docenti', 'note'];
+const CAMPI_LIBERI = ['anno', 'classe', 'annoScolastico', 'coordinatore', 'dirigente', 'dataSeduta', 'verbale', 'docenti', 'note', 'formato'];
+const FORMATI = ['sintetico', 'integrale'];
 
 const stato = {
     catalogo: new Map(),   // id → { uda, genere, meta }
     ordine: [],            // id nell'ordine dei cataloghi
     ripartizione: {},
     metaRipartizione: {},
+    derivazione: {},
     scelte: new Map(),     // id → { periodo }
     dati: {},
     pronto: false
@@ -50,41 +57,84 @@ async function avvia() {
 
     const risposte = await Promise.all([
         ...CATALOGHI.map(voce => carica(voce.fonte)),
-        carica(FONTE_RIPARTIZIONE)
+        carica(FONTE_RIPARTIZIONE),
+        carica(FONTE_DERIVAZIONE)
     ]);
+    const derivazione = risposte.pop();
     const ore = risposte.pop();
     stato.ripartizione = (ore && ore.uda) || {};
     stato.metaRipartizione = (ore && ore.meta) || {};
+    stato.derivazione = (derivazione && derivazione.scelte) || {};
 
     risposte.forEach((dati, indice) => {
         if (!dati) return;
         const catalogo = CATALOGHI[indice];
-        (dati.uda || []).forEach(uda => {
+        elencoUda(dati).forEach(uda => {
             const chiave = String(uda.id);
             stato.catalogo.set(chiave, { uda, genere: catalogo.genere, meta: dati.meta || {} });
             stato.ordine.push(chiave);
         });
     });
 
-    // Le ore delle proposte unificate conservano le somme delle origini.
-    for (const [id, voce] of stato.catalogo) {
-        if (voce.genere !== 'unificate') continue;
-        const origini = (voce.uda.fonde || []).map(o => stato.ripartizione[o.id]);
-        if (!origini.length || origini.some(o => !o)) continue;
-        const materie = new Map();
-        for (const origine of origini) for (const r of origine.voci) {
-            const somma = materie.get(r.ins) || { ins: r.ins, min: 0, max: 0 };
-            somma.min += r.min; somma.max += r.max; materie.set(r.ins, somma);
-        }
-        stato.ripartizione[id] = { totaleMin: origini.reduce((n,r)=>n+r.totaleMin,0),
-            totaleMax: origini.reduce((n,r)=>n+r.totaleMax,0), voci: [...materie.values()],
-            senzaOre: [...new Set(origini.flatMap(r=>r.senzaOre || []))] };
-    }
+    completaRipartizione();
     stato.pronto = risposte.every(Boolean) && Boolean(ore);
     // Le UDA salvate in bozza ma non più presenti nei cataloghi vanno tolte,
     // altrimenti il piano stampato conterrebbe righe vuote.
     // Conservare le scelte anche in caso di caricamento incompleto; bloccare l'export.
     disegnaTutto();
+}
+
+// Le scelte del Dipartimento stanno annidate per classe e per decisione;
+// gli altri cataloghi espongono un elenco piatto.
+function elencoUda(dati) {
+    if (Array.isArray(dati.uda)) return dati.uda;
+    const unita = [];
+    (dati.classi || []).forEach(classe =>
+        (classe.decisioni || []).forEach(decisione => unita.push(...(decisione.unita || []))));
+    ((dati.simulazioni && dati.simulazioni.voci) || []).forEach(voce => unita.push(...(voce.unita || [])));
+    return unita;
+}
+
+// La ripartizione oraria è calcolata sulle schede di origine del curricolo.
+// Un'unità che ne accorpa più d'una, o che è stata adottata dal Dipartimento
+// con un identificativo proprio, non ha una voce sua: senza questo passaggio
+// il riepilogo del monte ore uscirebbe vuoto proprio sulle unità scelte.
+function completaRipartizione() {
+    for (const [id, voce] of stato.catalogo) {
+        if (stato.ripartizione[id]) continue;
+
+        const sorgente = stato.derivazione[id] && stato.derivazione[id].copia;
+        if (sorgente && stato.ripartizione[sorgente.id]) {
+            stato.ripartizione[id] = stato.ripartizione[sorgente.id];
+            continue;
+        }
+
+        const origini = (voce.uda.fonde || [])
+            .filter(o => String(o.id) !== id)
+            .map(o => stato.ripartizione[o.id]);
+        if (origini.length && !origini.some(o => !o)) {
+            const materie = new Map();
+            for (const origine of origini) for (const r of origine.voci) {
+                const somma = materie.get(r.ins) || { ins: r.ins, oreSett: r.oreSett, min: 0, max: 0 };
+                somma.min += r.min; somma.max += r.max; materie.set(r.ins, somma);
+            }
+            stato.ripartizione[id] = {
+                totaleMin: origini.reduce((n, r) => n + r.totaleMin, 0),
+                totaleMax: origini.reduce((n, r) => n + r.totaleMax, 0),
+                voci: [...materie.values()],
+                senzaOre: [...new Set(origini.flatMap(r => r.senzaOre || []))]
+            };
+            continue;
+        }
+
+        // Ultima risorsa: la ripartizione scritta dentro la scheda adottata.
+        if (voce.uda.oreRipartizione) {
+            const voci = Object.entries(voce.uda.oreRipartizione)
+                .map(([ins, ore]) => ({ ins, oreSett: '—', min: Number(ore) || 0, max: Number(ore) || 0 }));
+            const totale = voci.reduce((n, v) => n + v.min, 0);
+            if (voci.length) stato.ripartizione[id] = { totaleMin: totale, totaleMax: totale, voci };
+        }
+    }
 }
 
 async function carica(percorso) {
@@ -104,13 +154,14 @@ async function carica(percorso) {
 
 function collegaEventi() {
     CAMPI_LIBERI.forEach(campo => {
-        const nodo = document.querySelector(`[data-campo="${campo}"]`);
-        if (!nodo) return;
-        const evento = nodo.tagName === 'SELECT' || nodo.type === 'date' ? 'change' : 'input';
-        nodo.addEventListener(evento, () => {
-            stato.dati[campo] = nodo.value;
-            salva();
-            if (campo === 'anno') disegnaTutto();
+        document.querySelectorAll(`[data-campo="${campo}"]`).forEach(nodo => {
+            const evento = nodo.tagName === 'SELECT' || nodo.type === 'date' ? 'change' : 'input';
+            nodo.addEventListener(evento, () => {
+                stato.dati[campo] = nodo.value;
+                scriviCampo(campo, nodo.value, nodo);
+                salva();
+                if (campo === 'anno') disegnaTutto();
+            });
         });
     });
     // I comandi compaiono due volte, in cima e in fondo: si legano per azione
@@ -170,40 +221,96 @@ function disegnaCatalogo() {
         return;
     }
 
-    CATALOGHI.forEach(catalogo => {
-        const voci = udaDellAnno(catalogo.genere);
-        const gruppo = document.createElement('section');
-        gruppo.className = 'piano-gruppo';
+    // Le UDA restano selezionate anche se il coordinatore cambia l'anno di
+    // corso: non si cancella il lavoro di nessuno, ma non si lascia neanche che
+    // un'unità di un'altra annualità finisca nel documento senza avvisare.
+    const altroAnno = scelteDiAltroAnno();
+    if (altroAnno.length) {
+        const nota = avviso(`Nella bozza ${altroAnno.length === 1 ? 'resta un’unità' : `restano ${altroAnno.length} unità`} di altri anni di corso (${altroAnno.map(voce => `${voce.uda.id}, ${voce.uda.anno}ª`).join('; ')}). Non ${altroAnno.length === 1 ? 'entra' : 'entrano'} nel documento: il piano riguarda solo la classe indicata al punto 1.`);
+        const togli = document.createElement('button');
+        togli.type = 'button';
+        togli.className = 'piano-btn piano-btn-ghost';
+        togli.textContent = altroAnno.length === 1 ? 'Togli l’unità dalla bozza' : 'Togli quelle unità dalla bozza';
+        togli.addEventListener('click', dimenticaAltriAnni);
+        nota.appendChild(togli);
+        contenitore.appendChild(nota);
+    }
 
-        const testata = document.createElement('div');
-        testata.className = 'piano-gruppo-testa';
-        const titolo = document.createElement('h3');
-        titolo.textContent = catalogo.nome;
-        const conteggio = document.createElement('span');
-        conteggio.className = 'piano-conteggio';
-        const scelte = voci.filter(voce => stato.scelte.has(String(voce.uda.id))).length;
-        conteggio.textContent = `${scelte} ${scelte === 1 ? 'scelta' : 'scelte'} su ${voci.length}`;
-        testata.append(titolo, conteggio);
+    // Prima ciò che il Dipartimento ha deliberato, aperto. Il resto del
+    // curricolo resta raggiungibile ma chiuso: serve nei casi particolari, non
+    // è il punto di partenza del consiglio.
+    CATALOGHI.filter(catalogo => catalogo.evidenza)
+        .forEach(catalogo => contenitore.appendChild(creaGruppo(catalogo)));
 
-        const descrizione = document.createElement('p');
-        descrizione.className = 'piano-nota';
-        descrizione.textContent = catalogo.descrizione;
-        gruppo.append(testata, descrizione);
+    const altri = CATALOGHI.filter(catalogo => !catalogo.evidenza);
+    const disponibili = altri.reduce((somma, catalogo) => somma + udaDellAnno(catalogo.genere).length, 0);
+    if (!disponibili) return;
 
-        if (!voci.length) {
-            gruppo.appendChild(avviso(`Nessuna ${catalogo.nome.toLowerCase()} prevista per questo anno di corso.`));
-            contenitore.appendChild(gruppo);
-            return;
-        }
-
-        voci.forEach(voce => gruppo.appendChild(creaVoce(voce)));
-        contenitore.appendChild(gruppo);
-    });
+    const scelteFuori = [...stato.scelte.keys()].filter(chiave => fuoriDelibera(chiave)).length;
+    const riserva = document.createElement('details');
+    riserva.className = 'piano-riserva';
+    riserva.open = scelteFuori > 0;
+    const sommario = document.createElement('summary');
+    sommario.textContent = scelteFuori
+        ? `Altre unità disponibili — fuori delibera dipartimentale (${scelteFuori} ${scelteFuori === 1 ? 'selezionata' : 'selezionate'})`
+        : 'Altre unità disponibili — fuori delibera dipartimentale';
+    const premessa = document.createElement('p');
+    premessa.className = 'piano-nota';
+    premessa.textContent = 'Unità del curricolo che il Dipartimento non ha adottato per questo anno di corso. Il consiglio di classe può sceglierle, ma nel documento stampato escono segnalate come fuori delibera dipartimentale.';
+    riserva.append(sommario, premessa);
+    altri.forEach(catalogo => riserva.appendChild(creaGruppo(catalogo)));
+    contenitore.appendChild(riserva);
 }
 
+function creaGruppo(catalogo) {
+    const voci = udaDellAnno(catalogo.genere);
+    const gruppo = document.createElement('section');
+    gruppo.className = 'piano-gruppo';
+    if (catalogo.evidenza) gruppo.dataset.evidenza = 'true';
+
+    const testata = document.createElement('div');
+    testata.className = 'piano-gruppo-testa';
+    const titolo = document.createElement('h3');
+    titolo.textContent = catalogo.nome;
+    const conteggio = document.createElement('span');
+    conteggio.className = 'piano-conteggio';
+    const scelte = voci.filter(voce => stato.scelte.has(String(voce.uda.id))).length;
+    conteggio.textContent = `${scelte} ${scelte === 1 ? 'scelta' : 'scelte'} su ${voci.length}`;
+    testata.append(titolo, conteggio);
+
+    const descrizione = document.createElement('p');
+    descrizione.className = 'piano-nota';
+    descrizione.textContent = catalogo.descrizione;
+    gruppo.append(testata, descrizione);
+
+    if (!voci.length) {
+        gruppo.appendChild(avviso(catalogo.evidenza
+            ? 'Il Dipartimento non ha adottato unità per questo anno di corso: scegli fra le altre unità disponibili.'
+            : `Nessuna ${catalogo.nome.toLowerCase()} prevista per questo anno di corso.`));
+        return gruppo;
+    }
+
+    voci.forEach(voce => gruppo.appendChild(creaVoce(voce)));
+    return gruppo;
+}
+
+// Un'unità scelta fuori dall'elenco adottato dal Dipartimento: è legittimo,
+// ma va detto nel documento, perché chi lo legge non deve dedurlo.
+function fuoriDelibera(chiave) {
+    return stato.catalogo.get(chiave)?.genere !== 'dipartimento';
+}
+
+// Una stessa unità arriva al piano da più strade: adottata dal Dipartimento,
+// presa dal catalogo d'asse, o nelle schede di origine che un accorpamento
+// tiene insieme. Sono la stessa cosa e vanno contate una volta sola.
 function originiDi(chiave) {
     const voce = stato.catalogo.get(chiave);
-    return voce?.genere === 'unificate' ? (voce.uda.fonde || []).map(o=>o.id) : voce?.genere === 'asse' ? [chiave] : [];
+    if (!voce) return [];
+    const origini = new Set([String(chiave)]);
+    const derivazione = stato.derivazione[chiave];
+    if (derivazione && derivazione.copia) origini.add(String(derivazione.copia.id));
+    (voce.uda.fonde || []).forEach(o => origini.add(String(o.id)));
+    return [...origini];
 }
 function sovrapposizione(chiave) {
     const origini = new Set(originiDi(chiave));
@@ -225,7 +332,7 @@ function creaVoce({ uda, genere }) {
         if (casella.checked) {
             if (sovrapposizione(chiave)) {
                 casella.checked = false;
-                messaggioStato('Questa UDA comprende origini già selezionate. Scegli la proposta unificata oppure le schede originarie.');
+                messaggioStato('Questa UDA è già nel piano sotto un’altra voce: l’unità adottata dal Dipartimento e quella del catalogo sono la stessa. Scegline una sola.');
                 return;
             }
             stato.scelte.set(chiave, { periodo: periodoPredefinito(uda) });
@@ -242,6 +349,13 @@ function creaVoce({ uda, genere }) {
     etichetta.htmlFor = casella.id;
     etichetta.className = 'piano-voce-titolo';
     etichetta.textContent = `${uda.id} · ${uda.titolo}`;
+
+    if (fuoriDelibera(chiave)) {
+        const segnale = document.createElement('span');
+        segnale.className = 'piano-voce-fuori';
+        segnale.textContent = 'Fuori delibera dipartimentale';
+        etichetta.appendChild(segnale);
+    }
 
     const meta = document.createElement('p');
     meta.className = 'piano-voce-meta';
@@ -290,11 +404,14 @@ function periodoPredefinito(uda) {
 }
 
 function oreTesto(uda) {
+    // Il monte ore viene dalla scheda dell'UDA: se non c'è ancora, si dice,
+    // invece di mostrare un numero che nessuno ha deliberato.
     const ripartizione = stato.ripartizione[String(uda.id)];
-    if (ripartizione && ripartizione.convenzionale) {
-        return `${ripartizione.totaleMin} ore (monte convenzionale)`;
-    }
-    return uda.ore ? `${uda.ore} ore` : '';
+    if (ripartizione) return `${intervallo(ripartizione.totaleMin, ripartizione.totaleMax)} ore`;
+    // Le simulazioni della prova d'esame dichiarano una durata, non un monte ore.
+    const ore = uda.ore || uda.durata;
+    if (!ore) return 'monte ore da definire nella scheda dell’UDA';
+    return /^[\d\s–\-]+$/.test(String(ore)) ? `${ore} ore` : String(ore);
 }
 
 function insegnamentiDi(chiave) {
@@ -328,10 +445,28 @@ function riepilogoOre() {
 }
 
 function scelteOrdinate() {
+    const anno = annoScelto();
     return stato.ordine
         .filter(chiave => stato.scelte.has(chiave))
         .map(chiave => ({ chiave, ...stato.catalogo.get(chiave), scelta: stato.scelte.get(chiave) }))
-        .filter(voce => voce.uda);
+        .filter(voce => voce.uda && (!anno || Number(voce.uda.anno) === anno));
+}
+
+// Quello che resta nella bozza ma non appartiene alla classe scelta: non entra
+// nel documento, e il coordinatore deve poterlo togliere con un gesto.
+function scelteDiAltroAnno() {
+    const anno = annoScelto();
+    if (!anno) return [];
+    return stato.ordine
+        .filter(chiave => stato.scelte.has(chiave))
+        .map(chiave => ({ chiave, ...stato.catalogo.get(chiave) }))
+        .filter(voce => voce.uda && Number(voce.uda.anno) !== anno);
+}
+
+function dimenticaAltriAnni() {
+    scelteDiAltroAnno().forEach(voce => stato.scelte.delete(voce.chiave));
+    salva();
+    disegnaTutto();
 }
 
 function intervallo(min, max) {
@@ -376,14 +511,6 @@ function disegnaRiepilogo() {
 
     contenitore.appendChild(tabella);
 
-    const convenzionali = scelte.filter(voce => stato.ripartizione[voce.chiave]?.convenzionale);
-    if (convenzionali.length) {
-        const nota = document.createElement('p');
-        nota.className = 'piano-nota';
-        nota.textContent = stato.metaRipartizione.notaFSL
-            || 'Le UDA di formazione scuola-lavoro non hanno un monte ore proprio: quello indicato è convenzionale e va sostituito con quello deliberato.';
-        contenitore.appendChild(nota);
-    }
 }
 
 function messaggioStato(testo) {
@@ -495,19 +622,27 @@ function ripristina() {
     stato.dati = salvato.dati || {};
     stato.scelte = new Map(salvato.scelte || []);
     CAMPI_LIBERI.forEach(campo => {
-        const nodo = document.querySelector(`[data-campo="${campo}"]`);
-        if (nodo && stato.dati[campo] !== undefined) nodo.value = stato.dati[campo];
+        if (stato.dati[campo] !== undefined) scriviCampo(campo, stato.dati[campo]);
     });
+}
+
+// Lo stesso campo può comparire in più punti della pagina: il formato del
+// documento sta sia nella barra in cima sia in quella in fondo.
+function scriviCampo(campo, valore, tranne) {
+    document.querySelectorAll(`[data-campo="${campo}"]`).forEach(nodo => {
+        if (nodo !== tranne) nodo.value = valore;
+    });
+}
+
+function formatoScelto() {
+    return FORMATI.includes(stato.dati.formato) ? stato.dati.formato : FORMATI[0];
 }
 
 function svuota() {
     if (!window.confirm('Vuoi svuotare il modulo? I dati della seduta e le UDA selezionate verranno cancellati da questo browser.')) return;
     stato.dati = {};
     stato.scelte = new Map();
-    CAMPI_LIBERI.forEach(campo => {
-        const nodo = document.querySelector(`[data-campo="${campo}"]`);
-        if (nodo) nodo.value = '';
-    });
+    CAMPI_LIBERI.forEach(campo => scriviCampo(campo, campo === 'formato' ? FORMATI[0] : ''));
     try {
         localStorage.removeItem(ARCHIVIO);
     } catch (errore) {
@@ -532,7 +667,7 @@ function consegna(modo) {
         messaggioStato('Cataloghi incompleti o schede non più disponibili: la bozza è conservata. Verifica prima di esportare.'); return;
     }
     if (scelte.some(v=>sovrapposizione(v.chiave))) {
-        messaggioStato('Il piano contiene origini duplicate: scegli le unificate oppure le schede originarie.'); return;
+        messaggioStato('Il piano contiene la stessa unità due volte, sotto voci diverse: togline una prima di esportare.'); return;
     }
     const { nodi, meta } = costruisciPiano(scelte);
     if (modo === 'word') {
@@ -541,7 +676,7 @@ function consegna(modo) {
             nodi,
             meta
         );
-        messaggioStato('File Word generato.');
+        messaggioStato(formatoScelto() === 'integrale' ? 'File Word generato, con le UDA integrali.' : 'File Word generato, in formato sintetico.');
     } else {
         documento.stampa(nodi, meta);
         messaggioStato('Anteprima di stampa aperta.');
@@ -555,6 +690,7 @@ function costruisciPiano(scelte) {
     const dati = stato.dati;
     const classe = dati.classe || '__________';
     const annoScolastico = dati.annoScolastico || '________';
+    const integrale = formatoScelto() === 'integrale';
     const nomeDocumento = `Piano delle UDA — classe ${classe} — a.s. ${annoScolastico}`;
     const docenti = (dati.docenti || '').split('\n').map(riga => riga.trim()).filter(Boolean);
 
@@ -572,9 +708,11 @@ function costruisciPiano(scelte) {
             ['Dirigente scolastico', dati.dirigente || ''],
             ['Seduta del consiglio di classe', d.dataItaliana(dati.dataSeduta)],
             ['Verbale n.', dati.verbale || ''],
-            ['Unità di apprendimento selezionate nella bozza', String(scelte.length)]
+            ['Unità di apprendimento selezionate nella bozza', String(scelte.length)],
+            ['Formato del documento', integrale ? 'UDA integrali · format completo del Box n. 8' : 'Allegato sintetico · sezioni essenziali']
         ], { tieniVuote: true }),
-        B.paragrafo('Bozza da verificare e approvare nel consiglio di classe. La compilazione non attesta una deliberazione. Le ore delle UDA unificate sono somme di origine, da deliberare.', 'nota'),
+        B.paragrafo('Bozza da verificare e approvare nel consiglio di classe. La compilazione non attesta una deliberazione. Le ore delle unità nate da accorpamento sono somme delle schede di origine, da deliberare.', 'nota'),
+        ...notaFuoriDelibera(scelte),
         ...bloccoDelibera(scelte, docenti),
         ...d.sezione('2', 'Prospetto delle unità di apprendimento selezionate nella bozza', prospetto(scelte),
             'Le unità di apprendimento costituiscono il riferimento per la valutazione, la certificazione e il riconoscimento dei crediti — D.I. 92/2018, art. 2, comma 1.'),
@@ -591,6 +729,18 @@ function costruisciPiano(scelte) {
     ];
 
     return { nodi, meta: { titolo: nomeDocumento, istituto: d.ISTITUTO }, nomeDocumento };
+}
+
+// Se il consiglio ha preso unità che il Dipartimento non ha adottato, il
+// documento lo dice in apertura: chi lo legge non deve ricostruirlo dai codici.
+function notaFuoriDelibera(scelte) {
+    const B = window.CurricoloDocumento.blocchi;
+    const fuori = scelte.filter(voce => fuoriDelibera(voce.chiave));
+    if (!fuori.length) return [];
+    const elenco = fuori.map(voce => `${voce.uda.id} · ${voce.uda.titolo}`).join('; ');
+    return [B.paragrafo(fuori.length === 1
+        ? `Un’unità del piano non rientra fra quelle adottate dal Dipartimento per questo anno di corso: ${elenco}. La sua attivazione è una scelta del consiglio di classe.`
+        : `${fuori.length} unità del piano non rientrano fra quelle adottate dal Dipartimento per questo anno di corso: ${elenco}. La loro attivazione è una scelta del consiglio di classe.`, 'nota')];
 }
 
 function bloccoDelibera(scelte, docenti) {
@@ -618,7 +768,7 @@ function bloccoDelibera(scelte, docenti) {
                 B.testo(` per l’anno scolastico ${annoScolastico}, che costituisce parte integrante della programmazione di classe.`)
             ]),
             B.paragrafo(`${quante} in forma interdisciplinare, con l’aggregazione degli insegnamenti negli assi culturali e il ricorso a metodologie di apprendimento di tipo induttivo, in attuazione dell’art. 5, comma 1, lettere b), c), d) ed f) del D.Lgs. 13 aprile 2017, n. 61, e dell’art. 6, comma 4, del D.M. 24 maggio 2018, n. 92.`),
-            B.paragrafo('Per gli studenti la cui progettazione è personalizzata, le unità qui deliberate possono concorrere a strutturare il PFI, articolato per unità di apprendimento (D.I. 92/2018, art. 2, comma 1). La valutazione di competenze, abilità e conoscenze è effettuata in relazione alle UDA e al PFI (art. 4, comma 6).')
+            B.paragrafo('Il percorso di ogni studentessa e di ogni studente è personalizzato attraverso il Progetto formativo individuale, che il consiglio di classe redige entro il 31 gennaio del primo anno e aggiorna per l’intero quinquennio. Le unità qui deliberate ne costituiscono l’ossatura, perché il PFI è articolato per unità di apprendimento (D.Lgs. 61/2017, art. 5, comma 1, lettera a; D.I. 92/2018, art. 2, comma 1). La valutazione di competenze, abilità e conoscenze è effettuata in relazione alle UDA e al PFI (D.I. 92/2018, art. 4, comma 6).')
         ])
     ]);
 }
@@ -649,16 +799,21 @@ function competenzeSintetiche(voce) {
     const uda = voce.uda;
     const codici = [];
     if (uda.competenza) codici.push(`C${uda.competenza}`);
-    (uda.competenzeSSAS || uda.competenze || []).forEach(numero => codici.push(`C${numero}`));
+    // Nelle schede d'esame ogni competenza è un oggetto con numero e traguardo,
+    // negli altri cataloghi è il numero e basta.
+    (uda.competenzeSSAS || uda.competenze || []).forEach(voce => {
+        const numero = voce && typeof voce === 'object' ? voce.numero : voce;
+        if (numero !== undefined && numero !== null) codici.push(`C${numero}`);
+    });
     (uda.competenzeGenerali || []).forEach(numero => codici.push(`G${numero}`));
     return [...new Set(codici)].join(' · ');
 }
 
 function oreDocumento(voce) {
     const ripartizione = stato.ripartizione[voce.chiave];
-    if (!ripartizione) return voce.uda.ore || '';
+    if (!ripartizione) return String(voce.uda.ore || voce.uda.durata || '');
     const testoOre = intervallo(ripartizione.totaleMin, ripartizione.totaleMax);
-    return ripartizione.convenzionale ? `${testoOre}*` : testoOre;
+    return testoOre;
 }
 
 // Matrice insegnamenti × UDA finché le colonne stanno in pagina; oltre, il
@@ -670,10 +825,7 @@ function ripartizioneStampata(scelte) {
     if (!righe.length) return [];
     const totaleMin = scelte.reduce((somma, voce) => somma + (stato.ripartizione[voce.chiave]?.totaleMin || 0), 0);
     const totaleMax = scelte.reduce((somma, voce) => somma + (stato.ripartizione[voce.chiave]?.totaleMax || 0), 0);
-    const convenzionali = scelte.some(voce => stato.ripartizione[voce.chiave]?.convenzionale);
-    const nota = convenzionali
-        ? [B.paragrafo(`* ${stato.metaRipartizione.notaFSL || 'Le UDA di formazione scuola-lavoro non hanno un monte ore proprio: quello indicato è convenzionale e va sostituito con quello deliberato nel piano FSL d’istituto.'}`, 'nota')]
-        : [];
+    const nota = [];
 
     if (scelte.length <= 8) {
         const larghezzaCodice = Math.floor(62 / (scelte.length + 1));
@@ -738,22 +890,36 @@ function schede(scelte) {
     const d = window.CurricoloDocumento;
     const B = d.blocchi;
     if (!scelte.length) return [];
+    const integrale = formatoScelto() === 'integrale';
     const nodi = [
-        B.titolo(2, 'Schede sintetiche delle unità di apprendimento'),
-        B.paragrafo('Format dell’unità di apprendimento — Linee guida D.M. 766/2019, Box n. 8. La scheda completa di ciascuna unità, con fasi, attività di accompagnamento, documentazione e rubrica, si scarica dal fascicolo delle UDA.', 'fonte')
+        B.titolo(2, integrale
+            ? 'Unità di apprendimento in forma integrale'
+            : 'Schede sintetiche delle unità di apprendimento'),
+        B.paragrafo(integrale
+            ? 'Format dell’unità di apprendimento — Linee guida D.M. 766/2019, Box n. 8. Ogni unità esce completa: le sezioni su fasi, accompagnamento, documentazione, rubrica e note restano predisposte da compilare in consiglio.'
+            : 'Format dell’unità di apprendimento — Linee guida D.M. 766/2019, Box n. 8, sezioni essenziali. La scheda completa di ciascuna unità, con fasi, attività di accompagnamento, documentazione e rubrica, si ottiene scegliendo il formato integrale oppure dalla scheda della singola UDA.', 'fonte')
     ];
     scelte.forEach((voce, indice) => {
-        // Solo la prima scheda apre una pagina nuova: le altre sono lunghe una
-        // pagina e mezza e forzare il salto lascerebbe mezze pagine bianche.
-        if (indice === 0) nodi.push(B.interruzione());
-        nodi.push(B.titolo(2, `Scheda ${indice + 1} — ${voce.uda.id} · ${voce.uda.titolo}`));
-        nodi.push(B.paragrafo(`${d.nomeGenere(voce.genere)} · ${voce.scelta.periodo || ''} · ${oreDocumento(voce)} ore`, 'fonte'));
-        nodi.push(...d.schedaUda(voce.uda, {
-            meta: voce.meta,
-            genere: voce.genere,
-            ripartizione: stato.ripartizione,
-            compatta: true
-        }));
+        // In forma sintetica solo la prima scheda apre una pagina nuova: le
+        // altre sono lunghe una pagina e mezza e forzare il salto lascerebbe
+        // mezze pagine bianche. In forma integrale ogni unità è un documento a
+        // sé e la pagina nuova ci vuole.
+        if (indice === 0 || integrale) nodi.push(B.interruzione());
+        nodi.push(B.titolo(2, `${integrale ? 'Unità' : 'Scheda'} ${indice + 1} — ${voce.uda.id} · ${voce.uda.titolo}`));
+        nodi.push(B.paragrafo([
+            d.nomeGenere(voce.genere),
+            voce.scelta.periodo || '',
+            `${oreDocumento(voce)} ore`,
+            fuoriDelibera(voce.chiave) ? 'fuori delibera dipartimentale' : ''
+        ].filter(Boolean).join(' · '), 'fonte'));
+        nodi.push(...(d.eScheda(voce.uda)
+            ? d.schedaEsame(voce.uda, { meta: voce.meta })
+            : d.schedaUda(voce.uda, {
+                meta: voce.meta,
+                genere: voce.genere,
+                ripartizione: stato.ripartizione,
+                compatta: !integrale
+            })));
     });
     return nodi;
 }

@@ -7,8 +7,9 @@ una UDA per volta.
 Dove il monte ore dell'UDA è un intervallo, lo è anche la ripartizione: la cifra a
 sinistra somma al minimo, quella a destra al massimo. Metodo dei resti maggiori: le ore intere avanzate vanno agli insegnamenti con il resto più alto, così la somma coincide sempre con il monte ore dell'UDA. A parità di resto ha la precedenza l'insegnamento con più ore settimanali.
 
-Le UDA di Formazione scuola-lavoro sono calcolate su un monte convenzionale di 30 ore,
-da sostituire con quello deliberato nel piano FSL d'istituto.
+Il monte ore di ogni UDA, comprese quelle di Formazione scuola-lavoro, è quello
+definito nella scheda dell'UDA: se cambia lì, cambia qui e nei documenti stampati.
+Le UDA che non hanno ancora un monte ore non compaiono in questa ripartizione.
 
 La durata indicata è il minimo: la impone l'insegnamento che deve ricavare più ore dal
 proprio orario settimanale, ipotizzando che vi dedichi tutte le sue ore. Se gli insegnamenti
@@ -995,15 +996,3 @@ Ore settimanali: Igiene e cultura medico-sanitaria 5 · Lingua e letteratura ita
 | Psicologia | 4 | **12** |
 | Metodologie Operative | 3 | **9** |
 | **Totale** | | **48** |
-
-### FSL5.2 · Verso la qualifica OSS: procedure assistenziali e lavoro nell'équipe sanitaria
-
-*UDA FSL — monte ore 30 — durata almeno 2 settimane, dettata da Diritto e T.A.*
-
-| Insegnamento | Ore settimanali | Ore nell'UDA |
-|---|---:|---:|
-| Igiene e Cultura M.S. | 5 | **9** |
-| Diritto e T.A. | 4 | **8** |
-| Psicologia | 4 | **7** |
-| Metodologie Operative | 3 | **6** |
-| **Totale** | | **30** |
