@@ -46,6 +46,13 @@ for (const [chiave, file, raccolta, originaleId] of corrispondenze) {
 const fusa = copie.find(voce => voce.id === 'DIP3-ASSE');
 const schedeFuse = ['3.9', '3.5', '3.7', '3.6'];
 const fontiFusione = schedeFuse.map(id => trova('data-uda.json', 'uda', id));
+// Revisione Urru del 6 ottobre, accolta da Picconi il 7 ottobre: la scelta
+// autonoma esclude la farmacologia e assegna il SSN al solo Diritto. Le
+// provenienze storiche conservano anche le voci escluse, per tracciabilità.
+const esclusioniUrru = {
+    saperi: 'Elementi di farmacologia',
+    abilita: "Riconoscere i meccanismi d'azione dei farmaci",
+};
 assert.ok(fusa, 'La scelta d’asse di terza deve avere un’unica chiave autonoma');
 assert.equal(fusa.titolo, 'Adolescenti: prevenzione, tutela, diritti e servizi');
 assert.deepEqual(fusa.fonde.map(voce => voce.id), schedeFuse);
@@ -63,7 +70,13 @@ for (const fonte of fontiFusione) {
     for (const campo of ['abilita', 'saperi']) {
         for (const voce of fonte[campo]) {
             assert.ok(provenienza[campo].some(altra => JSON.stringify(altra) === JSON.stringify(voce)), `Contenuto perso in ${fonte.id}.${campo}`);
-            assert.ok(fusa[campo].some(altra => JSON.stringify(altra) === JSON.stringify(voce)), `Contenuto non riportato nella scheda: ${fonte.id}.${campo}`);
+            if (voce.t === esclusioniUrru[campo]) {
+                assert.ok(!fusa[campo].some(altra => altra.t === voce.t), `Esclusione approvata non recepita: ${voce.t}`);
+                continue;
+            }
+            const attesa = voce.t === 'Organizzazione del SSN e dei servizi sociali'
+                ? { ...voce, ins: ['Diritto e T.A.'] } : voce;
+            assert.ok(fusa[campo].some(altra => JSON.stringify(altra) === JSON.stringify(attesa)), `Contenuto non riportato nella scheda: ${fonte.id}.${campo}`);
         }
     }
 }
@@ -75,9 +88,16 @@ for (const campo of ['abilita', 'saperi']) {
     const dalleSchede = fontiFusione.flatMap(fonte => fonte[campo].map(voce => JSON.stringify(voce)));
     for (const voce of fusa[campo]) {
         if (dalleSchede.includes(JSON.stringify(voce))) continue;
+        if (campo === 'saperi' && voce.t === 'Organizzazione del SSN e dei servizi sociali') {
+            assert.deepEqual(voce.ins, ['Diritto e T.A.']);
+            continue;
+        }
         assert.ok(voce.notaAttribuzione, `Voce senza attribuzione dichiarata in ${campo}: ${voce.t}`);
     }
 }
+assert.doesNotMatch(fusa.compito, /uso corretto dei farmaci/);
+assert.equal([...fusa.saperi, ...fusa.abilita].filter(voce => voce.notaAttribuzione).length, 11,
+    'Le undici note di ratifica devono restare nella scelta dipartimentale');
 
 assert.deepEqual(fusa.rubrica.map(voce => voce.competenza), fusa.competenze, 'La rubrica deve seguire le competenze della scheda');
 assert.deepEqual(fusa.raccordoProfilo.map(voce => voce.competenza), fusa.competenze);

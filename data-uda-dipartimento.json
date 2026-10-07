@@ -799,7 +799,7 @@
                   "scheda": "3.6"
                 }
               ],
-              "compito": "Azione di prevenzione rivolta ai coetanei, progettata sul modello delle life skills a partire da una rilevazione con scheda bisogni-risorse-vincoli su un tema dell’adolescenza — dipendenze, alcol, benessere digitale, affettività, uso corretto dei farmaci — con materiali informativi, fonti verificate e protocollo d’intervento.\n\nRepertorio dei servizi e delle misure per i minorenni: chi interviene, a quali condizioni e con quali modalità di accesso, dal consultorio familiare e dai servizi per le dipendenze fino al tribunale per i minorenni, ai servizi della giustizia minorile e alle misure alternative alla detenzione.\n\nSopralluogo negli ambienti di vita e di lavoro frequentati dagli studenti, con schede di rilevazione dei rischi e report di segnalazione formale.",
+              "compito": "Azione di prevenzione rivolta ai coetanei, progettata sul modello delle life skills a partire da una rilevazione con scheda bisogni-risorse-vincoli su un tema dell’adolescenza — dipendenze, alcol, benessere digitale, affettività — con materiali informativi, fonti verificate e protocollo d’intervento.\n\nRepertorio dei servizi e delle misure per i minorenni: chi interviene, a quali condizioni e con quali modalità di accesso, dal consultorio familiare e dai servizi per le dipendenze fino al tribunale per i minorenni, ai servizi della giustizia minorile e alle misure alternative alla detenzione.\n\nSopralluogo negli ambienti di vita e di lavoro frequentati dagli studenti, con schede di rilevazione dei rischi e report di segnalazione formale.",
               "sintesi": "Progettare con i coetanei una azione di prevenzione fondata sulle life skills e ricostruire la rete dei servizi, della tutela e della giustizia minorile che interviene quando un adolescente ne ha bisogno.",
               "ore": "52–62",
               "abilita": [
@@ -832,12 +832,6 @@
                 },
                 {
                   "t": "Individuare interventi di prevenzione e sanità pubblica",
-                  "ins": [
-                    "Igiene e Cultura M.S."
-                  ]
-                },
-                {
-                  "t": "Riconoscere i meccanismi d'azione dei farmaci",
                   "ins": [
                     "Igiene e Cultura M.S."
                   ]
@@ -924,12 +918,6 @@
                   ]
                 },
                 {
-                  "t": "Elementi di farmacologia",
-                  "ins": [
-                    "Igiene e Cultura M.S."
-                  ]
-                },
-                {
                   "t": "Legislazione socio-assistenziale e sanitaria",
                   "ins": [
                     "Diritto e T.A.",
@@ -951,8 +939,7 @@
                 {
                   "t": "Organizzazione del SSN e dei servizi sociali",
                   "ins": [
-                    "Diritto e T.A.",
-                    "Igiene e Cultura M.S."
+                    "Diritto e T.A."
                   ]
                 },
                 {

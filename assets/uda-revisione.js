@@ -451,7 +451,8 @@ function creaCampo([chiave, etichetta, tipo, opzioni = []], originale, modifiche
         : ['anno', 'competenza', 'qnq', 'titolo'];
     if (nuova && obbligatori.includes(chiave)) controllo.required = true;
     if (controllo.tagName === 'TEXTAREA') controllo.rows = tipo === 'righe' ? 7 : 4;
-    controllo.value = formattaValore(Object.hasOwn(modifiche, chiave) ? modifiche[chiave] : originale[chiave], tipo);
+    const valore = Object.hasOwn(modifiche, chiave) ? modifiche[chiave] : originale[chiave];
+    controllo.value = formattaValore(tipo === 'righe' ? ripristinaNoteRighe(valore, originale[chiave]) : valore, tipo);
     controllo.dataset.originale = JSON.stringify(originale[chiave]);
     controllo.dataset.tipo = tipo;
     controllo.addEventListener('input', () => aggiornaStatoCampo(label, controllo));
@@ -459,8 +460,8 @@ function creaCampo([chiave, etichetta, tipo, opzioni = []], originale, modifiche
     if (tipo === 'righe') {
         const aiuto = document.createElement('small');
         aiuto.textContent = chiave === 'integrazioniSaperi'
-            ? 'Una voce per riga: testo || insegnamento. La proposta sarà affiancata ai saperi normativi, non li sostituirà.'
-            : 'Una voce per riga: testo || insegnamento, altro insegnamento';
+            ? 'Una voce per riga: testo || insegnamento || eventuale nota di attribuzione. La proposta sarà affiancata ai saperi normativi, non li sostituirà.'
+            : 'Una voce per riga: testo || insegnamento, altro insegnamento || eventuale nota di attribuzione. Le note presenti restano associate alla voce anche quando ne modifichi il testo o gli insegnamenti.';
         label.appendChild(aiuto);
     } else if (tipo === 'lista') {
         const aiuto = document.createElement('small');
@@ -560,12 +561,25 @@ function creaUdaVuota(chiave) {
         segnalazioneSaperi: '', sviluppata: '' };
 }
 
+// Le bozze salvate dal vecchio editor possono aver perso le note: recuperarle
+// dalla stessa voce della base, senza reinserire contenuti tolti dal docente.
+function ripristinaNoteRighe(righe, originali) {
+    return (Array.isArray(righe) ? righe : []).map(riga => {
+        const base = (Array.isArray(originali) ? originali : []).find(voce => voce.t === riga.t);
+        return !Object.hasOwn(riga, 'notaAttribuzione') && base?.notaAttribuzione
+            ? { ...riga, notaAttribuzione: base.notaAttribuzione }
+            : riga;
+    });
+}
+
 function formattaValore(valore, tipo) {
     if (tipo === 'ore') {
         const voci = Object.entries(valore && typeof valore === 'object' ? valore : {});
         return voci.length ? voci.map(([ins, ore]) => `${ins}: ${ore} ore`).join('\n') : 'Proposta proporzionale confermata';
     }
-    if (tipo === 'righe') return (Array.isArray(valore) ? valore : []).map(riga => `${riga.t || ''} || ${(riga.ins || []).join(', ')}`).join('\n');
+    if (tipo === 'righe') return (Array.isArray(valore) ? valore : []).map(riga =>
+        `${riga.t || ''} || ${(riga.ins || []).join(', ')}${riga.notaAttribuzione ? ` || ${riga.notaAttribuzione}` : ''}`
+    ).join('\n');
     if (tipo === 'lista') return (Array.isArray(valore) ? valore : []).join('\n');
     if (tipo === 'numeri') return (Array.isArray(valore) ? valore : []).join(', ');
     return String(valore ?? '');
@@ -583,8 +597,10 @@ function leggiValore(valore, tipo) {
     if (tipo === 'numeri') return [...new Set(valore.split(/[\s,;]+/).map(Number).filter(numero => Number.isInteger(numero) && numero > 0))];
     if (tipo !== 'righe') return valore.trim();
     return valore.split('\n').map(riga => riga.trim()).filter(Boolean).map(riga => {
-        const [testo, insegnamenti = ''] = riga.split('||');
-        return { t: testo.trim(), ins: insegnamenti.split(',').map(voce => voce.trim()).filter(Boolean) };
+        const [testo, insegnamenti = '', ...note] = riga.split('||');
+        const notaAttribuzione = note.join('||').trim();
+        return { t: testo.trim(), ins: insegnamenti.split(',').map(voce => voce.trim()).filter(Boolean),
+            ...(notaAttribuzione ? { notaAttribuzione } : {}) };
     }).filter(riga => riga.t);
 }
 
