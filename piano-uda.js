@@ -2,8 +2,8 @@
 //
 // Il consiglio discute e sceglie; il coordinatore riporta qui le unità
 // deliberate, indica quando si svolgono e stampa l'allegato alla programmazione
-// di classe. La pagina non decide nulla da sola: mette insieme i tre cataloghi
-// (asse, trasversali, formazione scuola-lavoro), la ripartizione oraria già
+// di classe. La pagina non decide nulla da sola: mette insieme i cataloghi
+// (asse, trasversali, formazione scuola-lavoro, Esame di Stato), la ripartizione oraria già
 // calcolata sul quadro orario d'istituto e i dati della seduta.
 //
 // Quando il collegio ha votato e confermato le UDA dell'anno, la scelta si
@@ -19,7 +19,8 @@ const CATALOGHI = [
     { genere: 'asse', fonte: 'data-uda.json', nome: 'UDA d’asse', descrizione: 'Una per competenza intermedia del curricolo di indirizzo.' },
     { genere: 'trasversale', fonte: 'data-uda-trasversali.json', nome: 'UDA trasversali', descrizione: 'Interdisciplinari, a cavallo di più assi culturali.' },
     { genere: 'civica', fonte: 'data-uda-civica.json', nome: 'UDA di Educazione civica', descrizione: 'Collegate alle competenze nazionali del D.M. 183/2024; il curricolo annuale deve prevedere almeno 33 ore complessive.' },
-    { genere: 'fsl', fonte: 'data-uda-fsl.json', nome: 'UDA di formazione scuola-lavoro', descrizione: 'Percorsi collegati all’area di tirocinio (già PCTO).' }
+    { genere: 'fsl', fonte: 'data-uda-fsl.json', nome: 'UDA di formazione scuola-lavoro', descrizione: 'Percorsi collegati all’area di tirocinio (già PCTO).' },
+    { genere: 'esame', fonte: 'data-uda-esame.json', nome: 'UDA per l’Esame di Stato', descrizione: 'Preparazione progressiva e simulazioni della seconda prova professionale.' }
 ];
 const FONTE_RIPARTIZIONE = 'data-ripartizione-ore.json';
 const ARCHIVIO = 'curricolo:piano-uda';
@@ -59,10 +60,12 @@ async function avvia() {
     risposte.forEach((dati, indice) => {
         if (!dati) return;
         const catalogo = CATALOGHI[indice];
-        (dati.uda || []).forEach(uda => {
+        const meta = metaCatalogo(dati, catalogo);
+        schedeCatalogo(dati, catalogo).forEach(uda => {
             const chiave = String(uda.id);
-            stato.catalogo.set(chiave, { uda, genere: catalogo.genere, meta: dati.meta || {} });
+            stato.catalogo.set(chiave, { uda, genere: catalogo.genere, meta });
             stato.ordine.push(chiave);
+            if (catalogo.genere === 'esame') stato.ripartizione[chiave] = ripartizioneEsame(uda);
         });
     });
 
@@ -98,6 +101,45 @@ async function carica(percorso) {
     }
 }
 
+// Il catalogo Esame usa `schede` e campi specialistici. Il Piano conserva la
+// fonte invariata e prepara soltanto la vista comune necessaria a selezione,
+// riepilogo e documento finale.
+function schedeCatalogo(dati, catalogo) {
+    if (catalogo.genere !== 'esame') return dati.uda || [];
+    return (dati.schede || []).map(scheda => ({
+        ...scheda,
+        ore: scheda.durata,
+        competenzeSSAS: (scheda.competenze || []).map(voce => voce.numero),
+        situazione: scheda.compitoAtteso?.situazione || '',
+        compito: scheda.traccia || '',
+        prodotto: scheda.compitoAtteso?.prodotto || '',
+        beneficiari: scheda.compitoAtteso?.destinatario || '',
+        ambito: scheda.compitoAtteso?.committente || '',
+        abilita: (scheda.contributi || []).map(voce => ({ t: voce.abilita, ins: [voce.insegnamento] })),
+        saperi: (scheda.contributi || []).map(voce => ({ t: voce.saperi, ins: [voce.insegnamento] }))
+    }));
+}
+
+function metaCatalogo(dati, catalogo) {
+    if (catalogo.genere !== 'esame') return dati.meta || {};
+    const competenzeSSAS = {};
+    (dati.schede || []).forEach(scheda => (scheda.competenze || []).forEach(voce => {
+        competenzeSSAS[String(voce.numero)] = voce.traguardo;
+    }));
+    return { ...(dati.meta || {}), competenzeSSAS };
+}
+
+function ripartizioneEsame(uda) {
+    const voci = (uda.contributi || []).map(voce => ({
+        ins: voce.insegnamento,
+        oreSett: '—',
+        min: Number(voce.ore) || 0,
+        max: Number(voce.ore) || 0
+    }));
+    const totale = voci.reduce((somma, voce) => somma + voce.max, 0);
+    return { genere: 'esame', anno: uda.anno, titolo: uda.titolo, totaleMin: totale, totaleMax: totale, voci };
+}
+
 // ------------------------------------------------------------------
 // Interfaccia
 // ------------------------------------------------------------------
@@ -123,6 +165,10 @@ function collegaEventi() {
         });
     });
     document.getElementById('piano-import').addEventListener('click', () => importaScelta(true));
+    document.getElementById('piano-ricerca')?.addEventListener('input', evento => {
+        stato.ricerca = evento.target.value.trim().toLocaleLowerCase('it');
+        disegnaCatalogo();
+    });
 }
 
 function disegnaNorme() {
@@ -148,7 +194,14 @@ function udaDellAnno(genere) {
     if (!anno) return [];
     return stato.ordine
         .map(chiave => stato.catalogo.get(chiave))
-        .filter(voce => voce && voce.genere === genere && Number(voce.uda.anno) === anno);
+        .filter(voce => voce && voce.genere === genere && Number(voce.uda.anno) === anno)
+        .filter(voce => !stato.ricerca || JSON.stringify([
+            voce.uda.id,
+            voce.uda.titolo,
+            voce.uda.argomento,
+            voce.uda.traguardo,
+            voce.uda.tipologia
+        ]).toLocaleLowerCase('it').includes(stato.ricerca));
 }
 
 function disegnaTutto() {
@@ -249,6 +302,8 @@ function creaVoce({ uda, genere }) {
         oreTesto(uda),
         uda.qnq ? `QNQ ${uda.qnq}` : '',
         genere === 'fsl' && uda.areaTirocinio ? uda.areaTirocinio : '',
+        genere === 'esame' && uda.tipologia ? `Tipologia ${uda.tipologia}` : '',
+        genere === 'esame' && uda.provaFinaleOre ? `prova finale ${uda.provaFinaleOre} ore già comprese` : '',
         insegnamentiDi(chiave).join(' · ')
     ].filter(Boolean).join(' — ');
 
@@ -286,6 +341,11 @@ function creaVoce({ uda, genere }) {
 }
 
 function periodoPredefinito(uda) {
+    const equivalenti = {
+        'Primo quadrimestre': PERIODI[0],
+        'Secondo quadrimestre': PERIODI[1]
+    };
+    if (equivalenti[uda.periodo]) return equivalenti[uda.periodo];
     return PERIODI.includes(uda.periodo) ? uda.periodo : PERIODI[2];
 }
 
@@ -294,7 +354,7 @@ function oreTesto(uda) {
     if (ripartizione && ripartizione.convenzionale) {
         return `${ripartizione.totaleMin} ore (monte convenzionale)`;
     }
-    return uda.ore ? `${uda.ore} ore` : '';
+    return uda.ore !== undefined && uda.ore !== null ? `${uda.ore} ore` : '';
 }
 
 function insegnamentiDi(chiave) {
@@ -649,7 +709,10 @@ function competenzeSintetiche(voce) {
     const uda = voce.uda;
     const codici = [];
     if (uda.competenza) codici.push(`C${uda.competenza}`);
-    (uda.competenzeSSAS || uda.competenze || []).forEach(numero => codici.push(`C${numero}`));
+    (uda.competenzeSSAS || uda.competenze || []).forEach(competenza => {
+        const numero = typeof competenza === 'object' ? competenza.numero : competenza;
+        if (numero !== undefined && numero !== null) codici.push(`C${numero}`);
+    });
     (uda.competenzeGenerali || []).forEach(numero => codici.push(`G${numero}`));
     return [...new Set(codici)].join(' · ');
 }

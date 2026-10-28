@@ -282,6 +282,7 @@
             : genere === 'trasversale' ? 'UDA trasversale'
             : genere === 'civica' ? 'UDA di Educazione civica'
             : genere === 'fsl' ? 'UDA di formazione scuola-lavoro'
+            : genere === 'esame' ? 'UDA per l’Esame di Stato'
             : 'UDA d’asse';
     }
 
@@ -295,6 +296,9 @@
             ['Assi culturali coinvolti', (uda.assi || []).join(' · ')],
             ['Livello QNQ di riferimento', uda.qnq || ''],
             ['Monte ore indicativo', uda.ore || ''],
+            ['Tipologia della seconda prova', uda.tipologia ? `Tipologia ${uda.tipologia}` : ''],
+            ['Prova finale', uda.provaFinaleOre ? `${uda.provaFinaleOre} ore già comprese nel monte ore` : ''],
+            ['Stato della proposta', uda.stato || ''],
             ['Materiali già sviluppati', materialiSviluppati(uda)],
             ['Fonte del curricolo', (contesto.meta && contesto.meta.titolo) || '']
         ]);

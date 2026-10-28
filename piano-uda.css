@@ -161,6 +161,7 @@
 .piano-griglia input,
 .piano-griglia select,
 .piano-griglia textarea,
+.piano-blocco > label input,
 .piano-blocco > label textarea {
     width: 100%;
     padding: 10px 12px;
@@ -183,12 +184,17 @@
 .piano-griglia input:focus-visible,
 .piano-griglia select:focus-visible,
 .piano-griglia textarea:focus-visible,
+.piano-blocco > label input:focus-visible,
 .piano-blocco > label textarea:focus-visible {
     outline: 2px solid #4338ca;
     outline-offset: 1px;
 }
 
 /* ---------- scelta delle UDA ---------- */
+
+#piano-ricerca {
+    margin-bottom: 14px;
+}
 
 .piano-import {
     display: flex;
