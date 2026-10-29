@@ -220,6 +220,39 @@
     border-top: 1px solid var(--stroke-soft, rgba(148, 163, 184, 0.22));
 }
 
+.piano-sezione-dipartimento {
+    margin: 16px 0 26px;
+    padding: 4px 16px 14px;
+    border: 1px solid rgba(42, 143, 98, 0.36);
+    border-radius: 16px;
+    background: linear-gradient(145deg, #f5fbf7, #edf8f2);
+}
+
+.piano-sezione-dipartimento:first-child {
+    border-top: 1px solid rgba(42, 143, 98, 0.36);
+}
+
+.piano-alternative-intro {
+    margin: 22px 0 8px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(148, 163, 184, 0.22);
+}
+
+.piano-alternative-intro h3 {
+    margin: 0;
+    font-family: var(--font-display, inherit);
+    font-size: 18px;
+}
+
+.piano-sezione-alternative .piano-voce:not([data-scelta="true"]) {
+    border-color: rgba(148, 163, 184, 0.22);
+    background: #fbfcfe;
+}
+
+.piano-sezione-alternative .piano-voce:not([data-scelta="true"]) .piano-voce-titolo {
+    color: #334155;
+}
+
 .piano-gruppo:first-child {
     border-top: none;
 }
@@ -246,6 +279,17 @@
     color: #3730a3;
     font-size: 12px;
     font-weight: 800;
+}
+
+.piano-conteggio-dipartimento {
+    background: #dff4e8;
+    color: #17613f;
+}
+
+.piano-btn-compatto {
+    margin: 0 0 12px;
+    padding: 8px 12px;
+    font-size: 13px;
 }
 
 .piano-nota {
@@ -293,6 +337,13 @@
     min-width: 0;
 }
 
+.piano-voce-intestazione {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+}
+
 .piano-voce-titolo {
     display: block;
     color: var(--ink, #0b1220);
@@ -300,6 +351,18 @@
     font-weight: 800;
     line-height: 1.35;
     cursor: pointer;
+}
+
+.piano-badge-dipartimento {
+    display: inline-flex;
+    padding: 3px 8px;
+    border: 1px solid rgba(42, 143, 98, 0.32);
+    border-radius: 999px;
+    background: #e4f7ec;
+    color: #17613f;
+    font-size: 11px;
+    font-weight: 800;
+    white-space: nowrap;
 }
 
 .piano-voce-meta {
@@ -334,6 +397,29 @@
     font: inherit;
     font-size: 13px;
     font-weight: 400;
+}
+
+.piano-stampa-scheda {
+    margin-top: 9px;
+    padding: 5px 9px;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 8px;
+    background: #fff;
+    color: #3730a3;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.piano-stampa-scheda:hover {
+    border-color: #6366f1;
+    background: #f4f5ff;
+}
+
+.piano-stampa-scheda:focus-visible {
+    outline: 2px solid #4338ca;
+    outline-offset: 2px;
 }
 
 /* ---------- riepilogo ---------- */

@@ -1,10 +1,10 @@
 // Piano delle UDA del consiglio di classe — strumento del coordinatore.
 //
-// Il consiglio discute e sceglie; il coordinatore riporta qui le unità
-// deliberate, indica quando si svolgono e stampa l'allegato alla programmazione
-// di classe. La pagina non decide nulla da sola: mette insieme i cataloghi
-// (asse, trasversali, formazione scuola-lavoro, Esame di Stato), la ripartizione oraria già
-// calcolata sul quadro orario d'istituto e i dati della seduta.
+// Il coordinatore parte dalle UDA adottate dal Dipartimento per l'anno scelto,
+// può toglierle o aggiungere singole alternative, indica quando si svolgono e
+// stampa l'allegato alla programmazione di classe. La pagina mette insieme il
+// piano dipartimentale, i cataloghi (asse, trasversali, formazione scuola-lavoro,
+// Esame di Stato), la ripartizione oraria e i dati della seduta.
 //
 // Quando il collegio ha votato e confermato le UDA dell'anno, la scelta si
 // importa invece di essere ricopiata: si passa dall'accesso della votazione,
@@ -23,6 +23,7 @@ const CATALOGHI = [
     { genere: 'esame', fonte: 'data-uda-esame.json', nome: 'UDA per l’Esame di Stato', descrizione: 'Preparazione progressiva e simulazioni della seconda prova professionale.' }
 ];
 const FONTE_RIPARTIZIONE = 'data-ripartizione-ore.json';
+const FONTE_DIPARTIMENTO = 'data-uda-dipartimento.json';
 const ARCHIVIO = 'curricolo:piano-uda';
 const PERIODI = ['1° quadrimestre', '2° quadrimestre', 'Intero anno scolastico'];
 const CAMPI_LIBERI = ['anno', 'classe', 'annoScolastico', 'coordinatore', 'dirigente', 'dataSeduta', 'verbale', 'docenti', 'note'];
@@ -32,6 +33,9 @@ const stato = {
     ordine: [],            // id nell'ordine dei cataloghi
     ripartizione: {},
     metaRipartizione: {},
+    dipartimento: new Map(), // id di catalogo → decisione adottata
+    dipartimentoOrdine: new Map(),
+    metaDipartimento: {},
     scelte: new Map(),     // id → { periodo }
     dati: {},
     pronto: false
@@ -51,9 +55,11 @@ async function avvia() {
 
     const risposte = await Promise.all([
         ...CATALOGHI.map(voce => carica(voce.fonte)),
+        carica(FONTE_DIPARTIMENTO),
         carica(FONTE_RIPARTIZIONE)
     ]);
     const ore = risposte.pop();
+    const dipartimento = risposte.pop();
     stato.ripartizione = (ore && ore.uda) || {};
     stato.metaRipartizione = (ore && ore.meta) || {};
 
@@ -83,11 +89,117 @@ async function avvia() {
             totaleMax: origini.reduce((n,r)=>n+r.totaleMax,0), voci: [...materie.values()],
             senzaOre: [...new Set(origini.flatMap(r=>r.senzaOre || []))] };
     }
-    stato.pronto = risposte.every(Boolean) && Boolean(ore);
+    registraScelteDipartimento(dipartimento);
+    stato.pronto = risposte.every(Boolean) && Boolean(dipartimento) && Boolean(ore);
+    inizializzaScelteDipartimento();
     // Le UDA salvate in bozza ma non più presenti nei cataloghi vanno tolte,
     // altrimenti il piano stampato conterrebbe righe vuote.
     // Conservare le scelte anche in caso di caricamento incompleto; bloccare l'export.
     disegnaTutto();
+}
+
+const ALIAS_DIPARTIMENTO = {
+    'SIM5-1': 'E5.1',
+    'SIM5-2': 'E5.2'
+};
+
+function registraScelteDipartimento(dati) {
+    if (!dati) return;
+    stato.metaDipartimento = dati.meta || {};
+    const calendario = new Map(((dati.calendario && dati.calendario.voci) || [])
+        .map(voce => [String(voce.id), voce]));
+    const decisioni = (dati.classi || []).flatMap(classe => (classe.decisioni || []).map(decisione => ({
+        anno: Number(classe.anno),
+        decisione
+    })));
+    ((dati.simulazioni && dati.simulazioni.voci) || []).forEach(decisione => {
+        const anno = Number(decisione.unita && decisione.unita[0] && decisione.unita[0].anno);
+        decisioni.push({ anno, decisione });
+    });
+
+    decisioni.forEach(({ anno, decisione }) => {
+        if (decisione.stato !== 'Adottata') return;
+        (decisione.unita || []).forEach(unita => {
+            let chiave = ALIAS_DIPARTIMENTO[String(unita.id)] || '';
+            if (!chiave && stato.catalogo.has(String(unita.id))) chiave = String(unita.id);
+            if (!chiave) {
+                const corrispondenze = [...stato.catalogo.entries()].filter(([, voce]) =>
+                    Number(voce.uda.anno) === anno && voce.uda.titolo === unita.titolo);
+                if (corrispondenze.length === 1) chiave = corrispondenze[0][0];
+            }
+            if (!chiave) {
+                chiave = String(unita.id);
+                const competenzeSSAS = {};
+                (unita.raccordoProfilo || []).forEach(voce => {
+                    competenzeSSAS[String(voce.competenza)] = String(voce.testo || '')
+                        .replace(/^Competenza in uscita n[°º]?\s*\d+\s*:\s*/i, '');
+                });
+                stato.catalogo.set(chiave, {
+                    uda: { ...unita, competenzeSSAS: unita.competenze || [] },
+                    genere: 'dipartimento',
+                    meta: { ...stato.metaDipartimento, competenzeSSAS }
+                });
+                stato.ordine.push(chiave);
+                assegnaRipartizioneDaOrigini(chiave, unita);
+            }
+
+            const voceCalendario = calendario.get(String(decisione.id)) || calendario.get(String(unita.id));
+            const dettaglio = {
+                anno,
+                decisioneId: String(decisione.id),
+                categoria: decisione.categoria || '',
+                stato: decisione.stato,
+                periodo: periodoDaCalendario(voceCalendario) || periodoPredefinito(unita),
+                calendario: voceCalendario || null
+            };
+            stato.dipartimento.set(chiave, dettaglio);
+            if (!stato.dipartimentoOrdine.has(anno)) stato.dipartimentoOrdine.set(anno, []);
+            stato.dipartimentoOrdine.get(anno).push(chiave);
+        });
+    });
+}
+
+function assegnaRipartizioneDaOrigini(chiave, uda) {
+    const origini = (uda.fonde || []).map(voce => stato.ripartizione[String(voce.id)]).filter(Boolean);
+    if (!origini.length || origini.length !== (uda.fonde || []).length) return;
+    const materie = new Map();
+    origini.forEach(origine => (origine.voci || []).forEach(riga => {
+        const somma = materie.get(riga.ins) || { ins: riga.ins, oreSett: riga.oreSett || '—', min: 0, max: 0 };
+        somma.min += riga.min || 0;
+        somma.max += riga.max || 0;
+        materie.set(riga.ins, somma);
+    }));
+    stato.ripartizione[chiave] = {
+        genere: 'dipartimento',
+        anno: uda.anno,
+        titolo: uda.titolo,
+        totaleMin: origini.reduce((totale, voce) => totale + (voce.totaleMin || 0), 0),
+        totaleMax: origini.reduce((totale, voce) => totale + (voce.totaleMax || 0), 0),
+        voci: [...materie.values()],
+        senzaOre: [...new Set(origini.flatMap(voce => voce.senzaOre || []))]
+    };
+}
+
+function periodoDaCalendario(voce) {
+    if (!voce) return '';
+    const mesi = ['Set', 'Ott', 'Nov', 'Dic', 'Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu'];
+    const inizio = mesi.indexOf(voce.da);
+    const fine = mesi.indexOf(voce.a);
+    if (inizio < 0 || fine < 0) return '';
+    if (fine <= 4) return PERIODI[0];
+    if (inizio >= 5) return PERIODI[1];
+    return PERIODI[2];
+}
+
+function inizializzaScelteDipartimento() {
+    const anno = annoScelto();
+    if (!anno || scelteDellAnno(anno).length) return;
+    aggiungiScelteDipartimento(false);
+}
+
+function scelteDellAnno(anno = annoScelto()) {
+    return [...stato.scelte.keys()].filter(chiave =>
+        Number(stato.catalogo.get(chiave)?.uda?.anno) === Number(anno));
 }
 
 async function carica(percorso) {
@@ -151,6 +263,7 @@ function collegaEventi() {
         const evento = nodo.tagName === 'SELECT' || nodo.type === 'date' ? 'change' : 'input';
         nodo.addEventListener(evento, () => {
             stato.dati[campo] = nodo.value;
+            if (campo === 'anno') inizializzaScelteDipartimento();
             salva();
             if (campo === 'anno') disegnaTutto();
         });
@@ -195,13 +308,25 @@ function udaDellAnno(genere) {
     return stato.ordine
         .map(chiave => stato.catalogo.get(chiave))
         .filter(voce => voce && voce.genere === genere && Number(voce.uda.anno) === anno)
-        .filter(voce => !stato.ricerca || JSON.stringify([
-            voce.uda.id,
-            voce.uda.titolo,
-            voce.uda.argomento,
-            voce.uda.traguardo,
-            voce.uda.tipologia
-        ]).toLocaleLowerCase('it').includes(stato.ricerca));
+        .filter(corrispondeRicerca);
+}
+
+function corrispondeRicerca(voce) {
+    return !stato.ricerca || JSON.stringify([
+        voce.uda.id,
+        voce.uda.titolo,
+        voce.uda.argomento,
+        voce.uda.traguardo,
+        voce.uda.tipologia
+    ]).toLocaleLowerCase('it').includes(stato.ricerca);
+}
+
+function udaDipartimentoAnno() {
+    const anno = annoScelto();
+    return (stato.dipartimentoOrdine.get(anno) || [])
+        .map(chiave => stato.catalogo.get(chiave))
+        .filter(Boolean)
+        .filter(corrispondeRicerca);
 }
 
 function disegnaTutto() {
@@ -223,10 +348,59 @@ function disegnaCatalogo() {
         return;
     }
 
+    const scelteDipartimento = udaDipartimentoAnno();
+    const gruppoDipartimento = document.createElement('section');
+    gruppoDipartimento.className = 'piano-gruppo piano-sezione-dipartimento';
+    const testataDipartimento = document.createElement('div');
+    testataDipartimento.className = 'piano-gruppo-testa';
+    const titoloDipartimento = document.createElement('h3');
+    titoloDipartimento.textContent = `Scelte del Dipartimento · ${stato.metaDipartimento.annoScolastico || ''}`;
+    const conteggioDipartimento = document.createElement('span');
+    conteggioDipartimento.className = 'piano-conteggio piano-conteggio-dipartimento';
+    const tutteDipartimento = stato.dipartimentoOrdine.get(annoScelto()) || [];
+    const incluseDipartimento = tutteDipartimento.filter(chiave => stato.scelte.has(chiave)).length;
+    conteggioDipartimento.textContent = `${incluseDipartimento} incluse su ${tutteDipartimento.length}`;
+    testataDipartimento.append(titoloDipartimento, conteggioDipartimento);
+    gruppoDipartimento.appendChild(testataDipartimento);
+
+    const notaDipartimento = document.createElement('p');
+    notaDipartimento.className = 'piano-nota';
+    notaDipartimento.textContent = 'Sono le UDA adottate dal Dipartimento per l’anno scolastico corrente. Restano modificabili dal consiglio di classe e mantengono il calendario deliberato.';
+    gruppoDipartimento.appendChild(notaDipartimento);
+    if (incluseDipartimento < tutteDipartimento.length) {
+        const aggiungiTutte = document.createElement('button');
+        aggiungiTutte.type = 'button';
+        aggiungiTutte.className = 'piano-btn piano-btn-compatto';
+        aggiungiTutte.textContent = '＋ Aggiungi tutte le scelte del Dipartimento';
+        aggiungiTutte.addEventListener('click', () => aggiungiScelteDipartimento(true));
+        gruppoDipartimento.appendChild(aggiungiTutte);
+    }
+    if (scelteDipartimento.length) {
+        scelteDipartimento.forEach(voce => gruppoDipartimento.appendChild(creaVoce(voce)));
+    } else {
+        gruppoDipartimento.appendChild(avviso(stato.ricerca
+            ? 'Nessuna scelta del Dipartimento corrisponde alla ricerca.'
+            : 'Per questo anno non risultano UDA adottate dal Dipartimento.'));
+    }
+    contenitore.appendChild(gruppoDipartimento);
+
+    const alternative = document.createElement('div');
+    alternative.className = 'piano-alternative-intro';
+    const titoloAlternative = document.createElement('h3');
+    titoloAlternative.textContent = 'Altre UDA disponibili';
+    const notaAlternative = document.createElement('p');
+    notaAlternative.className = 'piano-nota';
+    notaAlternative.textContent = 'Sono proposte aggiuntive: puoi stamparne la scheda oppure inserirle singolarmente nel piano con la casella di selezione.';
+    alternative.append(titoloAlternative, notaAlternative);
+    contenitore.appendChild(alternative);
+
+    let gruppiAlternativi = 0;
     CATALOGHI.forEach(catalogo => {
-        const voci = udaDellAnno(catalogo.genere);
+        const voci = udaDellAnno(catalogo.genere)
+            .filter(voce => !stato.dipartimento.has(String(voce.uda.id)));
+        if (!voci.length) return;
         const gruppo = document.createElement('section');
-        gruppo.className = 'piano-gruppo';
+        gruppo.className = 'piano-gruppo piano-sezione-alternative';
 
         const testata = document.createElement('div');
         testata.className = 'piano-gruppo-testa';
@@ -243,20 +417,40 @@ function disegnaCatalogo() {
         descrizione.textContent = catalogo.descrizione;
         gruppo.append(testata, descrizione);
 
-        if (!voci.length) {
-            gruppo.appendChild(avviso(`Nessuna ${catalogo.nome.toLowerCase()} prevista per questo anno di corso.`));
-            contenitore.appendChild(gruppo);
-            return;
-        }
-
         voci.forEach(voce => gruppo.appendChild(creaVoce(voce)));
         contenitore.appendChild(gruppo);
+        gruppiAlternativi += 1;
     });
+    if (!gruppiAlternativi) contenitore.appendChild(avviso('Nessuna UDA aggiuntiva corrisponde alla ricerca.'));
+}
+
+function aggiungiScelteDipartimento(daPulsante = false) {
+    const chiavi = stato.dipartimentoOrdine.get(annoScelto()) || [];
+    let aggiunte = 0;
+    let conflitti = 0;
+    chiavi.forEach(chiave => {
+        if (stato.scelte.has(chiave)) return;
+        if (sovrapposizione(chiave)) {
+            conflitti += 1;
+            return;
+        }
+        const voce = stato.catalogo.get(chiave);
+        if (!voce) return;
+        const periodo = stato.dipartimento.get(chiave)?.periodo || periodoPredefinito(voce.uda);
+        stato.scelte.set(chiave, { periodo });
+        aggiunte += 1;
+    });
+    if (!aggiunte && !conflitti) return;
+    salva();
+    if (daPulsante) {
+        disegnaTutto();
+        messaggioStato(`${aggiunte} ${aggiunte === 1 ? 'UDA del Dipartimento aggiunta' : 'UDA del Dipartimento aggiunte'}${conflitti ? `; ${conflitti} non aggiunte perché sovrapposte a scelte già presenti` : ''}.`);
+    }
 }
 
 function originiDi(chiave) {
     const voce = stato.catalogo.get(chiave);
-    return voce?.genere === 'unificate' ? (voce.uda.fonde || []).map(o=>o.id) : voce?.genere === 'asse' ? [chiave] : [];
+    return voce?.uda?.fonde?.length ? voce.uda.fonde.map(o=>o.id) : voce?.genere === 'asse' ? [chiave] : [];
 }
 function sovrapposizione(chiave) {
     const origini = new Set(originiDi(chiave));
@@ -269,6 +463,7 @@ function creaVoce({ uda, genere }) {
     const riga = document.createElement('div');
     riga.className = 'piano-voce';
     if (scelta) riga.dataset.scelta = 'true';
+    if (stato.dipartimento.has(chiave)) riga.dataset.dipartimento = 'true';
 
     const casella = document.createElement('input');
     casella.type = 'checkbox';
@@ -281,7 +476,7 @@ function creaVoce({ uda, genere }) {
                 messaggioStato('Questa UDA comprende origini già selezionate. Scegli la proposta unificata oppure le schede originarie.');
                 return;
             }
-            stato.scelte.set(chiave, { periodo: periodoPredefinito(uda) });
+            stato.scelte.set(chiave, { periodo: stato.dipartimento.get(chiave)?.periodo || periodoPredefinito(uda) });
         }
         else stato.scelte.delete(chiave);
         salva();
@@ -291,10 +486,25 @@ function creaVoce({ uda, genere }) {
     const corpo = document.createElement('div');
     corpo.className = 'piano-voce-corpo';
 
+    const intestazione = document.createElement('div');
+    intestazione.className = 'piano-voce-intestazione';
     const etichetta = document.createElement('label');
     etichetta.htmlFor = casella.id;
     etichetta.className = 'piano-voce-titolo';
     etichetta.textContent = `${uda.id} · ${uda.titolo}`;
+    intestazione.appendChild(etichetta);
+    if (stato.dipartimento.has(chiave)) {
+        const badge = document.createElement('span');
+        badge.className = 'piano-badge-dipartimento';
+        badge.textContent = 'Scelta dal Dipartimento';
+        intestazione.appendChild(badge);
+    }
+
+    const stampa = document.createElement('button');
+    stampa.type = 'button';
+    stampa.className = 'piano-stampa-scheda';
+    stampa.textContent = '🖨 Stampa scheda';
+    stampa.addEventListener('click', () => stampaScheda(chiave));
 
     const meta = document.createElement('p');
     meta.className = 'piano-voce-meta';
@@ -307,7 +517,7 @@ function creaVoce({ uda, genere }) {
         insegnamentiDi(chiave).join(' · ')
     ].filter(Boolean).join(' — ');
 
-    corpo.append(etichetta, meta);
+    corpo.append(intestazione, meta);
 
     if (uda.traguardo) {
         const traguardo = document.createElement('p');
@@ -336,8 +546,23 @@ function creaVoce({ uda, genere }) {
         corpo.appendChild(periodo);
     }
 
+    corpo.appendChild(stampa);
     riga.append(casella, corpo);
     return riga;
+}
+
+function stampaScheda(chiave) {
+    const voce = stato.catalogo.get(String(chiave));
+    const documento = window.CurricoloDocumento;
+    if (!voce || !documento) return;
+    const periodo = stato.scelte.get(String(chiave))?.periodo || stato.dipartimento.get(String(chiave))?.periodo || voce.uda.periodo;
+    const creato = documento.documentoUda({ ...voce.uda, periodo }, {
+        meta: voce.meta,
+        genere: voce.genere,
+        ripartizione: stato.ripartizione
+    });
+    documento.stampa(creato.nodi, creato.meta);
+    messaggioStato(`Anteprima di stampa aperta per ${voce.uda.id}.`);
 }
 
 function periodoPredefinito(uda) {
@@ -388,8 +613,10 @@ function riepilogoOre() {
 }
 
 function scelteOrdinate() {
+    const anno = annoScelto();
     return stato.ordine
         .filter(chiave => stato.scelte.has(chiave))
+        .filter(chiave => Number(stato.catalogo.get(chiave)?.uda?.anno) === anno)
         .map(chiave => ({ chiave, ...stato.catalogo.get(chiave), scelta: stato.scelte.get(chiave) }))
         .filter(voce => voce.uda);
 }
@@ -811,7 +1038,7 @@ function schede(scelte) {
         if (indice === 0) nodi.push(B.interruzione());
         nodi.push(B.titolo(2, `Scheda ${indice + 1} — ${voce.uda.id} · ${voce.uda.titolo}`));
         nodi.push(B.paragrafo(`${d.nomeGenere(voce.genere)} · ${voce.scelta.periodo || ''} · ${oreDocumento(voce)} ore`, 'fonte'));
-        nodi.push(...d.schedaUda(voce.uda, {
+        nodi.push(...d.schedaUda({ ...voce.uda, periodo: voce.scelta.periodo || voce.uda.periodo }, {
             meta: voce.meta,
             genere: voce.genere,
             ripartizione: stato.ripartizione,

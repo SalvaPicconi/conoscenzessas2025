@@ -283,6 +283,7 @@
             : genere === 'civica' ? 'UDA di Educazione civica'
             : genere === 'fsl' ? 'UDA di formazione scuola-lavoro'
             : genere === 'esame' ? 'UDA per l’Esame di Stato'
+            : genere === 'dipartimento' ? 'UDA scelta dal Dipartimento'
             : 'UDA d’asse';
     }
 

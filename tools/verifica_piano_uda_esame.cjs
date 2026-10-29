@@ -30,18 +30,19 @@ const output = fs.mkdtempSync(path.join(os.tmpdir(), 'ssas-piano-esame-'));
         page.on('pageerror', error => errors.push(error.message));
         await page.goto(base + 'piano-uda.html', { waitUntil: 'domcontentloaded' });
         await page.waitForFunction(() => stato.pronto);
-        assert.equal(await page.evaluate(() => stato.catalogo.size), 108);
+        assert.equal(await page.evaluate(() => stato.catalogo.size), 109);
 
         await page.locator('[data-campo="anno"]').selectOption('5');
         assert.equal(await page.locator('#piano-uda-E5-1').count(), 1);
         assert.equal(await page.locator('#piano-uda-E5-2').count(), 1);
+        assert.deepEqual(await page.evaluate(() => [...stato.scelte.keys()]), ['FSL5.1', '5.12', 'E5.1', 'E5.2']);
         await page.locator('#piano-ricerca').fill('invecchiamento attivo');
         assert.equal(await page.locator('#piano-uda-E5-1').count(), 0);
         assert.equal(await page.locator('#piano-uda-E5-2').count(), 1);
         await page.locator('#piano-ricerca').fill('');
 
-        await page.locator('#piano-uda-E5-1').check();
-        await page.locator('#piano-uda-E5-2').check();
+        await page.locator('#piano-uda-FSL5-1').uncheck();
+        await page.locator('#piano-uda-5-12').uncheck();
         const verifica = await page.evaluate(() => ({
             scelte: scelteOrdinate().map(voce => voce.chiave),
             periodi: scelteOrdinate().map(voce => voce.scelta.periodo),
@@ -51,7 +52,7 @@ const output = fs.mkdtempSync(path.join(os.tmpdir(), 'ssas-piano-esame-'));
             documento: JSON.stringify(costruisciPiano(scelteOrdinate()))
         }));
         assert.deepEqual(verifica.scelte, ['E5.1', 'E5.2']);
-        assert.deepEqual(verifica.periodi, ['1° quadrimestre', '2° quadrimestre']);
+        assert.deepEqual(verifica.periodi, ['2° quadrimestre', '2° quadrimestre']);
         assert.deepEqual(verifica.monteOre, [16, 16]);
         assert.deepEqual(verifica.contributi, [3, 4, 5, 4]);
         assert.equal(verifica.riepilogo.reduce((totale, voce) => totale + voce[1], 0), 32);
@@ -73,7 +74,7 @@ const output = fs.mkdtempSync(path.join(os.tmpdir(), 'ssas-piano-esame-'));
         await page.waitForFunction(() => stato.pronto);
         assert.deepEqual(await page.evaluate(() => [...stato.scelte.keys()]), ['E5.1', 'E5.2']);
         await page.locator('[data-campo="anno"]').selectOption('5');
-        const gruppo = page.locator('.piano-gruppo').last();
+        const gruppo = page.locator('.piano-sezione-dipartimento');
         const screenshot = path.join(output, 'piano-uda-esame.png');
         await gruppo.screenshot({ path: screenshot });
         assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth), false);
